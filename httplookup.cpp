@@ -87,7 +87,7 @@ namespace KCDDB
 
     cgiURL_.addQueryItem( "cmd", cmd );
     cgiURL_.addQueryItem( "hello", hello );
-    cgiURL_.addQueryItem( "proto", "5" );
+    cgiURL_.addQueryItem( "proto", "6" );
   }
 
     CDDB::Result
@@ -112,7 +112,10 @@ namespace KCDDB
   HTTPLookup::slotData( KIO::Job *, const QByteArray &data )
   {
     if (data.size() > 0)
-      data_ += data;
+    {
+      QDataStream stream(data_, IO_WriteOnly | IO_Append);
+      stream.writeRawBytes(data.data(), data.size());
+    }
   }
 
     void
@@ -126,7 +129,7 @@ namespace KCDDB
       return;
     }
 
-    QStringList lineList = QStringList::split( "\n", data_ );
+    QStringList lineList = QStringList::split( "\n", QString::fromUtf8(data_) );
     QStringList::ConstIterator it = lineList.begin();
 
     switch ( state_ )
@@ -189,7 +192,7 @@ namespace KCDDB
         {
           CDInfo info;
 
-          if ( info.load( data_ ) )
+          if ( info.load( QString::fromUtf8(data_) ) )
 	  {
 	    info.category = category_;
             cdInfoList_.append( info );

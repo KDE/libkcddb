@@ -69,6 +69,7 @@ namespace KCDDB
           if ( f.exists() && f.open(IO_ReadOnly) )
           {
               QTextStream ts(&f);
+              ts.setEncoding(QTextStream::UnicodeUTF8);
               QString cddbData = ts.read();
               f.close();
               CDInfo info;
@@ -116,6 +117,7 @@ namespace KCDDB
     if ( f.open(IO_WriteOnly) )
     {
       QTextStream ts(&f);
+      ts.setEncoding(QTextStream::UnicodeUTF8);
       ts << info.toString();
       f.close();
     }

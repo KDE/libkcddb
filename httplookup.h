@@ -74,7 +74,7 @@ namespace KCDDB
 
       bool block_;
       KURL cgiURL_;
-      QString data_;
+      QByteArray data_;
       State state_;
       Result result_;
   };

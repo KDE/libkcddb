@@ -49,7 +49,14 @@ namespace KCDDB
     KTempFile tmp;
     tmp.setAutoDelete(true);
 
-    *(tmp.textStream()) << diskData_ << flush;
+    QTextStream *textStream = tmp.textStream();
+
+    if (!textStream)
+      return UnknownError;
+
+    textStream->setEncoding(QTextStream::UnicodeUTF8);
+
+    *textStream << diskData_ << flush;
 
     KURL tmpUrl;
     tmpUrl.setPath( tmp.name() );
