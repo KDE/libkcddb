@@ -111,7 +111,8 @@ namespace KCDDB
     void
   HTTPLookup::slotData( KIO::Job *, const QByteArray &data )
   {
-    data_ += data;
+    if (data.size() > 0)
+      data_ += data;
   }
 
     void
