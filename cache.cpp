@@ -98,7 +98,7 @@ namespace KCDDB
       Config c;
       c.readConfig();
 
-      QString cacheDir = c.cacheLocations().first();
+      QString cacheDir = c.cacheLocations();
       QDir d(cacheDir);
       if (!d.exists())
         d.mkdir(cacheDir);
