@@ -66,7 +66,7 @@ namespace KCDDB
 
     protected:
       QString readLine();
-      void writeLine( const QString & );
+      Q_LONG writeLine( const QString & );
 
       bool isConnected()
         { return KExtendedSocket::connected == socket_.socketStatus(); }

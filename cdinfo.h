@@ -32,6 +32,8 @@ namespace KCDDB
 
       TrackInfo();
       ~TrackInfo();
+      TrackInfo(const TrackInfo& clone);
+      TrackInfo& operator=(const TrackInfo& clone);
 
       QString title;
       QString extt;
@@ -45,6 +47,8 @@ namespace KCDDB
 
       CDInfo();
       ~CDInfo();
+      CDInfo(const CDInfo& clone);
+      CDInfo& operator=(const CDInfo& clone);
 
       bool load(const QString &);
       bool load(const QStringList &);
@@ -72,8 +76,8 @@ namespace KCDDB
     protected:
 
       void checkTrack( uint );
-      QString escape( const QString & ) const;
-      QString unescape( const QString & ) const;
+      static QString escape( const QString & );
+      static QString unescape( const QString & );
   };
 
   typedef QValueList<CDInfo> CDInfoList;

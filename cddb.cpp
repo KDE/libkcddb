@@ -147,28 +147,31 @@ namespace KCDDB
     }
 
     const uint maxRead = 4096;
-
     QByteArray buf( maxRead );
-    Q_LONG bytesRead = socket_.readLine( buf.data(), maxRead - 1 );
-    buf[ (int)bytesRead ] = '\0';
+
+    if (socket_.readLine( buf.data(), maxRead - 1 ) == -1)
+    {
+        // error!
+        buf[0] = '\0';
+    }
 
     return QString( buf );
   }
 
-    void
+    Q_LONG
   CDDB::writeLine( const QString & line )
   {
     if ( !isConnected() )
     {
       kdDebug(60010) << "socket status: " << socket_.socketStatus() << endl;
-      return;
+      return -1;
     }
 
     kdDebug(60010) << "WRITE: [" << line << "]" << endl;
     QCString buf = line.latin1();
     buf.append( "\n" );
 
-    socket_.writeBlock( buf.data(), buf.length() );
+    return socket_.writeBlock( buf.data(), buf.length() );
   }
 
     uint

@@ -66,10 +66,8 @@ namespace KCDDB
         if ( category[ 0 ] != '.' )
         {
           QFile f( *cddbCacheDir + "/" + category + "/" + cddbId );
-          if (f.exists())
+          if ( f.exists() && f.open(IO_ReadOnly) )
           {
-            if ( f.open(IO_ReadOnly) )
-            {
               QTextStream ts(&f);
               QString cddbData = ts.read();
               f.close();
@@ -78,7 +76,6 @@ namespace KCDDB
               info.category = category;
 
               infoList.append( info );
-            }
           }
         }
         ++it;

@@ -46,14 +46,16 @@ namespace KCDDB
     makeURL(subject);
 
     KTempFile tmp;
+    tmp.setAutoDelete(true);
 
     *(tmp.textStream()) << diskData_ << flush;
 
     KURL tmpUrl;
     tmpUrl.setPath( tmp.name() );
+
     if ( KIO::NetAccess::file_copy( tmpUrl , url_ ) )
       return Success;
-    else
-      return UnknownError;
+
+    return UnknownError;
   }
 }

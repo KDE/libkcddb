@@ -74,7 +74,6 @@ namespace KCDDB
 
       bool block_;
       KURL cgiURL_;
-      KIO::TransferJob *job_;
       QString data_;
       State state_;
       Result result_;

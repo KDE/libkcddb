@@ -30,9 +30,23 @@ namespace KCDDB
   {
   }
 
+  TrackInfo::TrackInfo(const TrackInfo& clone)
+      : title(clone.title),
+        extt(clone.extt)
+  {
+  }
+
   TrackInfo::~TrackInfo()
   {
   }
+
+  TrackInfo& TrackInfo::operator=(const TrackInfo& clone)
+  {
+    title = clone.title;
+    extt = clone.extt;
+    return *this;
+  }
+
 
   CDInfo::CDInfo()
     : year(0),
@@ -41,8 +55,38 @@ namespace KCDDB
   {
   }
 
+  CDInfo::CDInfo(const CDInfo& clone)
+    : id(clone.id),
+      artist(clone.artist),
+      title(clone.title),
+      genre(clone.genre),
+      category(clone.category),
+      extd(clone.extd),
+      year(clone.year),
+      length(clone.length),
+      revision(clone.revision),
+      trackInfoList(clone.trackInfoList)
+
+  {
+  }
+
   CDInfo::~CDInfo()
   {
+  }
+
+  CDInfo& CDInfo::operator=(const CDInfo& clone)
+  {
+    id = clone.id;
+    artist = clone.artist;
+    title = clone.title;
+    genre = clone.genre;
+    category = clone.category;
+    extd = clone.extd;
+    year = clone.year;
+    length = clone.length;
+    revision = clone.revision;
+    trackInfoList = clone.trackInfoList;
+    return *this;
   }
 
     bool
@@ -73,7 +117,7 @@ namespace KCDDB
       if (rev.search(line) != -1)
       {
         revision = rev.cap(1).toUInt();;
-	continue;
+        continue;
       }
 
       if (2 != tokenList.count())
@@ -175,7 +219,7 @@ namespace KCDDB
     for (uint i = 0; i < trackInfoList.count(); ++i)
     {
       s += QString( "EXTT%1=%2\n" )
-                .arg( i ) 
+                .arg( i )
                 .arg( trackInfoList[ i ].extt );
     }
 
@@ -195,23 +239,24 @@ namespace KCDDB
   }
 
     QString
-  CDInfo::escape( const QString &value ) const
+  CDInfo::escape( const QString& value )
   {
     QString s = value;
-    s.replace( QRegExp( "\n" ), "\\n" );
-    s.replace( QRegExp( "\t" ), "\\t" );
-    s.replace( QRegExp( "\\" ), "\\\\" );
+    s.replace( "\n", "\\n" );
+    s.replace( "\t", "\\t" );
+    s.replace( "\\", "\\\\" );
 
     return s;
   }
 
     QString
-  CDInfo::unescape( const QString &value ) const
+  CDInfo::unescape( const QString& value )
   {
     QString s = value;
-    s.replace( QRegExp( "\\n" ), "\n" );
-    s.replace( QRegExp( "\\t" ), "\t" );
-    s.replace( QRegExp( "\\\\" ), "\\" );
+
+    s.replace( "\\n", "\n" );
+    s.replace( "\\t", "\t" );
+    s.replace( "\\\\", "\\" );
 
     return s;
   }

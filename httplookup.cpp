@@ -28,7 +28,7 @@ namespace KCDDB
 {
   HTTPLookup::HTTPLookup()
     : QObject(), Lookup(),
-      block_( true ), job_( 0 ), state_( Idle ), result_( Success )
+      block_( true ), state_( Idle ), result_( Success )
   {
   }
 
@@ -40,8 +40,7 @@ namespace KCDDB
   HTTPLookup::sendQuery()
   {
     QString cmd = QString( "cddb query %1 %2" )
-      .arg( trackOffsetListToId() )
-      .arg( trackOffsetListToString() ) ;
+      .arg( trackOffsetListToId(), trackOffsetListToString() ) ;
 
     makeURL( cmd );
     Result result = fetchURL();
@@ -56,8 +55,7 @@ namespace KCDDB
     QString discid    = match.second;
 
     QString cmd = QString( "cddb read %1 %2" )
-        .arg( category_ )
-        .arg( discid );
+        .arg( category_, discid );
 
     makeURL( cmd );
     Result result = fetchURL();
@@ -84,11 +82,8 @@ namespace KCDDB
 
     cgiURL_.setQuery( QString::null );
 
-    QString hello = QString( "%1 %2 %3 %4" )
-      .arg( user_ )
-      .arg( localHostName_ )
-      .arg( clientName() )
-      .arg( clientVersion() );
+    QString hello = QString("%1 %2 %3 %4")
+        .arg(user_, localHostName_, clientName(), clientVersion());
 
     cgiURL_.addQueryItem( "cmd", cmd );
     cgiURL_.addQueryItem( "hello", hello );
@@ -100,14 +95,14 @@ namespace KCDDB
   {
     kdDebug(60010) << "About to fetch: " << cgiURL_.url() << endl;
 
-    job_ = KIO::get( cgiURL_, false, false );
+    KIO::TransferJob* job = KIO::get( cgiURL_, false, false );
 
-    if ( 0 == job_ )
+    if ( 0 == job )
       return ServerError;
 
-    connect( job_, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
+    connect( job, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
           SLOT( slotData( KIO::Job *, const QByteArray & ) ) );
-    connect( job_, SIGNAL( result( KIO::Job * ) ),
+    connect( job, SIGNAL( result( KIO::Job * ) ),
           SLOT( slotResult( KIO::Job * ) ) );
 
     return Success;

@@ -87,9 +87,6 @@ namespace KCDDB
     kdDebug(60010) << "Disconnect from server..." << endl;
     if ( isConnected() )
     {
-      while ( socket_.bytesAvailable() )
-        socket_.getch();
-
       socket_.flush();
       socket_.closeNow();
     }

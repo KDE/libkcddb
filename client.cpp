@@ -47,7 +47,10 @@ namespace KCDDB
       bool block;
   };
 
-  Client::Client() : QObject()
+  Client::Client()
+    : QObject(),
+      cdInfoLookup(0),
+      cdInfoSubmit(0)
   {
     d = new Private;
     d->config.readConfig();
@@ -147,8 +150,12 @@ namespace KCDDB
     CDDB::Result r;
     Lookup::Transport t = ( Lookup::Transport )d->config.lookupTransport();
 
+    // just in case we have an info lookup hanging around, prevent mem leakage
+    delete cdInfoLookup;
+
     if ( blockingMode() )
     {
+
       if( Lookup::CDDBP == t )
         cdInfoLookup = new SyncCDDBPLookup();
       else
@@ -201,7 +208,7 @@ namespace KCDDB
     void
   Client::slotFinished( CDDB::Result r )
   {
-    if ( CDDB::Success == r )
+    if ( cdInfoLookup && CDDB::Success == r )
     {
       d->cdInfoList = cdInfoLookup->lookupResponse();
       Cache::store( d->cdInfoList );
@@ -257,6 +264,10 @@ namespace KCDDB
 	uint port = d->config.smtpPort();
 	QString username = d->config.smtpUsername();
 	QString from = d->config.emailAddress();
+
+        // just in case we have a cdInfoSubmit, prevent memory leakage
+        delete cdInfoSubmit;
+
 	if ( blockingMode() )
 	  cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username, from );
 	else
