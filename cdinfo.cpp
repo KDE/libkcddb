@@ -26,7 +26,6 @@
 namespace KCDDB
 {
   TrackInfo::TrackInfo()
-    : offset( -1 )
   {
   }
 

@@ -33,7 +33,6 @@ namespace KCDDB
       TrackInfo();
       ~TrackInfo();
 
-      uint    offset;
       QString title;
       QString extt;
   };
