@@ -504,7 +504,7 @@
                                             <cstring>textLabel4</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>User name:</string>
+                                            <string>Username:</string>
                                         </property>
                                     </widget>
                                     <spacer row="0" column="3" rowspan="1" colspan="2">
