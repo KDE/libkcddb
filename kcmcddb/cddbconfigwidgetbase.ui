@@ -10,7 +10,7 @@
             <x>0</x>
             <y>0</y>
             <width>378</width>
-            <height>539</height>
+            <height>541</height>
         </rect>
     </property>
     <property name="caption">
@@ -776,6 +776,12 @@
         <receiver>CDDBConfigWidgetBase</receiver>
         <slot>slotConfigChanged()</slot>
     </connection>
+    <connection>
+        <sender>cddbType</sender>
+        <signal>activated(int)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>protocolChanged()</slot>
+    </connection>
 </connections>
 <tabstops>
     <tabstop>tabWidget2</tabstop>
@@ -806,6 +812,7 @@
     <slot access="protected">moveCacheUp()</slot>
     <slot access="protected">moveCacheDown()</slot>
     <slot access="protected">launchControlCenter()</slot>
+    <slot access="protected">protocolChanged()</slot>
 </slots>
 <layoutdefaults spacing="11" margin="6"/>
 <includehints>

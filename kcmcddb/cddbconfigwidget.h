@@ -40,6 +40,8 @@ class CDDBConfigWidget : public CDDBConfigWidgetBase
     virtual void moveCacheUp();
     virtual void moveCacheDown();
 
+    virtual void protocolChanged();
+
   signals:
 
     void configChanged();

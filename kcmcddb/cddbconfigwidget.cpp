@@ -20,8 +20,11 @@
 #include "cddbconfigwidget.h"
 
 #include <qlistbox.h>
+#include <qcombobox.h>
+#include <qspinbox.h>
 #include <kfiledialog.h>
 #include <kapplication.h>
+#include <klocale.h>
 
 CDDBConfigWidget::CDDBConfigWidget(QWidget * parent, const char * name)
   : CDDBConfigWidgetBase(parent, name)
@@ -83,6 +86,16 @@ void CDDBConfigWidget::launchControlCenter()
 {
     KApplication::kdeinitExec("kcmshell", "email");
 
+}
+
+void CDDBConfigWidget::protocolChanged()
+{
+    // Change the port if the port is the default-value for the old protocol
+
+    if (cddbType->currentText() == i18n("HTTP") && cddbPort->value() == 8880)
+      cddbPort->setValue(80);
+    else if (cddbType->currentText() == i18n("CDDB") && cddbPort->value() == 80)
+      cddbPort->setValue(8880);
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1
