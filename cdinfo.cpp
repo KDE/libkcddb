@@ -219,6 +219,7 @@ namespace KCDDB
 
     for (uint i = 0; i < trackInfoList.count(); ++i)
     {
+      // FIXME Escape EXTT too
       s += QString( "EXTT%1=%2\n" )
                 .arg( i )
                 .arg( trackInfoList[ i ].extt );
