@@ -167,8 +167,10 @@ void CDInfoDialogBase::setInfo( const KCDDB::CDInfo &info, KCDDB::TrackOffsetLis
     m_year->setValue(info.year);
     m_comment->setText(info.extd.stripWhiteSpace());
     m_id->setText(info.id.stripWhiteSpace());
+
+    // Now do the individual tracks.
     unsigned tracks = info.trackInfoList.count();
-    m_length->setText(framesTime(trackStartFrames[tracks] - trackStartFrames[0]));
+    m_length->setText(framesTime(trackStartFrames[tracks + 1] - trackStartFrames[0]));
     m_trackList->clear();
     for (unsigned i = 0; i < tracks; i++)
     {
