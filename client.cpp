@@ -18,8 +18,6 @@
   Boston, MA 02111-1307, USA.
 */
 
-#include <unistd.h> // For usleep(3).
-
 #include <qstringlist.h>
 #include <qdir.h>
 #include <qfile.h>
