@@ -43,10 +43,11 @@ namespace KCDDB
       enum Result
       {
         Success,
-        ServerHatesUs,
+        ServerError,
         HostNotFound,
         NoResponse,
         NoRecordFound,
+        MultipleRecordFound,
         CannotSave,
         UnknownError
       };
@@ -83,16 +84,13 @@ namespace KCDDB
       bool parseGreeting( const QString& );
       bool parseHandshake( const QString& );
       void parseExtraMatch( const QString& );
-      bool parseQuery( const QString&, uint* );
-      CDInfo parseCDInfo( const QStringList& );
+      Result parseQuery( const QString& );
 
       QString trackOffsetListToString( const TrackOffsetList& );
       QString trackOffsetListToId( const TrackOffsetList& );
  
       KExtendedSocket socket_;
 
-      QString hostname_;
-      uint port_;
       QString user_;
       QString clientName_;
       QString clientVersion_;

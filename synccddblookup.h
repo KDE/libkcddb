@@ -21,51 +21,36 @@
 #ifndef KCDDB_SYNC_CDDB_LOOKUP_H
 #define KCDDB_SYNC_CDDB_LOOKUP_H
 
-#include <kextendedsocket.h>
-
-#include <libkcddb/defines.h>
-#include <libkcddb/config.h>
-#include <libkcddb/cdinfo.h>
-#include <libkcddb/synclookup.h>
+#include "cddblookup.h"
 
 namespace KCDDB
 {
-  class SyncCDDBLookup : public SyncLookup
+  class SyncCDDBLookup : CDDBLookup
   {
     public:
 
       SyncCDDBLookup();
-
       virtual ~SyncCDDBLookup();
-
-      virtual CDInfoList lookupResponse() const;
 
       Result lookup
         (
-          const TrackOffsetList &,
           const QString         & hostname,
           uint                    port,
           const QString         & clientName,
-          const QString         & clientVersion
+          const QString         & clientVersion,
+          const TrackOffsetList &
         );
+
+      CDInfoList lookupResponse() const;
 
     protected:
 
-      bool          serverWelcomeOk();
-      bool          shakeHands();
-      CDDBMatchList runQuery(const TrackOffsetList &);
-      bool          getMatchesToCDInfoList(const CDDBMatchList &);
-      bool          getMatchToCDInfoList(const CDDBMatch &);
+      Result connect( const QString &, uint );
+      void disconnect();
+      Result shakeHands();
 
-    private:
-
-      KExtendedSocket socket_;
-
-      QString user_;
-      QString clientName_;
-      QString clientVersion_;
-
-      CDInfoList cdInfoList_;
+      Result runQuery(const TrackOffsetList &);
+      Result matchToCDInfo(const CDDBMatch &);
   };
 }
 

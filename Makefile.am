@@ -13,8 +13,8 @@ cache.cpp\
 cdinfo.cpp\
 config.cpp\
 client.cpp\
-defines.cpp\
 lookup.cpp\
+cddblookup.cpp\
 synclookup.cpp\
 submit.cpp\
 synccddblookup.cpp
@@ -34,8 +34,8 @@ cache.h\
 cdinfo.h\
 client.h\
 config.h\
-defines.h\
 lookup.h\
+cddblookup.h\
 submit.h\
 synccddblookup.h\
 synclookup.h

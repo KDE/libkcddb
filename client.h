@@ -21,7 +21,6 @@
 #ifndef KCDDB_CLIENT_H
 #define KCDDB_CLIENT_H
 
-#include <libkcddb/defines.h>
 #include <libkcddb/config.h>
 #include <libkcddb/lookup.h>
 #include <libkcddb/submit.h>

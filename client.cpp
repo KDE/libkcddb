@@ -26,7 +26,7 @@
 #include <qsocket.h>
 
 #include "client.h"
-#include "synccddblookup.h"
+//#include "synccddblookup.h"
 #include "cache.h"
 
 namespace KCDDB

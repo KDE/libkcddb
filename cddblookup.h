@@ -19,10 +19,10 @@
   Boston, MA 02111-1307, USA.
 */
 
-#define KCDDB_CDDB_LOOKUP_H
 #ifndef KCDDB_CDDB_LOOKUP_H
+#define KCDDB_CDDB_LOOKUP_H
 
-#include <lookup.h>
+#include "lookup.h"
 
 namespace KCDDB
 {
@@ -30,11 +30,11 @@ namespace KCDDB
   {
     public:
       CDDBLookup();
-      virtual ~CDDBLookup;
+      virtual ~CDDBLookup();
 
       QString makeCDDBHandshake();
-      QString makeCDDBQuery( TrackOffsetList & );
-
+      QString makeCDDBQuery( const TrackOffsetList & );
+      QString makeCDDBRead( const CDDBMatch &  );
   };
 }
 

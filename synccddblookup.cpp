@@ -19,13 +19,9 @@
 */
 
 #include <qstringlist.h>
-#include <qdir.h>
-#include <qfile.h>
 #include <kdebug.h>
-#include <qsocket.h>
 
-#include <libkcddb/synccddblookup.h>
-#include <libkcddb/client.h>
+#include "synccddblookup.h"
 
 namespace KCDDB
 {
@@ -48,253 +44,154 @@ namespace KCDDB
     Lookup::Result
   SyncCDDBLookup::lookup
   (
-    const TrackOffsetList & trackOffsetList,
-    const QString         & hostname,
+    const QString         & hostName,
     uint                    port,
     const QString         & clientName,
-    const QString         & clientVersion
+    const QString         & clientVersion,
+    const TrackOffsetList & trackOffsetList
   )
   {
-/*
     clientName_     = clientName;
     clientVersion_  = clientVersion;
 
+    Result result;
+
     // Connect to server.
-
-    kdDebug()
-      << "Trying to connect to "
-      << hostname
-      << ":"
-      << port
-      << endl;
-
-    Connect::Result connectResult = connectSocket(socket_, hostname, port);
-
-    switch (connectResult)
-    {
-      case Connect::Success:
-        break;
-
-      case Connect::HostNotFound:
-        return Lookup::HostNotFound;
-        break;
-
-      case Connect::NoResponse:
-        return Lookup::NoResponse;
-
-      default:
-        return Lookup::UnknownError;
-    }
-
-    kdDebug() << "Connected" << endl;
-
-    // Check welcome message.
-
-    if (!serverWelcomeOk())
-      return NoResponse;
+    result = connect( hostName, port );
+    if ( Success != result )
+      return result;
 
     // Try a handshake.
-
-    if (!shakeHands())
-      return NoResponse;
+    result = shakeHands();
+    if ( Success != result )
+      return result;
 
     // Run a query.
+    result = runQuery(trackOffsetList);
+    if ( Success != result )
+      return result;
 
-    CDDBMatchList matchList = runQuery(trackOffsetList);
-
-    if (matchList.isEmpty())
+    if (matchList_.isEmpty())
       return NoRecordFound;
 
-    kdDebug() << matchList.count() << " matches saved" << endl;
+    kdDebug() << matchList_.count() << " matches saved" << endl;
 
     // For each match, read the cd info from the server and save it to
     // cdInfoList.
+    CDDBMatchList::ConstIterator matchIt = matchList_.begin();
 
-    if (!getMatchesToCDInfoList(matchList))
-      return Lookup::UnknownError; // XXX Do we need a ServerError ?
- 
-    writeLine(socket_, "quit");
+    while ( matchIt != matchList_.end() )
+      ( void )matchToCDInfo( static_cast<CDDBMatch>( *matchIt ) );
 
-    socket_.close();
-*/
-    return Lookup::Success;
+    disconnect();
+
+    return Success;
   }
 
-    bool
-  SyncCDDBLookup::serverWelcomeOk()
-  {
-/*
-    QString line = readLine(socket_);
-
-    QStringList tokenList = QStringList::split(' ', line);
-
-    uint serverStatus = tokenList[0].toUInt();
-
-    if (200 == serverStatus)
-    {
-      kdDebug() << "Server response: read-only" << endl;
-    }
-    else if (201 == serverStatus)
-    {
-      kdDebug() << "Server response: read-write" << endl;
-    }
-    else
-    {
-      kdDebug() << "Server response: bugger off" << endl;
-      return false;
-    }
-*/
-    return true;
-  }
-
-    bool
+    Lookup::Result
   SyncCDDBLookup::shakeHands()
   {
-/*
-    QString handshake = "cddb hello ";
-    handshake += user_;
-    handshake += " ";
-    handshake += "localhost"; // FIXME
-    handshake += " ";
-    handshake += clientName_;
-    handshake += " ";
-    handshake += clientVersion_;
+    QString line = readLine();
 
-    writeLine(socket_, handshake);
+    if ( !parseGreeting( line ) )
+      return ServerError;
 
-    QString line = readLine(socket_);
+    line = makeCDDBHandshake();
+    writeLine( line );
 
-    QStringList tokenList = QStringList::split(' ', line);
+    line = readLine();
 
-    uint serverStatus = tokenList[0].toUInt();
+    if ( !parseHandshake( line ) )
+      return ServerError;
 
-    if ((200 != serverStatus) && (402 != serverStatus))
-    {
-      kdDebug() << "Handshake was too tight. Letting go." << endl;
-      return false;
-    }
-
-    kdDebug() << "Handshake successful" << endl;
-*/
-    return true;
+    return Success;
   }
 
-    CDDBMatchList
+    Lookup::Result
   SyncCDDBLookup::runQuery(const TrackOffsetList & offsetList)
   {
-    CDDBMatchList matchList;
-/*
-    QString query = "cddb query ";
-    query += trackOffsetListToId(offsetList);
-    query += " ";
-    query += trackOffsetListToString(offsetList);
+    Result result;
 
-    writeLine(socket_, query);
+    TrackOffsetList list = offsetList;
+    QString line = makeCDDBQuery( list );
+    writeLine( line );
 
-    QString line = readLine(socket_);
+    line = readLine();
+    result = parseQuery( line );
 
-    QStringList tokenList = QStringList::split(' ', line);
+    if ( ServerError == result )
+      return ServerError;
+
+    if ( MultipleRecordFound == result )
+    {
+      // We have multiple matches
+      line = readLine();
+
+      while ( '.' != line[ 0 ] )
+      {
+        parseExtraMatch( line );
+        line = readLine();
+      }
+    }
+ 
+    return Success;
+  }
+
+    Lookup::Result
+  SyncCDDBLookup::matchToCDInfo(const CDDBMatch & match)
+  {
+    QString line = makeCDDBRead( match );
+    writeLine( line );
+
+    line = readLine();
+    QStringList tokenList = QStringList::split( ' ', line );
 
     uint serverStatus = tokenList[0].toUInt();
-
-    kdDebug() << "Server status: " << serverStatus << endl;
-
-    if (200 == serverStatus)
-    {
-      kdDebug() << "Server found exact match" << endl;
-      matchList.append(qMakePair(tokenList[1], tokenList[2]));
-    }
-    else if (211 == serverStatus)
-    {
-      kdDebug() << "Server found inexact matches" << endl;
-
-      line = readLine(socket_);
-
-      while ('.' != line[0])
-      {
-        tokenList = QStringList::split(' ', line);
-        matchList.append(qMakePair(tokenList[0], tokenList[1]));
-        line = readLine(socket_);
-      }
-    }
-    else if (210 == serverStatus)
-    {
-      kdDebug() << "Server found multiple exact matches" << endl;
-
-      line = readLine(socket_);
-
-      while ('.' != line[0])
-      {
-        tokenList = QStringList::split(' ', line);
-        matchList.append(qMakePair(tokenList[0], tokenList[1]));
-        line = readLine(socket_);
-      }
-    }
-    else
-    {
-      kdDebug() << "Server said error" << endl;
-    }
-*/
-    return matchList;
-  }
-
-    bool
-  SyncCDDBLookup::getMatchesToCDInfoList(const CDDBMatchList & matchList)
-  {
-    // XXX Always returns true. Hmm...
-
-    CDDBMatchList::ConstIterator matchIt;
-
-    for (matchIt = matchList.begin(); matchIt != matchList.end(); ++matchIt)
-      (void) getMatchToCDInfoList(*matchIt);
-
-    return true;
-  }
-
-    bool
-  SyncCDDBLookup::getMatchToCDInfoList(const CDDBMatch & match)
-  {
-/*
-    QString category  = match.first;
-    QString discid    = match.second;
-
-    kdDebug() << "Match: " << category << " : " << discid << endl;
-
-    QString readRequest = "cddb read ";
-    readRequest += category;
-    readRequest += " ";
-    readRequest += discid;
-
-    writeLine(socket_, readRequest);
+    if (210 != serverStatus)
+      return ServerError;
 
     QStringList lineList;
+    line = readLine();
 
-    QString line = readLine(socket_);
-
-    QStringList tokenList = QStringList::split(' ', line);
-
-    uint serverStatus = tokenList[0].toUInt();
-
-    if (210 != serverStatus)
+    while ( '.' != line[0] )
     {
-      kdDebug() << "Server error !" << endl;
-      return false;
-    }
-
-    line = readLine(socket_);
-
-    while ('.' != line[0])
-    {
-      lineList.append(line);
-      line = readLine(socket_);
+      lineList.append( line );
+      line = readLine();
     }
 
     CDInfo info;
 
-    if (info.load(lineList))
-      cdInfoList_.append(info);
-*/
-    return true;
+    if (info.load( lineList ))
+      cdInfoList_.append( info );
+
+    return Success;
+  }
+
+    Lookup::Result
+  SyncCDDBLookup::connect( const QString & hostName, uint port )
+  {
+    kdDebug() << "Trying to connect to " << hostName << ":" << port << endl;
+
+    if ( !socket_.setAddress( hostName, port ) )
+      return UnknownError;
+
+    socket_.setTimeout( 30 );
+
+    if ( 0 != socket_.lookup() )
+      return HostNotFound;
+
+    if ( 0 != socket_.connect() )
+      return NoResponse;
+
+    kdDebug() << "Connected" << endl;
+    return Success;
+  }
+
+    void 
+  SyncCDDBLookup::disconnect()
+  {
+    writeLine("quit");
+    socket_.close();
   }
 }
 

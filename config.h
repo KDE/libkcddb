@@ -22,10 +22,9 @@
 #ifndef KCDDB_CONFIG_H
 #define KCDDB_CONFIG_H
 
-#include <libkcddb/defines.h>
-#include <libkcddb/submit.h>
-#include <libkcddb/lookup.h>
-#include <libkcddb/cache.h>
+#include "submit.h"
+#include "lookup.h"
+#include "cache.h"
 
 namespace KCDDB
 {

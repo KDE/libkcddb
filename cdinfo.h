@@ -48,6 +48,7 @@ namespace KCDDB
       bool load(const QString &);
       bool load(const QStringList &);
 
+      void clear();
       QString toString() const;
 
       QString       artist;

@@ -20,6 +20,7 @@
 */
 
 #include <qregexp.h>
+#include <qstringlist.h>
 
 #include <kdebug.h>
 #include <kstringhandler.h>
@@ -142,27 +143,28 @@ namespace KCDDB
     return true;
   }
 
-     bool
-  Lookup::parseQuery( const QString & line, uint *status )
+    Lookup::Result
+  Lookup::parseQuery( const QString & line )
   {
     QStringList tokenList = QStringList::split( ' ', line );
 
     uint serverStatus  = tokenList[ 0 ].toUInt();
-    *status = serverStatus;
 
     if ( 200 == serverStatus )
     {
-      QStringList tokenList = QStringList::split( ' ', line );
-      matchList_.append( qMakePair( tokenList[ 0 ], tokenList[ 1 ] ) );
-      return true;
+      matchList_.append( qMakePair( tokenList[ 1 ], tokenList[ 2 ] ) );
+      return Success;
     }
-    else if ( ( 211 == serverStatus ) || ( 210 == serverStatus ) )
+    else if ( 211 == serverStatus )
     {
-      kdDebug() << "Server found multiple matches" << endl;
-      return true;
+      return MultipleRecordFound;
+    }
+    else if ( 202 == serverStatus )
+    {
+      return NoRecordFound;
     }
 
-    return false;
+    return ServerError;
   }
 
     void
@@ -170,71 +172,6 @@ namespace KCDDB
   {
     QStringList tokenList = QStringList::split( ' ', line );
     matchList_.append( qMakePair( tokenList[ 0 ], tokenList[ 1 ] ) );
-  }
-
-    CDInfo
-  Lookup::parseCDInfo( const QStringList & lineList )
-  {
-    CDInfo info;
-
-    QStringList::ConstIterator it;
-
-    for ( it = lineList.begin(); it != lineList.end(); ++it )
-    {
-      QString line( *it );
-
-      QStringList tokenList = KStringHandler::perlSplit( '=', line, 2 );
-
-      if ( 2 != tokenList.count() )
-        continue;
-
-      QString key   = tokenList[ 0 ];
-      QString value = tokenList[ 1 ];
-
-      value.replace( QRegExp( "\\n" ), "\n" );
-      value.replace( QRegExp( "\\t" ), "\t" );
-      value.replace( QRegExp( "\\\\" ), "\\");
-
-      if ( "DTITLE" == key )
-      {
-        int slashPos = value.find( '/' );
-
-        if ( -1 == slashPos )
-        {
-          // Use string for title _and_ artist.
-          info.artist = info.title = value.stripWhiteSpace();
-        }
-        else
-        {
-          info.artist  = value.left( slashPos ).stripWhiteSpace();
-          info.title   = value.mid( slashPos + 1 ).stripWhiteSpace();
-        }
-      }
-      else if ( "DYEAR" == key )
-      {
-        info.year = value.toUInt();
-      }
-      else if ( "DGENRE" == key )
-      {
-        info.genre = value.stripWhiteSpace();
-      }
-      else if ( "TTITLE" == key.left( 6 ) )
-      {
-        uint trackNumber = key.mid( 6 ).toUInt();
-
-        TrackInfo trackInfo;
-        trackInfo.title = value.stripWhiteSpace();
-
-        while ( info.trackInfoList.size() < trackNumber + 1 )
-        {
-          info.trackInfoList.append( TrackInfo() );
-        }
-
-        info.trackInfoList[ trackNumber ] = trackInfo;
-      }
-    }
-
-    return info;
   }
 
     QString

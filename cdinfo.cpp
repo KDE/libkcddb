@@ -46,6 +46,8 @@ namespace KCDDB
     bool
   CDInfo::load(const QStringList & lineList)
   {
+    clear();
+
     QStringList::ConstIterator it;
       
     for (it = lineList.begin(); it != lineList.end(); ++it)
@@ -60,55 +62,44 @@ namespace KCDDB
       QString key   = tokenList[0];
       QString value = tokenList[1];
 
-      kdDebug() << "Useful line. Key == `" << key << "'" << endl;
+      kdDebug() << key << " = " << value << endl;
 
       value.replace(QRegExp("\\n"), "\n");
       value.replace(QRegExp("\\t"), "\t");
       value.replace(QRegExp("\\\\"), "\\");
 
-      if ('D' == key[0])
+      if ("DTITLE" == key)
       {
-        if ("DTITLE" == key)
-        {
-          int slashPos = value.find('/');
+        int slashPos = value.find('/');
 
-          if (-1 == slashPos)
-          {
-            // Use string for title _and_ artist.
-            artist = title = value.stripWhiteSpace();
-          }
-          else
-          {
-            artist  = value.left(slashPos).stripWhiteSpace();
-            title   = value.mid(slashPos + 1).stripWhiteSpace();
-          }
-        }
-        else if ("DYEAR" == key)
+        if (-1 == slashPos)
         {
-          year = value.toUInt();
+          // Use string for title _and_ artist.
+          artist = title = value.stripWhiteSpace();
         }
-        else if ("DGENRE" == key)
+        else
         {
-          genre = value;
+          artist  = value.left(slashPos).stripWhiteSpace();
+          title   = value.mid(slashPos + 1).stripWhiteSpace();
         }
+      }
+      else if ("DYEAR" == key)
+      {
+        year = value.toUInt();
+      }
+      else if ("DGENRE" == key)
+      {
+        genre = value;
       }
       else if ("TTITLE" == key.left(6))
       {
         uint trackNumber = key.mid(6).toUInt();
 
-        if (trackNumber > 200)
-        {
-          kdDebug() << "Track number out of sensible range." << endl;
-          continue;
-        }
-
         TrackInfo trackInfo;
         trackInfo.title = value.stripWhiteSpace();
 
         while (trackInfoList.size() < trackNumber + 1)
-        {
           trackInfoList.append(TrackInfo());
-        }
 
         trackInfoList[trackNumber] = trackInfo;
       }
@@ -135,6 +126,14 @@ namespace KCDDB
     }
 
     return s;
+  }
+
+    void
+  CDInfo::clear()
+  {
+    id = artist = title = QString::null;
+    length = year = 0;
+    trackInfoList.clear();
   }
 }
 

@@ -19,7 +19,7 @@
   Boston, MA 02111-1307, USA.
 */
 
-#include <libkcddb/cddblookup.h>
+#include "cddblookup.h"
 
 namespace KCDDB
 {
@@ -47,7 +47,7 @@ namespace KCDDB
   }
 
     QString
-  CDDBLookup::makeCDDBQuery( TrackOffsetList & trackOffsetList )
+  CDDBLookup::makeCDDBQuery( const TrackOffsetList & trackOffsetList )
   {
     QString query = "cddb query ";
     query += trackOffsetListToId(  trackOffsetList );
@@ -55,6 +55,20 @@ namespace KCDDB
     query += trackOffsetListToString(  trackOffsetList );
 
     return query;
+  }
+
+    QString
+  CDDBLookup::makeCDDBRead( const CDDBMatch & match )
+  {
+    QString category  = match.first;
+    QString discid    = match.second;
+
+    QString readRequest = "cddb read ";
+    readRequest += category;
+    readRequest += " ";
+    readRequest += discid;
+
+    return readRequest;
   }
 }
 

@@ -25,8 +25,7 @@
 #include <qpair.h>
 #include <qstring.h>
 
-#include "defines.h"
-#include <libkcddb/cdinfo.h>
+#include "cdinfo.h"
 
 namespace KCDDB
 {
