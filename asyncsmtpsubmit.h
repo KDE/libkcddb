@@ -1,7 +1,7 @@
 #ifndef ASYNCSMTPSUBMIT_H
 #define ASYNCSMTPSUBMIT_H
 /*
-  Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2003-2004 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public

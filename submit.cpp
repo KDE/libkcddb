@@ -1,7 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
-  Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2003-2004 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -75,21 +75,17 @@ namespace KCDDB
     kdDebug(60010) << "diskData_ == " << diskData_ << endl;
   }
 
-  QString Submit::validCategory( const QString& c )
+  bool Submit::validCategory( const QString& c )
   {
     QStringList validCategories;
     validCategories << "blues" << "classical" << "country"
       << "data" << "folk" << "jazz" << "misc" << "newage" << "reggae"
       << "rock" << "soundtrack";
 
-    for ( QStringList::Iterator it = validCategories.begin();
-          it != validCategories.end(); ++it )
-    {
-      if ( *it == c.lower() )
-        return *it;
-    }
-
-    return "misc";
+    if (validCategories.contains(c))
+      return true;
+    else
+      return false;
   }
 }
 

@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2003-2004 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -39,7 +39,9 @@ namespace KCDDB
   CDDB::Result SyncSMTPSubmit::submit( const CDInfo& cdInfo, const TrackOffsetList& offsetList )
   {
     makeDiskData( cdInfo, offsetList );
-//    diskData_.append(".\r\n");
+
+    if (!validCategory(cdInfo.category))
+      return InvalidCategory;
 
     QString subject = QString("cddb %1 %2").arg(cdInfo.category, cdInfo.id);
     makeURL(subject);

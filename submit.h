@@ -42,7 +42,7 @@ namespace KCDDB
       virtual ~Submit();
 
       virtual Result submit(const CDInfo &, const TrackOffsetList &) = 0;
-      QString validCategory(const QString&);
+      bool validCategory(const QString&);
 
     protected:
 

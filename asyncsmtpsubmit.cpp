@@ -40,6 +40,9 @@ namespace KCDDB
   {
     makeDiskData( cdInfo, offsetList );
 
+    if (!validCategory(cdInfo.category))
+      return InvalidCategory;
+
     QString subject = QString("cddb %1 %2").arg(cdInfo.category, cdInfo.id);
     makeURL( subject );
 

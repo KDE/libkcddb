@@ -52,6 +52,7 @@ namespace KCDDB
         NoRecordFound,
         MultipleRecordFound,
         CannotSave,
+	InvalidCategory,
         UnknownError
       };
 

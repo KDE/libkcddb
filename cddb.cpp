@@ -224,6 +224,10 @@ namespace KCDDB
         return i18n("Cannot save");
         break;
 
+      case InvalidCategory:
+        return i18n("Invalid category");
+	break;
+
       default:
         return i18n("Unknown error");
         break;
