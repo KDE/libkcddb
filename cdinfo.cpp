@@ -121,13 +121,15 @@ namespace KCDDB
         continue;
       }
 
+      QString key = tokenList[0].stripWhiteSpace();
+      QString value;
       if (2 != tokenList.count())
+      {
+        if (!key.startsWith("EXT"))
         continue;
-
-      QString key   = tokenList[0].stripWhiteSpace();
-      QString value = tokenList[1].stripWhiteSpace();
-
-      value = unescape ( value );
+      }
+      else
+        value = unescape ( tokenList[1].stripWhiteSpace() );
 
       if ( "DISCID" == key )
       {
@@ -155,6 +157,8 @@ namespace KCDDB
       }
       else if ( "EXTD" == key )
       {
+        if (!extd.isEmpty())
+	  extd.append('\n');
         extd.append( value );
       }
       else if ( "EXTT" == key.left( 4 ) )
@@ -163,6 +167,8 @@ namespace KCDDB
 
         checkTrack( trackNumber );
 
+        if (!trackInfoList[ trackNumber ].extt.isEmpty())
+	  trackInfoList[ trackNumber ].extt.append('\n');
         trackInfoList[ trackNumber ].extt.append( value );
       }
     }
@@ -215,13 +221,23 @@ namespace KCDDB
                 .arg( escape( trackInfoList[ i ].title ) );
     }
 
-    s += "EXTD=" + escape( extd ) + "\n";
+    QStringList extdLines = QStringList::split('\n', extd, true);
+    if (extdLines.isEmpty())
+      s += QString("EXTD=\n");
+    else
+      for (QStringList::iterator it = extdLines.begin(); it != extdLines.end(); ++it)
+        s += "EXTD=" + escape( *it ) + "\n";
 
     for (uint i = 0; i < trackInfoList.count(); ++i)
     {
+      QStringList lines = QStringList::split('\n', trackInfoList[i].extt, true);
+      if (lines.isEmpty())
+        s += QString( "EXTT%1=\n" ).arg( i );
+      else
+        for (QStringList::iterator it = lines.begin(); it != lines.end(); ++it)
       s += QString( "EXTT%1=%2\n" )
                 .arg( i )
-                .arg( trackInfoList[ i ].extt );
+                  .arg( escape( *it ) );
     }
 
     s +="PLAYORDER=\n";
@@ -243,9 +259,9 @@ namespace KCDDB
   CDInfo::escape( const QString& value )
   {
     QString s = value;
+    s.replace( "\\", "\\\\" );
     s.replace( "\n", "\\n" );
     s.replace( "\t", "\\t" );
-    s.replace( "\\", "\\\\" );
 
     return s;
   }
