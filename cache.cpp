@@ -77,7 +77,6 @@ namespace KCDDB
               info.load(cddbData);
               info.genre = genre;
               infoList.append( info );
-	      break;
             }
           }
         }
