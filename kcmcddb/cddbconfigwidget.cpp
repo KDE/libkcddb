@@ -26,7 +26,7 @@
 CDDBConfigWidget::CDDBConfigWidget(QWidget * parent, const char * name)
   : CDDBConfigWidgetBase(parent, name)
 {
-  // Connections from widgets to slotConfigChanged are made in designer.
+  // Connections from widgets are made in designer.
 }
 
   void
@@ -37,8 +37,12 @@ CDDBConfigWidget::slotConfigChanged()
 
 void CDDBConfigWidget::addCache()
 {
-    cacheDirectories->insertItem(KFileDialog::getExistingDirectory(), 0);
+  QString dir = KFileDialog::getExistingDirectory();
+  if (!dir.isEmpty())
+  {
+    cacheDirectories->insertItem(dir, 0);
     slotConfigChanged();
+  }
 }
 
 void CDDBConfigWidget::removeCache()
