@@ -64,7 +64,12 @@ namespace KCDDB
 
       void slotData( KIO::Job *, const QByteArray & );
       virtual void slotResult( KIO::Job * );
- 
+
+    signals:
+
+      void queryReady();
+      void readReady();
+
     protected:
 
       bool block_;

@@ -39,7 +39,7 @@ namespace KCDDB
 
     protected slots:
 
-      virtual void slotResult(  KIO::Job * );
+      void slotResult(  KIO::Job * );
 
     protected:
 
@@ -51,4 +51,5 @@ namespace KCDDB
 }
 
 #endif // KCDDB_SYNC_HTTP_LOOKUP_H
+
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

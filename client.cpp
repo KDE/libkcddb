@@ -29,6 +29,7 @@
 #include "synccddbplookup.h"
 #include "asynccddbplookup.h"
 #include "synchttplookup.h"
+#include "asynchttplookup.h"
 #include "cache.h"
 
 namespace KCDDB
@@ -157,8 +158,11 @@ namespace KCDDB
       }
       else
       {
-        kdDebug() << "Unsupported transport: Async HTTP " << endl;
-        return Lookup::ServerError;
+        cdInfoLookup = new AsyncHTTPLookup();
+
+        connect( static_cast<AsyncHTTPLookup *>( cdInfoLookup ), 
+                  SIGNAL( finished( Lookup::Result ) ),
+                  SLOT( slotFinished( Lookup::Result ) ) );
       }
 
       r = cdInfoLookup->lookup( d->config.hostname(), 

@@ -31,7 +31,6 @@ namespace KCDDB
   SyncHTTPLookup::SyncHTTPLookup()
     : HTTPLookup(), done_( false )
   {
-    socket_.setBlockingMode(  false );
   }
 
   SyncHTTPLookup::~SyncHTTPLookup()
@@ -56,14 +55,13 @@ namespace KCDDB
     clientVersion_ = clientVersion;
     trackOffsetList_ = trackOffsetList;
 
-    Result result;
-
     initURL( hostName, port );
 
     // Run a query.
-    result = runQuery();
-    if ( Success != result )
-      return result;
+    result_ = runQuery();
+
+    if ( Success != result_ )
+      return result_;
 
     kdDebug() << matchList_.count() << " matches found." << endl;
 
@@ -77,11 +75,11 @@ namespace KCDDB
     while ( matchIt != matchList_.end() )
     {
       CDDBMatch match( *matchIt );
-      result = matchToCDInfo( match );
+      result_ = matchToCDInfo( match );
       ++matchIt;
     }
 
-    return Success;
+    return result_;
   }
 
     Lookup::Result

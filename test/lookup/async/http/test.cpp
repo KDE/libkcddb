@@ -4,7 +4,7 @@
 
 #include "test.h"
 
-AsyncHTTPLookupTest::AsyncHTTPLookupTest()
+AsyncCDDBLookupTest::AsyncCDDBLookupTest()
   : QObject()
 {
   using namespace KCDDB;
@@ -12,17 +12,18 @@ AsyncHTTPLookupTest::AsyncHTTPLookupTest()
   Config config;
 
   config.setHostname("freedb.freedb.org");
-  config.setPort(8880);
-  config.setCachePolicy(Cache::Ignore);
-  config.setLookupTransport(Lookup::HTTP);
+  config.setPort(80);
+  config.setCachePolicy(KCDDB::Cache::Use);
+  config.setLookupTransport(KCDDB::Lookup::HTTP);
 
-  client_ = new AsyncClient(config, this);
+  client_ = new Client(config);
+  client_->setBlockingMode( false );
 
   connect
     (
       client_,
-      SIGNAL(result(Lookup::Result, const QValueList<CDInfo> &)),
-      SLOT(slotResult(Lookup::Result, const QValueList<CDInfo> &))
+      SIGNAL(finished(Lookup::Result)),
+      SLOT(slotFinished(Lookup::Result))
     );
 
   TrackOffsetList list;
@@ -46,12 +47,15 @@ AsyncHTTPLookupTest::AsyncHTTPLookupTest()
 }
 
   void
-AsyncHTTPLookupTest::slotResult(KCDDB::Lookup::Result r,const QValueList<CDInfo> & l)
+AsyncCDDBLookupTest::slotFinished(Lookup::Result r)
 {
-  kdDebug() << "AsyncHTTPLookupTest::slotResult: Got " << KCDDB::Lookup::resultToString(r) << endl;
-  kdDebug() << "AsyncHTTPLookupTest::slotResult: Item count: " <<  l.count() << endl;
+  kdDebug() << "AsyncCDDBLookupTest::slotResult: Got " << KCDDB::Lookup::resultToString(r) << endl;
 
-  for (QValueList<CDInfo>::ConstIterator it(l.begin()); it != l.end(); ++it)
+  CDInfoList l = client_->lookupResponse();
+
+  kdDebug() << "AsyncCDDBLookupTest::slotResult: Item count: " <<  l.count() << endl;
+
+  for (CDInfoList::ConstIterator it(l.begin()); it != l.end(); ++it)
   {
     CDInfo i(*it);
 
@@ -90,7 +94,7 @@ int main(int argc, char ** argv)
 
   KApplication app(false /* No styles */, false /* No GUI */);
 
-  new AsyncHTTPLookupTest;
+  new AsyncCDDBLookupTest;
 
   return app.exec();
 }

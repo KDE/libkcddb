@@ -146,7 +146,7 @@ namespace KCDDB
             case Success:
 
               if ( !block_ )
-                ;
+                emit queryReady();
               break;
 
             case MultipleRecordFound:
@@ -159,7 +159,7 @@ namespace KCDDB
                 if ( '.' == line[ 0 ] )
                 {
                   if ( !block_ )
-                    ;
+                    emit queryReady();
                   break;
                 }
 
@@ -179,6 +179,10 @@ namespace KCDDB
 
         if ( info.load( data_ ) )
           cdInfoList_.append( info );
+
+        if ( !block_ )
+          emit readReady();
+
         break; 
     }
 
