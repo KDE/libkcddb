@@ -62,7 +62,7 @@
                         <string>&amp;Title:</string>
                     </property>
                     <property name="buddy" stdset="0">
-                        <cstring>le_title</cstring>
+                        <cstring>m_title</cstring>
                     </property>
                 </widget>
                 <widget class="QLabel" row="5" column="3">
@@ -159,7 +159,7 @@
                         <string>&amp;Artist:</string>
                     </property>
                     <property name="buddy" stdset="0">
-                        <cstring>le_artist</cstring>
+                        <cstring>m_artist</cstring>
                     </property>
                 </widget>
                 <widget class="KComboBox" row="4" column="3">
