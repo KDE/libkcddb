@@ -149,7 +149,7 @@ namespace KCDDB
     QString s;
 
     if (revision != 0)
-      s += "# Revision " + QString::number(revision) + "\n\n";
+      s += "# Revision: " + QString::number(revision) + "\n\n";
 
     if (submit)
     {
