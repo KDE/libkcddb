@@ -18,6 +18,7 @@
   Boston, MA 02111-1307, USA.
 */
 
+#include <kdebug.h>
 #include <libkcddb/defines.h>
 
 namespace KCDDB
@@ -25,6 +26,12 @@ namespace KCDDB
     QString
   trackOffsetListToId(const TrackOffsetList & list)
   {
+    if (list.count() < 3)
+    {
+      kdDebug() << k_funcinfo << "Bogus list. Less than 3 entries." << endl;
+      return QString::null;
+    }
+
     // Taken from version by Michael Matz in kio_audiocd.
 
     unsigned int  id          = 0;
@@ -53,6 +60,38 @@ namespace KCDDB
     id = ((id % 255) << 24) | (l << 8) | trackCount;
 
     return QString::number(id, 16);
+  }
+
+    QString
+  trackOffsetListToString(const TrackOffsetList & list)
+  {
+    if (list.count() < 3)
+    {
+      kdDebug() << k_funcinfo << "Bogus list. Less than 3 entries." << endl;
+      return QString::null;
+    }
+
+    QString ret;
+
+    // Disc start.
+    ret.append(QString::number(list[list.count() - 2]));
+
+    ret.append(" ");
+
+    for (uint i = 0; i < list.count() - 2; i++)
+    {
+      ret.append(QString::number(list[i]));
+      ret.append(" ");
+    }
+
+    const unsigned int cdFrames = 75;
+
+    unsigned int discLengthInSeconds = (list[list.count() - 1]) / cdFrames;
+
+    // Disc length in seconds.
+    ret.append(QString::number(discLengthInSeconds));
+
+    return ret;
   }
 
     QString

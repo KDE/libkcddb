@@ -16,4 +16,4 @@ noinst_PROGRAMS = test
 test_SOURCES = test.cpp
 
 test_LDFLAGS = $(all_libraries)
-test_LDADD = libkcddb.la
+test_LDADD = libkcddb.la $(LIB_KDECORE)

@@ -82,7 +82,8 @@ namespace KCDDB
 
   QString errorToString(Error);
 
-  QString trackOffsetListToId(const TrackOffsetList &);
+  QString trackOffsetListToId     (const TrackOffsetList &);
+  QString trackOffsetListToString (const TrackOffsetList &);
 }
 
 #endif // KCDDB_DEFINES_H
