@@ -10,11 +10,9 @@ libkcm_cddb_config_la_LDFLAGS = \
 
 libkcm_cddb_config_la_LIBADD = ../libkcddb.la $(LIB_KDEUI)
 
-libkcm_cddb_config_la_METASOURCES = AUTO
+METASOURCES = AUTO
 
 KDE_ICON = cdrom_unmount
-
-DISTCLEANFILES = $(libkcm_cddb_config_METASOURCES)
 
 data_DATA = cddb.desktop
 datadir = $(kde_appsdir)/Settings/Sound
