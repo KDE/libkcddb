@@ -145,7 +145,7 @@ namespace KCDDB
       }
       else if ( "DGENRE" == key )
       {
-        genre = value;
+        genre += value;
       }
       else if ( "TTITLE" == key.left( 6 ) )
       {
@@ -199,8 +199,6 @@ namespace KCDDB
   {
     QString s;
 
-    // FIXME Check if any line is > 256 chars, and split it if it is
-
     if (revision != 0)
       s += "# Revision: " + QString::number(revision) + "\n";
 
@@ -250,28 +248,18 @@ namespace KCDDB
     QString
   CDInfo::createLine(const QString& name, const QString& value) const
   {
-    QString lines;
-
     Q_ASSERT(name.length() < 254);
+
+    uint maxLength = 256 - name.length() - 2;
 
     QString tmpValue = value;
 
-    int maxLength = 256 - name.length() - 2;
+    QString lines;
 
-    while (tmpValue.utf8().length() > maxLength)
-    {
-      QString tmp;
-      int l = 0;
-      // Get the longest string where string.utf8().length() <= maxLength
-      while (tmpValue.length() > 0 && l + tmpValue.left(1).utf8().length() <= maxLength)
-    {
-        QString firstChar = tmpValue.left(1);
-        l += firstChar.utf8().length();
-        tmp += firstChar;
-        tmpValue = tmpValue.mid(1);
-      }
-
-      lines += QString("%1=%2\n").arg(name,tmp);
+    while (tmpValue.length() > maxLength)
+      {
+      lines += QString("%1=%2\n").arg(name,tmpValue.left(maxLength));
+      tmpValue = tmpValue.mid(maxLength);
     }
 
     lines += QString("%1=%2\n").arg(name,tmpValue);
