@@ -97,7 +97,13 @@ namespace KCDDB
       CDInfo info( *it );
       Config c;
       c.load();
-      QString cacheFile = fileName(info, c.cacheLocations().first());
+
+      QString cacheDir = c.cacheLocations().first();
+      QDir d(cacheDir);
+      if (!d.exists())
+        d.mkdir(cacheDir);
+
+      QString cacheFile = fileName(info, cacheDir);
       kdDebug() << "Storing " << cacheFile << " in CDDB cache" << endl;
 
       QFile f(cacheFile);
