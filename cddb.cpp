@@ -204,6 +204,12 @@ namespace KCDDB
         return i18n("Success");
         break;
 
+/*  Add when permitted to add strings or for 3.4/4.0 whichever comes first
+      case ServerError:
+        return i18n("Server error");
+        break;
+*/
+
       case HostNotFound:
         return i18n("Host not found");
         break;
