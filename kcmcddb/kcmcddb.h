@@ -32,7 +32,7 @@ class CDDBModule : public KCModule
 
   public:
 
-    CDDBModule(QWidget * parent = 0, const char * name = 0);
+    CDDBModule(QWidget * parent, const char *name, const QStringList &);
 
     QString quickHelp() const;
 

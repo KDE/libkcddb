@@ -22,13 +22,13 @@
 #include <qcombobox.h>
 #include <qspinbox.h>
 #include <qlineedit.h>
-#include <qgroupbox.h>
 #include <qradiobutton.h>
 #include <qlistbox.h>
 
 #include <kconfig.h>
 #include <klocale.h>
 #include <kglobal.h>
+#include <kgenericfactory.h>
 
 #include "cddbconfigwidget.h"
 
@@ -36,23 +36,16 @@
 #include <libkcddb/lookup.h>
 #include <libkcddb/cache.h>
 
-extern "C"
-{
-    KCModule *
-  create_cddb_config(QWidget * parent, const char * name)
-  {
-    KGlobal::locale()->insertCatalogue("kcmcddb");
-    return new CDDBModule(parent, name);
-  }
-}
+typedef KGenericFactory<CDDBModule, QWidget> KCDDBFactory;
+K_EXPORT_COMPONENT_FACTORY ( kcm_cddb, KCDDBFactory( "kcmcddb" ) )
 
-CDDBModule::CDDBModule(QWidget * parent, const char * name)
+CDDBModule::CDDBModule(QWidget *parent, const char *name, const QStringList &)
   : KCModule(parent, name)
 {
   setButtons(Default | Apply);
 
   widget_ = new CDDBConfigWidget(this);
-  
+
   QVBoxLayout * layout = new QVBoxLayout(this, 0);
 
   layout->addWidget(widget_);
@@ -60,8 +53,6 @@ CDDBModule::CDDBModule(QWidget * parent, const char * name)
   load();
 
   connect(widget_, SIGNAL(configChanged()), SLOT(slotConfigChanged()));
-
-  emit(changed(false));
 }
 
   void
@@ -69,7 +60,7 @@ CDDBModule::defaults()
 {
   updateWidgetsFromConfig(KCDDB::Config());
 
-  emit(changed(readConfigFromWidgets() != originalConfig_));
+  setChanged(readConfigFromWidgets() != originalConfig_);
 }
 
   KCDDB::Config
@@ -129,7 +120,10 @@ CDDBModule::save()
   KCDDB::Config newConfig(readConfigFromWidgets());
 
   if (newConfig != originalConfig_)
+  {
     newConfig.save();
+    setChanged( false );
+  }
 }
 
   void
@@ -142,7 +136,7 @@ CDDBModule::load()
   void
 CDDBModule::slotConfigChanged()
 {
-  emit(changed(readConfigFromWidgets() != originalConfig_));
+  setChanged(readConfigFromWidgets() != originalConfig_);
 }
 
   QString
