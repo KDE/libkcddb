@@ -36,8 +36,6 @@ main(int argc, char ** argv)
 
   TrackOffsetList list;
  
-
-  // a1107d0a - Kruder & Dorfmeister - The K&D Sessions - Disc One.
   list
     << 151      // First track start.
     << 2592

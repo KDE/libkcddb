@@ -2,7 +2,7 @@ INCLUDES = -I$(top_srcdir) $(all_includes)
 
 check_PROGRAMS = syncsmtpsubmittest asyncsmtpsubmittest asynchttplookuptest \
 	asynccddblookuptest synccddblookuptest synchttplookuptest \
-	sitestest utf8test utf8submittest
+	sitestest utf8test utf8syncsubmittest utf8asyncsubmittest
 
 syncsmtpsubmittest_SOURCES = syncsmtpsubmittest.cpp
 syncsmtpsubmittest_LDFLAGS = $(all_libraries)
@@ -32,9 +32,13 @@ utf8test_SOURCES = utf8test.cpp
 utf8test_LDFLAGS = $(all_libraries)
 utf8test_LDADD = $(top_builddir)/libkcddb/libkcddb.la
 
-utf8submittest_SOURCES = utf8submittest.cpp
-utf8submittest_LDFLAGS = $(all_libraries)
-utf8submittest_LDADD = $(top_builddir)/libkcddb/libkcddb.la
+utf8syncsubmittest_SOURCES = utf8syncsubmittest.cpp
+utf8syncsubmittest_LDFLAGS = $(all_libraries)
+utf8syncsubmittest_LDADD = $(top_builddir)/libkcddb/libkcddb.la
+
+utf8asyncsubmittest_SOURCES = utf8asyncsubmittest.cpp
+utf8asyncsubmittest_LDFLAGS = $(all_libraries)
+utf8asyncsubmittest_LDADD = $(top_builddir)/libkcddb/libkcddb.la
 
 sitestest_SOURCES = sitestest.cpp
 sitestest_LDFLAGS = $(all_libraries)
