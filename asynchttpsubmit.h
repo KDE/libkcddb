@@ -27,7 +27,7 @@ namespace KCDDB
   {
     Q_OBJECT
     public:
-      AsyncHTTPSubmit();
+      AsyncHTTPSubmit(QString from);
       virtual ~AsyncHTTPSubmit();
 
     signals:

@@ -23,8 +23,8 @@
 
 namespace KCDDB
 {
-  AsyncHTTPSubmit::AsyncHTTPSubmit()
-    : QObject(), HTTPSubmit()
+  AsyncHTTPSubmit::AsyncHTTPSubmit(QString from)
+    : QObject(), HTTPSubmit(from)
   {
 
   }

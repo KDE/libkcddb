@@ -26,11 +26,13 @@ namespace KCDDB
   class HTTPSubmit : public Submit
   {
     public:
-      HTTPSubmit();
+      HTTPSubmit(QString from);
       virtual ~HTTPSubmit();
 
     protected:
       virtual KIO::Job* createJob(const CDInfo& cdInfo);
+
+      QString from_;
   } ;
 }
 

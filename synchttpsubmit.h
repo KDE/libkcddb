@@ -26,7 +26,7 @@ namespace KCDDB
   class SyncHTTPSubmit : public HTTPSubmit
   {
     public:
-      SyncHTTPSubmit();
+      SyncHTTPSubmit(QString from);
       virtual ~SyncHTTPSubmit();
 
     protected:

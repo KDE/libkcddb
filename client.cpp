@@ -250,14 +250,16 @@ namespace KCDDB
     // just in case we have a cdInfoSubmit, prevent memory leakage
     delete cdInfoSubmit;
 
+    QString from = d->config.emailAddress();
+
     switch (d->config.submitTransport())
     {
       case Submit::HTTP:
         if ( blockingMode() )
-	  cdInfoSubmit = new SyncHTTPSubmit( );
+	  cdInfoSubmit = new SyncHTTPSubmit(from);
 	else
 	{
-	  cdInfoSubmit = new AsyncHTTPSubmit( );
+	  cdInfoSubmit = new AsyncHTTPSubmit(from);
 	  connect( static_cast<AsyncHTTPSubmit *>( cdInfoSubmit ),
 	          SIGNAL(finished( CDDB::Result ) ),
 	          SLOT( slotSubmitFinished( CDDB::Result ) ) );
@@ -270,7 +272,6 @@ namespace KCDDB
 	QString hostname = d->config.smtpHostname();
 	uint port = d->config.smtpPort();
 	QString username = d->config.smtpUsername();
-	QString from = d->config.emailAddress();
 
 	if ( blockingMode() )
 	  cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );

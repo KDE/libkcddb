@@ -24,8 +24,8 @@
 
 namespace KCDDB
 {
-  HTTPSubmit::HTTPSubmit()
-    : Submit()
+  HTTPSubmit::HTTPSubmit(QString from)
+    : Submit(), from_(from)
   {
 
   }
@@ -48,7 +48,7 @@ namespace KCDDB
 
     header += "Category: " + cdInfo.category + "\n";
     header += "Discid: " + cdInfo.id + "\n";
-    header += "User-Email: nouseforaname@home.se\n";
+    header += "User-Email: " + from_ + "\n";
     header += "Submit-Mode: test\n"; // s/test/submit/
     header += "Charset: UTF-8";
 
