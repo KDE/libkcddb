@@ -58,10 +58,16 @@ namespace KCDDB
     for (uint i=0; i < numTracks; i++)
       diskData_ += QString("#\t%1\n").arg(offsetList[i]);
 
-    unsigned int l = (offsetList[numTracks + 1]) / 75;
-    l -= offsetList[0] / 75;
-    // FIXME Is the submit test wrong, or the disc id calculation?
-    l += 2;
+    unsigned int l;
+    if (cdInfo.length == 0)
+    {
+      l = (offsetList[numTracks+1] - offsetList[0]) / 75;
+      // FIXME Is the submit test wrong, or the disc id calculation?
+      l += 2;
+    }
+    else
+      l = cdInfo.length;
+
     diskData_ += QString("# Disc length: %1 seconds\n").arg(l);
 
     diskData_ += cdInfo.toString(true);
