@@ -38,7 +38,7 @@ namespace KCDDB
 
       QString title;
       QString extt;
-      //KDE4: Add a member for length (in secs)
+      // KDE4: Add a member for length (in milliseconds)
   };
 
   typedef QValueList<TrackInfo> TrackInfoList;
@@ -68,7 +68,7 @@ namespace KCDDB
       QString       category;
       QString       extd;
       uint          year;
-      uint          length;
+      uint          length; // in milliseconds
       uint          revision;
       TrackInfoList trackInfoList;
       // KDE4: Add a member for "PLAYLIST"
