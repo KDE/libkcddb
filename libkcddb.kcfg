@@ -15,19 +15,19 @@
     </entry>
     <entry name="cachePolicy" type="Enum">
       <label>Cache policy</label>
-      <values>
-        <value>OnlyCache</value>
-        <value>UseCache</value>
-        <value>IgnoreCache</value>
-      </values>
+      <choices>
+        <choice name="OnlyCache"></choice>
+        <choice name="UseCache"></choice>
+        <choice name="IgnoreCache"></choice>
+      </choices>
       <default>UseCache</default>
     </entry>
     <entry name="lookupTransport" type="Enum">
       <label>Transport</label>
-      <values>
-        <value>CDDBP</value>
-	<value>HTTP</value>
-      </values>
+      <choices>
+        <choice name="CDDBP"></choice>
+	<choice name="HTTP"></choice>
+      </choices>
       <default>CDDBP</default>
     </entry>
     <entry name="cacheLocations" type="StringList">
@@ -38,10 +38,10 @@
   <group name="Submit">
     <entry name="submitTransport" type="Enum">
       <label>Lookup Transport</label>
-      <values>
-        <value>SMTP</value>
-	<value>HTTP</value>
-      </values>
+      <choices>
+        <choice name="SMTP"></choice>
+	<choice name="HTTP"></choice>
+      </choices>
       <default>SMTP</default>
     </entry>
     <entry name="smtpHostname" type="String">
