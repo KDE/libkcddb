@@ -149,7 +149,7 @@ namespace KCDDB
 
     QByteArray buf( maxRead );
     Q_LONG bytesRead = socket_.readLine( buf.data(), maxRead - 1 );
-    buf[ bytesRead ] = '\0';
+    buf[ (int)bytesRead ] = '\0';
 
     return QString( buf );
   }
