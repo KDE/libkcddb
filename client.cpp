@@ -147,6 +147,8 @@ namespace KCDDB
     if ( Cache::Only == d->config.cachePolicy() )
     {
       kdDebug(60010) << "Only trying cache. Give up now." << endl;
+      if ( !blockingMode() )
+        emit finished( Lookup::NoRecordFound );
       return CDDB::NoRecordFound;
     }
 
