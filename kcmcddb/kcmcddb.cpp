@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -24,6 +25,8 @@
 #include <qlineedit.h>
 #include <qradiobutton.h>
 #include <qlistbox.h>
+#include <qlabel.h>
+#include <qbuttongroup.h>
 
 #include <kconfig.h>
 #include <klocale.h>
@@ -35,6 +38,7 @@
 #include "kcmcddb.h"
 #include "libkcddb/lookup.h"
 #include "libkcddb/cache.h"
+#include "libkcddb/submit.h"
 
 typedef KGenericFactory<CDDBModule, QWidget> KCDDBFactory;
 K_EXPORT_COMPONENT_FACTORY ( kcm_cddb, KCDDBFactory( "kcmcddb" ) )
@@ -61,7 +65,7 @@ CDDBModule::defaults()
 {
   updateWidgetsFromConfig(KCDDB::Config());
 
-  setChanged(readConfigFromWidgets() != originalConfig_);
+  setChanged(true);
 }
 
   KCDDB::Config
@@ -90,6 +94,17 @@ CDDBModule::readConfigFromWidgets() const
 
   config.setCacheLocations(l);
 
+  config.setOwnEmail(widget_->fromLineEdit->text());
+  config.setOwnReplyTo(widget_->replyToLineEdit->text());
+  config.setOwnSmtpHost(widget_->hostLineEdit->text());
+  config.setSmtpPort(widget_->portSpinBox->value());
+  config.setSmtpUsername(widget_->usernameLineEdit->text());
+  config.setUseGlobalEmail(widget_->useGlobalCheckbox->isChecked());
+  if (widget_->enableSmtpCheckBox->isChecked())
+    config.setSubmitTransport(KCDDB::Submit::SMTP);
+  else
+    config.setSubmitTransport(KCDDB::Submit::None);
+
   return config;
 }
 
@@ -109,6 +124,22 @@ CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
     widget_->remoteOnly->setChecked(true);
   widget_->cacheDirectories   ->clear();
   widget_->cacheDirectories   ->insertStringList(config.cacheLocations());
+  widget_->fromLabel->setText(config.globalEmail());
+  widget_->replyToLabel->setText(config.globalReplyTo());
+  widget_->hostLabel->setText(config.globalSmtpHost());
+  widget_->fromLineEdit->setText(config.ownEmail());
+  widget_->replyToLineEdit->setText(config.ownReplyTo());
+  widget_->hostLineEdit->setText(config.ownSmtpHost());
+  widget_->portSpinBox->setValue(config.smtpPort());
+  widget_->usernameLineEdit->setText(config.smtpUsername());
+  if (config.submitTransport() == KCDDB::Submit::SMTP)
+    widget_->enableSmtpCheckBox->setChecked(true);
+  else
+    widget_->smtpBox->setDisabled(true);
+  if (config.useGlobalEmail())
+    widget_->useGlobalCheckbox->setChecked(true);
+  else
+    widget_->notUseGlobalCheckbox->setChecked(true);
 }
 
   void
@@ -116,11 +147,8 @@ CDDBModule::save()
 {
   KCDDB::Config newConfig(readConfigFromWidgets());
 
-  if (newConfig != originalConfig_)
-  {
-    newConfig.writeConfig();
-    setChanged( false );
-  }
+  newConfig.writeConfig();
+  setChanged(false);
 }
 
   void
@@ -133,7 +161,7 @@ CDDBModule::load()
   void
 CDDBModule::slotConfigChanged()
 {
-  setChanged(readConfigFromWidgets() != originalConfig_);
+  setChanged(true);
 }
 
   QString

@@ -32,6 +32,7 @@ class CDDBConfigWidget : public CDDBConfigWidgetBase
 
   protected slots:
 
+    virtual void launchControlCenter();
     virtual void slotConfigChanged();
 
     virtual void addCache();

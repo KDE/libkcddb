@@ -21,6 +21,7 @@
 
 #include <qlistbox.h>
 #include <kfiledialog.h>
+#include <kapplication.h>
 
 CDDBConfigWidget::CDDBConfigWidget(QWidget * parent, const char * name)
   : CDDBConfigWidgetBase(parent, name)
@@ -72,6 +73,12 @@ void CDDBConfigWidget::moveCacheDown()
       cacheDirectories->setCurrentItem(currentPos+1);
     }
     emit configChanged();
+}
+
+void CDDBConfigWidget::launchControlCenter()
+{
+    KApplication::kdeinitExec("kcmshell", "email");
+
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

@@ -9,8 +9,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>405</width>
-            <height>336</height>
+            <width>506</width>
+            <height>490</height>
         </rect>
     </property>
     <property name="caption">
@@ -20,213 +20,556 @@
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <property name="margin">
-            <number>0</number>
-        </property>
-        <property name="spacing">
-            <number>6</number>
-        </property>
-        <widget class="QButtonGroup">
+        <widget class="QTabWidget">
             <property name="name">
-                <cstring>cachePolicy</cstring>
+                <cstring>tabWidget2</cstring>
             </property>
-            <property name="sizePolicy">
-                <sizepolicy>
-                    <hsizetype>5</hsizetype>
-                    <vsizetype>4</vsizetype>
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                </sizepolicy>
-            </property>
-            <property name="title">
-                <string>Mode</string>
-            </property>
-            <hbox>
+            <widget class="QWidget">
                 <property name="name">
-                    <cstring>unnamed</cstring>
+                    <cstring>tab</cstring>
                 </property>
-                <widget class="QRadioButton">
+                <attribute name="title">
+                    <string>&amp;Lookup</string>
+                </attribute>
+                <grid>
                     <property name="name">
-                        <cstring>cacheOnly</cstring>
+                        <cstring>unnamed</cstring>
                     </property>
-                    <property name="text">
-                        <string>Cache only</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Only check in the local cache for CD information.</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton">
-                    <property name="name">
-                        <cstring>cacheAndRemote</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Cache and remote</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Check for locally cached CD information before trying to look up at remote CDDB server.</string>
-                    </property>
-                </widget>
-                <widget class="QRadioButton">
-                    <property name="name">
-                        <cstring>remoteOnly</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Remote only</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Only try to look up at remote CDDB server.</string>
-                    </property>
-                </widget>
-            </hbox>
-        </widget>
-        <widget class="QGroupBox">
-            <property name="name">
-                <cstring>serverBox</cstring>
-            </property>
-            <property name="title">
-                <string>CDDB Server</string>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <property name="margin">
-                    <number>11</number>
-                </property>
-                <property name="spacing">
-                    <number>6</number>
-                </property>
-                <widget class="QLineEdit" row="0" column="1">
-                    <property name="name">
-                        <cstring>cddbServer</cstring>
-                    </property>
-                    <property name="text">
-                        <string>freedb.freedb.org</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Name of CDDB server which will be used to look up CD information.</string>
-                    </property>
-                </widget>
-                <widget class="QSpinBox" row="0" column="3">
-                    <property name="name">
-                        <cstring>cddbPort</cstring>
-                    </property>
-                    <property name="maxValue">
-                        <number>64000</number>
-                    </property>
-                    <property name="value">
-                        <number>8880</number>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Port to connect to on CDDB server.</string>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="0" column="0">
-                    <property name="name">
-                        <cstring>TextLabel7</cstring>
-                    </property>
-                    <property name="text">
-                        <string>CDDB &amp;server:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>cddbServer</cstring>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="0" column="2">
-                    <property name="name">
-                        <cstring>TextLabel8</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Port:</string>
-                    </property>
-                    <property name="alignment">
-                        <set>AlignVCenter|AlignRight</set>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>cddbPort</cstring>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="1" column="0">
-                    <property name="name">
-                        <cstring>TextLabel9</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Transport:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>cddbType</cstring>
-                    </property>
-                </widget>
-                <widget class="QComboBox" row="1" column="1" rowspan="1" colspan="3">
-                    <item>
-                        <property name="text">
-                            <string>CDDB</string>
+                    <widget class="QButtonGroup" row="2" column="0">
+                        <property name="name">
+                            <cstring>cacheBox</cstring>
                         </property>
-                    </item>
-                    <item>
-                        <property name="text">
-                            <string>HTTP</string>
+                        <property name="title">
+                            <string>Cache Locations</string>
                         </property>
-                    </item>
-                    <property name="name">
-                        <cstring>cddbType</cstring>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Type of lookup which should be tried at the CDDB server.</string>
-                    </property>
-                </widget>
-            </grid>
-        </widget>
-        <widget class="QGroupBox">
-            <property name="name">
-                <cstring>cacheBox</cstring>
-            </property>
-            <property name="title">
-                <string>Cache Locations</string>
-            </property>
-            <grid>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="QListBox" row="0" column="0" rowspan="4" colspan="1">
+                                <property name="name">
+                                    <cstring>cacheDirectories</cstring>
+                                </property>
+                            </widget>
+                            <widget class="QPushButton" row="0" column="1">
+                                <property name="name">
+                                    <cstring>addCacheButton</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>A&amp;dd...</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+D</string>
+                                </property>
+                            </widget>
+                            <widget class="QPushButton" row="1" column="1">
+                                <property name="name">
+                                    <cstring>removeCacheButton</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>R&amp;emove</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+E</string>
+                                </property>
+                            </widget>
+                            <widget class="QPushButton" row="2" column="1">
+                                <property name="name">
+                                    <cstring>upCacheButton</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&amp;Up</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+U</string>
+                                </property>
+                            </widget>
+                            <widget class="QPushButton" row="3" column="1">
+                                <property name="name">
+                                    <cstring>downCacheButton</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Do&amp;wn</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+W</string>
+                                </property>
+                            </widget>
+                        </grid>
+                    </widget>
+                    <spacer row="3" column="0">
+                        <property name="name">
+                            <cstring>spacer5</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>41</width>
+                                <height>61</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="QGroupBox" row="1" column="0">
+                        <property name="name">
+                            <cstring>serverBox</cstring>
+                        </property>
+                        <property name="title">
+                            <string>CDDB Server</string>
+                        </property>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <property name="margin">
+                                <number>11</number>
+                            </property>
+                            <property name="spacing">
+                                <number>6</number>
+                            </property>
+                            <widget class="QLineEdit" row="0" column="1">
+                                <property name="name">
+                                    <cstring>cddbServer</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>freedb.freedb.org</string>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Name of CDDB server which will be used to look up CD information.</string>
+                                </property>
+                            </widget>
+                            <widget class="QSpinBox" row="0" column="3">
+                                <property name="name">
+                                    <cstring>cddbPort</cstring>
+                                </property>
+                                <property name="maxValue">
+                                    <number>64000</number>
+                                </property>
+                                <property name="value">
+                                    <number>8880</number>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Port to connect to on CDDB server.</string>
+                                </property>
+                            </widget>
+                            <widget class="QLabel" row="0" column="2">
+                                <property name="name">
+                                    <cstring>TextLabel8</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&amp;Port:</string>
+                                </property>
+                                <property name="alignment">
+                                    <set>AlignVCenter|AlignRight</set>
+                                </property>
+                                <property name="buddy" stdset="0">
+                                    <cstring>cddbPort</cstring>
+                                </property>
+                            </widget>
+                            <widget class="QLabel" row="0" column="0">
+                                <property name="name">
+                                    <cstring>TextLabel7</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>CDD&amp;B server:</string>
+                                </property>
+                                <property name="buddy" stdset="0">
+                                    <cstring>cddbServer</cstring>
+                                </property>
+                            </widget>
+                            <widget class="QComboBox" row="1" column="1" rowspan="1" colspan="3">
+                                <item>
+                                    <property name="text">
+                                        <string>CDDB</string>
+                                    </property>
+                                </item>
+                                <item>
+                                    <property name="text">
+                                        <string>HTTP</string>
+                                    </property>
+                                </item>
+                                <property name="name">
+                                    <cstring>cddbType</cstring>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Type of lookup which should be tried at the CDDB server.</string>
+                                </property>
+                            </widget>
+                            <widget class="QLabel" row="1" column="0">
+                                <property name="name">
+                                    <cstring>TextLabel9</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&amp;Transport:</string>
+                                </property>
+                                <property name="buddy" stdset="0">
+                                    <cstring>cddbType</cstring>
+                                </property>
+                            </widget>
+                        </grid>
+                    </widget>
+                    <widget class="QButtonGroup" row="0" column="0">
+                        <property name="name">
+                            <cstring>cachePolicy</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>5</hsizetype>
+                                <vsizetype>4</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                        <property name="title">
+                            <string>Mode</string>
+                        </property>
+                        <hbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <property name="margin">
+                                <number>6</number>
+                            </property>
+                            <property name="spacing">
+                                <number>0</number>
+                            </property>
+                            <widget class="QRadioButton">
+                                <property name="name">
+                                    <cstring>cacheOnly</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&amp;Cache only</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+C</string>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Only check in the local cache for CD information.</string>
+                                </property>
+                            </widget>
+                            <widget class="QRadioButton">
+                                <property name="name">
+                                    <cstring>cacheAndRemote</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Cache &amp;and remote</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+A</string>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Check for locally cached CD information before trying to look up at remote CDDB server.</string>
+                                </property>
+                            </widget>
+                            <widget class="QRadioButton">
+                                <property name="name">
+                                    <cstring>remoteOnly</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&amp;Remote only</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+R</string>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Only try to look up at remote CDDB server.</string>
+                                </property>
+                            </widget>
+                        </hbox>
+                    </widget>
+                </grid>
+            </widget>
+            <widget class="QWidget">
                 <property name="name">
-                    <cstring>unnamed</cstring>
+                    <cstring>tab</cstring>
                 </property>
-                <widget class="QListBox" row="0" column="0" rowspan="4" colspan="1">
+                <attribute name="title">
+                    <string>&amp;Submit</string>
+                </attribute>
+                <grid>
                     <property name="name">
-                        <cstring>cacheDirectories</cstring>
+                        <cstring>unnamed</cstring>
                     </property>
-                </widget>
-                <widget class="QPushButton" row="0" column="1">
-                    <property name="name">
-                        <cstring>addCacheButton</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Add...</string>
-                    </property>
-                </widget>
-                <widget class="QPushButton" row="1" column="1">
-                    <property name="name">
-                        <cstring>removeCacheButton</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Remove</string>
-                    </property>
-                </widget>
-                <widget class="QPushButton" row="2" column="1">
-                    <property name="name">
-                        <cstring>upCacheButton</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Up</string>
-                    </property>
-                </widget>
-                <widget class="QPushButton" row="3" column="1">
-                    <property name="name">
-                        <cstring>downCacheButton</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Down</string>
-                    </property>
-                </widget>
-            </grid>
+                    <widget class="QCheckBox" row="0" column="0">
+                        <property name="name">
+                            <cstring>enableSmtpCheckBox</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Enable submission via SMTP</string>
+                        </property>
+                    </widget>
+                    <spacer row="2" column="0">
+                        <property name="name">
+                            <cstring>spacer4</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>21</width>
+                                <height>139</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="QButtonGroup" row="1" column="0">
+                        <property name="name">
+                            <cstring>smtpBox</cstring>
+                        </property>
+                        <property name="title">
+                            <string>SMTP Server</string>
+                        </property>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <spacer row="0" column="0">
+                                <property name="name">
+                                    <cstring>spacer1_2</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <spacer row="2" column="0">
+                                <property name="name">
+                                    <cstring>spacer1</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="QRadioButton" row="3" column="0" rowspan="1" colspan="2">
+                                <property name="name">
+                                    <cstring>notUseGlobalCheckbox</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Use the following email addresses</string>
+                                </property>
+                            </widget>
+                            <spacer row="4" column="0">
+                                <property name="name">
+                                    <cstring>spacer1_3</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="QLayoutWidget" row="4" column="1">
+                                <property name="name">
+                                    <cstring>layout5</cstring>
+                                </property>
+                                <grid>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel" row="0" column="0">
+                                        <property name="name">
+                                            <cstring>textLabel8_2</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>From:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLabel" row="2" column="0" rowspan="1" colspan="2">
+                                        <property name="name">
+                                            <cstring>textLabel2_2</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>5</hsizetype>
+                                                <vsizetype>5</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="text">
+                                            <string>Host:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLabel" row="1" column="0">
+                                        <property name="name">
+                                            <cstring>textLabel9_2</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Reply-To:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLineEdit" row="0" column="1" rowspan="1" colspan="2">
+                                        <property name="name">
+                                            <cstring>fromLineEdit</cstring>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLineEdit" row="1" column="1" rowspan="1" colspan="2">
+                                        <property name="name">
+                                            <cstring>replyToLineEdit</cstring>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLineEdit" row="2" column="2">
+                                        <property name="name">
+                                            <cstring>hostLineEdit</cstring>
+                                        </property>
+                                    </widget>
+                                </grid>
+                            </widget>
+                            <widget class="QRadioButton" row="1" column="0" rowspan="1" colspan="2">
+                                <property name="name">
+                                    <cstring>useGlobalCheckbox</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Use email addresses from control center</string>
+                                </property>
+                            </widget>
+                            <widget class="QLayoutWidget" row="2" column="1">
+                                <property name="name">
+                                    <cstring>layout4</cstring>
+                                </property>
+                                <grid>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel" row="0" column="1">
+                                        <property name="name">
+                                            <cstring>fromLabel</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>5</hsizetype>
+                                                <vsizetype>5</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLabel" row="2" column="0">
+                                        <property name="name">
+                                            <cstring>textLabel1_2_2</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Host:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLabel" row="1" column="1">
+                                        <property name="name">
+                                            <cstring>replyToLabel</cstring>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLabel" row="0" column="0">
+                                        <property name="name">
+                                            <cstring>textLabel5_2</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>From:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="KURLLabel" row="3" column="0">
+                                        <property name="name">
+                                            <cstring>controlCenterLabel_2</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Open the email address control panel</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLabel" row="2" column="1">
+                                        <property name="name">
+                                            <cstring>hostLabel</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLabel" row="1" column="0">
+                                        <property name="name">
+                                            <cstring>textLabel6_2</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Reply-To:</string>
+                                        </property>
+                                    </widget>
+                                </grid>
+                            </widget>
+                            <widget class="QLayoutWidget" row="0" column="1">
+                                <property name="name">
+                                    <cstring>layout4</cstring>
+                                </property>
+                                <grid>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLineEdit" row="0" column="1">
+                                        <property name="name">
+                                            <cstring>usernameLineEdit</cstring>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLabel" row="0" column="0">
+                                        <property name="name">
+                                            <cstring>textLabel4</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Username:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLabel" row="1" column="0">
+                                        <property name="name">
+                                            <cstring>textLabel3</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>5</hsizetype>
+                                                <vsizetype>5</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="text">
+                                            <string>Port:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QSpinBox" row="1" column="1">
+                                        <property name="name">
+                                            <cstring>portSpinBox</cstring>
+                                        </property>
+                                    </widget>
+                                </grid>
+                            </widget>
+                        </grid>
+                    </widget>
+                </grid>
+            </widget>
         </widget>
     </vbox>
 </widget>
@@ -246,8 +589,8 @@
     <connection>
         <sender>remoteOnly</sender>
         <signal>toggled(bool)</signal>
-        <receiver>serverBox</receiver>
-        <slot>setEnabled(bool)</slot>
+        <receiver>cacheBox</receiver>
+        <slot>setDisabled(bool)</slot>
     </connection>
     <connection>
         <sender>cddbServer</sender>
@@ -309,6 +652,60 @@
         <receiver>CDDBConfigWidgetBase</receiver>
         <slot>moveCacheDown()</slot>
     </connection>
+    <connection>
+        <sender>remoteOnly</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>serverBox</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>enableSmtpCheckBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>smtpBox</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>enableSmtpCheckBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>usernameLineEdit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>portSpinBox</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>useGlobalCheckbox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>fromLineEdit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>replyToLineEdit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>hostLineEdit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
 </connections>
 <tabstops>
     <tabstop>cacheOnly</tabstop>
@@ -324,6 +721,10 @@
     <slot access="protected">removeCache()</slot>
     <slot access="protected">moveCacheUp()</slot>
     <slot access="protected">moveCacheDown()</slot>
+    <slot access="protected">launchControlCenter()</slot>
 </slots>
-<layoutdefaults spacing="6" margin="11"/>
+<layoutdefaults spacing="11" margin="6"/>
+<includehints>
+    <includehint>kurllabel.h</includehint>
+</includehints>
 </UI>
