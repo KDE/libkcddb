@@ -60,5 +60,14 @@ main(int argc, char ** argv)
     std::cerr << "Disc title: " << i.title << std::endl;
   }
 
+  // If we want to test submitions comment this line out
+  return 0;
+
+  it = response.begin();
+  CDInfo i(*it);
+  if(c.submit(i) == CannotSave){
+    std::cerr << "Can not save\n";
+  }
+
   return 0;
 }

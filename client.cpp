@@ -204,7 +204,7 @@ sendOut(QString("User-Email: ben@meyerhome.net\n"));
 sendOut(QString("Submit-Mode: test\n")); // Change to "submit"
 sendOut(QString("Charset: ISO-8859-1\n"));
 sendOut(QString("X-Cddbd-Note: Sent by libkcddb - Questions: ben@meyerhome.net.\n"));
-sendOut(QString("Content-Length: 960\n")); // Get real length()
+sendOut(QString("Content-Length: %1\n").arg(diskData.length())); // Get real length()
 sendOut(QString("\n"));
 sendOut(diskData);
 
