@@ -19,12 +19,14 @@
   Boston, MA 02111-1307, USA.
 */
 
+#include <kdebug.h>
+
 #include "lookup.h"
 
 namespace KCDDB
 {
   Lookup::Lookup()
-    : readOnly_( false )
+          : readOnly_( false )
   {
     // Empty.
   }
@@ -35,13 +37,10 @@ namespace KCDDB
   }
 
     QString
-  trackOffsetListToId( const TrackOffsetList & list )
+  Lookup::trackOffsetListToId( const TrackOffsetList & list )
   {
     if ( list.count() < 3 )
-    {
-      kdDebug() << k_funcinfo << "Bogus list. Less than 3 entries." << endl;
       return QString::null;
-    }
 
     // Taken from version by Michael Matz in kio_audiocd.
     unsigned int id = 0;
@@ -69,11 +68,11 @@ namespace KCDDB
   }
 
     QString
-  trackOffsetListToString(  const TrackOffsetList & list )
+  Lookup::trackOffsetListToString( const TrackOffsetList & list )
   {
     if (  list.count() < 3 )
     {
-      kdDebug() << k_funcinfo << "Bogus list. Less than 3 entries." << endl;
+      kdDebug() << "Bogus list. Less than 3 entries." << endl;
       return QString::null;
     }
 
@@ -113,12 +112,12 @@ namespace KCDDB
   }
 
    QString
-  Lookup::makeCDDBQuery()
+  Lookup::makeCDDBQuery(TrackOffsetList & trackOffsetList)
   {
     QString query = "cddb query ";
-    query += trackOffsetListToId( trackOffsetList_ );
+    query += trackOffsetListToId( trackOffsetList );
     query += " ";
-    query += trackOffsetListToString( trackOffsetList_ );
+    query += trackOffsetListToString( trackOffsetList );
 
     return query;
   }
@@ -166,8 +165,31 @@ namespace KCDDB
     return true;
   }
 
+     bool
+  Lookup::parseCDDBQuery( const QString & line, uint *status )
+  {
+    QStringList tokenList = QStringList::split( ' ', line );
+
+    uint serverStatus  = tokenList[ 0 ].toUInt();
+    *status = serverStatus;
+
+    if ( 200 == serverStatus )
+    {
+      QStringList tokenList = QStringList::split( ' ', line );
+      matchList_.append( qMakePair( tokenList[ 0 ], tokenList[ 1 ] ) );
+      return true;
+    }
+    else if ( ( 211 == serverStatus ) || ( 210 == serverStatus ) )
+    {
+      kdDebug() << "Server found multiple matches" << endl;
+      return true;
+    }
+
+    return false;
+  }
+
     void
-  Lookup::parseMatch( const QString & line )
+  Lookup::parseExtraMatch( const QString & line )
   {
     QStringList tokenList = QStringList::split( ' ', line );
     matchList_.append( qMakePair( tokenList[ 0 ], tokenList[ 1 ] ) );
@@ -228,11 +250,11 @@ namespace KCDDB
   }
 
     void
-  Lookup::writeLine( QString & line )
+  Lookup::writeLine( const QString & line )
   {
-    if ( KExtendedSocket::connected != socket.socketStatus() )
+    if ( KExtendedSocket::connected != socket_.socketStatus() )
     {
-      kdDebug() << "socket status: " << socket.socketStatus() << endl;
+      kdDebug() << "socket status: " << socket_.socketStatus() << endl;
       return;
     }
 
@@ -253,7 +275,7 @@ namespace KCDDB
   }
 
     QString
-  Lookup::transportToString(ulong t)
+  Lookup::transportToString(uint t)
   {
     switch (Transport(t))
     {

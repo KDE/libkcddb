@@ -58,22 +58,18 @@ namespace KCDDB
       };
 
       Lookup();
-
       virtual ~Lookup();
 
-
-      virtual CDInfoList lookupResponse() const = 0;
-
       virtual Result lookup
-        ( 
-          const TrackOffsetList &,
-          const QString         & hostname,
-          uint                    port,
-          const QString         & clientName,
-          const QString         & clientVersion
+        (
+          const QString & hostName,
+          const uint      port,
+          const QString & clientName,
+          const QString & clientVersion,
+          const TrackOffsetList & 
         ) = 0;
 
-      QString readLine();
+      virtual CDInfoList lookupResponse() const = 0;
 
       static QString resultToString(Result);
       static QString transportToString(uint);
@@ -82,21 +78,28 @@ namespace KCDDB
     protected:
 
       QString makeCDDBHandshake();
-      QString makeCDDBQuery();
+      QString makeCDDBQuery(TrackOffsetList &);
+      QString makeCDDBRead();
+
+      QString readLine();
+      void writeLine( const QString & );
 
       bool parseGreeting( const QString& );
-      void parseMatch( const QString& );
+      bool parseCDDBQuery( const QString&, uint* );
+      void parseExtraMatch( const QString& );
       bool parseHandshake( const QString& );
-      QString trackOffsetListToString( const TrackOffsetList& )
-      QString trackOffsetListToId( const TrackOffsetList& )
+      QString trackOffsetListToString( const TrackOffsetList& );
+      QString trackOffsetListToId( const TrackOffsetList& );
  
       KExtendedSocket socket_;
 
+      QString hostname_;
+      uint port_;
       QString user_;
       QString clientName_;
       QString clientVersion_;
 
-      bool readOnly;
+      bool readOnly_;
 
       CDInfoList cdInfoList_;
       CDDBMatchList matchList_;
