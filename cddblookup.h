@@ -1,11 +1,12 @@
 /*
-  Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
+  Copyright (C) 2002 Rik Hemsley ( rikkus ) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  Copyright (C) 2002 Nadeem Hasan <nhasan@kde.org>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
   License as published by the Free Software Foundation; either
-  version 2 of the License, or (at your option) any later version.
+  version 2 of the License, or ( at your option ) any later version.
 
   This library is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -18,37 +19,25 @@
   Boston, MA 02111-1307, USA.
 */
 
-#ifndef KCDDB_DEFINES_H
-#define KCDDB_DEFINES_H
+#define KCDDB_CDDB_LOOKUP_H
+#ifndef KCDDB_CDDB_LOOKUP_H
 
-#include <qstring.h>
-#include <qstringlist.h>
-#include <qvaluelist.h>
-
-class KExtendedSocket;
+#include <lookup.h>
 
 namespace KCDDB
 {
-  QString readLine(KExtendedSocket &);
-  void writeLine(KExtendedSocket &, const QString &);
-
-  namespace Connect
+  class CDDBLookup : public Lookup
   {
-    enum Result
-    {
-      Success,
-      HostNotFound,
-      NoResponse
-    };
-  };
+    public:
+      CDDBLookup();
+      virtual ~CDDBLookup;
 
-  Connect::Result connectSocket
-    (
-      KExtendedSocket & socket,
-      const QString   & hostname,
-      uint              port
-    );
+      QString makeCDDBHandshake();
+      QString makeCDDBQuery( TrackOffsetList & );
+
+  };
 }
 
-#endif // KCDDB_DEFINES_H
+#endif
+
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1
