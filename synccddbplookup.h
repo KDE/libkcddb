@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  Copyright (C) 2002 Nadeem Hasan <nhasan@kde.org>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -18,19 +19,19 @@
   Boston, MA 02111-1307, USA.
 */
 
-#ifndef KCDDB_SYNC_CDDB_LOOKUP_H
-#define KCDDB_SYNC_CDDB_LOOKUP_H
+#ifndef KCDDB_SYNC_CDDBP_LOOKUP_H
+#define KCDDB_SYNC_CDDBP_LOOKUP_H
 
-#include "cddblookup.h"
+#include "cddbplookup.h"
 
 namespace KCDDB
 {
-  class SyncCDDBLookup : public CDDBLookup
+  class SyncCDDBPLookup : public CDDBPLookup
   {
     public:
 
-      SyncCDDBLookup();
-      virtual ~SyncCDDBLookup();
+      SyncCDDBPLookup();
+      virtual ~SyncCDDBPLookup();
 
       Result lookup( const QString &, uint, const QString &,
           const QString &, const TrackOffsetList & );
@@ -46,5 +47,5 @@ namespace KCDDB
   };
 }
 
-#endif // KCDDB_SYNC_CDDB_LOOKUP_H
+#endif // KCDDB_SYNC_CDDBP_LOOKUP_H
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

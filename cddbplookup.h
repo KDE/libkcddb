@@ -19,18 +19,18 @@
   Boston, MA 02111-1307, USA.
 */
 
-#ifndef KCDDB_CDDB_LOOKUP_H
-#define KCDDB_CDDB_LOOKUP_H
+#ifndef KCDDB_CDDBP_LOOKUP_H
+#define KCDDB_CDDBP_LOOKUP_H
 
 #include "lookup.h"
 
 namespace KCDDB
 {
-  class CDDBLookup : public Lookup
+  class CDDBPLookup : public Lookup
   {
     public:
-      CDDBLookup();
-      virtual ~CDDBLookup();
+      CDDBPLookup();
+      virtual ~CDDBPLookup();
 
       void sendHandshake();
       void sendProto();

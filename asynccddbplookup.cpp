@@ -20,13 +20,13 @@
 
 #include <kdebug.h>
 
-#include "asynccddblookup.h"
+#include "asynccddbplookup.h"
 
 namespace KCDDB
 {
-  AsyncCDDBLookup::AsyncCDDBLookup(QObject * parent, const char * name)
+  AsyncCDDBPLookup::AsyncCDDBPLookup(QObject * parent, const char * name)
     : QObject(parent, name),
-      CDDBLookup(), 
+      CDDBPLookup(), 
       state_(Idle)
   {
     socket_.setBlockingMode( false );
@@ -63,13 +63,13 @@ namespace KCDDB
       );
   }
 
-  AsyncCDDBLookup::~AsyncCDDBLookup()
+  AsyncCDDBPLookup::~AsyncCDDBPLookup()
   {
     close();
   }
 
     Lookup::Result
-  AsyncCDDBLookup::lookup
+  AsyncCDDBPLookup::lookup
   (
     const QString         & hostname,
     uint                    port,
@@ -99,7 +99,7 @@ namespace KCDDB
   }
 
     void
-  AsyncCDDBLookup::slotLookupFinished( int hostCount )
+  AsyncCDDBPLookup::slotLookupFinished( int hostCount )
   {
     kdDebug() << "Found " << hostCount << " hosts" << endl;
 
@@ -120,14 +120,14 @@ namespace KCDDB
   }
 
     void
-  AsyncCDDBLookup::slotConnectionSuccess()
+  AsyncCDDBPLookup::slotConnectionSuccess()
   {
     kdDebug() << "Connection successful" << endl;
     state_ = WaitingForGreeting;
   }
 
     void
-  AsyncCDDBLookup::slotConnectionFailed( int err )
+  AsyncCDDBPLookup::slotConnectionFailed( int err )
   {
     kdDebug() << "Connection failed, error: " << err << endl;
     emit finished( NoResponse );
@@ -136,7 +136,7 @@ namespace KCDDB
   }
 
     void
-  AsyncCDDBLookup::slotReadyRead()
+  AsyncCDDBPLookup::slotReadyRead()
   {
     kdDebug() << "Ready to read. State: " << stateToString() << endl;
 
@@ -145,7 +145,7 @@ namespace KCDDB
   }
 
     void
-  AsyncCDDBLookup::read()
+  AsyncCDDBPLookup::read()
   {
     switch (state_)
     {
@@ -256,7 +256,7 @@ namespace KCDDB
   }
 
     void
-  AsyncCDDBLookup::doHandshake()
+  AsyncCDDBPLookup::doHandshake()
   {
     sendHandshake();
 
@@ -264,7 +264,7 @@ namespace KCDDB
   }
 
     void
-  AsyncCDDBLookup::doProto()
+  AsyncCDDBPLookup::doProto()
   {
     sendProto();
 
@@ -272,7 +272,7 @@ namespace KCDDB
   }
 
     void
-  AsyncCDDBLookup::doQuery()
+  AsyncCDDBPLookup::doQuery()
   {
     sendQuery();
 
@@ -280,7 +280,7 @@ namespace KCDDB
   }
 
     void
-  AsyncCDDBLookup::requestCDInfoForMatch()
+  AsyncCDDBPLookup::requestCDInfoForMatch()
   {
     if (matchList_.isEmpty())
     {
@@ -298,7 +298,7 @@ namespace KCDDB
   }
 
     void
-  AsyncCDDBLookup::parseCDInfoData()
+  AsyncCDDBPLookup::parseCDInfoData()
   {
     CDInfo info;
 
@@ -309,7 +309,7 @@ namespace KCDDB
   }
 
     void
-  AsyncCDDBLookup::doQuit()
+  AsyncCDDBPLookup::doQuit()
   {
     state_ = Idle;
 
@@ -319,7 +319,7 @@ namespace KCDDB
   }
 
     QString
-  AsyncCDDBLookup::stateToString() const
+  AsyncCDDBPLookup::stateToString() const
   {
     switch (state_)
     {
@@ -370,6 +370,7 @@ namespace KCDDB
   }
 }
 
-#include "asynccddblookup.moc"
+
+#include "asynccddbplookup.moc"
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

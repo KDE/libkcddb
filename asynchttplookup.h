@@ -18,104 +18,62 @@
   Boston, MA 02111-1307, USA.
 */
 
-#ifndef KHTTP_ASYNC_HTTP_LOOKUP_H
-#define KHTTP_ASYNC_HTTP_LOOKUP_H
+#ifndef KCDDB_ASYNC_HTTP_LOOKUP_H
+#define KCDDB_ASYNC_HTTP_LOOKUP_H
 
-#include <kurl.h>
+#include <qobject.h>
 
-#include <libkcddb/defines.h>
-#include <libkcddb/asynclookup.h>
-#include <libkcddb/cdinfo.h>
-
-namespace KIO
-{
-  class Job;
-  class TransferJob;
-};
+#include "httplookup.h"
 
 namespace KCDDB
 {
-  class AsyncHTTPLookup : public AsyncLookup
+  class AsyncHTTPLookup : public QObject, public CDDBLookup 
   {
     Q_OBJECT
 
     public:
 
-      enum State
-      {
-        Idle,
-        WaitingForHostResolution,
-        WaitingForConnection,
-        WaitingForGreeting,
-        WaitingForHandshake,
-        WaitingForQueryResponse,
-        WaitingForMoreMatches,
-        WaitingForCDInfoResponse,
-        WaitingForCDInfoData
-      };
-
-      AsyncHTTPLookup(QObject * parent = 0, const char * name = 0);
+      AsyncHTTPLookup( QObject * parent = 0, const char * name = 0 );
 
       virtual ~AsyncHTTPLookup();
 
-      void lookup
-        (
-          const TrackOffsetList &,
-          const QString         & hostname,
-          uint                    port,
-          const QString         & clientName,
-          const QString         & clientVersion
-        );
+      Result lookup( const QString &, uint, const QString &,
+          const QString &, const TrackOffsetList & );
 
     signals:
 
-      void finished
-        (
-          Lookup::Result,
-          const CDInfoList & = CDInfoList()
-        );
+      void finished( Lookup::Result );
 
     protected slots:
 
-      void slotData(KIO::Job *, const QByteArray &);
-      void slotDataReq(KIO::Job *, QByteArray &);
-      void slotDataReq(KIO::Job *, const KURL &);
-      void slotResult(KIO::Job *);
-      void slotCancelled(KIO::Job *);
+      void slotLookupFinished( int );
+      void slotConnectionSuccess();
+      void slotConnectionFailed( int );
+      void slotReadyRead();
 
     protected:
 
-      bool    parseGreeting(const QString &);
-      void    sendHandshake();
-      bool    parseHandshake(const QString &);
-      void    sendQuery();
-      bool    parseQueryResponse(const QString &);
-      void    parseMatch(const QString &);
-      void    requestCDInfoForMatch();
-      bool    parseCDInfoResponse(const QString &);
-      void    parseCDInfoData();
-      void    read();
+      void doHandshake();
+      void doProto();
+      void doQuery();
+      void doQuit();
 
-      QString readLine();
+      bool parseQueryResponse( const QString & );
+      void requestCDInfoForMatch();
+      bool parseCDInfoResponse( const QString & );
+      void parseCDInfoData();
+
+      void read();
 
       QString stateToString() const;
 
     private:
 
-      State               state_;
-      TrackOffsetList     trackOffsetList_;
-      KIO::TransferJob *  job_;
-      QString             hostname_;
-      uint                port_;
-      QString             clientName_;
-      QString             clientVersion_;
-      bool                readOnly_;
-      QStringList         cdInfoBuffer_;
-      CDDBMatchList       matchList_;
-
-      CDInfoList  cdInfoList_;
+      State state_;
+      Result result_;
+      QStringList cdInfoBuffer_;
   };
 }
 
-#endif // KHTTP_ASYNC_HTTP_LOOKUP_H
+#endif // KCDDB_ASYNC_CDDB_LOOKUP_H
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

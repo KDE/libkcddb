@@ -19,23 +19,19 @@
 */
 
 #include <kdebug.h>
-#include <kio/job.h>
 
-#include <libkcddb/asynchttplookup.h>
+#include "asynchttplookup.h"
 
 namespace KCDDB
 {
   AsyncHTTPLookup::AsyncHTTPLookup(QObject * parent, const char * name)
-    : AsyncLookup (parent, name),
-      state_      (Idle),
-      job_        (0),
-      port_       (0)
+    : HTTPLookup (),
+      state_      (Idle)
   {
   }
 
   AsyncHTTPLookup::~AsyncHTTPLookup()
   {
-    delete job_;
   }
 
     void
@@ -48,100 +44,9 @@ namespace KCDDB
     const QString         & clientVersion
   )
   {
-    trackOffsetList_  = trackOffsetList;
-    hostname_         = hostname;
-    port_             = port;
-    clientName_       = clientName;
-    clientVersion_    = clientVersion;
-    readOnly_         = true;
-
-    state_ = WaitingForHostResolution;
-
-    kdDebug() << "Asking socket to connect to "
-      << hostname_ << ":" << port << endl;
-
-    QString query = "TODO";
-
-    job_ = KIO::get("http://" + hostname_ + ":" + QString::number(port)
-      + "/~cddb/cddb.cgi/" + query);
-
-    if (0 == job_)
-    {
-      kdDebug() << "Can't create TransferJob" << endl;
-      emit(finished(UnknownError));
-      state_ = Idle;
-      return;
-    }
-
-    connect
-      (
-        job_,
-        SIGNAL(data(KIO::Job *, const QByteArray &)),
-        SLOT(slotData(KIO::Job *, const QByteArray &))
-      );
-
-    connect
-      (
-        job_,
-        SIGNAL(dataReq(KIO::Job *, QByteArray &)),
-        SLOT(slotDataReq(KIO::Job *, QByteArray &))
-      );
-
-    connect
-      (
-        job_,
-        SIGNAL(redirection(KIO::Job *, const KURL &)),
-        SLOT(slotDataReq(KIO::Job *, const KURL &))
-      );
-
-    connect
-      (
-        job_,
-        SIGNAL(result(KIO::Job *)),
-        SLOT(slotResult(KIO::Job *))
-      );
-
-    connect
-      (
-        job_,
-        SIGNAL(canceled(KIO::Job *)),
-        SLOT(slotCancelled(KIO::Job *))
-      );
-  }
-
-    void
-  AsyncHTTPLookup::slotData(KIO::Job *, const QByteArray & data)
-  {
-    kdDebug() << k_funcinfo << endl;
-
-    QString s(data);
-
-    kdDebug() << s << endl;
-  }
-
-    void
-  AsyncHTTPLookup::slotDataReq(KIO::Job *, QByteArray &)
-  {
-    kdDebug() << k_funcinfo << endl;
-  }
-
-    void
-  AsyncHTTPLookup::slotDataReq(KIO::Job *, const KURL &)
-  {
-    kdDebug() << k_funcinfo << endl;
-  }
-
-    void
-  AsyncHTTPLookup::slotResult(KIO::Job *)
-  {
-    kdDebug() << k_funcinfo << endl;
-  }
-
-    void
-  AsyncHTTPLookup::slotCancelled(KIO::Job *)
-  {
-    kdDebug() << k_funcinfo << endl;
   }
 }
+
+#include "asynchttplookup.moc"
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

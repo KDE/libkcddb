@@ -21,21 +21,21 @@
 
 #include <kdebug.h>
 
-#include "cddblookup.h"
+#include "cddbplookup.h"
 
 namespace KCDDB
 {
-  CDDBLookup::CDDBLookup()
+  CDDBPLookup::CDDBPLookup()
     : Lookup()
   {
   }
 
-  CDDBLookup::~CDDBLookup()
+  CDDBPLookup::~CDDBPLookup()
   {
   }
 
     void
-  CDDBLookup::sendHandshake()
+  CDDBPLookup::sendHandshake()
   {
     QString handshake = QString( "cddb hello %1 %2 %3 %4" )
         .arg( user_ )
@@ -47,13 +47,13 @@ namespace KCDDB
   }
 
     void
-  CDDBLookup::sendProto()
+  CDDBPLookup::sendProto()
   {
     writeLine( "proto 5" );
   }
 
     void
-  CDDBLookup::sendQuery()
+  CDDBPLookup::sendQuery()
   {
     QString query = QString( "cddb query %1 %2" )
         .arg( trackOffsetListToId() )
@@ -63,7 +63,7 @@ namespace KCDDB
   }
 
     void
-  CDDBLookup::sendRead( const CDDBMatch & match )
+  CDDBPLookup::sendRead( const CDDBMatch & match )
   {
     QString category  = match.first;
     QString discid    = match.second;
@@ -76,13 +76,13 @@ namespace KCDDB
   }
 
     void
-  CDDBLookup::sendQuit()
+  CDDBPLookup::sendQuit()
   {
     writeLine( "quit" );
   }
 
     void
-  CDDBLookup::close()
+  CDDBPLookup::close()
   {
     kdDebug() << "Disconnect from server..." << endl;
     if ( KExtendedSocket::connected != socket_.socketStatus() )

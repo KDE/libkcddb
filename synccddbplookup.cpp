@@ -21,23 +21,23 @@
 #include <qstringlist.h>
 #include <kdebug.h>
 
-#include "synccddblookup.h"
+#include "synccddbplookup.h"
 
 namespace KCDDB
 {
-  SyncCDDBLookup::SyncCDDBLookup()
-    : CDDBLookup()
+  SyncCDDBPLookup::SyncCDDBPLookup()
+    : CDDBPLookup()
   {
     socket_.setBlockingMode(  false );
   }
 
-  SyncCDDBLookup::~SyncCDDBLookup()
+  SyncCDDBPLookup::~SyncCDDBPLookup()
   {
     // Empty.
   }
 
     Lookup::Result
-  SyncCDDBLookup::lookup
+  SyncCDDBPLookup::lookup
   (
     const QString         & hostName,
     uint                    port,
@@ -94,7 +94,7 @@ namespace KCDDB
   }
 
     Lookup::Result
-  SyncCDDBLookup::connect( const QString & hostName, uint port )
+  SyncCDDBPLookup::connect( const QString & hostName, uint port )
   {
     kdDebug() << "Trying to connect to " << hostName << ":" << port << endl;
 
@@ -114,7 +114,7 @@ namespace KCDDB
   }
 
     Lookup::Result
-  SyncCDDBLookup::shakeHands()
+  SyncCDDBPLookup::shakeHands()
   {
     QString line = readLine();
 
@@ -137,7 +137,7 @@ namespace KCDDB
   }
 
     Lookup::Result
-  SyncCDDBLookup::runQuery()
+  SyncCDDBPLookup::runQuery()
   {
     Result result;
 
@@ -165,7 +165,7 @@ namespace KCDDB
   }
 
     Lookup::Result
-  SyncCDDBLookup::matchToCDInfo( const CDDBMatch & match )
+  SyncCDDBPLookup::matchToCDInfo( const CDDBMatch & match )
   {
     sendRead( match );
 

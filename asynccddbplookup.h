@@ -18,16 +18,16 @@
   Boston, MA 02111-1307, USA.
 */
 
-#ifndef KCDDB_ASYNC_CDDB_LOOKUP_H
-#define KCDDB_ASYNC_CDDB_LOOKUP_H
+#ifndef KCDDB_ASYNC_CDDBP_LOOKUP_H
+#define KCDDB_ASYNC_CDDBP_LOOKUP_H
 
 #include <qobject.h>
 
-#include "cddblookup.h"
+#include "cddbplookup.h"
 
 namespace KCDDB
 {
-  class AsyncCDDBLookup : public QObject, public CDDBLookup 
+  class AsyncCDDBPLookup : public QObject, public CDDBPLookup 
   {
     Q_OBJECT
 
@@ -48,9 +48,9 @@ namespace KCDDB
         WaitingForQuitResponse
       };
 
-      AsyncCDDBLookup( QObject * parent = 0, const char * name = 0 );
+      AsyncCDDBPLookup( QObject * parent = 0, const char * name = 0 );
 
-      virtual ~AsyncCDDBLookup();
+      virtual ~AsyncCDDBPLookup();
 
       Result lookup( const QString &, uint, const QString &,
           const QString &, const TrackOffsetList & );
@@ -91,5 +91,5 @@ namespace KCDDB
   };
 }
 
-#endif // KCDDB_ASYNC_CDDB_LOOKUP_H
+#endif // KCDDB_ASYNC_CDDBP_LOOKUP_H
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

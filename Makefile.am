@@ -10,10 +10,10 @@ cdinfo.cpp\
 config.cpp\
 client.cpp\
 lookup.cpp\
-cddblookup.cpp\
+cddbplookup.cpp\
 submit.cpp\
-synccddblookup.cpp\
-asynccddblookup.cpp\
+synccddbplookup.cpp\
+asynccddbplookup.cpp\
 httplookup.cpp
 
 libkcddb_la_LDFLAGS = $(all_libraries) -version-info 1:0:0 -module
@@ -28,8 +28,8 @@ cdinfo.h\
 client.h\
 config.h\
 lookup.h\
-cddblookup.h\
+cddbplookup.h\
 submit.h\
-synccddblookup.h\
-asynccddblookup.h\
+synccddbplookup.h\
+asynccddbplookup.h\
 httplookup.h

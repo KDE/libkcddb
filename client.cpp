@@ -26,8 +26,8 @@
 #include <qsocket.h>
 
 #include "client.h"
-#include "synccddblookup.h"
-#include "asynccddblookup.h"
+#include "synccddbplookup.h"
+#include "asynccddbplookup.h"
 #include "cache.h"
 
 namespace KCDDB
@@ -128,7 +128,7 @@ namespace KCDDB
     {
       if ( blockingMode() )
       {
-        cdInfoLookup = new SyncCDDBLookup();
+        cdInfoLookup = new SyncCDDBPLookup();
 
         Lookup::Result r = cdInfoLookup->lookup( d->config.hostname(), 
                 d->config.port(), clientName(), clientVersion(),
@@ -144,7 +144,7 @@ namespace KCDDB
       }
       else
       {
-        cdInfoLookup = new AsyncCDDBLookup();
+        cdInfoLookup = new AsyncCDDBPLookup();
 
         Lookup::Result r = cdInfoLookup->lookup( d->config.hostname(), 
                 d->config.port(), clientName(), clientVersion(),
@@ -153,7 +153,7 @@ namespace KCDDB
         if ( Lookup::Success != r )
           return r;
 
-        connect( static_cast<AsyncCDDBLookup *>( cdInfoLookup ), 
+        connect( static_cast<AsyncCDDBPLookup *>( cdInfoLookup ), 
                   SIGNAL( finished( Lookup::Result ) ),
                   SLOT( slotFinished( Lookup::Result ) ) );
 
