@@ -257,35 +257,35 @@ namespace KCDDB
       case Submit::HTTP:
       {
         QString hostname = d->config.httpSubmitServer();
-	uint port = d->config.httpSubmitPort();
+        uint port = d->config.httpSubmitPort();
 
         if ( blockingMode() )
-	  cdInfoSubmit = new SyncHTTPSubmit(from, hostname, port);
-	else
-	{
-	  cdInfoSubmit = new AsyncHTTPSubmit(from, hostname, port);
-	  connect( static_cast<AsyncHTTPSubmit *>( cdInfoSubmit ),
-	          SIGNAL(finished( CDDB::Result ) ),
-	          SLOT( slotSubmitFinished( CDDB::Result ) ) );
-	}
-	
+          cdInfoSubmit = new SyncHTTPSubmit(from, hostname, port);
+        else
+        {
+          cdInfoSubmit = new AsyncHTTPSubmit(from, hostname, port);
+          connect( static_cast<AsyncHTTPSubmit *>( cdInfoSubmit ),
+                  SIGNAL(finished( CDDB::Result ) ),
+                  SLOT( slotSubmitFinished( CDDB::Result ) ) );
+        }
+        
         break;
       }
       case Submit::SMTP:
       {
-	QString hostname = d->config.smtpHostname();
-	uint port = d->config.smtpPort();
-	QString username = d->config.smtpUsername();
+        QString hostname = d->config.smtpHostname();
+        uint port = d->config.smtpPort();
+        QString username = d->config.smtpUsername();
 
-	if ( blockingMode() )
-	  cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
-	else
-	{
-	  cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
+        if ( blockingMode() )
+          cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
+        else
+        {
+          cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
           connect( static_cast<AsyncSMTPSubmit *>( cdInfoSubmit ),
                   SIGNAL( finished( CDDB::Result ) ),
                   SLOT( slotSubmitFinished( CDDB::Result ) ) );
-	}
+        }
         break;
       }
       default:

@@ -165,10 +165,10 @@ namespace KCDDB
           CDInfo info;
 
           if ( info.load( QString::fromUtf8(data_) ) )
-	  {
-	    info.category = category_;
+          {
+            info.category = category_;
             cdInfoList_.append( info );
-	  }
+          }
 
           if ( !block_ )
             emit readReady();
