@@ -32,10 +32,13 @@ namespace KCDDB
       CDDBLookup();
       virtual ~CDDBLookup();
 
-      QString makeHandshakeCommand();
-      QString makeProtoCommand();
-      QString makeQueryCommand();
-      QString makeReadCommand( const CDDBMatch &  );
+      void sendHandshake();
+      void sendProto();
+      void sendQuery();
+      void sendRead( const CDDBMatch &  );
+      void sendQuit();
+
+      void close();
   };
 }
 

@@ -122,6 +122,9 @@ namespace KCDDB
       title   = dtitle.mid(slashPos + 1).stripWhiteSpace();
     }
 
+    if ( genre.isEmpty() )
+      genre = "Unknown";
+
     kdDebug() << "Loaded CDInfo for " << id << endl;
 
     return true;

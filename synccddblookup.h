@@ -39,8 +39,8 @@ namespace KCDDB
 
     protected:
 
+      Result connect( const QString &, uint );
       Result shakeHands();
-
       Result runQuery();
       Result matchToCDInfo( const CDDBMatch & );
   };

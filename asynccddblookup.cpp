@@ -65,7 +65,7 @@ namespace KCDDB
 
   AsyncCDDBLookup::~AsyncCDDBLookup()
   {
-    // Empty.
+    close();
   }
 
     Lookup::Result
@@ -153,12 +153,12 @@ namespace KCDDB
 
         if (!parseGreeting(readLine()))
         {
-          emit finished( ServerError );
-          state_ = Idle;
+          result_ = ServerError;
+          doQuit();
           return;
         }
 
-        sendHandshake();
+        doHandshake();
 
         break;
 
@@ -166,20 +166,22 @@ namespace KCDDB
 
         if ( !parseHandshake( readLine() ) )
         {
-          emit finished( ServerError );
-          state_ = Idle;
+          result_ = ServerError;
+          doQuit();
           return;
         }
 
-        sendProto();
+        doProto();
 
         break;
 
       case WaitingForProtoResponse:
 
-        // Ignore the result for now
+        // Ignore the response for now
         readLine();
-        sendQuery();
+
+        doQuery();
+
         break;
 
       case WaitingForQueryResponse:
@@ -197,8 +199,8 @@ namespace KCDDB
               break;
 
             default: // Error :(
-              emit finished( result );
-              state_ = Idle;
+              result_ = result;
+              doQuit();
               return;
           }
         }
@@ -223,8 +225,8 @@ namespace KCDDB
 
           if ( Success != result )
           {
-            emit finished( result );
-            state_ = Idle;
+            result_ = result;
+            doQuit();
             return;
           }
 
@@ -254,28 +256,25 @@ namespace KCDDB
   }
 
     void
-  AsyncCDDBLookup::sendHandshake()
+  AsyncCDDBLookup::doHandshake()
   {
-    QString line = makeHandshakeCommand();
-    writeLine( line );
+    sendHandshake();
 
     state_ = WaitingForHandshake;
   }
 
     void
-  AsyncCDDBLookup::sendProto()
+  AsyncCDDBLookup::doProto()
   {
-    QString line = makeProtoCommand();
-    writeLine( line );
+    sendProto();
 
     state_ = WaitingForProtoResponse;
   }
 
     void
-  AsyncCDDBLookup::sendQuery()
+  AsyncCDDBLookup::doQuery()
   {
-    QString line = makeQueryCommand();
-    writeLine( line );
+    sendQuery();
 
     state_ = WaitingForQueryResponse;
   }
@@ -285,21 +284,15 @@ namespace KCDDB
   {
     if (matchList_.isEmpty())
     {
-      if ( cdInfoList_.isEmpty() )
-        emit finished( NoRecordFound  );
-      else
-        emit finished( Success );
-
-      state_ = Idle;
-
+      result_ = cdInfoList_.isEmpty()? NoRecordFound : Success;
+      doQuit();
       return;
     }
 
     CDDBMatch match = matchList_.first();
     matchList_.remove( match );
 
-    QString line = makeReadCommand( match );
-    writeLine( line );
+    sendRead( match );
 
     state_ = WaitingForCDInfoResponse;
   }
@@ -313,6 +306,16 @@ namespace KCDDB
       cdInfoList_.append( info );
 
     cdInfoBuffer_.clear();
+  }
+
+    void
+  AsyncCDDBLookup::doQuit()
+  {
+    state_ = Idle;
+
+    sendQuit();
+
+    emit finished( result_ );
   }
 
     QString
@@ -354,6 +357,10 @@ namespace KCDDB
 
       case WaitingForCDInfoData:
         return "WaitingForCDInfoData";
+        break;
+
+      case WaitingForQuitResponse:
+        return "WaitingForQuitResponse";
         break;
 
       default:

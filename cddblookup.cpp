@@ -19,6 +19,8 @@
   Boston, MA 02111-1307, USA.
 */
 
+#include <kdebug.h>
+
 #include "cddblookup.h"
 
 namespace KCDDB
@@ -32,8 +34,8 @@ namespace KCDDB
   {
   }
 
-    QString
-  CDDBLookup::makeHandshakeCommand()
+    void
+  CDDBLookup::sendHandshake()
   {
     QString handshake = QString( "cddb hello %1 %2 %3 %4" )
         .arg( user_ )
@@ -41,27 +43,27 @@ namespace KCDDB
         .arg( clientName_ )
         .arg( clientVersion_ );
 
-    return handshake;
+    writeLine( handshake );
   }
 
-    QString
-  CDDBLookup::makeProtoCommand()
+    void
+  CDDBLookup::sendProto()
   {
-    return "proto 5";
+    writeLine( "proto 5" );
   }
 
-    QString
-  CDDBLookup::makeQueryCommand()
+    void
+  CDDBLookup::sendQuery()
   {
     QString query = QString( "cddb query %1 %2" )
         .arg( trackOffsetListToId() )
         .arg( trackOffsetListToString() );
 
-    return query;
+    writeLine( query );
   }
 
-    QString
-  CDDBLookup::makeReadCommand( const CDDBMatch & match )
+    void
+  CDDBLookup::sendRead( const CDDBMatch & match )
   {
     QString category  = match.first;
     QString discid    = match.second;
@@ -70,8 +72,26 @@ namespace KCDDB
         .arg( category )
         .arg( discid );
 
-    return readRequest;
+    writeLine( readRequest );
   }
+
+    void
+  CDDBLookup::sendQuit()
+  {
+    writeLine( "quit" );
+  }
+
+    void
+  CDDBLookup::close()
+  {
+    kdDebug() << "Disconnect from server..." << endl;
+    if ( KExtendedSocket::connected != socket_.socketStatus() )
+    {
+      socket_.flush();
+      socket_.closeNow();
+    }
+  }
+
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

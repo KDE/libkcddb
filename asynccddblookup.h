@@ -44,7 +44,8 @@ namespace KCDDB
         WaitingForQueryResponse,
         WaitingForMoreMatches,
         WaitingForCDInfoResponse,
-        WaitingForCDInfoData
+        WaitingForCDInfoData,
+        WaitingForQuitResponse
       };
 
       AsyncCDDBLookup( QObject * parent = 0, const char * name = 0 );
@@ -57,6 +58,7 @@ namespace KCDDB
     signals:
 
       void finished( Lookup::Result );
+      void quit( Lookup::Result );
 
     protected slots:
 
@@ -67,13 +69,16 @@ namespace KCDDB
 
     protected:
 
-      void sendHandshake();
-      void sendProto();
-      void sendQuery();
+      void doHandshake();
+      void doProto();
+      void doQuery();
+      void doQuit();
+
       bool parseQueryResponse( const QString & );
       void requestCDInfoForMatch();
       bool parseCDInfoResponse( const QString & );
       void parseCDInfoData();
+
       void read();
 
       QString stateToString() const;
@@ -81,6 +86,7 @@ namespace KCDDB
     private:
 
       State state_;
+      Result result_;
       QStringList cdInfoBuffer_;
   };
 }

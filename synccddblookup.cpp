@@ -56,7 +56,7 @@ namespace KCDDB
     Result result;
 
     // Connect to server.
-    result = syncConnect( hostName, port );
+    result = connect( hostName, port );
     if ( Success != result )
       return result;
 
@@ -86,8 +86,30 @@ namespace KCDDB
       ++matchIt;
     }
 
-    disconnect();
+    sendQuit();
 
+    close();
+
+    return Success;
+  }
+
+    Lookup::Result
+  SyncCDDBLookup::connect( const QString & hostName, uint port )
+  {
+    kdDebug() << "Trying to connect to " << hostName << ":" << port << endl;
+
+    if (    !socket_.setAddress(    hostName, port ) )
+      return UnknownError;
+
+    socket_.setTimeout(    30 );
+
+    if (    0 != socket_.lookup() )
+      return HostNotFound;
+
+    if (    0 != socket_.connect() )
+      return NoResponse;
+
+    kdDebug() << "Connected" << endl;
     return Success;
   }
 
@@ -99,19 +121,17 @@ namespace KCDDB
     if ( !parseGreeting( line ) )
       return ServerError;
 
-    line = makeHandshakeCommand();
-    writeLine( line );
+    sendHandshake();
 
     line = readLine();
 
     if ( !parseHandshake( line ) )
       return ServerError;
 
-    line = makeProtoCommand();
-    writeLine( line );
+    sendProto();
 
-    // Ignore the result for now
-    line = readLine();
+    // Ignore the response for now
+    readLine();
 
     return Success;
   }
@@ -121,10 +141,9 @@ namespace KCDDB
   {
     Result result;
 
-    QString line = makeQueryCommand();
-    writeLine( line );
+    sendQuery();
 
-    line = readLine();
+    QString line = readLine();
     result = parseQuery( line );
 
     if ( ServerError == result )
@@ -148,10 +167,9 @@ namespace KCDDB
     Lookup::Result
   SyncCDDBLookup::matchToCDInfo( const CDDBMatch & match )
   {
-    QString line = makeReadCommand( match );
-    writeLine( line );
+    sendRead( match );
 
-    line = readLine();
+    QString line = readLine();
 
     Result result = parseRead( line );
     if ( Success != result )
