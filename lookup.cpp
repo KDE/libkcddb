@@ -19,7 +19,10 @@
   Boston, MA 02111-1307, USA.
 */
 
+#include <qregexp.h>
+
 #include <kdebug.h>
+#include <kstringhandler.h>
 
 #include "lookup.h"
 
@@ -96,32 +99,6 @@ namespace KCDDB
     return ret;
   }
 
-    QString
-  Lookup::makeCDDBHandshake()
-  {
-    QString handshake = "cddb hello ";
-    handshake += "libkcddb-user";
-    handshake += " ";
-    handshake += "localhost"; // FIXME
-    handshake += " ";
-    handshake += clientName_;
-    handshake += " ";
-    handshake += clientVersion_;
-
-    return handshake;
-  }
-
-   QString
-  Lookup::makeCDDBQuery(TrackOffsetList & trackOffsetList)
-  {
-    QString query = "cddb query ";
-    query += trackOffsetListToId( trackOffsetList );
-    query += " ";
-    query += trackOffsetListToString( trackOffsetList );
-
-    return query;
-  }
-
     bool
   Lookup::parseGreeting( const QString & line )
   {
@@ -166,7 +143,7 @@ namespace KCDDB
   }
 
      bool
-  Lookup::parseCDDBQuery( const QString & line, uint *status )
+  Lookup::parseQuery( const QString & line, uint *status )
   {
     QStringList tokenList = QStringList::split( ' ', line );
 
@@ -193,6 +170,71 @@ namespace KCDDB
   {
     QStringList tokenList = QStringList::split( ' ', line );
     matchList_.append( qMakePair( tokenList[ 0 ], tokenList[ 1 ] ) );
+  }
+
+    CDInfo
+  Lookup::parseCDInfo( const QStringList & lineList )
+  {
+    CDInfo info;
+
+    QStringList::ConstIterator it;
+
+    for ( it = lineList.begin(); it != lineList.end(); ++it )
+    {
+      QString line( *it );
+
+      QStringList tokenList = KStringHandler::perlSplit( '=', line, 2 );
+
+      if ( 2 != tokenList.count() )
+        continue;
+
+      QString key   = tokenList[ 0 ];
+      QString value = tokenList[ 1 ];
+
+      value.replace( QRegExp( "\\n" ), "\n" );
+      value.replace( QRegExp( "\\t" ), "\t" );
+      value.replace( QRegExp( "\\\\" ), "\\");
+
+      if ( "DTITLE" == key )
+      {
+        int slashPos = value.find( '/' );
+
+        if ( -1 == slashPos )
+        {
+          // Use string for title _and_ artist.
+          info.artist = info.title = value.stripWhiteSpace();
+        }
+        else
+        {
+          info.artist  = value.left( slashPos ).stripWhiteSpace();
+          info.title   = value.mid( slashPos + 1 ).stripWhiteSpace();
+        }
+      }
+      else if ( "DYEAR" == key )
+      {
+        info.year = value.toUInt();
+      }
+      else if ( "DGENRE" == key )
+      {
+        info.genre = value.stripWhiteSpace();
+      }
+      else if ( "TTITLE" == key.left( 6 ) )
+      {
+        uint trackNumber = key.mid( 6 ).toUInt();
+
+        TrackInfo trackInfo;
+        trackInfo.title = value.stripWhiteSpace();
+
+        while ( info.trackInfoList.size() < trackNumber + 1 )
+        {
+          info.trackInfoList.append( TrackInfo() );
+        }
+
+        info.trackInfoList[ trackNumber ] = trackInfo;
+      }
+    }
+
+    return info;
   }
 
     QString

@@ -78,6 +78,7 @@ namespace KCDDB
     Lookup::Result
   Client::lookup(const TrackOffsetList & trackOffsetList)
   {
+/*
     // Get the cddb id from trackOffsetList.
 
     d->cddbId = trackOffsetListToId(trackOffsetList);
@@ -138,6 +139,7 @@ namespace KCDDB
         return Lookup::UnknownError;
         break;
     }
+*/
   }
 
     Submit::Result

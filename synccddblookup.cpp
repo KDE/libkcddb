@@ -55,6 +55,7 @@ namespace KCDDB
     const QString         & clientVersion
   )
   {
+/*
     clientName_     = clientName;
     clientVersion_  = clientVersion;
 
@@ -115,13 +116,14 @@ namespace KCDDB
     writeLine(socket_, "quit");
 
     socket_.close();
-
+*/
     return Lookup::Success;
   }
 
     bool
   SyncCDDBLookup::serverWelcomeOk()
   {
+/*
     QString line = readLine(socket_);
 
     QStringList tokenList = QStringList::split(' ', line);
@@ -141,13 +143,14 @@ namespace KCDDB
       kdDebug() << "Server response: bugger off" << endl;
       return false;
     }
-
+*/
     return true;
   }
 
     bool
   SyncCDDBLookup::shakeHands()
   {
+/*
     QString handshake = "cddb hello ";
     handshake += user_;
     handshake += " ";
@@ -172,7 +175,7 @@ namespace KCDDB
     }
 
     kdDebug() << "Handshake successful" << endl;
-
+*/
     return true;
   }
 
@@ -180,7 +183,7 @@ namespace KCDDB
   SyncCDDBLookup::runQuery(const TrackOffsetList & offsetList)
   {
     CDDBMatchList matchList;
-
+/*
     QString query = "cddb query ";
     query += trackOffsetListToId(offsetList);
     query += " ";
@@ -231,7 +234,7 @@ namespace KCDDB
     {
       kdDebug() << "Server said error" << endl;
     }
-
+*/
     return matchList;
   }
 
@@ -251,6 +254,7 @@ namespace KCDDB
     bool
   SyncCDDBLookup::getMatchToCDInfoList(const CDDBMatch & match)
   {
+/*
     QString category  = match.first;
     QString discid    = match.second;
 
@@ -289,7 +293,7 @@ namespace KCDDB
 
     if (info.load(lineList))
       cdInfoList_.append(info);
-
+*/
     return true;
   }
 }

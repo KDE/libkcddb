@@ -37,14 +37,6 @@ namespace KCDDB
       AsyncLookup(QObject * parent = 0, const char * name = 0);
       virtual ~AsyncLookup();
 
-      virtual void lookup
-      (
-        const TrackOffsetList & trackOffsetList,
-        const QString         & hostname,
-        uint                    port,
-        const QString         & clientName,
-        const QString         & clientVersion
-      ) = 0;
   };
 }
 

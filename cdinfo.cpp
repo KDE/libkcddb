@@ -20,10 +20,17 @@
 
 #include <kdebug.h>
 #include <kstringhandler.h>
-#include "cdinfo.h"
+
+#include <libkcddb/cdinfo.h>
 
 namespace KCDDB
 {
+  TrackInfo::TrackInfo()
+    : offsetKnown( false ),
+      offset( 0 )
+  {
+  }
+
   CDInfo::CDInfo()
     : year(0),
       length(0)

@@ -77,17 +77,15 @@ namespace KCDDB
 
     protected:
 
-      QString makeCDDBHandshake();
-      QString makeCDDBQuery(TrackOffsetList &);
-      QString makeCDDBRead();
-
       QString readLine();
       void writeLine( const QString & );
 
       bool parseGreeting( const QString& );
-      bool parseCDDBQuery( const QString&, uint* );
-      void parseExtraMatch( const QString& );
       bool parseHandshake( const QString& );
+      void parseExtraMatch( const QString& );
+      bool parseQuery( const QString&, uint* );
+      CDInfo parseCDInfo( const QStringList& );
+
       QString trackOffsetListToString( const TrackOffsetList& );
       QString trackOffsetListToId( const TrackOffsetList& );
  

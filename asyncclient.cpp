@@ -75,6 +75,7 @@ namespace KCDDB
     void
   AsyncClient::lookup(const TrackOffsetList & trackOffsetList)
   {
+/*
     if (0 != d->helper)
     {
       kdDebug() << k_funcinfo << "Already running" << endl;
@@ -117,11 +118,13 @@ namespace KCDDB
     // Do the actual lookup.
 
     lookupWithHelper(trackOffsetList);
+*/
   }
 
     void
   AsyncClient::lookupWithHelper(const TrackOffsetList & trackOffsetList)
   {
+/*
     AsyncLookup * helper = 0;
 
     switch (d->config.lookupTransport())
@@ -158,6 +161,7 @@ namespace KCDDB
         d->config.clientName(),
         d->config.clientVersion()
       );
+*/
   }
 
     void

@@ -22,11 +22,23 @@
 #define KCDDB_CDINFO_H
 
 #include <qstringlist.h>
-
-#include <libkcddb/trackinfolist.h>
+#include <qvaluelist.h>
 
 namespace KCDDB
 {
+  class TrackInfo
+  {
+    public:
+
+      TrackInfo();
+
+      bool    offsetKnown;
+      uint    offset;
+      QString title;
+  };
+
+  typedef QValueList<TrackInfo> TrackInfoList;
+
   class CDInfo
   {
     public:
