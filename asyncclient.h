@@ -26,6 +26,7 @@
 #include <libkcddb/defines.h>
 #include <libkcddb/config.h>
 #include <libkcddb/lookup.h>
+#include <libkcddb/cdinfo.h>
 
 namespace KCDDB
 {
@@ -57,7 +58,7 @@ namespace KCDDB
       void submitComplete();
 
       void result
-        (Lookup::Result, const QValueList<CDInfo> & = QValueList<CDInfo>());
+        (Lookup::Result, const CDInfoList & = CDInfoList());
 
     protected:
 
@@ -65,7 +66,7 @@ namespace KCDDB
 
     protected slots:
 
-      void slotLookupFinished(Lookup::Result, const QValueList<CDInfo> &);
+      void slotLookupFinished(Lookup::Result, const CDInfoList &);
 
     private:
 

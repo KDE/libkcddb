@@ -46,12 +46,12 @@ main(int argc, char ** argv)
   std::cerr << "Client::lookup returned error: " << errorToString(e)
     << std::endl;
 
-  QValueList<CDInfo> response = c.lookupResponse();
+  CDInfoList response = c.lookupResponse();
 
   std::cerr << "Client::lookup returned : " << response.count() << " entries"
     << std::endl;
 
-  QValueList<CDInfo>::ConstIterator it;
+  CDInfoList::ConstIterator it;
 
   for (it = response.begin(); it != response.end(); ++it)
   {

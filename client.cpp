@@ -37,7 +37,7 @@ namespace KCDDB
 
       Config config;
 
-      QValueList<CDInfo> cdInfoList;
+      CDInfoList cdInfoList;
 
       QString            cddbId;
 
@@ -69,7 +69,7 @@ namespace KCDDB
     return d->config;
   }
 
-    QValueList<CDInfo>
+    CDInfoList
   Client::lookupResponse() const
   {
     return d->cdInfoList;

@@ -381,7 +381,10 @@ namespace KCDDB
     void
   AsyncCDDBLookup::parseCDInfoData()
   {
-    cdInfoList_.append(parseStringListToCDInfo(cdInfoBuffer_));
+    CDInfo info;
+
+    if (info.load(cdInfoBuffer_))
+      cdInfoList_.append(info);
   }
 
     void

@@ -32,46 +32,8 @@ namespace KCDDB
 {
   typedef QValueList<uint> TrackOffsetList;
 
-  class TrackInfo
-  {
-    public:
-
-      TrackInfo()
-        : offsetKnown(false),
-          offset(0)
-      {
-      }
-
-      bool    offsetKnown;
-      uint    offset;
-      QString title;
-  };
-
-  typedef QValueList<TrackInfo> TrackInfoList; 
-
-  class CDInfo
-  {
-    public:
-
-      CDInfo()
-        : year(0),
-          length(0)
-      {
-      }
-
-      QString       artist;
-      QString       title;
-      QString       genre;
-      uint          year;
-      uint          length;
-      QString       id;
-      TrackInfoList trackInfoList;
-  };
-
   QString trackOffsetListToId     (const TrackOffsetList &);
   QString trackOffsetListToString (const TrackOffsetList &);
-
-  CDInfo parseStringListToCDInfo(const QStringList &);
 
   typedef QPair<QString, QString> CDDBMatch;
   typedef QValueList<CDDBMatch> CDDBMatchList;

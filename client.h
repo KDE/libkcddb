@@ -25,6 +25,7 @@
 #include <libkcddb/config.h>
 #include <libkcddb/lookup.h>
 #include <libkcddb/submit.h>
+#include <libkcddb/cdinfo.h>
 
 namespace KCDDB
 {
@@ -46,7 +47,7 @@ namespace KCDDB
 
       Config config() const;
 
-      QValueList<CDInfo> lookupResponse() const;
+      CDInfoList lookupResponse() const;
 
       Lookup::Result lookup(const TrackOffsetList &);
       Submit::Result submit(const CDInfo &);

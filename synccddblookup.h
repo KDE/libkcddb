@@ -25,6 +25,7 @@
 
 #include <libkcddb/defines.h>
 #include <libkcddb/config.h>
+#include <libkcddb/cdinfo.h>
 #include <libkcddb/synclookup.h>
 
 namespace KCDDB
@@ -37,7 +38,7 @@ namespace KCDDB
 
       virtual ~SyncCDDBLookup();
 
-      virtual QValueList<CDInfo> lookupResponse() const;
+      virtual CDInfoList lookupResponse() const;
 
       Result lookup
         (
@@ -64,7 +65,7 @@ namespace KCDDB
       QString clientName_;
       QString clientVersion_;
 
-      QValueList<CDInfo> cdInfoList_;
+      CDInfoList cdInfoList_;
   };
 }
 

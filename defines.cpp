@@ -19,7 +19,6 @@
 */
 
 #include <kdebug.h>
-#include <kstringhandler.h>
 #include <kextendedsocket.h>
 
 #include <libkcddb/defines.h>
@@ -93,82 +92,6 @@ namespace KCDDB
 
     // Disc length in seconds.
     ret.append(QString::number(discLengthInSeconds));
-
-    return ret;
-  }
-
-    CDInfo
-  parseStringListToCDInfo(const QStringList & lineList)
-  {
-    CDInfo ret;
-
-    QStringList::ConstIterator it;
-      
-    for (it = lineList.begin(); it != lineList.end(); ++it)
-    {
-      QString line(*it);
-
-      QStringList tokenList = KStringHandler::perlSplit('=', line, 2);
-
-      if (2 != tokenList.count())
-        continue;
-
-      QString key   = tokenList[0];
-      QString value = tokenList[1];
-
-      kdDebug() << "Useful line. Key == `" << key << "'" << endl;
-
-      value.replace(QRegExp("\\n"), "\n");
-      value.replace(QRegExp("\\t"), "\t");
-      value.replace(QRegExp("\\\\"), "\\");
-
-      if ('D' == key[0])
-      {
-        if ("DTITLE" == key)
-        {
-          int slashPos = value.find('/');
-
-          if (-1 == slashPos)
-          {
-            // Use string for title _and_ artist.
-            ret.artist = ret.title = value.stripWhiteSpace();
-          }
-          else
-          {
-            ret.artist  = value.left(slashPos).stripWhiteSpace();
-            ret.title   = value.mid(slashPos + 1).stripWhiteSpace();
-          }
-        }
-        else if ("DYEAR" == key)
-        {
-          ret.year = value.toUInt();
-        }
-        else if ("DGENRE" == key)
-        {
-          ret.genre = value;
-        }
-      }
-      else if ("TTITLE" == key.left(6))
-      {
-        uint trackNumber = key.mid(6).toUInt();
-
-        if (trackNumber > 200)
-        {
-          kdDebug() << "Track number out of sensible range." << endl;
-          continue;
-        }
-
-        TrackInfo trackInfo;
-        trackInfo.title = value.stripWhiteSpace();
-
-        while (ret.trackInfoList.size() < trackNumber + 1)
-        {
-          ret.trackInfoList.append(TrackInfo());
-        }
-
-        ret.trackInfoList[trackNumber] = trackInfo;
-      }
-    }
 
     return ret;
   }

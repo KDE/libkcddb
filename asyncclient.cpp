@@ -36,7 +36,7 @@ namespace KCDDB
 
       QString               cddbId;
       Config                config;
-      QValueList<CDInfo>    cdInfoList;
+      CDInfoList    cdInfoList;
       QObject             * helper;
   };
 
@@ -172,7 +172,7 @@ namespace KCDDB
   AsyncClient::slotLookupFinished
   (
     Lookup::Result resultCode,
-    const QValueList<CDInfo> & l
+    const CDInfoList & l
   )
   {
     emit(result(resultCode, l));

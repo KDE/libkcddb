@@ -25,6 +25,7 @@
 
 #include <libkcddb/defines.h>
 #include <libkcddb/asynclookup.h>
+#include <libkcddb/cdinfo.h>
 
 namespace KIO
 {
@@ -71,7 +72,7 @@ namespace KCDDB
       void finished
         (
           Lookup::Result,
-          const QValueList<CDInfo> & = QValueList<CDInfo>()
+          const CDInfoList & = CDInfoList()
         );
 
     protected slots:
@@ -112,7 +113,7 @@ namespace KCDDB
       QStringList         cdInfoBuffer_;
       CDDBMatchList       matchList_;
 
-      QValueList<CDInfo>  cdInfoList_;
+      CDInfoList  cdInfoList_;
   };
 }
 

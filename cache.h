@@ -26,7 +26,8 @@
 #include <qstringlist.h>
 #include <qvaluelist.h>
 
-#include "defines.h"
+#include <libkcddb/defines.h>
+#include <libkcddb/cdinfo.h>
 
 namespace KCDDB
 {
@@ -41,7 +42,7 @@ namespace KCDDB
         Ignore
       };
 
-      static QValueList<CDInfo> lookup(const TrackOffsetList &);
+      static CDInfoList lookup(const TrackOffsetList &);
   };
 }
 

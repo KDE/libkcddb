@@ -39,7 +39,7 @@ namespace KCDDB
     // Empty.
   }
 
-    QValueList<CDInfo>
+    CDInfoList
   SyncCDDBLookup::lookupResponse() const
   {
     return cdInfoList_;
@@ -285,7 +285,10 @@ namespace KCDDB
       line = readLine(socket_);
     }
 
-    cdInfoList_.append(parseStringListToCDInfo(lineList));
+    CDInfo info;
+
+    if (info.load(lineList))
+      cdInfoList_.append(info);
 
     return true;
   }

@@ -26,6 +26,7 @@
 #include <qsocket.h>
 
 #include <libkcddb/defines.h>
+#include <libkcddb/cdinfo.h>
 #include <libkcddb/config.h>
 #include <libkcddb/asynclookup.h>
 
@@ -92,7 +93,7 @@ namespace KCDDB
       void finished
         (
           Lookup::Result,
-          const QValueList<CDInfo> & = QValueList<CDInfo>()
+          const CDInfoList & = CDInfoList()
         );
 
     private:
@@ -108,7 +109,7 @@ namespace KCDDB
       QStringList     cdInfoBuffer_;
       CDDBMatchList   matchList_;
 
-      QValueList<CDInfo>  cdInfoList_;
+      CDInfoList  cdInfoList_;
   };
 }
 

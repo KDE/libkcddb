@@ -22,11 +22,11 @@
 
 namespace KCDDB
 {
-    QValueList<CDInfo>
+    CDInfoList
   Cache::lookup(const TrackOffsetList &)
   {
     qDebug("Cache::lookup: STUB");
-    return QValueList<CDInfo>();
+    return CDInfoList();
   }
 }
 

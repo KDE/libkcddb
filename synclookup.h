@@ -23,6 +23,7 @@
 
 #include <libkcddb/defines.h>
 #include <libkcddb/lookup.h>
+#include <libkcddb/cdinfo.h>
 
 namespace KCDDB
 {
@@ -33,7 +34,7 @@ namespace KCDDB
       SyncLookup();
       virtual ~SyncLookup();
 
-      virtual QValueList<CDInfo> lookupResponse() const = 0;
+      virtual CDInfoList lookupResponse() const = 0;
 
       virtual Result lookup
         (
