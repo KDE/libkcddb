@@ -13,7 +13,7 @@ AsyncHTTPLookupTest::AsyncHTTPLookupTest()
 
   config.setHostname("freedb.freedb.org");
   config.setPort(80);
-  config.setCachePolicy(Cache::Use);
+  config.setCachePolicy(Cache::Ignore);
   config.setLookupTransport(CDDB::HTTP);
 
   client_ = new Client(config);
