@@ -65,10 +65,8 @@ namespace KCDDB
       }
     }
 
-    unsigned int l = list[ numTracks + 1 ];
-
-    l -= list[ numTracks ];
-    l /= 75;
+    unsigned int l = (list[numTracks + 1] + 1) / 75;
+    l -= list[numTracks] / 75;
 
     id = ( ( id % 255 ) << 24 ) | ( l << 8 ) | numTracks;
 
