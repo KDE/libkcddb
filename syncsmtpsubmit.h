@@ -1,7 +1,7 @@
 #ifndef SYNCSMTPSUBMIT_H
 #define SYNCSMTPSUBMIT_H
 /*
-  Copyright (C) 2003 Richard L‰rk‰ng <nouseforaname@home.se>
+  Copyright (C) 2003 Richard L√§rk√§ng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public

@@ -36,7 +36,7 @@ Utf8AsyncSubmitTest::Utf8AsyncSubmitTest()
   cdInfo.year   = 2001;
   cdInfo.category = "misc";
   cdInfo.genre  = "Barnsaga";
-  cdInfo.extd = "Berättare: Olof Thunberg";
+  cdInfo.extd = QString::fromUtf8("BerÃ¤ttare: Olof Thunberg");
 
   TrackInfo info;
   info.title = "Bamses signaturmelodi";
@@ -47,7 +47,7 @@ Utf8AsyncSubmitTest::Utf8AsyncSubmitTest()
   cdInfo.trackInfoList.append(info);
   info.title = "*";
   cdInfo.trackInfoList.append(info);
-  info.title = "Jätteödlan Bronto";
+  info.title = QString::fromUtf8("JÃ¤tteÃ¶dlan Bronto");
   cdInfo.trackInfoList.append(info);
 
   client_->setBlockingMode( false );

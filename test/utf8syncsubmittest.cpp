@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2003 Richard L‰rk‰ng <nouseforaname@home.se>
+  Copyright (C) 2003 Richard L√§rk√§ng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -54,7 +54,7 @@ main(int argc, char ** argv)
   cdInfo.year   = 2001;
   cdInfo.category = "misc";
   cdInfo.genre  = "Barnsaga";
-  cdInfo.extd = "Ber‰ttare: Olof Thunberg";
+  cdInfo.extd = QString::fromUtf8("Ber√§ttare: Olof Thunberg");
 
   TrackInfo info;
   info.title = "Bamses signaturmelodi";
@@ -65,7 +65,7 @@ main(int argc, char ** argv)
   cdInfo.trackInfoList.append(info);
   info.title = "*";
   cdInfo.trackInfoList.append(info);
-  info.title = "J‰tteˆdlan Bronto";
+  info.title = QString::fromUtf8("J√§tte√∂dlan Bronto");
   cdInfo.trackInfoList.append(info);
 
   Client c;
