@@ -75,7 +75,6 @@ namespace KCDDB
 
       bool parseGreeting( const QString & );
       bool parseHandshake( const QString & );
-      Result parseWrite( const QString & );
 
       uint statusCode( const QString & );
 

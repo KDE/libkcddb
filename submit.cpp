@@ -23,6 +23,7 @@
 namespace KCDDB
 {
   Submit::Submit()
+    : CDDB()
   {
     // Empty.
   }
@@ -32,62 +33,17 @@ namespace KCDDB
     // Empty.
   }
 
-    QString
-  Submit::resultToString(Result r)
+    CDDB::Result
+  Submit::parseWrite(  const QString & line )
   {
-    switch (r)
-    {
-      case Success:
-        return "Success";
-        break;
+    uint serverStatus = statusCode(  line );
 
-      case HostNotFound:
-        return "HostNotFound";
-        break;
+    if (   320 != serverStatus )
+      return ServerError;
 
-      case NoResponse:
-        return "NoResponse";
-        break;
-
-      case CannotSave:
-        return "CannotSave";
-        break;
-
-      default:
-        return "UnknownError";
-        break;
-    }
+    return Success;
   }
 
-    Submit::Transport
-  Submit::stringToTransport(const QString & s)
-  {
-    if ("Local" == s)
-      return Local;
-    if ("HTTP" == s)
-      return HTTP;
-    else
-      return CDDB;
-  }
-
-    QString
-  Submit::transportToString(Submit::Transport t)
-  {
-    switch (t)
-    {
-      case Local:
-        return "Local";
-        break;
-
-      case HTTP:
-        return "HTTP";
-        break;
-
-      default:
-        return "CDDB";
-        break;
-    }
-  }
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

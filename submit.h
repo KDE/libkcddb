@@ -31,7 +31,12 @@ namespace KCDDB
       Submit();
       virtual ~Submit();
 
-      Result submit( const CDInfo & );
+      virtual Result submit( const CDInfo & ) = 0;
+
+    protected:
+
+      Result parseWrite(  const QString & );
+
   };
 }
 

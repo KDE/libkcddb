@@ -138,17 +138,6 @@ namespace KCDDB
     return true;
   }
 
-    CDDB::Result
-  CDDB::parseWrite( const QString & line )
-  {
-    uint serverStatus = statusCode( line );
-
-    if (  320 != serverStatus )
-      return ServerError;
-
-    return Success;
-  }
-
     QString
   CDDB::readLine()
   {
