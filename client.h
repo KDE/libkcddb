@@ -21,11 +21,16 @@
 #ifndef KCDDB_CLIENT_H
 #define KCDDB_CLIENT_H
 
+#include <qtl.h>
+
 #include <libkcddb/defines.h>
 #include <libkcddb/config.h>
 
 namespace KCDDB
 {
+  typedef QPair<QString, QString> CDDBMatch;
+  typedef QValueList<CDDBMatch> CDDBMatchList;
+
   class Client
   {
     public:
@@ -56,6 +61,13 @@ namespace KCDDB
 
       QString readLine();
       void    writeLine(const QString &);
+
+      bool cddbServerWelcomeOk();
+      bool cddbShakeHands();
+
+      CDDBMatchList cddbRunQuery(const TrackOffsetList &);
+      bool          cddbGetMatchesToCDInfoList(const CDDBMatchList &);
+      bool          cddbGetMatchToCDInfoList(const CDDBMatch &);
 
     private:
 
