@@ -18,57 +18,71 @@
   Boston, MA 02111-1307, USA.
 */
 
-#ifndef KCDDB_ASYNC_CLIENT_H
-#define KCDDB_ASYNC_CLIENT_H
+#ifndef KCDDB_ASYNC_CDDB_LOOKUP_H
+#define KCDDB_ASYNC_CDDB_LOOKUP_H
 
 #include <qobject.h>
+
+#include <kextsock.h>
 
 #include <libkcddb/defines.h>
 #include <libkcddb/config.h>
 
 namespace KCDDB
 {
-  class AsyncClient : public QObject
+  class AsyncCDDBLookup : public QObject
   {
     Q_OBJECT
 
     public:
 
-      /**
-       * Uses settings read from config.
-       */
-      AsyncClient(QObject * parent = 0, const char * name = 0);
+      enum State
+      {
+        Idle,
+        WaitingForHostResolution,
+        WaitingForConnection,
+        WaitingForGreeting,
+        WaitingForHandshake,
+        WaitingForMatchList,
+        WaitingForMatch
+      };
 
-      /**
-       * Use custom settings.
-       */
-      AsyncClient(const Config &, QObject * parent = 0, const char * name = 0);
+      AsyncCDDBLookup(QObject * parent = 0, const char * name = 0);
 
-      virtual ~AsyncClient();
+      virtual ~AsyncCDDBLookup();
 
-      Config config() const;
-
-      QValueList<CDInfo> lookupResponse() const;
-
-      void lookup(const TrackOffsetList &);
-      void submit(const CDInfo &);
+      void lookup
+        (
+          const TrackOffsetList &,
+          const QString         & hostname,
+          uint                    port,
+          const QString         & clientName,
+          const QString         & clientVersion
+        );
 
     signals:
 
-      void submitComplete();
       void lookupResponseReady(const QValueList<CDInfo> &);
       void error(Error);
 
-    protected:
+    protected slots:
 
-      void lookupWithHelper(const TrackOffsetList &);
+      void slotLookupFinished(int hostCount);
+      void slotConnectionSuccess();
+      void slotConnectionFailed(int error);
+      void slotReadyRead();
 
     private:
 
-      class Private;
-      Private * d;
+      State           state_;
+      TrackOffsetList trackOffsetList_;
+      KExtendedSocket socket_;
+      QString         hostname_;
+      uint            port_;
+      QString         clientName_;
+      QString         clientVersion_;
   };
 }
 
-#endif // KCDDB_ASYNC_CLIENT_H
+#endif // KCDDB_ASYNC_CDDB_LOOKUP_H
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1
