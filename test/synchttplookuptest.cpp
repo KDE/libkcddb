@@ -76,7 +76,7 @@ main(int argc, char ** argv)
     kdDebug() << "Disc revision: `" << i.revision << "'" << endl;
   }
   
-  CDInfo i( client_->bestLookupResponse() );
+  CDInfo i( c.bestLookupResponse() );
 
   kdDebug() << "Best CDInfo had title: " << i.title << endl;
   kdDebug() << "and revision: " << i.revision << endl;
