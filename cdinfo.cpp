@@ -113,8 +113,22 @@ namespace KCDDB
     QString
   CDInfo::toString() const
   {
-  }
+    QString s;
 
+    s += "DISCID=" + id + "\n";
+    s += "DTITLE=" + artist + "/" + title + "\n";
+    s += "DYEAR=" + QString::number(year) + "\n";
+    s += "DGENRE=" + genre + "\n";
+
+    TrackInfoList::ConstIterator it(trackInfoList.begin());
+
+    for (uint i = 0; it != trackInfoList.end(); ++it, ++i)
+    {
+      s += "TTITLE" + QString::number(i) + "=" + (*it).title + "\n";
+    }
+
+    return s;
+  }
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1
