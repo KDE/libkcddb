@@ -60,6 +60,7 @@ main(int argc, char ** argv)
 
   Client c;
   c.config().setSubmitTransport(Submit::SMTP);
+  c.config().setSubmitAddress("test-submit@freedb.org");
 
   c.setBlockingMode( true );
 

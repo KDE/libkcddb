@@ -27,7 +27,7 @@ namespace KCDDB
   class SMTPSubmit : public Submit
   {
     public:
-      SMTPSubmit(const QString& hostname, uint port, const QString& username, const QString& from);
+      SMTPSubmit(const QString& hostname, uint port, const QString& username, const QString& from, const QString& to);
       virtual ~SMTPSubmit();
 
     protected:
@@ -35,7 +35,7 @@ namespace KCDDB
       void makeURL( const QString & );
 
       KURL url_;
-      QString from_;
+      QString from_, to_;
   } ;
 }
 

@@ -265,10 +265,10 @@ namespace KCDDB
         delete cdInfoSubmit;
 
 	if ( blockingMode() )
-	  cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username, from );
+	  cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
 	else
 	{
-	  cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username, from );
+	  cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
           connect( static_cast<AsyncSMTPSubmit *>( cdInfoSubmit ),
                   SIGNAL( finished( CDDB::Result ) ),
                   SLOT( slotSubmitFinished( CDDB::Result ) ) );

@@ -12,6 +12,7 @@ AsyncSMTPSubmitTest::AsyncSMTPSubmitTest()
 
   client_ = new Client;
   client_->config().setSubmitTransport(Submit::SMTP);
+  client_->config().setSubmitAddress("test-submit@freedb.org");
   // Lookup sync
   client_->setBlockingMode( true );
 

@@ -29,7 +29,8 @@ namespace KCDDB
     Q_OBJECT
 
     public:
-      AsyncSMTPSubmit(const QString& hostname, uint port, const QString& username, const QString& from);
+      AsyncSMTPSubmit(const QString& hostname, uint port, const QString& username,
+                      const QString& from, const QString& to);
       virtual ~AsyncSMTPSubmit();
 
       virtual Result submit(const CDInfo &, const TrackOffsetList &);

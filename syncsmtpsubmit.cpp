@@ -25,8 +25,8 @@
 namespace KCDDB
 {
   SyncSMTPSubmit::SyncSMTPSubmit(const QString& hostname, uint port,
-        const QString& username, const QString& from)
-    : SMTPSubmit( hostname, port, username, from )
+        const QString& username, const QString& from, const QString& to)
+    : SMTPSubmit( hostname, port, username, from, to )
   {
 
   }
