@@ -22,6 +22,9 @@
 #define KCDDB_CONFIG_H
 
 #include <libkcddb/defines.h>
+#include <libkcddb/submit.h>
+#include <libkcddb/lookup.h>
+#include <libkcddb/cache.h>
 
 namespace KCDDB
 {
@@ -69,8 +72,8 @@ namespace KCDDB
       QString             user()                const;
       QString             clientName()          const;
       QString             clientVersion()       const;
-      SubmitTransport     submitTransport()     const;
-      LookupTransport     lookupTransport()     const;
+      Submit::Transport   submitTransport()     const;
+      Lookup::Transport   lookupTransport()     const;
       QString             proxyHostname()       const;
       uint                proxyPort()           const;
       QString             smtpHostname()        const;
@@ -78,14 +81,15 @@ namespace KCDDB
       QString             emailAddress()        const;
       bool                proxyEnabled()        const;
       bool                submissionsEnabled()  const;
+      Cache::Policy       cachePolicy()         const;
 
       void setHostname            (const QString &);
       void setPort                (uint);
       void setUser                (const QString &);
       void setClientName          (const QString &);
       void setClientVersion       (const QString &);
-      void setSubmitTransport     (SubmitTransport);
-      void setLookupTransport     (LookupTransport);
+      void setSubmitTransport     (Submit::Transport);
+      void setLookupTransport     (Lookup::Transport);
       void setProxyHostname       (const QString &);
       void setProxyPort           (uint);
       void setSMTPHostname        (const QString &);
@@ -93,23 +97,25 @@ namespace KCDDB
       void setEmailAddress        (const QString &);
       void setProxyEnabled        (bool);
       void setSubmissionsEnabled  (bool);
+      void setCachePolicy         (Cache::Policy);
 
     private:
 
-      QString         hostname_;
-      uint            port_;
-      QString         user_;
-      QString         clientName_;
-      QString         clientVersion_;
-      SubmitTransport submitTransport_;
-      LookupTransport lookupTransport_;
-      QString         proxyHostname_;
-      uint            proxyPort_;
-      QString         smtpHostname_;
-      uint            smtpPort_;
-      QString         emailAddress_;
-      bool            proxyEnabled_;
-      bool            submissionsEnabled_;
+      QString           hostname_;
+      uint              port_;
+      QString           user_;
+      QString           clientName_;
+      QString           clientVersion_;
+      Submit::Transport submitTransport_;
+      Lookup::Transport lookupTransport_;
+      QString           proxyHostname_;
+      uint              proxyPort_;
+      QString           smtpHostname_;
+      uint              smtpPort_;
+      QString           emailAddress_;
+      bool              proxyEnabled_;
+      bool              submissionsEnabled_;
+      Cache::Policy     cachePolicy_;
   };
 }
 

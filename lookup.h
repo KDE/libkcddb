@@ -18,45 +18,43 @@
   Boston, MA 02111-1307, USA.
 */
 
-#ifndef KCDDB_CLIENT_H
-#define KCDDB_CLIENT_H
+#ifndef KCDDB_LOOKUP_H
+#define KCDDB_LOOKUP_H
 
-#include <libkcddb/defines.h>
-#include <libkcddb/config.h>
-#include <libkcddb/lookup.h>
-#include <libkcddb/submit.h>
+#include <qstring.h>
 
 namespace KCDDB
 {
-  class Client
+  class Lookup
   {
     public:
 
-      /**
-       * Uses settings read from config.
-       */
-      Client();
+      enum Result
+      {
+        Success,
+        ServerHatesUs,
+        HostNotFound,
+        NoResponse,
+        NoRecordFound,
+        CannotSave,
+        UnknownError
+      };
 
-      /**
-       * Use custom settings.
-       */
-      Client(const Config &);
+      enum Transport
+      {
+        CDDB,
+        HTTP
+      };
 
-      virtual ~Client();
+      Lookup();
+      virtual ~Lookup();
 
-      Config config() const;
+      static QString resultToString(Result);
 
-      QValueList<CDInfo> lookupResponse() const;
-
-      Lookup::Result lookup(const TrackOffsetList &);
-      Submit::Result submit(const CDInfo &);
-
-    private:
-
-      class Private;
-      Private * d;
+      static QString    transportToString(ulong);
+      static Transport  stringToTransport(const QString &);
   };
 }
 
-#endif // KCDDB_CLIENT_H
+#endif // KCDDB_LOOKUP_H
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

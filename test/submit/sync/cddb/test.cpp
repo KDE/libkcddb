@@ -39,8 +39,8 @@ main(int argc, char ** argv)
 
   Client c;
 
-  KCDDB::Error error = c.submit(cdInfo);
+  Submit::Result r = c.submit(cdInfo);
 
-  kdDebug() << "Result: " << KCDDB::errorToString(error) << endl;
+  kdDebug() << "Result: " << Submit::resultToString(r) << endl;
 }
 

@@ -27,10 +27,11 @@
 
 #include <libkcddb/defines.h>
 #include <libkcddb/config.h>
+#include <libkcddb/asynclookup.h>
 
 namespace KCDDB
 {
-  class AsyncCDDBLookup : public QObject
+  class AsyncCDDBLookup : public AsyncLookup
   {
     Q_OBJECT
 
@@ -53,7 +54,7 @@ namespace KCDDB
 
       virtual ~AsyncCDDBLookup();
 
-      void lookup
+      virtual void lookup
         (
           const TrackOffsetList &,
           const QString         & hostname,
@@ -61,11 +62,6 @@ namespace KCDDB
           const QString         & clientName,
           const QString         & clientVersion
         );
-
-    signals:
-
-      void lookupResponseReady(const QValueList<CDInfo> &);
-      void error(Error);
 
     protected slots:
 
@@ -90,6 +86,14 @@ namespace KCDDB
       QString readLine();
 
       QString stateToString() const;
+
+    signals:
+
+      void finished
+        (
+          Lookup::Result,
+          const QValueList<CDInfo> & = QValueList<CDInfo>()
+        );
 
     private:
 

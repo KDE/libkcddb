@@ -13,8 +13,7 @@ class AsyncCDDBLookupTest : public QObject
 
   protected slots:
 
-    void slotLookupResponseReady(const QValueList<CDInfo> &);
-    void slotError(Error);
+    void slotResult(KCDDB::Lookup::Result, const QValueList<CDInfo> &);
 
   private:
 

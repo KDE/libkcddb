@@ -18,45 +18,19 @@
   Boston, MA 02111-1307, USA.
 */
 
-#ifndef KCDDB_CLIENT_H
-#define KCDDB_CLIENT_H
-
-#include <libkcddb/defines.h>
-#include <libkcddb/config.h>
-#include <libkcddb/lookup.h>
-#include <libkcddb/submit.h>
+#include "synclookup.h"
 
 namespace KCDDB
 {
-  class Client
+  SyncLookup::SyncLookup()
   {
-    public:
+    // Empty.
+  }
 
-      /**
-       * Uses settings read from config.
-       */
-      Client();
-
-      /**
-       * Use custom settings.
-       */
-      Client(const Config &);
-
-      virtual ~Client();
-
-      Config config() const;
-
-      QValueList<CDInfo> lookupResponse() const;
-
-      Lookup::Result lookup(const TrackOffsetList &);
-      Submit::Result submit(const CDInfo &);
-
-    private:
-
-      class Private;
-      Private * d;
-  };
+  SyncLookup::~SyncLookup()
+  {
+    // Empty.
+  }
 }
 
-#endif // KCDDB_CLIENT_H
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

@@ -19,16 +19,17 @@
 */
 
 #include <kdebug.h>
+#include <kio/job.h>
 
 #include <libkcddb/asynchttplookup.h>
 
 namespace KCDDB
 {
   AsyncHTTPLookup::AsyncHTTPLookup(QObject * parent, const char * name)
-    : QObject   (parent, name),
-      state_    (Idle),
-      job_      (0),
-      port_     (0)
+    : AsyncLookup (parent, name),
+      state_      (Idle),
+      job_        (0),
+      port_       (0)
   {
   }
 
@@ -67,7 +68,7 @@ namespace KCDDB
     if (0 == job_)
     {
       kdDebug() << "Can't create TransferJob" << endl;
-      emit(error(Unknown));
+      emit(finished(UnknownError));
       state_ = Idle;
       return;
     }

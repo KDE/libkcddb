@@ -25,10 +25,11 @@
 
 #include <libkcddb/defines.h>
 #include <libkcddb/config.h>
+#include <libkcddb/synclookup.h>
 
 namespace KCDDB
 {
-  class SyncCDDBLookup
+  class SyncCDDBLookup : public SyncLookup
   {
     public:
 
@@ -36,9 +37,9 @@ namespace KCDDB
 
       virtual ~SyncCDDBLookup();
 
-      QValueList<CDInfo> lookupResponse() const;
+      virtual QValueList<CDInfo> lookupResponse() const;
 
-      Error lookup
+      Result lookup
         (
           const TrackOffsetList &,
           const QString         & hostname,

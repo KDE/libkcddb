@@ -45,7 +45,7 @@ namespace KCDDB
     return cdInfoList_;
   }
 
-    Error
+    Lookup::Result
   SyncCDDBLookup::lookup
   (
     const TrackOffsetList & trackOffsetList,
@@ -67,10 +67,23 @@ namespace KCDDB
       << port
       << endl;
 
-    Error connectError = connectSocket(socket_, hostname, port);
+    Connect::Result connectResult = connectSocket(socket_, hostname, port);
 
-    if (None != connectError)
-      return connectError;
+    switch (connectResult)
+    {
+      case Connect::Success:
+        break;
+
+      case Connect::HostNotFound:
+        return Lookup::HostNotFound;
+        break;
+
+      case Connect::NoResponse:
+        return Lookup::NoResponse;
+
+      default:
+        return Lookup::UnknownError;
+    }
 
     kdDebug() << "Connected" << endl;
 
@@ -97,13 +110,13 @@ namespace KCDDB
     // cdInfoList.
 
     if (!getMatchesToCDInfoList(matchList))
-      return Unknown; // XXX Do we need a ServerError ?
+      return Lookup::UnknownError; // XXX Do we need a ServerError ?
  
     writeLine(socket_, "quit");
 
     socket_.close();
 
-    return None;
+    return Lookup::Success;
   }
 
     bool

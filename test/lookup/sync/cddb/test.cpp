@@ -13,7 +13,13 @@ main(int argc, char ** argv)
 
   using namespace KCDDB;
 
-  Client c;
+  Config config;
+  config.setHostname("localhost");
+  config.setPort(8880);
+  config.setCachePolicy(KCDDB::Cache::Ignore);
+  config.setLookupTransport(KCDDB::Lookup::CDDB);
+
+  Client c(config);
 
   TrackOffsetList list;
 
@@ -40,10 +46,9 @@ main(int argc, char ** argv)
     << trackOffsetListToString(list)
     << endl;
 
-  Error e = c.lookup(list);
+  Lookup::Result r = c.lookup(list);
 
-  kdDebug() << "Client::lookup returned error: " << errorToString(e)
-    << endl;
+  kdDebug() << "Client::lookup gave : " << Lookup::resultToString(r) << endl;
 
   QValueList<CDInfo> response = c.lookupResponse();
 

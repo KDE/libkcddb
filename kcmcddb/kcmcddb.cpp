@@ -30,6 +30,8 @@
 #include "cddbconfigwidget.h"
 
 #include "kcmcddb.h"
+#include <libkcddb/lookup.h>
+#include <libkcddb/cache.h>
 
 extern "C"
 {
@@ -75,16 +77,13 @@ CDDBModule::readConfigFromWidgets() const
   bool cddbLookup = (0 == widget_->cddbType->currentItem());
   bool cacheEnabled = widget_->cacheEnable->isChecked();
 
+  config.setCachePolicy
+    (cacheEnabled ? KCDDB::Cache::Use : KCDDB::Cache::Ignore);
+
   if (cddbLookup)
-    if (cacheEnabled)
-      config.setLookupTransport(KCDDB::CDDBLookup);
-    else
-      config.setLookupTransport(KCDDB::CDDBLookupIgnoreCached);
+    config.setLookupTransport(KCDDB::Lookup::CDDB);
   else
-    if (cacheEnabled)
-      config.setLookupTransport(KCDDB::HTTPLookup);
-    else
-      config.setLookupTransport(KCDDB::HTTPLookupIgnoreCached);
+    config.setLookupTransport(KCDDB::Lookup::HTTP);
 
   config.setHostname            (widget_->cddbServer->text());
   config.setPort                (widget_->cddbPort->value());
@@ -102,21 +101,9 @@ CDDBModule::readConfigFromWidgets() const
   void
 CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
 {
-  bool cddbLookup =
-    (
-      config.lookupTransport() == KCDDB::CDDBLookup
-      ||
-      config.lookupTransport() == KCDDB::CDDBLookupIgnoreCached
-    );
+  bool cddbLookup = (config.lookupTransport() == KCDDB::Lookup::CDDB);
 
-  bool cacheEnabled =
-    (
-      config.lookupTransport() == KCDDB::CacheOnlyLookup
-      ||
-      config.lookupTransport() == KCDDB::CDDBLookup
-      ||
-      config.lookupTransport() == KCDDB::HTTPLookup
-    );
+  bool cacheEnabled = (config.cachePolicy() == KCDDB::Cache::Use);
 
   widget_->cddbType           ->setCurrentItem  (cddbLookup ? 0 : 1);
   widget_->cddbServer         ->setText         (config.hostname());
@@ -158,7 +145,7 @@ CDDBModule::quickHelp() const
 {
   return i18n
     (
-      "<h1>To Be Written</h1>"
+      "<h1>TODO: write this help</h1>"
     );
 }
 

@@ -18,61 +18,33 @@
   Boston, MA 02111-1307, USA.
 */
 
-#ifndef KCDDB_ASYNC_CLIENT_H
-#define KCDDB_ASYNC_CLIENT_H
-
-#include <qobject.h>
+#ifndef KCDDB_SYNC_LOOKUP_H
+#define KCDDB_SYNC_LOOKUP_H
 
 #include <libkcddb/defines.h>
-#include <libkcddb/config.h>
 #include <libkcddb/lookup.h>
 
 namespace KCDDB
 {
-  class AsyncClient : public QObject
+  class SyncLookup : public Lookup
   {
-    Q_OBJECT
-
     public:
 
-      /**
-       * Uses settings read from config.
-       */
-      AsyncClient(QObject * parent = 0, const char * name = 0);
+      SyncLookup();
+      virtual ~SyncLookup();
 
-      /**
-       * Use custom settings.
-       */
-      AsyncClient(const Config &, QObject * parent = 0, const char * name = 0);
+      virtual QValueList<CDInfo> lookupResponse() const = 0;
 
-      virtual ~AsyncClient();
-
-      Config config() const;
-
-      void lookup(const TrackOffsetList &);
-      void submit(const CDInfo &);
-
-    signals:
-
-      void submitComplete();
-
-      void result
-        (Lookup::Result, const QValueList<CDInfo> & = QValueList<CDInfo>());
-
-    protected:
-
-      void lookupWithHelper(const TrackOffsetList &);
-
-    protected slots:
-
-      void slotLookupFinished(Lookup::Result, const QValueList<CDInfo> &);
-
-    private:
-
-      class Private;
-      Private * d;
+      virtual Result lookup
+        (
+          const TrackOffsetList &,
+          const QString         & hostname,
+          uint                    port,
+          const QString         & clientName,
+          const QString         & clientVersion
+        ) = 0;
   };
 }
 
-#endif // KCDDB_ASYNC_CLIENT_H
+#endif // KCDDB_SYNC_LOOKUP_H
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

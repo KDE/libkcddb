@@ -23,9 +23,10 @@
 
 #include <kdebug.h>
 
-#include <libkcddb/asyncclient.h>
-#include <libkcddb/asynccddblookup.h>
-#include <libkcddb/asynchttplookup.h>
+#include "cache.h"
+#include "asyncclient.h"
+#include "asynccddblookup.h"
+#include "asynchttplookup.h"
 
 namespace KCDDB
 {
@@ -35,7 +36,7 @@ namespace KCDDB
 
       QString               cddbId;
       Config                config;
-      QValueList<CDInfo>    lookupResponse;
+      QValueList<CDInfo>    cdInfoList;
       QObject             * helper;
   };
 
@@ -71,19 +72,13 @@ namespace KCDDB
     return d->config;
   }
 
-    QValueList<CDInfo>
-  AsyncClient::lookupResponse() const
-  {
-    return d->lookupResponse;
-  }
-
     void
   AsyncClient::lookup(const TrackOffsetList & trackOffsetList)
   {
     if (0 != d->helper)
     {
       kdDebug() << k_funcinfo << "Already running" << endl;
-      emit(error(Unknown));
+      emit(result(Lookup::UnknownError));
       return;
     }
 
@@ -95,40 +90,27 @@ namespace KCDDB
     if (!d->cddbId)
     {
       kdDebug() << "Can't create cddbid from offset list" << endl;
-      emit(error(NoRecordFound));
+      emit(result(Lookup::NoRecordFound));
       return;
     }
 
-    // Try the cache if we're supposed to.
-
-    if (
-      CDDBLookupIgnoreCached != d->config.lookupTransport()
-      &&
-      HTTPLookupIgnoreCached != d->config.lookupTransport()
-    )
+    if (Cache::Ignore != d->config.cachePolicy())
     {
-      kdDebug() << "Should try cache here" << endl;
+      d->cdInfoList = Cache::lookup(trackOffsetList);
 
-      // FIXME - bad place to look.
-      QFile f(QDir::homeDirPath() + "/.cddb/" + d->cddbId);
-
-      if (f.exists())
+      if (!d->cdInfoList.isEmpty())
       {
-        // STUB
-        kdDebug() << "Found locally cached info" << endl;
-        emit(error(Unknown));
+        emit(result(Lookup::Success, d->cdInfoList));
         return;
       }
-
-      kdDebug() << "Didn't find locally cached info" << endl;
     }
 
     // If we're only supposed to try the cache and we failed, drop out now.
 
-    if (CacheOnlyLookup == d->config.lookupTransport())
+    if (Cache::Only == d->config.cachePolicy())
     {
       kdDebug() << "Only trying cache. Give up now." << endl;
-      emit(error(NoRecordFound));
+      emit(result(Lookup::NoRecordFound));
       return;
     }
 
@@ -140,91 +122,60 @@ namespace KCDDB
     void
   AsyncClient::lookupWithHelper(const TrackOffsetList & trackOffsetList)
   {
+    AsyncLookup * helper = 0;
+
     switch (d->config.lookupTransport())
     {
-      case CDDBLookup:
-      case CDDBLookupIgnoreCached:
-        {
-          kdDebug() << "Doing CDDB lookup ... creating helper" << endl;
-          AsyncCDDBLookup * helper = new AsyncCDDBLookup(this);
-
-          d->helper = helper;
-
-          connect(helper, SIGNAL(error(Error)), SLOT(slotError(Error)));
-          connect
-            (
-              helper,
-              SIGNAL(lookupResponseReady(const QValueList<CDInfo> &)),
-              SLOT(slotLookupResponseReady(const QValueList<CDInfo> &))
-            );
-
-          kdDebug() << "Asking helper to do lookup and tell us when done" << endl;
-          helper->lookup
-            (
-              trackOffsetList,
-              d->config.hostname(),
-              d->config.port(),
-              d->config.clientName(),
-              d->config.clientVersion()
-            );
-        }
+      case Lookup::CDDB:
+        helper = new AsyncCDDBLookup(this);
         break;
 
-      case HTTPLookup:
-      case HTTPLookupIgnoreCached:
-
-        {
-          AsyncHTTPLookup * helper = new AsyncHTTPLookup(this);
-
-          d->helper = helper;
-
-          connect(helper, SIGNAL(error(Error)), SLOT(slotError(Error)));
-          connect
-            (
-              helper,
-              SIGNAL(lookupResponseReady(const QValueList<CDInfo> &)),
-              SLOT(slotLookupResponseReady(const QValueList<CDInfo> &))
-            );
-
-          helper->lookup
-            (
-              trackOffsetList,
-              d->config.hostname(),
-              d->config.port(),
-              d->config.clientName(),
-              d->config.clientVersion()
-            );
-        }
-
+      case Lookup::HTTP:
+        helper = new AsyncHTTPLookup(this);
         break;
 
       default:
         kdDebug() << k_funcinfo << "Unsupported transport: "
-          << lookupTransportToString(d->config.lookupTransport()) << endl;
-        emit(error(Unknown));
-        break;
+          << Lookup::transportToString(d->config.lookupTransport()) << endl;
+        emit(result(Lookup::UnknownError));
+        return;
     }
+
+    d->helper = helper;
+
+    connect
+      (
+        helper,
+        SIGNAL(finished(Lookup::Result, const QValueList<CDinfo> &)),
+        SLOT(slotLookupFinished(Lookup::Result, const QValueList<CDinfo> &))
+      );
+
+    helper->lookup
+      (
+        trackOffsetList,
+        d->config.hostname(),
+        d->config.port(),
+        d->config.clientName(),
+        d->config.clientVersion()
+      );
   }
 
     void
   AsyncClient::submit(const CDInfo &)
   {
     kdDebug() << k_funcinfo << "STUB" << endl;
-    emit(error(Unknown));
+    emit(result(Lookup::UnknownError));
     return;
   }
 
-
     void
-  AsyncClient::slotLookupResponseReady(const QValueList<CDInfo> & l)
+  AsyncClient::slotLookupFinished
+  (
+    Lookup::Result resultCode,
+    const QValueList<CDInfo> & l
+  )
   {
-    emit(lookupResponseReady(l));
-  }
-
-    void
-  AsyncClient::slotError(Error e)
-  {
-    emit(error(e));
+    emit(result(resultCode, l));
   }
 }
 

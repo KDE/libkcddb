@@ -13,22 +13,16 @@ AsyncCDDBLookupTest::AsyncCDDBLookupTest()
 
   config.setHostname("localhost");
   config.setPort(8880);
-  config.setLookupTransport(CDDBLookupIgnoreCached);
+  config.setCachePolicy(KCDDB::Cache::Ignore);
+  config.setLookupTransport(KCDDB::Lookup::CDDB);
 
   client_ = new AsyncClient(config, this);
 
   connect
     (
       client_,
-      SIGNAL(lookupResponseReady(const QValueList<CDInfo> &)),
-      SLOT(slotLookupResponseReady(const QValueList<CDInfo> &))
-    );
-
-  connect
-    (
-      client_,
-      SIGNAL(error(Error)),
-      SLOT(slotError(Error))
+      SIGNAL(result(Lookup::Result, const QValueList<CDInfo> &)),
+      SLOT(slotResult(Lookup::Result, const QValueList<CDInfo> &))
     );
 
   TrackOffsetList list;
@@ -52,9 +46,10 @@ AsyncCDDBLookupTest::AsyncCDDBLookupTest()
 }
 
   void
-AsyncCDDBLookupTest::slotLookupResponseReady(const QValueList<CDInfo> & l)
+AsyncCDDBLookupTest::slotResult(Lookup::Result r, const QValueList<CDInfo> & l)
 {
-  kdDebug() << "AsyncCDDBLookupTest::slotLookupResponseReady: Item count: " <<  l.count() << endl;
+  kdDebug() << "AsyncCDDBLookupTest::slotResult: Got " << KCDDB::Lookup::resultToString(r) << endl;
+  kdDebug() << "AsyncCDDBLookupTest::slotResult: Item count: " <<  l.count() << endl;
 
   for (QValueList<CDInfo>::ConstIterator it(l.begin()); it != l.end(); ++it)
   {
@@ -87,12 +82,6 @@ AsyncCDDBLookupTest::slotLookupResponseReady(const QValueList<CDInfo> & l)
   }
 
   kapp->quit();
-}
-
-  void
-AsyncCDDBLookupTest::slotError(Error error)
-{
-  kdDebug() << "AsyncCDDBLookupTest::slotError: Got " << KCDDB::errorToString(error) << endl;
 }
 
 int main(int argc, char ** argv)

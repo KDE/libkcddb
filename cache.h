@@ -18,45 +18,32 @@
   Boston, MA 02111-1307, USA.
 */
 
-#ifndef KCDDB_CLIENT_H
-#define KCDDB_CLIENT_H
+#ifndef KCDDB_CACHE_H
+#define KCDDB_CACHE_H
 
-#include <libkcddb/defines.h>
-#include <libkcddb/config.h>
-#include <libkcddb/lookup.h>
-#include <libkcddb/submit.h>
+#include <qpair.h>
+#include <qstring.h>
+#include <qstringlist.h>
+#include <qvaluelist.h>
+
+#include "defines.h"
 
 namespace KCDDB
 {
-  class Client
+  class Cache
   {
     public:
 
-      /**
-       * Uses settings read from config.
-       */
-      Client();
+      enum Policy
+      {
+        Only,
+        Use,
+        Ignore
+      };
 
-      /**
-       * Use custom settings.
-       */
-      Client(const Config &);
-
-      virtual ~Client();
-
-      Config config() const;
-
-      QValueList<CDInfo> lookupResponse() const;
-
-      Lookup::Result lookup(const TrackOffsetList &);
-      Submit::Result submit(const CDInfo &);
-
-    private:
-
-      class Private;
-      Private * d;
+      static QValueList<CDInfo> lookup(const TrackOffsetList &);
   };
 }
 
-#endif // KCDDB_CLIENT_H
+#endif // KCDDB_CACHE_H
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

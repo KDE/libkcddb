@@ -18,45 +18,76 @@
   Boston, MA 02111-1307, USA.
 */
 
-#ifndef KCDDB_CLIENT_H
-#define KCDDB_CLIENT_H
-
-#include <libkcddb/defines.h>
-#include <libkcddb/config.h>
-#include <libkcddb/lookup.h>
-#include <libkcddb/submit.h>
+#include "submit.h"
 
 namespace KCDDB
 {
-  class Client
+  Submit::Submit()
   {
-    public:
+    // Empty.
+  }
 
-      /**
-       * Uses settings read from config.
-       */
-      Client();
+  Submit::~Submit()
+  {
+    // Empty.
+  }
 
-      /**
-       * Use custom settings.
-       */
-      Client(const Config &);
+    QString
+  Submit::resultToString(Result r)
+  {
+    switch (r)
+    {
+      case Success:
+        return "Success";
+        break;
 
-      virtual ~Client();
+      case HostNotFound:
+        return "HostNotFound";
+        break;
 
-      Config config() const;
+      case NoResponse:
+        return "NoResponse";
+        break;
 
-      QValueList<CDInfo> lookupResponse() const;
+      case CannotSave:
+        return "CannotSave";
+        break;
 
-      Lookup::Result lookup(const TrackOffsetList &);
-      Submit::Result submit(const CDInfo &);
+      default:
+        return "UnknownError";
+        break;
+    }
+  }
 
-    private:
+    Submit::Transport
+  Submit::stringToTransport(const QString & s)
+  {
+    if ("Local" == s)
+      return Local;
+    if ("HTTP" == s)
+      return HTTP;
+    else
+      return CDDB;
+  }
 
-      class Private;
-      Private * d;
-  };
+    QString
+  Submit::transportToString(Submit::Transport t)
+  {
+    switch (t)
+    {
+      case Local:
+        return "Local";
+        break;
+
+      case HTTP:
+        return "HTTP";
+        break;
+
+      default:
+        return "CDDB";
+        break;
+    }
+  }
 }
 
-#endif // KCDDB_CLIENT_H
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

@@ -32,17 +32,6 @@ namespace KCDDB
 {
   typedef QValueList<uint> TrackOffsetList;
 
-  enum Error
-  {
-    None,
-    ServerHatesUs,
-    HostNotFound,
-    NoResponse,
-    NoRecordFound,
-    CannotSave,
-    Unknown
-  };
-
   class TrackInfo
   {
     public:
@@ -79,30 +68,6 @@ namespace KCDDB
       TrackInfoList trackInfoList;
   };
 
-  enum SubmitTransport
-  {
-    LocalSubmit,
-    HTTPSubmit,
-    SMTPSubmit
-  };
-
-  enum LookupTransport
-  {
-    CacheOnlyLookup,
-    CDDBLookup,
-    HTTPLookup,
-    CDDBLookupIgnoreCached,
-    HTTPLookupIgnoreCached
-  };
-
-  QString submitTransportToString(SubmitTransport);
-  QString lookupTransportToString(LookupTransport);
-
-  SubmitTransport stringToSubmitTransport(const QString &);
-  LookupTransport stringToLookupTransport(const QString &);
-
-  QString errorToString(Error);
-
   QString trackOffsetListToId     (const TrackOffsetList &);
   QString trackOffsetListToString (const TrackOffsetList &);
 
@@ -114,7 +79,17 @@ namespace KCDDB
   QString readLine(KExtendedSocket &);
   void writeLine(KExtendedSocket &, const QString &);
 
-  Error connectSocket
+  namespace Connect
+  {
+    enum Result
+    {
+      Success,
+      HostNotFound,
+      NoResponse
+    };
+  };
+
+  Connect::Result connectSocket
     (
       KExtendedSocket & socket,
       const QString   & hostname,

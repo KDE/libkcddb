@@ -21,16 +21,20 @@
 #ifndef KHTTP_ASYNC_HTTP_LOOKUP_H
 #define KHTTP_ASYNC_HTTP_LOOKUP_H
 
-#include <qobject.h>
-
-#include <kio/job.h>
+#include <kurl.h>
 
 #include <libkcddb/defines.h>
-#include <libkcddb/config.h>
+#include <libkcddb/asynclookup.h>
+
+namespace KIO
+{
+  class Job;
+  class TransferJob;
+};
 
 namespace KCDDB
 {
-  class AsyncHTTPLookup : public QObject
+  class AsyncHTTPLookup : public AsyncLookup
   {
     Q_OBJECT
 
@@ -64,8 +68,11 @@ namespace KCDDB
 
     signals:
 
-      void lookupResponseReady(const QValueList<CDInfo> &);
-      void error(Error);
+      void finished
+        (
+          Lookup::Result,
+          const QValueList<CDInfo> & = QValueList<CDInfo>()
+        );
 
     protected slots:
 

@@ -20,15 +20,14 @@
 
 #include <kconfig.h>
 
-#include <libkcddb/defines.h>
 #include <libkcddb/config.h>
 
 namespace KCDDB
 {
   // Defaults.
 
-  static const SubmitTransport  defaultSubmitTransport = HTTPSubmit;
-  static const LookupTransport  defaultLookupTransport = CDDBLookup;
+  static const Submit::Transport  defaultSubmitTransport = Submit::CDDB;
+  static const Lookup::Transport  defaultLookupTransport = Lookup::CDDB;
 
   static const char * const defaultHostname       = "freedb.freedb.org";
   static const unsigned int defaultPort           = 8880;
@@ -119,22 +118,22 @@ namespace KCDDB
     clientVersion_ = c.readEntry(clientVersionKey(), defaultClientVersion);
 
     submitTransport_ =
-      stringToSubmitTransport
+      Submit::stringToTransport
       (
         c.readEntry
         (
           submitTransportKey(),
-          submitTransportToString(defaultSubmitTransport)
+          Submit::transportToString(defaultSubmitTransport)
         )
       );
 
     lookupTransport_ =
-      stringToLookupTransport
+      Lookup::stringToTransport
       (
         c.readEntry
         (
           lookupTransportKey(),
-          lookupTransportToString(defaultLookupTransport)
+          Lookup::transportToString(defaultLookupTransport)
         )
       );
 
@@ -172,13 +171,13 @@ namespace KCDDB
     c.writeEntry
       (
         submitTransportKey(),
-        submitTransportToString(submitTransport_)
+        Submit::transportToString(submitTransport_)
       );
 
     c.writeEntry
       (
         lookupTransportKey(),
-        lookupTransportToString(lookupTransport_)
+        Lookup::transportToString(lookupTransport_)
       );
 
     c.writeEntry(proxyHostnameKey(), proxyHostname_);
@@ -230,13 +229,13 @@ namespace KCDDB
     return clientVersion_;
   }
 
-    SubmitTransport
+    Submit::Transport
   Config::submitTransport() const
   {
     return submitTransport_;
   }
 
-     LookupTransport
+    Lookup::Transport
   Config::lookupTransport() const
   {
     return lookupTransport_;
@@ -317,13 +316,13 @@ namespace KCDDB
   }
 
     void
-  Config::setSubmitTransport(SubmitTransport t)
+  Config::setSubmitTransport(Submit::Transport t)
   {
     submitTransport_ = t;
   }
 
     void
-  Config::setLookupTransport(LookupTransport t)
+  Config::setLookupTransport(Lookup::Transport t)
   {
     lookupTransport_ = t;
   }
@@ -454,6 +453,18 @@ namespace KCDDB
   Config::submissionsEnabledKey()
   {
     return "SubmissionsEnabled";
+  }
+
+    void
+  Config::setCachePolicy(Cache::Policy p)
+  {
+    cachePolicy_ = p;
+  }
+
+    Cache::Policy
+  Config::cachePolicy() const
+  {
+    return cachePolicy_;
   }
 }
 

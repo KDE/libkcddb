@@ -20,14 +20,14 @@
 
 #include <kdebug.h>
 
-#include <libkcddb/asynccddblookup.h>
+#include "asynccddblookup.h"
 
 namespace KCDDB
 {
   AsyncCDDBLookup::AsyncCDDBLookup(QObject * parent, const char * name)
-    : QObject   (parent, name),
-      state_    (Idle),
-      port_     (0)
+    : AsyncLookup (parent, name),
+      state_      (Idle),
+      port_       (0)
   {
     connect
       (
@@ -100,7 +100,7 @@ namespace KCDDB
   {
     kdDebug() << k_funcinfo << endl;
     if (state_ != Idle)
-      emit(error(NoResponse));
+      emit(finished(NoResponse));
     state_ = Idle;
     return;
   }
@@ -124,7 +124,7 @@ namespace KCDDB
 
         if (!parseGreeting(readLine()))
         {
-          emit(error(ServerHatesUs));
+          emit(finished(ServerHatesUs));
           state_ = Idle;
           return;
         }
@@ -138,7 +138,7 @@ namespace KCDDB
 
         if (!parseHandshake(readLine()))
         {
-          emit(error(ServerHatesUs));
+          emit(finished(ServerHatesUs));
           state_ = Idle;
           return;
         }
@@ -152,7 +152,7 @@ namespace KCDDB
 
         if (!parseQueryResponse(readLine()))
         {
-          emit(lookupResponseReady(QValueList<CDInfo>()));
+          emit(finished(ServerHatesUs));
           state_ = Idle;
           return;
         }
@@ -336,7 +336,7 @@ namespace KCDDB
   {
     if (matchList_.isEmpty())
     {
-      emit(lookupResponseReady(cdInfoList_));
+      emit(finished(Success, cdInfoList_));
       state_ = Idle;
       return;
     }
@@ -390,7 +390,7 @@ namespace KCDDB
     kdDebug() << "Socket error: " << err << endl;
     if (state_ != Idle)
     {
-      emit(error(NoResponse));
+      emit(finished(NoResponse));
       state_ = Idle;
     }
   }

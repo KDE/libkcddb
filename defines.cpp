@@ -97,127 +97,6 @@ namespace KCDDB
     return ret;
   }
 
-    QString
-  submitTransportToString(SubmitTransport t)
-  {
-    switch (t)
-    {
-      case LocalSubmit:
-        return "LocalSubmit";
-        break;
-
-      case HTTPSubmit:
-        return "HTTPSubmit";
-        break;
-
-      case SMTPSubmit:
-        return "SMTPSubmit";
-        break;
-
-      default:
-        return "Unknown";
-        break;
-    }
-  }
-
-    QString
-  lookupTransportToString(LookupTransport t)
-  {
-    switch (t)
-    {
-      case CacheOnlyLookup:
-        return "CacheOnlyLookup";
-        break;
-
-      case CDDBLookup:
-        return "CDDBLookup";
-        break;
-
-      case HTTPLookup:
-        return "HTTPLookup";
-        break;
-
-      case CDDBLookupIgnoreCached:
-        return "CDDBLookupIgnoreCached";
-        break;
-
-      case HTTPLookupIgnoreCached:
-        return "HTTPLookupIgnoreCached";
-        break;
-
-      default:
-        return "Unknown";
-        break;
-    }
-  }
-
-    SubmitTransport
-  stringToSubmitTransport(const QString & s)
-  {
-    if ("LocalSubmit" == s)
-      return LocalSubmit;
-
-    else if ("HTTPSubmit" == s)
-      return HTTPSubmit;
-
-    else if ("SMTPSubmit" == s)
-      return SMTPSubmit;
-
-    return SubmitTransport(-1);
-  }
-
-    LookupTransport
-  stringToLookupTransport(const QString & s)
-  {
-    if ("CacheOnlyLookup" == s)
-      return CacheOnlyLookup;
-
-    else if ("CDDBLookup" == s)
-      return CDDBLookup;
-
-    else if ("HTTPLookup" == s)
-      return HTTPLookup;
-
-    else if ("CDDBLookupIgnoreCached" == s)
-      return CDDBLookupIgnoreCached;
-
-    else if ("HTTPLookupIgnoreCached" == s)
-      return HTTPLookupIgnoreCached;
-
-    return LookupTransport(-1);
-  }
-
-    QString
-  errorToString(Error e)
-  {
-    switch (e)
-    {
-      case None:
-        return "None";
-        break;
-
-      case HostNotFound:
-        return "HostNotFound";
-        break;
-
-      case NoResponse:
-        return "NoResponse";
-        break;
-
-      case NoRecordFound:
-        return "NoSuchCD";
-        break;
-
-      case CannotSave:
-        return "CannotSave";
-        break;
-
-      default:
-        return "Unknown";
-        break;
-    }
-  }
-
     CDInfo
   parseStringListToCDInfo(const QStringList & lineList)
   {
@@ -337,7 +216,7 @@ namespace KCDDB
     socket.writeBlock(buf.data(), buf.length());
   }
 
-    Error
+    Connect::Result
   connectSocket
   (
     KExtendedSocket & socket,
@@ -351,14 +230,14 @@ namespace KCDDB
     int lookupReturn = socket.lookup();
 
     if (0 != lookupReturn)
-      return HostNotFound;
+      return Connect::HostNotFound;
 
     int connectReturn = socket.connect();
 
     if (0 != connectReturn)
-      return NoResponse;
+      return Connect::NoResponse;
 
-    return None;
+    return Connect::Success;
   }
 }
 

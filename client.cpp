@@ -27,6 +27,7 @@
 
 #include "client.h"
 #include "synccddblookup.h"
+#include "cache.h"
 
 namespace KCDDB
 {
@@ -74,7 +75,7 @@ namespace KCDDB
     return d->cdInfoList;
   }
 
-    Error
+    Lookup::Result
   Client::lookup(const TrackOffsetList & trackOffsetList)
   {
     // Get the cddb id from trackOffsetList.
@@ -85,50 +86,34 @@ namespace KCDDB
     if (!d->cddbId)
     {
       kdDebug() << "Can't create cddbid from offset list" << endl;
-      return NoRecordFound;
+      return Lookup::NoRecordFound;
     }
 
-    // Try the cache if we're supposed to.
-
-    if (
-      CDDBLookupIgnoreCached != d->config.lookupTransport()
-      &&
-      HTTPLookupIgnoreCached != d->config.lookupTransport()
-    )
+    if (Cache::Ignore != d->config.cachePolicy())
     {
-      kdDebug() << "Should try cache here" << endl;
+      d->cdInfoList = Cache::lookup(trackOffsetList);
 
-      QFile f(QDir::homeDirPath() + "/.cddb/" + d->cddbId);
-
-      if (f.exists())
-      {
-        // STUB
-        kdDebug() << "Found locally cached info" << endl;
-        return Unknown;
-      }
-
-      kdDebug() << "Didn't find locally cached info" << endl;
+      if (!d->cdInfoList.isEmpty())
+        return Lookup::Success;
     }
 
     // If we're only supposed to try the cache and we failed, drop out now.
 
-    if (CacheOnlyLookup == d->config.lookupTransport())
+    if (Cache::Only == d->config.cachePolicy())
     {
       kdDebug() << "Only trying cache. Give up now." << endl;
-      return NoRecordFound;
+      return Lookup::NoRecordFound;
     }
 
     // Do the actual lookup.
 
     switch (d->config.lookupTransport())
     {
-      case CDDBLookup:
-      case CDDBLookupIgnoreCached:
-
+      case Lookup::CDDB:
         {
           SyncCDDBLookup lookup;
 
-          Error e =
+          Lookup::Result r =
             lookup.lookup
             (
               trackOffsetList,
@@ -140,25 +125,25 @@ namespace KCDDB
 
           d->cdInfoList = lookup.lookupResponse();
 
-          return e;
+          return r;
         }
 
         break;
 
-      case HTTPLookup:
-      case HTTPLookupIgnoreCached:
+      case Lookup::HTTP:
 
       default:
         kdDebug() << k_funcinfo << "Unsupported transport: "
-          << lookupTransportToString(d->config.lookupTransport()) << endl;
-        return Unknown;
+          << Lookup::transportToString(d->config.lookupTransport()) << endl;
+        return Lookup::UnknownError;
         break;
     }
   }
 
-    Error
-  Client::submit(const CDInfo &cdInfo)
+    Submit::Result
+  Client::submit(const CDInfo &)
   {
+    return Submit::UnknownError;
 #if 0
     // Do CannotSave sinarios
     if(cdInfo.id == "0")
