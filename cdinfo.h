@@ -62,6 +62,7 @@ namespace KCDDB
       QString       artist;
       QString       title;
       QString       genre;
+      QString       category;
       QString       extd;
       uint          year;
       uint          length;

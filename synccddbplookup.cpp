@@ -183,7 +183,10 @@ namespace KCDDB
     CDInfo info;
 
     if ( info.load( lineList ) )
+    {
+      info.category = category_;
       cdInfoList_.append( info );
+    }
 
     return Success;
   }

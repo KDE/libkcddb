@@ -309,7 +309,10 @@ namespace KCDDB
     CDInfo info;
 
     if (info.load( cdInfoBuffer_ ))
+    {
+      info.category = category_;
       cdInfoList_.append( info );
+    }
 
     cdInfoBuffer_.clear();
   }

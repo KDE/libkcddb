@@ -56,6 +56,7 @@ namespace KCDDB
 
       CDInfoList cdInfoList_;
       CDDBMatchList matchList_;
+      QString category_;
   };
 }
 

@@ -34,10 +34,10 @@ namespace KCDDB
   Cache::fileName( const CDInfo& info, const QString& cacheDir )
   {
     QDir dir( cacheDir );
-    if ( !dir.exists( info.genre ) )
-      dir.mkdir( info.genre );
+    if ( !dir.exists( info.category ) )
+      dir.mkdir( info.category );
 
-    QString cacheFile = cacheDir + "/" + info.genre + "/" + info.id;
+    QString cacheFile = cacheDir + "/" + info.category + "/" + info.id;
 
     return cacheFile;
   }
@@ -62,10 +62,10 @@ namespace KCDDB
 
       while ( it != dirList.end() )
       {
-        QString genre( *it );
-        if ( genre[ 0 ] != '.' )
+        QString category( *it );
+        if ( category[ 0 ] != '.' )
         {
-          QFile f( *cddbCacheDir + "/" + genre + "/" + cddbId );
+          QFile f( *cddbCacheDir + "/" + category + "/" + cddbId );
           if (f.exists())
           {
             if ( f.open(IO_ReadOnly) )
@@ -75,7 +75,8 @@ namespace KCDDB
               f.close();
               CDInfo info;
               info.load(cddbData);
-              info.genre = genre;
+              info.category = category;
+
               infoList.append( info );
             }
           }
@@ -111,6 +112,7 @@ namespace KCDDB
       d.mkdir(cacheDir);
 
     QString cacheFile = fileName(info, cacheDir);
+
     kdDebug(60010) << "Storing " << cacheFile << " in CDDB cache" << endl;
 
     QFile f(cacheFile);
