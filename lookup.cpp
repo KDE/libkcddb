@@ -30,7 +30,8 @@
 namespace KCDDB
 {
   Lookup::Lookup()
-          : readOnly_( false )
+    : socket_(0, 0, KExtendedSocket::inputBufferedSocket),
+      readOnly_( false )
   {
     // Empty.
   }
@@ -223,17 +224,15 @@ namespace KCDDB
       return QString::null;
     }
 
-    QCString buf;
+    const uint maxRead = 4096;
 
-    int c = socket_.getch();
+    QByteArray buf(maxRead);
 
-    while ( '\n' != c )
-    {
-      buf += c;
-      c = socket_.getch();
-    }
+    Q_LONG bytesRead = socket_.readLine(buf.data(), buf.size() - 1);
 
-    return QString::fromLatin1( buf.data(), buf.length() );
+    buf[bytesRead] = '\0';
+
+    return QString(buf);
   }
 
     void

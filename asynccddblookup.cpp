@@ -25,12 +25,13 @@
 namespace KCDDB
 {
   AsyncCDDBLookup::AsyncCDDBLookup(QObject * parent, const char * name)
-    : CDDBLookup(), 
-      QObject(parent, name),
+    : QObject(parent, name),
+      CDDBLookup(), 
       state_(Idle)
   {
     socket_.setBlockingMode( false );
     socket_.setTimeout( 60 );
+    socket_.enableRead( true );
 
     connect (
         &socket_,
@@ -88,8 +89,11 @@ namespace KCDDB
       << hostname << ":" << port << endl;
 
     socket_.setAddress( hostname, port );
+
     if ( 0 != socket_.startAsyncLookup() )
       return HostNotFound;
+
+    return Success;
   }
 
     void
@@ -130,7 +134,7 @@ namespace KCDDB
   {
     kdDebug() << "Ready to read. State: " << stateToString() << endl;
 
-    while ( socket_.canReadLine() )
+    while ( Idle != state_ && socket_.canReadLine() )
       read();
   }
 
@@ -168,20 +172,23 @@ namespace KCDDB
 
       case WaitingForQueryResponse:
         {
-          Result result;
+          Result result = parseQuery( readLine() );
 
-          result = parseQuery( readLine() );
-          if ( Success != result )
+          switch (result)
           {
-            emit finished( result );
-            state_ = Idle;
-            return;
-          }
+            case Success:
+              requestCDInfoForMatch();
+              break;
 
-          if ( Success == result )
-            requestCDInfoForMatch();
-          else if ( MultipleRecordFound == result )
-            state_ = WaitingForMoreMatches;
+            case MultipleRecordFound:
+              state_ = WaitingForMoreMatches;
+              break;
+
+            default: // Error :(
+              emit finished( result );
+              state_ = Idle;
+              return;
+          }
         }
 
         break;
