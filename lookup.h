@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  CopyRight (C) 2002 Nadeem Hasan <nhasan@kde.org>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -22,9 +23,19 @@
 #define KCDDB_LOOKUP_H
 
 #include <qstring.h>
+#include <qpair.h>
+#include <qvaluelist.h>
+
+#include <kextendedsocket.h>
+
+#include "cdinfo.h"
 
 namespace KCDDB
 {
+  typedef QPair<QString, QString> CDDBMatch;
+  typedef QValueList<CDDBMatch> CDDBMatchList;
+  typedef QValueList<uint> TrackOffsetList;
+
   class Lookup
   {
     public:
@@ -47,12 +58,48 @@ namespace KCDDB
       };
 
       Lookup();
+
       virtual ~Lookup();
 
-      static QString resultToString(Result);
 
-      static QString    transportToString(ulong);
-      static Transport  stringToTransport(const QString &);
+      virtual CDInfoList lookupResponse() const = 0;
+
+      virtual Result lookup
+        ( 
+          const TrackOffsetList &,
+          const QString         & hostname,
+          uint                    port,
+          const QString         & clientName,
+          const QString         & clientVersion
+        ) = 0;
+
+      QString readLine();
+
+      static QString resultToString(Result);
+      static QString transportToString(uint);
+      static Transport stringToTransport(const QString &);
+
+    protected:
+
+      QString makeCDDBHandshake();
+      QString makeCDDBQuery();
+
+      bool parseGreeting( const QString& );
+      void parseMatch( const QString& );
+      bool parseHandshake( const QString& );
+      QString trackOffsetListToString( const TrackOffsetList& )
+      QString trackOffsetListToId( const TrackOffsetList& )
+ 
+      KExtendedSocket socket_;
+
+      QString user_;
+      QString clientName_;
+      QString clientVersion_;
+
+      bool readOnly;
+
+      CDInfoList cdInfoList_;
+      CDDBMatchList matchList_;
   };
 }
 

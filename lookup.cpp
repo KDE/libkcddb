@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  CopyRight (C) 2002 Nadeem Hasan <nhasan@kde.org>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -23,6 +24,7 @@
 namespace KCDDB
 {
   Lookup::Lookup()
+    : readOnly_( false )
   {
     // Empty.
   }
@@ -30,6 +32,145 @@ namespace KCDDB
   Lookup::~Lookup()
   {
     // Empty.
+  }
+
+    QString
+  trackOffsetListToId( const TrackOffsetList & list )
+  {
+    if ( list.count() < 3 )
+    {
+      kdDebug() << k_funcinfo << "Bogus list. Less than 3 entries." << endl;
+      return QString::null;
+    }
+
+    // Taken from version by Michael Matz in kio_audiocd.
+    unsigned int id = 0;
+    int trackCount = list.count() - 2;
+
+    // The last two in the list are disc begin and disc end.
+    for ( int i = trackCount-1; i >= 0; i-- )
+    {
+      int n = list[ i ]/75;
+      while ( n > 0 )
+      {
+        id += n % 10;
+        n /= 10;
+      }
+    }
+
+    unsigned int l = list[ trackCount + 1 ];
+
+    l -= list[ trackCount ];
+    l /= 75;
+
+    id = ( ( id % 255 ) << 24 ) | ( l << 8 ) | trackCount;
+
+    return QString::number( id, 16 ).rightJustify( 8, '0' );
+  }
+
+    QString
+  trackOffsetListToString(  const TrackOffsetList & list )
+  {
+    if (  list.count() < 3 )
+    {
+      kdDebug() << k_funcinfo << "Bogus list. Less than 3 entries." << endl;
+      return QString::null;
+    }
+
+    QString ret;
+
+    // Disc start.
+    ret.append(  QString::number(  list[  list.count()-2 ] ) );
+    ret.append(  " " );
+
+    for (  uint i = 0; i < list.count() - 2; i++ )
+    {
+      ret.append(  QString::number(  list[  i ] ) );
+      ret.append(  " " );
+    }
+
+    unsigned int discLengthInSeconds = (  list[  list.count() - 1 ] ) / 75;
+
+    // Disc length in seconds.
+    ret.append(  QString::number(  discLengthInSeconds ) );
+
+    return ret;
+  }
+
+    QString
+  Lookup::makeCDDBHandshake()
+  {
+    QString handshake = "cddb hello ";
+    handshake += "libkcddb-user";
+    handshake += " ";
+    handshake += "localhost"; // FIXME
+    handshake += " ";
+    handshake += clientName_;
+    handshake += " ";
+    handshake += clientVersion_;
+
+    return handshake;
+  }
+
+   QString
+  Lookup::makeCDDBQuery()
+  {
+    QString query = "cddb query ";
+    query += trackOffsetListToId( trackOffsetList_ );
+    query += " ";
+    query += trackOffsetListToString( trackOffsetList_ );
+
+    return query;
+  }
+
+    bool
+  Lookup::parseGreeting( const QString & line )
+  {
+    QStringList tokenList = QStringList::split( ' ', line );
+
+    uint serverStatus = tokenList[ 0 ].toUInt();
+
+    if ( 200 == serverStatus )
+    {
+      kdDebug() << "Server response: read-only" << endl;
+      readOnly_ = true;
+    }
+    else if ( 201 == serverStatus )
+    {
+      kdDebug() << "Server response: read-write" << endl;
+    }
+    else
+    {
+      kdDebug() << "Server response: bugger off" << endl;
+      return false;
+    }
+
+    return true;
+  }
+
+    bool
+  Lookup::parseHandshake( const QString & line )
+  {
+    QStringList tokenList = QStringList::split( ' ', line );
+
+    uint serverStatus = tokenList[ 0 ].toUInt();
+
+    if ( ( 200 != serverStatus ) && ( 402 != serverStatus ) )
+    {
+      kdDebug() << "Handshake was too tight. Letting go." << endl;
+      return false;
+    }
+
+    kdDebug() << "Handshake was warm and firm" << endl;
+
+    return true;
+  }
+
+    void
+  Lookup::parseMatch( const QString & line )
+  {
+    QStringList tokenList = QStringList::split( ' ', line );
+    matchList_.append( qMakePair( tokenList[ 0 ], tokenList[ 1 ] ) );
   }
 
     QString
@@ -61,6 +202,45 @@ namespace KCDDB
         return "UnknownError";
         break;
     }
+  }
+
+    QString
+  Lookup::readLine()
+  {
+    if ( KExtendedSocket::connected != socket_.socketStatus() )
+    {
+      kdDebug() << "socket status: " << socket_.socketStatus() << endl;
+      return QString::null;
+    }
+
+    QCString buf;
+
+    int c = socket_.getch();
+
+    while ( '\n' != c )
+    {
+      buf += c;
+      c = socket_.getch();
+    }
+
+    kdDebug() << "READ: [" << buf << "]" << endl;
+    return QString::fromLatin1( buf.data(), buf.length() );
+  }
+
+    void
+  Lookup::writeLine( QString & line )
+  {
+    if ( KExtendedSocket::connected != socket.socketStatus() )
+    {
+      kdDebug() << "socket status: " << socket.socketStatus() << endl;
+      return;
+    }
+
+    kdDebug() << "WRITE: [" << line << "]" << endl;
+    QCString buf = line.latin1();
+    buf.append( "\n" );
+
+    socket_.writeBlock( buf.data(), buf.length() );
   }
 
     Lookup::Transport

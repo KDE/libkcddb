@@ -21,7 +21,6 @@
 #ifndef KCDDB_DEFINES_H
 #define KCDDB_DEFINES_H
 
-#include <qpair.h>
 #include <qstring.h>
 #include <qstringlist.h>
 #include <qvaluelist.h>
@@ -30,14 +29,6 @@ class KExtendedSocket;
 
 namespace KCDDB
 {
-  typedef QValueList<uint> TrackOffsetList;
-
-  QString trackOffsetListToId     (const TrackOffsetList &);
-  QString trackOffsetListToString (const TrackOffsetList &);
-
-  typedef QPair<QString, QString> CDDBMatch;
-  typedef QValueList<CDDBMatch> CDDBMatchList;
-
   QString readLine(KExtendedSocket &);
   void writeLine(KExtendedSocket &, const QString &);
 
