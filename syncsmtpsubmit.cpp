@@ -19,8 +19,8 @@
 
 #include "syncsmtpsubmit.h"
 #include "cdinfo.h"
-#include <ktempfile.h>
 #include <kio/netaccess.h>
+#include <kio/job.h>
 
 namespace KCDDB
 {
@@ -46,22 +46,9 @@ namespace KCDDB
     QString subject = QString("cddb %1 %2").arg(cdInfo.category, cdInfo.id);
     makeURL(subject);
 
-    KTempFile tmp;
-    tmp.setAutoDelete(true);
+    KIO::Job* job = KIO::storedPut(diskData_.utf8(), url_, -1, false, false, false);
 
-    QTextStream *textStream = tmp.textStream();
-
-    if (!textStream)
-      return UnknownError;
-
-    textStream->setEncoding(QTextStream::UnicodeUTF8);
-
-    *textStream << diskData_ << flush;
-
-    KURL tmpUrl;
-    tmpUrl.setPath( tmp.name() );
-
-    if ( KIO::NetAccess::file_copy( tmpUrl , url_ ) )
+    if ( KIO::NetAccess::synchronousRun(job, 0) )
       return Success;
 
     return UnknownError;
