@@ -226,7 +226,7 @@ namespace KCDDB
 
       case InvalidCategory:
         return i18n("Invalid category");
-	break;
+        break;
 
       default:
         return i18n("Unknown error");
