@@ -36,7 +36,7 @@ namespace KCDDB
   
   CDDB::Result SyncHTTPSubmit::runJob(KIO::Job* job)
   {
-    bool success = KIO::NetAccess::synchronousRun(job, 0, false);
+    bool success = KIO::NetAccess::synchronousRun(job, 0);
 
     if (success)
       return CDDB::Success;
