@@ -33,6 +33,7 @@ namespace KCDDB
 
       enum Transport
       {
+        None,
         SMTP,
         HTTP
       };
@@ -40,7 +41,7 @@ namespace KCDDB
       Submit();
       virtual ~Submit();
 
-      virtual Result submit( const CDInfo &, const TrackOffsetList &) = 0;
+      virtual Result submit(const CDInfo &, const TrackOffsetList &) = 0;
       QString validCategory(const QString&);
 
     protected:

@@ -25,8 +25,8 @@
 namespace KCDDB
 {
   SyncSMTPSubmit::SyncSMTPSubmit(const QString& hostname, uint port,
-        const QString& username)
-    : SMTPSubmit( hostname, port, username )
+        const QString& username, const QString& from)
+    : SMTPSubmit( hostname, port, username, from )
   {
 
   }
@@ -43,7 +43,7 @@ namespace KCDDB
 
     QString subject = QString("cddb %1 %2").arg(validCategory( cdInfo.genre ),
         cdInfo.id);
-    makeURL( subject );
+    makeURL(subject);
 
     KTempFile tmp;
 

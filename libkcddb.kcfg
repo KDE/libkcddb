@@ -39,13 +39,11 @@
     <entry name="submitTransport" type="Enum">
       <label>Lookup Transport</label>
       <choices>
+        <choice name="None"></choice>
         <choice name="SMTP"></choice>
 	<choice name="HTTP"></choice>
       </choices>
       <default>SMTP</default>
-    </entry>
-    <entry name="smtpHostname" type="String">
-      <label>SMTP Hostname</label>
     </entry>
     <entry name="smtpPort" type="Int">
       <label>SMTP Port</label>
@@ -53,6 +51,19 @@
     </entry>
     <entry name="smtpUsername" type="String">
       <label>SMTP Username</label>
+    </entry>
+    <entry name="useGlobalEmail" type="Bool">
+      <label>Use global email address</label>
+      <default>true</default>
+    </entry>
+    <entry name="ownEmail" type="String">
+      <label>Email Address</label>
+    </entry>
+    <entry name="ownReplyTo" type="String">
+      <label>ReplyTo Address</label>
+    </entry>
+    <entry name="ownSmtpHost" type="String">
+      <label>SMTP Hostname</label>
     </entry>
   </group>
 </kcfg>

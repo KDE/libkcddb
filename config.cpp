@@ -22,34 +22,65 @@
 
 #include <kconfig.h>
 #include <qdir.h>
+#include <kemailsettings.h>
+#include <klocale.h>
 
 #include <libkcddb/config.h>
 
 namespace KCDDB
 {
-    bool
-  Config::operator == (const Config & other) const
+  Config::Config()
   {
-    return
-      (
-        (hostname()           == other.hostname()) &&
-        (port()               == other.port()) &&
-	(cachePolicy()        == other.cachePolicy()) &&
-	(lookupTransport()    == other.lookupTransport()) &&
-	(cacheLocations()     == other.cacheLocations()) &&
-	(submitTransport()    == other.submitTransport()) &&
-	(smtpHostname()       == other.smtpHostname()) &&
-	(smtpPort()           == other.smtpPort()) &&
-	(smtpUsername()       == other.smtpUsername())
-      );
+    loadGlobalSettings();
   }
 
-    bool
-  Config::operator != (const Config & other) const
+  QString Config::globalEmail() const
   {
-    return ! operator == (other);
+    return _senderAddress;
+  }
+  
+  QString Config::globalReplyTo() const
+  {
+    return _senderReplyTo;
   }
 
+  QString Config::globalSmtpHost() const
+  {
+    return _senderHost;
+  }
+
+  QString Config::smtpHostname() const
+  {
+    if (useGlobalEmail())
+      return globalSmtpHost();
+    else
+      return ownSmtpHost();
+  }
+
+  QString Config::emailAddress() const
+  {
+    if (useGlobalEmail())
+      return globalEmail();
+    else
+      return ownEmail();
+  }
+
+  QString Config::replyTo() const
+  {
+    if (useGlobalEmail())
+      return globalReplyTo();
+    else
+      return ownReplyTo();
+  }
+
+  void Config::loadGlobalSettings()
+  {
+    KEMailSettings kes;
+    kes.setProfile( i18n("Default") );
+    _senderAddress = kes.getSetting( KEMailSettings::EmailAddress );
+    _senderReplyTo = kes.getSetting( KEMailSettings::ReplyToAddress );
+    _senderHost = kes.getSetting( KEMailSettings::OutServer );
+  }
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

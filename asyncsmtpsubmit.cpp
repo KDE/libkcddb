@@ -25,8 +25,8 @@
 namespace KCDDB
 {
   AsyncSMTPSubmit::AsyncSMTPSubmit(const QString& hostname, uint port,
-        const QString& username )
-    : QObject(), SMTPSubmit( hostname, port, username )
+        const QString& username, const QString& from )
+    : QObject(), SMTPSubmit( hostname, port, username, from )
   {
 
   }
@@ -36,7 +36,7 @@ namespace KCDDB
 
   }
 
-  CDDB::Result AsyncSMTPSubmit::submit( const CDInfo& cdInfo, const TrackOffsetList &offsetList )
+  CDDB::Result AsyncSMTPSubmit::submit( const CDInfo& cdInfo, const TrackOffsetList &offsetList)
   {
     makeDiskData( cdInfo, offsetList );
 

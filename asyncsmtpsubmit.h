@@ -29,10 +29,10 @@ namespace KCDDB
     Q_OBJECT
 
     public:
-      AsyncSMTPSubmit(const QString&, uint, const QString&);
+      AsyncSMTPSubmit(const QString&, uint, const QString&, const QString&);
       virtual ~AsyncSMTPSubmit();
 
-      virtual Result submit( const CDInfo &, const TrackOffsetList & );
+      virtual Result submit(const CDInfo &, const TrackOffsetList &);
     signals:
       void finished( CDDB::Result );
     protected slots:

@@ -231,18 +231,21 @@ namespace KCDDB
 	QString hostname = d->config.smtpHostname();
 	uint port = d->config.smtpPort();
 	QString username = d->config.smtpUsername();
+	QString from = d->config.emailAddress();
 	if ( blockingMode() )
-	  cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username );
+	  cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username, from );
 	else
 	{
-	  cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username );
+	  cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username, from );
           connect( static_cast<AsyncSMTPSubmit *>( cdInfoSubmit ), 
                   SIGNAL( finished( CDDB::Result ) ),
                   SLOT( slotSubmitFinished( CDDB::Result ) ) );
 	}
         break;
       }
-
+      case Submit::None:
+        kdDebug() << k_funcinfo << "CDDB Submit disabled" << endl;
+	break;
       default:
         kdDebug(60010) << k_funcinfo << "Unsupported transport: " << endl;
 //          << CDDB::transportToString(d->config.submitTransport()) << endl;

@@ -22,10 +22,11 @@
 
 namespace KCDDB
 {
-  SMTPSubmit::SMTPSubmit(const QString& hostname, uint port, const QString& username)
+  SMTPSubmit::SMTPSubmit(const QString& hostname, uint port, const QString& username, const QString& from)
     : Submit()
   {
     initURL( hostname, port, username );
+    from_ = from;
   }
 
   SMTPSubmit::~SMTPSubmit()
@@ -46,7 +47,8 @@ namespace KCDDB
   {
     // freedb-submit@freedb.org
     // test-submit@freedb.org
-    url_.setQuery(QString("to=%1&subject=%2").arg("test-submit@freedb.org", subject));
+    url_.setQuery(QString("to=%1&subject=%2&from=%3")
+      .arg("test-submit@freedb.org", subject, from_));
     kdDebug(60010) << "Url is: " << url_.prettyURL() << endl;
   }
 }
