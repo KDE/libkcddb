@@ -685,6 +685,12 @@
         <receiver>CDDBConfigWidgetBase</receiver>
         <slot>slotConfigChanged()</slot>
     </connection>
+    <connection>
+        <sender>controlCenterLabel_2</sender>
+        <signal>leftClickedURL()</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>launchControlCenter()</slot>
+    </connection>
 </connections>
 <tabstops>
     <tabstop>cacheOnly</tabstop>
