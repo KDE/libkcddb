@@ -10,11 +10,8 @@ AsyncSMTPSubmitTest::AsyncSMTPSubmitTest()
 {
   using namespace KCDDB;
 
-  Config config;
-  config.readConfig();
-  config.setSubmitTransport(Submit::SMTP);
-
-  client_ = new Client(config);
+  client_ = new Client;
+  client_->config().setSubmitTransport(Submit::SMTP);
   // Lookup sync
   client_->setBlockingMode( true );
 

@@ -11,14 +11,11 @@ AsyncHTTPLookupTest::AsyncHTTPLookupTest()
 {
   using namespace KCDDB;
 
-  Config config;
-
-  config.setHostname("freedb.freedb.org");
-  config.setPort(80);
-  config.setCachePolicy(Cache::Ignore);
-  config.setLookupTransport(Lookup::HTTP);
-
-  client_ = new Client(config);
+  client_ = new Client;
+  client_->config().setHostname("freedb.freedb.org");
+  client_->config().setPort(80);
+  client_->config().setCachePolicy(Cache::Ignore);
+  client_->config().setLookupTransport(Lookup::HTTP);
   client_->setBlockingMode( false );
 
   connect
