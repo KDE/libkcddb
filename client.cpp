@@ -62,6 +62,8 @@ namespace KCDDB
   Client::~Client()
   {
     delete d;
+    delete cdInfoLookup;
+    delete cdInfoSubmit;
   }
 
     const Config &
@@ -152,7 +154,7 @@ namespace KCDDB
       else
         cdInfoLookup = new SyncHTTPLookup();
 
-      r = cdInfoLookup->lookup( d->config.hostname(), 
+      r = cdInfoLookup->lookup( d->config.hostname(),
               d->config.port(), trackOffsetList );
 
       if ( CDDB::Success == r )
@@ -162,6 +164,7 @@ namespace KCDDB
       }
 
       delete cdInfoLookup;
+      cdInfoLookup = 0L;
     }
     else
     {
@@ -169,7 +172,7 @@ namespace KCDDB
       {
         cdInfoLookup = new AsyncCDDBPLookup();
 
-        connect( static_cast<AsyncCDDBPLookup *>( cdInfoLookup ), 
+        connect( static_cast<AsyncCDDBPLookup *>( cdInfoLookup ),
                   SIGNAL( finished( CDDB::Result ) ),
                   SLOT( slotFinished( CDDB::Result ) ) );
       }
@@ -177,16 +180,19 @@ namespace KCDDB
       {
         cdInfoLookup = new AsyncHTTPLookup();
 
-        connect( static_cast<AsyncHTTPLookup *>( cdInfoLookup ), 
+        connect( static_cast<AsyncHTTPLookup *>( cdInfoLookup ),
                   SIGNAL( finished( CDDB::Result ) ),
                   SLOT( slotFinished( CDDB::Result ) ) );
       }
 
-      r = cdInfoLookup->lookup( d->config.hostname(), 
+      r = cdInfoLookup->lookup( d->config.hostname(),
               d->config.port(), trackOffsetList );
 
       if ( Lookup::Success != r )
+      {
         delete cdInfoLookup;
+        cdInfoLookup = 0L;
+      }
     }
 
     return r;
@@ -206,6 +212,7 @@ namespace KCDDB
     emit finished( r );
 
     delete cdInfoLookup;
+    cdInfoLookup = 0L;
   }
 
     void
@@ -214,6 +221,7 @@ namespace KCDDB
     emit finished( r );
 
     delete cdInfoSubmit;
+    cdInfoSubmit=0L;
   }
 
     CDDB::Result
@@ -242,7 +250,7 @@ namespace KCDDB
 //          << CDDB::transportToString(d->config.submitTransport()) << endl;
         return CDDB::UnknownError;
         break;
-      
+
       case Submit::SMTP:
       {
 	QString hostname = d->config.smtpHostname();
@@ -254,7 +262,7 @@ namespace KCDDB
 	else
 	{
 	  cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username, from );
-          connect( static_cast<AsyncSMTPSubmit *>( cdInfoSubmit ), 
+          connect( static_cast<AsyncSMTPSubmit *>( cdInfoSubmit ),
                   SIGNAL( finished( CDDB::Result ) ),
                   SLOT( slotSubmitFinished( CDDB::Result ) ) );
 	}
@@ -274,7 +282,10 @@ namespace KCDDB
     CDDB::Result r = cdInfoSubmit->submit( cdInfo, offsetList );
 
     if ( blockingMode() )
+    {
       delete cdInfoSubmit;
+      cdInfoSubmit = 0L;
+    }
 
     return r;
   }
