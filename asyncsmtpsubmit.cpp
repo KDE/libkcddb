@@ -40,8 +40,7 @@ namespace KCDDB
   {
     makeDiskData( cdInfo, offsetList );
 
-    QString subject = QString("cddb %1 %2").arg(validCategory( cdInfo.genre ),
-        cdInfo.id);
+    QString subject = QString("cddb %1 %2").arg(cdInfo.category, cdInfo.id);
     makeURL( subject );
 
     KIO::TransferJob* job = KIO::put( url_, -1, false, false, false );
