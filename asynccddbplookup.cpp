@@ -185,10 +185,10 @@ namespace KCDDB
         break;
 
       case WaitingForQueryResponse:
-        {
-          Result result = parseQuery( readLine() );
+        
+          result_ = parseQuery( readLine() );
 
-          switch (result)
+          switch ( result_ )
           {
             case Success:
               requestCDInfoForMatch();
@@ -199,11 +199,9 @@ namespace KCDDB
               break;
 
             default: // Error :(
-              result_ = result;
               doQuit();
               return;
           }
-        }
 
         break;
 

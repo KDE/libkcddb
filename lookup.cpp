@@ -191,7 +191,11 @@ namespace KCDDB
         break;
 
       case NoRecordFound:
-        return "NoSuchCD";
+        return "NoRecordFound";
+        break;
+
+      case MultipleRecordFound:
+        return "MultipleRecordFound";
         break;
 
       case CannotSave:

@@ -18,32 +18,104 @@
   Boston, MA 02111-1307, USA.
 */
 
+#include <qstringlist.h>
+#include <qapplication.h>
+
 #include <kdebug.h>
+#include <kio/job.h>
 
 #include "asynchttplookup.h"
 
 namespace KCDDB
 {
-  AsyncHTTPLookup::AsyncHTTPLookup(QObject * parent, const char * name)
-    : HTTPLookup (),
-      state_      (Idle)
+  AsyncHTTPLookup::AsyncHTTPLookup()
+    : HTTPLookup()
   {
+    block_ = false;
   }
 
   AsyncHTTPLookup::~AsyncHTTPLookup()
   {
+    // Empty.
+  }
+
+    Lookup::Result
+  AsyncHTTPLookup::lookup
+  (
+    const QString         & hostName,
+    uint                    port,
+    const QString         & clientName,
+    const QString         & clientVersion,
+    const TrackOffsetList & trackOffsetList
+  )
+  {
+    if ( trackOffsetList.count() < 3 )
+      return UnknownError;
+
+    clientName_ = clientName;
+    clientVersion_ = clientVersion;
+    trackOffsetList_ = trackOffsetList;
+
+    connect( this, SIGNAL( queryReady() ), SLOT( slotQueryReady() ) );
+    connect( this, SIGNAL( readReady() ), SLOT( requestCDInfoForMatch() ) );
+
+    initURL( hostName, port );
+
+    // Run a query.
+    result_ = runQuery();
+
+    return result_;
+  }
+
+    Lookup::Result
+  AsyncHTTPLookup::runQuery()
+  {
+    data_ = QString::null;
+    state_ = WaitingForQueryResponse;
+
+    makeQueryURL();
+
+    result_ = submitJob();
+
+    return result_;
   }
 
     void
-  AsyncHTTPLookup::lookup
-  (
-    const TrackOffsetList & trackOffsetList,
-    const QString         & hostname,
-    uint                    port,
-    const QString         & clientName,
-    const QString         & clientVersion
-  )
+  AsyncHTTPLookup::slotQueryReady()
   {
+    kdDebug() << "Matches Found: " <<  matchList_.count() << endl;
+
+    if ( Success != result_ )
+    {
+      emit finished( result_ );
+      return;
+    }
+
+    requestCDInfoForMatch();
+  }
+
+    void
+  AsyncHTTPLookup::requestCDInfoForMatch()
+  {
+    if ( matchList_.isEmpty() )
+    {
+      result_ = cdInfoList_.isEmpty()? NoRecordFound : Success;
+      emit finished( result_ );
+      return;
+    }
+
+    CDDBMatch match = matchList_.first();
+    matchList_.remove(  match );
+
+    data_ = QString::null;
+    state_ = WaitingForReadResponse;
+
+    makeReadURL( match );
+
+    result_ = submitJob();
+
+    if ( Success != result_ )
+      emit finished( result_ );
   }
 }
 

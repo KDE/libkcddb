@@ -120,8 +120,6 @@ namespace KCDDB
     void
   HTTPLookup::slotResult( KIO::Job *job )
   {
-    kdDebug() << "HTTPLookup::slotResult() called." << endl;
-
     if ( 0 != job->error() )
     {
       result_ = ServerError;
@@ -158,6 +156,8 @@ namespace KCDDB
 
                 if ( '.' == line[ 0 ] )
                 {
+                  result_ = Success;
+
                   if ( !block_ )
                     emit queryReady();
                   break;

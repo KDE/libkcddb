@@ -21,24 +21,24 @@
 #ifndef KCDDB_ASYNC_HTTP_LOOKUP_H
 #define KCDDB_ASYNC_HTTP_LOOKUP_H
 
-#include <qobject.h>
-
 #include "httplookup.h"
 
 namespace KCDDB
 {
-  class AsyncHTTPLookup : public QObject, public CDDBLookup 
+  class AsyncHTTPLookup : public HTTPLookup
   {
+
     Q_OBJECT
 
     public:
 
-      AsyncHTTPLookup( QObject * parent = 0, const char * name = 0 );
-
+      AsyncHTTPLookup();
       virtual ~AsyncHTTPLookup();
 
       Result lookup( const QString &, uint, const QString &,
           const QString &, const TrackOffsetList & );
+
+      CDInfoList lookupResponse() const;
 
     signals:
 
@@ -46,34 +46,15 @@ namespace KCDDB
 
     protected slots:
 
-      void slotLookupFinished( int );
-      void slotConnectionSuccess();
-      void slotConnectionFailed( int );
-      void slotReadyRead();
+      void slotQueryReady();
+      void requestCDInfoForMatch();
 
     protected:
 
-      void doHandshake();
-      void doProto();
-      void doQuery();
-      void doQuit();
-
-      bool parseQueryResponse( const QString & );
-      void requestCDInfoForMatch();
-      bool parseCDInfoResponse( const QString & );
-      void parseCDInfoData();
-
-      void read();
-
-      QString stateToString() const;
-
-    private:
-
-      State state_;
-      Result result_;
-      QStringList cdInfoBuffer_;
+      Result runQuery();
   };
 }
 
-#endif // KCDDB_ASYNC_CDDB_LOOKUP_H
+#endif // KCDDB_ASYNC_HTTP_LOOKUP_H
+
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1
