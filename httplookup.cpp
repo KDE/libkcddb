@@ -39,8 +39,7 @@ namespace KCDDB
       .arg( trackOffsetListToId() )
       .arg( trackOffsetListToString() ) ;
 
-    cgiURL_.removeQueryItem( "cmd" );
-    cgiURL_.addQueryItem( "cmd", cmd );
+    makeURL( cmd );
 
     return;
   }
@@ -55,8 +54,7 @@ namespace KCDDB
         .arg( category )
         .arg( discid );
 
-    cgiURL_.removeQueryItem( "cmd" );
-    cgiURL_.addQueryItem( "cmd", cmd );
+    makeURL( cmd );
 
     return;
   }
@@ -64,20 +62,31 @@ namespace KCDDB
     void
   HTTPLookup::initURL( const QString & hostName, uint port )
   {
+    cgiURL_.setProtocol( "http" );
+    cgiURL_.setHost( hostName );
+    cgiURL_.setPort( port );
+    cgiURL_.setPath( "/~cddb/cddb.cgi" );
+
+    return;
+  }
+
+    void
+  HTTPLookup::makeURL( const QString & cmd )
+  {
+    // The whole query has to constructed each time as the
+    // CDDB CGI script expects the parameters in strict order
+
+    cgiURL_.setQuery( QString::null );
+
     QString hello = QString( "%1 %2 %3 %4" )
       .arg( user_ )
       .arg( localHostName_ )
       .arg( clientName_ )
       .arg( clientVersion_ );
 
-    cgiURL_.setProtocol( "http" );
-    cgiURL_.setHost( hostName );
-    cgiURL_.setPort( port );
-    cgiURL_.setPath( "/~cddb/cddb.cgi" );
+    cgiURL_.addQueryItem( "cmd", cmd );
     cgiURL_.addQueryItem( "hello", hello );
     cgiURL_.addQueryItem( "proto", "5" );
-
-    return;
   }
 }
 

@@ -38,7 +38,10 @@ namespace KCDDB
 
       void makeQueryURL();
       void makeReadURL( const CDDBMatch &  );
+
+    protected:
       void initURL( const QString &, uint );
+      void makeURL( const QString & );
 
     protected:
 
