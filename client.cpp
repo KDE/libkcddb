@@ -26,6 +26,8 @@
 #include "asynchttplookup.h"
 #include "syncsmtpsubmit.h"
 #include "asyncsmtpsubmit.h"
+#include "synchttpsubmit.h"
+#include "asynchttpsubmit.h"
 #include "cache.h"
 #include "lookup.h"
 
@@ -245,13 +247,22 @@ namespace KCDDB
 
     //TODO Check that it is edited
 
+    // just in case we have a cdInfoSubmit, prevent memory leakage
+    delete cdInfoSubmit;
+
     switch (d->config.submitTransport())
     {
       case Submit::HTTP:
-        // TODO For now...
-        kdDebug(60010) << k_funcinfo << "HTTP Submit not supported yet: " << endl;
-//          << CDDB::transportToString(d->config.submitTransport()) << endl;
-        return CDDB::UnknownError;
+        if ( blockingMode() )
+	  cdInfoSubmit = new SyncHTTPSubmit( );
+	else
+	{
+	  cdInfoSubmit = new AsyncHTTPSubmit( );
+	  connect( static_cast<AsyncHTTPSubmit *>( cdInfoSubmit ),
+	          SIGNAL(finished( CDDB::Result ) ),
+	          SLOT( slotSubmitFinished( CDDB::Result ) ) );
+	}
+	
         break;
 
       case Submit::SMTP:
@@ -260,9 +271,6 @@ namespace KCDDB
 	uint port = d->config.smtpPort();
 	QString username = d->config.smtpUsername();
 	QString from = d->config.emailAddress();
-
-        // just in case we have a cdInfoSubmit, prevent memory leakage
-        delete cdInfoSubmit;
 
 	if ( blockingMode() )
 	  cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
