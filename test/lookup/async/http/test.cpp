@@ -4,7 +4,7 @@
 
 #include "test.h"
 
-AsyncCDDBLookupTest::AsyncCDDBLookupTest()
+AsyncHTTPLookupTest::AsyncHTTPLookupTest()
   : QObject()
 {
   using namespace KCDDB;
@@ -47,13 +47,13 @@ AsyncCDDBLookupTest::AsyncCDDBLookupTest()
 }
 
   void
-AsyncCDDBLookupTest::slotFinished(Lookup::Result r)
+AsyncHTTPLookupTest::slotFinished(Lookup::Result r)
 {
-  kdDebug() << "AsyncCDDBLookupTest::slotFinished: Got " << KCDDB::Lookup::resultToString(r) << endl;
+  kdDebug() << "AsyncHTTPLookupTest::slotFinished: Got " << KCDDB::Lookup::resultToString(r) << endl;
 
   CDInfoList l = client_->lookupResponse();
 
-  kdDebug() << "AsyncCDDBLookupTest::slotFinished: Item count: " <<  l.count() << endl;
+  kdDebug() << "AsyncHTTPLookupTest::slotFinished: Item count: " <<  l.count() << endl;
 
   for (CDInfoList::ConstIterator it(l.begin()); it != l.end(); ++it)
   {
@@ -94,7 +94,7 @@ int main(int argc, char ** argv)
 
   KApplication app(false /* No styles */, false /* No GUI */);
 
-  new AsyncCDDBLookupTest;
+  new AsyncHTTPLookupTest;
 
   return app.exec();
 }

@@ -3,13 +3,13 @@
 
 using namespace KCDDB;
 
-class AsyncCDDBLookupTest : public QObject
+class AsyncHTTPLookupTest : public QObject
 {
   Q_OBJECT
 
   public:
 
-    AsyncCDDBLookupTest();
+    AsyncHTTPLookupTest();
 
   public slots:
 
