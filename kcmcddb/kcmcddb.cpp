@@ -135,3 +135,5 @@ CDDBModule::quickHelp() const
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1
+
+#include "kcmcddb.moc"
