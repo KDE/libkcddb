@@ -41,14 +41,19 @@ namespace KCDDB
   }
 
     QString
+  Lookup::trackOffsetListToId()
+  {
+    return trackOffsetListToId( trackOffsetList_ );
+  }
+    QString
   Lookup::trackOffsetListToId( const TrackOffsetList & list )
   {
     // Taken from version by Michael Matz in kio_audiocd.
     unsigned int id = 0;
-    int trackCount = list.count() - 2;
+    int numTracks = list.count() - 2;
 
     // The last two in the list are disc begin and disc end.
-    for ( int i = trackCount-1; i >= 0; i-- )
+    for ( int i = numTracks-1; i >= 0; i-- )
     {
       int n = list[ i ]/75;
       while ( n > 0 )
@@ -58,35 +63,36 @@ namespace KCDDB
       }
     }
 
-    unsigned int l = list[ trackCount + 1 ];
+    unsigned int l = list[ numTracks + 1 ];
 
-    l -= list[ trackCount ];
+    l -= list[ numTracks ];
     l /= 75;
 
-    id = ( ( id % 255 ) << 24 ) | ( l << 8 ) | trackCount;
+    id = ( ( id % 255 ) << 24 ) | ( l << 8 ) | numTracks;
 
     return QString::number( id, 16 ).rightJustify( 8, '0' );
   }
 
     QString
-  Lookup::trackOffsetListToString( const TrackOffsetList & list )
+  Lookup::trackOffsetListToString()
   {
     QString ret;
+    uint numTracks = trackOffsetList_.count()-2;
 
     // Disc start.
-    ret.append(  QString::number(  list[  list.count()-2 ] ) );
-    ret.append(  " " );
+    ret.append( QString::number( trackOffsetList_[ numTracks ] ) );
+    ret.append( " " );
 
-    for (  uint i = 0; i < list.count() - 2; i++ )
+    for ( uint i = 0; i < numTracks; i++ )
     {
-      ret.append(  QString::number(  list[  i ] ) );
-      ret.append(  " " );
+      ret.append( QString::number( trackOffsetList_[ i ] ) );
+      ret.append( " " );
     }
 
-    unsigned int discLengthInSeconds = (  list[  list.count() - 1 ] ) / 75;
+    unsigned int discLengthInSec = ( trackOffsetList_[ numTracks+1 ] ) / 75;
 
     // Disc length in seconds.
-    ret.append(  QString::number(  discLengthInSeconds ) );
+    ret.append( QString::number( discLengthInSec ) );
 
     return ret;
   }

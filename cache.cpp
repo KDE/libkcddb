@@ -68,10 +68,12 @@ namespace KCDDB
       kdDebug() << "Storing " << cacheFile << " in CDDB cache" << endl;
 
       QFile f(cacheFile);
-      f.open(IO_WriteOnly);
-      QTextStream ts(&f);
-      ts << info.toString();
-      f.close();
+      if ( f.open(IO_WriteOnly) )
+      {
+        QTextStream ts(&f);
+        ts << info.toString();
+        f.close();
+      }
 
       ++it;
     }

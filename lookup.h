@@ -87,7 +87,8 @@ namespace KCDDB
       void parseExtraMatch( const QString& );
       Result parseQuery( const QString& );
 
-      QString trackOffsetListToString( const TrackOffsetList& );
+      QString trackOffsetListToId();
+      QString trackOffsetListToString();
  
       KExtendedSocket socket_;
 
@@ -99,6 +100,7 @@ namespace KCDDB
 
       CDInfoList cdInfoList_;
       CDDBMatchList matchList_;
+      TrackOffsetList trackOffsetList_;
   };
 }
 

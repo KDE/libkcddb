@@ -53,16 +53,17 @@ namespace KCDDB
     while ( it != lineList.end() )
     {
       QString line(*it);
+      ++it;
 
       QStringList tokenList = KStringHandler::perlSplit('=', line, 2);
 
       if (2 != tokenList.count())
         continue;
 
-      QString key   = tokenList[0];
-      QString value = tokenList[1];
+      QString key   = tokenList[0].stripWhiteSpace();
+      QString value = tokenList[1].stripWhiteSpace();
 
-      kdDebug() << key << "=" << value << endl;
+      //kdDebug() << key << "=" << value << endl;
 
       value.replace(QRegExp("\\n"), "\n");
       value.replace(QRegExp("\\t"), "\t");
@@ -107,9 +108,8 @@ namespace KCDDB
 
         trackInfoList[trackNumber] = trackInfo;
       }
-
-      ++it;
     }
+    kdDebug() << "Loaded CDInfo for " << id << endl;
 
     return true;
   }

@@ -33,7 +33,7 @@ namespace KCDDB
       virtual ~CDDBLookup();
 
       QString makeCDDBHandshake();
-      QString makeCDDBQuery( const TrackOffsetList & );
+      QString makeCDDBQuery();
       QString makeCDDBRead( const CDDBMatch &  );
   };
 }

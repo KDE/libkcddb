@@ -54,8 +54,9 @@ namespace KCDDB
     if ( trackOffsetList.count() < 3 )
       return UnknownError;
 
-    clientName_     = clientName;
-    clientVersion_  = clientVersion;
+    clientName_ = clientName;
+    clientVersion_ = clientVersion;
+    trackOffsetList_ = trackOffsetList;
 
     Result result;
 
@@ -70,7 +71,7 @@ namespace KCDDB
       return result;
 
     // Run a query.
-    result = runQuery(trackOffsetList);
+    result = runQuery();
     if ( Success != result )
       return result;
 
@@ -85,7 +86,8 @@ namespace KCDDB
 
     while ( matchIt != matchList_.end() )
     {
-      ( void )matchToCDInfo( static_cast<CDDBMatch>( *matchIt ) );
+      CDDBMatch match( *matchIt );
+      result = matchToCDInfo( match );
       ++matchIt;
     }
 
@@ -114,12 +116,11 @@ namespace KCDDB
   }
 
     Lookup::Result
-  SyncCDDBLookup::runQuery(const TrackOffsetList & offsetList)
+  SyncCDDBLookup::runQuery()
   {
     Result result;
 
-    TrackOffsetList list = offsetList;
-    QString line = makeCDDBQuery( list );
+    QString line = makeCDDBQuery();
     writeLine( line );
 
     line = readLine();
@@ -144,7 +145,7 @@ namespace KCDDB
   }
 
     Lookup::Result
-  SyncCDDBLookup::matchToCDInfo(const CDDBMatch & match)
+  SyncCDDBLookup::matchToCDInfo( const CDDBMatch & match )
   {
     QString line = makeCDDBRead( match );
     writeLine( line );
@@ -153,7 +154,7 @@ namespace KCDDB
     QStringList tokenList = QStringList::split( ' ', line );
 
     uint serverStatus = tokenList[0].toUInt();
-    if (210 != serverStatus)
+    if ( 210 != serverStatus )
       return ServerError;
 
     QStringList lineList;
@@ -167,8 +168,11 @@ namespace KCDDB
 
     CDInfo info;
 
-    if (info.load( lineList ))
+    if ( info.load( lineList ) )
+    {
+      info.genre = match.first;
       cdInfoList_.append( info );
+    }
 
     return Success;
   }

@@ -49,8 +49,8 @@ namespace KCDDB
       void disconnect();
       Result shakeHands();
 
-      Result runQuery(const TrackOffsetList &);
-      Result matchToCDInfo(const CDDBMatch &);
+      Result runQuery();
+      Result matchToCDInfo( const CDDBMatch & );
   };
 }
 
