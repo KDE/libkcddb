@@ -1,0 +1,476 @@
+<!DOCTYPE UI><UI version="3.0" stdsetdef="1">
+<class>CDDBConfigWidgetBase</class>
+<comment>Used for configuring libkcddb.</comment>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>CDDBConfigWidgetBase</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>378</width>
+            <height>412</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>CDDB Settings</string>
+    </property>
+    <widget class="QGroupBox">
+        <property name="name">
+            <cstring>GroupBox4</cstring>
+        </property>
+        <property name="title">
+            <string>CDDB Server</string>
+        </property>
+        <grid>
+            <property name="name">
+                <cstring>unnamed</cstring>
+            </property>
+            <property name="margin">
+                <number>11</number>
+            </property>
+            <property name="spacing">
+                <number>6</number>
+            </property>
+            <widget class="QLineEdit" row="0" column="1">
+                <property name="name">
+                    <cstring>cddbServer</cstring>
+                </property>
+                <property name="text">
+                    <string>freedb.freedb.org</string>
+                </property>
+                <property name="whatsThis" stdset="0">
+                    <string>Name of CDDB server which will be used to look up CD information.</string>
+                </property>
+            </widget>
+            <widget class="QSpinBox" row="0" column="3">
+                <property name="name">
+                    <cstring>cddbPort</cstring>
+                </property>
+                <property name="maxValue">
+                    <number>64000</number>
+                </property>
+                <property name="value">
+                    <number>888</number>
+                </property>
+                <property name="whatsThis" stdset="0">
+                    <string>Port to connect to on CDDB server.</string>
+                </property>
+            </widget>
+            <widget class="QLabel" row="0" column="0">
+                <property name="name">
+                    <cstring>TextLabel7</cstring>
+                </property>
+                <property name="text">
+                    <string>CDDB &amp;Server:</string>
+                </property>
+                <property name="buddy" stdset="0">
+                    <cstring>cddbServer</cstring>
+                </property>
+            </widget>
+            <widget class="QLabel" row="0" column="2">
+                <property name="name">
+                    <cstring>TextLabel8</cstring>
+                </property>
+                <property name="text">
+                    <string>Port:</string>
+                </property>
+                <property name="alignment">
+                    <set>AlignVCenter|AlignRight</set>
+                </property>
+                <property name="buddy" stdset="0">
+                    <cstring>cddbPort</cstring>
+                </property>
+            </widget>
+            <widget class="QLabel" row="1" column="0">
+                <property name="name">
+                    <cstring>TextLabel9</cstring>
+                </property>
+                <property name="text">
+                    <string>&amp;Transport:</string>
+                </property>
+                <property name="buddy" stdset="0">
+                    <cstring>cddbType</cstring>
+                </property>
+            </widget>
+            <widget class="QComboBox" row="1" column="1" rowspan="1" colspan="3">
+                <item>
+                    <property name="text">
+                        <string>CDDB</string>
+                    </property>
+                </item>
+                <item>
+                    <property name="text">
+                        <string>HTTP</string>
+                    </property>
+                </item>
+                <property name="name">
+                    <cstring>cddbType</cstring>
+                </property>
+                <property name="whatsThis" stdset="0">
+                    <string>Type of lookup which should be tried at the CDDB server.</string>
+                </property>
+            </widget>
+        </grid>
+    </widget>
+    <widget class="QGroupBox">
+        <property name="name">
+            <cstring>GroupBox3</cstring>
+        </property>
+        <property name="title">
+            <string>HTTP Transport</string>
+        </property>
+        <grid>
+            <property name="name">
+                <cstring>unnamed</cstring>
+            </property>
+            <property name="margin">
+                <number>11</number>
+            </property>
+            <property name="spacing">
+                <number>6</number>
+            </property>
+            <widget class="QLabel" row="1" column="0">
+                <property name="name">
+                    <cstring>TextLabel4</cstring>
+                </property>
+                <property name="text">
+                    <string>&amp;HTTP Proxy:</string>
+                </property>
+                <property name="buddy" stdset="0">
+                    <cstring>httpProxyServer</cstring>
+                </property>
+            </widget>
+            <widget class="QLineEdit" row="1" column="1">
+                <property name="name">
+                    <cstring>httpProxyServer</cstring>
+                </property>
+                <property name="text">
+                    <string>http://</string>
+                </property>
+                <property name="whatsThis" stdset="0">
+                    <string>Name of HTTP proxy server.</string>
+                </property>
+            </widget>
+            <widget class="QLabel" row="1" column="2">
+                <property name="name">
+                    <cstring>TextLabel5</cstring>
+                </property>
+                <property name="text">
+                    <string>Port:</string>
+                </property>
+                <property name="alignment">
+                    <set>AlignVCenter|AlignRight</set>
+                </property>
+            </widget>
+            <widget class="QSpinBox" row="1" column="3">
+                <property name="name">
+                    <cstring>httpProxyPort</cstring>
+                </property>
+                <property name="maxValue">
+                    <number>64000</number>
+                </property>
+                <property name="value">
+                    <number>8080</number>
+                </property>
+                <property name="whatsThis" stdset="0">
+                    <string>Port to connect to on HTTP proxy server.</string>
+                </property>
+            </widget>
+            <widget class="QCheckBox" row="0" column="0" rowspan="1" colspan="4">
+                <property name="name">
+                    <cstring>httpProxyEnable</cstring>
+                </property>
+                <property name="text">
+                    <string>Use HTTP pro&amp;xy</string>
+                </property>
+                <property name="checked">
+                    <bool>true</bool>
+                </property>
+                <property name="whatsThis" stdset="0">
+                    <string>Possibly needed if you are behind a firewall.</string>
+                </property>
+            </widget>
+        </grid>
+    </widget>
+    <widget class="QGroupBox">
+        <property name="name">
+            <cstring>GroupBox1</cstring>
+        </property>
+        <property name="title">
+            <string>Submissions</string>
+        </property>
+        <grid>
+            <property name="name">
+                <cstring>unnamed</cstring>
+            </property>
+            <property name="margin">
+                <number>11</number>
+            </property>
+            <property name="spacing">
+                <number>6</number>
+            </property>
+            <widget class="QCheckBox" row="0" column="0" rowspan="1" colspan="3">
+                <property name="name">
+                    <cstring>submissionsEnable</cstring>
+                </property>
+                <property name="text">
+                    <string>&amp;Enable submissions</string>
+                </property>
+                <property name="checked">
+                    <bool>true</bool>
+                </property>
+                <property name="whatsThis" stdset="0">
+                    <string>Allow submitting CD info to a CDDB server. Enabling this makes you a good netizen.</string>
+                </property>
+            </widget>
+            <widget class="QSpinBox" row="1" column="3">
+                <property name="name">
+                    <cstring>submissionsPort</cstring>
+                </property>
+                <property name="maxValue">
+                    <number>64000</number>
+                </property>
+                <property name="value">
+                    <number>25</number>
+                </property>
+                <property name="whatsThis" stdset="0">
+                    <string>Port to connect to on SMTP server.</string>
+                </property>
+            </widget>
+            <widget class="QLabel" row="1" column="2">
+                <property name="name">
+                    <cstring>TextLabel2</cstring>
+                </property>
+                <property name="text">
+                    <string>Port:</string>
+                </property>
+                <property name="alignment">
+                    <set>AlignVCenter|AlignRight</set>
+                </property>
+                <property name="buddy" stdset="0">
+                    <cstring>submissionsPort</cstring>
+                </property>
+            </widget>
+            <widget class="QLabel" row="1" column="0">
+                <property name="name">
+                    <cstring>TextLabel1</cstring>
+                </property>
+                <property name="text">
+                    <string>S&amp;MTP Server:</string>
+                </property>
+                <property name="buddy" stdset="0">
+                    <cstring>submissionsServer</cstring>
+                </property>
+            </widget>
+            <widget class="QLineEdit" row="1" column="1">
+                <property name="name">
+                    <cstring>submissionsServer</cstring>
+                </property>
+                <property name="whatsThis" stdset="0">
+                    <string>SMTP server which submissions will be sent to.</string>
+                </property>
+            </widget>
+            <widget class="QLineEdit" row="2" column="1" rowspan="1" colspan="3">
+                <property name="name">
+                    <cstring>submissionsSendTo</cstring>
+                </property>
+                <property name="text">
+                    <string>freedb-submit@freedb.org</string>
+                </property>
+                <property name="whatsThis" stdset="0">
+                    <string>Email address which will be used for SMTP CD info submissions.</string>
+                </property>
+            </widget>
+            <widget class="QLabel" row="2" column="0">
+                <property name="name">
+                    <cstring>TextLabel3</cstring>
+                </property>
+                <property name="text">
+                    <string>Emai&amp;l address:</string>
+                </property>
+                <property name="buddy" stdset="0">
+                    <cstring>submissionsSendTo</cstring>
+                </property>
+            </widget>
+        </grid>
+    </widget>
+    <widget class="QCheckBox">
+        <property name="name">
+            <cstring>cacheEnable</cstring>
+        </property>
+        <property name="text">
+            <string>Use local cache &amp;before CDDB server</string>
+        </property>
+        <property name="checked">
+            <bool>true</bool>
+        </property>
+        <property name="whatsThis" stdset="0">
+            <string>Check for locally cached CD info before trying to look up at remote CDDB server.</string>
+        </property>
+    </widget>
+    <spacer>
+        <property name="name" stdset="0">
+            <cstring>Spacer6</cstring>
+        </property>
+        <property name="orientation">
+            <enum>Vertical</enum>
+        </property>
+        <property name="sizeType">
+            <enum>Expanding</enum>
+        </property>
+        <property name="sizeHint">
+            <size>
+                <width>20</width>
+                <height>20</height>
+            </size>
+        </property>
+    </spacer>
+</widget>
+<connections>
+    <connection>
+        <sender>httpProxyEnable</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>TextLabel4</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>httpProxyEnable</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>httpProxyServer</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>httpProxyEnable</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>TextLabel5</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>httpProxyEnable</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>httpProxyPort</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>submissionsEnable</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>TextLabel1</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>submissionsEnable</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>submissionsServer</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>submissionsEnable</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>submissionsPort</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>submissionsEnable</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>TextLabel2</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>submissionsEnable</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>TextLabel3</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>submissionsEnable</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>submissionsSendTo</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>cddbServer</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>cddbPort</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>cddbType</sender>
+        <signal>activated(int)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>httpProxyEnable</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>httpProxyServer</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>httpProxyPort</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>submissionsEnable</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>submissionsServer</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>submissionsPort</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>submissionsSendTo</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>cacheEnable</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>cddbServer</tabstop>
+    <tabstop>cddbPort</tabstop>
+    <tabstop>cddbType</tabstop>
+    <tabstop>submissionsEnable</tabstop>
+    <tabstop>submissionsServer</tabstop>
+    <tabstop>submissionsPort</tabstop>
+    <tabstop>submissionsSendTo</tabstop>
+    <tabstop>httpProxyEnable</tabstop>
+    <tabstop>httpProxyServer</tabstop>
+    <tabstop>httpProxyPort</tabstop>
+    <tabstop>cacheEnable</tabstop>
+</tabstops>
+<slots>
+    <slot access="protected">slotConfigChanged()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

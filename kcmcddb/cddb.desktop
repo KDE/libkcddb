@@ -1,0 +1,10 @@
+[Desktop Entry]
+Exec=kcmshell cddb
+Icon=cdaudio_unmount
+Type=Application
+
+X-KDE-ModuleType=Library
+X-KDE-Library=cddb_config
+
+Name=CDDB retrieval
+Comment=CDDB Configuration
