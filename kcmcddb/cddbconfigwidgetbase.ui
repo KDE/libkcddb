@@ -53,7 +53,7 @@
                         <string>Cache only</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>Check only in the local cache for CD info.</string>
+                        <string>Only check in the local cache for CD information.</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton">
@@ -64,7 +64,7 @@
                         <string>Cache and remote</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>Check for locally cached CD info before trying to look up at remote CDDB server.</string>
+                        <string>Check for locally cached CD information before trying to look up at remote CDDB server.</string>
                     </property>
                 </widget>
                 <widget class="QRadioButton">
@@ -256,7 +256,7 @@
                         <bool>true</bool>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>Allow submission of CD info to a CDDB server. Enabling this makes you a good netizen.</string>
+                        <string>Allow submission of CD information to a CDDB server. Enabling this makes you a good netizen.</string>
                     </property>
                 </widget>
                 <widget class="QLineEdit" row="2" column="1" rowspan="1" colspan="3">
@@ -267,7 +267,7 @@
                         <string>freedb-submit@freedb.org</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>Email address which will be used for SMTP CD info submissions.</string>
+                        <string>Email address which will be used for SMTP CD information submissions.</string>
                     </property>
                 </widget>
                 <widget class="QLabel" row="2" column="0">
