@@ -66,7 +66,7 @@ namespace KCDDB
     CDDB::Result
   AsyncHTTPLookup::runQuery()
   {
-    data_ = QString::null;
+    data_ = QByteArray();
     state_ = WaitingForQueryResponse;
 
     result_ = sendQuery();
@@ -101,7 +101,7 @@ namespace KCDDB
     CDDBMatch match = matchList_.first();
     matchList_.remove(  match );
 
-    data_ = QString::null;
+    data_ = QByteArray();
     state_ = WaitingForReadResponse;
 
     result_ = sendRead( match );

@@ -82,7 +82,7 @@ namespace KCDDB
   SyncHTTPLookup::runQuery()
   {
     done_ = false;
-    data_ = QString::null;
+    data_ = QByteArray();
     state_ = WaitingForQueryResponse;
 
     result_ = sendQuery();
@@ -106,7 +106,7 @@ namespace KCDDB
   SyncHTTPLookup::matchToCDInfo( const CDDBMatch & match )
   {
     done_ = false;
-    data_ = QString::null;
+    data_ = QByteArray();
     state_ = WaitingForReadResponse;
 
     result_ = sendRead( match );

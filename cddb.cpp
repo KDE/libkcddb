@@ -155,7 +155,7 @@ namespace KCDDB
         buf[0] = '\0';
     }
 
-    return QString( buf );
+    return QString::fromUtf8( buf );
   }
 
     Q_LONG

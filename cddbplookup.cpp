@@ -49,7 +49,7 @@ namespace KCDDB
     void
   CDDBPLookup::sendProto()
   {
-    writeLine( "proto 5" );
+    writeLine( "proto 6" );
   }
 
     void
