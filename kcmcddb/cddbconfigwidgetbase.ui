@@ -222,7 +222,7 @@
                     <bool>true</bool>
                 </property>
                 <property name="whatsThis" stdset="0">
-                    <string>Allow submitting CD info to a CDDB server. Enabling this makes you a good netizen.</string>
+                    <string>Allow submission of CD info to a CDDB server. Enabling this makes you a good netizen.</string>
                 </property>
             </widget>
             <widget class="QSpinBox" row="1" column="3">
