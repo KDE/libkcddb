@@ -39,6 +39,14 @@ namespace KCDDB
       void sendQuit();
 
       void close();
+    protected:
+      QString readLine();
+      Q_LONG writeLine( const QString & );
+
+      bool isConnected()
+        { return KExtendedSocket::connected == socket_.socketStatus(); }
+
+      KExtendedSocket socket_;
   };
 }
 

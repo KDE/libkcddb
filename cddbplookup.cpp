@@ -28,6 +28,7 @@ namespace KCDDB
   CDDBPLookup::CDDBPLookup()
     : Lookup()
   {
+    socket_.setTimeout( 60 );
   }
 
   CDDBPLookup::~CDDBPLookup()
@@ -92,6 +93,42 @@ namespace KCDDB
     }
   }
 
+    QString
+  CDDBPLookup::readLine()
+  {
+    if ( !isConnected() )
+    {
+      kdDebug(60010) << "socket status: " << socket_.socketStatus() << endl;
+      return QString::null;
+    }
+
+    const uint maxRead = 4096;
+    QByteArray buf( maxRead );
+
+    if (socket_.readLine( buf.data(), maxRead - 1 ) == -1)
+    {
+        // error!
+        buf[0] = '\0';
+    }
+
+    return QString::fromUtf8( buf );
+  }
+
+    Q_LONG
+  CDDBPLookup::writeLine( const QString & line )
+  {
+    if ( !isConnected() )
+    {
+      kdDebug(60010) << "socket status: " << socket_.socketStatus() << endl;
+      return -1;
+    }
+
+    kdDebug(60010) << "WRITE: [" << line << "]" << endl;
+    QCString buf = line.latin1();
+    buf.append( "\n" );
+
+    return socket_.writeBlock( buf.data(), buf.length() );
+  }
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

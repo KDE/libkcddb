@@ -66,12 +66,6 @@ namespace KCDDB
       static QString clientVersion() { return QString::fromLatin1("0.10"); }
 
     protected:
-      QString readLine();
-      Q_LONG writeLine( const QString & );
-
-      bool isConnected()
-        { return KExtendedSocket::connected == socket_.socketStatus(); }
-
       bool parseGreeting( const QString & );
       bool parseHandshake( const QString & );
 
@@ -80,8 +74,6 @@ namespace KCDDB
       QString trackOffsetListToId();
       QString trackOffsetListToString();
  
-      KExtendedSocket socket_;
-
       QString user_;
       QString localHostName_;
 

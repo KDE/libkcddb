@@ -35,7 +35,7 @@ namespace KCDDB
       localHostName_( "localHost" ),
       readOnly_( false )
   {
-    socket_.setTimeout( 60 );
+
   }
 
   CDDB::~CDDB()
@@ -135,43 +135,6 @@ namespace KCDDB
     kdDebug(60010) << "Handshake was warm and firm" << endl;
 
     return true;
-  }
-
-    QString
-  CDDB::readLine()
-  {
-    if ( !isConnected() )
-    {
-      kdDebug(60010) << "socket status: " << socket_.socketStatus() << endl;
-      return QString::null;
-    }
-
-    const uint maxRead = 4096;
-    QByteArray buf( maxRead );
-
-    if (socket_.readLine( buf.data(), maxRead - 1 ) == -1)
-    {
-        // error!
-        buf[0] = '\0';
-    }
-
-    return QString::fromUtf8( buf );
-  }
-
-    Q_LONG
-  CDDB::writeLine( const QString & line )
-  {
-    if ( !isConnected() )
-    {
-      kdDebug(60010) << "socket status: " << socket_.socketStatus() << endl;
-      return -1;
-    }
-
-    kdDebug(60010) << "WRITE: [" << line << "]" << endl;
-    QCString buf = line.latin1();
-    buf.append( "\n" );
-
-    return socket_.writeBlock( buf.data(), buf.length() );
   }
 
     uint
