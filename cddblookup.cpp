@@ -24,6 +24,7 @@
 namespace KCDDB
 {
   CDDBLookup::CDDBLookup()
+    : Lookup()
   {
   }
 

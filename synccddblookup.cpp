@@ -26,6 +26,7 @@
 namespace KCDDB
 {
   SyncCDDBLookup::SyncCDDBLookup()
+    : CDDBLookup()
   {
     // Empty.
   }

@@ -33,7 +33,7 @@ namespace KCDDB
     : socket_(0, 0, KExtendedSocket::inputBufferedSocket),
       readOnly_( false )
   {
-    // Empty.
+    socket_.setTimeout( 60 );
   }
 
   Lookup::~Lookup()

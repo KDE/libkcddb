@@ -30,7 +30,6 @@ namespace KCDDB
       state_(Idle)
   {
     socket_.setBlockingMode( false );
-    socket_.setTimeout( 60 );
     socket_.enableRead( true );
 
     connect (
@@ -110,7 +109,11 @@ namespace KCDDB
 
     state_ = WaitingForConnection;
 
-    socket_.startAsyncConnect();
+    if( 0 != socket_.startAsyncConnect() )
+    {
+      emit finished( NoResponse );
+      state_ = Idle;
+    }
   }
 
     void
