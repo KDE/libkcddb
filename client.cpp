@@ -217,14 +217,11 @@ namespace KCDDB
     switch (d->config.submitTransport())
     {
       case Submit::HTTP:
-      {
         // TODO For now...
         kdDebug(60010) << k_funcinfo << "HTTP Submit not supported yet: " << endl;
 //          << CDDB::transportToString(d->config.submitTransport()) << endl;
         return CDDB::UnknownError;
         break;
-      }
-      break;
       
       case Submit::SMTP:
       {
@@ -245,6 +242,7 @@ namespace KCDDB
       }
       case Submit::None:
         kdDebug() << k_funcinfo << "CDDB Submit disabled" << endl;
+	return CDDB::UnknownError;
 	break;
       default:
         kdDebug(60010) << k_funcinfo << "Unsupported transport: " << endl;
@@ -252,7 +250,7 @@ namespace KCDDB
         return CDDB::UnknownError;
         break;
     }
-	
+
     CDDB::Result r = cdInfoSubmit->submit( cdInfo, offsetList );
 
     if ( blockingMode() )
