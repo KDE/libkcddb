@@ -148,6 +148,8 @@ namespace KCDDB
             case NoRecordFound:
               if ( !block_ )
                 emit queryReady();
+
+              return;
               break;
 
             default:
@@ -182,8 +184,6 @@ namespace KCDDB
     }
 
     result_ = Success;
-
-    return;
   }
 }
 
