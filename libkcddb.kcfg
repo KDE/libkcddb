@@ -6,15 +6,12 @@
   </kcfgfile>
   <group name="Lookup">
     <entry name="hostname" type="String">
-      <label>Hostname</label>
       <default>freedb.freedb.org</default>
     </entry>
     <entry name="port" type="Int">
-      <label>Port</label>
       <default>8880</default>
     </entry>
     <entry name="cachePolicy" type="Enum">
-      <label>Cache policy</label>
       <choices>
         <choice name="OnlyCache"></choice>
         <choice name="UseCache"></choice>
@@ -23,7 +20,6 @@
       <default>UseCache</default>
     </entry>
     <entry name="lookupTransport" type="Enum">
-      <label>Transport</label>
       <choices>
         <choice name="CDDBP"></choice>
 	<choice name="HTTP"></choice>
@@ -31,13 +27,11 @@
       <default>CDDBP</default>
     </entry>
     <entry name="cacheLocations" type="StringList">
-      <label>Cache Locations</label>
       <default code="true">QDir::homeDirPath()+"/.cddb/"</default>
     </entry>
   </group>
   <group name="Submit">
     <entry name="submitTransport" type="Enum">
-      <label>Lookup Transport</label>
       <choices>
         <choice name="None"></choice>
         <choice name="SMTP"></choice>
@@ -46,24 +40,18 @@
       <default>SMTP</default>
     </entry>
     <entry name="smtpPort" type="Int">
-      <label>SMTP Port</label>
       <default>25</default>
     </entry>
     <entry name="smtpUsername" type="String">
-      <label>SMTP Username</label>
     </entry>
     <entry name="useGlobalEmail" type="Bool">
-      <label>Use global email address</label>
       <default>true</default>
     </entry>
     <entry name="ownEmail" type="String">
-      <label>Email Address</label>
     </entry>
     <entry name="ownReplyTo" type="String">
-      <label>ReplyTo Address</label>
     </entry>
     <entry name="ownSmtpHost" type="String">
-      <label>SMTP Hostname</label>
     </entry>
   </group>
 </kcfg>
