@@ -53,5 +53,8 @@
     </entry>
     <entry name="ownSmtpHost" type="String">
     </entry>
+    <entry name="submitAddress" type="String">
+      <default>freedb-submit@freedb.org</default>
+    </entry>
   </group>
 </kcfg>
