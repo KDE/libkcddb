@@ -278,11 +278,63 @@ namespace KCDDB
     {
       case CDDBSubmit:
         {
-          Error connectError =
-            connectSocket(d->socket, d->config.hostname(), d->config.port());
+/*
 
-          if (None != connectError)
-            return connectError;
+Intitial Http submition work.
+
+#define sendOut(a) submitSocket.writeBlock( a.latin1(), a.length() );
+
+QSocket submitSocket(this, "http Sumbition Socket");
+submitSocket.connectToHost("www.freecddb.com", 80);
+sendOut("POST /submit.cgi HTTP/1.0\n");
+sendOut("Category: newage\n");
+sendOut("Discid: 4306eb06\n");
+sendOut("User-Email: joe@myhost.home.com\n");
+sendOut("Submit-Mode: test\n"); // Change to "submit"
+sendOut("Charset: ISO-8859-1\n");
+sendOut("X-Cddbd-Note: Sent by libkcddb - Questions: ben@meyerhome.net.\n");
+sendOut("Content-Length: 960\n"); // Get real length()
+sendOut("\n");
+sendOut("# xmcd\n");
+sendOut("#\n");
+sendOut("# Track frame offsets:\n");
+[ data omitted for brevity ]
+PLAYORDER=
+# xmcd
+#
+# Track frame offsets:
+#	150
+[ ... 21 frame offsets omitted ]
+#	210627
+#
+# Disc length: 2952 seconds
+#
+# Revision: 1
+# Submitted via: xmcd 2.0
+#
+DISCID=270b8617
+DTITLE=Franske Stemninger / Con Spirito
+DYEAR=1981
+DGENRE=Classical
+TTITLE0=Mille regretz de vous abandonner
+[ ... 21 TTITLEN keywords omitted ]
+TTITLE22=L'arche de no
+EXTD=Copyright (c) 1981 MCA Records Inc.\nManufactured f
+EXTD=or MCA Records Inc.
+EXTT0=Des Prez\nYez
+[ ... 21 EXTTN keywords omitted ]
+EXTT22=Schmitt: A contre-voix \n(excerpt)
+PLAYORDER=
+
+// We need the Track data information.  Why don't we add it to the cdInfo
+
+*/
+          //Error connectError =
+          //  connectSocket(d->socket, d->config.hostname(), d->config.port());
+
+          //if (None != connectError)
+          
+          return connectError;
 
           // STUB
           return Unknown;
