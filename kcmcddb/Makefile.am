@@ -1,4 +1,4 @@
-INCLUDES = -I$(srcdir)/../.. -I../.. $(all_includes)
+INCLUDES = -I$(srcdir)/../.. -I.. $(all_includes)
 
 kde_module_LTLIBRARIES = kcm_cddb.la
 

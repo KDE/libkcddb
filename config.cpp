@@ -29,6 +29,11 @@ namespace KCDDB
   Config::Config()
     : ConfigBase()
   {
+    loadEmailSettings();
+  }
+
+  void Config::loadEmailSettings()
+  {
     KEMailSettings kes;
     kes.setProfile( kes.defaultProfileName() );
 
@@ -38,6 +43,13 @@ namespace KCDDB
       ->setDefaultValue(kes.getSetting( KEMailSettings::ReplyToAddress ));
     static_cast<KConfigSkeleton::ItemString *>(findItem("smtpHostname"))
       ->setDefaultValue(kes.getSetting( KEMailSettings::OutServer ));
+  }
+
+  void Config::reparse()
+  {
+    loadEmailSettings();
+
+    readConfig();
   }
 }
 

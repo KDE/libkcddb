@@ -25,7 +25,7 @@
 
 #include "cache.h"
 #include "cddb.h"
-#include "libkcddb/configbase.h"
+#include "configbase.h"
 #include <qstring.h>
 
 namespace KCDDB
@@ -34,6 +34,10 @@ namespace KCDDB
   {
     public:
       Config();
+
+      void reparse();
+    private:
+      void loadEmailSettings();
   };
 }
 

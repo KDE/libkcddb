@@ -56,7 +56,6 @@ namespace KCDDB
       bool blockingMode() const;
 
     signals:
-
       void finished( CDDB::Result );
 
     protected slots:
