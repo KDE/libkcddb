@@ -140,7 +140,7 @@ void CDInfoDialogBase::slotTrackDoubleClicked( QListViewItem *item, const QPoint
     m_trackList->rename(item, column);
 }
 
-
+#include <kdebug.h>
 void CDInfoDialogBase::setInfo( const KCDDB::CDInfo &info, KCDDB::TrackOffsetList &trackStartFrames )
 {
     m_artist->setText(info.artist.stripWhiteSpace());
@@ -177,7 +177,7 @@ void CDInfoDialogBase::setInfo( const KCDDB::CDInfo &info, KCDDB::TrackOffsetLis
         QListViewItem *item = new QListViewItem(m_trackList, 0);
 
         item->setText(TRACK_NUMBER, QString().sprintf("%02d", i + 1));
-        item->setText(TRACK_TIME, framesTime(trackStartFrames[i + 1] - trackStartFrames[i]));
+        item->setText(TRACK_TIME, framesTime(trackStartFrames[i + ((i + 1 < tracks) ? 1 : 2)] - trackStartFrames[i]));
         QString title = info.trackInfoList[i].title;
         int separator = title.find(SEPARATOR);
         if (separator == -1)
@@ -193,7 +193,7 @@ void CDInfoDialogBase::setInfo( const KCDDB::CDInfo &info, KCDDB::TrackOffsetLis
         }
         item->setText(TRACK_COMMENT, info.trackInfoList[i].extt);
     }
-
+	kdWarning() <<trackStartFrames<<endl;
     // FIXME KDE4: handle playorder here too, once KCDDBInfo::CDInfo is updated.
 }
 
