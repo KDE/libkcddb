@@ -19,17 +19,17 @@
 */
 
 #include <qstringlist.h>
-#include <qfile.h>
+#include <qapplication.h>
 
 #include <kdebug.h>
-#include <kio/netaccess.h>
+#include <kio/job.h>
 
 #include "synchttplookup.h"
 
 namespace KCDDB
 {
   SyncHTTPLookup::SyncHTTPLookup()
-    : HTTPLookup()
+    : HTTPLookup(), done_( false )
   {
     socket_.setBlockingMode(  false );
   }
@@ -65,10 +65,10 @@ namespace KCDDB
     if ( Success != result )
       return result;
 
+    kdDebug() << matchList_.count() << " matches found." << endl;
+
     if (matchList_.isEmpty())
       return NoRecordFound;
-
-    kdDebug() << matchList_.count() << " matches found." << endl;
 
     // For each match, read the cd info from the server and save it to
     // cdInfoList.
@@ -87,101 +87,51 @@ namespace KCDDB
     Lookup::Result
   SyncHTTPLookup::runQuery()
   {
-    Result result;
-    QString target;
+    done_ = false;
+    data_ = QString::null;
+    state_ = WaitingForQueryResponse;
 
     makeQueryURL();
 
-    kdDebug() << "About to fetch: " << cgiURL_.url() << endl;
+    result_ = submitJob();
 
-    if ( !KIO::NetAccess::download( cgiURL_, target ) )
-      return ServerError;
+    if ( Success != result_ )
+      return result_;
 
-    QFile f( target );
+    while ( !done_ )
+      qApp->processOneEvent();
 
-    if ( !f.open( IO_ReadOnly ) )
-    {
-      KIO::NetAccess::removeTempFile( target );
-      return ServerError;
-    }
+    kdDebug() << "runQuery() Result: " << resultToString(result_) << endl;
 
-    QTextStream ts( &f );
-
-    QString line = ts.readLine();
-    result = parseQuery( line );
-
-    if ( ServerError == result )
-    {
-      KIO::NetAccess::removeTempFile( target );
-      return ServerError;
-    }
-
-    if ( MultipleRecordFound == result )
-    {
-      // We have multiple matches
-      line = ts.readLine();
-
-      while ( '.' != line[ 0 ] )
-      {
-        parseExtraMatch( line );
-        line = readLine();
-      }
-    }
- 
-    f.close();
-
-    KIO::NetAccess::removeTempFile( target );
-
-    return Success;
+    return result_;
   }
 
     Lookup::Result
   SyncHTTPLookup::matchToCDInfo( const CDDBMatch & match )
   {
-    Result result;
-    QString target;
+    done_ = false;
+    data_ = QString::null;
+    state_ = WaitingForReadResponse;
 
     makeReadURL( match );
 
-    kdDebug() << "About to fetch: " << cgiURL_.url() << endl;
+    result_ = submitJob();
 
-    if ( !KIO::NetAccess::download( cgiURL_, target ) )
-      return ServerError;
+    if ( Success != result_ )
+      return result_;
 
-    QFile f( target );
+    while ( !done_ )
+      qApp->processOneEvent();
 
-    if ( !f.open( IO_ReadOnly ) )
-    {
-      KIO::NetAccess::removeTempFile( target );
-      return ServerError;
-    }
+    return result_;
+  }
 
-    QTextStream ts( &f );
+    void
+  SyncHTTPLookup::slotResult(  KIO::Job *job )
+  {
+    done_ = true;
 
-    QString line = ts.readLine();
-    result = parseRead( line );
-
-    if ( Success != result )
-    {
-      KIO::NetAccess::removeTempFile( target );
-      return result;
-    }
-
-    QStringList lineList;
-    line = ts.readLine();
-
-    while ( '.' != line[0] )
-    {
-      lineList.append( line );
-      line = readLine();
-    }
-
-    CDInfo info;
-
-    if ( info.load( lineList ) )
-      cdInfoList_.append( info );
-
-    return Success;
+    HTTPLookup::slotResult( job );
   }
 }
 

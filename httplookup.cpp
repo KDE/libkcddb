@@ -19,12 +19,16 @@
   Boston, MA 02111-1307, USA.
 */
 
+#include <kio/job.h>
+#include <kdebug.h>
+
 #include "httplookup.h"
 
 namespace KCDDB
 {
   HTTPLookup::HTTPLookup()
-    : Lookup()
+    : QObject(), Lookup(),
+      job_( 0 ), state_( Idle ), result_( Success ), block_( true )
   {
   }
 
@@ -88,6 +92,102 @@ namespace KCDDB
     cgiURL_.addQueryItem( "hello", hello );
     cgiURL_.addQueryItem( "proto", "5" );
   }
+
+    Lookup::Result
+  HTTPLookup::submitJob()
+  {
+    kdDebug() << "About to fetch: " << cgiURL_.url() << endl;
+
+    job_ = KIO::get( cgiURL_, false, false );
+
+    if ( 0 == job_ )
+      return ServerError;
+
+    connect( job_, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
+          SLOT( slotData( KIO::Job *, const QByteArray & ) ) );
+    connect( job_, SIGNAL( result( KIO::Job * ) ),
+          SLOT( slotResult( KIO::Job * ) ) );
+
+    return Success;
+  }
+
+    void
+  HTTPLookup::slotData( KIO::Job *job, const QByteArray &data )
+  {
+    data_ += data;
+  }
+
+    void
+  HTTPLookup::slotResult( KIO::Job *job )
+  {
+    kdDebug() << "HTTPLookup::slotResult() called." << endl;
+
+    if ( 0 != job->error() )
+    {
+      result_ = ServerError;
+      return;
+    }
+
+    QStringList lineList = QStringList::split( "\n", data_ );
+    QStringList::ConstIterator it = lineList.begin();
+
+    switch ( state_ )
+    {
+      case WaitingForQueryResponse:
+
+        if ( it != lineList.end() )
+        {
+          QString line( *it );
+
+          result_ = parseQuery( line );
+
+          switch ( result_ )
+          {
+            case Success:
+
+              if ( !block_ )
+                ;
+              break;
+
+            case MultipleRecordFound:
+
+              ++it;
+              while ( it != lineList.end() )
+              {
+                QString line( *it );
+
+                if ( '.' == line[ 0 ] )
+                {
+                  if ( !block_ )
+                    ;
+                  break;
+                }
+
+                parseExtraMatch( line );
+                ++it;
+              }
+
+              break;
+          }
+          
+        }
+        break;
+
+      case WaitingForReadResponse:
+
+        CDInfo info;
+
+        if ( info.load( data_ ) )
+          cdInfoList_.append( info );
+        break; 
+    }
+
+    result_ = Success;
+
+    return;
+  }
 }
+
+#include "httplookup.moc"
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

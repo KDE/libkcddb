@@ -22,16 +22,31 @@
 #ifndef KCDDB_HTTP_LOOKUP_H
 #define KCDDB_HTTP_LOOKUP_H
 
-#include "kurl.h"
+#include <kurl.h>
 
 #include "lookup.h"
 
+namespace KIO
+{
+  class TransferJob;
+  class Job;
+}
+
 namespace KCDDB
 {
-  class HTTPLookup : public Lookup
+  class HTTPLookup : public QObject, public Lookup
   {
 
+    Q_OBJECT
+
     public:
+
+      enum State
+      {
+        Idle,
+        WaitingForQueryResponse,
+        WaitingForReadResponse
+      };
 
       HTTPLookup();
       virtual ~HTTPLookup();
@@ -40,12 +55,24 @@ namespace KCDDB
       void makeReadURL( const CDDBMatch &  );
 
     protected:
+
       void initURL( const QString &, uint );
       void makeURL( const QString & );
+      Result submitJob();
 
+    protected slots:
+
+      void slotData( KIO::Job *, const QByteArray & );
+      virtual void slotResult( KIO::Job * );
+ 
     protected:
 
+      bool block_;
       KURL cgiURL_;
+      KIO::TransferJob *job_;
+      QString data_;
+      State state_;
+      Result result_;
   };
 }
 

@@ -37,7 +37,13 @@ namespace KCDDB
 
       CDInfoList lookupResponse() const;
 
+    protected slots:
+
+      virtual void slotResult(  KIO::Job * );
+
     protected:
+
+      bool done_;
 
       Result runQuery();
       Result matchToCDInfo( const CDDBMatch & );
