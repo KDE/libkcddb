@@ -30,6 +30,7 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent, const char * name)
 
   if (0 == layout())
   {
+    // There is a bug in the current qt-copy's designer.
     qDebug("No layout. Designer bug. Hacking it.");
 
     QVBoxLayout * layout = new QVBoxLayout(this, 0, 6);
