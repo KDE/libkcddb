@@ -49,6 +49,7 @@ CDDBModule::CDDBModule(QWidget *parent, const char *name, const QStringList &)
   QVBoxLayout * layout = new QVBoxLayout(this, 0);
 
   layout->addWidget(widget_);
+  layout->addStretch();
 
   load();
 

@@ -31,7 +31,7 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent, const char * name)
   void
 CDDBConfigWidget::slotConfigChanged()
 {
-  emit(configChanged());
+  emit configChanged();
 }
 
 void CDDBConfigWidget::addCache()
@@ -57,7 +57,7 @@ void CDDBConfigWidget::moveCacheUp()
       cacheDirectories->changeItem(before, currentPos);
       cacheDirectories->setCurrentItem(currentPos-1);
     }
-    slotConfigChanged();
+    emit configChanged();
 }
 
 void CDDBConfigWidget::moveCacheDown()
@@ -71,7 +71,7 @@ void CDDBConfigWidget::moveCacheDown()
       cacheDirectories->changeItem(after, currentPos);
       cacheDirectories->setCurrentItem(currentPos+1);
     }
-    slotConfigChanged();
+    emit configChanged();
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

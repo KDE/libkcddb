@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
 <class>CDDBConfigWidgetBase</class>
 <comment>Used for configuring libkcddb.</comment>
 <widget class="QWidget">
@@ -10,7 +10,7 @@
             <x>0</x>
             <y>0</y>
             <width>430</width>
-            <height>458</height>
+            <height>397</height>
         </rect>
     </property>
     <property name="caption">
@@ -283,23 +283,6 @@
                 </widget>
             </grid>
         </widget>
-        <spacer>
-            <property name="name">
-                <cstring>Spacer6</cstring>
-            </property>
-            <property name="orientation">
-                <enum>Vertical</enum>
-            </property>
-            <property name="sizeType">
-                <enum>Expanding</enum>
-            </property>
-            <property name="sizeHint">
-                <size>
-                    <width>20</width>
-                    <height>20</height>
-                </size>
-            </property>
-        </spacer>
     </vbox>
 </widget>
 <connections>
