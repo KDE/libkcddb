@@ -76,7 +76,7 @@ void CDInfoDialogBase::setInfo( const KCDDB::CDInfo &info, KCDDB::TrackOffsetLis
         item->setText(TRACK_TIME, framesTime(trackStartFrames[i + ((i + 1 < tracks) ? 1 : 2)] - trackStartFrames[i]));
         QString title = info.trackInfoList[i].title;
         int separator = title.find(SEPARATOR);
-        if (separator == -1)
+        if (info.artist != "Various" || separator == -1)
         {
             item->setText(TRACK_ARTIST, "");
             item->setText(TRACK_TITLE, title);
@@ -85,11 +85,14 @@ void CDInfoDialogBase::setInfo( const KCDDB::CDInfo &info, KCDDB::TrackOffsetLis
         {
             // We seem to have a compilation.
             item->setText(TRACK_ARTIST, title.left(separator));
-            item->setText(TRACK_TITLE, title.right(separator + 3));
+            item->setText(TRACK_TITLE, title.mid(separator + 3));
         }
         item->setText(TRACK_COMMENT, info.trackInfoList[i].extt);
     }
     // FIXME KDE4: handle playorder here too, once KCDDBInfo::CDInfo is updated.
+
+    if (info.artist == "Various")
+        m_trackList->adjustColumn(TRACK_ARTIST);
 }
 
 QString CDInfoDialogBase::framesTime(unsigned frames)
@@ -132,8 +135,8 @@ KCDDB::CDInfo CDInfoDialogBase::info() const
             track.title.append(SEPARATOR);
         }
         track.title.append(item->text(TRACK_TITLE).stripWhiteSpace());
-        info.trackInfoList.append(track);
         track.extt = item->text(TRACK_COMMENT).stripWhiteSpace();
+        info.trackInfoList.append(track);
         // FIXME KDE4: handle track lengths here too, once KCDDBInfo::CDInfo is updated.
     }
     // FIXME KDE4: handle playorder here too, once KCDDBInfo::CDInfo is updated.
@@ -145,9 +148,35 @@ void CDInfoDialogBase::artistChanged( const QString &newArtist )
 {
     // Enable special handling of compilations.
     if (newArtist.stripWhiteSpace().compare("Various") == 0)
+    {
+        for (QListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
+        {
+            QString title = item->text(TRACK_TITLE);
+            int separator = title.find(SEPARATOR);
+            if (separator != -1)
+            {
+                // Artists probably entered already
+                item->setText(TRACK_ARTIST, title.left(separator));
+                item->setText(TRACK_TITLE, title.mid(separator + 3));
+            }
+        }
         m_trackList->adjustColumn(TRACK_ARTIST);
+        m_trackList->adjustColumn(TRACK_TITLE);
+    }
     else
+    {
+        for (QListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
+        {
+            QString artist = item->text(TRACK_ARTIST);
+            if (!artist.isEmpty())
+            {
+                item->setText(TRACK_ARTIST, QString::null);
+                item->setText(TRACK_TITLE, artist + SEPARATOR + item->text(TRACK_TITLE));
+            }
+        }
         m_trackList->hideColumn(TRACK_ARTIST);
+        m_trackList->adjustColumn(TRACK_TITLE);
+    }
 }
 
 void CDInfoDialogBase::genreChanged( const QString &newGenre )
