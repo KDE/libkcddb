@@ -47,7 +47,7 @@ namespace KCDDB
     protected:
 
       Result parseWrite( const QString & );
-      void makeDiskData( const CDInfo&, const TrackOffsetList& );
+      virtual void makeDiskData( const CDInfo&, const TrackOffsetList& );
       QString diskData_;
   };
 }

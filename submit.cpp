@@ -50,8 +50,6 @@ namespace KCDDB
   {
     unsigned numTracks = cdInfo.trackInfoList.count();
 
-    diskData_ = "Content-Type: text/plain; charset=\"utf-8\";";
-    diskData_ += "\n";
     diskData_ += "# xmcd\n";
     diskData_ += "#\n";
     diskData_ += "# Track frame offsets:\n";

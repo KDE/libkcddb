@@ -34,6 +34,8 @@ namespace KCDDB
       void initURL( const QString&, uint, const QString&);
       void makeURL( const QString & );
 
+      virtual void makeDiskData( const CDInfo&, const TrackOffsetList& );
+
       KURL url_;
       QString from_, to_;
   } ;

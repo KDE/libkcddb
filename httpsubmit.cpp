@@ -42,34 +42,9 @@ namespace KCDDB
 
     KURL url("http://freedb.freedb.org/~cddb/submit.cgi");
 
-    QString diskData;
+    makeDiskData(cdInfo, offsetList);
 
-    diskData = "# xmcd\n";
-    diskData += "\n";
-    diskData += "# Track frame offsets:\n";
-
-    unsigned numTracks = cdInfo.trackInfoList.count();
-
-    for (uint i=0; i < numTracks; i++)
-      diskData += QString("#\t%1\n").arg(offsetList[i]);
-
-    unsigned int l;
-    if (cdInfo.length == 0)
-    {
-      l = (offsetList[numTracks+1] - offsetList[0]) / 75;
-      // FIXME Is the submit test wrong, or the disc id calculation?
-      l += 2;
-    }
-    else
-      l = cdInfo.length;
-
-    diskData += QString("# Disc length: %1 seconds\n").arg(l);
-
-    diskData += cdInfo.toString(true) + "\n";
-
-    kdDebug() << "diskData == \"" << diskData << "\"" << endl;
-
-    KIO::TransferJob* job = KIO::http_post(url, diskData.utf8(), false);
+    KIO::TransferJob* job = KIO::http_post(url, diskData_.utf8(), false);
     if (!job)
       return UnknownError;
 

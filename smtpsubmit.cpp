@@ -50,5 +50,13 @@ namespace KCDDB
       .arg(to_, subject, from_));
     kdDebug(60010) << "Url is: " << url_.prettyURL() << endl;
   }
+
+  void SMTPSubmit::makeDiskData( const CDInfo& cdInfo, const TrackOffsetList& offsetList )
+  {
+    diskData_ = "Content-Type: text/plain; charset=\"utf-8\";";
+    diskData_ += "\n";
+
+    Submit::makeDiskData(cdInfo, offsetList);
+  }
 }
 
