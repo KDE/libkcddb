@@ -74,7 +74,7 @@ namespace KCDDB
       // KDE4: Add a member for "PLAYLIST"
 
     protected:
-
+      QString createLine(const QString& name, const QString& value) const;
       void checkTrack( uint );
       static QString escape( const QString & );
       static QString unescape( const QString & );

@@ -212,15 +212,14 @@ namespace KCDDB
     }
 
     s += "DISCID=" + escape( id ) + "\n";
-    s += "DTITLE=" + escape( artist ) + " / " + escape( title ) + "\n";
+    s += createLine("DTITLE",escape( artist ) + " / " + escape( title ));
     s += "DYEAR=" + (0 == year ? QString::null : QString::number(year)) + "\n";
-    s += "DGENRE=" + escape( genre ) + "\n";
+    s += createLine("DGENRE",escape( genre ));
 
     for (uint i = 0; i < trackInfoList.count(); ++i)
     {
-      s += QString( "TTITLE%1=%2\n" )
-                .arg( i )
-                .arg( escape( trackInfoList[ i ].title ) );
+      s += createLine(QString("TTITLE%1").arg(i), 
+                escape( trackInfoList[ i ].title));
     }
 
     QStringList extdLines = QStringList::split('\n', extd, true);
@@ -228,7 +227,7 @@ namespace KCDDB
       s += QString("EXTD=\n");
     else
       for (QStringList::iterator it = extdLines.begin(); it != extdLines.end(); ++it)
-        s += "EXTD=" + escape( *it ) + "\n";
+        s += createLine("EXTD",escape( *it ));
 
     for (uint i = 0; i < trackInfoList.count(); ++i)
     {
@@ -237,14 +236,38 @@ namespace KCDDB
         s += QString( "EXTT%1=\n" ).arg( i );
       else
         for (QStringList::iterator it = lines.begin(); it != lines.end(); ++it)
-          s += QString( "EXTT%1=%2\n" )
-                  .arg( i )
-                  .arg( escape( *it ) );
+          s += createLine(QString("EXTT%1").arg( i ),
+                  escape( *it ) );
     }
 
     s +="PLAYORDER=\n";
 
     return s;
+  }
+
+  // Creates a line in the form NAME=VALUE, and splits it into several
+  // lines if the line gets longer than 256 chars
+    QString
+  CDInfo::createLine(const QString& name, const QString& value) const
+  {
+    QString lines;
+
+    Q_ASSERT(name.length() < 254);
+
+    // Converted to a QCString, so we get the length in actual chars,
+    // and not Unicode characters.
+    QCString tmpValue = value.utf8();
+
+    while ((name.length() + tmpValue.length() + 2) > 256)
+    {
+      int l = 256 - name.length() - 2;
+      lines += QString("%1=%2\n").arg(name,QString::fromUtf8(tmpValue.left(l)));
+      tmpValue = tmpValue.mid(l);
+    }
+
+    lines += QString("%1=%2\n").arg(name,QString::fromUtf8(tmpValue));
+
+    return lines;
   }
 
     void
