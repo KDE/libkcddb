@@ -61,7 +61,7 @@ namespace KCDDB
       Lookup();
       virtual ~Lookup();
 
-      virtual Result lookup( const QString &, const uint, const QString &,
+      virtual Result lookup( const QString &, uint, const QString &,
           const QString &, const TrackOffsetList & ) = 0;
 
       CDInfoList lookupResponse() const
