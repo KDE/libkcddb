@@ -154,8 +154,8 @@ namespace KCDDB
           return r;
 
         connect( static_cast<AsyncCDDBLookup *>( cdInfoLookup ), 
-                  SIGNAL( finished( CDDB::Lookup::Result ) ),
-                  SLOT( slotFinished( CDDB::Lookup::Result ) ) );
+                  SIGNAL( finished( Lookup::Result ) ),
+                  SLOT( slotFinished( Lookup::Result ) ) );
 
         return Lookup::Success;
       }
