@@ -9,7 +9,7 @@ libkcddb_la_SOURCES = \
     cddbplookup.cpp synccddbplookup.cpp asynccddbplookup.cpp httplookup.cpp \
     synchttplookup.cpp asynchttplookup.cpp smtpsubmit.cpp \
     asyncsmtpsubmit.cpp syncsmtpsubmit.cpp configbase.kcfgc \
-    submit.cpp
+    submit.cpp sites.cpp
 
 libkcddb_la_LDFLAGS = $(all_libraries) -version-info 1:0:0
 libkcddb_la_LIBADD  = $(LIB_KDECORE) $(LIB_KIO)
