@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  Copyright (C) 2002 Nadeem Hasan <nhasan@kde.org>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -112,7 +113,7 @@ namespace KCDDB
     submissionsEnabled_ =
       c.readBoolEntry(submissionsEnabledKey(), defaultSubmissionsEnabled);
 
-    cachePolicy_ = c.readEntry(cachePolicyKey(), defaultCachePolicy)?
+    cachePolicy_ = c.readBoolEntry(cachePolicyKey(), defaultCachePolicy)?
         Cache::Use : Cache::Ignore;
   }
 
@@ -123,9 +124,6 @@ namespace KCDDB
 
     c.writeEntry(hostnameKey(), hostname_);
     c.writeEntry(portKey(), port_);
-    c.writeEntry(userKey(), user_);
-    c.writeEntry(clientNameKey(), clientName_);
-    c.readEntry(clientVersionKey(), clientVersion_);
 
     c.writeEntry
       (
@@ -158,24 +156,6 @@ namespace KCDDB
   Config::port() const
   {
     return port_;
-  }
-
-    QString
-  Config::user() const
-  {
-    return user_;
-  }
-
-    QString
-  Config::clientName() const
-  {
-    return clientName_;
-  }
-
-    QString
-  Config::clientVersion() const
-  {
-    return clientVersion_;
   }
 
     Submit::Transport
