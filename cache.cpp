@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  Copyright (C) 2002 Nadeem Hasan <nhasan@kde.org>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -31,8 +32,7 @@ namespace KCDDB
   Cache::fileName(const QString& cddbId)
   {
     QString cddbCacheDir = locateLocal("cache", "cddb/");
-    QString cacheFile = QString("%1").arg(cddbId).rightJustify(8, '0');
-    cacheFile = cddbCacheDir + cacheFile;
+    QString cacheFile = cddbCacheDir + cddbId;
 
     return cacheFile;
   }
