@@ -2,7 +2,7 @@
 Exec=kcmshell libkcddb
 Icon=cdaudio_unmount
 Type=Application
-
+NoDisplay=true
 X-KDE-ModuleType=Library
 X-KDE-Library=cddb
 
@@ -101,11 +101,14 @@ GenericName[zu]=Uhlanganiso lwe CDDB
 
 Comment=Configure the CDDB Retrieval
 Comment[bg]=Настройки на извличане от CDDB
+Comment[bs]=Podesite CDDB dobavljanje
 Comment[ca]=Configura la recuperació CDDB
 Comment[cy]=Ffurfweddu Nôl o'r CDDB
 Comment[da]=Indstil hentning af CDDB	
 Comment[de]=CDDB-Abfrage konfigurieren
+Comment[es]=Configurar el recuperador de CDDB
 Comment[et]=CDDB ülekannete seadistamine
+Comment[fr]=Configurer la recherche CDDB
 Comment[hu]=A CDDB-lekérdezés beállításai
 Comment[nl]=Ophalen van CDDB-informatie instellen
 Comment[nn]=Oppsett av CDDB-henting
