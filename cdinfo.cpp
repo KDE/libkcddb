@@ -48,6 +48,9 @@ namespace KCDDB
   {
     clear();
 
+    // We'll append to this until we've seen all the lines, then parse it after.
+    QString dtitle;
+
     QStringList::ConstIterator it = lineList.begin();
       
     while ( it != lineList.end() )
@@ -75,18 +78,7 @@ namespace KCDDB
       }
       else if ("DTITLE" == key)
       {
-        int slashPos = value.find('/');
-
-        if (-1 == slashPos)
-        {
-          // Use string for title _and_ artist.
-          artist = title = value.stripWhiteSpace();
-        }
-        else
-        {
-          artist  = value.left(slashPos).stripWhiteSpace();
-          title   = value.mid(slashPos + 1).stripWhiteSpace();
-        }
+        dtitle += value;
       }
       else if ("DYEAR" == key)
       {
@@ -100,15 +92,36 @@ namespace KCDDB
       {
         uint trackNumber = key.mid(6).toUInt();
 
-        TrackInfo trackInfo;
-        trackInfo.title = value.stripWhiteSpace();
+        if (trackInfoList[trackNumber].title.isEmpty())
+        {
+          TrackInfo trackInfo;
+          trackInfo.title = value;
 
-        while (trackInfoList.size() < trackNumber + 1)
-          trackInfoList.append(TrackInfo());
+          while (trackInfoList.size() < trackNumber + 1)
+            trackInfoList.append(TrackInfo());
 
-        trackInfoList[trackNumber] = trackInfo;
+          trackInfoList[trackNumber] = trackInfo;
+        }
+        else
+        {
+          trackInfoList[trackNumber].title.append(value);
+        }
       }
     }
+
+    int slashPos = dtitle.find('/');
+
+    if (-1 == slashPos)
+    {
+      // Use string for title _and_ artist.
+      artist = title = dtitle;
+    }
+    else
+    {
+      artist  = dtitle.left(slashPos).stripWhiteSpace();
+      title   = dtitle.mid(slashPos + 1).stripWhiteSpace();
+    }
+
     kdDebug() << "Loaded CDInfo for " << id << endl;
 
     return true;
@@ -120,8 +133,8 @@ namespace KCDDB
     QString s;
 
     s += "DISCID=" + id + "\n";
-    s += "DTITLE=" + artist + "/" + title + "\n";
-    s += "DYEAR=" + QString::number(year) + "\n";
+    s += "DTITLE=" + artist + " / " + title + "\n";
+    s += "DYEAR=" + (0 == year ? QString::null : QString::number(year)) + "\n";
     s += "DGENRE=" + genre + "\n";
 
     TrackInfoList::ConstIterator it(trackInfoList.begin());
@@ -137,7 +150,7 @@ namespace KCDDB
     void
   CDInfo::clear()
   {
-    id = artist = title = QString::null;
+    id = artist = title = genre = QString::null;
     length = year = 0;
     trackInfoList.clear();
   }

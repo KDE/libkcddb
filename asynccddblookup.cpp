@@ -144,7 +144,6 @@ namespace KCDDB
     void
   AsyncCDDBLookup::read()
   {
-
     switch (state_)
     {
       case WaitingForGreeting:
@@ -303,6 +302,8 @@ namespace KCDDB
       info.genre = genre;
       cdInfoList_.append( info );
     }
+
+    cdInfoBuffer_.clear();
   }
 
     QString
