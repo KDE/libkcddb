@@ -66,7 +66,7 @@ CDDBModule::defaults()
 {
   updateWidgetsFromConfig(KCDDB::Config());
 
-  setChanged(true);
+  emit changed(true);
 }
 
   void
@@ -164,7 +164,7 @@ CDDBModule::save()
   readConfigFromWidgets(newConfig);
 
   newConfig.writeConfig();
-  setChanged(false);
+  emit changed(false);
 }
 
   void
@@ -177,7 +177,7 @@ CDDBModule::load()
   void
 CDDBModule::slotConfigChanged()
 {
-  setChanged(true);
+  emit changed(true);
 }
 
   QString
