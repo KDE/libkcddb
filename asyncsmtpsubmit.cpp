@@ -63,7 +63,6 @@ namespace KCDDB
 
       if ( !sent )
       {
-        // CDDB Info should be in latin1
         d.duplicate( QCString( diskData_.utf8() ) );
 	sent = true;
       }
