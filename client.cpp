@@ -88,6 +88,26 @@ namespace KCDDB
     return d->cdInfoList;
   }
 
+    CDInfo
+  Client::bestLookupResponse() const
+  {
+    CDInfo info;
+
+    uint maxrev = 0;
+
+    for ( CDInfoList::Iterator it = d->cdInfoList.begin();
+        it != d->cdInfoList.end(); ++it )
+    {
+      if ( ( *it ).revision >= maxrev )
+      {
+        info = *it;
+        maxrev = info.revision;
+      }
+    }
+
+    return info;
+  }
+
     CDDB::Result
   Client::lookup(const TrackOffsetList & trackOffsetList)
   {

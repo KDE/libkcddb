@@ -52,6 +52,7 @@ namespace KCDDB
       const Config & config() const;
 
       CDInfoList lookupResponse() const;
+      CDInfo bestLookupResponse() const;
 
       CDDB::Result lookup(const TrackOffsetList &);
       CDDB::Result submit(const CDInfo &, const TrackOffsetList &);

@@ -50,36 +50,21 @@ namespace KCDDB
   {
     unsigned numTracks = cdInfo.trackInfoList.count();
 
-    diskData_ = "\r\n";
-    diskData_ += "# xmcd\r\n";
-    diskData_ += "#\r\n";
-    diskData_ += "# Track frame offsets:\r\n";
+    diskData_ = "\n";
+    diskData_ += "# xmcd\n";
+    diskData_ += "#\n";
+    diskData_ += "# Track frame offsets:\n";
 
     for (uint i=0; i < numTracks; i++)
-      diskData_ += QString("#\t%1\r\n").arg(offsetList[i]);
+      diskData_ += QString("#\t%1\n").arg(offsetList[i]);
 
     unsigned int l = (offsetList[numTracks + 1]) / 75;
     l -= offsetList[0] / 75;
     // FIXME Is the submit test wrong, or the disc id calculation?
     l += 2;
-    diskData_ += QString("# Disc length: %1 seconds\r\n").arg(l);
+    diskData_ += QString("# Disc length: %1 seconds\n").arg(l);
 
-    diskData_ += "#\r\n";
-    diskData_ += QString("# Submitted via: %1 %2\r\n").arg(clientName(), clientVersion());
-    diskData_ += QString("DISCID=%1\r\n").arg(cdInfo.id);
-    diskData_ += QString("DTITLE=%1\r\n").arg(cdInfo.title);
-    diskData_ += QString("DYEAR=%1\r\n").arg(cdInfo.year);
-    diskData_ += QString("DGENRE=%1\r\n").arg(cdInfo.genre);
-
-    for (uint i=0; i < numTracks; i++)
-      diskData_ += QString("TTITLE%1=%2\r\n").arg(i).arg(cdInfo.trackInfoList[i].title);
-
-    diskData_ += "EXTD=\r\n";
-
-    for (uint i=0; i < numTracks; i++)
-      diskData_ += QString("EXTT%1=\r\n").arg(i);
-
-    diskData_ += "PLAYORDER=\r\n";
+    diskData_ += cdInfo.toString();
 
     kdDebug(60010) << "diskData_ == " << diskData_ << endl;
   }

@@ -56,7 +56,7 @@ namespace KCDDB
         return !id.isEmpty() && !trackInfoList.isEmpty();
       }
 
-      QString toString() const;
+      QString toString(bool submit=false) const;
 
       QString       id;
       QString       artist;
@@ -65,6 +65,7 @@ namespace KCDDB
       QString       extd;
       uint          year;
       uint          length;
+      uint          revision;
       TrackInfoList trackInfoList;
 
     protected:

@@ -63,6 +63,7 @@ AsyncHTTPLookupTest::slotFinished(CDDB::Result r)
 
     kdDebug() << "Disc artist: `" << i.artist << "'" << endl;
     kdDebug() << "Disc title: `" << i.title << "'" << endl;
+    kdDebug() << "Disc revision: `" << i.revision << "'" << endl;
   }
 
   if (!l.isEmpty())
@@ -86,6 +87,10 @@ AsyncHTTPLookupTest::slotFinished(CDDB::Result r)
     }
     kdDebug() << "---------------------------------------" << endl;
   }
+  CDInfo i( client_->bestLookupResponse() );
+
+  kdDebug() << "Best CDInfo had title: " << i.title << endl;
+  kdDebug() << "and revision: " << i.revision << endl;
 
   kapp->quit();
 }

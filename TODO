@@ -1,6 +1,6 @@
-
 Submit with http
 
 Better error checking, for example checking if the config is empty
 
-Support for revisions
+Try to comply with freedb's: "Guidelines for optimal freedb support"
+http://www.freedb.org/modules.php?name=Sections&sop=viewarticle&artid=38

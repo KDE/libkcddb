@@ -74,6 +74,13 @@ main(int argc, char ** argv)
 
     kdDebug() << "Disc title: " << i.title << endl;
     kdDebug() << "Total tracks: " << i.trackInfoList.count() << endl;
+    kdDebug() << "Disc revision: `" << i.revision << "'" << endl;
   }
+
+  CDInfo i( client_->bestLookupResponse() );
+
+  kdDebug() << "Best CDInfo had title: " << i.title << endl;
+  kdDebug() << "and revision: " << i.revision << endl;
+
   return 0;
 }

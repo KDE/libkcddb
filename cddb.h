@@ -61,10 +61,10 @@ namespace KCDDB
       static QString resultToString(Result);
       static QString trackOffsetListToId( const TrackOffsetList & );
 
-    protected:
-      QString clientName() { return "libkcddb"; }
-      QString clientVersion() { return "0.10"; }
+      static QString clientName() { return "libkcddb"; }
+      static QString clientVersion() { return "0.10"; }
 
+    protected:
       QString readLine();
       void writeLine( const QString & );
 

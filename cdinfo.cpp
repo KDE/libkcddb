@@ -22,6 +22,7 @@
 #include <kstringhandler.h>
 
 #include "cdinfo.h"
+#include "cddb.h"
 
 namespace KCDDB
 {
@@ -35,7 +36,8 @@ namespace KCDDB
 
   CDInfo::CDInfo()
     : year(0),
-      length(0)
+      length(0),
+      revision(0)
   {
   }
 
@@ -59,12 +61,20 @@ namespace KCDDB
 
     QStringList::ConstIterator it = lineList.begin();
 
+    QRegExp rev("# Revision: (\\d+)");
+
     while ( it != lineList.end() )
     {
       QString line(*it);
       ++it;
 
       QStringList tokenList = KStringHandler::perlSplit('=', line, 2);
+
+      if (rev.search(line) != -1)
+      {
+        revision = rev.cap(1).toUInt();;
+	continue;
+      }
 
       if (2 != tokenList.count())
         continue;
@@ -134,9 +144,19 @@ namespace KCDDB
   }
 
     QString
-  CDInfo::toString() const
+  CDInfo::toString(bool submit) const
   {
     QString s;
+
+    if (revision != 0)
+      s += "# Revision " + QString::number(revision) + "\n\n";
+
+    if (submit)
+    {
+      s += "#\n";
+      s += QString("# Submitted via: %1 %2\n").arg(CDDB::clientName(),
+        CDDB::clientVersion());
+    }
 
     s += "DISCID=" + escape( id ) + "\n";
     s += "DTITLE=" + escape( artist ) + " / " + escape( title ) + "\n";
@@ -158,6 +178,8 @@ namespace KCDDB
                 .arg( i ) 
                 .arg( trackInfoList[ i ].extt );
     }
+
+    s +="PLAYORDER=\n";
 
     return s;
   }
@@ -198,7 +220,7 @@ namespace KCDDB
   CDInfo::clear()
   {
     id = artist = title = genre = extd = QString::null;
-    length = year = 0;
+    length = year = revision = 0;
     trackInfoList.clear();
   }
 }
