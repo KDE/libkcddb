@@ -38,6 +38,7 @@ namespace KCDDB
 
       QString title;
       QString extt;
+      //KDE4: Add a member for length (in secs)
   };
 
   typedef QValueList<TrackInfo> TrackInfoList;
