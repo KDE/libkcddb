@@ -9,7 +9,7 @@
       <default>freedb.freedb.org</default>
     </entry>
     <entry name="port" type="Int">
-      <default>8880</default>
+      <default>80</default>
     </entry>
     <entry name="cachePolicy" type="Enum">
       <choices>
@@ -24,7 +24,7 @@
         <choice name="CDDBP"></choice>
 	<choice name="HTTP"></choice>
       </choices>
-      <default>CDDBP</default>
+      <default>HTTP</default>
     </entry>
     <entry name="cacheLocations" type="StringList">
       <default code="true">QDir::homeDirPath()+"/.cddb/"</default>
