@@ -25,21 +25,15 @@
 
 namespace KCDDB
 {
-  class SyncCDDBLookup : CDDBLookup
+  class SyncCDDBLookup : public CDDBLookup
   {
     public:
 
       SyncCDDBLookup();
       virtual ~SyncCDDBLookup();
 
-      Result lookup
-        (
-          const QString         & hostname,
-          uint                    port,
-          const QString         & clientName,
-          const QString         & clientVersion,
-          const TrackOffsetList &
-        );
+      Result lookup( const QString &, uint, const QString &,
+          const QString &, const TrackOffsetList & );
 
       CDInfoList lookupResponse() const;
 

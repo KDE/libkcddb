@@ -1,1 +1,2 @@
-SUBDIRS = lookup submit
+#SUBDIRS = lookup submit
+SUBDIRS = lookup 

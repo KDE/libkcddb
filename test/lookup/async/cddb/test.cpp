@@ -11,18 +11,19 @@ AsyncCDDBLookupTest::AsyncCDDBLookupTest()
 
   Config config;
 
-  config.setHostname("localhost");
+  config.setHostname("freedb.freedb.org");
   config.setPort(8880);
-  config.setCachePolicy(KCDDB::Cache::Ignore);
+  config.setCachePolicy(KCDDB::Cache::Use);
   config.setLookupTransport(KCDDB::Lookup::CDDB);
 
-  client_ = new AsyncClient(config, this);
+  client_ = new Client(config);
+  client_->setBlockingMode( false );
 
   connect
     (
       client_,
-      SIGNAL(result(Lookup::Result, const QValueList<CDInfo> &)),
-      SLOT(slotResult(Lookup::Result, const QValueList<CDInfo> &))
+      SIGNAL(finished(Lookup::Result)),
+      SLOT(slotFinished(Lookup::Result))
     );
 
   TrackOffsetList list;
@@ -46,12 +47,15 @@ AsyncCDDBLookupTest::AsyncCDDBLookupTest()
 }
 
   void
-AsyncCDDBLookupTest::slotResult(Lookup::Result r, const QValueList<CDInfo> & l)
+AsyncCDDBLookupTest::slotFinished(Lookup::Result r)
 {
   kdDebug() << "AsyncCDDBLookupTest::slotResult: Got " << KCDDB::Lookup::resultToString(r) << endl;
+
+  CDInfoList l = client_->lookupResponse();
+
   kdDebug() << "AsyncCDDBLookupTest::slotResult: Item count: " <<  l.count() << endl;
 
-  for (QValueList<CDInfo>::ConstIterator it(l.begin()); it != l.end(); ++it)
+  for (CDInfoList::ConstIterator it(l.begin()); it != l.end(); ++it)
   {
     CDInfo i(*it);
 

@@ -23,16 +23,11 @@
 
 #include <qobject.h>
 
-#include <qsocket.h>
-
-#include <libkcddb/defines.h>
-#include <libkcddb/cdinfo.h>
-#include <libkcddb/config.h>
-#include <libkcddb/asynclookup.h>
+#include "cddblookup.h"
 
 namespace KCDDB
 {
-  class AsyncCDDBLookup : public AsyncLookup
+  class AsyncCDDBLookup : public QObject, public CDDBLookup 
   {
     Q_OBJECT
 
@@ -51,65 +46,40 @@ namespace KCDDB
         WaitingForCDInfoData
       };
 
-      AsyncCDDBLookup(QObject * parent = 0, const char * name = 0);
+      AsyncCDDBLookup( QObject * parent = 0, const char * name = 0 );
 
       virtual ~AsyncCDDBLookup();
 
-      virtual void lookup
-        (
-          const TrackOffsetList &,
-          const QString         & hostname,
-          uint                    port,
-          const QString         & clientName,
-          const QString         & clientVersion
-        );
+      Result lookup( const QString &, uint, const QString &,
+          const QString &, const TrackOffsetList & );
+
+    signals:
+
+      void finished( Result );
 
     protected slots:
 
-      void slotConnected();
-      void slotConnectionClosed();
-      void slotError(int error);
+      void slotLookupFinished( int );
+      void slotConnectionSuccess();
+      void slotConnectionFailed( int );
       void slotReadyRead();
 
     protected:
 
-      bool    parseGreeting(const QString &);
-      void    sendHandshake();
-      bool    parseHandshake(const QString &);
-      void    sendQuery();
-      bool    parseQueryResponse(const QString &);
-      void    parseMatch(const QString &);
-      void    requestCDInfoForMatch();
-      bool    parseCDInfoResponse(const QString &);
-      void    parseCDInfoData();
-      void    read();
-
-      QString readLine();
+      void sendHandshake();
+      void sendQuery();
+      bool parseQueryResponse( const QString & );
+      void requestCDInfoForMatch();
+      bool parseCDInfoResponse( const QString & );
+      void parseCDInfoData();
+      void read();
 
       QString stateToString() const;
 
-    signals:
-
-      void finished
-        (
-          Lookup::Result,
-          const CDInfoList & = CDInfoList()
-        );
-
     private:
 
-      State           state_;
-      TrackOffsetList trackOffsetList_;
-      QSocket         socket_;
-      QString         hostname_;
-      uint            port_;
-      QString         clientName_;
-      QString         clientVersion_;
-      bool            readOnly_;
-      QStringList     cdInfoBuffer_;
-      CDDBMatchList   matchList_;
-
-      CDInfoList  cdInfoList_;
+      State state_;
+      QStringList cdInfoBuffer_;
   };
 }
 

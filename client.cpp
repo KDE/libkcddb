@@ -27,6 +27,7 @@
 
 #include "client.h"
 #include "synccddblookup.h"
+#include "asynccddblookup.h"
 #include "cache.h"
 
 namespace KCDDB
@@ -105,8 +106,12 @@ namespace KCDDB
       CDInfoList infoList = Cache::lookup( cddbId );
       if ( !infoList.isEmpty() )
       {
-        kdDebug() << "Found " << infoList.count() << "hits" << endl;
+        kdDebug() << "Found " << infoList.count() << " hit(s)" << endl;
         d->cdInfoList = infoList;
+
+        if ( !blockingMode() )
+          emit finished( Lookup::Success );
+
         return Lookup::Success;
       }
     }
@@ -123,19 +128,36 @@ namespace KCDDB
     {
       if ( blockingMode() )
       {
-        SyncCDDBLookup lookup;
+        cdInfoLookup = new SyncCDDBLookup();
 
-        Lookup::Result r = lookup.lookup( d->config.hostname(), 
+        Lookup::Result r = cdInfoLookup->lookup( d->config.hostname(), 
                 d->config.port(), clientName(), clientVersion(),
                 trackOffsetList );
 
         if ( Lookup::Success == r )
         {
-          d->cdInfoList = lookup.lookupResponse();
+          d->cdInfoList = cdInfoLookup->lookupResponse();
           Cache::store( d->cdInfoList );
         }
 
         return r;
+      }
+      else
+      {
+        cdInfoLookup = new AsyncCDDBLookup();
+
+        Lookup::Result r = cdInfoLookup->lookup( d->config.hostname(), 
+                d->config.port(), clientName(), clientVersion(),
+                trackOffsetList );
+
+        if ( Lookup::Success != r )
+          return r;
+
+        connect( static_cast<AsyncCDDBLookup *>( cdInfoLookup ), 
+                  SIGNAL( finished( CDDB::Lookup::Result ) ),
+                  SLOT( slotFinished( CDDB::Lookup::Result ) ) );
+
+        return Lookup::Success;
       }
     }
     else if ( Lookup::HTTP == t )
@@ -143,6 +165,22 @@ namespace KCDDB
       kdDebug() << "Unsupported transport: HTTP " << endl;
       return Lookup::UnknownError;
     }
+  }
+
+    void
+  Client::slotFinished( Lookup::Result r )
+  {
+    if ( Lookup::Success == r )
+    {
+      d->cdInfoList = cdInfoLookup->lookupResponse();
+      Cache::store( d->cdInfoList );
+    }
+    else
+      d->cdInfoList.clear();
+
+    delete cdInfoLookup;
+
+    emit finished( r );
   }
 
     Submit::Result

@@ -56,6 +56,9 @@ namespace KCDDB
 
       QString toString() const;
 
+      bool operator == ( const CDInfo & other ) const
+      { return ( id == other.id && genre == other.genre ); }
+
       QString       artist;
       QString       title;
       QString       genre;

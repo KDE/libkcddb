@@ -35,12 +35,6 @@ namespace KCDDB
     // Empty.
   }
 
-    CDInfoList
-  SyncCDDBLookup::lookupResponse() const
-  {
-    return cdInfoList_;
-  }
-
     Lookup::Result
   SyncCDDBLookup::lookup
   (
@@ -151,11 +145,10 @@ namespace KCDDB
     writeLine( line );
 
     line = readLine();
-    QStringList tokenList = QStringList::split( ' ', line );
 
-    uint serverStatus = tokenList[0].toUInt();
-    if ( 210 != serverStatus )
-      return ServerError;
+    Result result = parseRead( line );
+    if ( Success != result )
+      return result;
 
     QStringList lineList;
     line = readLine();

@@ -202,6 +202,18 @@ namespace KCDDB
     }
   }
 
+    Lookup::Result
+  Lookup::parseRead( const QString & line )
+  {
+    QStringList tokenList = QStringList::split(  ' ', line );
+
+    uint serverStatus = tokenList[ 0 ].toUInt();
+    if (  210 != serverStatus )
+      return ServerError;
+
+    return Success;
+  }
+
     QString
   Lookup::readLine()
   {
@@ -221,7 +233,6 @@ namespace KCDDB
       c = socket_.getch();
     }
 
-    //kdDebug() << "READ: [" << buf << "]" << endl;
     return QString::fromLatin1( buf.data(), buf.length() );
   }
 

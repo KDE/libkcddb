@@ -25,36 +25,38 @@
 namespace KCDDB
 {
   AsyncCDDBLookup::AsyncCDDBLookup(QObject * parent, const char * name)
-    : AsyncLookup (parent, name),
-      state_      (Idle),
-      port_       (0)
+    : CDDBLookup(), 
+      QObject(parent, name),
+      state_(Idle)
   {
-    connect
-      (
+    socket_.setBlockingMode( false );
+    socket_.setTimeout( 60 );
+
+    connect (
         &socket_,
-        SIGNAL(connected()),
-        SLOT(slotConnected())
+        SIGNAL(lookupFinished(int)),
+        SLOT(slotLookupFinished(int))
       );
 
     connect
-      (
+      ( 
         &socket_,
-        SIGNAL(connectionClosed()),
-        SLOT(slotConnectionClosed())
+        SIGNAL( connectionSuccess() ),
+        SLOT( slotConnectionSuccess() )
       );
 
     connect
-      (
+      ( 
         &socket_,
-        SIGNAL(error(int)),
-        SLOT(slotError(int))
+        SIGNAL( connectionFailed( int ) ),
+        SLOT( slotConnectionFailed( int ) )
       );
 
     connect
-      (
+      ( 
         &socket_,
-        SIGNAL(readyRead()),
-        SLOT(slotReadyRead())
+        SIGNAL( readyRead() ),
+        SLOT( slotReadyRead() )
       );
   }
 
@@ -63,44 +65,62 @@ namespace KCDDB
     // Empty.
   }
 
-    void
+    Lookup::Result
   AsyncCDDBLookup::lookup
   (
-    const TrackOffsetList & trackOffsetList,
     const QString         & hostname,
     uint                    port,
     const QString         & clientName,
-    const QString         & clientVersion
+    const QString         & clientVersion,
+    const TrackOffsetList & trackOffsetList
   )
   {
-    trackOffsetList_  = trackOffsetList;
-    hostname_         = hostname;
-    port_             = port;
-    clientName_       = clientName;
-    clientVersion_    = clientVersion;
-    readOnly_         = true;
+    if (  trackOffsetList.count() < 3 )
+      return UnknownError;
+
+    clientName_ = clientName;
+    clientVersion_ = clientVersion;
+    trackOffsetList_ = trackOffsetList;
 
     state_ = WaitingForHostResolution;
 
     kdDebug() << "Asking socket to connect to "
-      << hostname_ << ":" << port << endl;
+      << hostname << ":" << port << endl;
 
-    socket_.connectToHost(hostname_, port_);
+    socket_.setAddress( hostname, port );
+    if ( 0 != socket_.startAsyncLookup() )
+      return HostNotFound;
   }
 
     void
-  AsyncCDDBLookup::slotConnected()
+  AsyncCDDBLookup::slotLookupFinished( int hostCount )
   {
-    kdDebug() << k_funcinfo << endl;
+    kdDebug() << "Found " << hostCount << " hosts" << endl;
+
+    if ( 0 == hostCount )
+    {
+      emit finished( HostNotFound );
+      state_ = Idle;
+      return;
+    }
+
+    state_ = WaitingForConnection;
+
+    socket_.startAsyncConnect();
+  }
+
+    void
+  AsyncCDDBLookup::slotConnectionSuccess()
+  {
+    kdDebug() << "Connection successful" << endl;
     state_ = WaitingForGreeting;
   }
 
     void
-  AsyncCDDBLookup::slotConnectionClosed()
+  AsyncCDDBLookup::slotConnectionFailed( int err )
   {
-    kdDebug() << k_funcinfo << endl;
-    if (state_ != Idle)
-      emit(finished(NoResponse));
+    kdDebug() << "Connection failed, error: " << err << endl;
+    emit finished( NoResponse );
     state_ = Idle;
     return;
   }
@@ -108,105 +128,103 @@ namespace KCDDB
     void
   AsyncCDDBLookup::slotReadyRead()
   {
-    kdDebug() << k_funcinfo << endl;
-    kdDebug() << "State: " << stateToString() << endl;
+    kdDebug() << "Ready to read. State: " << stateToString() << endl;
 
-    while (socket_.canReadLine())
+    while ( socket_.canReadLine() )
       read();
   }
 
     void
   AsyncCDDBLookup::read()
   {
+
     switch (state_)
     {
       case WaitingForGreeting:
 
         if (!parseGreeting(readLine()))
         {
-          emit(finished(ServerHatesUs));
+          emit finished( ServerError );
           state_ = Idle;
           return;
         }
-        else
-        {
-          sendHandshake();
-        }
+
+        sendHandshake();
+
         break;
 
       case WaitingForHandshake:
 
-        if (!parseHandshake(readLine()))
+        if ( !parseHandshake( readLine() ) )
         {
-          emit(finished(ServerHatesUs));
+          emit finished( ServerError );
           state_ = Idle;
           return;
         }
-        else
-        {
-          sendQuery();
-        }
+
+        sendQuery();
+
         break;
 
       case WaitingForQueryResponse:
+        {
+          Result result;
 
-        if (!parseQueryResponse(readLine()))
-        {
-          emit(finished(ServerHatesUs));
-          state_ = Idle;
-          return;
+          result = parseQuery( readLine() );
+          if ( Success != result )
+          {
+            emit finished( result );
+            state_ = Idle;
+            return;
+          }
+
+          if ( Success == result )
+            requestCDInfoForMatch();
+          else if ( MultipleRecordFound == result )
+            state_ = WaitingForMoreMatches;
         }
-        else
-        {
-          kdDebug()  << "Setting state to WaitingForMoreMatches" << endl;
-          state_ = WaitingForMoreMatches;
-        }
+
         break;
 
       case WaitingForMoreMatches:
-
         {
           QString line = readLine();
 
-          if ('.' == line[0])
-          {
+          if ('.' == line[ 0 ])
             requestCDInfoForMatch();
-          }
           else
-          {
-            parseMatch(line);
-          }
+            parseExtraMatch( line );
         }
 
         break;
 
       case WaitingForCDInfoResponse:
+        {
+          Result result = parseRead( readLine() );
 
-        if (parseCDInfoResponse(readLine()))
-        {
+          if ( Success != result )
+          {
+            emit finished( result );
+            state_ = Idle;
+            return;
+          }
+
           state_ = WaitingForCDInfoData;
-        }
-        else
-        {
-          requestCDInfoForMatch();
         }
 
         break;
 
       case WaitingForCDInfoData:
-
         {
           QString line = readLine();
 
-          if ('.' == line[0])
+          if ('.' == line[ 0 ])
           {
             parseCDInfoData();
             requestCDInfoForMatch();
           }
           else
-          {
             cdInfoBuffer_ << line;
-          }
         }
 
         break;
@@ -216,119 +234,22 @@ namespace KCDDB
     }
   }
 
-    bool
-  AsyncCDDBLookup::parseGreeting(const QString & line)
-  {
-    QStringList tokenList = QStringList::split(' ', line);
-
-    uint serverStatus = tokenList[0].toUInt();
-
-    if (200 == serverStatus)
-    {
-      kdDebug() << "Server response: read-only" << endl;
-    }
-    else if (201 == serverStatus)
-    {
-      kdDebug() << "Server response: read-write" << endl;
-      readOnly_ = false;
-    }
-    else
-    {
-      kdDebug() << "Server response: bugger off" << endl;
-      return false;
-    }
-
-    return true;
-  }
-
     void
   AsyncCDDBLookup::sendHandshake()
   {
-    QTextStream str(&socket_);
-
-    QString handshake = "cddb hello ";
-    handshake += "libkcddb-user";
-    handshake += " ";
-    handshake += "localhost"; // FIXME
-    handshake += " ";
-    handshake += clientName_;
-    handshake += " ";
-    handshake += clientVersion_;
-
-    str << handshake << "\r\n";
+    QString line = makeCDDBHandshake();
+    writeLine( line );
 
     state_ = WaitingForHandshake;
-  }
-
-    bool
-  AsyncCDDBLookup::parseHandshake(const QString & line)
-  {
-    QStringList tokenList = QStringList::split(' ', line);
-
-    uint serverStatus = tokenList[0].toUInt();
-
-    if ((200 != serverStatus) && (402 != serverStatus))
-    {
-      kdDebug() << "Handshake was too tight. Letting go." << endl;
-      return false;
-    }
-
-    kdDebug() << "Handshake was warm and firm" << endl;
-
-    return true;
   }
 
     void
   AsyncCDDBLookup::sendQuery()
   {
-    QString query = "cddb query ";
-    query += trackOffsetListToId(trackOffsetList_);
-    query += " ";
-    query += trackOffsetListToString(trackOffsetList_);
-
-    QTextStream str(&socket_);
-
-    str << query << "\r\n";
+    QString line = makeCDDBQuery();
+    writeLine( line );
 
     state_ = WaitingForQueryResponse;
-  }
-
-    bool
-  AsyncCDDBLookup::parseQueryResponse(const QString & line)
-  {
-    QStringList tokenList = QStringList::split(' ', line);
-
-    uint serverStatus = tokenList[0].toUInt();
-
-    kdDebug() << "Server status: " << serverStatus << endl;
-
-    if (200 == serverStatus)
-    {
-      kdDebug() << "Server found exact match" << endl;
-      matchList_.append(qMakePair(tokenList[1], tokenList[2]));
-    }
-    else if (211 == serverStatus)
-    {
-      kdDebug() << "Server found inexact matches" << endl;
-    }
-    else if (210 == serverStatus)
-    {
-      kdDebug() << "Server found multiple exact matches" << endl;
-    }
-    else
-    {
-      kdDebug() << "Server said no matches or error" << endl;
-      return false;
-    }
-
-    return true;
-  }
-
-    void
-  AsyncCDDBLookup::parseMatch(const QString & line)
-  {
-    QStringList tokenList = QStringList::split(' ', line);
-    matchList_.append(qMakePair(tokenList[0], tokenList[1]));
   }
 
     void
@@ -336,76 +257,42 @@ namespace KCDDB
   {
     if (matchList_.isEmpty())
     {
-      emit(finished(Success, cdInfoList_));
+      if ( cdInfoList_.isEmpty() )
+        emit finished( NoRecordFound  );
+      else
+        emit finished( Success );
+
       state_ = Idle;
+
       return;
     }
 
     CDDBMatch match = matchList_.first();
+    matchList_.remove( match );
 
-    matchList_.remove(matchList_.front());
+    // Save genre for later
+    CDInfo info;
+    info.genre = match.first;
+    cdInfoList_.append(info);
 
-    QString category  = match.first;
-    QString discid    = match.second;
-
-    QTextStream str(&socket_);
-
-    kdDebug() << "Match: " << category << " : " << discid << endl;
-
-    QString readRequest = "cddb read ";
-    readRequest += category;
-    readRequest += " ";
-    readRequest += discid;
-
-    str << readRequest << "\r\n";
+    QString line = makeCDDBRead( match );
+    writeLine( line );
 
     state_ = WaitingForCDInfoResponse;
-  }
-
-    bool
-  AsyncCDDBLookup::parseCDInfoResponse(const QString & line)
-  {
-    QStringList tokenList = QStringList::split(' ', line);
-
-    uint serverStatus = tokenList[0].toUInt();
-
-    if (210 != serverStatus)
-    {
-      kdDebug() << "Server error !" << endl;
-      return false;
-    }
-
-    return true;
   }
 
     void
   AsyncCDDBLookup::parseCDInfoData()
   {
-    CDInfo info;
+    CDInfo info = cdInfoList_.last();
+    cdInfoList_.remove( info );
+    QString genre = info.genre;
 
-    if (info.load(cdInfoBuffer_))
-      cdInfoList_.append(info);
-  }
-
-    void
-  AsyncCDDBLookup::slotError(int err)
-  {
-    kdDebug() << "Socket error: " << err << endl;
-    if (state_ != Idle)
+    if (info.load( cdInfoBuffer_ ))
     {
-      emit(finished(NoResponse));
-      state_ = Idle;
+      info.genre = genre;
+      cdInfoList_.append( info );
     }
-  }
-
-    QString
-  AsyncCDDBLookup::readLine()
-  {
-    QString line = socket_.readLine();
-
-    kdDebug() << "Read: `" << line << "'" << endl;
-
-    return line;
   }
 
     QString
@@ -455,5 +342,7 @@ namespace KCDDB
     }
   }
 }
+
+#include "asynccddblookup.moc"
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

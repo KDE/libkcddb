@@ -61,16 +61,11 @@ namespace KCDDB
       Lookup();
       virtual ~Lookup();
 
-      virtual Result lookup
-        (
-          const QString & hostName,
-          const uint      port,
-          const QString & clientName,
-          const QString & clientVersion,
-          const TrackOffsetList & 
-        ) = 0;
+      virtual Result lookup( const QString &, const uint, const QString &,
+          const QString &, const TrackOffsetList & ) = 0;
 
-      virtual CDInfoList lookupResponse() const = 0;
+      CDInfoList lookupResponse() const
+      { return cdInfoList_; }
 
       static QString resultToString(Result);
       static QString transportToString(uint);
@@ -82,10 +77,11 @@ namespace KCDDB
       QString readLine();
       void writeLine( const QString & );
 
-      bool parseGreeting( const QString& );
-      bool parseHandshake( const QString& );
-      void parseExtraMatch( const QString& );
-      Result parseQuery( const QString& );
+      bool parseGreeting( const QString & );
+      bool parseHandshake( const QString & );
+      void parseExtraMatch( const QString & );
+      Result parseQuery( const QString & );
+      Result parseRead( const QString & );
 
       QString trackOffsetListToId();
       QString trackOffsetListToString();

@@ -1,5 +1,5 @@
 #include <qobject.h>
-#include <libkcddb/asyncclient.h>
+#include <libkcddb/client.h>
 
 using namespace KCDDB;
 
@@ -11,11 +11,11 @@ class AsyncCDDBLookupTest : public QObject
 
     AsyncCDDBLookupTest();
 
-  protected slots:
+  public slots:
 
-    void slotResult(KCDDB::Lookup::Result, const QValueList<CDInfo> &);
+    void slotFinished(Lookup::Result);
 
   private:
 
-    KCDDB::AsyncClient * client_;
+    KCDDB::Client * client_;
 };

@@ -14,9 +14,9 @@ main(int argc, char ** argv)
   using namespace KCDDB;
 
   Config config;
-  config.setHostname("localhost");
+  config.setHostname("freedb.freedb.org");
   config.setPort(8880);
-  config.setCachePolicy(KCDDB::Cache::Ignore);
+  config.setCachePolicy(KCDDB::Cache::Use);
   config.setLookupTransport(KCDDB::Lookup::CDDB);
 
   Client c(config);
@@ -24,44 +24,53 @@ main(int argc, char ** argv)
   TrackOffsetList list;
 
   // a1107d0a - Kruder & Dorfmeister - The K&D Sessions - Disc One.
+//  list
+//    << 150      // First track start.
+//    << 29462
+//    << 66983
+//    << 96785
+//    << 135628
+//    << 168676
+//    << 194147
+//    << 222158
+//    << 247076
+//    << 278203   // Last track start.
+//    << 10       // Disc start.
+//    << 316732;  // Disc end.
   list
-    << 150      // First track start.
-    << 29462
-    << 66983
-    << 96785
-    << 135628
-    << 168676
-    << 194147
-    << 222158
-    << 247076
-    << 278203   // Last track start.
-    << 10       // Disc start.
-    << 316732;  // Disc end.
+    << 150
+    << 106965
+    << 127220
+    << 151925
+    << 176085
+    << 5
+    << 234500;
 
   kdDebug() << "Stuff to send to server:" << endl;
 
   kdDebug()
-    << trackOffsetListToId(list)
+    << Lookup::trackOffsetListToId(list)
     << " "
-    << trackOffsetListToString(list)
+    //<< trackOffsetListToString(list)
     << endl;
 
   Lookup::Result r = c.lookup(list);
 
   kdDebug() << "Client::lookup gave : " << Lookup::resultToString(r) << endl;
 
-  QValueList<CDInfo> response = c.lookupResponse();
+  CDInfoList response = c.lookupResponse();
 
   kdDebug() << "Client::lookup returned : " << response.count() << " entries"
     << endl;
 
-  QValueList<CDInfo>::ConstIterator it;
+  CDInfoList::ConstIterator it;
 
   for (it = response.begin(); it != response.end(); ++it)
   {
     CDInfo i(*it);
 
     kdDebug() << "Disc title: " << i.title << endl;
+    kdDebug() << "Total tracks: " << i.trackInfoList.count() << endl;
   }
   return 0;
 }

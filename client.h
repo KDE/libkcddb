@@ -56,13 +56,24 @@ namespace KCDDB
       void setBlockingMode( bool );
       bool blockingMode();
 
+    private:
+
       QString clientName() { return "libkcddb"; }
-      QString clientVersion() { return "0.01"; }
+      QString clientVersion() { return "0.10"; }
+
+    signals:
+
+      void finished( Lookup::Result );
+
+    protected slots:
+
+      void slotFinished( Lookup::Result );
 
     private:
 
       class Private;
       Private * d;
+      Lookup * cdInfoLookup;
   };
 }
 
