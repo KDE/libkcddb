@@ -1,4 +1,4 @@
-INCLUDES = $(all_includes) -I..
+INCLUDES = -I.. $(all_includes)
 
 kde_module_LTLIBRARIES = libkcm_cddb_config.la
 
