@@ -1,4 +1,4 @@
-INCLUDES = -I$(top_srcdir) $(all_includes)
+INCLUDES = -I$(top_srcdir) -I$(top_builddir)/libkcddb $(all_includes)
 
 check_PROGRAMS = syncsmtpsubmittest asyncsmtpsubmittest asynchttplookuptest \
 	asynccddblookuptest synccddblookuptest synchttplookuptest \
