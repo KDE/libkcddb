@@ -18,6 +18,7 @@
   Boston, MA 02111-1307, USA.
 */
 
+#include <qtl.h>
 #include <qstringlist.h>
 #include <qdir.h>
 #include <qfile.h>
@@ -41,9 +42,7 @@ static QString readLine(KExtendedSocket & socket)
   int c =0;
 
   while ('\n' != (c = socket.getch()))
-  {
     buf += c;
-  }
 
   kdDebug() << "READ: `" << buf << "'" << endl;
   return buf;
@@ -294,6 +293,74 @@ namespace KCDDB
     }
 
     kdDebug() << "Handshake successful" << endl;
+
+    QString query = "cddb query ";
+    query += d->cddbId;
+    query += " ";
+    query += trackOffsetListToString(offsetList);
+
+    writeLine(d->socket, query);
+
+    line = readLine(d->socket);
+
+    tokenList = QStringList::split(' ', line);
+
+    serverStatus = tokenList[0].toUInt();
+
+    kdDebug() << "Server status: " << serverStatus << endl;
+
+    QValueList< QPair<QString, QString> > matchList;
+
+    if (200 == serverStatus)
+    {
+      kdDebug() << "Server found exact match" << endl;
+      matchList.append(qMakePair(tokenList[1], tokenList[2]));
+    }
+    else if (211 == serverStatus)
+    {
+      kdDebug() << "Server found inexact matches" << endl;
+
+      line = readLine(d->socket);
+
+      while ('.' != line[0])
+      {
+        tokenList = QStringList::split(' ', line);
+        matchList.append(qMakePair(tokenList[0], tokenList[1]));
+        line = readLine(d->socket);
+      }
+    }
+    else if (210 == serverStatus)
+    {
+      kdDebug() << "Server found multiple exact matches" << endl;
+
+      line = readLine(d->socket);
+
+      while ('.' != line[0])
+      {
+        tokenList = QStringList::split(' ', line);
+        matchList.append(qMakePair(tokenList[0], tokenList[1]));
+        line = readLine(d->socket);
+      }
+    }
+    else
+    {
+      kdDebug() << "Server said error" << endl;
+      return NoSuchCD;
+    }
+
+    kdDebug() << matchList.count() << " matches saved" << endl;
+
+    QValueList< QPair<QString, QString> >::ConstIterator matchIt;
+
+    for (matchIt = matchList.begin(); matchIt != matchList.end(); ++matchIt)
+    {
+      kdDebug() << "Match: " << (*matchIt).first << " : "
+        << (*matchIt).second << endl;
+    }
+ 
+    writeLine(d->socket, "quit");
+
+    d->socket.close();
 
     // STUB
     kdDebug() << "STUB (dropping out)" << endl;
