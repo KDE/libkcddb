@@ -39,7 +39,8 @@ namespace KCDDB
     url_.setProtocol("smtp");
     url_.setHost(hostname);
     url_.setPort(port);
-    url_.setUser(username);
+    if (!username.isEmpty())
+      url_.setUser(username);
     url_.setPath("/send");
   }
 
