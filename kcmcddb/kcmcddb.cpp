@@ -32,6 +32,7 @@
 #include <klocale.h>
 #include <kglobal.h>
 #include <kgenericfactory.h>
+#include <kmessagebox.h>
 
 #include "cddbconfigwidget.h"
 
@@ -102,6 +103,21 @@ CDDBModule::readConfigFromWidgets(KCDDB::Config &config) const
     config.setSubmitTransport(KCDDB::Submit::SMTP);
   else
     config.setSubmitTransport(KCDDB::Submit::None);
+
+  if (config.smtpHostname().isEmpty() || config.emailAddress().isEmpty()
+      || !config.emailAddress().contains("@") ||
+      (!config.replyTo().isEmpty() && !config.replyTo().contains("@")))
+      
+  {
+    if (config.submitTransport() == KCDDB::Submit::SMTP)
+    {
+      KMessageBox::sorry(widget_, i18n("freedb submissions via SMTP have been disabled\n"
+                                    "because the email details you have entered are\n"
+                                    "incomplete. Please review your email settings\n"
+                                    "and try again."), i18n("Freedb Submissions Disabled"));
+      config.setSubmitTransport(KCDDB::Submit::None);
+    }
+  }
 }
 
   void
