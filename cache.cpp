@@ -95,26 +95,31 @@ namespace KCDDB
     while (it!=list.end())
     {
       CDInfo info( *it );
-      Config c;
-      c.readConfig();
-
-      QString cacheDir = c.cacheLocations().first();
-      QDir d(cacheDir);
-      if (!d.exists())
-        d.mkdir(cacheDir);
-
-      QString cacheFile = fileName(info, cacheDir);
-      kdDebug(60010) << "Storing " << cacheFile << " in CDDB cache" << endl;
-
-      QFile f(cacheFile);
-      if ( f.open(IO_WriteOnly) )
-      {
-        QTextStream ts(&f);
-        ts << info.toString();
-        f.close();
-      }
-
+      store(info);
       ++it;
+    }
+  }
+
+    void
+  Cache::store(const CDInfo& info)
+  {
+    Config c;
+    c.readConfig();
+
+    QString cacheDir = c.cacheLocations().first();
+    QDir d(cacheDir);
+    if (!d.exists())
+      d.mkdir(cacheDir);
+
+    QString cacheFile = fileName(info, cacheDir);
+    kdDebug(60010) << "Storing " << cacheFile << " in CDDB cache" << endl;
+
+    QFile f(cacheFile);
+    if ( f.open(IO_WriteOnly) )
+    {
+      QTextStream ts(&f);
+      ts << info.toString();
+      f.close();
     }
   }
 }

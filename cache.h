@@ -42,6 +42,7 @@ namespace KCDDB
 
       static CDInfoList lookup( const QString & );
       static void store( const CDInfoList & );
+      static void store( const CDInfo & );
 
     private:
       static QString fileName( const CDInfo &, const QString &cacheDir );
