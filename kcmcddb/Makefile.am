@@ -14,8 +14,7 @@ METASOURCES = AUTO
 
 KDE_ICON = cdrom_unmount
 
-libkcddb_kcmcddb_DATA = libkcddb.desktop
-libkcddb_kcmcddbdir = $(kde_appsdir)/Settings/Sound
+xdg_apps_DATA = libkcddb.desktop
 
 messages: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/kcmcddb.pot
