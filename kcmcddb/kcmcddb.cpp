@@ -93,7 +93,7 @@ CDDBModule::checkSettings() const
       KMessageBox::sorry(widget_, i18n("freedb has been set to use HTTP for submissions\n"
                                     "because the email details you have entered are\n"
                                     "incomplete. Please review your email settings\n"
-                                    "and try again."), i18n("Incorrect email settings"));
+                                    "and try again."), i18n("Incorrect Email Settings"));
       config.setSubmitTransport(KCDDB::Submit::HTTP);
 
       config.writeConfig();

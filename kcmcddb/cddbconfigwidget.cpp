@@ -68,7 +68,7 @@ void CDDBConfigWidget::showMirrorList()
 
     if (keys.isEmpty())
     {
-      KMessageBox::information(this, i18n("Could not fetch mirror list"), i18n("Could not fetch"));
+      KMessageBox::information(this, i18n("Could not fetch mirror list."), i18n("Could Not Fetch"));
       return;
     }
 
