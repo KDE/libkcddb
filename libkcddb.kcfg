@@ -23,7 +23,7 @@
     <entry name="lookupTransport" type="Enum">
       <choices>
         <choice name="CDDBP"></choice>
-	<choice name="HTTP"></choice>
+        <choice name="HTTP"></choice>
       </choices>
       <default>HTTP</default>
     </entry>
@@ -34,10 +34,10 @@
   <group name="Submit">
     <entry name="submitTransport" type="Enum">
       <choices>
-	<choice name="HTTP"></choice>
+        <choice name="HTTP"></choice>
         <choice name="SMTP"></choice>
       </choices>
-      <default>SMTP</default>
+      <default>HTTP</default>
     </entry>
     <entry name="emailAddress" type="String">
     </entry>

@@ -49,7 +49,8 @@ namespace KCDDB
     header += "Category: " + cdInfo.category + "\n";
     header += "Discid: " + cdInfo.id + "\n";
     header += "User-Email: " + from_ + "\n";
-    header += "Submit-Mode: test\n"; // s/test/submit/
+    // Change to test for testing
+    header += "Submit-Mode: submit\n";
     header += "Charset: UTF-8";
 
     job->addMetaData("customHTTPHeader", header);
