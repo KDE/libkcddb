@@ -185,7 +185,7 @@ namespace KCDDB
   {
     if  ("HTTP" == s )
       return HTTP;
-    else if ( "CDDB" == s )
+    else if ( "CDDBP" == s )
       return CDDBP;
     else
       return SMTP;
