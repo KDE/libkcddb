@@ -218,7 +218,7 @@ void CDInfoDialogBase::slotTrackDoubleClicked( QListViewItem *item, const QPoint
 }
 
 
-void CDInfoDialogBase::setInfo( const KCDDB::CDInfo &info )
+void CDInfoDialogBase::setInfo( const KCDDB::CDInfo &info, KCDDB::TrackOffsetList &trackStartFrames )
 {
     m_artist->setText(info.artist.stripWhiteSpace());
     m_title->setText(info.title.stripWhiteSpace());
@@ -229,16 +229,15 @@ void CDInfoDialogBase::setInfo( const KCDDB::CDInfo &info )
     m_year->setValue(info.year);
     m_comment->setText(info.extd.stripWhiteSpace());
     m_id->setText(info.id.stripWhiteSpace());
-
+    unsigned tracks = info.trackInfoList.count();
+    m_length->setText(framesTime(trackStartFrames[tracks] - trackStartFrames[0]));
     m_trackList->clear();
-    for (unsigned i = 1; i < info.trackInfoList.count(); i++)
+    for (unsigned i = 0; i < tracks; i++)
     {
         QListViewItem *item = new QListViewItem(m_trackList, 0);
 
-        // FIXME KDE4: handle track and disc lengths here too, once KCDDBInfo::CDInfo is updated.
         item->setText(TRACK_NUMBER, QString().sprintf("%02d", i + 1));
-        item->setText(TRACK_TITLE, info.trackInfoList[i].title);
-
+        item->setText(TRACK_TIME, framesTime(trackStartFrames[i + 1] - trackStartFrames[i]));
         QString title = info.trackInfoList[i].title;
         int separator = title.find(SEPARATOR);
         if (separator == -1)
@@ -258,6 +257,22 @@ void CDInfoDialogBase::setInfo( const KCDDB::CDInfo &info )
     // FIXME KDE4: handle playorder here too, once KCDDBInfo::CDInfo is updated.
 }
 
+QString CDInfoDialogBase::framesTime(unsigned frames)
+{
+    QTime time;
+    double ms;
+
+    ms = frames * 1000 / 75.0;
+    time = time.addMSecs((int)ms);
+
+    // Use ".zzz" for milliseconds...
+    QString temp2;
+    if (time.hour() > 0)
+        temp2 = time.toString("hh:mm:ss");
+    else
+        temp2 = time.toString("mm:ss");
+    return temp2;
+} // framesTime
 
 KCDDB::CDInfo CDInfoDialogBase::info() const
 {

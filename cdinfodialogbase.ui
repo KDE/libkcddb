@@ -12,6 +12,9 @@
             <height>670</height>
         </rect>
     </property>
+    <property name="caption">
+        <string>CDInfoDialogBase</string>
+    </property>
     <vbox>
         <property name="name">
             <cstring>unnamed</cstring>
@@ -315,8 +318,10 @@
     <tabstop>m_playOrder</tabstop>
 </tabstops>
 <includes>
-    <include location="local" impldecl="in implementation">kdialog.h</include>
     <include location="local" impldecl="in declaration">libkcddb/cdinfo.h</include>
+    <include location="local" impldecl="in declaration">libkcddb/cddb.h</include>
+    <include location="local" impldecl="in implementation">kdialog.h</include>
+    <include location="local" impldecl="in implementation">qdatetime.h</include>
     <include location="local" impldecl="in implementation">cdinfodialogbase.ui.h</include>
 </includes>
 <forwards>
@@ -340,13 +345,14 @@
     <slot access="protected">slotTrackSelected( QListViewItem * item )</slot>
     <slot access="protected">slotNextTrack()</slot>
     <slot access="protected">slotTrackDoubleClicked( QListViewItem * item, const QPoint &amp;, int column )</slot>
+    <slot>setInfo( const KCDDB::CDInfo &amp; info, KCDDB::TrackOffsetList &amp; trackStartFrames )</slot>
     <slot>artistChanged( const QString &amp; newArtist )</slot>
     <slot>genreChanged( const QString &amp; newGenre )</slot>
 </slots>
 <functions>
     <function access="private" specifier="non virtual">init()</function>
     <function access="private" specifier="non virtual">destroy()</function>
-    <function>setInfo( const KCDDB::CDInfo &amp; info )</function>
+    <function returnType="QString">framesTime( unsigned frames )</function>
     <function returnType="KCDDB::CDInfo">info() const</function>
 </functions>
 <layoutdefaults spacing="6" margin="11"/>
