@@ -12,14 +12,11 @@ AsyncCDDBLookupTest::AsyncCDDBLookupTest()
 {
   using namespace KCDDB;
 
-  Config config;
-
-  config.setHostname("freedb.freedb.org");
-  config.setPort(8880);
-  config.setCachePolicy(Cache::Ignore);
-  config.setLookupTransport(Lookup::CDDBP);
-
-  client_ = new Client(config);
+  client_ = new Client;
+  client_->config().setHostname("freedb.freedb.org");
+  client_->config().setPort(8880);
+  client_->config().setCachePolicy(Cache::Ignore);
+  client_->config().setLookupTransport(Lookup::CDDBP);
   client_->setBlockingMode( false );
 
   connect

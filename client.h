@@ -42,14 +42,9 @@ namespace KCDDB
        */
       Client();
 
-      /**
-       * Use custom settings.
-       */
-      Client(const Config &);
-
       virtual ~Client();
 
-      const Config & config() const;
+      Config & config() const;
 
       CDInfoList lookupResponse() const;
       CDInfo bestLookupResponse() const;

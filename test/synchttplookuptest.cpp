@@ -15,13 +15,12 @@ main(int argc, char ** argv)
 
   using namespace KCDDB;
 
-  Config config;
-  config.setHostname("freedb.freedb.org");
-  config.setPort(80);
-  config.setCachePolicy(Cache::Ignore);
-  config.setLookupTransport(Lookup::HTTP);
+  Client c;
+  c.config().setHostname("freedb.freedb.org");
+  c.config().setPort(80);
+  c.config().setCachePolicy(Cache::Ignore);
+  c.config().setLookupTransport(Lookup::HTTP);
 
-  Client c(config);
 
   TrackOffsetList list;
 

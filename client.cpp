@@ -56,15 +56,6 @@ namespace KCDDB
     d->config.readConfig();
   }
 
-  Client::Client(const Config & config)
-    : QObject(),
-      cdInfoLookup(0),
-      cdInfoSubmit(0)
-  {
-    d = new Private;
-    d->config = config;
-  }
-
   Client::~Client()
   {
     delete d;
@@ -72,7 +63,7 @@ namespace KCDDB
     delete cdInfoSubmit;
   }
 
-    const Config &
+    Config &
   Client::config() const
   {
     return d->config;
@@ -241,7 +232,7 @@ namespace KCDDB
   {
     // Check if it's valid
 
-    if(cdInfo.id == "0")
+    if (!cdInfo.isValid())
       return CDDB::CannotSave;
 
     uint last=0;
@@ -274,10 +265,10 @@ namespace KCDDB
         delete cdInfoSubmit;
 
 	if ( blockingMode() )
-	  cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username, from );
+	  cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
 	else
 	{
-	  cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username, from );
+	  cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
           connect( static_cast<AsyncSMTPSubmit *>( cdInfoSubmit ),
                   SIGNAL( finished( CDDB::Result ) ),
                   SLOT( slotSubmitFinished( CDDB::Result ) ) );

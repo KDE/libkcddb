@@ -34,10 +34,6 @@ main(int argc, char ** argv)
 
   using namespace KCDDB;
 
-  Config config;
-  config.readConfig();
-  config.setSubmitTransport(Submit::SMTP);
-
   TrackOffsetList list;
 
   // a1107d0a - Kruder & Dorfmeister - The K&D Sessions - Disc One.
@@ -62,7 +58,10 @@ main(int argc, char ** argv)
   cdInfo.year   = 2000;
   cdInfo.genre  = "misc";*/
 
-  Client c( config );
+  Client c;
+  c.config().setSubmitTransport(Submit::SMTP);
+  c.config().setSubmitAddress("test-submit@freedb.org");
+
   c.setBlockingMode( true );
 
   c.lookup( list );
