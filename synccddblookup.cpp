@@ -56,7 +56,7 @@ namespace KCDDB
     Result result;
 
     // Connect to server.
-    result = connect( hostName, port );
+    result = syncConnect( hostName, port );
     if ( Success != result )
       return result;
 
@@ -99,13 +99,19 @@ namespace KCDDB
     if ( !parseGreeting( line ) )
       return ServerError;
 
-    line = makeCDDBHandshake();
+    line = makeHandshakeCommand();
     writeLine( line );
 
     line = readLine();
 
     if ( !parseHandshake( line ) )
       return ServerError;
+
+    line = makeProtoCommand();
+    writeLine( line );
+
+    // Ignore the result for now
+    line = readLine();
 
     return Success;
   }
@@ -115,7 +121,7 @@ namespace KCDDB
   {
     Result result;
 
-    QString line = makeCDDBQuery();
+    QString line = makeQueryCommand();
     writeLine( line );
 
     line = readLine();
@@ -142,7 +148,7 @@ namespace KCDDB
     Lookup::Result
   SyncCDDBLookup::matchToCDInfo( const CDDBMatch & match )
   {
-    QString line = makeCDDBRead( match );
+    QString line = makeReadCommand( match );
     writeLine( line );
 
     line = readLine();
@@ -163,39 +169,9 @@ namespace KCDDB
     CDInfo info;
 
     if ( info.load( lineList ) )
-    {
-      info.genre = match.first;
       cdInfoList_.append( info );
-    }
 
     return Success;
-  }
-
-    Lookup::Result
-  SyncCDDBLookup::connect( const QString & hostName, uint port )
-  {
-    kdDebug() << "Trying to connect to " << hostName << ":" << port << endl;
-
-    if ( !socket_.setAddress( hostName, port ) )
-      return UnknownError;
-
-    socket_.setTimeout( 30 );
-
-    if ( 0 != socket_.lookup() )
-      return HostNotFound;
-
-    if ( 0 != socket_.connect() )
-      return NoResponse;
-
-    kdDebug() << "Connected" << endl;
-    return Success;
-  }
-
-    void 
-  SyncCDDBLookup::disconnect()
-  {
-    writeLine("quit");
-    socket_.close();
   }
 }
 

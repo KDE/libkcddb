@@ -171,8 +171,15 @@ namespace KCDDB
           return;
         }
 
-        sendQuery();
+        sendProto();
 
+        break;
+
+      case WaitingForProtoResponse:
+
+        // Ignore the result for now
+        readLine();
+        sendQuery();
         break;
 
       case WaitingForQueryResponse:
@@ -249,16 +256,25 @@ namespace KCDDB
     void
   AsyncCDDBLookup::sendHandshake()
   {
-    QString line = makeCDDBHandshake();
+    QString line = makeHandshakeCommand();
     writeLine( line );
 
     state_ = WaitingForHandshake;
   }
 
     void
+  AsyncCDDBLookup::sendProto()
+  {
+    QString line = makeProtoCommand();
+    writeLine( line );
+
+    state_ = WaitingForProtoResponse;
+  }
+
+    void
   AsyncCDDBLookup::sendQuery()
   {
-    QString line = makeCDDBQuery();
+    QString line = makeQueryCommand();
     writeLine( line );
 
     state_ = WaitingForQueryResponse;
@@ -282,12 +298,7 @@ namespace KCDDB
     CDDBMatch match = matchList_.first();
     matchList_.remove( match );
 
-    // Save genre for later
-    CDInfo info;
-    info.genre = match.first;
-    cdInfoList_.append(info);
-
-    QString line = makeCDDBRead( match );
+    QString line = makeReadCommand( match );
     writeLine( line );
 
     state_ = WaitingForCDInfoResponse;
@@ -296,15 +307,10 @@ namespace KCDDB
     void
   AsyncCDDBLookup::parseCDInfoData()
   {
-    CDInfo info = cdInfoList_.last();
-    cdInfoList_.remove( info );
-    QString genre = info.genre;
+    CDInfo info;
 
     if (info.load( cdInfoBuffer_ ))
-    {
-      info.genre = genre;
       cdInfoList_.append( info );
-    }
 
     cdInfoBuffer_.clear();
   }

@@ -74,6 +74,9 @@ namespace KCDDB
 
     protected:
 
+      Result syncConnect( const QString &, uint );
+      void disconnect();
+
       QString readLine();
       void writeLine( const QString & );
 

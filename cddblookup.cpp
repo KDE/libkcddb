@@ -33,7 +33,7 @@ namespace KCDDB
   }
 
     QString
-  CDDBLookup::makeCDDBHandshake()
+  CDDBLookup::makeHandshakeCommand()
   {
     QString handshake = QString( "cddb hello %1 %2 %3 %4" )
         .arg( user_ )
@@ -45,7 +45,13 @@ namespace KCDDB
   }
 
     QString
-  CDDBLookup::makeCDDBQuery()
+  CDDBLookup::makeProtoCommand()
+  {
+    return "proto 5";
+  }
+
+    QString
+  CDDBLookup::makeQueryCommand()
   {
     QString query = QString( "cddb query %1 %2" )
         .arg( trackOffsetListToId() )
@@ -55,7 +61,7 @@ namespace KCDDB
   }
 
     QString
-  CDDBLookup::makeCDDBRead( const CDDBMatch & match )
+  CDDBLookup::makeReadCommand( const CDDBMatch & match )
   {
     QString category  = match.first;
     QString discid    = match.second;

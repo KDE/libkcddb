@@ -40,6 +40,7 @@ namespace KCDDB
         WaitingForConnection,
         WaitingForGreeting,
         WaitingForHandshake,
+        WaitingForProtoResponse,
         WaitingForQueryResponse,
         WaitingForMoreMatches,
         WaitingForCDInfoResponse,
@@ -67,6 +68,7 @@ namespace KCDDB
     protected:
 
       void sendHandshake();
+      void sendProto();
       void sendQuery();
       bool parseQueryResponse( const QString & );
       void requestCDInfoForMatch();

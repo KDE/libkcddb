@@ -39,8 +39,6 @@ namespace KCDDB
 
     protected:
 
-      Result connect( const QString &, uint );
-      void disconnect();
       Result shakeHands();
 
       Result runQuery();

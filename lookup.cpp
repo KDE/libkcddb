@@ -216,6 +216,33 @@ namespace KCDDB
     return Success;
   }
 
+    Lookup::Result
+  Lookup::syncConnect(  const QString & hostName, uint port )
+  {
+    kdDebug() << "Trying to connect to " << hostName << ":" << port << endl;
+
+    if (  !socket_.setAddress(  hostName, port ) )
+      return UnknownError;
+
+    socket_.setTimeout(  30 );
+
+    if (  0 != socket_.lookup() )
+      return HostNotFound;
+
+    if (  0 != socket_.connect() )
+      return NoResponse;
+
+    kdDebug() << "Connected" << endl;
+    return Success;
+  }
+
+    void
+  Lookup::disconnect()
+  {
+    writeLine( "quit" );
+    socket_.close();
+  }
+
     QString
   Lookup::readLine()
   {
