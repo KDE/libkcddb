@@ -25,6 +25,7 @@
 #include "libkcddb/config.h"
 
 class CDDBConfigWidgetBase;
+class KConfigDialogManager;
 
 class CDDBModule : public KCModule
 {
@@ -55,6 +56,7 @@ class CDDBModule : public KCModule
 
     CDDBConfigWidgetBase  * widget_;
     KCDDB::Config           originalConfig_;
+    KConfigDialogManager  * configDialogManager_;
 };
 
 #endif // KCMCDDB_H

@@ -122,9 +122,9 @@ void CDDBConfigWidget::showMirrorList()
     {
       KCDDB::Mirror m = keys[*(result.begin())];
 
-      cddbType->setCurrentItem(m.transport == KCDDB::Lookup::CDDBP ? 0 : 1);
-      cddbServer->setText(m.address);
-      cddbPort->setValue(m.port);
+      kcfg_lookupTransport->setCurrentItem(m.transport == KCDDB::Lookup::CDDBP ? 0 : 1);
+      kcfg_hostname->setText(m.address);
+      kcfg_port->setValue(m.port);
 
       slotConfigChanged();
     }
@@ -134,10 +134,10 @@ void CDDBConfigWidget::protocolChanged()
 {
     // Change the port if the port is the default-value for the old protocol
 
-    if (cddbType->currentText() == i18n("HTTP") && cddbPort->value() == 8880)
-      cddbPort->setValue(80);
-    else if (cddbType->currentText() == i18n("CDDB") && cddbPort->value() == 80)
-      cddbPort->setValue(8880);
+    if (kcfg_lookupTransport->currentText() == i18n("HTTP") && kcfg_port->value() == 8880)
+      kcfg_port->setValue(80);
+    else if (kcfg_lookupTransport->currentText() == i18n("CDDB") && kcfg_port->value() == 80)
+      kcfg_port->setValue(8880);
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

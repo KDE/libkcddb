@@ -33,6 +33,7 @@
 #include <kglobal.h>
 #include <kgenericfactory.h>
 #include <kmessagebox.h>
+#include <kconfigdialogmanager.h>
 
 #include "cddbconfigwidget.h"
 
@@ -52,6 +53,11 @@ CDDBModule::CDDBModule(QWidget *parent, const char *name, const QStringList &)
 
   widget_ = new CDDBConfigWidget(this);
 
+  KCDDB::Config* cfg = new KCDDB::Config();
+  cfg->readConfig();
+
+  configDialogManager_ = addConfig(cfg, widget_);
+
   QVBoxLayout * layout = new QVBoxLayout(this, 0);
 
   layout->addWidget(widget_);
@@ -60,6 +66,7 @@ CDDBModule::CDDBModule(QWidget *parent, const char *name, const QStringList &)
   load();
 
   connect(widget_, SIGNAL(configChanged()), SLOT(slotConfigChanged()));
+  connect(configDialogManager_, SIGNAL(settingsChanged()), SLOT(slotConfigChanged()));
 }
 
   void
@@ -67,42 +74,24 @@ CDDBModule::defaults()
 {
   updateWidgetsFromConfig(KCDDB::Config());
 
+  configDialogManager_->updateWidgetsDefault();
+
   emit changed(true);
 }
 
   void
 CDDBModule::readConfigFromWidgets(KCDDB::Config &config) const
 {
-  bool cddbLookup = (0 == widget_->cddbType->currentItem());
-  KCDDB::Cache::Policy policy;
-  if (widget_->cacheOnly->isChecked())
-    policy = KCDDB::Cache::Only;
-  else if (widget_->cacheAndRemote->isChecked())
-    policy = KCDDB::Cache::Use;
-  else
-    policy = KCDDB::Cache::Ignore;
-
-  config.setHostname            (widget_->cddbServer->text());
-  config.setPort                (widget_->cddbPort->value());
-  config.setLookupTransport     (cddbLookup ?
-                                KCDDB::Lookup::CDDBP : KCDDB::Lookup::HTTP);
-  config.setCachePolicy         (policy);
-
   QStringList l;
   for (uint i=0; i < widget_->cacheDirectories->count(); i++)
     l.append(widget_->cacheDirectories->text(i));
 
   config.setCacheLocations(l);
 
-  config.setOwnEmail(widget_->fromLineEdit->text());
-  config.setOwnReplyTo(widget_->replyToLineEdit->text());
-  config.setOwnSmtpHost(widget_->hostLineEdit->text());
-  config.setSmtpPort(widget_->portSpinBox->value());
   if (widget_->needsAuthenticationBox->isChecked())
     config.setSmtpUsername(widget_->usernameLineEdit->text());
   else
-    config.setSmtpUsername("");
-  config.setUseGlobalEmail(widget_->useGlobalCheckbox->isChecked());
+    config.setSmtpUsername(QString::null);
   if (widget_->enableSmtpCheckBox->isChecked())
     config.setSubmitTransport(KCDDB::Submit::SMTP);
   else
@@ -127,26 +116,11 @@ CDDBModule::readConfigFromWidgets(KCDDB::Config &config) const
   void
 CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
 {
-  bool cddbLookup = (config.lookupTransport() == KCDDB::Lookup::CDDBP);
-
-  widget_->cddbType           ->setCurrentItem  (cddbLookup ? 0 : 1);
-  widget_->cddbServer         ->setText         (config.hostname());
-  widget_->cddbPort           ->setValue        (config.port());
-  if (config.cachePolicy() == KCDDB::Cache::Only)
-    widget_->cacheOnly->setChecked(true);
-  else if (config.cachePolicy() == KCDDB::Cache::Use)
-    widget_->cacheAndRemote->setChecked(true);
-  else
-    widget_->remoteOnly->setChecked(true);
   widget_->cacheDirectories   ->clear();
   widget_->cacheDirectories   ->insertStringList(config.cacheLocations());
   widget_->fromLabel->setText(config.globalEmail());
   widget_->replyToLabel->setText(config.globalReplyTo());
   widget_->hostLabel->setText(config.globalSmtpHost());
-  widget_->fromLineEdit->setText(config.ownEmail());
-  widget_->replyToLineEdit->setText(config.ownReplyTo());
-  widget_->hostLineEdit->setText(config.ownSmtpHost());
-  widget_->portSpinBox->setValue(config.smtpPort());
   if (!config.smtpUsername().isEmpty())
   {
     widget_->needsAuthenticationBox->setChecked(true);
@@ -163,9 +137,7 @@ CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
     widget_->enableSmtpCheckBox->setChecked(true);
   else
     widget_->smtpBox->setDisabled(true);
-  if (config.useGlobalEmail())
-    widget_->useGlobalCheckbox->setChecked(true);
-  else
+  if (!config.useGlobalEmail())
     widget_->notUseGlobalCheckbox->setChecked(true);
 }
 
@@ -179,6 +151,9 @@ CDDBModule::save()
   readConfigFromWidgets(newConfig);
 
   newConfig.writeConfig();
+
+  configDialogManager_->updateSettings();
+
   emit changed(false);
 }
 
@@ -187,6 +162,8 @@ CDDBModule::load()
 {
   originalConfig_.readConfig();
   updateWidgetsFromConfig(originalConfig_);
+
+  configDialogManager_->updateWidgets();
 }
 
   void
