@@ -26,3 +26,5 @@ kcddbinclude_HEADERS = \
 
 messages: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/libkcddb.pot
+
+config.lo: configbase.h
