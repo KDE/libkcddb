@@ -32,6 +32,9 @@ namespace KCDDB
     socket_.setBlockingMode( false );
     socket_.enableRead( true );
 
+    socket_.setSocketFlags
+      ( socket_.socketFlags() | KExtendedSocket::inputBufferedSocket );
+
     connect (
         &socket_,
         SIGNAL(lookupFinished(int)),
