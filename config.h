@@ -59,12 +59,7 @@ namespace KCDDB
       static QString  clientVersionKey();
       static QString  submitTransportKey();
       static QString  lookupTransportKey();
-      static QString  proxyHostnameKey();
-      static QString  proxyPortKey();
-      static QString  smtpHostnameKey();
-      static QString  smtpPortKey();
       static QString  emailAddressKey();
-      static QString  proxyEnabledKey();
       static QString  submissionsEnabledKey();
 
       QString             hostname()            const;
@@ -74,12 +69,7 @@ namespace KCDDB
       QString             clientVersion()       const;
       Submit::Transport   submitTransport()     const;
       Lookup::Transport   lookupTransport()     const;
-      QString             proxyHostname()       const;
-      uint                proxyPort()           const;
-      QString             smtpHostname()        const;
-      uint                smtpPort()            const;
       QString             emailAddress()        const;
-      bool                proxyEnabled()        const;
       bool                submissionsEnabled()  const;
       Cache::Policy       cachePolicy()         const;
 
@@ -90,12 +80,7 @@ namespace KCDDB
       void setClientVersion       (const QString &);
       void setSubmitTransport     (Submit::Transport);
       void setLookupTransport     (Lookup::Transport);
-      void setProxyHostname       (const QString &);
-      void setProxyPort           (uint);
-      void setSMTPHostname        (const QString &);
-      void setSMTPPort            (uint);
       void setEmailAddress        (const QString &);
-      void setProxyEnabled        (bool);
       void setSubmissionsEnabled  (bool);
       void setCachePolicy         (Cache::Policy);
 
@@ -108,12 +93,7 @@ namespace KCDDB
       QString           clientVersion_;
       Submit::Transport submitTransport_;
       Lookup::Transport lookupTransport_;
-      QString           proxyHostname_;
-      uint              proxyPort_;
-      QString           smtpHostname_;
-      uint              smtpPort_;
       QString           emailAddress_;
-      bool              proxyEnabled_;
       bool              submissionsEnabled_;
       Cache::Policy     cachePolicy_;
   };

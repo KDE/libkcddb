@@ -9,8 +9,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>378</width>
-            <height>412</height>
+            <width>396</width>
+            <height>230</height>
         </rect>
     </property>
     <property name="caption">
@@ -62,7 +62,7 @@
                         <number>64000</number>
                     </property>
                     <property name="value">
-                        <number>888</number>
+                        <number>8880</number>
                     </property>
                     <property name="whatsThis" stdset="0">
                         <string>Port to connect to on CDDB server.</string>
@@ -169,53 +169,6 @@
                         <string>Allow submission of CD info to a CDDB server. Enabling this makes you a good netizen.</string>
                     </property>
                 </widget>
-                <widget class="QSpinBox" row="1" column="3">
-                    <property name="name">
-                        <cstring>submissionsPort</cstring>
-                    </property>
-                    <property name="maxValue">
-                        <number>64000</number>
-                    </property>
-                    <property name="value">
-                        <number>25</number>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Port to connect to on SMTP server.</string>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="1" column="2">
-                    <property name="name">
-                        <cstring>TextLabel2</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Port:</string>
-                    </property>
-                    <property name="alignment">
-                        <set>AlignVCenter|AlignRight</set>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>submissionsPort</cstring>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="1" column="0">
-                    <property name="name">
-                        <cstring>TextLabel1</cstring>
-                    </property>
-                    <property name="text">
-                        <string>S&amp;MTP server:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>submissionsServer</cstring>
-                    </property>
-                </widget>
-                <widget class="QLineEdit" row="1" column="1">
-                    <property name="name">
-                        <cstring>submissionsServer</cstring>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>SMTP server which submissions will be sent to.</string>
-                    </property>
-                </widget>
                 <widget class="QLineEdit" row="2" column="1" rowspan="1" colspan="3">
                     <property name="name">
                         <cstring>submissionsSendTo</cstring>
@@ -240,86 +193,6 @@
                 </widget>
             </grid>
         </widget>
-        <widget class="QGroupBox">
-            <property name="name">
-                <cstring>GroupBox3</cstring>
-            </property>
-            <property name="title">
-                <string>HTTP Transport</string>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <property name="margin">
-                    <number>11</number>
-                </property>
-                <property name="spacing">
-                    <number>6</number>
-                </property>
-                <widget class="QLabel" row="1" column="0">
-                    <property name="name">
-                        <cstring>TextLabel4</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;HTTP Proxy:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>httpProxyServer</cstring>
-                    </property>
-                </widget>
-                <widget class="QLineEdit" row="1" column="1">
-                    <property name="name">
-                        <cstring>httpProxyServer</cstring>
-                    </property>
-                    <property name="text">
-                        <string>http://</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Name of HTTP proxy server.</string>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="1" column="2">
-                    <property name="name">
-                        <cstring>TextLabel5</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Port:</string>
-                    </property>
-                    <property name="alignment">
-                        <set>AlignVCenter|AlignRight</set>
-                    </property>
-                </widget>
-                <widget class="QSpinBox" row="1" column="3">
-                    <property name="name">
-                        <cstring>httpProxyPort</cstring>
-                    </property>
-                    <property name="maxValue">
-                        <number>64000</number>
-                    </property>
-                    <property name="value">
-                        <number>8080</number>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Port to connect to on HTTP proxy server.</string>
-                    </property>
-                </widget>
-                <widget class="QCheckBox" row="0" column="0" rowspan="1" colspan="4">
-                    <property name="name">
-                        <cstring>httpProxyEnable</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Use HTTP pro&amp;xy</string>
-                    </property>
-                    <property name="checked">
-                        <bool>true</bool>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Possibly needed if you are behind a firewall.</string>
-                    </property>
-                </widget>
-            </grid>
-        </widget>
         <spacer>
             <property name="name" stdset="0">
                 <cstring>Spacer6</cstring>
@@ -340,54 +213,6 @@
     </vbox>
 </widget>
 <connections>
-    <connection>
-        <sender>httpProxyEnable</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>TextLabel4</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>httpProxyEnable</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>httpProxyServer</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>httpProxyEnable</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>TextLabel5</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>httpProxyEnable</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>httpProxyPort</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>submissionsEnable</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>TextLabel1</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>submissionsEnable</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>submissionsServer</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>submissionsEnable</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>submissionsPort</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>submissionsEnable</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>TextLabel2</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
     <connection>
         <sender>submissionsEnable</sender>
         <signal>toggled(bool)</signal>
@@ -419,38 +244,8 @@
         <slot>slotConfigChanged()</slot>
     </connection>
     <connection>
-        <sender>httpProxyEnable</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>CDDBConfigWidgetBase</receiver>
-        <slot>slotConfigChanged()</slot>
-    </connection>
-    <connection>
-        <sender>httpProxyServer</sender>
-        <signal>textChanged(const QString&amp;)</signal>
-        <receiver>CDDBConfigWidgetBase</receiver>
-        <slot>slotConfigChanged()</slot>
-    </connection>
-    <connection>
-        <sender>httpProxyPort</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>CDDBConfigWidgetBase</receiver>
-        <slot>slotConfigChanged()</slot>
-    </connection>
-    <connection>
         <sender>submissionsEnable</sender>
         <signal>toggled(bool)</signal>
-        <receiver>CDDBConfigWidgetBase</receiver>
-        <slot>slotConfigChanged()</slot>
-    </connection>
-    <connection>
-        <sender>submissionsServer</sender>
-        <signal>textChanged(const QString&amp;)</signal>
-        <receiver>CDDBConfigWidgetBase</receiver>
-        <slot>slotConfigChanged()</slot>
-    </connection>
-    <connection>
-        <sender>submissionsPort</sender>
-        <signal>valueChanged(int)</signal>
         <receiver>CDDBConfigWidgetBase</receiver>
         <slot>slotConfigChanged()</slot>
     </connection>
@@ -471,12 +266,7 @@
     <tabstop>cddbServer</tabstop>
     <tabstop>cddbPort</tabstop>
     <tabstop>cddbType</tabstop>
-    <tabstop>httpProxyEnable</tabstop>
-    <tabstop>httpProxyServer</tabstop>
-    <tabstop>httpProxyPort</tabstop>
     <tabstop>submissionsEnable</tabstop>
-    <tabstop>submissionsServer</tabstop>
-    <tabstop>submissionsPort</tabstop>
     <tabstop>submissionsSendTo</tabstop>
     <tabstop>cacheEnable</tabstop>
 </tabstops>

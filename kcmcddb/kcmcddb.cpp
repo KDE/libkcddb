@@ -87,11 +87,6 @@ CDDBModule::readConfigFromWidgets() const
 
   config.setHostname            (widget_->cddbServer->text());
   config.setPort                (widget_->cddbPort->value());
-  config.setProxyEnabled        (widget_->httpProxyEnable->isChecked());
-  config.setProxyHostname       (widget_->httpProxyServer->text());
-  config.setProxyPort           (widget_->httpProxyPort->value());
-  config.setSMTPHostname        (widget_->submissionsServer->text());
-  config.setSMTPPort            (widget_->submissionsPort->value());
   config.setEmailAddress        (widget_->submissionsSendTo->text());
   config.setSubmissionsEnabled  (widget_->submissionsEnable->isChecked());
 
@@ -108,12 +103,7 @@ CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
   widget_->cddbType           ->setCurrentItem  (cddbLookup ? 0 : 1);
   widget_->cddbServer         ->setText         (config.hostname());
   widget_->cddbPort           ->setValue        (config.port());
-  widget_->httpProxyEnable    ->setChecked      (config.proxyEnabled());
-  widget_->httpProxyServer    ->setText         (config.proxyHostname());
-  widget_->httpProxyPort      ->setValue        (config.proxyPort());
   widget_->submissionsEnable  ->setChecked      (config.submissionsEnabled());
-  widget_->submissionsServer  ->setText         (config.smtpHostname());
-  widget_->submissionsPort    ->setValue        (config.smtpPort());
   widget_->submissionsSendTo  ->setText         (config.emailAddress());
   widget_->cacheEnable        ->setChecked      (cacheEnabled);
 }

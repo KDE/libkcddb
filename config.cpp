@@ -34,13 +34,7 @@ namespace KCDDB
   static const char * const defaultUser           = "libkcddb-user";
   static const char * const defaultClientName     = "libkcddb";
   static const char * const defaultClientVersion  = "0.1";
-  static const char * const defaultProxyHostname  = "";
-  static const unsigned int defaultProxyPort      = 8080;
-  static const char * const defaultSMTPHostname   = "";
-  static const unsigned int defaultSMTPPort       = 25;
   static const char * const defaultEmailAddress   = "freedb-submit@freedb.org";
-  static const bool         defaultProxyEnabled   = false;
-
   static const bool         defaultSubmissionsEnabled = true;
 
   Config::Config()
@@ -51,12 +45,7 @@ namespace KCDDB
       clientVersion_        (defaultClientVersion),
       submitTransport_      (defaultSubmitTransport),
       lookupTransport_      (defaultLookupTransport),
-      proxyHostname_        (defaultProxyHostname),
-      proxyPort_            (defaultProxyPort),
-      smtpHostname_         (defaultSMTPHostname),
-      smtpPort_             (defaultSMTPPort),
       emailAddress_         (defaultEmailAddress),
-      proxyEnabled_         (defaultProxyEnabled),
       submissionsEnabled_   (defaultSubmissionsEnabled)
   {
   }
@@ -80,17 +69,7 @@ namespace KCDDB
         &&
         (lookupTransport_     == other.lookupTransport_)
         &&
-        (proxyHostname_       == other.proxyHostname_)
-        &&
-        (proxyPort_           == other.proxyPort_)
-        &&
-        (smtpHostname_        == other.smtpHostname_)
-        &&
-        (smtpPort_            == other.smtpPort_)
-        &&
         (emailAddress_        == other.emailAddress_)
-        &&
-        (proxyEnabled_        == other.proxyEnabled_)
         &&
         (submissionsEnabled_  == other.submissionsEnabled_)
       );
@@ -137,17 +116,7 @@ namespace KCDDB
         )
       );
 
-    proxyHostname_ = c.readEntry(proxyHostnameKey(), defaultProxyHostname);
-
-    proxyPort_ = c.readUnsignedNumEntry(proxyPortKey(), defaultProxyPort);
-
-    smtpHostname_ = c.readEntry(smtpHostnameKey(), defaultSMTPHostname);
-
-    smtpPort_ = c.readUnsignedNumEntry(smtpPortKey(), defaultSMTPPort);
-
     emailAddress_ = c.readEntry(emailAddressKey(), defaultEmailAddress);
-
-    proxyEnabled_ = c.readBoolEntry(proxyEnabledKey(), defaultProxyEnabled);
 
     submissionsEnabled_ =
       c.readBoolEntry(submissionsEnabledKey(), defaultSubmissionsEnabled);
@@ -180,17 +149,7 @@ namespace KCDDB
         Lookup::transportToString(lookupTransport_)
       );
 
-    c.writeEntry(proxyHostnameKey(), proxyHostname_);
-
-    c.writeEntry(proxyPortKey(), proxyPort_);
-
-    c.writeEntry(smtpHostnameKey(), smtpHostname_);
-
-    c.writeEntry(smtpPortKey(), smtpPort_);
-
     c.writeEntry(emailAddressKey(), emailAddress_);
-
-    c.writeEntry(proxyEnabledKey(), proxyEnabled_);
 
     c.writeEntry(submissionsEnabledKey(), submissionsEnabled_);
 
@@ -242,39 +201,9 @@ namespace KCDDB
   }
 
     QString
-  Config::proxyHostname() const
-  {
-    return proxyHostname_;
-  }
-
-    uint
-  Config::proxyPort() const
-  {
-    return proxyPort_;
-  }
-
-    QString
-  Config::smtpHostname() const
-  {
-    return smtpHostname_;
-  }
-
-    uint
-  Config::smtpPort() const
-  {
-    return smtpPort_;
-  }
-
-    QString
   Config::emailAddress() const
   {
     return emailAddress_;
-  }
-
-    bool
-  Config::proxyEnabled() const
-  {
-    return proxyEnabled_;
   }
 
     bool
@@ -328,39 +257,9 @@ namespace KCDDB
   }
 
     void
-  Config::setProxyHostname(const QString & s)
-  {
-    proxyHostname_ = s;
-  }
-
-    void
-  Config::setProxyPort(uint i)
-  {
-    proxyPort_ = i;
-  }
-
-    void
-  Config::setSMTPHostname(const QString & s)
-  {
-    smtpHostname_ = s;
-  }
-
-    void
-  Config::setSMTPPort(uint i)
-  {
-    smtpPort_ = i;
-  }
-
-    void
   Config::setEmailAddress(const QString & s)
   {
     emailAddress_ = s;
-  }
-
-    void
-  Config::setProxyEnabled(bool b)
-  {
-    proxyEnabled_ = b;
   }
 
     void
@@ -414,39 +313,9 @@ namespace KCDDB
   }
 
     QString
-  Config::proxyHostnameKey()
-  {
-    return "ProxyHostname";
-  }
-
-    QString
-  Config::proxyPortKey()
-  {
-    return "ProxyPort";
-  }
-
-    QString
-  Config::smtpHostnameKey()
-  {
-    return "SMTPHostname";
-  }
-
-    QString
-  Config::smtpPortKey()
-  {
-    return "SMTPPort";
-  }
-
-    QString
   Config::emailAddressKey()
   {
     return "EmailAddress";
-  }
-
-    QString
-  Config::proxyEnabledKey()
-  {
-    return "ProxyEnabled";
   }
 
     QString

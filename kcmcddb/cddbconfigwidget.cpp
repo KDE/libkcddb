@@ -17,32 +17,12 @@
   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
 
-#include <qgroupbox.h>
-#include <qcheckbox.h>
-#include <qlayout.h>
-
-#include <kdebug.h>
-
 #include "cddbconfigwidget.h"
 
 CDDBConfigWidget::CDDBConfigWidget(QWidget * parent, const char * name)
   : CDDBConfigWidgetBase(parent, name)
 {
   // Connections from widgets to slotConfigChanged are made in designer.
-
-  if (0 == layout())
-  {
-    // There is a bug in the current qt-copy's designer.
-    kdDebug() << "No layout. Designer bug. Hacking it.";
-
-    QVBoxLayout * layout = new QVBoxLayout(this, 0, 6);
-
-    layout->addWidget(GroupBox4);
-    layout->addWidget(GroupBox3);
-    layout->addWidget(GroupBox1);
-    layout->addWidget(cacheEnable);
-    layout->addStretch(1);
-  }
 }
 
   void
