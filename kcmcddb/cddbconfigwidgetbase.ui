@@ -119,45 +119,6 @@
                             <property name="spacing">
                                 <number>6</number>
                             </property>
-                            <widget class="QLineEdit" row="0" column="1">
-                                <property name="name">
-                                    <cstring>cddbServer</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>freedb.freedb.org</string>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>Name of CDDB server which will be used to look up CD information.</string>
-                                </property>
-                            </widget>
-                            <widget class="QSpinBox" row="0" column="3">
-                                <property name="name">
-                                    <cstring>cddbPort</cstring>
-                                </property>
-                                <property name="maxValue">
-                                    <number>64000</number>
-                                </property>
-                                <property name="value">
-                                    <number>8880</number>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>Port to connect to on CDDB server.</string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="0" column="2">
-                                <property name="name">
-                                    <cstring>TextLabel8</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>&amp;Port:</string>
-                                </property>
-                                <property name="alignment">
-                                    <set>AlignVCenter|AlignRight</set>
-                                </property>
-                                <property name="buddy" stdset="0">
-                                    <cstring>cddbPort</cstring>
-                                </property>
-                            </widget>
                             <widget class="QLabel" row="0" column="0">
                                 <property name="name">
                                     <cstring>TextLabel7</cstring>
@@ -169,7 +130,18 @@
                                     <cstring>cddbServer</cstring>
                                 </property>
                             </widget>
-                            <widget class="QComboBox" row="1" column="1" rowspan="1" colspan="3">
+                            <widget class="QLabel" row="1" column="0">
+                                <property name="name">
+                                    <cstring>TextLabel9</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&amp;Transport:</string>
+                                </property>
+                                <property name="buddy" stdset="0">
+                                    <cstring>cddbType</cstring>
+                                </property>
+                            </widget>
+                            <widget class="QComboBox" row="1" column="1">
                                 <item>
                                     <property name="text">
                                         <string>CDDB</string>
@@ -187,15 +159,67 @@
                                     <string>Type of lookup which should be tried at the CDDB server.</string>
                                 </property>
                             </widget>
-                            <widget class="QLabel" row="1" column="0">
+                            <widget class="KPushButton" row="1" column="2" rowspan="1" colspan="3">
                                 <property name="name">
-                                    <cstring>TextLabel9</cstring>
+                                    <cstring>mirrorListButton</cstring>
                                 </property>
                                 <property name="text">
-                                    <string>&amp;Transport:</string>
+                                    <string>Show &amp;mirror list</string>
+                                </property>
+                            </widget>
+                            <widget class="QSpinBox" row="0" column="4">
+                                <property name="name">
+                                    <cstring>cddbPort</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>4</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                                <property name="maxValue">
+                                    <number>64000</number>
+                                </property>
+                                <property name="value">
+                                    <number>8880</number>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Port to connect to on CDDB server.</string>
+                                </property>
+                            </widget>
+                            <widget class="QLabel" row="0" column="3">
+                                <property name="name">
+                                    <cstring>TextLabel8</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&amp;Port:</string>
+                                </property>
+                                <property name="alignment">
+                                    <set>AlignVCenter|AlignRight</set>
                                 </property>
                                 <property name="buddy" stdset="0">
-                                    <cstring>cddbType</cstring>
+                                    <cstring>cddbPort</cstring>
+                                </property>
+                            </widget>
+                            <widget class="QLineEdit" row="0" column="1" rowspan="1" colspan="2">
+                                <property name="name">
+                                    <cstring>cddbServer</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                                <property name="text">
+                                    <string>freedb.freedb.org</string>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                    <string>Name of CDDB server which will be used to look up CD information.</string>
                                 </property>
                             </widget>
                         </grid>
@@ -785,6 +809,12 @@
         <receiver>CDDBConfigWidgetBase</receiver>
         <slot>protocolChanged()</slot>
     </connection>
+    <connection>
+        <sender>mirrorListButton</sender>
+        <signal>clicked()</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>showMirrorList()</slot>
+    </connection>
 </connections>
 <tabstops>
     <tabstop>tabWidget2</tabstop>
@@ -816,9 +846,11 @@
     <slot access="protected">moveCacheDown()</slot>
     <slot access="protected">launchControlCenter()</slot>
     <slot access="protected">protocolChanged()</slot>
+    <slot>showMirrorList()</slot>
 </slots>
 <layoutdefaults spacing="11" margin="6"/>
 <includehints>
+    <includehint>kpushbutton.h</includehint>
     <includehint>kurllabel.h</includehint>
 </includehints>
 </UI>

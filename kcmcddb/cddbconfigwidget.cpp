@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  Copyright (C) 2004 Richard Lärkäng <nouseforaname@home.se>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -19,12 +20,17 @@
 
 #include "cddbconfigwidget.h"
 
+#include "libkcddb/sites.h"
+#include "libkcddb/lookup.h"
+
 #include <qlistbox.h>
 #include <qcombobox.h>
 #include <qspinbox.h>
+#include <qlineedit.h>
 #include <kfiledialog.h>
 #include <kapplication.h>
 #include <klocale.h>
+#include <kinputdialog.h>
 
 CDDBConfigWidget::CDDBConfigWidget(QWidget * parent, const char * name)
   : CDDBConfigWidgetBase(parent, name)
@@ -85,7 +91,36 @@ void CDDBConfigWidget::moveCacheDown()
 void CDDBConfigWidget::launchControlCenter()
 {
     KApplication::kdeinitExec("kcmshell", "email");
+}
 
+void CDDBConfigWidget::showMirrorList()
+{
+    KCDDB::Sites s;
+
+    QValueList<KCDDB::Mirror> sites = s.siteList();
+    QMap<QString, KCDDB::Mirror> keys;
+    for (QValueList<KCDDB::Mirror>::Iterator it = sites.begin(); it != sites.end(); ++it)
+      if ((*it).transport == KCDDB::Lookup::CDDBP)
+        keys[(*it).address + "(CDDBP, " + QString::number((*it).port) + ") " + (*it).description] = *it;
+      else
+        keys[(*it).address + "(HTTP, " + QString::number((*it).port) + ") " + (*it).description] = *it;
+
+    bool ok;
+
+    QStringList result = KInputDialog::getItemList(i18n("Select mirror"),
+      i18n("Select one of theese mirrors"), keys.keys(),
+      QStringList(), false, &ok, this);
+
+    if (&ok && result.count() == 1)
+    {
+      KCDDB::Mirror m = keys[*(result.begin())];
+
+      cddbType->setCurrentItem(m.transport == KCDDB::Lookup::CDDBP ? 0 : 1);
+      cddbServer->setText(m.address);
+      cddbPort->setValue(m.port);
+
+      slotConfigChanged();
+    }
 }
 
 void CDDBConfigWidget::protocolChanged()
