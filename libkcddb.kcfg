@@ -27,7 +27,7 @@
       </choices>
       <default>HTTP</default>
     </entry>
-    <entry name="cacheLocations" type="StringList">
+    <entry name="cacheLocations" type="PathList">
       <default code="true">QDir::homeDirPath()+"/.cddb/"</default>
     </entry>
   </group>
