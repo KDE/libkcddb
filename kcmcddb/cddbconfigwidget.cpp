@@ -31,6 +31,7 @@
 #include <kapplication.h>
 #include <klocale.h>
 #include <kinputdialog.h>
+#include <kmessagebox.h>
 
 CDDBConfigWidget::CDDBConfigWidget(QWidget * parent, const char * name)
   : CDDBConfigWidgetBase(parent, name)
@@ -106,6 +107,12 @@ void CDDBConfigWidget::showMirrorList()
         keys[(*it).address + "(HTTP, " + QString::number((*it).port) + ") " + (*it).description] = *it;
 
     bool ok;
+
+    if (keys.isEmpty())
+    {
+      KMessageBox::information(this, i18n("Couldn't fetch mirror list"), i18n("Couldn't fetch"));
+      return;
+    }
 
     QStringList result = KInputDialog::getItemList(i18n("Select mirror"),
       i18n("Select one of theese mirrors"), keys.keys(),
