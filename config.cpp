@@ -20,10 +20,7 @@
   Boston, MA 02111-1307, USA.
 */
 
-#include <kconfig.h>
-#include <qdir.h>
 #include <kemailsettings.h>
-#include <klocale.h>
 
 #include <libkcddb/config.h>
 
