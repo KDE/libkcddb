@@ -56,15 +56,6 @@ namespace KCDDB
     d->config.readConfig();
   }
 
-  Client::Client(const Config & config)
-    : QObject(),
-      cdInfoLookup(0),
-      cdInfoSubmit(0)
-  {
-    d = new Private;
-    d->config = config;
-  }
-
   Client::~Client()
   {
     delete d;
@@ -72,7 +63,7 @@ namespace KCDDB
     delete cdInfoSubmit;
   }
 
-    const Config &
+    Config &
   Client::config() const
   {
     return d->config;
