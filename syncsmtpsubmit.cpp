@@ -41,8 +41,7 @@ namespace KCDDB
     makeDiskData( cdInfo, offsetList );
 //    diskData_.append(".\r\n");
 
-    QString subject = QString("cddb %1 %2").arg(validCategory( cdInfo.genre ),
-        cdInfo.id);
+    QString subject = QString("cddb %1 %2").arg(cdInfo.category, cdInfo.id);
     makeURL(subject);
 
     KTempFile tmp;
