@@ -75,6 +75,7 @@ namespace KCDDB
       static QString resultToString(Result);
       static QString transportToString(uint);
       static Transport stringToTransport(const QString &);
+      static QString trackOffsetListToId( const TrackOffsetList& );
 
     protected:
 
@@ -87,7 +88,6 @@ namespace KCDDB
       Result parseQuery( const QString& );
 
       QString trackOffsetListToString( const TrackOffsetList& );
-      QString trackOffsetListToId( const TrackOffsetList& );
  
       KExtendedSocket socket_;
 

@@ -51,6 +51,9 @@ namespace KCDDB
     const TrackOffsetList & trackOffsetList
   )
   {
+    if ( trackOffsetList.count() < 3 )
+      return UnknownError;
+
     clientName_     = clientName;
     clientVersion_  = clientVersion;
 
@@ -74,14 +77,17 @@ namespace KCDDB
     if (matchList_.isEmpty())
       return NoRecordFound;
 
-    kdDebug() << matchList_.count() << " matches saved" << endl;
+    kdDebug() << matchList_.count() << " matches found." << endl;
 
     // For each match, read the cd info from the server and save it to
     // cdInfoList.
     CDDBMatchList::ConstIterator matchIt = matchList_.begin();
 
     while ( matchIt != matchList_.end() )
+    {
       ( void )matchToCDInfo( static_cast<CDDBMatch>( *matchIt ) );
+      ++matchIt;
+    }
 
     disconnect();
 

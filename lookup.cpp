@@ -43,9 +43,6 @@ namespace KCDDB
     QString
   Lookup::trackOffsetListToId( const TrackOffsetList & list )
   {
-    if ( list.count() < 3 )
-      return QString::null;
-
     // Taken from version by Michael Matz in kio_audiocd.
     unsigned int id = 0;
     int trackCount = list.count() - 2;
@@ -74,12 +71,6 @@ namespace KCDDB
     QString
   Lookup::trackOffsetListToString( const TrackOffsetList & list )
   {
-    if (  list.count() < 3 )
-    {
-      kdDebug() << "Bogus list. Less than 3 entries." << endl;
-      return QString::null;
-    }
-
     QString ret;
 
     // Disc start.
@@ -224,7 +215,7 @@ namespace KCDDB
       c = socket_.getch();
     }
 
-    kdDebug() << "READ: [" << buf << "]" << endl;
+    //kdDebug() << "READ: [" << buf << "]" << endl;
     return QString::fromLatin1( buf.data(), buf.length() );
   }
 

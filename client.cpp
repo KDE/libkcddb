@@ -26,7 +26,7 @@
 #include <qsocket.h>
 
 #include "client.h"
-//#include "synccddblookup.h"
+#include "synccddblookup.h"
 #include "cache.h"
 
 namespace KCDDB
@@ -35,26 +35,24 @@ namespace KCDDB
   {
     public:
 
+      Private::Private()
+        : block( true )
+      {}
+
       Config config;
-
       CDInfoList cdInfoList;
-
-      QString            cddbId;
-
-      KExtendedSocket    socket;
+      QString cddbId;
+      bool block;
   };
 
   Client::Client()
   {
     d = new Private;
-
-    d->config.load();
   }
 
   Client::Client(const Config & config)
   {
     d = new Private;
-
     d->config = config;
   }
 
@@ -69,6 +67,18 @@ namespace KCDDB
     return d->config;
   }
 
+    void
+  Client::setBlockingMode( bool enable )
+  {
+    d->block = enable;
+  }
+
+    bool
+  Client::blockingMode()
+  {
+    return d->block;
+  }
+
     CDInfoList
   Client::lookupResponse() const
   {
@@ -78,68 +88,59 @@ namespace KCDDB
     Lookup::Result
   Client::lookup(const TrackOffsetList & trackOffsetList)
   {
-/*
-    // Get the cddb id from trackOffsetList.
+    d->config.load();
+    d->cdInfoList.clear();
 
-    d->cddbId = trackOffsetListToId(trackOffsetList);
-    kdDebug() << k_funcinfo << "cddbId: " << d->cddbId << endl;
+    QString cddbId = Lookup::trackOffsetListToId( trackOffsetList );
 
-    if (!d->cddbId)
+    if ( cddbId.isNull() )
     {
       kdDebug() << "Can't create cddbid from offset list" << endl;
       return Lookup::NoRecordFound;
     }
 
-    if (Cache::Ignore != d->config.cachePolicy())
+    if ( Cache::Ignore != d->config.cachePolicy() )
     {
-      d->cdInfoList = Cache::lookup(trackOffsetList);
-
-      if (!d->cdInfoList.isEmpty())
+      CDInfo info = Cache::lookup( cddbId );
+      if ( info.isValid() )
+      {
+        d->cdInfoList.append( info );
         return Lookup::Success;
+      }
     }
 
-    // If we're only supposed to try the cache and we failed, drop out now.
-
-    if (Cache::Only == d->config.cachePolicy())
+    if ( Cache::Only == d->config.cachePolicy() )
     {
       kdDebug() << "Only trying cache. Give up now." << endl;
       return Lookup::NoRecordFound;
     }
 
-    // Do the actual lookup.
+    Lookup::Transport t = d->config.lookupTransport();
 
-    switch (d->config.lookupTransport())
+    if( Lookup::CDDB == t )
     {
-      case Lookup::CDDB:
+      if ( blockingMode() )
+      {
+        SyncCDDBLookup lookup;
+
+        Lookup::Result r = lookup.lookup( d->config.hostname(), 
+                d->config.port(), clientName(), clientVersion(),
+                trackOffsetList );
+
+        if ( Lookup::Success == r )
         {
-          SyncCDDBLookup lookup;
-
-          Lookup::Result r =
-            lookup.lookup
-            (
-              trackOffsetList,
-              d->config.hostname(),
-              d->config.port(),
-              d->config.clientName(),
-              d->config.clientVersion()
-            );
-
           d->cdInfoList = lookup.lookupResponse();
-
-          return r;
+          Cache::store( d->cdInfoList );
         }
 
-        break;
-
-      case Lookup::HTTP:
-
-      default:
-        kdDebug() << k_funcinfo << "Unsupported transport: "
-          << Lookup::transportToString(d->config.lookupTransport()) << endl;
-        return Lookup::UnknownError;
-        break;
+        return r;
+      }
     }
-*/
+    else if ( Lookup::HTTP == t )
+    {
+      kdDebug() << "Unsupported transport: HTTP " << endl;
+      return Lookup::UnknownError;
+    }
   }
 
     Submit::Result
@@ -211,5 +212,8 @@ return None;
 #endif
   }
 }
+
+#include "client.moc"
+
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

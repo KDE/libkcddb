@@ -48,9 +48,9 @@ namespace KCDDB
   {
     clear();
 
-    QStringList::ConstIterator it;
+    QStringList::ConstIterator it = lineList.begin();
       
-    for (it = lineList.begin(); it != lineList.end(); ++it)
+    while ( it != lineList.end() )
     {
       QString line(*it);
 
@@ -62,13 +62,17 @@ namespace KCDDB
       QString key   = tokenList[0];
       QString value = tokenList[1];
 
-      kdDebug() << key << " = " << value << endl;
+      kdDebug() << key << "=" << value << endl;
 
       value.replace(QRegExp("\\n"), "\n");
       value.replace(QRegExp("\\t"), "\t");
       value.replace(QRegExp("\\\\"), "\\");
 
-      if ("DTITLE" == key)
+      if ( "DISCID" == key )
+      {
+        id = value;
+      }
+      else if ("DTITLE" == key)
       {
         int slashPos = value.find('/');
 
@@ -103,6 +107,8 @@ namespace KCDDB
 
         trackInfoList[trackNumber] = trackInfo;
       }
+
+      ++it;
     }
 
     return true;

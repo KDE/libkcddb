@@ -50,9 +50,9 @@ namespace KCDDB
   CDDBLookup::makeCDDBQuery( const TrackOffsetList & trackOffsetList )
   {
     QString query = "cddb query ";
-    query += trackOffsetListToId(  trackOffsetList );
+    query += trackOffsetListToId( trackOffsetList );
     query += " ";
-    query += trackOffsetListToString(  trackOffsetList );
+    query += trackOffsetListToString( trackOffsetList );
 
     return query;
   }

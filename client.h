@@ -21,15 +21,17 @@
 #ifndef KCDDB_CLIENT_H
 #define KCDDB_CLIENT_H
 
-#include <libkcddb/config.h>
-#include <libkcddb/lookup.h>
-#include <libkcddb/submit.h>
-#include <libkcddb/cdinfo.h>
+#include "config.h"
+#include "lookup.h"
+#include "submit.h"
+#include "cdinfo.h"
 
 namespace KCDDB
 {
-  class Client
+  class Client : public QObject
   {
+    Q_OBJECT
+
     public:
 
       /**
@@ -50,6 +52,12 @@ namespace KCDDB
 
       Lookup::Result lookup(const TrackOffsetList &);
       Submit::Result submit(const CDInfo &);
+
+      void setBlockingMode( bool );
+      bool blockingMode();
+
+      QString clientName() { return "libkcddb"; }
+      QString clientVersion() { return "0.01"; }
 
     private:
 

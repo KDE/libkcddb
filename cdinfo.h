@@ -49,6 +49,11 @@ namespace KCDDB
       bool load(const QStringList &);
 
       void clear();
+      bool isValid()
+      {
+        return !id.isEmpty() && !trackInfoList.isEmpty();
+      }
+
       QString toString() const;
 
       QString       artist;
