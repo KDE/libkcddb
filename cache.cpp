@@ -18,15 +18,62 @@
   Boston, MA 02111-1307, USA.
 */
 
+#include <kdebug.h>
+#include <kstandarddirs.h>
+
+#include <qfile.h>
+
 #include "cache.h"
 
 namespace KCDDB
 {
-    CDInfoList
-  Cache::lookup(const TrackOffsetList &)
+    QString
+  Cache::fileName(const QString& cddbId)
   {
-    qDebug("Cache::lookup: STUB");
-    return CDInfoList();
+    QString cddbCacheDir = locateLocal("cache", "cddb/");
+    QString cacheFile = QString("%1").arg(cddbId).rightJustify(8, '0');
+    cacheFile = cddbCacheDir + cacheFile;
+
+    return cacheFile;
+  }
+
+    CDInfo
+  Cache::lookup(const QString &cddbId)
+  {
+    kdDebug() << "Looking up " << cddbId << " in CDDB cache" << endl;
+    CDInfo info;
+    QString cacheFile = fileName(cddbId);
+
+    QFile f(cacheFile);
+    if (f.exists())
+    {
+      f.open(IO_ReadOnly);
+      QTextStream ts(&f);
+      QString cddbData = ts.read();
+      f.close();
+      info.load(cddbData);
+    }
+
+    return info;
+  }
+
+    void
+  Cache::store(const CDInfoList& list)
+  {
+    CDInfoList::ConstIterator it=list.begin(); 
+    while (it!=list.end())
+    {
+      QString cacheFile = fileName(*it.id);
+      kdDebug() << "Storing " << cacheFile << " in CDDB cache" << endl;
+
+      QFile f(cacheFile);
+      f.open(IO_WriteOnly);
+      QTextStream ts(&f);
+      ts << *it;
+      f.close();
+
+      ++it;
+    }
   }
 }
 

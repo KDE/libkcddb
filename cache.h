@@ -23,11 +23,9 @@
 
 #include <qpair.h>
 #include <qstring.h>
-#include <qstringlist.h>
 #include <qvaluelist.h>
 
-#include <libkcddb/defines.h>
-#include <libkcddb/cdinfo.h>
+#include "defines.h"
 
 namespace KCDDB
 {
@@ -42,7 +40,11 @@ namespace KCDDB
         Ignore
       };
 
-      static CDInfoList lookup(const TrackOffsetList &);
+      static CDInfo lookup(const QString &);
+      static void store(const QString &, const CDInfoList &);
+
+    private:
+      static QString fileName(const QString&);
   };
 }
 
