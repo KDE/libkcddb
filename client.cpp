@@ -25,8 +25,8 @@
 #include <kdebug.h>
 #include <qsocket.h>
 
-#include <libkcddb/client.h>
-#include <libkcddb/synccddblookup.h>
+#include "client.h"
+#include "synccddblookup.h"
 
 namespace KCDDB
 {

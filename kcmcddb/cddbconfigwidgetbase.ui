@@ -63,7 +63,7 @@
                     <cstring>TextLabel7</cstring>
                 </property>
                 <property name="text">
-                    <string>CDDB &amp;Server:</string>
+                    <string>CDDB &amp;server:</string>
                 </property>
                 <property name="buddy" stdset="0">
                     <cstring>cddbServer</cstring>
@@ -258,7 +258,7 @@
                     <cstring>TextLabel1</cstring>
                 </property>
                 <property name="text">
-                    <string>S&amp;MTP Server:</string>
+                    <string>S&amp;MTP server:</string>
                 </property>
                 <property name="buddy" stdset="0">
                     <cstring>submissionsServer</cstring>
@@ -460,13 +460,13 @@
     <tabstop>cddbServer</tabstop>
     <tabstop>cddbPort</tabstop>
     <tabstop>cddbType</tabstop>
+    <tabstop>httpProxyEnable</tabstop>
+    <tabstop>httpProxyServer</tabstop>
+    <tabstop>httpProxyPort</tabstop>
     <tabstop>submissionsEnable</tabstop>
     <tabstop>submissionsServer</tabstop>
     <tabstop>submissionsPort</tabstop>
     <tabstop>submissionsSendTo</tabstop>
-    <tabstop>httpProxyEnable</tabstop>
-    <tabstop>httpProxyServer</tabstop>
-    <tabstop>httpProxyPort</tabstop>
     <tabstop>cacheEnable</tabstop>
 </tabstops>
 <slots>
