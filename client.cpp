@@ -62,7 +62,7 @@ namespace KCDDB
     delete d;
   }
 
-    Config
+    const Config &
   Client::config() const
   {
     return d->config;

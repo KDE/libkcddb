@@ -46,7 +46,7 @@ namespace KCDDB
 
       virtual ~Client();
 
-      Config config() const;
+      const Config & config() const;
 
       CDInfoList lookupResponse() const;
 
