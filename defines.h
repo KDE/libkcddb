@@ -84,6 +84,8 @@ namespace KCDDB
 
   QString trackOffsetListToId     (const TrackOffsetList &);
   QString trackOffsetListToString (const TrackOffsetList &);
+
+  CDInfo parseStringListToCDInfo(const QStringList &);
 }
 
 #endif // KCDDB_DEFINES_H

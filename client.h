@@ -52,6 +52,10 @@ namespace KCDDB
     protected:
 
       Error cddbLookup(const TrackOffsetList &);
+      Error httpLookup(const TrackOffsetList &);
+
+      QString readLine();
+      void    writeLine(const QString &);
 
     private:
 

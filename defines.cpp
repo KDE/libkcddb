@@ -19,6 +19,8 @@
 */
 
 #include <kdebug.h>
+#include <kstringhandler.h>
+
 #include <libkcddb/defines.h>
 
 namespace KCDDB
@@ -213,6 +215,65 @@ namespace KCDDB
         return "Unknown";
         break;
     }
+  }
+
+    CDInfo
+  parseStringListToCDInfo(const QStringList & lineList)
+  {
+    CDInfo ret;
+
+    QStringList::ConstIterator it;
+      
+    for (it = lineList.begin(); it != lineList.end(); ++it)
+    {
+      QString line(*it);
+
+      QStringList tokenList = KStringHandler::perlSplit('=', line, 2);
+
+      if (2 != tokenList.count())
+        continue;
+
+      QString key   = tokenList[0];
+      QString value = tokenList[1];
+
+      kdDebug() << "Useful line. Key == `" << key << "'" << endl;
+
+      value.replace(QRegExp("\\n"), "\n");
+      value.replace(QRegExp("\\t"), "\t");
+      value.replace(QRegExp("\\\\"), "\\");
+
+      if ('D' == key[0])
+      {
+        if ("DTITLE" == key)
+        {
+          ret.title = value;
+        }
+        else if ("DYEAR" == key)
+        {
+          ret.year = value.toUInt();
+        }
+        else if ("DGENRE" == key)
+        {
+          ret.genre = value;
+        }
+      }
+      else if ("TTITLE" == key.left(6))
+      {
+        uint trackNumber = key.mid(6).toUInt();
+
+        if (trackNumber < 0 || trackNumber > 200)
+        {
+          kdDebug() << "Track number out of sensible range." << endl;
+          continue;
+        }
+
+        TrackInfo trackInfo;
+        trackInfo.title = value;
+        ret.trackInfoList[trackNumber] = trackInfo;
+      }
+    }
+
+    return ret;
   }
 }
 

@@ -22,112 +22,11 @@
 #include <qstringlist.h>
 #include <qdir.h>
 #include <qfile.h>
-#include <kstringhandler.h>
 #include <kextsock.h>
 #include <kdebug.h>
 #include <qsocket.h>
 
 #include <libkcddb/client.h>
-
-static QString readLine(KExtendedSocket & socket)
-{
-  kdDebug() << k_funcinfo << endl;
-
-  if (220 != socket.socketStatus())
-  {
-    kdDebug() << "socket status: " << socket.socketStatus() << endl;
-    return QString::null;
-  }
-
-  QString buf;
-
-  int c = socket.getch();
-
-  while ('\n' != c)
-  {
-    buf += c;
-    c = socket.getch();
-  }
-
-  kdDebug() << "READ: `" << buf << "'" << endl;
-  return buf;
-}
-
-static void writeLine(KExtendedSocket & socket, const QString & s)
-{
-  kdDebug() << k_funcinfo << endl;
-
-  if (220 != socket.socketStatus())
-  {
-    kdDebug() << "socket status: " << socket.socketStatus() << endl;
-    return;
-  }
-
-  QCString buf = s.latin1();
-  kdDebug() << "WRITE: `" << buf << "'" << endl;
-  buf.append("\n");
-
-  socket.writeBlock(buf.data(), buf.length());
-}
-
-  static KCDDB::CDInfo
-parseStringListToCDInfo(const QStringList & lineList)
-{
-  KCDDB::CDInfo ret;
-
-  QStringList::ConstIterator it;
-    
-  for (it = lineList.begin(); it != lineList.end(); ++it)
-  {
-    QString line(*it);
-
-    QStringList tokenList = KStringHandler::perlSplit('=', line, 2);
-
-    if (2 != tokenList.count())
-      continue;
-
-    QString key   = tokenList[0];
-    QString value = tokenList[1];
-
-    kdDebug() << "Useful line. Key == `" << key << "'" << endl;
-
-    value.replace(QRegExp("\\n"), "\n");
-    value.replace(QRegExp("\\t"), "\t");
-    value.replace(QRegExp("\\\\"), "\\");
-
-    if ('D' == key[0])
-    {
-      if ("DTITLE" == key)
-      {
-        ret.title = value;
-      }
-      else if ("DYEAR" == key)
-      {
-        ret.year = value.toUInt();
-      }
-      else if ("DGENRE" == key)
-      {
-        ret.genre = value;
-      }
-    }
-    else if ("TTITLE" == key.left(6))
-    {
-      uint trackNumber = key.mid(6).toUInt();
-
-      if (trackNumber < 1 || trackNumber > 200)
-      {
-        kdDebug() << "Track number out of sensible range." << endl;
-        continue;
-      }
-
-      KCDDB::TrackInfo trackInfo;
-      trackInfo.title = value;
-      ret.trackInfoList[trackNumber - 1] = trackInfo;
-    }
-  }
-
-  return ret;
-}
 
 namespace KCDDB
 {
@@ -253,16 +152,8 @@ namespace KCDDB
 
       case HTTPLookup:
       case HTTPLookupIgnoreCached:
-        {
-          Error connectError =
-            connectSocket(d->socket, d->config.hostname(), d->config.port());
-
-          if (None != connectError)
-            return connectError;
-
-          // STUB
-          return Unknown;
-        }
+        return httpLookup(trackOffsetList);
+        break;
 
       default:
         kdDebug() << k_funcinfo << "Unsupported transport: "
@@ -352,7 +243,7 @@ return None;
 
     kdDebug() << "Connected" << endl;
 
-    QString line = readLine(d->socket);
+    QString line = readLine();
 
     QStringList tokenList = QStringList::split(' ', line);
 
@@ -381,9 +272,9 @@ return None;
     handshake += " ";
     handshake += d->config.clientVersion();
 
-    writeLine(d->socket, handshake);
+    writeLine(handshake);
 
-    line = readLine(d->socket);
+    line = readLine();
 
     tokenList = QStringList::split(' ', line);
 
@@ -402,9 +293,9 @@ return None;
     query += " ";
     query += trackOffsetListToString(offsetList);
 
-    writeLine(d->socket, query);
+    writeLine(query);
 
-    line = readLine(d->socket);
+    line = readLine();
 
     tokenList = QStringList::split(' ', line);
 
@@ -423,26 +314,26 @@ return None;
     {
       kdDebug() << "Server found inexact matches" << endl;
 
-      line = readLine(d->socket);
+      line = readLine();
 
       while ('.' != line[0])
       {
         tokenList = QStringList::split(' ', line);
         matchList.append(qMakePair(tokenList[0], tokenList[1]));
-        line = readLine(d->socket);
+        line = readLine();
       }
     }
     else if (210 == serverStatus)
     {
       kdDebug() << "Server found multiple exact matches" << endl;
 
-      line = readLine(d->socket);
+      line = readLine();
 
       while ('.' != line[0])
       {
         tokenList = QStringList::split(' ', line);
         matchList.append(qMakePair(tokenList[0], tokenList[1]));
-        line = readLine(d->socket);
+        line = readLine();
       }
     }
     else
@@ -467,11 +358,11 @@ return None;
       readRequest += " ";
       readRequest += discid;
 
-      writeLine(d->socket, readRequest);
+      writeLine(readRequest);
 
       QStringList lineList;
 
-      line = readLine(d->socket);
+      line = readLine();
 
       tokenList = QStringList::split(' ', line);
 
@@ -483,22 +374,86 @@ return None;
         return NoSuchCD;
       }
 
-      line = readLine(d->socket);
+      line = readLine();
 
       while ('.' != line[0])
       {
         lineList.append(line);
-        line = readLine(d->socket);
+        line = readLine();
       }
 
       d->cdInfoList.append(parseStringListToCDInfo(lineList));
     }
  
-    writeLine(d->socket, "quit");
+    writeLine("quit");
 
     d->socket.close();
 
     return None;
+  }
+
+    Error
+  Client::httpLookup(const TrackOffsetList & offsetList)
+  {
+    kdDebug() << "Trying to connect to " << d->config.hostname()
+      << ":" << d->config.port() << endl;
+
+    Error connectError =
+      connectSocket(d->socket, d->config.hostname(), d->config.port());
+
+    if (None != connectError)
+      return connectError;
+
+    kdDebug() << "Connected" << endl;
+
+    kdDebug() << "STUB" << endl;
+
+    d->socket.disconnect();
+
+    return Unknown;
+  }
+
+    QString
+  Client::readLine()
+  {
+    kdDebug() << k_funcinfo << endl;
+
+    if (220 != d->socket.socketStatus())
+    {
+      kdDebug() << "socket status: " << d->socket.socketStatus() << endl;
+      return QString::null;
+    }
+
+    QCString buf;
+
+    int c = d->socket.getch();
+
+    while ('\n' != c)
+    {
+      buf += c;
+      c = d->socket.getch();
+    }
+
+    kdDebug() << "READ: `" << buf << "'" << endl;
+    return QString::fromLatin1(buf.data(), buf.length());
+  }
+
+    void
+  Client::writeLine(const QString & s)
+  {
+    kdDebug() << k_funcinfo << endl;
+
+    if (220 != d->socket.socketStatus())
+    {
+      kdDebug() << "socket status: " << d->socket.socketStatus() << endl;
+      return;
+    }
+
+    QCString buf = s.latin1();
+    kdDebug() << "WRITE: `" << buf << "'" << endl;
+    buf.append("\n");
+
+    d->socket.writeBlock(buf.data(), buf.length());
   }
 }
 
