@@ -152,7 +152,7 @@ namespace KCDDB
       matchList_.append( qMakePair( tokenList[ 1 ], tokenList[ 2 ] ) );
       return Success;
     }
-    else if ( 211 == serverStatus )
+    else if ( ( 211 == serverStatus ) || ( 210 == serverStatus ) )
     {
       return MultipleRecordFound;
     }
