@@ -46,8 +46,6 @@ namespace KCDDB
 
   void SMTPSubmit::makeURL( const QString& subject )
   {
-    // freedb-submit@freedb.org
-    // test-submit@freedb.org
     url_.setQuery(QString("to=%1&subject=%2&from=%3")
       .arg(to_, subject, from_));
     kdDebug(60010) << "Url is: " << url_.prettyURL() << endl;
