@@ -101,10 +101,12 @@ namespace KCDDB
 
     if ( Cache::Ignore != d->config.cachePolicy() )
     {
-      CDInfo info = Cache::lookup( cddbId );
-      if ( info.isValid() )
+      kdDebug() << "Checking cache..." << endl;
+      CDInfoList infoList = Cache::lookup( cddbId );
+      if ( !infoList.isEmpty() )
       {
-        d->cdInfoList.append( info );
+        kdDebug() << "Found " << infoList.count() << "hits" << endl;
+        d->cdInfoList = infoList;
         return Lookup::Success;
       }
     }

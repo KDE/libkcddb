@@ -40,11 +40,11 @@ namespace KCDDB
         Ignore
       };
 
-      static CDInfo lookup(const QString &);
-      static void store(const CDInfoList &);
+      static CDInfoList lookup( const QString & );
+      static void store( const CDInfoList & );
 
     private:
-      static QString fileName(const QString&);
+      static QString fileName( const CDInfo & );
   };
 }
 

@@ -21,7 +21,7 @@
 #include <kdebug.h>
 #include <kstringhandler.h>
 
-#include <libkcddb/cdinfo.h>
+#include "cdinfo.h"
 
 namespace KCDDB
 {
