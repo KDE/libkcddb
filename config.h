@@ -58,6 +58,7 @@ namespace KCDDB
       static QString  emailAddressKey();
       static QString  submissionsEnabledKey();
       static QString  cachePolicyKey();
+      static QString  cacheLocationsKey();
 
       QString             hostname()            const;
       uint                port()                const;
@@ -66,6 +67,7 @@ namespace KCDDB
       QString             emailAddress()        const;
       bool                submissionsEnabled()  const;
       Cache::Policy       cachePolicy()         const;
+      QStringList         cacheLocations()      const;
 
       void setHostname            (const QString &);
       void setPort                (uint);
@@ -74,6 +76,7 @@ namespace KCDDB
       void setEmailAddress        (const QString &);
       void setSubmissionsEnabled  (bool);
       void setCachePolicy         (Cache::Policy);
+      void setCacheLocations      (const QStringList &);
 
     private:
 
@@ -87,6 +90,7 @@ namespace KCDDB
       QString           emailAddress_;
       bool              submissionsEnabled_;
       Cache::Policy     cachePolicy_;
+      QStringList       cacheLocations_;
   };
 }
 

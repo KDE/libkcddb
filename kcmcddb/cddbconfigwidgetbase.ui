@@ -180,7 +180,54 @@
         </widget>
         <widget class="QGroupBox">
             <property name="name">
-                <cstring>GroupBox1</cstring>
+                <cstring>cacheBox</cstring>
+            </property>
+            <property name="title">
+                <string>Cache locations:</string>
+            </property>
+            <grid>
+                <widget class="QListBox" column="0" rowspan="4">
+                    <property name="name">
+                        <cstring>cacheDirectories</cstring>
+                    </property>
+                </widget>
+                <widget class="QPushButton" column="1" row="0">
+                    <property name="name">
+                        <cstring>addCacheButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Add</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" column="1" row="1">
+                    <property name="name">
+                        <cstring>removeCacheButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Remove</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" column="1" row="2">
+                    <property name="name">
+                        <cstring>upCacheButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Up</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" column="1" row="3">
+                    <property name="name">
+                        <cstring>downCacheButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Down</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>GroupBox2</cstring>
             </property>
             <property name="title">
                 <string>Submissions</string>
@@ -331,6 +378,30 @@
         <receiver>CDDBConfigWidgetBase</receiver>
         <slot>slotConfigChanged()</slot>
     </connection>
+    <connection>
+        <sender>addCacheButton</sender>
+	<signal>clicked()</signal>
+	<receiver>CDDBConfigWidgetBase</receiver>
+	<slot>addCache()</slot>
+    </connection>
+    <connection>
+        <sender>removeCacheButton</sender>
+	<signal>clicked()</signal>
+	<receiver>CDDBConfigWidgetBase</receiver>
+	<slot>removeCache()</slot>
+    </connection>
+    <connection>
+        <sender>upCacheButton</sender>
+	<signal>clicked()</signal>
+	<receiver>CDDBConfigWidgetBase</receiver>
+	<slot>moveCacheUp()</slot>
+    </connection>
+    <connection>
+        <sender>downCacheButton</sender>
+	<signal>clicked()</signal>
+	<receiver>CDDBConfigWidgetBase</receiver>
+	<slot>moveCacheDown()</slot>
+    </connection>
 </connections>
 <tabstops>
     <tabstop>cacheOnly</tabstop>
@@ -344,6 +415,10 @@
 </tabstops>
 <slots>
     <slot access="protected">slotConfigChanged()</slot>
+    <slot access="protected">addCache()</slot>
+    <slot access="protected">removeCache()</slot>
+    <slot access="protected">moveCacheUp()</slot>
+    <slot access="protected">moveCacheDown()</slot>
 </slots>
 <layoutdefaults spacing="6" margin="11"/>
 </UI>

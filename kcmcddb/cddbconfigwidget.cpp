@@ -19,6 +19,9 @@
 
 #include "cddbconfigwidget.h"
 
+#include <qlistbox.h>
+#include <kfiledialog.h>
+
 CDDBConfigWidget::CDDBConfigWidget(QWidget * parent, const char * name)
   : CDDBConfigWidgetBase(parent, name)
 {
@@ -29,6 +32,46 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent, const char * name)
 CDDBConfigWidget::slotConfigChanged()
 {
   emit(configChanged());
+}
+
+void CDDBConfigWidget::addCache()
+{
+    cacheDirectories->insertItem(KFileDialog::getExistingDirectory(), 0);
+    slotConfigChanged();
+}
+
+void CDDBConfigWidget::removeCache()
+{
+    delete cacheDirectories->item(cacheDirectories->currentItem());
+    slotConfigChanged();
+}
+
+void CDDBConfigWidget::moveCacheUp()
+{
+    int currentPos = cacheDirectories->currentItem();
+    QString cur = cacheDirectories->currentText();
+    QString before = cacheDirectories->text(currentPos-1);
+    if (before != QString::null)
+    {
+      cacheDirectories->changeItem(cur, currentPos-1);
+      cacheDirectories->changeItem(before, currentPos);
+      cacheDirectories->setCurrentItem(currentPos-1);
+    }
+    slotConfigChanged();
+}
+
+void CDDBConfigWidget::moveCacheDown()
+{
+    int currentPos = cacheDirectories->currentItem();
+    QString cur = cacheDirectories->currentText();
+    QString after = cacheDirectories->text(currentPos+1);
+    if (after != QString::null)
+    {
+      cacheDirectories->changeItem(cur, currentPos+1);
+      cacheDirectories->changeItem(after, currentPos);
+      cacheDirectories->setCurrentItem(currentPos+1);
+    }
+    slotConfigChanged();
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

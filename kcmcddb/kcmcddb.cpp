@@ -24,6 +24,7 @@
 #include <qlineedit.h>
 #include <qgroupbox.h>
 #include <qradiobutton.h>
+#include <qlistbox.h>
 
 #include <kconfig.h>
 #include <klocale.h>
@@ -93,6 +94,12 @@ CDDBModule::readConfigFromWidgets() const
                                 KCDDB::CDDB::CDDBP : KCDDB::CDDB::HTTP);
   config.setCachePolicy         (policy);
 
+  QStringList l;
+  for (uint i=0; i < widget_->cacheDirectories->count(); i++)
+    l.append(widget_->cacheDirectories->text(i));
+
+  config.setCacheLocations(l);
+
   return config;
 }
 
@@ -112,6 +119,7 @@ CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
     widget_->cacheAndRemote->setChecked(true);
   else
     widget_->remoteOnly->setChecked(true);
+  widget_->cacheDirectories   ->insertStringList(config.cacheLocations());
 }
 
   void
@@ -144,6 +152,7 @@ CDDBModule::quickHelp() const
       "<h1>TODO: write this help</h1>"
     );
 }
+
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1
 

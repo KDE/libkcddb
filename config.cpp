@@ -20,6 +20,7 @@
 */
 
 #include <kconfig.h>
+#include <qdir.h>
 
 #include <libkcddb/config.h>
 
@@ -35,6 +36,7 @@ namespace KCDDB
   static const char * const  defaultEmailAddress = "freedb-submit@freedb.org";
   static const bool          defaultSubmissionsEnabled = true;
   static const Cache::Policy defaultCachePolicy  = Cache::Use;
+  static const char * const  defaultCacheLocation = ".cddb";
 
   Config::Config()
     : hostname_             (defaultHostname),
@@ -43,7 +45,8 @@ namespace KCDDB
       lookupTransport_      (defaultLookupTransport),
       emailAddress_         (defaultEmailAddress),
       submissionsEnabled_   (defaultSubmissionsEnabled),
-      cachePolicy_          (defaultCachePolicy)
+      cachePolicy_          (defaultCachePolicy),
+      cacheLocations_       (QDir::homeDirPath()+"/"+defaultCacheLocation)
   {
   }
 
@@ -71,6 +74,8 @@ namespace KCDDB
         (submissionsEnabled_  == other.submissionsEnabled_)
         &&
         (cachePolicy_         == other.cachePolicy_)
+	&&
+	(cacheLocations_      == other.cacheLocations_)
       );
   }
 
@@ -122,6 +127,10 @@ namespace KCDDB
         cachePolicy_ = Cache::Ignore;
     else
         cachePolicy_ = defaultCachePolicy;
+
+    cacheLocations_ = c.readListEntry(cacheLocationsKey());
+    if (cacheLocations_.count() == 0)
+    	cacheLocations_.append(QDir::homeDirPath()+"/"+defaultCacheLocation);
   }
 
     void
@@ -146,12 +155,14 @@ namespace KCDDB
 
     c.writeEntry(emailAddressKey(), emailAddress_);
     c.writeEntry(submissionsEnabledKey(), submissionsEnabled_);
-		if (cachePolicy_ == Cache::Only)
-				c.writeEntry(cachePolicyKey(), "cacheOnly");
-		else if (cachePolicy_ == Cache::Use)
-				c.writeEntry(cachePolicyKey(), "cacheAndRemote");
-	  else if (cachePolicy_ == Cache::Ignore)
-		    c.writeEntry(cachePolicyKey(), "remoteOnly");
+    if (cachePolicy_ == Cache::Only)
+      c.writeEntry(cachePolicyKey(), "cacheOnly");
+    else if (cachePolicy_ == Cache::Use)
+      c.writeEntry(cachePolicyKey(), "cacheAndRemote");
+    else if (cachePolicy_ == Cache::Ignore)
+      c.writeEntry(cachePolicyKey(), "remoteOnly");
+
+    c.writeEntry(cacheLocationsKey(), cacheLocations_);
 
     c.sync();
   }
@@ -200,6 +211,12 @@ namespace KCDDB
     return cachePolicy_;
   }
 
+    QStringList
+  Config::cacheLocations() const
+  {
+    return cacheLocations_;
+  }
+
   // Set methods. Bloody C++.
 
     void
@@ -244,6 +261,12 @@ namespace KCDDB
     cachePolicy_ = p;
   }
 
+    void
+  Config::setCacheLocations(const QStringList &l)
+  {
+    cacheLocations_ = l;
+  }
+
   // Config keys.
 
     QString
@@ -286,6 +309,12 @@ namespace KCDDB
   Config::cachePolicyKey()
   {
     return "CachePolicy";
+  }
+
+    QString
+  Config::cacheLocationsKey()
+  {
+    return "CacheLocations";
   }
 }
 

@@ -26,19 +26,18 @@
 #include <qdir.h>
 
 #include "cache.h"
+#include "config.h"
 
 namespace KCDDB
 {
     QString
-  Cache::fileName( const CDInfo& info )
+  Cache::fileName( const CDInfo& info, const QString& cacheDir )
   {
-    QString cddbCacheDir = locateLocal( "cache", "cddb/" );
-
-    QDir dir( cddbCacheDir );
+    QDir dir( cacheDir );
     if ( !dir.exists( info.genre ) )
       dir.mkdir( info.genre );
 
-    QString cacheFile = cddbCacheDir + info.genre + "/" + info.id;
+    QString cacheFile = cacheDir + "/" + info.genre + "/" + info.id;
 
     return cacheFile;
   }
@@ -49,34 +48,41 @@ namespace KCDDB
     kdDebug() << "Looking up " << cddbId << " in CDDB cache" << endl;
 
     CDInfoList infoList;
-    QString cddbCacheDir = locateLocal( "cache", "cddb/" );
+    Config c;
+    c.load();
+    QStringList cddbCacheDirs = c.cacheLocations();
 
-    QDir dir( cddbCacheDir );
-    QStringList dirList = dir.entryList( QDir::Dirs );
-
-    QStringList::ConstIterator it = dirList.begin();
-
-    while ( it != dirList.end() )
+    for (QStringList::Iterator cddbCacheDir = cddbCacheDirs.begin();
+        cddbCacheDir != cddbCacheDirs.end(); ++cddbCacheDir)
     {
-      QString genre( *it );
-      if ( genre[ 0 ] != '.' )
+      QDir dir( *cddbCacheDir );
+      QStringList dirList = dir.entryList( QDir::Dirs );
+
+      QStringList::ConstIterator it = dirList.begin();
+
+      while ( it != dirList.end() )
       {
-        QFile f( cddbCacheDir + genre + "/" + cddbId );
-        if (f.exists())
+        QString genre( *it );
+        if ( genre[ 0 ] != '.' )
         {
-          if ( f.open(IO_ReadOnly) )
+          QFile f( *cddbCacheDir + "/" + genre + "/" + cddbId );
+          if (f.exists())
           {
-            QTextStream ts(&f);
-            QString cddbData = ts.read();
-            f.close();
-            CDInfo info;
-            info.load(cddbData);
-            info.genre = genre;
-            infoList.append( info );
+            if ( f.open(IO_ReadOnly) )
+            {
+              QTextStream ts(&f);
+              QString cddbData = ts.read();
+              f.close();
+              CDInfo info;
+              info.load(cddbData);
+              info.genre = genre;
+              infoList.append( info );
+	      break;
+            }
           }
         }
+        ++it;
       }
-      ++it;
     }
 
     return infoList;
@@ -89,7 +95,9 @@ namespace KCDDB
     while (it!=list.end())
     {
       CDInfo info( *it );
-      QString cacheFile = fileName(info);
+      Config c;
+      c.load();
+      QString cacheFile = fileName(info, c.cacheLocations().first());
       kdDebug() << "Storing " << cacheFile << " in CDDB cache" << endl;
 
       QFile f(cacheFile);
