@@ -10,7 +10,7 @@
             <x>0</x>
             <y>0</y>
             <width>506</width>
-            <height>492</height>
+            <height>401</height>
         </rect>
     </property>
     <property name="caption">
@@ -552,6 +552,8 @@
         </widget>
     </vbox>
 </widget>
+<customwidgets>
+</customwidgets>
 <connections>
     <connection>
         <sender>cacheOnly</sender>
@@ -693,12 +695,26 @@
     </connection>
 </connections>
 <tabstops>
+    <tabstop>tabWidget2</tabstop>
     <tabstop>cacheOnly</tabstop>
     <tabstop>cacheAndRemote</tabstop>
     <tabstop>remoteOnly</tabstop>
     <tabstop>cddbServer</tabstop>
     <tabstop>cddbPort</tabstop>
     <tabstop>cddbType</tabstop>
+    <tabstop>cacheDirectories</tabstop>
+    <tabstop>addCacheButton</tabstop>
+    <tabstop>removeCacheButton</tabstop>
+    <tabstop>upCacheButton</tabstop>
+    <tabstop>downCacheButton</tabstop>
+    <tabstop>enableSmtpCheckBox</tabstop>
+    <tabstop>usernameLineEdit</tabstop>
+    <tabstop>portSpinBox</tabstop>
+    <tabstop>useGlobalCheckbox</tabstop>
+    <tabstop>notUseGlobalCheckbox</tabstop>
+    <tabstop>fromLineEdit</tabstop>
+    <tabstop>replyToLineEdit</tabstop>
+    <tabstop>hostLineEdit</tabstop>
 </tabstops>
 <slots>
     <slot access="protected">slotConfigChanged()</slot>
