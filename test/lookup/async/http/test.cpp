@@ -49,11 +49,11 @@ AsyncCDDBLookupTest::AsyncCDDBLookupTest()
   void
 AsyncCDDBLookupTest::slotFinished(Lookup::Result r)
 {
-  kdDebug() << "AsyncCDDBLookupTest::slotResult: Got " << KCDDB::Lookup::resultToString(r) << endl;
+  kdDebug() << "AsyncCDDBLookupTest::slotFinished: Got " << KCDDB::Lookup::resultToString(r) << endl;
 
   CDInfoList l = client_->lookupResponse();
 
-  kdDebug() << "AsyncCDDBLookupTest::slotResult: Item count: " <<  l.count() << endl;
+  kdDebug() << "AsyncCDDBLookupTest::slotFinished: Item count: " <<  l.count() << endl;
 
   for (CDInfoList::ConstIterator it(l.begin()); it != l.end(); ++it)
   {

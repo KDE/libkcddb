@@ -18,12 +18,7 @@
   Boston, MA 02111-1307, USA.
 */
 
-#include <qstringlist.h>
-#include <qdir.h>
-#include <qfile.h>
-#include <kextendedsocket.h>
 #include <kdebug.h>
-#include <qsocket.h>
 
 #include "client.h"
 #include "synccddbplookup.h"
@@ -104,13 +99,12 @@ namespace KCDDB
 
     if ( Cache::Ignore != d->config.cachePolicy() )
     {
-      kdDebug() << "Checking cache..." << endl;
-      CDInfoList infoList = Cache::lookup( cddbId );
-      if ( !infoList.isEmpty() )
-      {
-        kdDebug() << "Found " << infoList.count() << " hit(s)" << endl;
-        d->cdInfoList = infoList;
+      d->cdInfoList = Cache::lookup( cddbId );
 
+      kdDebug() << "Found " << d->cdInfoList.count() << " hit(s)" << endl;
+
+      if ( !d->cdInfoList.isEmpty() )
+      {
         if ( !blockingMode() )
           emit finished( Lookup::Success );
 
