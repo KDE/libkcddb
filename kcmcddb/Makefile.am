@@ -14,8 +14,6 @@ kcm_cddb_la_COMPILE_FIRST = ../configbase.h
 
 METASOURCES = AUTO
 
-KDE_ICON = cdrom_unmount
-
 xdg_apps_DATA = libkcddb.desktop
 
 messages: rc.cpp
