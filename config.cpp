@@ -38,7 +38,7 @@ namespace KCDDB
   {
     return _senderAddress;
   }
-  
+
   QString Config::globalReplyTo() const
   {
     return _senderReplyTo;
@@ -76,7 +76,7 @@ namespace KCDDB
   void Config::loadGlobalSettings()
   {
     KEMailSettings kes;
-    kes.setProfile( i18n("Default") );
+    kes.setProfile( kes.defaultProfileName() );
     _senderAddress = kes.getSetting( KEMailSettings::EmailAddress );
     _senderReplyTo = kes.getSetting( KEMailSettings::ReplyToAddress );
     _senderHost = kes.getSetting( KEMailSettings::OutServer );
