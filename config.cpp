@@ -31,7 +31,7 @@ namespace KCDDB
   static const CDDB::Transport  defaultLookupTransport = CDDB::CDDBP;
 
   static const char * const  defaultHostname     = "freedb.freedb.org";
-  static const unsigned int  defaultPort         = 8880;
+  static const unsigned int  defaultPort         = 80;
   static const char * const  defaultEmailAddress = "freedb-submit@freedb.org";
   static const bool          defaultSubmissionsEnabled = true;
   static const bool          defaultCachePolicy  = true;
