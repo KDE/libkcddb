@@ -31,9 +31,17 @@ namespace KCDDB
   {
   }
 
+  TrackInfo::~TrackInfo()
+  {
+  }
+
   CDInfo::CDInfo()
     : year(0),
       length(0)
+  {
+  }
+
+  CDInfo::~CDInfo()
   {
   }
 
@@ -66,46 +74,43 @@ namespace KCDDB
       QString key   = tokenList[0].stripWhiteSpace();
       QString value = tokenList[1].stripWhiteSpace();
 
-      //kdDebug() << key << "=" << value << endl;
-
-      value.replace(QRegExp("\\n"), "\n");
-      value.replace(QRegExp("\\t"), "\t");
-      value.replace(QRegExp("\\\\"), "\\");
+      value = unescape ( value );
 
       if ( "DISCID" == key )
       {
         id = value;
       }
-      else if ("DTITLE" == key)
+      else if ( "DTITLE" == key )
       {
         dtitle += value;
       }
-      else if ("DYEAR" == key)
+      else if ( "DYEAR" == key )
       {
         year = value.toUInt();
       }
-      else if ("DGENRE" == key)
+      else if ( "DGENRE" == key )
       {
         genre = value;
       }
-      else if ("TTITLE" == key.left(6))
+      else if ( "TTITLE" == key.left( 6 ) )
       {
         uint trackNumber = key.mid(6).toUInt();
 
-        if (trackInfoList[trackNumber].title.isEmpty())
-        {
-          TrackInfo trackInfo;
-          trackInfo.title = value;
+        checkTrack( trackNumber );
 
-          while (trackInfoList.size() < trackNumber + 1)
-            trackInfoList.append(TrackInfo());
+        trackInfoList[ trackNumber ].title.append( value );
+      }
+      else if ( "EXTD" == key )
+      {
+        extd.append( value );
+      }
+      else if ( "EXTT" == key.left( 4 ) )
+      {
+        uint trackNumber = key.mid( 4 ).toUInt();
 
-          trackInfoList[trackNumber] = trackInfo;
-        }
-        else
-        {
-          trackInfoList[trackNumber].title.append(value);
-        }
+        checkTrack( trackNumber );
+
+        trackInfoList[ trackNumber ].extt.append( value );
       }
     }
 
@@ -135,17 +140,58 @@ namespace KCDDB
   {
     QString s;
 
-    s += "DISCID=" + id + "\n";
-    s += "DTITLE=" + artist + " / " + title + "\n";
+    s += "DISCID=" + escape( id ) + "\n";
+    s += "DTITLE=" + escape( artist ) + " / " + escape( title ) + "\n";
     s += "DYEAR=" + (0 == year ? QString::null : QString::number(year)) + "\n";
-    s += "DGENRE=" + genre + "\n";
+    s += "DGENRE=" + escape( genre ) + "\n";
 
-    TrackInfoList::ConstIterator it(trackInfoList.begin());
-
-    for (uint i = 0; it != trackInfoList.end(); ++it, ++i)
+    for (uint i = 0; i < trackInfoList.count(); ++i)
     {
-      s += "TTITLE" + QString::number(i) + "=" + (*it).title + "\n";
+      s += QString( "TTITLE%1=%2\n" )
+                .arg( i )
+                .arg( escape( trackInfoList[ i ].title ) );
     }
+
+    s += "EXTD=" + escape( extd ) + "\n";
+
+    for (uint i = 0; i < trackInfoList.count(); ++i)
+    {
+      s += QString( "EXTT%1=%2\n" )
+                .arg( i ) 
+                .arg( trackInfoList[ i ].extt );
+    }
+
+    return s;
+  }
+
+    void
+  CDInfo::checkTrack( uint trackNumber )
+  {
+    if ( trackInfoList.count() < trackNumber + 1 )
+    {
+      while ( trackInfoList.count() < trackNumber + 1 )
+        trackInfoList.append(TrackInfo());
+    }
+  }
+
+    QString
+  CDInfo::escape( const QString &value ) const
+  {
+    QString s = value;
+    s.replace( QRegExp( "\n" ), "\\n" );
+    s.replace( QRegExp( "\t" ), "\\t" );
+    s.replace( QRegExp( "\\" ), "\\\\" );
+
+    return s;
+  }
+
+    QString
+  CDInfo::unescape( const QString &value ) const
+  {
+    QString s = value;
+    s.replace( QRegExp( "\\n" ), "\n" );
+    s.replace( QRegExp( "\\t" ), "\t" );
+    s.replace( QRegExp( "\\\\" ), "\\" );
 
     return s;
   }
@@ -153,7 +199,7 @@ namespace KCDDB
     void
   CDInfo::clear()
   {
-    id = artist = title = genre = QString::null;
+    id = artist = title = genre = extd = QString::null;
     length = year = 0;
     trackInfoList.clear();
   }

@@ -31,10 +31,12 @@ namespace KCDDB
     public:
 
       TrackInfo();
+      ~TrackInfo();
 
       bool    offsetKnown;
       uint    offset;
       QString title;
+      QString extt;
   };
 
   typedef QValueList<TrackInfo> TrackInfoList;
@@ -44,11 +46,13 @@ namespace KCDDB
     public:
 
       CDInfo();
+      ~CDInfo();
 
       bool load(const QString &);
       bool load(const QStringList &);
 
       void clear();
+
       bool isValid()
       {
         return !id.isEmpty() && !trackInfoList.isEmpty();
@@ -56,16 +60,20 @@ namespace KCDDB
 
       QString toString() const;
 
-      bool operator == ( const CDInfo & other ) const
-      { return ( id == other.id && genre == other.genre ); }
-
+      QString       id;
       QString       artist;
       QString       title;
       QString       genre;
+      QString       extd;
       uint          year;
       uint          length;
-      QString       id;
       TrackInfoList trackInfoList;
+
+    protected:
+
+      void checkTrack( uint );
+      QString escape( const QString & ) const;
+      QString unescape( const QString & ) const;
   };
 
   typedef QValueList<CDInfo> CDInfoList;
