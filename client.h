@@ -49,21 +49,6 @@ namespace KCDDB
       Error lookup(const TrackOffsetList &);
       Error submit(const CDInfo &);
 
-    protected:
-
-      Error cddbLookup(const TrackOffsetList &);
-      Error httpLookup(const TrackOffsetList &);
-
-      QString readLine();
-      void    writeLine(const QString &);
-
-      bool cddbServerWelcomeOk();
-      bool cddbShakeHands();
-
-      CDDBMatchList cddbRunQuery(const TrackOffsetList &);
-      bool          cddbGetMatchesToCDInfoList(const CDDBMatchList &);
-      bool          cddbGetMatchToCDInfoList(const CDDBMatch &);
-
     private:
 
       class Private;

@@ -147,8 +147,6 @@ namespace KCDDB
 
       case HTTPLookup:
       case HTTPLookupIgnoreCached:
-        return httpLookup(trackOffsetList);
-        break;
 
       default:
         kdDebug() << k_funcinfo << "Unsupported transport: "
@@ -161,6 +159,7 @@ namespace KCDDB
     Error
   Client::submit(const CDInfo &cdInfo)
   {
+#if 0
     // Do CannotSave sinarios
     if(cdInfo.id == "0")
       return CannotSave;
@@ -222,27 +221,7 @@ return None;
         return Unknown;
         break;
     }
-  }
-
-    Error
-  Client::httpLookup(const TrackOffsetList & offsetList)
-  {
-    kdDebug() << "Trying to connect to " << d->config.hostname()
-      << ":" << d->config.port() << endl;
-
-    Error connectError =
-      connectSocket(d->socket, d->config.hostname(), d->config.port());
-
-    if (None != connectError)
-      return connectError;
-
-    kdDebug() << "Connected" << endl;
-
-    kdDebug() << "STUB" << endl;
-
-    d->socket.disconnect();
-
-    return Unknown;
+#endif
   }
 }
 
