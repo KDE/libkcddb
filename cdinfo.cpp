@@ -199,6 +199,8 @@ namespace KCDDB
   {
     QString s;
 
+    // FIXME Check if any line is > 256 chars, and split it if it is
+
     if (revision != 0)
       s += "# Revision: " + QString::number(revision) + "\n";
 
