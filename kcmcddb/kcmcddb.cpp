@@ -98,7 +98,10 @@ CDDBModule::readConfigFromWidgets(KCDDB::Config &config) const
   config.setOwnReplyTo(widget_->replyToLineEdit->text());
   config.setOwnSmtpHost(widget_->hostLineEdit->text());
   config.setSmtpPort(widget_->portSpinBox->value());
-  config.setSmtpUsername(widget_->usernameLineEdit->text());
+  if (widget_->needsAuthenticationBox->isChecked())
+    config.setSmtpUsername(widget_->usernameLineEdit->text());
+  else
+    config.setSmtpUsername("");
   config.setUseGlobalEmail(widget_->useGlobalCheckbox->isChecked());
   if (widget_->enableSmtpCheckBox->isChecked())
     config.setSubmitTransport(KCDDB::Submit::SMTP);
@@ -144,7 +147,18 @@ CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
   widget_->replyToLineEdit->setText(config.ownReplyTo());
   widget_->hostLineEdit->setText(config.ownSmtpHost());
   widget_->portSpinBox->setValue(config.smtpPort());
-  widget_->usernameLineEdit->setText(config.smtpUsername());
+  if (!config.smtpUsername().isEmpty())
+  {
+    widget_->needsAuthenticationBox->setChecked(true);
+    widget_->usernameLineEdit->setEnabled(true);
+    widget_->usernameLineEdit->setText(config.smtpUsername());
+  }
+  else
+  {
+    widget_->usernameLineEdit->setEnabled(false);
+    widget_->usernameLineEdit->setText(QString::null);
+  }
+
   if (config.submitTransport() == KCDDB::Submit::SMTP)
     widget_->enableSmtpCheckBox->setChecked(true);
   else

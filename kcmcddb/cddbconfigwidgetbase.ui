@@ -269,11 +269,11 @@
                 <attribute name="title">
                     <string>&amp;Submit</string>
                 </attribute>
-                <grid>
+                <vbox>
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <widget class="QCheckBox" row="0" column="0">
+                    <widget class="QCheckBox">
                         <property name="name">
                             <cstring>enableSmtpCheckBox</cstring>
                         </property>
@@ -281,24 +281,7 @@
                             <string>Enable submission via SMTP</string>
                         </property>
                     </widget>
-                    <spacer row="2" column="0">
-                        <property name="name">
-                            <cstring>spacer4</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Vertical</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>21</width>
-                                <height>139</height>
-                            </size>
-                        </property>
-                    </spacer>
-                    <widget class="QButtonGroup" row="1" column="0">
+                    <widget class="QButtonGroup">
                         <property name="name">
                             <cstring>smtpBox</cstring>
                         </property>
@@ -309,58 +292,7 @@
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <spacer row="0" column="0">
-                                <property name="name">
-                                    <cstring>spacer1_2</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Fixed</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>20</width>
-                                        <height>20</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <spacer row="2" column="0">
-                                <property name="name">
-                                    <cstring>spacer1</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Fixed</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>20</width>
-                                        <height>20</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <spacer row="4" column="0">
-                                <property name="name">
-                                    <cstring>spacer1_3</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Fixed</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>20</width>
-                                        <height>20</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <widget class="QRadioButton" row="1" column="0" rowspan="1" colspan="2">
+                            <widget class="QRadioButton" row="0" column="0" rowspan="1" colspan="2">
                                 <property name="name">
                                     <cstring>useGlobalCheckbox</cstring>
                                 </property>
@@ -368,7 +300,7 @@
                                     <string>Use email addresses from control center</string>
                                 </property>
                             </widget>
-                            <widget class="QLayoutWidget" row="2" column="1">
+                            <widget class="QLayoutWidget" row="1" column="1">
                                 <property name="name">
                                     <cstring>layout4</cstring>
                                 </property>
@@ -436,51 +368,32 @@
                                     </widget>
                                 </grid>
                             </widget>
-                            <widget class="QLayoutWidget" row="0" column="1">
+                            <spacer row="1" column="0">
                                 <property name="name">
-                                    <cstring>layout4</cstring>
+                                    <cstring>spacer1</cstring>
                                 </property>
-                                <grid>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <widget class="QLineEdit" row="0" column="1">
-                                        <property name="name">
-                                            <cstring>usernameLineEdit</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="0" column="0">
-                                        <property name="name">
-                                            <cstring>textLabel4</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Username:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="1" column="0">
-                                        <property name="name">
-                                            <cstring>textLabel3</cstring>
-                                        </property>
-                                        <property name="sizePolicy">
-                                            <sizepolicy>
-                                                <hsizetype>5</hsizetype>
-                                                <vsizetype>5</vsizetype>
-                                                <horstretch>0</horstretch>
-                                                <verstretch>0</verstretch>
-                                            </sizepolicy>
-                                        </property>
-                                        <property name="text">
-                                            <string>Port:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QSpinBox" row="1" column="1">
-                                        <property name="name">
-                                            <cstring>portSpinBox</cstring>
-                                        </property>
-                                    </widget>
-                                </grid>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="QRadioButton" row="2" column="0" rowspan="1" colspan="2">
+                                <property name="name">
+                                    <cstring>notUseGlobalCheckbox</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Use the following email addresses</string>
+                                </property>
                             </widget>
-                            <widget class="QLayoutWidget" row="4" column="1">
+                            <widget class="QLayoutWidget" row="3" column="1">
                                 <property name="name">
                                     <cstring>layout4</cstring>
                                 </property>
@@ -537,17 +450,126 @@
                                     </widget>
                                 </grid>
                             </widget>
-                            <widget class="QRadioButton" row="3" column="0" rowspan="1" colspan="2">
+                            <spacer row="3" column="0">
                                 <property name="name">
-                                    <cstring>notUseGlobalCheckbox</cstring>
+                                    <cstring>spacer1_3</cstring>
                                 </property>
-                                <property name="text">
-                                    <string>Use the following email addresses</string>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
                                 </property>
+                                <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>20</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="QLayoutWidget" row="4" column="0" rowspan="1" colspan="2">
+                                <property name="name">
+                                    <cstring>layout7</cstring>
+                                </property>
+                                <grid>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <spacer row="1" column="0">
+                                        <property name="name">
+                                            <cstring>spacer7</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                            <enum>Horizontal</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Fixed</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                            <size>
+                                                <width>20</width>
+                                                <height>20</height>
+                                            </size>
+                                        </property>
+                                    </spacer>
+                                    <widget class="QLineEdit" row="1" column="2" rowspan="1" colspan="2">
+                                        <property name="name">
+                                            <cstring>usernameLineEdit</cstring>
+                                        </property>
+                                        <property name="enabled">
+                                            <bool>false</bool>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>7</hsizetype>
+                                                <vsizetype>5</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                    </widget>
+                                    <widget class="QSpinBox" row="2" column="3">
+                                        <property name="name">
+                                            <cstring>portSpinBox</cstring>
+                                        </property>
+                                        <property name="value">
+                                            <number>25</number>
+                                        </property>
+                                    </widget>
+                                    <widget class="QCheckBox" row="0" column="0" rowspan="1" colspan="4">
+                                        <property name="name">
+                                            <cstring>needsAuthenticationBox</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Server needs authentication</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLabel" row="2" column="0" rowspan="1" colspan="3">
+                                        <property name="name">
+                                            <cstring>textLabel3</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>5</hsizetype>
+                                                <vsizetype>5</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                        <property name="text">
+                                            <string>Port:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLabel" row="1" column="1">
+                                        <property name="name">
+                                            <cstring>textLabel4</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Username:</string>
+                                        </property>
+                                    </widget>
+                                </grid>
                             </widget>
                         </grid>
                     </widget>
-                </grid>
+                    <spacer>
+                        <property name="name">
+                            <cstring>spacer4</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>21</width>
+                                <height>20</height>
+                            </size>
+                        </property>
+                    </spacer>
+                </vbox>
             </widget>
         </widget>
     </vbox>
@@ -692,6 +714,18 @@
         <signal>leftClickedURL()</signal>
         <receiver>CDDBConfigWidgetBase</receiver>
         <slot>launchControlCenter()</slot>
+    </connection>
+    <connection>
+        <sender>needsAuthenticationBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>usernameLineEdit</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>needsAuthenticationBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
     </connection>
 </connections>
 <tabstops>
