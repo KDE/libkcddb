@@ -58,9 +58,6 @@
                                 <property name="text">
                                     <string>A&amp;dd...</string>
                                 </property>
-                                <property name="accel">
-                                    <string>Alt+D</string>
-                                </property>
                             </widget>
                             <widget class="QPushButton" row="1" column="1">
                                 <property name="name">
@@ -68,9 +65,6 @@
                                 </property>
                                 <property name="text">
                                     <string>R&amp;emove</string>
-                                </property>
-                                <property name="accel">
-                                    <string>Alt+E</string>
                                 </property>
                             </widget>
                             <widget class="QPushButton" row="2" column="1">
@@ -80,9 +74,6 @@
                                 <property name="text">
                                     <string>&amp;Up</string>
                                 </property>
-                                <property name="accel">
-                                    <string>Alt+U</string>
-                                </property>
                             </widget>
                             <widget class="QPushButton" row="3" column="1">
                                 <property name="name">
@@ -90,9 +81,6 @@
                                 </property>
                                 <property name="text">
                                     <string>Do&amp;wn</string>
-                                </property>
-                                <property name="accel">
-                                    <string>Alt+W</string>
                                 </property>
                             </widget>
                         </grid>
@@ -244,9 +232,6 @@
                                 <property name="text">
                                     <string>&amp;Cache only</string>
                                 </property>
-                                <property name="accel">
-                                    <string>Alt+C</string>
-                                </property>
                                 <property name="whatsThis" stdset="0">
                                     <string>Only check in the local cache for CD information.</string>
                                 </property>
@@ -258,9 +243,6 @@
                                 <property name="text">
                                     <string>Cache &amp;and remote</string>
                                 </property>
-                                <property name="accel">
-                                    <string>Alt+A</string>
-                                </property>
                                 <property name="whatsThis" stdset="0">
                                     <string>Check for locally cached CD information before trying to look up at remote CDDB server.</string>
                                 </property>
@@ -271,9 +253,6 @@
                                 </property>
                                 <property name="text">
                                     <string>&amp;Remote only</string>
-                                </property>
-                                <property name="accel">
-                                    <string>Alt+R</string>
                                 </property>
                                 <property name="whatsThis" stdset="0">
                                     <string>Only try to look up at remote CDDB server.</string>
