@@ -25,13 +25,14 @@
 #include "cdinfo.h"
 #include <qobject.h>
 #include "cddb.h"
+#include <kdemacros.h>
 
 namespace KCDDB
 {
   class Lookup;
   class Submit;
 
-  class Client : public QObject
+  class KDE_EXPORT Client : public QObject
   {
     Q_OBJECT
 

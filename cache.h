@@ -26,10 +26,10 @@
 #include <qstring.h>
 
 #include "cdinfo.h"
-
+#include <kdemacros.h>
 namespace KCDDB
 {
-  class Cache
+  class KDE_EXPORT Cache
   {
     public:
 

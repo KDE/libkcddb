@@ -24,10 +24,11 @@
 
 #include <qstringlist.h>
 #include <qvaluelist.h>
+#include <kdemacros.h>
 
 namespace KCDDB
 {
-  class TrackInfo
+  class KDE_EXPORT TrackInfo
   {
     public:
 
@@ -43,7 +44,7 @@ namespace KCDDB
 
   typedef QValueList<TrackInfo> TrackInfoList;
 
-  class CDInfo
+  class KDE_EXPORT CDInfo
   {
     public:
 
