@@ -19,3 +19,5 @@ xdg_apps_DATA = libkcddb.desktop
 messages: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/kcmcddb.pot
 
+updatedir = $(kde_datadir)/kconf_update
+update_DATA = kcmcddb-emailsettings.upd

@@ -32,8 +32,6 @@ class CDDBConfigWidget : public CDDBConfigWidgetBase
 
   protected slots:
 
-    virtual void launchControlCenter();
-
     virtual void showMirrorList();
 
     virtual void protocolChanged();

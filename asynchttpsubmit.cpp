@@ -23,8 +23,8 @@
 
 namespace KCDDB
 {
-  AsyncHTTPSubmit::AsyncHTTPSubmit(QString from)
-    : QObject(), HTTPSubmit(from)
+  AsyncHTTPSubmit::AsyncHTTPSubmit(const QString& from, const QString& hostname, uint port)
+    : QObject(), HTTPSubmit(from, hostname, port)
   {
 
   }

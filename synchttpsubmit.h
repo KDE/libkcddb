@@ -26,7 +26,7 @@ namespace KCDDB
   class SyncHTTPSubmit : public HTTPSubmit
   {
     public:
-      SyncHTTPSubmit(QString from);
+      SyncHTTPSubmit(const QString& from, const QString& hostname, uint port);
       virtual ~SyncHTTPSubmit();
 
     protected:

@@ -34,18 +34,6 @@ namespace KCDDB
   {
     public:
       Config();
-
-      QString globalEmail() const;
-      QString globalReplyTo() const;
-      QString globalSmtpHost() const;
-
-      QString smtpHostname() const;
-      QString emailAddress() const;
-      QString replyTo() const;
-
-    private:
-      void loadGlobalSettings();
-      QString _senderAddress, _senderReplyTo, _senderHost;
   };
 }
 

@@ -23,8 +23,8 @@
 
 namespace KCDDB
 {
-  SyncHTTPSubmit::SyncHTTPSubmit(QString from)
-    : HTTPSubmit(from)
+  SyncHTTPSubmit::SyncHTTPSubmit(const QString& from, const QString& hostname, uint port)
+    : HTTPSubmit(from, hostname, port)
   {
 
   }

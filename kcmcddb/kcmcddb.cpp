@@ -90,11 +90,11 @@ CDDBModule::checkSettings() const
   {
     if (config.submitTransport() == KCDDB::Submit::SMTP)
     {
-      KMessageBox::sorry(widget_, i18n("freedb submissions via SMTP have been disabled\n"
+      KMessageBox::sorry(widget_, i18n("freedb has been set to use HTTP for submissions\n"
                                     "because the email details you have entered are\n"
                                     "incomplete. Please review your email settings\n"
-                                    "and try again."), i18n("Freedb Submissions Disabled"));
-      config.setSubmitTransport(KCDDB::Submit::None);
+                                    "and try again."), i18n("Incorrect email settings"));
+      config.setSubmitTransport(KCDDB::Submit::HTTP);
 
       config.writeConfig();
     }
@@ -104,17 +104,9 @@ CDDBModule::checkSettings() const
   void
 CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
 {
-  widget_->fromLabel->setText(config.globalEmail());
-  widget_->replyToLabel->setText(config.globalReplyTo());
-  widget_->hostLabel->setText(config.globalSmtpHost());
   bool smtpUserIsEmpty = config.smtpUsername().isEmpty();
   widget_->needsAuthenticationBox->setChecked(!smtpUserIsEmpty);
   widget_->kcfg_smtpUsername->setEnabled(!smtpUserIsEmpty);
-
-  if (config.submitTransport() != KCDDB::Submit::SMTP)
-    widget_->smtpBox->setDisabled(true);
-  if (!config.useGlobalEmail())
-    widget_->notUseGlobalCheckbox->setChecked(true);
 }
 
   void

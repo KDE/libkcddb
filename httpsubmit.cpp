@@ -18,16 +18,18 @@
   Boston, MA 02111-1307, USA.
 */
 #include "httpsubmit.h"
-#include <kurl.h>
 #include <kdebug.h>
 #include <kio/job.h>
 
 namespace KCDDB
 {
-  HTTPSubmit::HTTPSubmit(QString from)
+  HTTPSubmit::HTTPSubmit(const QString& from, const QString& hostname, uint port)
     : Submit(), from_(from)
   {
-
+    url_.setProtocol("http");
+    url_.setHost(hostname);
+    url_.setPort(port);
+    url_.setPath("/~cddb/submit.cgi");
   }
 
   HTTPSubmit::~HTTPSubmit()
@@ -37,9 +39,7 @@ namespace KCDDB
 
   KIO::Job* HTTPSubmit::createJob(const CDInfo& cdInfo)
   {
-    KURL url("http://freedb.freedb.org/~cddb/submit.cgi");
-
-    KIO::TransferJob* job = KIO::http_post(url, diskData_.utf8(), false);
+    KIO::TransferJob* job = KIO::http_post(url_, diskData_.utf8(), false);
 
     job->addMetaData("content-type", "Content-Type: text/plain");
     QString header;

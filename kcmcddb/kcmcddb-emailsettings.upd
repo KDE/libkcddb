@@ -1,0 +1,6 @@
+Id=kcmcddb_emailsettings
+File=kcmcddbrc
+Group=Submit
+Key=ownEmail,emailAddress
+Key=ownReplyTo,replyTo
+Key=ownSmtpHost,smtpHostname

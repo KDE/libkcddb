@@ -29,57 +29,18 @@
 
 namespace KCDDB
 {
-  Config::Config() : ConfigBase()
-  {
-    loadGlobalSettings();
-  }
-
-  QString Config::globalEmail() const
-  {
-    return _senderAddress;
-  }
-
-  QString Config::globalReplyTo() const
-  {
-    return _senderReplyTo;
-  }
-
-  QString Config::globalSmtpHost() const
-  {
-    return _senderHost;
-  }
-
-  QString Config::smtpHostname() const
-  {
-    if (useGlobalEmail())
-      return globalSmtpHost();
-    else
-      return ownSmtpHost();
-  }
-
-  QString Config::emailAddress() const
-  {
-    if (useGlobalEmail())
-      return globalEmail();
-    else
-      return ownEmail();
-  }
-
-  QString Config::replyTo() const
-  {
-    if (useGlobalEmail())
-      return globalReplyTo();
-    else
-      return ownReplyTo();
-  }
-
-  void Config::loadGlobalSettings()
+  Config::Config()
+    : ConfigBase()
   {
     KEMailSettings kes;
     kes.setProfile( kes.defaultProfileName() );
-    _senderAddress = kes.getSetting( KEMailSettings::EmailAddress );
-    _senderReplyTo = kes.getSetting( KEMailSettings::ReplyToAddress );
-    _senderHost = kes.getSetting( KEMailSettings::OutServer );
+
+    static_cast<KConfigSkeleton::ItemString *>(findItem("emailAddress"))
+      ->setDefaultValue(kes.getSetting( KEMailSettings::EmailAddress ));
+    static_cast<KConfigSkeleton::ItemString *>(findItem("replyTo"))
+      ->setDefaultValue(kes.getSetting( KEMailSettings::ReplyToAddress ));
+    static_cast<KConfigSkeleton::ItemString *>(findItem("smtpHostname"))
+      ->setDefaultValue(kes.getSetting( KEMailSettings::OutServer ));
   }
 }
 

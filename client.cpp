@@ -255,18 +255,22 @@ namespace KCDDB
     switch (d->config.submitTransport())
     {
       case Submit::HTTP:
+      {
+        QString hostname = d->config.httpSubmitServer();
+	uint port = d->config.httpSubmitPort();
+
         if ( blockingMode() )
-	  cdInfoSubmit = new SyncHTTPSubmit(from);
+	  cdInfoSubmit = new SyncHTTPSubmit(from, hostname, port);
 	else
 	{
-	  cdInfoSubmit = new AsyncHTTPSubmit(from);
+	  cdInfoSubmit = new AsyncHTTPSubmit(from, hostname, port);
 	  connect( static_cast<AsyncHTTPSubmit *>( cdInfoSubmit ),
 	          SIGNAL(finished( CDDB::Result ) ),
 	          SLOT( slotSubmitFinished( CDDB::Result ) ) );
 	}
 	
         break;
-
+      }
       case Submit::SMTP:
       {
 	QString hostname = d->config.smtpHostname();
@@ -284,10 +288,6 @@ namespace KCDDB
 	}
         break;
       }
-      case Submit::None:
-        kdDebug() << k_funcinfo << "CDDB Submit disabled" << endl;
-	return CDDB::UnknownError;
-	break;
       default:
         kdDebug(60010) << k_funcinfo << "Unsupported transport: " << endl;
 //          << CDDB::transportToString(d->config.submitTransport()) << endl;

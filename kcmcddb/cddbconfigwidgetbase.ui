@@ -9,21 +9,21 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>470</width>
-            <height>541</height>
+            <width>452</width>
+            <height>573</height>
         </rect>
     </property>
     <property name="caption">
         <string>CDDB Settings</string>
     </property>
-    <grid>
+    <vbox>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
         <property name="margin">
             <number>0</number>
         </property>
-        <widget class="QTabWidget" row="0" column="0">
+        <widget class="QTabWidget">
             <property name="name">
                 <cstring>tabWidget2</cstring>
             </property>
@@ -259,40 +259,107 @@
                 <attribute name="title">
                     <string>&amp;Submit</string>
                 </attribute>
-                <vbox>
+                <grid>
                     <property name="name">
                         <cstring>unnamed</cstring>
                     </property>
-                    <widget class="QCheckBox">
+                    <widget class="QLineEdit" row="0" column="1">
+                        <property name="name">
+                            <cstring>kcfg_emailAddress</cstring>
+                        </property>
+                    </widget>
+                    <widget class="QLabel" row="0" column="0">
+                        <property name="name">
+                            <cstring>textLabel1</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Email address:</string>
+                        </property>
+                    </widget>
+                    <spacer row="2" column="1">
+                        <property name="name">
+                            <cstring>spacer4</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>21</width>
+                                <height>240</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="QButtonGroup" row="1" column="0" rowspan="1" colspan="2">
                         <property name="name">
                             <cstring>kcfg_submitTransport</cstring>
                         </property>
-                        <property name="text">
-                            <string>Enable submission via email</string>
-                        </property>
-                    </widget>
-                    <widget class="QButtonGroup">
-                        <property name="name">
-                            <cstring>smtpBox</cstring>
-                        </property>
                         <property name="title">
-                            <string>Email settings</string>
+                            <string>Submit Method</string>
                         </property>
                         <grid>
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="QRadioButton" row="0" column="0" rowspan="1" colspan="5">
+                            <spacer row="7" column="1">
                                 <property name="name">
-                                    <cstring>kcfg_useGlobalEmail</cstring>
+                                    <cstring>spacer9</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>21</width>
+                                        <height>21</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <spacer row="1" column="0">
+                                <property name="name">
+                                    <cstring>spacer10</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Fixed</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>21</width>
+                                        <height>21</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="QLabel" row="1" column="1" rowspan="1" colspan="3">
+                                <property name="name">
+                                    <cstring>textLabel2</cstring>
                                 </property>
                                 <property name="text">
-                                    <string>Use global email settings</string>
+                                    <string>Server:</string>
                                 </property>
                             </widget>
-                            <spacer row="2" column="0">
+                            <widget class="QRadioButton" row="2" column="0" rowspan="1" colspan="6">
                                 <property name="name">
-                                    <cstring>spacer1</cstring>
+                                    <cstring>radioButton8</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>SMTP (Email)</string>
+                                </property>
+                                <property name="buttonGroupId">
+                                    <number>1</number>
+                                </property>
+                            </widget>
+                            <spacer row="3" column="0" rowspan="5" colspan="1">
+                                <property name="name">
+                                    <cstring>spacer7</cstring>
                                 </property>
                                 <property name="orientation">
                                     <enum>Horizontal</enum>
@@ -303,136 +370,43 @@
                                 <property name="sizeHint">
                                     <size>
                                         <width>20</width>
-                                        <height>20</height>
+                                        <height>140</height>
                                     </size>
                                 </property>
                             </spacer>
-                            <widget class="QRadioButton" row="5" column="0" rowspan="1" colspan="5">
+                            <widget class="QRadioButton" row="0" column="0" rowspan="1" colspan="4">
                                 <property name="name">
-                                    <cstring>notUseGlobalCheckbox</cstring>
+                                    <cstring>radioButton6</cstring>
                                 </property>
                                 <property name="text">
-                                    <string>Use the following email settings</string>
+                                    <string>HTTP</string>
+                                </property>
+                                <property name="buttonGroupId">
+                                    <number>0</number>
                                 </property>
                             </widget>
-                            <spacer row="7" column="0">
+                            <widget class="KLineEdit" row="1" column="4" rowspan="1" colspan="2">
                                 <property name="name">
-                                    <cstring>spacer1_3</cstring>
+                                    <cstring>kcfg_httpSubmitServer</cstring>
                                 </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Fixed</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>20</width>
-                                        <height>20</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <widget class="KURLLabel" row="4" column="1" rowspan="1" colspan="4">
+                            </widget>
+                            <widget class="QLabel" row="1" column="6">
                                 <property name="name">
-                                    <cstring>controlCenterLabel_2</cstring>
+                                    <cstring>textLabel1_2</cstring>
                                 </property>
                                 <property name="text">
-                                    <string>Open the email address control panel</string>
+                                    <string>Port:</string>
+                                </property>
+                                <property name="alignment">
+                                    <set>AlignVCenter|AlignRight</set>
                                 </property>
                             </widget>
-                            <widget class="QLabel" row="1" column="1" rowspan="1" colspan="2">
+                            <widget class="QSpinBox" row="1" column="7">
                                 <property name="name">
-                                    <cstring>textLabel5_2</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>4</hsizetype>
-                                        <vsizetype>5</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="text">
-                                    <string>From:</string>
+                                    <cstring>kcfg_httpSubmitPort</cstring>
                                 </property>
                             </widget>
-                            <widget class="QLabel" row="2" column="1" rowspan="1" colspan="2">
-                                <property name="name">
-                                    <cstring>textLabel6_2</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>4</hsizetype>
-                                        <vsizetype>5</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="text">
-                                    <string>Reply-To:</string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="1" column="4">
-                                <property name="name">
-                                    <cstring>fromLabel</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>5</hsizetype>
-                                        <vsizetype>5</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="3" column="1" rowspan="1" colspan="3">
-                                <property name="name">
-                                    <cstring>textLabel1_2_2</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>4</hsizetype>
-                                        <vsizetype>5</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="text">
-                                    <string>SMTP server:</string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="2" column="4">
-                                <property name="name">
-                                    <cstring>replyToLabel</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="3" column="4">
-                                <property name="name">
-                                    <cstring>hostLabel</cstring>
-                                </property>
-                                <property name="text">
-                                    <string></string>
-                                </property>
-                            </widget>
-                            <widget class="QLineEdit" row="7" column="4">
-                                <property name="name">
-                                    <cstring>kcfg_ownReplyTo</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="6" column="1" rowspan="1" colspan="3">
-                                <property name="name">
-                                    <cstring>textLabel8_2</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>From:</string>
-                                </property>
-                            </widget>
-                            <widget class="QLineEdit" row="6" column="4">
-                                <property name="name">
-                                    <cstring>kcfg_ownEmail</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="7" column="1" rowspan="1" colspan="3">
+                            <widget class="QLabel" row="3" column="1" rowspan="1" colspan="4">
                                 <property name="name">
                                     <cstring>textLabel9_2</cstring>
                                 </property>
@@ -440,13 +414,13 @@
                                     <string>Reply-To:</string>
                                 </property>
                             </widget>
-                            <widget class="QLabel" row="8" column="1" rowspan="1" colspan="3">
+                            <widget class="QLabel" row="4" column="1" rowspan="1" colspan="4">
                                 <property name="name">
                                     <cstring>textLabel2_2</cstring>
                                 </property>
                                 <property name="sizePolicy">
                                     <sizepolicy>
-                                        <hsizetype>5</hsizetype>
+                                        <hsizetype>4</hsizetype>
                                         <vsizetype>5</vsizetype>
                                         <horstretch>0</horstretch>
                                         <verstretch>0</verstretch>
@@ -456,37 +430,7 @@
                                     <string>SMTP server:</string>
                                 </property>
                             </widget>
-                            <widget class="QLineEdit" row="8" column="4">
-                                <property name="name">
-                                    <cstring>kcfg_ownSmtpHost</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="11" column="1" rowspan="1" colspan="2">
-                                <property name="name">
-                                    <cstring>textLabel4</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Username:</string>
-                                </property>
-                            </widget>
-                            <spacer row="9" column="3" rowspan="1" colspan="2">
-                                <property name="name">
-                                    <cstring>spacer6</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>250</width>
-                                        <height>20</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <widget class="QLabel" row="9" column="0" rowspan="1" colspan="2">
+                            <widget class="QLabel" row="5" column="1" rowspan="1" colspan="2">
                                 <property name="name">
                                     <cstring>textLabel3</cstring>
                                 </property>
@@ -502,7 +446,12 @@
                                     <string>Port:</string>
                                 </property>
                             </widget>
-                            <widget class="QCheckBox" row="10" column="0" rowspan="1" colspan="5">
+                            <widget class="QLineEdit" row="3" column="5" rowspan="1" colspan="3">
+                                <property name="name">
+                                    <cstring>kcfg_replyTo</cstring>
+                                </property>
+                            </widget>
+                            <widget class="QCheckBox" row="6" column="1" rowspan="1" colspan="7">
                                 <property name="name">
                                     <cstring>needsAuthenticationBox</cstring>
                                 </property>
@@ -510,24 +459,20 @@
                                     <string>Server needs authentication</string>
                                 </property>
                             </widget>
-                            <spacer row="11" column="0">
+                            <widget class="QLineEdit" row="4" column="5" rowspan="1" colspan="3">
                                 <property name="name">
-                                    <cstring>spacer7</cstring>
+                                    <cstring>kcfg_smtpHostname</cstring>
                                 </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
+                            </widget>
+                            <widget class="QLabel" row="7" column="2" rowspan="1" colspan="3">
+                                <property name="name">
+                                    <cstring>textLabel4</cstring>
                                 </property>
-                                <property name="sizeType">
-                                    <enum>Fixed</enum>
+                                <property name="text">
+                                    <string>Username:</string>
                                 </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>20</width>
-                                        <height>20</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <widget class="QLineEdit" row="11" column="3" rowspan="1" colspan="2">
+                            </widget>
+                            <widget class="QLineEdit" row="7" column="5" rowspan="1" colspan="3">
                                 <property name="name">
                                     <cstring>kcfg_smtpUsername</cstring>
                                 </property>
@@ -543,7 +488,7 @@
                                     </sizepolicy>
                                 </property>
                             </widget>
-                            <widget class="QSpinBox" row="9" column="2">
+                            <widget class="QSpinBox" row="5" column="3" rowspan="1" colspan="2">
                                 <property name="name">
                                     <cstring>kcfg_smtpPort</cstring>
                                 </property>
@@ -562,29 +507,29 @@
                                     <number>25</number>
                                 </property>
                             </widget>
+                            <spacer row="5" column="5" rowspan="1" colspan="3">
+                                <property name="name">
+                                    <cstring>spacer6</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>260</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
                         </grid>
                     </widget>
-                    <spacer>
-                        <property name="name">
-                            <cstring>spacer4</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Vertical</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>21</width>
-                                <height>36</height>
-                            </size>
-                        </property>
-                    </spacer>
-                </vbox>
+                </grid>
             </widget>
         </widget>
-    </grid>
+    </vbox>
 </widget>
 <customwidgets>
 </customwidgets>
@@ -606,18 +551,6 @@
         <signal>toggled(bool)</signal>
         <receiver>serverBox</receiver>
         <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>kcfg_submitTransport</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>smtpBox</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>controlCenterLabel_2</sender>
-        <signal>leftClickedURL()</signal>
-        <receiver>CDDBConfigWidgetBase</receiver>
-        <slot>launchControlCenter()</slot>
     </connection>
     <connection>
         <sender>needsAuthenticationBox</sender>
@@ -646,25 +579,16 @@
     <tabstop>kcfg_hostname</tabstop>
     <tabstop>kcfg_port</tabstop>
     <tabstop>kcfg_lookupTransport</tabstop>
-    <tabstop>kcfg_submitTransport</tabstop>
-    <tabstop>kcfg_smtpUsername</tabstop>
-    <tabstop>kcfg_smtpPort</tabstop>
-    <tabstop>kcfg_useGlobalEmail</tabstop>
-    <tabstop>notUseGlobalCheckbox</tabstop>
-    <tabstop>kcfg_ownEmail</tabstop>
-    <tabstop>kcfg_ownReplyTo</tabstop>
-    <tabstop>kcfg_ownSmtpHost</tabstop>
 </tabstops>
 <slots>
-    <slot access="protected">launchControlCenter()</slot>
     <slot access="protected">protocolChanged()</slot>
-    <slot>showMirrorList()</slot>
+    <slot access="protected">showMirrorList()</slot>
     <slot access="protected">needAuthenticationChanged(bool)</slot>
 </slots>
 <layoutdefaults spacing="11" margin="6"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
 <includehints>
     <includehint>kpushbutton.h</includehint>
-    <includehint>kurllabel.h</includehint>
+    <includehint>klineedit.h</includehint>
 </includehints>
 </UI>

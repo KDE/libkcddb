@@ -20,18 +20,20 @@
 */
 
 #include "submit.h"
+#include <kurl.h>
 
 namespace KCDDB
 {
   class HTTPSubmit : public Submit
   {
     public:
-      HTTPSubmit(QString from);
+      HTTPSubmit(const QString& from, const QString& hostname, uint port);
       virtual ~HTTPSubmit();
 
     protected:
       virtual KIO::Job* createJob(const CDInfo& cdInfo);
 
+      KURL url_;
       QString from_;
   } ;
 }

@@ -35,6 +35,8 @@
 #include <keditlistbox.h>
 #include <qwidgetstack.h>
 #include <kurlrequester.h>
+#include <qbuttongroup.h>
+#include <qcheckbox.h>
 
 CDDBConfigWidget::CDDBConfigWidget(QWidget * parent, const char * name)
   : CDDBConfigWidgetBase(parent, name)
@@ -46,11 +48,8 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent, const char * name)
 
   KEditListBox* editListBox = new KEditListBox(i18n("Cache Locations"), urlReq->customEditor(), cacheLocationsParent, "kcfg_cacheLocations");
   cacheLocationsParent->raiseWidget(editListBox);
-}
 
-void CDDBConfigWidget::launchControlCenter()
-{
-    KApplication::kdeinitExec("kcmshell", "kcm_useraccount");
+  kcfg_submitTransport->remove(needsAuthenticationBox);
 }
 
 void CDDBConfigWidget::showMirrorList()

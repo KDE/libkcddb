@@ -38,9 +38,8 @@ namespace KCDDB
 
       enum Transport
       {
-        None,
-        SMTP,
-        HTTP
+        HTTP,
+        SMTP
       };
 
       Submit();
