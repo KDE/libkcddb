@@ -119,6 +119,7 @@ CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
     widget_->cacheAndRemote->setChecked(true);
   else
     widget_->remoteOnly->setChecked(true);
+  widget_->cacheDirectories   ->clear();
   widget_->cacheDirectories   ->insertStringList(config.cacheLocations());
 }
 
