@@ -5,11 +5,11 @@
   <kcfgfile name="kcmcddbrc">
   </kcfgfile>
   <group name="Lookup">
-    <entry name="hostname" type="QString">
+    <entry name="hostname" type="String">
       <label>Hostname</label>
       <default>freedb.freedb.org</default>
     </entry>
-    <entry name="port" type="int">
+    <entry name="port" type="Int">
       <label>Port</label>
       <default>8880</default>
     </entry>
@@ -30,7 +30,7 @@
       </values>
       <default>CDDBP</default>
     </entry>
-    <entry name="cacheLocations" type="QStringList">
+    <entry name="cacheLocations" type="StringList">
       <label>Cache Locations</label>
       <default code="true">QDir::homeDirPath()+"/.cddb/"</default>
     </entry>
@@ -44,14 +44,14 @@
       </values>
       <default>SMTP</default>
     </entry>
-    <entry name="smtpHostname" type="QString">
+    <entry name="smtpHostname" type="String">
       <label>SMTP Hostname</label>
     </entry>
-    <entry name="smtpPort" type="int">
+    <entry name="smtpPort" type="Int">
       <label>SMTP Port</label>
       <default>25</default>
     </entry>
-    <entry name="smtpUsername" type="QString">
+    <entry name="smtpUsername" type="String">
       <label>SMTP Username</label>
     </entry>
   </group>
