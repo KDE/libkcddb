@@ -44,7 +44,7 @@ class CDDBModule : public KCModule
 
   protected:
 
-    KCDDB::Config   readConfigFromWidgets() const;
+    void            readConfigFromWidgets(KCDDB::Config &) const;
     void            updateWidgetsFromConfig(const KCDDB::Config &);
 
   private slots:

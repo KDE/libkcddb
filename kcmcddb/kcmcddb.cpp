@@ -68,11 +68,9 @@ CDDBModule::defaults()
   setChanged(true);
 }
 
-  KCDDB::Config
-CDDBModule::readConfigFromWidgets() const
+  void
+CDDBModule::readConfigFromWidgets(KCDDB::Config &config) const
 {
-  KCDDB::Config config;
-
   bool cddbLookup = (0 == widget_->cddbType->currentItem());
   KCDDB::Cache::Policy policy;
   if (widget_->cacheOnly->isChecked())
@@ -104,8 +102,6 @@ CDDBModule::readConfigFromWidgets() const
     config.setSubmitTransport(KCDDB::Submit::SMTP);
   else
     config.setSubmitTransport(KCDDB::Submit::None);
-
-  return config;
 }
 
   void
@@ -145,7 +141,11 @@ CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
   void
 CDDBModule::save()
 {
-  KCDDB::Config newConfig(readConfigFromWidgets());
+  KCDDB::Config newConfig;
+
+  newConfig.readConfig();
+
+  readConfigFromWidgets(newConfig);
 
   newConfig.writeConfig();
   setChanged(false);
