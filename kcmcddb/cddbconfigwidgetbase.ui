@@ -268,7 +268,7 @@
                     </property>
                     <widget class="QCheckBox">
                         <property name="name">
-                            <cstring>enableSmtpCheckBox</cstring>
+                            <cstring>kcfg_submitTransport</cstring>
                         </property>
                         <property name="text">
                             <string>Enable submission via SMTP</string>
@@ -532,7 +532,7 @@
                             </spacer>
                             <widget class="QLineEdit" row="11" column="3" rowspan="1" colspan="2">
                                 <property name="name">
-                                    <cstring>usernameLineEdit</cstring>
+                                    <cstring>kcfg_smtpUsername</cstring>
                                 </property>
                                 <property name="enabled">
                                     <bool>false</bool>
@@ -605,46 +605,16 @@
         <slot>setEnabled(bool)</slot>
     </connection>
     <connection>
-        <sender>cacheOnly</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>CDDBConfigWidgetBase</receiver>
-        <slot>slotConfigChanged()</slot>
-    </connection>
-    <connection>
-        <sender>cacheAndRemote</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>CDDBConfigWidgetBase</receiver>
-        <slot>slotConfigChanged()</slot>
-    </connection>
-    <connection>
-        <sender>remoteOnly</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>CDDBConfigWidgetBase</receiver>
-        <slot>slotConfigChanged()</slot>
-    </connection>
-    <connection>
         <sender>remoteOnly</sender>
         <signal>toggled(bool)</signal>
         <receiver>serverBox</receiver>
         <slot>setEnabled(bool)</slot>
     </connection>
     <connection>
-        <sender>enableSmtpCheckBox</sender>
+        <sender>kcfg_submitTransport</sender>
         <signal>toggled(bool)</signal>
         <receiver>smtpBox</receiver>
         <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>enableSmtpCheckBox</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>CDDBConfigWidgetBase</receiver>
-        <slot>slotConfigChanged()</slot>
-    </connection>
-    <connection>
-        <sender>usernameLineEdit</sender>
-        <signal>textChanged(const QString&amp;)</signal>
-        <receiver>CDDBConfigWidgetBase</receiver>
-        <slot>slotConfigChanged()</slot>
     </connection>
     <connection>
         <sender>controlCenterLabel_2</sender>
@@ -655,14 +625,8 @@
     <connection>
         <sender>needsAuthenticationBox</sender>
         <signal>toggled(bool)</signal>
-        <receiver>usernameLineEdit</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>needsAuthenticationBox</sender>
-        <signal>toggled(bool)</signal>
         <receiver>CDDBConfigWidgetBase</receiver>
-        <slot>slotConfigChanged()</slot>
+        <slot>needAuthenticationChanged(bool)</slot>
     </connection>
     <connection>
         <sender>kcfg_lookupTransport</sender>
@@ -685,8 +649,8 @@
     <tabstop>kcfg_hostname</tabstop>
     <tabstop>kcfg_port</tabstop>
     <tabstop>kcfg_lookupTransport</tabstop>
-    <tabstop>enableSmtpCheckBox</tabstop>
-    <tabstop>usernameLineEdit</tabstop>
+    <tabstop>kcfg_submitTransport</tabstop>
+    <tabstop>kcfg_smtpUsername</tabstop>
     <tabstop>kcfg_smtpPort</tabstop>
     <tabstop>kcfg_useGlobalEmail</tabstop>
     <tabstop>notUseGlobalCheckbox</tabstop>
@@ -695,10 +659,10 @@
     <tabstop>kcfg_ownSmtpHost</tabstop>
 </tabstops>
 <slots>
-    <slot access="protected">slotConfigChanged()</slot>
     <slot access="protected">launchControlCenter()</slot>
     <slot access="protected">protocolChanged()</slot>
     <slot>showMirrorList()</slot>
+    <slot access="protected">needAuthenticationChanged(bool)</slot>
 </slots>
 <layoutdefaults spacing="11" margin="6"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>

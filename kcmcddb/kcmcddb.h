@@ -35,8 +35,6 @@ class CDDBModule : public KCModule
 
     CDDBModule(QWidget * parent, const char *name, const QStringList &);
 
-    QString quickHelp() const;
-
   public slots:
 
     void defaults();
@@ -45,17 +43,12 @@ class CDDBModule : public KCModule
 
   protected:
 
-    void            readConfigFromWidgets(KCDDB::Config &) const;
+    void            checkSettings() const;
     void            updateWidgetsFromConfig(const KCDDB::Config &);
-
-  private slots:
-
-    void slotConfigChanged();
 
   private:
 
     CDDBConfigWidgetBase  * widget_;
-    KCDDB::Config           originalConfig_;
 };
 
 #endif // KCMCDDB_H

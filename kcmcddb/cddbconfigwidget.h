@@ -33,15 +33,12 @@ class CDDBConfigWidget : public CDDBConfigWidgetBase
   protected slots:
 
     virtual void launchControlCenter();
-    virtual void slotConfigChanged();
 
     virtual void showMirrorList();
 
     virtual void protocolChanged();
 
-  signals:
-
-    void configChanged();
+    virtual void needAuthenticationChanged(bool);
 };
 
 #endif // CDDB_CONFIG_WIDGET_H

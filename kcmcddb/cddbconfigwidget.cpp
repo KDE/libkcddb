@@ -48,12 +48,6 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent, const char * name)
   cacheLocationsParent->raiseWidget(editListBox);
 }
 
-  void
-CDDBConfigWidget::slotConfigChanged()
-{
-  emit configChanged();
-}
-
 void CDDBConfigWidget::launchControlCenter()
 {
     KApplication::kdeinitExec("kcmshell", "kcm_useraccount");
@@ -90,8 +84,6 @@ void CDDBConfigWidget::showMirrorList()
       kcfg_lookupTransport->setCurrentItem(m.transport == KCDDB::Lookup::CDDBP ? 0 : 1);
       kcfg_hostname->setText(m.address);
       kcfg_port->setValue(m.port);
-
-      slotConfigChanged();
     }
 }
 
@@ -103,6 +95,13 @@ void CDDBConfigWidget::protocolChanged()
       kcfg_port->setValue(80);
     else if (kcfg_lookupTransport->currentText() == i18n("CDDB") && kcfg_port->value() == 80)
       kcfg_port->setValue(8880);
+}
+
+void CDDBConfigWidget::needAuthenticationChanged(bool needsAuth)
+{
+    kcfg_smtpUsername->setEnabled(needsAuth);
+    if (!needsAuth)
+      kcfg_smtpUsername->clear();
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

@@ -63,32 +63,25 @@ CDDBModule::CDDBModule(QWidget *parent, const char *name, const QStringList &)
   layout->addWidget(widget_);
   layout->addStretch();
 
-  load();
+  setQuickHelp(i18n("CDDB is used to get information like artist, title and song-names in CD's"));
 
-  connect(widget_, SIGNAL(configChanged()), SLOT(slotConfigChanged()));
+  load();
 }
 
   void
 CDDBModule::defaults()
 {
-  updateWidgetsFromConfig(KCDDB::Config());
-
   KCModule::defaults();
 
-  emit changed(true);
+  updateWidgetsFromConfig(KCDDB::Config());
 }
 
   void
-CDDBModule::readConfigFromWidgets(KCDDB::Config &config) const
+CDDBModule::checkSettings() const
 {
-  if (widget_->needsAuthenticationBox->isChecked())
-    config.setSmtpUsername(widget_->usernameLineEdit->text());
-  else
-    config.setSmtpUsername(QString::null);
-  if (widget_->enableSmtpCheckBox->isChecked())
-    config.setSubmitTransport(KCDDB::Submit::SMTP);
-  else
-    config.setSubmitTransport(KCDDB::Submit::None);
+  KCDDB::Config config;
+
+  config.readConfig();
 
   if (config.smtpHostname().isEmpty() || config.emailAddress().isEmpty()
       || !config.emailAddress().contains("@") ||
@@ -102,6 +95,8 @@ CDDBModule::readConfigFromWidgets(KCDDB::Config &config) const
                                     "incomplete. Please review your email settings\n"
                                     "and try again."), i18n("Freedb Submissions Disabled"));
       config.setSubmitTransport(KCDDB::Submit::None);
+
+      config.writeConfig();
     }
   }
 }
@@ -112,21 +107,11 @@ CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
   widget_->fromLabel->setText(config.globalEmail());
   widget_->replyToLabel->setText(config.globalReplyTo());
   widget_->hostLabel->setText(config.globalSmtpHost());
-  if (!config.smtpUsername().isEmpty())
-  {
-    widget_->needsAuthenticationBox->setChecked(true);
-    widget_->usernameLineEdit->setEnabled(true);
-    widget_->usernameLineEdit->setText(config.smtpUsername());
-  }
-  else
-  {
-    widget_->usernameLineEdit->setEnabled(false);
-    widget_->usernameLineEdit->setText(QString::null);
-  }
+  bool smtpUserIsEmpty = config.smtpUsername().isEmpty();
+  widget_->needsAuthenticationBox->setChecked(!smtpUserIsEmpty);
+  widget_->kcfg_smtpUsername->setEnabled(!smtpUserIsEmpty);
 
-  if (config.submitTransport() == KCDDB::Submit::SMTP)
-    widget_->enableSmtpCheckBox->setChecked(true);
-  else
+  if (config.submitTransport() != KCDDB::Submit::SMTP)
     widget_->smtpBox->setDisabled(true);
   if (!config.useGlobalEmail())
     widget_->notUseGlobalCheckbox->setChecked(true);
@@ -135,43 +120,20 @@ CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
   void
 CDDBModule::save()
 {
-  KCDDB::Config newConfig;
-
-  newConfig.readConfig();
-
-  readConfigFromWidgets(newConfig);
-
-  newConfig.writeConfig();
-
   KCModule::save();
 
-  emit changed(false);
+  checkSettings();
 }
 
   void
 CDDBModule::load()
 {
-  originalConfig_.readConfig();
-  updateWidgetsFromConfig(originalConfig_);
-
   KCModule::load();
-}
 
-  void
-CDDBModule::slotConfigChanged()
-{
-  emit changed(true);
+  KCDDB::Config config;
+  config.readConfig();
+  updateWidgetsFromConfig(config);
 }
-
-  QString
-CDDBModule::quickHelp() const
-{
-  return i18n
-    (
-      "CDDB is used to get information like artist, title and song-names in CD's"
-    );
-}
-
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1
 
