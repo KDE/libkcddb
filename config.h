@@ -27,10 +27,10 @@
 #include "cddb.h"
 #include "configbase.h"
 #include <qstring.h>
-
+#include <kdelibs_export.h>
 namespace KCDDB
 {
-  class Config : public ConfigBase
+  class KDE_EXPORT Config : public ConfigBase
   {
     public:
       Config();

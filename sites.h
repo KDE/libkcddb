@@ -23,6 +23,7 @@
 #include <qvaluelist.h>
 #include "cddb.h"
 #include "lookup.h"
+#include <kdelibs_export.h>
 
 namespace KCDDB
 {
@@ -35,7 +36,7 @@ namespace KCDDB
       QString description;
   } ;
 
-  class Sites : public CDDB
+  class KDE_EXPORT Sites : public CDDB
   {
     public:
       Sites();

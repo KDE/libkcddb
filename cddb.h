@@ -27,6 +27,7 @@
 #include <qvaluelist.h>
 
 #include <kextendedsocket.h>
+#include <kdelibs_export.h>
 
 namespace KCDDB
 {
@@ -39,7 +40,7 @@ namespace KCDDB
     */
   typedef QValueList<uint> TrackOffsetList;
 
-  class CDDB
+  class KDE_EXPORT CDDB
   {
     public:
 
