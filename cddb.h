@@ -28,8 +28,6 @@
 
 #include <kextendedsocket.h>
 
-#include "cdinfo.h"
-
 namespace KCDDB
 {
   typedef QValueList<uint> TrackOffsetList;

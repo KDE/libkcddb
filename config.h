@@ -22,8 +22,8 @@
 #ifndef KCDDB_CONFIG_H
 #define KCDDB_CONFIG_H
 
-#include "lookup.h"
 #include "cache.h"
+#include "cddb.h"
 
 namespace KCDDB
 {

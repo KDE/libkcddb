@@ -82,7 +82,7 @@ namespace KCDDB
     uint numTracks = trackOffsetList_.count()-2;
 
     // Disc start.
-    ret.append( QString::number( trackOffsetList_[ numTracks ] ) );
+    ret.append( QString::number( numTracks ) );
     ret.append( " " );
 
     for ( uint i = 0; i < numTracks; i++ )

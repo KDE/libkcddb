@@ -31,9 +31,4 @@ client.h\
 config.h\
 cddb.h\
 lookup.h\
-cddbplookup.h\
-synccddbplookup.h\
-asynccddbplookup.h\
-httplookup.h\
-synchttplookup.h\
-asynchttplookup.h
+submit.h

@@ -23,6 +23,7 @@
 #define KCDDB_LOOKUP_H
 
 #include "cddb.h"
+#include "cdinfo.h"
 
 namespace KCDDB
 {

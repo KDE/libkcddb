@@ -26,6 +26,7 @@
 #include "synchttplookup.h"
 #include "asynchttplookup.h"
 #include "cache.h"
+#include "lookup.h"
 
 namespace KCDDB
 {
@@ -86,7 +87,7 @@ namespace KCDDB
     CDDB::Result
   Client::lookup(const TrackOffsetList & trackOffsetList)
   {
-    //d->config.load();
+    d->config.load();
     d->cdInfoList.clear();
 
     QString cddbId = Lookup::trackOffsetListToId( trackOffsetList );
