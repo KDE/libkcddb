@@ -1,4 +1,4 @@
-<!DOCTYPE UI><UI version="3.0" stdsetdef="1">
+<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
 <class>CDDBConfigWidgetBase</class>
 <comment>Used for configuring libkcddb.</comment>
 <widget class="QWidget">
@@ -9,8 +9,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>396</width>
-            <height>230</height>
+            <width>528</width>
+            <height>530</height>
         </rect>
     </property>
     <property name="caption">
@@ -30,9 +30,6 @@
             <property name="name">
                 <cstring>cachePolicy</cstring>
             </property>
-            <property name="title">
-                <string>Mode:</string>
-            </property>
             <property name="sizePolicy">
                 <sizepolicy>
                     <hsizetype>5</hsizetype>
@@ -40,6 +37,9 @@
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                 </sizepolicy>
+            </property>
+            <property name="title">
+                <string>Mode</string>
             </property>
             <hbox>
                 <property name="name">
@@ -50,7 +50,7 @@
                         <cstring>cacheOnly</cstring>
                     </property>
                     <property name="text">
-                        <string>Cache Only</string>
+                        <string>Cache only</string>
                     </property>
                     <property name="whatsThis" stdset="0">
                         <string>Check only in the local cache for CD info.</string>
@@ -61,7 +61,7 @@
                         <cstring>cacheAndRemote</cstring>
                     </property>
                     <property name="text">
-                        <string>Cache and Remote</string>
+                        <string>Cache and remote</string>
                     </property>
                     <property name="whatsThis" stdset="0">
                         <string>Check for locally cached CD info before trying to look up at remote CDDB server.</string>
@@ -183,23 +183,26 @@
                 <cstring>cacheBox</cstring>
             </property>
             <property name="title">
-                <string>Cache locations:</string>
+                <string>Cache Locations</string>
             </property>
             <grid>
-                <widget class="QListBox" column="0" rowspan="4">
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QListBox" row="0" column="0" rowspan="4" colspan="1">
                     <property name="name">
                         <cstring>cacheDirectories</cstring>
                     </property>
                 </widget>
-                <widget class="QPushButton" column="1" row="0">
+                <widget class="QPushButton" row="0" column="1">
                     <property name="name">
                         <cstring>addCacheButton</cstring>
                     </property>
                     <property name="text">
-                        <string>Add</string>
+                        <string>Add...</string>
                     </property>
                 </widget>
-                <widget class="QPushButton" column="1" row="1">
+                <widget class="QPushButton" row="1" column="1">
                     <property name="name">
                         <cstring>removeCacheButton</cstring>
                     </property>
@@ -207,7 +210,7 @@
                         <string>Remove</string>
                     </property>
                 </widget>
-                <widget class="QPushButton" column="1" row="2">
+                <widget class="QPushButton" row="2" column="1">
                     <property name="name">
                         <cstring>upCacheButton</cstring>
                     </property>
@@ -215,7 +218,7 @@
                         <string>Up</string>
                     </property>
                 </widget>
-                <widget class="QPushButton" column="1" row="3">
+                <widget class="QPushButton" row="3" column="1">
                     <property name="name">
                         <cstring>downCacheButton</cstring>
                     </property>
@@ -281,7 +284,7 @@
             </grid>
         </widget>
         <spacer>
-            <property name="name" stdset="0">
+            <property name="name">
                 <cstring>Spacer6</cstring>
             </property>
             <property name="orientation">
@@ -380,27 +383,27 @@
     </connection>
     <connection>
         <sender>addCacheButton</sender>
-	<signal>clicked()</signal>
-	<receiver>CDDBConfigWidgetBase</receiver>
-	<slot>addCache()</slot>
+        <signal>clicked()</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>addCache()</slot>
     </connection>
     <connection>
         <sender>removeCacheButton</sender>
-	<signal>clicked()</signal>
-	<receiver>CDDBConfigWidgetBase</receiver>
-	<slot>removeCache()</slot>
+        <signal>clicked()</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>removeCache()</slot>
     </connection>
     <connection>
         <sender>upCacheButton</sender>
-	<signal>clicked()</signal>
-	<receiver>CDDBConfigWidgetBase</receiver>
-	<slot>moveCacheUp()</slot>
+        <signal>clicked()</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>moveCacheUp()</slot>
     </connection>
     <connection>
         <sender>downCacheButton</sender>
-	<signal>clicked()</signal>
-	<receiver>CDDBConfigWidgetBase</receiver>
-	<slot>moveCacheDown()</slot>
+        <signal>clicked()</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>moveCacheDown()</slot>
     </connection>
 </connections>
 <tabstops>
@@ -421,4 +424,7 @@
     <slot access="protected">moveCacheDown()</slot>
 </slots>
 <layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>qwidget.h</includehint>
+</includehints>
 </UI>
