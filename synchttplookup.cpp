@@ -23,13 +23,14 @@
 
 #include <kdebug.h>
 #include <kio/job.h>
+#include <kio/netaccess.h>
 
 #include "synchttplookup.h"
 
 namespace KCDDB
 {
   SyncHTTPLookup::SyncHTTPLookup()
-    : HTTPLookup(), done_( false )
+    : HTTPLookup()
   {
   }
 
@@ -81,7 +82,6 @@ namespace KCDDB
     CDDB::Result
   SyncHTTPLookup::runQuery()
   {
-    done_ = false;
     data_ = QByteArray();
     state_ = WaitingForQueryResponse;
 
@@ -89,13 +89,6 @@ namespace KCDDB
 
     if ( Success != result_ )
       return result_;
-
-    // ############ This is a busy loop!
-    // ############ The "proper" solution would rather be enter_loop/exit_loop, a la NetAccess,
-    // except that when this is called from a GUI application, the hidden-modal-widget dialog hack
-    // (a la NetAccess too) might be necessary too. (Not necessary from an ioslave)
-    while ( !done_ )
-      qApp->processOneEvent();
 
     kdDebug(60010) << "runQuery() Result: " << resultToString(result_) << endl;
 
@@ -105,7 +98,6 @@ namespace KCDDB
     CDDB::Result
   SyncHTTPLookup::matchToCDInfo( const CDDBMatch & match )
   {
-    done_ = false;
     data_ = QByteArray();
     state_ = WaitingForReadResponse;
 
@@ -114,18 +106,25 @@ namespace KCDDB
     if ( Success != result_ )
       return result_;
 
-    while ( !done_ )
-      qApp->processOneEvent();
-
     return result_;
   }
 
-    void
-  SyncHTTPLookup::slotResult(  KIO::Job *job )
+    CDDB::Result
+  SyncHTTPLookup::fetchURL()
   {
-    done_ = true;
+    kdDebug(60010) << "About to fetch: " << cgiURL_.url() << endl;
 
-    HTTPLookup::slotResult( job );
+    KIO::TransferJob* job = KIO::get( cgiURL_, false, false );
+
+    if ( 0 == job )
+      return ServerError;
+
+    if (!KIO::NetAccess::synchronousRun(job, 0, &data_))
+      return ServerError;
+
+    slotResult(job);
+
+    return Success;
   }
 }
 

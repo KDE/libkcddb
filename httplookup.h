@@ -55,14 +55,13 @@ namespace KCDDB
 
       void initURL( const QString &, uint );
       void makeURL( const QString & );
-      Result fetchURL();
+      virtual Result fetchURL() = 0;
 
       Result sendQuery();
       Result sendRead( const CDDBMatch & );
 
     protected slots:
 
-      void slotData( KIO::Job *, const QByteArray & );
       virtual void slotResult( KIO::Job * );
 
     signals:

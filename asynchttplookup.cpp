@@ -109,6 +109,36 @@ namespace KCDDB
     if ( Success != result_ )
       emit finished( result_ );
   }
+
+    void
+  AsyncHTTPLookup::slotData( KIO::Job *, const QByteArray &data )
+  {
+    if (data.size() > 0)
+    {
+      QDataStream stream(data_, IO_WriteOnly | IO_Append);
+      stream.writeRawBytes(data.data(), data.size());
+    }
+  }
+
+
+    CDDB::Result
+  AsyncHTTPLookup::fetchURL()
+  {
+    kdDebug(60010) << "About to fetch: " << cgiURL_.url() << endl;
+
+    KIO::TransferJob* job = KIO::get( cgiURL_, false, false );
+
+    if ( 0 == job )
+      return ServerError;
+
+    connect( job, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
+          SLOT( slotData( KIO::Job *, const QByteArray & ) ) );
+    connect( job, SIGNAL( result( KIO::Job * ) ),
+          SLOT( slotResult( KIO::Job * ) ) );
+
+    return Success;
+  }
+
 }
 
 #include "asynchttplookup.moc"

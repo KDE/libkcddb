@@ -44,11 +44,13 @@ namespace KCDDB
       void finished( CDDB::Result );
 
     protected slots:
-
       void slotQueryReady();
       void requestCDInfoForMatch();
 
+      void slotData( KIO::Job *, const QByteArray & );
+
     protected:
+      virtual Result fetchURL();
 
       Result runQuery();
   };
