@@ -120,6 +120,8 @@ namespace KCDDB
     if ( 0 != job->error() )
     {
       result_ = ServerError;
+      if ( !block_ )
+        emit queryReady();
       return;
     }
 
@@ -164,6 +166,12 @@ namespace KCDDB
                 ++it;
               }
 
+              break;
+
+            case ServerError:
+            case NoRecordFound:
+              if ( !block_ )
+                emit queryReady();
               break;
 
             default:
