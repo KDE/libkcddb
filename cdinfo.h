@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  Copyright (C) 2002-2004 Nadeem Hasan <nhasan@nadmm.com>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -57,7 +58,7 @@ namespace KCDDB
 
       bool isValid()
       {
-        return !id.isEmpty() && !trackInfoList.isEmpty();
+        return !id.isEmpty();
       }
 
       QString toString(bool submit=false) const;
@@ -72,6 +73,7 @@ namespace KCDDB
       uint          length;
       uint          revision;
       TrackInfoList trackInfoList;
+      // KDE4: Add a member for "PLAYLIST"
 
     protected:
 
