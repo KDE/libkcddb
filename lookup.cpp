@@ -30,7 +30,9 @@
 namespace KCDDB
 {
   Lookup::Lookup()
-    : readOnly_( false )
+    : readOnly_( false ),
+      user_( "libkcddb-user" ),
+      localHostName_( "localHost" )
   {
     socket_.setTimeout( 60 );
   }

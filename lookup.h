@@ -91,6 +91,7 @@ namespace KCDDB
       QString user_;
       QString clientName_;
       QString clientVersion_;
+      QString localHostName_;
 
       bool readOnly_;
 

@@ -19,52 +19,56 @@
   Boston, MA 02111-1307, USA.
 */
 
-#include "cddblookup.h"
+#include "httplookup.h"
 
 namespace KCDDB
 {
-  CDDBLookup::CDDBLookup()
+  HTTPLookup::HTTPLookup()
     : Lookup()
   {
   }
 
-  CDDBLookup::~CDDBLookup()
+  HTTPLookup::~HTTPLookup()
   {
   }
 
     QString
-  CDDBLookup::makeCDDBHandshake()
+  HTTPLookup::makeQueryCommand()
   {
-    QString handshake = QString( "cddb hello %1 %2 %3 %4" )
-        .arg( user_ )
-        .arg( localHostName_ )
-        .arg( clientName_ )
-        .arg( clientVersion_ );
+    QString cmd = QString( "cddb query %1 %2" )
+      .arg( trackOffsetListToId() )
+      .arg( trackOffsetListToString() ) ;
 
-    return handshake;
+    return makeCGIQuery( cmd );
   }
 
     QString
-  CDDBLookup::makeCDDBQuery()
-  {
-    QString query = QString( "cddb query %1 %2" )
-        .arg( trackOffsetListToId() )
-        .arg( trackOffsetListToString() );
-
-    return query;
-  }
-
-    QString
-  CDDBLookup::makeCDDBRead( const CDDBMatch & match )
+  HTTPLookup::makeReadCommand( const CDDBMatch & match )
   {
     QString category  = match.first;
     QString discid    = match.second;
 
-    QString readRequest = QString( "cddb read %1 %2" )
+    QString cmd = QString( "cddb read %1 %2" )
         .arg( category )
         .arg( discid );
 
-    return readRequest;
+    return makeCGIQuery( cmd );
+  }
+
+    QString
+  HTTPLookup::makeCGIQuery( const QString & cmd )
+  {
+    QString hello = QString( "%1 %2 %3 %4" )
+      .arg( user_ )
+      .arg( localHostName_ )
+      .arg( clientName_ )
+      .arg( clientVersion_ );
+
+    cgiURL_->addQueryItem( "cmd", cmd );
+    cgiURL_->addQueryItem( "hello", hello );
+    cgiURL_->addQueryItem( "proto", "5" );
+
+    return cgiURL_->url();
   }
 }
 

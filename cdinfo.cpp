@@ -52,7 +52,7 @@ namespace KCDDB
     QString dtitle;
 
     QStringList::ConstIterator it = lineList.begin();
-      
+
     while ( it != lineList.end() )
     {
       QString line(*it);

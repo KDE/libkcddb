@@ -28,7 +28,7 @@ namespace KCDDB
   SyncCDDBLookup::SyncCDDBLookup()
     : CDDBLookup()
   {
-    // Empty.
+    socket_.setBlockingMode(  false );
   }
 
   SyncCDDBLookup::~SyncCDDBLookup()

@@ -13,7 +13,8 @@ lookup.cpp\
 cddblookup.cpp\
 submit.cpp\
 synccddblookup.cpp\
-asynccddblookup.cpp
+asynccddblookup.cpp\
+httplookup.cpp
 
 libkcddb_la_LDFLAGS = $(all_libraries) -version-info 1:0:0 -module
 libkcddb_la_LIBADD  = $(LIB_KDECORE) $(LIB_KIO)
@@ -30,4 +31,5 @@ lookup.h\
 cddblookup.h\
 submit.h\
 synccddblookup.h\
-asynccddblookup.h
+asynccddblookup.h\
+httplookup.h
