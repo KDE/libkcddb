@@ -65,7 +65,7 @@ namespace KCDDB
     diskData_ += QString("# Disc length: %1 seconds\r\n").arg(l);
 
     diskData_ += "#\r\n";
-    diskData_ += "# Submitted via: libkcddb 0.1\r\n";
+    diskData_ += QString("# Submitted via: %1 %2\r\n").arg(clientName(), clientVersion());
     diskData_ += QString("DISCID=%1\r\n").arg(cdInfo.id);
     diskData_ += QString("DTITLE=%1\r\n").arg(cdInfo.title);
     diskData_ += QString("DYEAR=%1\r\n").arg(cdInfo.year);
