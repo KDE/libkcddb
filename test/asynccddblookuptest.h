@@ -13,6 +13,7 @@ class AsyncCDDBLookupTest : public QObject
   public:
 
     AsyncCDDBLookupTest();
+    ~AsyncCDDBLookupTest();
 
   public slots:
 

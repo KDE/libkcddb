@@ -101,8 +101,8 @@ namespace KCDDB
 
     if ( 0 == hostCount )
     {
-      emit finished( HostNotFound );
       state_ = Idle;
+      emit finished( HostNotFound );
       return;
     }
 
@@ -110,8 +110,8 @@ namespace KCDDB
 
     if( 0 != socket_.startAsyncConnect() )
     {
-      emit finished( NoResponse );
       state_ = Idle;
+      emit finished( NoResponse );
     }
   }
 
@@ -126,8 +126,8 @@ namespace KCDDB
   AsyncCDDBPLookup::slotConnectionFailed( int err )
   {
     kdDebug(60010) << "Connection failed, error: " << err << endl;
-    emit finished( NoResponse );
     state_ = Idle;
+    emit finished( NoResponse );
     return;
   }
 

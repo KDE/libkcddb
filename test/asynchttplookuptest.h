@@ -13,6 +13,7 @@ class AsyncHTTPLookupTest : public QObject
   public:
 
     AsyncHTTPLookupTest();
+    ~AsyncHTTPLookupTest();
 
   public slots:
 

@@ -48,6 +48,11 @@ AsyncHTTPLookupTest::AsyncHTTPLookupTest()
   client_->lookup(list);
 }
 
+AsyncHTTPLookupTest::~AsyncHTTPLookupTest()
+{
+  delete client_;
+}
+
   void
 AsyncHTTPLookupTest::slotFinished(CDDB::Result r)
 {
@@ -101,7 +106,7 @@ int main(int argc, char ** argv)
 
   KApplication app(false /* No styles */, false /* No GUI */);
 
-  new AsyncHTTPLookupTest;
+  AsyncHTTPLookupTest a;
 
   return app.exec();
 }

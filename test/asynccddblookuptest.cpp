@@ -49,6 +49,11 @@ AsyncCDDBLookupTest::AsyncCDDBLookupTest()
   client_->lookup(list);
 }
 
+AsyncCDDBLookupTest::~AsyncCDDBLookupTest()
+{
+  delete client_;
+}
+
   void
 AsyncCDDBLookupTest::slotFinished(CDDB::Result r)
 {
@@ -103,7 +108,7 @@ int main(int argc, char ** argv)
 
   KApplication app(false /* No styles */, false /* No GUI */);
 
-  new AsyncCDDBLookupTest;
+  AsyncCDDBLookupTest test;
 
   return app.exec();
 }
