@@ -36,27 +36,37 @@ main(int argc, char ** argv)
 
   TrackOffsetList list;
 
-  // a1107d0a - Kruder & Dorfmeister - The K&D Sessions - Disc One.
   list
     << 150      // First track start.
-    << 29462
-    << 66983
-    << 96785
-    << 135628
-    << 168676
-    << 194147
-    << 222158
-    << 247076
-    << 278203   // Last track start.
-    << 10       // Disc start.
-    << 316732;  // Disc end.
+    << 2592
+    << 35472
+    << 47891
+    << 123310
+    << 150       // Disc start.
+    << 133125;  // Disc end.
 
-/*  CDInfo cdInfo;
+  CDInfo cdInfo;
 
-  cdInfo.title  = "The K&D Sessions";
-  cdInfo.artist = "Kruder & Dorfmeister";
-  cdInfo.year   = 2000;
-  cdInfo.genre  = "misc";*/
+  cdInfo.id = "3606ed05";
+  cdInfo.revision = 4;
+  cdInfo.title  = "Bamse och Bronto";
+  cdInfo.artist = "Musiksage";
+  cdInfo.year   = 2001;
+  cdInfo.category = "misc";
+  cdInfo.genre  = "Barnsaga";
+  cdInfo.extd = QString::fromUtf8("Berättare: Olof Thunberg");
+
+  TrackInfo info;
+  info.title = "Bamses signaturmelodi";
+  cdInfo.trackInfoList.append(info);
+  info.title = "*";
+  cdInfo.trackInfoList.append(info);
+  info.title = "Brummavisan";
+  cdInfo.trackInfoList.append(info);
+  info.title = "*";
+  cdInfo.trackInfoList.append(info);
+  info.title = QString::fromUtf8("Jätteödlan Bronto");
+  cdInfo.trackInfoList.append(info);
 
   Client c;
   c.config().setSubmitTransport(Submit::SMTP);
@@ -64,9 +74,7 @@ main(int argc, char ** argv)
 
   c.setBlockingMode( true );
 
-  c.lookup( list );
-
-  CDDB::Result r = c.submit(c.lookupResponse().first(), list);
+  CDDB::Result r = c.submit(cdInfo, list);
 
   kdDebug() << "Result: " << CDDB::resultToString(r) << endl;
 }

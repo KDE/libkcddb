@@ -12,28 +12,41 @@ AsyncHTTPSubmitTest::AsyncHTTPSubmitTest()
 
   client_ = new Client;
   client_->config().setSubmitTransport(Submit::HTTP);
-  client_->setBlockingMode( true );
+  client_->setBlockingMode( false );
 
   TrackOffsetList list;
 
-  // a1107d0a - Kruder & Dorfmeister - The K&D Sessions - Disc One.
   list
     << 150      // First track start.
-    << 29462
-    << 66983
-    << 96785
-    << 135628
-    << 168676
-    << 194147
-    << 222158
-    << 247076
-    << 278203   // Last track start.
-    << 10       // Disc start.
-    << 316732;  // Disc end.
+    << 2592
+    << 35472
+    << 47891
+    << 123310
+    << 150       // Disc start.
+    << 133125;  // Disc end.
 
-  client_->lookup( list );
+  CDInfo cdInfo;
 
-  client_->setBlockingMode( false );
+  cdInfo.id = "3606ed05";
+  cdInfo.revision = 4;
+  cdInfo.title  = "Bamse och Bronto";
+  cdInfo.artist = "Musiksage";
+  cdInfo.year   = 2001;
+  cdInfo.category = "misc";
+  cdInfo.genre  = "Barnsaga";
+  cdInfo.extd = QString::fromUtf8("Berättare: Olof Thunberg");
+
+  TrackInfo info;
+  info.title = "Bamses signaturmelodi";
+  cdInfo.trackInfoList.append(info);
+  info.title = "*";
+  cdInfo.trackInfoList.append(info);
+  info.title = "Brummavisan";
+  cdInfo.trackInfoList.append(info);
+  info.title = "*";
+  cdInfo.trackInfoList.append(info);
+  info.title = QString::fromUtf8("Jätteödlan Bronto");
+  cdInfo.trackInfoList.append(info);
 
   connect
     (
@@ -42,7 +55,7 @@ AsyncHTTPSubmitTest::AsyncHTTPSubmitTest()
       SLOT(slotFinished(CDDB::Result))
     );
 
-  client_->submit(client_->lookupResponse().first(), list);
+  client_->submit(cdInfo, list);
 }
 
   void
