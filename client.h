@@ -21,16 +21,11 @@
 #ifndef KCDDB_CLIENT_H
 #define KCDDB_CLIENT_H
 
-#include <qtl.h>
-
 #include <libkcddb/defines.h>
 #include <libkcddb/config.h>
 
 namespace KCDDB
 {
-  typedef QPair<QString, QString> CDDBMatch;
-  typedef QValueList<CDDBMatch> CDDBMatchList;
-
   class Client
   {
     public:

@@ -107,7 +107,7 @@ namespace KCDDB
     if (!d->cddbId)
     {
       kdDebug() << "Can't create cddbid from offset list" << endl;
-      return NoSuchCD;
+      return NoRecordFound;
     }
 
     // Try the cache if we're supposed to.
@@ -137,7 +137,7 @@ namespace KCDDB
     if (CacheOnlyLookup == d->config.lookupTransport())
     {
       kdDebug() << "Only trying cache. Give up now." << endl;
-      return NoSuchCD;
+      return NoRecordFound;
     }
 
     // Do the actual lookup.
@@ -263,7 +263,7 @@ return None;
     CDDBMatchList matchList = cddbRunQuery(offsetList);
 
     if (matchList.isEmpty())
-      return NoSuchCD;
+      return NoRecordFound;
 
     kdDebug() << matchList.count() << " matches saved" << endl;
 

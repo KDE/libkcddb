@@ -25,7 +25,7 @@
 
 #include <libkcddb/asyncclient.h>
 #include <libkcddb/asynccddblookup.h>
-//#include <libkcddb/asynchttplookup.h>
+#include <libkcddb/asynchttplookup.h>
 
 namespace KCDDB
 {
@@ -44,6 +44,7 @@ namespace KCDDB
   {
     d = new Private;
     d->helper = 0;
+    d->config.load();
   }
 
   AsyncClient::AsyncClient
@@ -94,7 +95,7 @@ namespace KCDDB
     if (!d->cddbId)
     {
       kdDebug() << "Can't create cddbid from offset list" << endl;
-      emit(error(NoSuchCD));
+      emit(error(NoRecordFound));
       return;
     }
 
@@ -127,7 +128,7 @@ namespace KCDDB
     if (CacheOnlyLookup == d->config.lookupTransport())
     {
       kdDebug() << "Only trying cache. Give up now." << endl;
-      emit(error(NoSuchCD));
+      emit(error(NoRecordFound));
       return;
     }
 
@@ -144,7 +145,36 @@ namespace KCDDB
       case CDDBLookup:
       case CDDBLookupIgnoreCached:
         {
+          kdDebug() << "Doing CDDB lookup ... creating helper" << endl;
           AsyncCDDBLookup * helper = new AsyncCDDBLookup(this);
+
+          d->helper = helper;
+
+          connect(helper, SIGNAL(error(Error)), SLOT(slotError(Error)));
+          connect
+            (
+              helper,
+              SIGNAL(lookupResponseReady(const QValueList<CDInfo> &)),
+              SLOT(slotLookupResponseReady(const QValueList<CDInfo> &))
+            );
+
+          kdDebug() << "Asking helper to do lookup and tell us when done" << endl;
+          helper->lookup
+            (
+              trackOffsetList,
+              d->config.hostname(),
+              d->config.port(),
+              d->config.clientName(),
+              d->config.clientVersion()
+            );
+        }
+        break;
+
+      case HTTPLookup:
+      case HTTPLookupIgnoreCached:
+
+        {
+          AsyncHTTPLookup * helper = new AsyncHTTPLookup(this);
 
           d->helper = helper;
 
@@ -165,37 +195,7 @@ namespace KCDDB
               d->config.clientVersion()
             );
         }
-        break;
 
-      case HTTPLookup:
-      case HTTPLookupIgnoreCached:
-#if 0
-
-        AsyncHTTPLookup * helper = new AsyncHTTPLookup(this);
-
-        d->helper = helper;
-
-        connect(helper, SIGNAL(error(Error)), SLOT(slotError(Error)));
-        connect
-          (
-            helper,
-            SIGNAL(lookupResponseReady(const QValueList<CDInfo> &)),
-            SLOT(slotLookupResponseReady(const QValueList<CDInfo> &))
-          );
-
-        helper->lookup
-          (
-            trackOffsetList,
-            d->config.hostname(),
-            d->config.port(),
-            d->config.clientName(),
-            d->config.clientVersion(),
-            d->config.proxyEnabled(),
-            d->config.proxyHostname(),
-            d->config.proxyPort()
-          );
-
-#endif
         break;
 
       default:
@@ -212,6 +212,19 @@ namespace KCDDB
     kdDebug() << k_funcinfo << "STUB" << endl;
     emit(error(Unknown));
     return;
+  }
+
+
+    void
+  AsyncClient::slotLookupResponseReady(const QValueList<CDInfo> & l)
+  {
+    emit(lookupResponseReady(l));
+  }
+
+    void
+  AsyncClient::slotError(Error e)
+  {
+    emit(error(e));
   }
 }
 

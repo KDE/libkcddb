@@ -18,19 +18,19 @@
   Boston, MA 02111-1307, USA.
 */
 
-#ifndef KCDDB_ASYNC_CDDB_LOOKUP_H
-#define KCDDB_ASYNC_CDDB_LOOKUP_H
+#ifndef KHTTP_ASYNC_HTTP_LOOKUP_H
+#define KHTTP_ASYNC_HTTP_LOOKUP_H
 
 #include <qobject.h>
 
-#include <qsocket.h>
+#include <kio/job.h>
 
 #include <libkcddb/defines.h>
 #include <libkcddb/config.h>
 
 namespace KCDDB
 {
-  class AsyncCDDBLookup : public QObject
+  class AsyncHTTPLookup : public QObject
   {
     Q_OBJECT
 
@@ -49,9 +49,9 @@ namespace KCDDB
         WaitingForCDInfoData
       };
 
-      AsyncCDDBLookup(QObject * parent = 0, const char * name = 0);
+      AsyncHTTPLookup(QObject * parent = 0, const char * name = 0);
 
-      virtual ~AsyncCDDBLookup();
+      virtual ~AsyncHTTPLookup();
 
       void lookup
         (
@@ -69,10 +69,11 @@ namespace KCDDB
 
     protected slots:
 
-      void slotConnected();
-      void slotConnectionClosed();
-      void slotError(int error);
-      void slotReadyRead();
+      void slotData(KIO::Job *, const QByteArray &);
+      void slotDataReq(KIO::Job *, QByteArray &);
+      void slotDataReq(KIO::Job *, const KURL &);
+      void slotResult(KIO::Job *);
+      void slotCancelled(KIO::Job *);
 
     protected:
 
@@ -93,20 +94,20 @@ namespace KCDDB
 
     private:
 
-      State           state_;
-      TrackOffsetList trackOffsetList_;
-      QSocket         socket_;
-      QString         hostname_;
-      uint            port_;
-      QString         clientName_;
-      QString         clientVersion_;
-      bool            readOnly_;
-      QStringList     cdInfoBuffer_;
-      CDDBMatchList   matchList_;
+      State               state_;
+      TrackOffsetList     trackOffsetList_;
+      KIO::TransferJob *  job_;
+      QString             hostname_;
+      uint                port_;
+      QString             clientName_;
+      QString             clientVersion_;
+      bool                readOnly_;
+      QStringList         cdInfoBuffer_;
+      CDDBMatchList       matchList_;
 
       QValueList<CDInfo>  cdInfoList_;
   };
 }
 
-#endif // KCDDB_ASYNC_CDDB_LOOKUP_H
+#endif // KHTTP_ASYNC_HTTP_LOOKUP_H
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

@@ -203,7 +203,7 @@ namespace KCDDB
         return "NoResponse";
         break;
 
-      case NoSuchCD:
+      case NoRecordFound:
         return "NoSuchCD";
         break;
 
@@ -246,7 +246,18 @@ namespace KCDDB
       {
         if ("DTITLE" == key)
         {
-          ret.title = value;
+          int slashPos = value.find('/');
+
+          if (-1 == slashPos)
+          {
+            // Use string for title _and_ artist.
+            ret.artist = ret.title = value.stripWhiteSpace();
+          }
+          else
+          {
+            ret.artist  = value.left(slashPos).stripWhiteSpace();
+            ret.title   = value.mid(slashPos + 1).stripWhiteSpace();
+          }
         }
         else if ("DYEAR" == key)
         {
@@ -268,7 +279,13 @@ namespace KCDDB
         }
 
         TrackInfo trackInfo;
-        trackInfo.title = value;
+        trackInfo.title = value.stripWhiteSpace();
+
+        while (ret.trackInfoList.size() < trackNumber + 1)
+        {
+          ret.trackInfoList.append(TrackInfo());
+        }
+
         ret.trackInfoList[trackNumber] = trackInfo;
       }
     }

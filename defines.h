@@ -21,6 +21,7 @@
 #ifndef KCDDB_DEFINES_H
 #define KCDDB_DEFINES_H
 
+#include <qpair.h>
 #include <qstring.h>
 #include <qstringlist.h>
 #include <qvaluelist.h>
@@ -32,31 +33,48 @@ namespace KCDDB
   enum Error
   {
     None,
+    ServerHatesUs,
     HostNotFound,
     NoResponse,
-    NoSuchCD,
+    NoRecordFound,
     CannotSave,
     Unknown
   };
 
-  struct TrackInfo
+  class TrackInfo
   {
-    bool    offsetKnown;
-    uint    offset;
-    QString title;
+    public:
+
+      TrackInfo()
+        : offsetKnown(false),
+          offset(0)
+      {
+      }
+
+      bool    offsetKnown;
+      uint    offset;
+      QString title;
   };
 
   typedef QValueList<TrackInfo> TrackInfoList; 
 
-  struct CDInfo
+  class CDInfo
   {
-    QString       artist;
-    QString       title;
-    QString       genre;
-    uint          year;
-    uint          length;
-    QString       id;
-    TrackInfoList trackInfoList;
+    public:
+
+      CDInfo()
+        : year(0),
+          length(0)
+      {
+      }
+
+      QString       artist;
+      QString       title;
+      QString       genre;
+      uint          year;
+      uint          length;
+      QString       id;
+      TrackInfoList trackInfoList;
   };
 
   enum SubmitTransport
@@ -87,6 +105,9 @@ namespace KCDDB
   QString trackOffsetListToString (const TrackOffsetList &);
 
   CDInfo parseStringListToCDInfo(const QStringList &);
+
+  typedef QPair<QString, QString> CDDBMatch;
+  typedef QValueList<CDDBMatch> CDDBMatchList;
 }
 
 #endif // KCDDB_DEFINES_H

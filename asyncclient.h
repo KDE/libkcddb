@@ -63,6 +63,11 @@ namespace KCDDB
 
       void lookupWithHelper(const TrackOffsetList &);
 
+    protected slots:
+
+      void slotLookupResponseReady(const QValueList<CDInfo> &);
+      void slotError(Error);
+
     private:
 
       class Private;
