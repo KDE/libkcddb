@@ -49,6 +49,10 @@ namespace KCDDB
       Error lookup(const TrackOffsetList &);
       Error submit(const CDInfo &);
 
+    protected:
+
+      Error cddbLookup(const TrackOffsetList &);
+
     private:
 
       class Private;

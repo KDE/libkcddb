@@ -18,12 +18,56 @@
   Boston, MA 02111-1307, USA.
 */
 
+#include <unistd.h> // For usleep(3).
+
+#include <qstringlist.h>
 #include <qdir.h>
 #include <qfile.h>
 #include <kextsock.h>
 #include <kdebug.h>
 
 #include <libkcddb/client.h>
+
+static QString readLine(KExtendedSocket & socket)
+{
+  kdDebug() << k_funcinfo << endl;
+
+  if (220 != socket.socketStatus())
+  {
+    kdDebug() << "socket status: " << socket.socketStatus() << endl;
+    return QString::null;
+  }
+
+  QString buf;
+
+  int c =0;
+
+  while ('\n' != (c = socket.getch()))
+  {
+    buf += c;
+  }
+
+  kdDebug() << "READ: `" << buf << "'" << endl;
+  return buf;
+}
+
+static void writeLine(KExtendedSocket & socket, const QString & s)
+{
+  kdDebug() << k_funcinfo << endl;
+
+  if (220 != socket.socketStatus())
+  {
+    kdDebug() << "socket status: " << socket.socketStatus() << endl;
+    return;
+  }
+
+  QCString buf = s.latin1();
+  kdDebug() << "WRITE: `" << buf << "'" << endl;
+  buf.append("\n");
+
+  socket.writeBlock(buf.data(), buf.length());
+}
+
 
 namespace KCDDB
 {
@@ -144,16 +188,7 @@ namespace KCDDB
     {
       case CDDBLookup:
       case CDDBLookupIgnoreCached:
-        {
-          Error connectError =
-            connectSocket(d->socket, d->config.hostname(), d->config.port());
-
-          if (None != connectError)
-            return connectError;
-
-          // STUB
-          return Unknown;
-        }
+        return cddbLookup(trackOffsetList);
         break;
 
       case HTTPLookup:
@@ -201,6 +236,70 @@ namespace KCDDB
         return Unknown;
         break;
     }
+  }
+
+    Error
+  Client::cddbLookup(const TrackOffsetList & offsetList)
+  {
+    kdDebug() << "Trying to connect to " << d->config.hostname()
+      << ":" << d->config.port() << endl;
+
+    Error connectError =
+      connectSocket(d->socket, d->config.hostname(), d->config.port());
+
+    if (None != connectError)
+      return connectError;
+
+    kdDebug() << "Connected" << endl;
+
+    QString line = readLine(d->socket);
+
+    QStringList tokenList = QStringList::split(' ', line);
+
+    uint serverStatus = tokenList[0].toUInt();
+
+    if (200 == serverStatus)
+    {
+      kdDebug() << "Server response: read-only" << endl;
+    }
+    else if (201 == serverStatus)
+    {
+      kdDebug() << "Server response: read-write" << endl;
+    }
+    else
+    {
+      kdDebug() << "Server response: bugger off" << endl;
+      return NoResponse;
+    }
+
+    QString handshake = "cddb hello ";
+    handshake += d->config.user();
+    handshake += " ";
+    handshake += "localhost"; // FIXME
+    handshake += " ";
+    handshake += d->config.clientName();
+    handshake += " ";
+    handshake += d->config.clientVersion();
+
+    writeLine(d->socket, handshake);
+
+    line = readLine(d->socket);
+
+    tokenList = QStringList::split(' ', line);
+
+    serverStatus = tokenList[0].toUInt();
+
+    if ((200 != serverStatus) && (402 != serverStatus))
+    {
+      kdDebug() << "Handshake was too tight. Letting go." << endl;
+      return NoResponse;
+    }
+
+    kdDebug() << "Handshake successful" << endl;
+
+    // STUB
+    kdDebug() << "STUB (dropping out)" << endl;
+    return Unknown;
   }
 }
 
