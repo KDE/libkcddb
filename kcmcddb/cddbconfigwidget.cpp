@@ -56,7 +56,7 @@ CDDBConfigWidget::slotConfigChanged()
 
 void CDDBConfigWidget::launchControlCenter()
 {
-    KApplication::kdeinitExec("kcmshell", "email");
+    KApplication::kdeinitExec("kcmshell", "kcm_useraccount");
 }
 
 void CDDBConfigWidget::showMirrorList()
