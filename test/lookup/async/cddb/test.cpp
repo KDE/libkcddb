@@ -47,9 +47,9 @@ AsyncCDDBLookupTest::AsyncCDDBLookupTest()
 }
 
   void
-AsyncCDDBLookupTest::slotFinished(Lookup::Result r)
+AsyncCDDBLookupTest::slotFinished(CDDB::Result r)
 {
-  kdDebug() << "AsyncCDDBLookupTest::slotResult: Got " << KCDDB::Lookup::resultToString(r) << endl;
+  kdDebug() << "AsyncCDDBLookupTest::slotResult: Got " << KCDDB::CDDB::resultToString(r) << endl;
 
   CDInfoList l = client_->lookupResponse();
 
@@ -90,7 +90,7 @@ AsyncCDDBLookupTest::slotFinished(Lookup::Result r)
 
 int main(int argc, char ** argv)
 {
-  KCmdLineArgs::init(argc, argv, "libkcddb_test", "", "");
+  KCmdLineArgs::init(argc, argv, "libkcddb_test", "", "", "");
 
   KApplication app(false /* No styles */, false /* No GUI */);
 

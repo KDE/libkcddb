@@ -7,7 +7,7 @@
   int
 main(int argc, char ** argv)
 {
-  KCmdLineArgs::init(argc, argv, "libkcddb_test", "", "");
+  KCmdLineArgs::init(argc, argv, "libkcddb_test", "", "", "");
 
   KApplication app(false /* No styles */, false /* No GUI */);
 
@@ -49,14 +49,14 @@ main(int argc, char ** argv)
   kdDebug() << "Stuff to send to server:" << endl;
 
   kdDebug()
-    << Lookup::trackOffsetListToId(list)
+    << CDDB::trackOffsetListToId(list)
     << " "
     //<< trackOffsetListToString(list)
     << endl;
 
-  Lookup::Result r = c.lookup(list);
+  CDDB::Result r = c.lookup(list);
 
-  kdDebug() << "Client::lookup gave : " << Lookup::resultToString(r) << endl;
+  kdDebug() << "Client::lookup gave : " << CDDB::resultToString(r) << endl;
 
   CDInfoList response = c.lookupResponse();
 

@@ -1,7 +1,7 @@
+#ifndef ASYNCSMTPSUBMIT_H
+#define ASYNCSMTPSUBMIT_H
 /*
-  Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
-  Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
-  Copyright (C) 2002 Nadeem Hasan <nhasan@kde.org>
+  Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -19,31 +19,24 @@
   Boston, MA 02111-1307, USA.
 */
 
-#ifndef KCDDB_SUBMIT_H
-#define KCDDB_SUBMIT_H
-
-#include "cddb.h"
-#include "cdinfo.h"
+#include "smtpsubmit.h"
+#include <kio/job.h>
 
 namespace KCDDB
 {
-  class Submit : public CDDB
+  class AsyncSMTPSubmit : public QObject, public SMTPSubmit
   {
+    Q_OBJECT
+
     public:
+      AsyncSMTPSubmit(const QString&, uint, const QString&, const QString &);
+      virtual ~AsyncSMTPSubmit();
 
-      Submit();
-      virtual ~Submit();
-
-      virtual Result submit( const CDInfo &, const TrackOffsetList &) = 0;
-      QString validCategory(const QString&);
-
-    protected:
-
-      Result parseWrite( const QString & );
-      void makeDiskData( const CDInfo&, const TrackOffsetList& );
-      QString diskData_;
-  };
+      virtual Result submit( const CDInfo &, const TrackOffsetList & );
+    protected slots:
+      void slotDataReq( KIO::Job *, const QByteArray &data );
+  } ;
 }
 
-#endif // KCDDB_SUBMIT_H
+#endif // ASYNCSMTPSUBMIT_H
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

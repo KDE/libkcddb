@@ -1,0 +1,54 @@
+#include <kdebug.h>
+#include <kapplication.h>
+#include <kcmdlineargs.h>
+
+#include "libkcddb/client.h"
+#include "libkcddb/config.h"
+
+  int
+main(int argc, char ** argv)
+{
+  KCmdLineArgs::init(argc, argv, "libkcddb_test", "", "", "");
+
+  KApplication app(false /* No styles */);
+
+  using namespace KCDDB;
+
+  Config config;
+  config.load();
+  config.setSubmitTransport(CDDB::SMTP);
+
+  TrackOffsetList list;
+
+  // a1107d0a - Kruder & Dorfmeister - The K&D Sessions - Disc One.
+  list
+    << 150      // First track start.
+    << 29462
+    << 66983
+    << 96785
+    << 135628
+    << 168676
+    << 194147
+    << 222158
+    << 247076
+    << 278203   // Last track start.
+    << 10       // Disc start.
+    << 316732;  // Disc end.
+
+/*  CDInfo cdInfo;
+
+  cdInfo.title  = "The K&D Sessions";
+  cdInfo.artist = "Kruder & Dorfmeister";
+  cdInfo.year   = 2000;
+  cdInfo.genre  = "misc";*/
+
+  Client c( config );
+  c.setBlockingMode( true );
+
+  c.lookup( list );
+
+  CDDB::Result r = c.submit(c.lookupResponse().first(), list);
+
+  kdDebug() << "Result: " << CDDB::resultToString(r) << endl;
+}
+

@@ -22,12 +22,14 @@
 #define KCDDB_CLIENT_H
 
 #include "config.h"
-#include "lookup.h"
-#include "submit.h"
 #include "cdinfo.h"
+#include <qobject.h>
 
 namespace KCDDB
 {
+  class Lookup;
+  class Submit;
+
   class Client : public QObject
   {
     Q_OBJECT
@@ -51,7 +53,7 @@ namespace KCDDB
       CDInfoList lookupResponse() const;
 
       CDDB::Result lookup(const TrackOffsetList &);
-      Submit::Result submit(const CDInfo &);
+      CDDB::Result submit(const CDInfo &, const TrackOffsetList &);
 
       void setBlockingMode( bool );
       bool blockingMode() const;
@@ -66,14 +68,13 @@ namespace KCDDB
       void finished( CDDB::Result );
 
     protected slots:
-
       void slotFinished( CDDB::Result );
 
     private:
-
       class Private;
       Private * d;
       Lookup * cdInfoLookup;
+      Submit * cdInfoSubmit;
   };
 }
 

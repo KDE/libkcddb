@@ -55,26 +55,16 @@ namespace KCDDB
   {
     return
       (
-        (hostname_            == other.hostname_)
-        &&
-        (port_                == other.port_)
-        &&
-        (user_                == other.user_)
-        &&
-        (clientName_          == other.clientName_)
-        &&
-        (clientVersion_       == other.clientVersion_)
-        &&
-        (submitTransport_     == other.submitTransport_)
-        &&
-        (lookupTransport_     == other.lookupTransport_)
-        &&
-        (emailAddress_        == other.emailAddress_)
-        &&
-        (submissionsEnabled_  == other.submissionsEnabled_)
-        &&
-        (cachePolicy_         == other.cachePolicy_)
-	&&
+        (hostname_            == other.hostname_) &&
+        (port_                == other.port_) &&
+        (user_                == other.user_) &&
+        (clientName_          == other.clientName_) &&
+        (clientVersion_       == other.clientVersion_) &&
+        (submitTransport_     == other.submitTransport_) &&
+        (lookupTransport_     == other.lookupTransport_) &&
+        (emailAddress_        == other.emailAddress_) &&
+        (submissionsEnabled_  == other.submissionsEnabled_) &&
+        (cachePolicy_         == other.cachePolicy_) &&
 	(cacheLocations_      == other.cacheLocations_)
       );
   }
@@ -131,6 +121,12 @@ namespace KCDDB
     cacheLocations_ = c.readListEntry(cacheLocationsKey());
     if (cacheLocations_.count() == 0)
     	cacheLocations_.append(QDir::homeDirPath()+"/"+defaultCacheLocation);
+
+    c.setGroup( "SMTP" );
+    smtpHostName_ = c.readEntry("serverHost", QString::null);
+    smtpPort_ = c.readUnsignedNumEntry("serverPort", 25);
+    smtpUsername_ = c.readEntry("username", QString::null);
+    smtpPassword_ = c.readEntry("password", QString::null);
   }
 
     void
@@ -217,6 +213,26 @@ namespace KCDDB
     return cacheLocations_;
   }
 
+  QString Config::smtpHostName() const
+  {
+    return smtpHostName_;
+  }
+
+  uint Config::smtpPort() const
+  {
+    return smtpPort_;
+  }
+
+  QString Config::smtpUsername() const
+  {
+    return smtpUsername_;
+  }
+
+  QString Config::smtpPassword() const
+  {
+    return smtpPassword_;
+  }
+  
   // Set methods. Bloody C++.
 
     void
@@ -265,6 +281,26 @@ namespace KCDDB
   Config::setCacheLocations(const QStringList &l)
   {
     cacheLocations_ = l;
+  }
+
+  void Config::setSmtpHostName(const QString &smtpHostName)
+  {
+    smtpHostName_ = smtpHostName;
+  }
+
+  void Config::setSmtpPort(uint smtpPort)
+  {
+    smtpPort_ = smtpPort;
+  }
+  
+  void Config::setSmtpUsername(const QString &smtpUsername)
+  {
+    smtpUsername_ = smtpUsername;
+  }
+  
+  void Config::setSmtpPassword(const QString &smtpPassword)
+  {
+    smtpPassword_ = smtpPassword;
   }
 
   // Config keys.

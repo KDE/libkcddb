@@ -1,6 +1,6 @@
 INCLUDES = -I$(top_srcdir) $(all_includes)
 
-check_PROGRAMS = test
+check_PROGRAMS = 
 
 test_SOURCES = test.cpp
 test_LDFLAGS = $(all_libraries)

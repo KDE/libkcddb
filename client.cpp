@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -18,15 +19,18 @@
   Boston, MA 02111-1307, USA.
 */
 
-#include <kdebug.h>
-
 #include "client.h"
 #include "synccddbplookup.h"
 #include "asynccddbplookup.h"
 #include "synchttplookup.h"
 #include "asynchttplookup.h"
+#include "syncsmtpsubmit.h"
+#include "asyncsmtpsubmit.h"
 #include "cache.h"
 #include "lookup.h"
+
+#include <kdebug.h>
+#include <qsocket.h>
 
 namespace KCDDB
 {
@@ -40,17 +44,16 @@ namespace KCDDB
 
       Config config;
       CDInfoList cdInfoList;
-      QString cddbId;
       bool block;
   };
 
-  Client::Client()
+  Client::Client() : QObject()
   {
     d = new Private;
     d->config.load();
   }
 
-  Client::Client(const Config & config)
+  Client::Client(const Config & config) : QObject()
   {
     d = new Private;
     d->config = config;
@@ -188,72 +191,56 @@ namespace KCDDB
   }
 
     CDDB::Result
-  Client::submit(const CDInfo &)
+  Client::submit(const CDInfo &cdInfo, const TrackOffsetList& offsetList)
   {
-    return CDDB::UnknownError;
-#if 0
-    // Do CannotSave sinarios
-    if(cdInfo.id == "0")
-      return CannotSave;
-    for (uint i=0; i < cdInfo.trackInfoList.count(); i++)
-      if(!cdInfo.trackInfoList[i].offsetKnown)
-        return CannotSave;
+    // Check if it's valid
 
-QString diskData = "";
-diskData += "# xmcd\n";
-diskData += "#\n";
-diskData += "# Track frame offsets:\n";
-for (uint i=0; i < cdInfo.trackInfoList.count(); i++){
-  diskData += QString("#\t%1\n").arg(cdInfo.trackInfoList[i].offset);
-}
-diskData += "#\n";
-diskData += QString("DISCID=%1\n").arg(cdInfo.id);
-diskData += QString("DTITLE=%1\n").arg(cdInfo.title);
-diskData += QString("DYEAR=%1\n").arg(cdInfo.year);
-diskData += QString("DGENRE=%1\n").arg(cdInfo.genre);
-for (uint i=0; i < cdInfo.trackInfoList.count(); i++){
-  diskData += QString("TTITLE%1=%2\n").arg(i).arg(cdInfo.trackInfoList[i].title);
-}
+    if(cdInfo.id == "0")
+      return CDDB::CannotSave;
+
+    uint last=0;
+    for (uint i=0; i < (offsetList.count()-2); i++)
+    {
+      if(last >= offsetList[i])
+        return CDDB::CannotSave;
+      last = offsetList[i];
+    }
+
+    //TODO Check that it is edited
 
     switch (d->config.submitTransport())
     {
-      case HTTPSubmit:
+      case CDDB::HTTP:
       {
-
-#define sendOut(a) submitSocket.writeBlock( a.latin1(), a.length() );
-
-QSocket submitSocket(0, "http Sumbition Socket");
-submitSocket.connectToHost("www.freecddb.org", 80);
-sendOut(QString("POST /submit.cgi HTTP/1.0\n"));
-sendOut(QString("Category: %1\n").arg(cdInfo.genre));
-sendOut(QString("Discid: %1\n").arg(cdInfo.id));
-sendOut(QString("User-Email: ben@meyerhome.net\n"));
-sendOut(QString("Submit-Mode: test\n")); // Change to "submit"
-sendOut(QString("Charset: ISO-8859-1\n"));
-sendOut(QString("X-Cddbd-Note: Sent by libkcddb - Questions: ben@meyerhome.net.\n"));
-sendOut(QString("Content-Length: %1\n").arg(diskData.length())); // Get real length()
-sendOut(QString("\n"));
-sendOut(diskData);
-
-#undef sendOut
-return None;
-
+        // TODO For now...
+        kdDebug() << k_funcinfo << "HTTP Submit not supported yet: "
+          << CDDB::transportToString(d->config.submitTransport()) << endl;
+        return CDDB::UnknownError;
+        break;
       }
       break;
       
-      case SMTPSubmit:
+      case CDDB::SMTP:
       {
-        return CannotSave;
+	QString hostname = d->config.smtpHostName();
+	uint port = d->config.smtpPort();
+	QString username = d->config.smtpUsername();
+	QString password = d->config.smtpPassword();
+	if ( blockingMode() )
+	  cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username, password );
+	else
+	  cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username, password );
+        break;
       }
-      break;
 
       default:
         kdDebug() << k_funcinfo << "Unsupported transport: "
-          << submitTransportToString(d->config.submitTransport()) << endl;
-        return Unknown;
+          << CDDB::transportToString(d->config.submitTransport()) << endl;
+        return CDDB::UnknownError;
         break;
     }
-#endif
+	
+    return cdInfoSubmit->submit( cdInfo, offsetList );
   }
 }
 

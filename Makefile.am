@@ -4,19 +4,12 @@ INCLUDES = -I$(srcdir)/.. $(all_includes)
 
 lib_LTLIBRARIES = libkcddb.la
 
-libkcddb_la_SOURCES =\
-cache.cpp\
-cdinfo.cpp\
-config.cpp\
-client.cpp\
-cddb.cpp\
-lookup.cpp\
-cddbplookup.cpp\
-synccddbplookup.cpp\
-asynccddbplookup.cpp\
-httplookup.cpp\
-synchttplookup.cpp\
-asynchttplookup.cpp
+libkcddb_la_SOURCES = \
+    cache.cpp cdinfo.cpp config.cpp client.cpp cddb.cpp lookup.cpp \
+    cddbplookup.cpp synccddbplookup.cpp asynccddbplookup.cpp httplookup.cpp \
+    synchttplookup.cpp asynchttplookup.cpp smtpsubmit.cpp \
+    asyncsmtpsubmit.cpp syncsmtpsubmit.cpp \
+    submit.cpp
 
 libkcddb_la_LDFLAGS = $(all_libraries) -version-info 1:0:0
 libkcddb_la_LIBADD  = $(LIB_KDECORE) $(LIB_KIO)
@@ -29,6 +22,4 @@ cache.h\
 cdinfo.h\
 client.h\
 config.h\
-cddb.h\
-lookup.h\
-submit.h
+cddb.h

@@ -68,6 +68,10 @@ namespace KCDDB
       bool                submissionsEnabled()  const;
       Cache::Policy       cachePolicy()         const;
       QStringList         cacheLocations()      const;
+      QString             smtpHostName()        const;
+      uint                smtpPort()            const;
+      QString             smtpUsername()        const;
+      QString             smtpPassword()        const;
 
       void setHostname            (const QString &);
       void setPort                (uint);
@@ -77,6 +81,10 @@ namespace KCDDB
       void setSubmissionsEnabled  (bool);
       void setCachePolicy         (Cache::Policy);
       void setCacheLocations      (const QStringList &);
+      void setSmtpHostName        (const QString &);
+      void setSmtpPort            (uint);
+      void setSmtpUsername        (const QString &);
+      void setSmtpPassword        (const QString &);
 
     private:
 
@@ -91,6 +99,11 @@ namespace KCDDB
       bool              submissionsEnabled_;
       Cache::Policy     cachePolicy_;
       QStringList       cacheLocations_;
+      QString           smtpHostName_;
+      uint              smtpPort_;
+      QString           smtpUsername_;
+      QString           smtpPassword_;
+
   };
 }
 
