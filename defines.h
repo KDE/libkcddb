@@ -22,6 +22,7 @@
 #define KCDDB_DEFINES_H
 
 #include <qstring.h>
+#include <qstringlist.h>
 #include <qvaluelist.h>
 
 namespace KCDDB

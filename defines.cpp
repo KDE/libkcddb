@@ -261,7 +261,7 @@ namespace KCDDB
       {
         uint trackNumber = key.mid(6).toUInt();
 
-        if (trackNumber < 0 || trackNumber > 200)
+        if (trackNumber > 200)
         {
           kdDebug() << "Track number out of sensible range." << endl;
           continue;
