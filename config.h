@@ -42,6 +42,7 @@ namespace KCDDB
       QString smtpHostname() const;
       QString emailAddress() const;
       QString replyTo() const;
+
     private:
       void loadGlobalSettings();
       QString _senderAddress, _senderReplyTo, _senderHost;

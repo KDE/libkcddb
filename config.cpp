@@ -29,7 +29,7 @@
 
 namespace KCDDB
 {
-  Config::Config()
+  Config::Config() : ConfigBase()
   {
     loadGlobalSettings();
   }
