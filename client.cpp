@@ -25,6 +25,7 @@
 #include <kstringhandler.h>
 #include <kextsock.h>
 #include <kdebug.h>
+#include <qsocket.h>
 
 #include <libkcddb/client.h>
 
@@ -272,69 +273,63 @@ namespace KCDDB
   }
 
     Error
-  Client::submit(const CDInfo &)
+  Client::submit(const CDInfo &cdInfo)
   {
     switch (d->config.submitTransport())
     {
       case CDDBSubmit:
         {
-/*
+if(cdInfo.id == "0")
+  return CannotSave;
 
-Intitial Http submition work.
+// Do CannotSave sinarios
+bool allOk = true;
+for (uint i=0; i < cdInfo.trackInfoList.count(); i++){
+  allOk = allOk | cdInfo.trackInfoList[i].offsetKnown;
+}
+if(!allOk)
+  return CannotSave;
+
+// Second figure out what we are sending to them.
+QString diskData = "";
+diskData += "# xmcd\n";
+diskData += "#\n";
+diskData += "# Track frame offsets:\n";
+for (uint i=0; i < cdInfo.trackInfoList.count(); i++){
+  diskData += QString("#\t%1\n").arg(cdInfo.trackInfoList[i].offset);
+}
+diskData += "#\n";
+diskData += QString("DISCID=%1\n").arg(cdInfo.id);
+diskData += QString("DTITLE=%1\n").arg(cdInfo.title);
+diskData += QString("DYEAR=%1\n").arg(cdInfo.year);
+diskData += QString("DGENRE=%1\n").arg(cdInfo.genre);
+for (uint i=0; i < cdInfo.trackInfoList.count(); i++){
+  diskData += QString("TTITLE%1=%2\n").arg(i).arg(cdInfo.trackInfoList[i].title);
+}
 
 #define sendOut(a) submitSocket.writeBlock( a.latin1(), a.length() );
 
-QSocket submitSocket(this, "http Sumbition Socket");
+QSocket submitSocket(0, "http Sumbition Socket");
 submitSocket.connectToHost("www.freecddb.com", 80);
-sendOut("POST /submit.cgi HTTP/1.0\n");
-sendOut("Category: newage\n");
-sendOut("Discid: 4306eb06\n");
-sendOut("User-Email: joe@myhost.home.com\n");
-sendOut("Submit-Mode: test\n"); // Change to "submit"
-sendOut("Charset: ISO-8859-1\n");
-sendOut("X-Cddbd-Note: Sent by libkcddb - Questions: ben@meyerhome.net.\n");
-sendOut("Content-Length: 960\n"); // Get real length()
-sendOut("\n");
-sendOut("# xmcd\n");
-sendOut("#\n");
-sendOut("# Track frame offsets:\n");
-[ data omitted for brevity ]
-PLAYORDER=
-# xmcd
-#
-# Track frame offsets:
-#	150
-[ ... 21 frame offsets omitted ]
-#	210627
-#
-# Disc length: 2952 seconds
-#
-# Revision: 1
-# Submitted via: xmcd 2.0
-#
-DISCID=270b8617
-DTITLE=Franske Stemninger / Con Spirito
-DYEAR=1981
-DGENRE=Classical
-TTITLE0=Mille regretz de vous abandonner
-[ ... 21 TTITLEN keywords omitted ]
-TTITLE22=L'arche de no
-EXTD=Copyright (c) 1981 MCA Records Inc.\nManufactured f
-EXTD=or MCA Records Inc.
-EXTT0=Des Prez\nYez
-[ ... 21 EXTTN keywords omitted ]
-EXTT22=Schmitt: A contre-voix \n(excerpt)
-PLAYORDER=
+sendOut(QString("POST /submit.cgi HTTP/1.0\n"));
+sendOut(QString("Category: %1\n").arg(cdInfo.genre));
+sendOut(QString("Discid: %1\n").arg(cdInfo.id));
+sendOut(QString("User-Email: ben@meyerhome.net\n"));
+sendOut(QString("Submit-Mode: test\n")); // Change to "submit"
+sendOut(QString("Charset: ISO-8859-1\n"));
+sendOut(QString("X-Cddbd-Note: Sent by libkcddb - Questions: ben@meyerhome.net.\n"));
+sendOut(QString("Content-Length: 960\n")); // Get real length()
+sendOut(QString("\n"));
+sendOut(diskData);
 
-// We need the Track data information.  Why don't we add it to the cdInfo
+#undef sendOut
 
-*/
           //Error connectError =
           //  connectSocket(d->socket, d->config.hostname(), d->config.port());
 
           //if (None != connectError)
           
-          return connectError;
+          return CannotSave;
 
           // STUB
           return Unknown;
