@@ -56,10 +56,7 @@ namespace KCDDB
 
       void clear();
 
-      bool isValid()
-      {
-        return !id.isEmpty();
-      }
+      bool isValid() const;
 
       QString toString(bool submit=false) const;
 

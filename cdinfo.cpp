@@ -287,6 +287,18 @@ namespace KCDDB
     length = year = revision = 0;
     trackInfoList.clear();
   }
+
+    bool
+  CDInfo::isValid() const
+  {
+    if (id.isEmpty())
+      return false;
+
+    if (id == "0")
+      return false;
+
+    return true;
+  }
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

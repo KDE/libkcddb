@@ -232,7 +232,7 @@ namespace KCDDB
   {
     // Check if it's valid
 
-    if(cdInfo.id == "0")
+    if (!cdInfo.isValid())
       return CDDB::CannotSave;
 
     uint last=0;
