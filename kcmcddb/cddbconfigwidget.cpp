@@ -110,12 +110,12 @@ void CDDBConfigWidget::showMirrorList()
 
     if (keys.isEmpty())
     {
-      KMessageBox::information(this, i18n("Couldn't fetch mirror list"), i18n("Couldn't fetch"));
+      KMessageBox::information(this, i18n("Could not fetch mirror list"), i18n("Could not fetch"));
       return;
     }
 
     QStringList result = KInputDialog::getItemList(i18n("Select mirror"),
-      i18n("Select one of theese mirrors"), keys.keys(),
+      i18n("Select one of these mirrors"), keys.keys(),
       QStringList(), false, &ok, this);
 
     if (&ok && result.count() == 1)
