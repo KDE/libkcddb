@@ -103,8 +103,8 @@ namespace KCDDB
         return "LocalSubmit";
         break;
 
-      case CDDBSubmit:
-        return "CDDBSubmit";
+      case HTTPSubmit:
+        return "HTTPSubmit";
         break;
 
       case SMTPSubmit:
@@ -154,8 +154,8 @@ namespace KCDDB
     if ("LocalSubmit" == s)
       return LocalSubmit;
 
-    else if ("CDDBSubmit" == s)
-      return CDDBSubmit;
+    else if ("HTTPSubmit" == s)
+      return HTTPSubmit;
 
     else if ("SMTPSubmit" == s)
       return SMTPSubmit;

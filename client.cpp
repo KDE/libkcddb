@@ -275,22 +275,13 @@ namespace KCDDB
     Error
   Client::submit(const CDInfo &cdInfo)
   {
-    switch (d->config.submitTransport())
-    {
-      case CDDBSubmit:
-        {
-if(cdInfo.id == "0")
-  return CannotSave;
+    // Do CannotSave sinarios
+    if(cdInfo.id == "0")
+      return CannotSave;
+    for (uint i=0; i < cdInfo.trackInfoList.count(); i++)
+      if(!cdInfo.trackInfoList[i].offsetKnown)
+        return CannotSave;
 
-// Do CannotSave sinarios
-bool allOk = true;
-for (uint i=0; i < cdInfo.trackInfoList.count(); i++){
-  allOk = allOk | cdInfo.trackInfoList[i].offsetKnown;
-}
-if(!allOk)
-  return CannotSave;
-
-// Second figure out what we are sending to them.
 QString diskData = "";
 diskData += "# xmcd\n";
 diskData += "#\n";
@@ -306,6 +297,11 @@ diskData += QString("DGENRE=%1\n").arg(cdInfo.genre);
 for (uint i=0; i < cdInfo.trackInfoList.count(); i++){
   diskData += QString("TTITLE%1=%2\n").arg(i).arg(cdInfo.trackInfoList[i].title);
 }
+
+    switch (d->config.submitTransport())
+    {
+      case HTTPSubmit:
+      {
 
 #define sendOut(a) submitSocket.writeBlock( a.latin1(), a.length() );
 
@@ -323,18 +319,16 @@ sendOut(QString("\n"));
 sendOut(diskData);
 
 #undef sendOut
+return None;
 
-          //Error connectError =
-          //  connectSocket(d->socket, d->config.hostname(), d->config.port());
-
-          //if (None != connectError)
-          
-          return CannotSave;
-
-          // STUB
-          return Unknown;
-        }
-        break;
+      }
+      break;
+      
+      case SMTPSubmit:
+      {
+        return CannotSave;
+      }
+      break;
 
       default:
         kdDebug() << k_funcinfo << "Unsupported transport: "

@@ -27,7 +27,7 @@ namespace KCDDB
 {
   // Defaults.
 
-  static const SubmitTransport  defaultSubmitTransport = CDDBSubmit;
+  static const SubmitTransport  defaultSubmitTransport = HTTPSubmit;
   static const LookupTransport  defaultLookupTransport = CDDBLookup;
 
   static const char * const defaultHostname       = "freedb.freedb.org";

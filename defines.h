@@ -61,7 +61,7 @@ namespace KCDDB
   enum SubmitTransport
   {
     LocalSubmit,
-    CDDBSubmit,
+    HTTPSubmit,
     SMTPSubmit
   };
 
