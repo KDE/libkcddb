@@ -47,7 +47,7 @@ namespace KCDDB
   {
     url_.setQuery(QString("to=%1&subject=%2").arg("test-submit@freedb.org", subject));
 //    url_.setQuery(QString("to=%1&subject=%2").arg("nouseforaname@home.se", subject));
-    kdDebug() << "Url is: " << url_.prettyURL() << endl;
+    kdDebug(60010) << "Url is: " << url_.prettyURL() << endl;
   }
 }
 

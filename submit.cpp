@@ -81,7 +81,7 @@ namespace KCDDB
 
     diskData_ += "PLAYORDER=\r\n";
 
-    kdDebug() << "diskData_ == " << diskData_ << endl;
+    kdDebug(60010) << "diskData_ == " << diskData_ << endl;
   }
 
   QString Submit::validCategory( const QString& c )

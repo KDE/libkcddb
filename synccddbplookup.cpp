@@ -73,7 +73,7 @@ namespace KCDDB
     if (matchList_.isEmpty())
       return NoRecordFound;
 
-    kdDebug() << matchList_.count() << " matches found." << endl;
+    kdDebug(60010) << matchList_.count() << " matches found." << endl;
 
     // For each match, read the cd info from the server and save it to
     // cdInfoList.
@@ -96,7 +96,7 @@ namespace KCDDB
     CDDB::Result
   SyncCDDBPLookup::connect( const QString & hostName, uint port )
   {
-    kdDebug() << "Trying to connect to " << hostName << ":" << port << endl;
+    kdDebug(60010) << "Trying to connect to " << hostName << ":" << port << endl;
 
     if (    !socket_.setAddress(    hostName, port ) )
       return UnknownError;
@@ -109,7 +109,7 @@ namespace KCDDB
     if (    0 != socket_.connect() )
       return NoResponse;
 
-    kdDebug() << "Connected" << endl;
+    kdDebug(60010) << "Connected" << endl;
     return Success;
   }
 

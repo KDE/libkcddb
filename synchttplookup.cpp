@@ -63,7 +63,7 @@ namespace KCDDB
     if ( Success != result_ )
       return result_;
 
-    kdDebug() << matchList_.count() << " matches found." << endl;
+    kdDebug(60010) << matchList_.count() << " matches found." << endl;
 
     if (matchList_.isEmpty())
       return NoRecordFound;
@@ -97,7 +97,7 @@ namespace KCDDB
     while ( !done_ )
       qApp->processOneEvent();
 
-    kdDebug() << "runQuery() Result: " << resultToString(result_) << endl;
+    kdDebug(60010) << "runQuery() Result: " << resultToString(result_) << endl;
 
     return result_;
   }

@@ -128,7 +128,7 @@ namespace KCDDB
     if ( genre.isEmpty() )
       genre = "Unknown";
 
-    kdDebug() << "Loaded CDInfo for " << id << endl;
+    kdDebug(60010) << "Loaded CDInfo for " << id << endl;
 
     return true;
   }

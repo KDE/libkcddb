@@ -98,7 +98,7 @@ namespace KCDDB
     CDDB::Result
   HTTPLookup::fetchURL()
   {
-    kdDebug() << "About to fetch: " << cgiURL_.url() << endl;
+    kdDebug(60010) << "About to fetch: " << cgiURL_.url() << endl;
 
     job_ = KIO::get( cgiURL_, false, false );
 

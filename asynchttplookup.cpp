@@ -81,7 +81,7 @@ namespace KCDDB
     void
   AsyncHTTPLookup::slotQueryReady()
   {
-    kdDebug() << "Matches Found: " <<  matchList_.count() << endl;
+    kdDebug(60010) << "Matches Found: " <<  matchList_.count() << endl;
 
     if ( Success != result_ )
     {

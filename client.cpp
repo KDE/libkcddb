@@ -97,7 +97,7 @@ namespace KCDDB
 
     if ( cddbId.isNull() )
     {
-      kdDebug() << "Can't create cddbid from offset list" << endl;
+      kdDebug(60010) << "Can't create cddbid from offset list" << endl;
       return Lookup::NoRecordFound;
     }
 
@@ -105,7 +105,7 @@ namespace KCDDB
     {
       d->cdInfoList = Cache::lookup( cddbId );
 
-      kdDebug() << "Found " << d->cdInfoList.count() << " hit(s)" << endl;
+      kdDebug(60010) << "Found " << d->cdInfoList.count() << " hit(s)" << endl;
 
       if ( !d->cdInfoList.isEmpty() )
       {
@@ -118,7 +118,7 @@ namespace KCDDB
 
     if ( Cache::Only == d->config.cachePolicy() )
     {
-      kdDebug() << "Only trying cache. Give up now." << endl;
+      kdDebug(60010) << "Only trying cache. Give up now." << endl;
       return CDDB::NoRecordFound;
     }
 
@@ -221,7 +221,7 @@ namespace KCDDB
       case CDDB::HTTP:
       {
         // TODO For now...
-        kdDebug() << k_funcinfo << "HTTP Submit not supported yet: "
+        kdDebug(60010) << k_funcinfo << "HTTP Submit not supported yet: "
           << CDDB::transportToString(d->config.submitTransport()) << endl;
         return CDDB::UnknownError;
         break;
@@ -247,7 +247,7 @@ namespace KCDDB
       }
 
       default:
-        kdDebug() << k_funcinfo << "Unsupported transport: "
+        kdDebug(60010) << k_funcinfo << "Unsupported transport: "
           << CDDB::transportToString(d->config.submitTransport()) << endl;
         return CDDB::UnknownError;
         break;

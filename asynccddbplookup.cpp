@@ -87,7 +87,7 @@ namespace KCDDB
 
     state_ = WaitingForHostResolution;
 
-    kdDebug() << "Asking socket to connect to "
+    kdDebug(60010) << "Asking socket to connect to "
       << hostname << ":" << port << endl;
 
     socket_.setAddress( hostname, port );
@@ -101,7 +101,7 @@ namespace KCDDB
     void
   AsyncCDDBPLookup::slotLookupFinished( int hostCount )
   {
-    kdDebug() << "Found " << hostCount << " hosts" << endl;
+    kdDebug(60010) << "Found " << hostCount << " hosts" << endl;
 
     if ( 0 == hostCount )
     {
@@ -122,14 +122,14 @@ namespace KCDDB
     void
   AsyncCDDBPLookup::slotConnectionSuccess()
   {
-    kdDebug() << "Connection successful" << endl;
+    kdDebug(60010) << "Connection successful" << endl;
     state_ = WaitingForGreeting;
   }
 
     void
   AsyncCDDBPLookup::slotConnectionFailed( int err )
   {
-    kdDebug() << "Connection failed, error: " << err << endl;
+    kdDebug(60010) << "Connection failed, error: " << err << endl;
     emit finished( NoResponse );
     state_ = Idle;
     return;
@@ -138,7 +138,7 @@ namespace KCDDB
     void
   AsyncCDDBPLookup::slotReadyRead()
   {
-    kdDebug() << "Ready to read. State: " << stateToString() << endl;
+    kdDebug(60010) << "Ready to read. State: " << stateToString() << endl;
 
     while ( Idle != state_ && isConnected() && socket_.canReadLine() )
       read();

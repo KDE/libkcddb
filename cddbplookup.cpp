@@ -84,7 +84,7 @@ namespace KCDDB
     void
   CDDBPLookup::close()
   {
-    kdDebug() << "Disconnect from server..." << endl;
+    kdDebug(60010) << "Disconnect from server..." << endl;
     if ( isConnected() )
     {
       while ( socket_.bytesAvailable() )

@@ -45,7 +45,7 @@ namespace KCDDB
     CDInfoList
   Cache::lookup( const QString &cddbId )
   {
-    kdDebug() << "Looking up " << cddbId << " in CDDB cache" << endl;
+    kdDebug(60010) << "Looking up " << cddbId << " in CDDB cache" << endl;
 
     CDInfoList infoList;
     Config c;
@@ -104,7 +104,7 @@ namespace KCDDB
         d.mkdir(cacheDir);
 
       QString cacheFile = fileName(info, cacheDir);
-      kdDebug() << "Storing " << cacheFile << " in CDDB cache" << endl;
+      kdDebug(60010) << "Storing " << cacheFile << " in CDDB cache" << endl;
 
       QFile f(cacheFile);
       if ( f.open(IO_WriteOnly) )

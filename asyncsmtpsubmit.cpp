@@ -57,21 +57,19 @@ namespace KCDDB
 
   void AsyncSMTPSubmit::slotDataReq( KIO::Job *, QByteArray & d )
   {
-      kdDebug() << k_funcinfo << endl;
- 
+      kdDebug(60010) << k_funcinfo << endl;
+
       if ( !sent )
       {
-        QDataStream s( d, IO_WriteOnly );
-        s << diskData_;
-
-        sent = true;
+        // CDDB Info should be in latin1
+        d.duplicate( QCString( diskData_.latin1() ) );
+	sent = true;
       }
-      else
-        d.resize( 0 );
   }
 
   void AsyncSMTPSubmit::slotDone( KIO::Job* job )
   {
+      kdDebug(60010) << k_funcinfo << endl;
       if ( job->error()==0 )
         emit finished( Success );
       else

@@ -104,16 +104,16 @@ namespace KCDDB
 
     if ( 200 == serverStatus )
     {
-      kdDebug() << "Server response: read-only" << endl;
+      kdDebug(60010) << "Server response: read-only" << endl;
       readOnly_ = true;
     }
     else if ( 201 == serverStatus )
     {
-      kdDebug() << "Server response: read-write" << endl;
+      kdDebug(60010) << "Server response: read-write" << endl;
     }
     else
     {
-      kdDebug() << "Server response: bugger off" << endl;
+      kdDebug(60010) << "Server response: bugger off" << endl;
       return false;
     }
 
@@ -127,11 +127,11 @@ namespace KCDDB
 
     if ( ( 200 != serverStatus ) && ( 402 != serverStatus ) )
     {
-      kdDebug() << "Handshake was too tight. Letting go." << endl;
+      kdDebug(60010) << "Handshake was too tight. Letting go." << endl;
       return false;
     }
 
-    kdDebug() << "Handshake was warm and firm" << endl;
+    kdDebug(60010) << "Handshake was warm and firm" << endl;
 
     return true;
   }
@@ -141,7 +141,7 @@ namespace KCDDB
   {
     if ( !isConnected() )
     {
-      kdDebug() << "socket status: " << socket_.socketStatus() << endl;
+      kdDebug(60010) << "socket status: " << socket_.socketStatus() << endl;
       return QString::null;
     }
 
@@ -159,11 +159,11 @@ namespace KCDDB
   {
     if ( !isConnected() )
     {
-      kdDebug() << "socket status: " << socket_.socketStatus() << endl;
+      kdDebug(60010) << "socket status: " << socket_.socketStatus() << endl;
       return;
     }
 
-    kdDebug() << "WRITE: [" << line << "]" << endl;
+    kdDebug(60010) << "WRITE: [" << line << "]" << endl;
     QCString buf = line.latin1();
     buf.append( "\n" );
 
