@@ -22,13 +22,41 @@
 
 namespace KCDDB
 {
-  QString trackOffsetListToId(const TrackOffsetList &)
+    QString
+  trackOffsetListToId(const TrackOffsetList & list)
   {
-    // STUB
-    return QString::null;
+    // Taken from version by Michael Matz in kio_audiocd.
+
+    unsigned int  id          = 0;
+    int           trackCount  = list.count() - 2;
+
+    // The last two in the list are disc begin and disc end.
+
+    for (int i = trackCount - 1; i >= 0; i--)
+    {
+      int n = list[i];
+
+      n /= 75;
+
+      while (n > 0)
+      {
+        id += n % 10;
+        n /= 10;
+      }
+    }
+
+    unsigned int l = list[trackCount + 1];
+
+    l -= list[trackCount];
+    l /= 75;
+
+    id = ((id % 255) << 24) | (l << 8) | trackCount;
+
+    return QString::number(id, 16);
   }
 
-  QString submitTransportToString(SubmitTransport t)
+    QString
+  submitTransportToString(SubmitTransport t)
   {
     switch (t)
     {
@@ -50,7 +78,8 @@ namespace KCDDB
     }
   }
 
-  QString lookupTransportToString(LookupTransport t)
+    QString
+  lookupTransportToString(LookupTransport t)
   {
     switch (t)
     {
@@ -80,7 +109,8 @@ namespace KCDDB
     }
   }
 
-  SubmitTransport stringToSubmitTransport(const QString & s)
+    SubmitTransport
+  stringToSubmitTransport(const QString & s)
   {
     if ("LocalSubmit" == s)
       return LocalSubmit;
@@ -94,7 +124,8 @@ namespace KCDDB
     return SubmitTransport(-1);
   }
 
-  LookupTransport stringToLookupTransport(const QString & s)
+    LookupTransport
+  stringToLookupTransport(const QString & s)
   {
     if ("CacheOnlyLookup" == s)
       return CacheOnlyLookup;
@@ -114,7 +145,8 @@ namespace KCDDB
     return LookupTransport(-1);
   }
 
-  QString errorToString(Error e)
+    QString
+  errorToString(Error e)
   {
     switch (e)
     {
