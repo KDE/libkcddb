@@ -169,7 +169,7 @@ CDDBModule::quickHelp() const
 {
   return i18n
     (
-      "<h1>TODO: write this help</h1>"
+      "CDDB is used to get information like artist, title and song-names in CD's"
     );
 }
 
