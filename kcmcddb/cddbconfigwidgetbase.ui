@@ -162,9 +162,6 @@
                                 <property name="text">
                                     <string>Show &amp;Mirror List</string>
                                 </property>
-                                <property name="accel">
-                                    <string>Alt+M</string>
-                                </property>
                             </widget>
                             <widget class="QSpinBox" row="0" column="4">
                                 <property name="name">
@@ -271,7 +268,7 @@
                             <cstring>kcfg_submitTransport</cstring>
                         </property>
                         <property name="text">
-                            <string>Enable submission via SMTP</string>
+                            <string>Enable submission via email</string>
                         </property>
                     </widget>
                     <widget class="QButtonGroup">
@@ -279,7 +276,7 @@
                             <cstring>smtpBox</cstring>
                         </property>
                         <property name="title">
-                            <string>SMTP Server</string>
+                            <string>Email settings</string>
                         </property>
                         <grid>
                             <property name="name">
@@ -290,7 +287,7 @@
                                     <cstring>kcfg_useGlobalEmail</cstring>
                                 </property>
                                 <property name="text">
-                                    <string>Use email addresses from control center</string>
+                                    <string>Use global email settings</string>
                                 </property>
                             </widget>
                             <spacer row="2" column="0">
@@ -315,7 +312,7 @@
                                     <cstring>notUseGlobalCheckbox</cstring>
                                 </property>
                                 <property name="text">
-                                    <string>Use the following email addresses</string>
+                                    <string>Use the following email settings</string>
                                 </property>
                             </widget>
                             <spacer row="7" column="0">
