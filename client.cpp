@@ -47,6 +47,7 @@ namespace KCDDB
   Client::Client()
   {
     d = new Private;
+    d->config.load();
   }
 
   Client::Client(const Config & config)
@@ -87,7 +88,6 @@ namespace KCDDB
     CDDB::Result
   Client::lookup(const TrackOffsetList & trackOffsetList)
   {
-    d->config.load();
     d->cdInfoList.clear();
 
     QString cddbId = Lookup::trackOffsetListToId( trackOffsetList );

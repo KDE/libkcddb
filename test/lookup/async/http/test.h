@@ -1,3 +1,6 @@
+#ifndef TEST_H
+#define TEST_H
+
 #include <qobject.h>
 #include <libkcddb/client.h>
 
@@ -19,3 +22,5 @@ class AsyncHTTPLookupTest : public QObject
 
     KCDDB::Client * client_;
 };
+
+#endif
