@@ -9,8 +9,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>528</width>
-            <height>530</height>
+            <width>430</width>
+            <height>458</height>
         </rect>
     </property>
     <property name="caption">
@@ -424,7 +424,4 @@
     <slot access="protected">moveCacheDown()</slot>
 </slots>
 <layoutdefaults spacing="6" margin="11"/>
-<includehints>
-    <includehint>qwidget.h</includehint>
-</includehints>
 </UI>

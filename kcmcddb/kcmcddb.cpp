@@ -53,7 +53,7 @@ CDDBModule::CDDBModule(QWidget * parent, const char * name)
 
   widget_ = new CDDBConfigWidget(this);
   
-  QVBoxLayout * layout = new QVBoxLayout(this, 10);
+  QVBoxLayout * layout = new QVBoxLayout(this, 0);
 
   layout->addWidget(widget_);
 
