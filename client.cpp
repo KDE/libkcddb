@@ -196,7 +196,7 @@ for (uint i=0; i < cdInfo.trackInfoList.count(); i++){
 #define sendOut(a) submitSocket.writeBlock( a.latin1(), a.length() );
 
 QSocket submitSocket(0, "http Sumbition Socket");
-submitSocket.connectToHost("www.freecddb.com", 80);
+submitSocket.connectToHost("www.freecddb.org", 80);
 sendOut(QString("POST /submit.cgi HTTP/1.0\n"));
 sendOut(QString("Category: %1\n").arg(cdInfo.genre));
 sendOut(QString("Discid: %1\n").arg(cdInfo.id));
