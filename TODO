@@ -4,3 +4,7 @@ Better error checking, for example checking if the config is empty
 
 Try to comply with freedb's: "Guidelines for optimal freedb support"
 http://www.freedb.org/modules.php?name=Sections&sop=viewarticle&artid=38
+
+UTF-8 Support
+
+Saving playlist
