@@ -29,24 +29,20 @@ namespace KCDDB
   static const Submit::Transport  defaultSubmitTransport = Submit::CDDB;
   static const Lookup::Transport  defaultLookupTransport = Lookup::CDDB;
 
-  static const char * const defaultHostname       = "freedb.freedb.org";
-  static const unsigned int defaultPort           = 8880;
-  static const char * const defaultUser           = "libkcddb-user";
-  static const char * const defaultClientName     = "libkcddb";
-  static const char * const defaultClientVersion  = "0.1";
-  static const char * const defaultEmailAddress   = "freedb-submit@freedb.org";
-  static const bool         defaultSubmissionsEnabled = true;
+  static const char * const  defaultHostname     = "freedb.freedb.org";
+  static const unsigned int  defaultPort         = 8880;
+  static const char * const  defaultEmailAddress = "freedb-submit@freedb.org";
+  static const bool          defaultSubmissionsEnabled = true;
+  static const bool          defaultCachePolicy  = true;
 
   Config::Config()
     : hostname_             (defaultHostname),
       port_                 (defaultPort),
-      user_                 (defaultUser),
-      clientName_           (defaultClientName),
-      clientVersion_        (defaultClientVersion),
       submitTransport_      (defaultSubmitTransport),
       lookupTransport_      (defaultLookupTransport),
       emailAddress_         (defaultEmailAddress),
-      submissionsEnabled_   (defaultSubmissionsEnabled)
+      submissionsEnabled_   (defaultSubmissionsEnabled),
+      cachePolicy_          (defaultCachePolicy? Cache::Use : Cache::Ignore)
   {
   }
 
@@ -72,6 +68,8 @@ namespace KCDDB
         (emailAddress_        == other.emailAddress_)
         &&
         (submissionsEnabled_  == other.submissionsEnabled_)
+        &&
+        (cachePolicy_         == other.cachePolicy_)
       );
   }
 
@@ -87,14 +85,7 @@ namespace KCDDB
     KConfig c(filename);
 
     hostname_ = c.readEntry(hostnameKey(), defaultHostname);
-
     port_ = c.readUnsignedNumEntry(portKey(), defaultPort);
-
-    user_ = c.readEntry(userKey(), defaultUser);
-
-    clientName_ = c.readEntry(clientNameKey(), defaultClientName);
-
-    clientVersion_ = c.readEntry(clientVersionKey(), defaultClientVersion);
 
     submitTransport_ =
       Submit::stringToTransport
@@ -120,6 +111,9 @@ namespace KCDDB
 
     submissionsEnabled_ =
       c.readBoolEntry(submissionsEnabledKey(), defaultSubmissionsEnabled);
+
+    cachePolicy_ = c.readEntry(cachePolicyKey(), defaultCachePolicy)?
+        Cache::Use : Cache::Ignore;
   }
 
     void
@@ -128,13 +122,9 @@ namespace KCDDB
     KConfig c(filename);
 
     c.writeEntry(hostnameKey(), hostname_);
-
     c.writeEntry(portKey(), port_);
-
     c.writeEntry(userKey(), user_);
-
     c.writeEntry(clientNameKey(), clientName_);
-
     c.readEntry(clientVersionKey(), clientVersion_);
 
     c.writeEntry
@@ -150,8 +140,8 @@ namespace KCDDB
       );
 
     c.writeEntry(emailAddressKey(), emailAddress_);
-
     c.writeEntry(submissionsEnabledKey(), submissionsEnabled_);
+    c.writeEntry(cachePolicyKey(), cachePolicy_ != Cache::Ignore);
 
     c.sync();
   }
@@ -212,6 +202,12 @@ namespace KCDDB
     return submissionsEnabled_;
   }
 
+    Cache::Policy
+  Config::cachePolicy() const
+  {
+    return cachePolicy_;
+  }
+
   // Set methods. Bloody C++.
 
     void
@@ -224,24 +220,6 @@ namespace KCDDB
   Config::setPort(uint i)
   {
     port_ = i;
-  }
-
-    void
-  Config::setUser(const QString & s)
-  {
-    user_ = s;
-  }
-
-    void
-  Config::setClientName(const QString & s)
-  {
-    clientName_ = s;
-  }
-
-    void
-  Config::setClientVersion(const QString & s)
-  {
-    clientVersion_ = s;
   }
 
     void
@@ -268,6 +246,12 @@ namespace KCDDB
     submissionsEnabled_ = b;
   }
 
+    void
+  Config::setCachePolicy(Cache::Policy p)
+  {
+    cachePolicy_ = p;
+  }
+
   // Config keys.
 
     QString
@@ -280,24 +264,6 @@ namespace KCDDB
   Config::portKey()
   {
     return "Port";
-  }
-
-    QString
-  Config::userKey()
-  {
-    return "User";
-  }
-
-    QString
-  Config::clientNameKey()
-  {
-    return "ClientName";
-  }
-
-    QString
-  Config::clientVersionKey()
-  {
-    return "ClientVersion";
   }
 
     QString
@@ -324,16 +290,10 @@ namespace KCDDB
     return "SubmissionsEnabled";
   }
 
-    void
-  Config::setCachePolicy(Cache::Policy p)
+    QString
+  Config::cachePolicyKey()
   {
-    cachePolicy_ = p;
-  }
-
-    Cache::Policy
-  Config::cachePolicy() const
-  {
-    return cachePolicy_;
+    return "CachePolicy";
   }
 }
 

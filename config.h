@@ -61,6 +61,7 @@ namespace KCDDB
       static QString  lookupTransportKey();
       static QString  emailAddressKey();
       static QString  submissionsEnabledKey();
+      static QString  cachePolicyKey();
 
       QString             hostname()            const;
       uint                port()                const;
