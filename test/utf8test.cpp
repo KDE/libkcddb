@@ -1,7 +1,6 @@
 #include <kapplication.h>
 #include <kcmdlineargs.h>
 #include <kdebug.h>
-#include <kmessagebox.h>
 
 #include "libkcddb/client.h"
 #include "libkcddb/cache.h"
@@ -45,7 +44,7 @@ main(int argc, char ** argv)
 
   CDInfo i( c.bestLookupResponse() );
 
-  KMessageBox::information(0, i.title);
+  kdDebug() << "Best CDInfo had title: " << i.title << endl;
   
   return 0;
 }
