@@ -36,7 +36,7 @@ namespace KCDDB
   {
     public:
 
-      Private::Private()
+      Private()
         : block( true )
       {}
 
@@ -75,7 +75,7 @@ namespace KCDDB
   }
 
     bool
-  Client::blockingMode()
+  Client::blockingMode() const
   {
     return d->block;
   }
@@ -163,8 +163,8 @@ namespace KCDDB
     else if ( Lookup::HTTP == t )
     {
       kdDebug() << "Unsupported transport: HTTP " << endl;
-      return Lookup::UnknownError;
     }
+    return Lookup::UnknownError;
   }
 
     void

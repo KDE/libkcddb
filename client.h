@@ -54,7 +54,7 @@ namespace KCDDB
       Submit::Result submit(const CDInfo &);
 
       void setBlockingMode( bool );
-      bool blockingMode();
+      bool blockingMode() const;
 
     private:
 
