@@ -28,6 +28,7 @@
 #include "client.h"
 #include "synccddbplookup.h"
 #include "asynccddbplookup.h"
+#include "synchttplookup.h"
 #include "cache.h"
 
 namespace KCDDB
@@ -89,7 +90,7 @@ namespace KCDDB
     Lookup::Result
   Client::lookup(const TrackOffsetList & trackOffsetList)
   {
-    d->config.load();
+    //d->config.load();
     d->cdInfoList.clear();
 
     QString cddbId = Lookup::trackOffsetListToId( trackOffsetList );
@@ -122,49 +123,53 @@ namespace KCDDB
       return Lookup::NoRecordFound;
     }
 
+    Lookup::Result r;
     Lookup::Transport t = d->config.lookupTransport();
 
-    if( Lookup::CDDB == t )
+    if ( blockingMode() )
     {
-      if ( blockingMode() )
-      {
+      if( Lookup::CDDB == t )
         cdInfoLookup = new SyncCDDBPLookup();
-
-        Lookup::Result r = cdInfoLookup->lookup( d->config.hostname(), 
-                d->config.port(), clientName(), clientVersion(),
-                trackOffsetList );
-
-        if ( Lookup::Success == r )
-        {
-          d->cdInfoList = cdInfoLookup->lookupResponse();
-          Cache::store( d->cdInfoList );
-        }
-
-        return r;
-      }
       else
+        cdInfoLookup = new SyncHTTPLookup();
+
+      r = cdInfoLookup->lookup( d->config.hostname(), 
+              d->config.port(), clientName(), clientVersion(),
+              trackOffsetList );
+
+      if ( Lookup::Success == r )
+      {
+        d->cdInfoList = cdInfoLookup->lookupResponse();
+        Cache::store( d->cdInfoList );
+      }
+
+      delete cdInfoLookup;
+    }
+    else
+    {
+      if( Lookup::CDDB == t )
       {
         cdInfoLookup = new AsyncCDDBPLookup();
-
-        Lookup::Result r = cdInfoLookup->lookup( d->config.hostname(), 
-                d->config.port(), clientName(), clientVersion(),
-                trackOffsetList );
-
-        if ( Lookup::Success != r )
-          return r;
 
         connect( static_cast<AsyncCDDBPLookup *>( cdInfoLookup ), 
                   SIGNAL( finished( Lookup::Result ) ),
                   SLOT( slotFinished( Lookup::Result ) ) );
-
-        return Lookup::Success;
       }
+      else
+      {
+        kdDebug() << "Unsupported transport: Async HTTP " << endl;
+        return Lookup::ServerError;
+      }
+
+      r = cdInfoLookup->lookup( d->config.hostname(), 
+              d->config.port(), clientName(), clientVersion(),
+              trackOffsetList );
+
+      if ( Lookup::Success != r )
+        delete cdInfoLookup;
     }
-    else if ( Lookup::HTTP == t )
-    {
-      kdDebug() << "Unsupported transport: HTTP " << endl;
-    }
-    return Lookup::UnknownError;
+
+    return r;
   }
 
     void

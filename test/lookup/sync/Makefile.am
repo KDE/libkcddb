@@ -1,1 +1,1 @@
-SUBDIRS = cddb
+SUBDIRS = cddb http
