@@ -26,9 +26,63 @@
         <property name="spacing">
             <number>6</number>
         </property>
+        <widget class="QButtonGroup">
+            <property name="name">
+                <cstring>cachePolicy</cstring>
+            </property>
+            <property name="title">
+                <string>Mode:</string>
+            </property>
+            <property name="sizePolicy">
+                <sizepolicy>
+                    <hsizetype>5</hsizetype>
+                    <vsizetype>4</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QRadioButton">
+                    <property name="name">
+                        <cstring>cacheOnly</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Cache Only</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Check only in the local cache for CD info.</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton">
+                    <property name="name">
+                        <cstring>cacheAndRemote</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Cache and Remote</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Check for locally cached CD info before trying to look up at remote CDDB server.</string>
+                    </property>
+                </widget>
+                <widget class="QRadioButton">
+                    <property name="name">
+                        <cstring>remoteOnly</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Remote only</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Only try to look up at remote CDDB server.</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
         <widget class="QGroupBox">
             <property name="name">
-                <cstring>GroupBox4</cstring>
+                <cstring>serverBox</cstring>
             </property>
             <property name="title">
                 <string>CDDB Server</string>
@@ -124,20 +178,6 @@
                 </widget>
             </grid>
         </widget>
-        <widget class="QCheckBox">
-            <property name="name">
-                <cstring>cacheEnable</cstring>
-            </property>
-            <property name="text">
-                <string>Use local cache &amp;before CDDB server</string>
-            </property>
-            <property name="checked">
-                <bool>true</bool>
-            </property>
-            <property name="whatsThis" stdset="0">
-                <string>Check for locally cached CD info before trying to look up at remote CDDB server.</string>
-            </property>
-        </widget>
         <widget class="QGroupBox">
             <property name="name">
                 <cstring>GroupBox1</cstring>
@@ -214,6 +254,24 @@
 </widget>
 <connections>
     <connection>
+        <sender>cacheOnly</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>serverBox</receiver>
+        <slot>setDisabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>cacheAndRemote</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>serverBox</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>remoteOnly</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>serverBox</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
         <sender>submissionsEnable</sender>
         <signal>toggled(bool)</signal>
         <receiver>TextLabel3</receiver>
@@ -256,19 +314,33 @@
         <slot>slotConfigChanged()</slot>
     </connection>
     <connection>
-        <sender>cacheEnable</sender>
+        <sender>cacheOnly</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>cacheAndRemote</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>CDDBConfigWidgetBase</receiver>
+        <slot>slotConfigChanged()</slot>
+    </connection>
+    <connection>
+        <sender>remoteOnly</sender>
         <signal>toggled(bool)</signal>
         <receiver>CDDBConfigWidgetBase</receiver>
         <slot>slotConfigChanged()</slot>
     </connection>
 </connections>
 <tabstops>
+    <tabstop>cacheOnly</tabstop>
+    <tabstop>cacheAndRemote</tabstop>
+    <tabstop>remoteOnly</tabstop>
     <tabstop>cddbServer</tabstop>
     <tabstop>cddbPort</tabstop>
     <tabstop>cddbType</tabstop>
     <tabstop>submissionsEnable</tabstop>
     <tabstop>submissionsSendTo</tabstop>
-    <tabstop>cacheEnable</tabstop>
 </tabstops>
 <slots>
     <slot access="protected">slotConfigChanged()</slot>

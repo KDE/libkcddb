@@ -22,6 +22,8 @@
 #include <qcombobox.h>
 #include <qspinbox.h>
 #include <qlineedit.h>
+#include <qgroupbox.h>
+#include <qradiobutton.h>
 
 #include <kconfig.h>
 #include <klocale.h>
@@ -75,7 +77,13 @@ CDDBModule::readConfigFromWidgets() const
   KCDDB::Config config;
 
   bool cddbLookup = (0 == widget_->cddbType->currentItem());
-  bool cacheEnabled = widget_->cacheEnable->isChecked();
+  KCDDB::Cache::Policy policy;
+  if (widget_->cacheOnly->isChecked())
+    policy = KCDDB::Cache::Only;
+  else if (widget_->cacheAndRemote->isChecked())
+    policy = KCDDB::Cache::Use;
+  else
+    policy = KCDDB::Cache::Ignore;
 
   config.setHostname            (widget_->cddbServer->text());
   config.setPort                (widget_->cddbPort->value());
@@ -83,8 +91,7 @@ CDDBModule::readConfigFromWidgets() const
   config.setSubmissionsEnabled  (widget_->submissionsEnable->isChecked());
   config.setLookupTransport     (cddbLookup ?
                                 KCDDB::CDDB::CDDBP : KCDDB::CDDB::HTTP);
-  config.setCachePolicy         (cacheEnabled ? 
-                                KCDDB::Cache::Use : KCDDB::Cache::Ignore);
+  config.setCachePolicy         (policy);
 
   return config;
 }
@@ -93,14 +100,18 @@ CDDBModule::readConfigFromWidgets() const
 CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
 {
   bool cddbLookup = (config.lookupTransport() == KCDDB::CDDB::CDDBP);
-  bool cacheEnabled = (config.cachePolicy() == KCDDB::Cache::Use);
 
   widget_->cddbType           ->setCurrentItem  (cddbLookup ? 0 : 1);
   widget_->cddbServer         ->setText         (config.hostname());
   widget_->cddbPort           ->setValue        (config.port());
   widget_->submissionsEnable  ->setChecked      (config.submissionsEnabled());
   widget_->submissionsSendTo  ->setText         (config.emailAddress());
-  widget_->cacheEnable        ->setChecked      (cacheEnabled);
+  if (config.cachePolicy() == KCDDB::Cache::Only)
+    widget_->cacheOnly->setChecked(true);
+  else if (config.cachePolicy() == KCDDB::Cache::Use)
+    widget_->cacheAndRemote->setChecked(true);
+  else
+    widget_->remoteOnly->setChecked(true);
 }
 
   void

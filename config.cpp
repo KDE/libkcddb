@@ -34,7 +34,7 @@ namespace KCDDB
   static const unsigned int  defaultPort         = 80;
   static const char * const  defaultEmailAddress = "freedb-submit@freedb.org";
   static const bool          defaultSubmissionsEnabled = true;
-  static const bool          defaultCachePolicy  = true;
+  static const Cache::Policy defaultCachePolicy  = Cache::Use;
 
   Config::Config()
     : hostname_             (defaultHostname),
@@ -43,7 +43,7 @@ namespace KCDDB
       lookupTransport_      (defaultLookupTransport),
       emailAddress_         (defaultEmailAddress),
       submissionsEnabled_   (defaultSubmissionsEnabled),
-      cachePolicy_          (defaultCachePolicy? Cache::Use : Cache::Ignore)
+      cachePolicy_          (defaultCachePolicy)
   {
   }
 
@@ -113,8 +113,15 @@ namespace KCDDB
     submissionsEnabled_ =
       c.readBoolEntry(submissionsEnabledKey(), defaultSubmissionsEnabled);
 
-    cachePolicy_ = c.readBoolEntry(cachePolicyKey(), defaultCachePolicy)?
-        Cache::Use : Cache::Ignore;
+    QString p = c.readEntry(cachePolicyKey(), QString::null);
+    if (p == "cacheOnly")
+        cachePolicy_ = Cache::Only;
+    else if (p == "cacheAndRemote")
+        cachePolicy_ = Cache::Use;
+    else if (p == "remoteOnly")
+        cachePolicy_ = Cache::Ignore;
+    else
+        cachePolicy_ = defaultCachePolicy;
   }
 
     void
@@ -139,7 +146,12 @@ namespace KCDDB
 
     c.writeEntry(emailAddressKey(), emailAddress_);
     c.writeEntry(submissionsEnabledKey(), submissionsEnabled_);
-    c.writeEntry(cachePolicyKey(), cachePolicy_ != Cache::Ignore);
+		if (cachePolicy_ == Cache::Only)
+				c.writeEntry(cachePolicyKey(), "cacheOnly");
+		else if (cachePolicy_ == Cache::Use)
+				c.writeEntry(cachePolicyKey(), "cacheAndRemote");
+	  else if (cachePolicy_ == Cache::Ignore)
+		    c.writeEntry(cachePolicyKey(), "remoteOnly");
 
     c.sync();
   }
