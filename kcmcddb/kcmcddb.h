@@ -56,7 +56,6 @@ class CDDBModule : public KCModule
 
     CDDBConfigWidgetBase  * widget_;
     KCDDB::Config           originalConfig_;
-    KConfigDialogManager  * configDialogManager_;
 };
 
 #endif // KCMCDDB_H

@@ -56,7 +56,7 @@ CDDBModule::CDDBModule(QWidget *parent, const char *name, const QStringList &)
   KCDDB::Config* cfg = new KCDDB::Config();
   cfg->readConfig();
 
-  configDialogManager_ = addConfig(cfg, widget_);
+  addConfig(cfg, widget_);
 
   QVBoxLayout * layout = new QVBoxLayout(this, 0);
 
@@ -66,7 +66,6 @@ CDDBModule::CDDBModule(QWidget *parent, const char *name, const QStringList &)
   load();
 
   connect(widget_, SIGNAL(configChanged()), SLOT(slotConfigChanged()));
-  connect(configDialogManager_, SIGNAL(settingsChanged()), SLOT(slotConfigChanged()));
 }
 
   void
@@ -74,7 +73,7 @@ CDDBModule::defaults()
 {
   updateWidgetsFromConfig(KCDDB::Config());
 
-  configDialogManager_->updateWidgetsDefault();
+  KCModule::defaults();
 
   emit changed(true);
 }
@@ -144,7 +143,7 @@ CDDBModule::save()
 
   newConfig.writeConfig();
 
-  configDialogManager_->updateSettings();
+  KCModule::save();
 
   emit changed(false);
 }
@@ -155,7 +154,7 @@ CDDBModule::load()
   originalConfig_.readConfig();
   updateWidgetsFromConfig(originalConfig_);
 
-  configDialogManager_->updateWidgets();
+  KCModule::load();
 }
 
   void
