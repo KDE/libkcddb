@@ -64,7 +64,7 @@ namespace KCDDB
     l += 2;
     diskData_ += QString("# Disc length: %1 seconds\n").arg(l);
 
-    diskData_ += cdInfo.toString();
+    diskData_ += cdInfo.toString(true);
 
     kdDebug(60010) << "diskData_ == " << diskData_ << endl;
   }
