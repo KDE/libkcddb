@@ -36,7 +36,7 @@ namespace KCDDB
     // Empty.
   }
 
-    Lookup::Result
+    CDDB::Result
   SyncCDDBPLookup::lookup
   (
     const QString         & hostName,
@@ -93,7 +93,7 @@ namespace KCDDB
     return Success;
   }
 
-    Lookup::Result
+    CDDB::Result
   SyncCDDBPLookup::connect( const QString & hostName, uint port )
   {
     kdDebug() << "Trying to connect to " << hostName << ":" << port << endl;
@@ -113,7 +113,7 @@ namespace KCDDB
     return Success;
   }
 
-    Lookup::Result
+    CDDB::Result
   SyncCDDBPLookup::shakeHands()
   {
     QString line = readLine();
@@ -136,7 +136,7 @@ namespace KCDDB
     return Success;
   }
 
-    Lookup::Result
+    CDDB::Result
   SyncCDDBPLookup::runQuery()
   {
     Result result;
@@ -164,7 +164,7 @@ namespace KCDDB
     return Success;
   }
 
-    Lookup::Result
+    CDDB::Result
   SyncCDDBPLookup::matchToCDInfo( const CDDBMatch & match )
   {
     sendRead( match );

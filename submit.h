@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  Copyright (C) 2002 Nadeem Hasan <nhasan@kde.org>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -21,38 +22,16 @@
 #ifndef KCDDB_SUBMIT_H
 #define KCDDB_SUBMIT_H
 
-#include <qstring.h>
-
 namespace KCDDB
 {
-  class Submit
+  class Submit : public CDDB
   {
     public:
-
-      enum Result
-      {
-        Success,
-        ServerHatesUs,
-        HostNotFound,
-        NoResponse,
-        CannotSave,
-        UnknownError
-      };
-
-      enum Transport
-      {
-        Local,
-        CDDB,
-        HTTP
-      };
 
       Submit();
       virtual ~Submit();
 
-      static QString resultToString(Result);
-
-      static QString    transportToString(Transport);
-      static Transport  stringToTransport(const QString &);
+      Result submit( const CDInfo & );
   };
 }
 

@@ -42,7 +42,7 @@ namespace KCDDB
 
     signals:
 
-      void finished( Lookup::Result );
+      void finished( CDDB::Result );
 
     protected slots:
 

@@ -16,8 +16,8 @@ main(int argc, char ** argv)
   Config config;
   config.setHostname("freedb.freedb.org");
   config.setPort(80);
-  config.setCachePolicy(KCDDB::Cache::Use);
-  config.setLookupTransport(KCDDB::Lookup::HTTP);
+  config.setCachePolicy(Cache::Use);
+  config.setLookupTransport(CDDB::HTTP);
 
   Client c(config);
 

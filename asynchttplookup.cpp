@@ -39,7 +39,7 @@ namespace KCDDB
     // Empty.
   }
 
-    Lookup::Result
+    CDDB::Result
   AsyncHTTPLookup::lookup
   (
     const QString         & hostName,
@@ -67,7 +67,7 @@ namespace KCDDB
     return result_;
   }
 
-    Lookup::Result
+    CDDB::Result
   AsyncHTTPLookup::runQuery()
   {
     data_ = QString::null;

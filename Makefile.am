@@ -9,9 +9,9 @@ cache.cpp\
 cdinfo.cpp\
 config.cpp\
 client.cpp\
+cddb.cpp\
 lookup.cpp\
 cddbplookup.cpp\
-submit.cpp\
 synccddbplookup.cpp\
 asynccddbplookup.cpp\
 httplookup.cpp\
@@ -29,9 +29,9 @@ cache.h\
 cdinfo.h\
 client.h\
 config.h\
+cddb.h\
 lookup.h\
 cddbplookup.h\
-submit.h\
 synccddbplookup.h\
 asynccddbplookup.h\
 httplookup.h\

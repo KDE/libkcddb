@@ -50,7 +50,7 @@ namespace KCDDB
 
       CDInfoList lookupResponse() const;
 
-      Lookup::Result lookup(const TrackOffsetList &);
+      CDDB::Result lookup(const TrackOffsetList &);
       Submit::Result submit(const CDInfo &);
 
       void setBlockingMode( bool );
@@ -63,11 +63,11 @@ namespace KCDDB
 
     signals:
 
-      void finished( Lookup::Result );
+      void finished( CDDB::Result );
 
     protected slots:
 
-      void slotFinished( Lookup::Result );
+      void slotFinished( CDDB::Result );
 
     private:
 

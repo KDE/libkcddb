@@ -82,7 +82,7 @@ CDDBModule::readConfigFromWidgets() const
   config.setEmailAddress        (widget_->submissionsSendTo->text());
   config.setSubmissionsEnabled  (widget_->submissionsEnable->isChecked());
   config.setLookupTransport     (cddbLookup ?
-                                KCDDB::Lookup::CDDB : KCDDB::Lookup::HTTP);
+                                KCDDB::CDDB::CDDBP : KCDDB::CDDB::HTTP);
   config.setCachePolicy         (cacheEnabled ? 
                                 KCDDB::Cache::Use : KCDDB::Cache::Ignore);
 
@@ -92,7 +92,7 @@ CDDBModule::readConfigFromWidgets() const
   void
 CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
 {
-  bool cddbLookup = (config.lookupTransport() == KCDDB::Lookup::CDDB);
+  bool cddbLookup = (config.lookupTransport() == KCDDB::CDDB::CDDBP);
   bool cacheEnabled = (config.cachePolicy() == KCDDB::Cache::Use);
 
   widget_->cddbType           ->setCurrentItem  (cddbLookup ? 0 : 1);

@@ -68,7 +68,7 @@ namespace KCDDB
     close();
   }
 
-    Lookup::Result
+    CDDB::Result
   AsyncCDDBPLookup::lookup
   (
     const QString         & hostname,
@@ -140,18 +140,18 @@ namespace KCDDB
   {
     kdDebug() << "Ready to read. State: " << stateToString() << endl;
 
-    while ( Idle != state_ && socket_.canReadLine() )
+    while ( Idle != state_ && isConnected() && socket_.canReadLine() )
       read();
   }
 
     void
   AsyncCDDBPLookup::read()
   {
-    switch (state_)
+    switch ( state_ )
     {
       case WaitingForGreeting:
 
-        if (!parseGreeting(readLine()))
+        if ( !parseGreeting( readLine() ) )
         {
           result_ = ServerError;
           doQuit();
@@ -248,7 +248,19 @@ namespace KCDDB
 
         break;
 
+      case WaitingForQuitResponse:
+
+        state_ = Idle;
+
+        while ( socket_.bytesAvailable() )
+          socket_.getch();
+ 
+        emit finished( result_ );
+
+        break;
+
       default:
+
         break;
     }
   }
@@ -309,11 +321,9 @@ namespace KCDDB
     void
   AsyncCDDBPLookup::doQuit()
   {
-    state_ = Idle;
+    state_ = WaitingForQuitResponse;
 
     sendQuit();
-
-    emit finished( result_ );
   }
 
     QString
@@ -335,6 +345,10 @@ namespace KCDDB
 
       case WaitingForGreeting:
         return "WaitingForGreeting";
+        break;
+
+      case WaitingForProtoResponse:
+        return "WaitingForProtoResponse";
         break;
 
       case WaitingForHandshake:

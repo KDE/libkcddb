@@ -83,7 +83,7 @@ namespace KCDDB
     return d->cdInfoList;
   }
 
-    Lookup::Result
+    CDDB::Result
   Client::lookup(const TrackOffsetList & trackOffsetList)
   {
     //d->config.load();
@@ -108,22 +108,22 @@ namespace KCDDB
         if ( !blockingMode() )
           emit finished( Lookup::Success );
 
-        return Lookup::Success;
+        return CDDB::Success;
       }
     }
 
     if ( Cache::Only == d->config.cachePolicy() )
     {
       kdDebug() << "Only trying cache. Give up now." << endl;
-      return Lookup::NoRecordFound;
+      return CDDB::NoRecordFound;
     }
 
-    Lookup::Result r;
-    Lookup::Transport t = d->config.lookupTransport();
+    CDDB::Result r;
+    CDDB::Transport t = d->config.lookupTransport();
 
     if ( blockingMode() )
     {
-      if( Lookup::CDDB == t )
+      if( CDDB::CDDBP == t )
         cdInfoLookup = new SyncCDDBPLookup();
       else
         cdInfoLookup = new SyncHTTPLookup();
@@ -132,7 +132,7 @@ namespace KCDDB
               d->config.port(), clientName(), clientVersion(),
               trackOffsetList );
 
-      if ( Lookup::Success == r )
+      if ( CDDB::Success == r )
       {
         d->cdInfoList = cdInfoLookup->lookupResponse();
         Cache::store( d->cdInfoList );
@@ -142,21 +142,21 @@ namespace KCDDB
     }
     else
     {
-      if( Lookup::CDDB == t )
+      if( CDDB::CDDBP == t )
       {
         cdInfoLookup = new AsyncCDDBPLookup();
 
         connect( static_cast<AsyncCDDBPLookup *>( cdInfoLookup ), 
-                  SIGNAL( finished( Lookup::Result ) ),
-                  SLOT( slotFinished( Lookup::Result ) ) );
+                  SIGNAL( finished( CDDB::Result ) ),
+                  SLOT( slotFinished( CDDB::Result ) ) );
       }
       else
       {
         cdInfoLookup = new AsyncHTTPLookup();
 
         connect( static_cast<AsyncHTTPLookup *>( cdInfoLookup ), 
-                  SIGNAL( finished( Lookup::Result ) ),
-                  SLOT( slotFinished( Lookup::Result ) ) );
+                  SIGNAL( finished( CDDB::Result ) ),
+                  SLOT( slotFinished( CDDB::Result ) ) );
       }
 
       r = cdInfoLookup->lookup( d->config.hostname(), 
@@ -171,9 +171,9 @@ namespace KCDDB
   }
 
     void
-  Client::slotFinished( Lookup::Result r )
+  Client::slotFinished( CDDB::Result r )
   {
-    if ( Lookup::Success == r )
+    if ( CDDB::Success == r )
     {
       d->cdInfoList = cdInfoLookup->lookupResponse();
       Cache::store( d->cdInfoList );
@@ -181,15 +181,15 @@ namespace KCDDB
     else
       d->cdInfoList.clear();
 
-    delete cdInfoLookup;
-
     emit finished( r );
+
+    delete cdInfoLookup;
   }
 
-    Submit::Result
+    CDDB::Result
   Client::submit(const CDInfo &)
   {
-    return Submit::UnknownError;
+    return CDDB::UnknownError;
 #if 0
     // Do CannotSave sinarios
     if(cdInfo.id == "0")

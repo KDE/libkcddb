@@ -22,41 +22,16 @@
 #ifndef KCDDB_LOOKUP_H
 #define KCDDB_LOOKUP_H
 
-#include <qstring.h>
-#include <qpair.h>
-#include <qvaluelist.h>
-
-#include <kextendedsocket.h>
-
-#include "cdinfo.h"
+#include "cddb.h"
 
 namespace KCDDB
 {
   typedef QPair<QString, QString> CDDBMatch;
   typedef QValueList<CDDBMatch> CDDBMatchList;
-  typedef QValueList<uint> TrackOffsetList;
 
-  class Lookup
+  class Lookup : public CDDB
   {
     public:
-
-      enum Result
-      {
-        Success,
-        ServerError,
-        HostNotFound,
-        NoResponse,
-        NoRecordFound,
-        MultipleRecordFound,
-        CannotSave,
-        UnknownError
-      };
-
-      enum Transport
-      {
-        CDDB,
-        HTTP
-      };
 
       Lookup();
       virtual ~Lookup();
@@ -64,40 +39,16 @@ namespace KCDDB
       virtual Result lookup( const QString &, uint, const QString &,
           const QString &, const TrackOffsetList & ) = 0;
 
-      CDInfoList lookupResponse() const
-      { return cdInfoList_; }
-
-      static QString resultToString(Result);
-      static QString transportToString(uint);
-      static Transport stringToTransport(const QString &);
-      static QString trackOffsetListToId( const TrackOffsetList& );
+      CDInfoList lookupResponse() const;
 
     protected:
 
-      QString readLine();
-      void writeLine( const QString & );
-
-      bool parseGreeting( const QString & );
-      bool parseHandshake( const QString & );
-      void parseExtraMatch( const QString & );
-      Result parseQuery( const QString & );
-      Result parseRead( const QString & );
-
-      QString trackOffsetListToId();
-      QString trackOffsetListToString();
- 
-      KExtendedSocket socket_;
-
-      QString user_;
-      QString clientName_;
-      QString clientVersion_;
-      QString localHostName_;
-
-      bool readOnly_;
+      void parseExtraMatch(  const QString & );
+      Result parseQuery(  const QString & );
+      Result parseRead(  const QString & );
 
       CDInfoList cdInfoList_;
       CDDBMatchList matchList_;
-      TrackOffsetList trackOffsetList_;
   };
 }
 

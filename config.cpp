@@ -27,8 +27,8 @@ namespace KCDDB
 {
   // Defaults.
 
-  static const Submit::Transport  defaultSubmitTransport = Submit::CDDB;
-  static const Lookup::Transport  defaultLookupTransport = Lookup::CDDB;
+  static const CDDB::Transport  defaultSubmitTransport = CDDB::CDDBP;
+  static const CDDB::Transport  defaultLookupTransport = CDDB::CDDBP;
 
   static const char * const  defaultHostname     = "freedb.freedb.org";
   static const unsigned int  defaultPort         = 8880;
@@ -89,22 +89,22 @@ namespace KCDDB
     port_ = c.readUnsignedNumEntry(portKey(), defaultPort);
 
     submitTransport_ =
-      Submit::stringToTransport
+      CDDB::stringToTransport
       (
         c.readEntry
         (
           submitTransportKey(),
-          Submit::transportToString(defaultSubmitTransport)
+          CDDB::transportToString(defaultSubmitTransport)
         )
       );
 
     lookupTransport_ =
-      Lookup::stringToTransport
+      CDDB::stringToTransport
       (
         c.readEntry
         (
           lookupTransportKey(),
-          Lookup::transportToString(defaultLookupTransport)
+          CDDB::transportToString(defaultLookupTransport)
         )
       );
 
@@ -128,13 +128,13 @@ namespace KCDDB
     c.writeEntry
       (
         submitTransportKey(),
-        Submit::transportToString(submitTransport_)
+        CDDB::transportToString(submitTransport_)
       );
 
     c.writeEntry
       (
         lookupTransportKey(),
-        Lookup::transportToString(lookupTransport_)
+        CDDB::transportToString(lookupTransport_)
       );
 
     c.writeEntry(emailAddressKey(), emailAddress_);
@@ -158,13 +158,13 @@ namespace KCDDB
     return port_;
   }
 
-    Submit::Transport
+    CDDB::Transport
   Config::submitTransport() const
   {
     return submitTransport_;
   }
 
-    Lookup::Transport
+    CDDB::Transport
   Config::lookupTransport() const
   {
     return lookupTransport_;
@@ -203,13 +203,13 @@ namespace KCDDB
   }
 
     void
-  Config::setSubmitTransport(Submit::Transport t)
+  Config::setSubmitTransport(CDDB::Transport t)
   {
     submitTransport_ = t;
   }
 
     void
-  Config::setLookupTransport(Lookup::Transport t)
+  Config::setLookupTransport(CDDB::Transport t)
   {
     lookupTransport_ = t;
   }

@@ -13,8 +13,8 @@ AsyncCDDBLookupTest::AsyncCDDBLookupTest()
 
   config.setHostname("freedb.freedb.org");
   config.setPort(8880);
-  config.setCachePolicy(KCDDB::Cache::Use);
-  config.setLookupTransport(KCDDB::Lookup::CDDB);
+  config.setCachePolicy(Cache::Use);
+  config.setLookupTransport(CDDB::CDDBP);
 
   client_ = new Client(config);
   client_->setBlockingMode( false );
@@ -22,8 +22,8 @@ AsyncCDDBLookupTest::AsyncCDDBLookupTest()
   connect
     (
       client_,
-      SIGNAL(finished(Lookup::Result)),
-      SLOT(slotFinished(Lookup::Result))
+      SIGNAL(finished(CDDB::Result)),
+      SLOT(slotFinished(CDDB::Result))
     );
 
   TrackOffsetList list;

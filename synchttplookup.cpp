@@ -38,7 +38,7 @@ namespace KCDDB
     // Empty.
   }
 
-    Lookup::Result
+    CDDB::Result
   SyncHTTPLookup::lookup
   (
     const QString         & hostName,
@@ -82,7 +82,7 @@ namespace KCDDB
     return result_;
   }
 
-    Lookup::Result
+    CDDB::Result
   SyncHTTPLookup::runQuery()
   {
     done_ = false;
@@ -102,7 +102,7 @@ namespace KCDDB
     return result_;
   }
 
-    Lookup::Result
+    CDDB::Result
   SyncHTTPLookup::matchToCDInfo( const CDDBMatch & match )
   {
     done_ = false;

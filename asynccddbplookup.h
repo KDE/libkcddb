@@ -57,8 +57,8 @@ namespace KCDDB
 
     signals:
 
-      void finished( Lookup::Result );
-      void quit( Lookup::Result );
+      void finished( CDDB::Result );
+      void quit( CDDB::Result );
 
     protected slots:
 

@@ -19,22 +19,15 @@
   Boston, MA 02111-1307, USA.
 */
 
-#include <qregexp.h>
-#include <qstringlist.h>
-
 #include <kdebug.h>
-#include <kstringhandler.h>
 
 #include "lookup.h"
 
 namespace KCDDB
 {
   Lookup::Lookup()
-    : readOnly_( false ),
-      user_( "libkcddb-user" ),
-      localHostName_( "localHost" )
+     : CDDB() 
   {
-    socket_.setTimeout( 60 );
   }
 
   Lookup::~Lookup()
@@ -42,123 +35,22 @@ namespace KCDDB
     // Empty.
   }
 
-    QString
-  Lookup::trackOffsetListToId()
+    CDDB::Result
+  Lookup::parseQuery(  const QString & line )
   {
-    return trackOffsetListToId( trackOffsetList_ );
-  }
-    QString
-  Lookup::trackOffsetListToId( const TrackOffsetList & list )
-  {
-    // Taken from version by Michael Matz in kio_audiocd.
-    unsigned int id = 0;
-    int numTracks = list.count() - 2;
+    uint serverStatus = statusCode(  line );
 
-    // The last two in the list are disc begin and disc end.
-    for ( int i = numTracks-1; i >= 0; i-- )
+    if (  200 == serverStatus )
     {
-      int n = list[ i ]/75;
-      while ( n > 0 )
-      {
-        id += n % 10;
-        n /= 10;
-      }
-    }
-
-    unsigned int l = list[ numTracks + 1 ];
-
-    l -= list[ numTracks ];
-    l /= 75;
-
-    id = ( ( id % 255 ) << 24 ) | ( l << 8 ) | numTracks;
-
-    return QString::number( id, 16 ).rightJustify( 8, '0' );
-  }
-
-    QString
-  Lookup::trackOffsetListToString()
-  {
-    QString ret;
-    uint numTracks = trackOffsetList_.count()-2;
-
-    // Disc start.
-    ret.append( QString::number( trackOffsetList_[ numTracks ] ) );
-    ret.append( " " );
-
-    for ( uint i = 0; i < numTracks; i++ )
-    {
-      ret.append( QString::number( trackOffsetList_[ i ] ) );
-      ret.append( " " );
-    }
-
-    unsigned int discLengthInSec = ( trackOffsetList_[ numTracks+1 ] ) / 75;
-
-    // Disc length in seconds.
-    ret.append( QString::number( discLengthInSec ) );
-
-    return ret;
-  }
-
-    bool
-  Lookup::parseGreeting( const QString & line )
-  {
-    QStringList tokenList = QStringList::split( ' ', line );
-
-    uint serverStatus = tokenList[ 0 ].toUInt();
-
-    if ( 200 == serverStatus )
-    {
-      kdDebug() << "Server response: read-only" << endl;
-      readOnly_ = true;
-    }
-    else if ( 201 == serverStatus )
-    {
-      kdDebug() << "Server response: read-write" << endl;
-    }
-    else
-    {
-      kdDebug() << "Server response: bugger off" << endl;
-      return false;
-    }
-
-    return true;
-  }
-
-    bool
-  Lookup::parseHandshake( const QString & line )
-  {
-    QStringList tokenList = QStringList::split( ' ', line );
-
-    uint serverStatus = tokenList[ 0 ].toUInt();
-
-    if ( ( 200 != serverStatus ) && ( 402 != serverStatus ) )
-    {
-      kdDebug() << "Handshake was too tight. Letting go." << endl;
-      return false;
-    }
-
-    kdDebug() << "Handshake was warm and firm" << endl;
-
-    return true;
-  }
-
-    Lookup::Result
-  Lookup::parseQuery( const QString & line )
-  {
-    QStringList tokenList = QStringList::split( ' ', line );
-
-    uint serverStatus  = tokenList[ 0 ].toUInt();
-
-    if ( 200 == serverStatus )
-    {
-      matchList_.append( qMakePair( tokenList[ 1 ], tokenList[ 2 ] ) );
+      QStringList tokenList = QStringList::split(  ' ', line );
+      matchList_.append(  qMakePair(  tokenList[  1 ], tokenList[  2 ] ) );
       return Success;
     }
-    else if ( ( 211 == serverStatus ) || ( 210 == serverStatus ) )
+    else if (  (  211 == serverStatus ) || (  210 == serverStatus ) )
     {
       return MultipleRecordFound;
     }
-    else if ( 202 == serverStatus )
+    else if (  202 == serverStatus )
     {
       return NoRecordFound;
     }
@@ -167,118 +59,29 @@ namespace KCDDB
   }
 
     void
-  Lookup::parseExtraMatch( const QString & line )
-  {
-    QStringList tokenList = QStringList::split( ' ', line );
-    matchList_.append( qMakePair( tokenList[ 0 ], tokenList[ 1 ] ) );
-  }
-
-    QString
-  Lookup::resultToString(Result r)
-  {
-    switch (r)
-    {
-      case Success:
-        return "Success";
-        break;
-
-      case HostNotFound:
-        return "HostNotFound";
-        break;
-
-      case NoResponse:
-        return "NoResponse";
-        break;
-
-      case NoRecordFound:
-        return "NoRecordFound";
-        break;
-
-      case MultipleRecordFound:
-        return "MultipleRecordFound";
-        break;
-
-      case CannotSave:
-        return "CannotSave";
-        break;
-
-      default:
-        return "UnknownError";
-        break;
-    }
-  }
-
-    Lookup::Result
-  Lookup::parseRead( const QString & line )
+  Lookup::parseExtraMatch(  const QString & line )
   {
     QStringList tokenList = QStringList::split(  ' ', line );
+    matchList_.append(  qMakePair(  tokenList[  0 ], tokenList[  1 ] ) );
+  }
 
-    uint serverStatus = tokenList[ 0 ].toUInt();
-    if (  210 != serverStatus )
+    CDDB::Result
+  Lookup::parseRead(  const QString & line )
+  {
+    uint serverStatus = statusCode(  line );
+
+    if (   210 != serverStatus )
       return ServerError;
 
     return Success;
   }
 
-    QString
-  Lookup::readLine()
+    CDInfoList
+  Lookup::lookupResponse() const
   {
-    if ( KExtendedSocket::connected != socket_.socketStatus() )
-    {
-      kdDebug() << "socket status: " << socket_.socketStatus() << endl;
-      return QString::null;
-    }
-
-    const uint maxRead = 4096;
-
-    QByteArray buf(maxRead);
-
-    Q_LONG bytesRead = socket_.readLine(buf.data(), buf.size() - 1);
-
-    buf[bytesRead] = '\0';
-
-    return QString(buf);
+    return cdInfoList_;
   }
 
-    void
-  Lookup::writeLine( const QString & line )
-  {
-    if ( KExtendedSocket::connected != socket_.socketStatus() )
-    {
-      kdDebug() << "socket status: " << socket_.socketStatus() << endl;
-      return;
-    }
-
-    kdDebug() << "WRITE: [" << line << "]" << endl;
-    QCString buf = line.latin1();
-    buf.append( "\n" );
-
-    socket_.writeBlock( buf.data(), buf.length() );
-  }
-
-    Lookup::Transport
-  Lookup::stringToTransport(const QString & s)
-  {
-    if ("HTTP" == s)
-      return HTTP;
-    else
-      return CDDB;
-  }
-
-    QString
-  Lookup::transportToString(uint t)
-  {
-    switch (Transport(t))
-    {
-      case HTTP:
-        return "HTTP";
-        break;
-
-      default:
-        return "CDDB";
-        break;
-    }
-  }
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

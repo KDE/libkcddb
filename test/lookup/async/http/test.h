@@ -13,7 +13,7 @@ class AsyncCDDBLookupTest : public QObject
 
   public slots:
 
-    void slotFinished(Lookup::Result);
+    void slotFinished(CDDB::Result);
 
   private:
 

@@ -28,7 +28,7 @@ namespace KCDDB
 {
   HTTPLookup::HTTPLookup()
     : QObject(), Lookup(),
-      job_( 0 ), state_( Idle ), result_( Success ), block_( true )
+      block_( true ), job_( 0 ), state_( Idle ), result_( Success )
   {
   }
 
@@ -36,7 +36,7 @@ namespace KCDDB
   {
   }
 
-    Lookup::Result
+    CDDB::Result
   HTTPLookup::sendQuery()
   {
     QString cmd = QString( "cddb query %1 %2" )
@@ -49,7 +49,7 @@ namespace KCDDB
     return result;
   }
 
-    Lookup::Result
+    CDDB::Result
   HTTPLookup::sendRead( const CDDBMatch & match )
   {
     QString category  = match.first;
@@ -95,7 +95,7 @@ namespace KCDDB
     cgiURL_.addQueryItem( "proto", "5" );
   }
 
-    Lookup::Result
+    CDDB::Result
   HTTPLookup::fetchURL()
   {
     kdDebug() << "About to fetch: " << cgiURL_.url() << endl;
@@ -114,7 +114,7 @@ namespace KCDDB
   }
 
     void
-  HTTPLookup::slotData( KIO::Job *job, const QByteArray &data )
+  HTTPLookup::slotData( KIO::Job *, const QByteArray &data )
   {
     data_ += data;
   }
@@ -170,22 +170,33 @@ namespace KCDDB
               }
 
               break;
+
+            default:
+
+              break;
           }
           
         }
+
         break;
 
       case WaitingForReadResponse:
 
-        CDInfo info;
+        {
+          CDInfo info;
 
-        if ( info.load( data_ ) )
-          cdInfoList_.append( info );
+          if ( info.load( data_ ) )
+            cdInfoList_.append( info );
 
-        if ( !block_ )
-          emit readReady();
+          if ( !block_ )
+            emit readReady();
+        }
 
         break; 
+
+      default:
+
+        break;
     }
 
     result_ = Success;

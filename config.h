@@ -22,7 +22,6 @@
 #ifndef KCDDB_CONFIG_H
 #define KCDDB_CONFIG_H
 
-#include "submit.h"
 #include "lookup.h"
 #include "cache.h"
 
@@ -62,16 +61,16 @@ namespace KCDDB
 
       QString             hostname()            const;
       uint                port()                const;
-      Submit::Transport   submitTransport()     const;
-      Lookup::Transport   lookupTransport()     const;
+      CDDB::Transport     submitTransport()     const;
+      CDDB::Transport     lookupTransport()     const;
       QString             emailAddress()        const;
       bool                submissionsEnabled()  const;
       Cache::Policy       cachePolicy()         const;
 
       void setHostname            (const QString &);
       void setPort                (uint);
-      void setSubmitTransport     (Submit::Transport);
-      void setLookupTransport     (Lookup::Transport);
+      void setSubmitTransport     (CDDB::Transport);
+      void setLookupTransport     (CDDB::Transport);
       void setEmailAddress        (const QString &);
       void setSubmissionsEnabled  (bool);
       void setCachePolicy         (Cache::Policy);
@@ -83,8 +82,8 @@ namespace KCDDB
       QString           user_;
       QString           clientName_;
       QString           clientVersion_;
-      Submit::Transport submitTransport_;
-      Lookup::Transport lookupTransport_;
+      CDDB::Transport   submitTransport_;
+      CDDB::Transport   lookupTransport_;
       QString           emailAddress_;
       bool              submissionsEnabled_;
       Cache::Policy     cachePolicy_;
