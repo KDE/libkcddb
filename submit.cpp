@@ -35,6 +35,21 @@ namespace KCDDB
     // Empty.
   }
 
+  CDDB::Result Submit::submit( const CDInfo& cdInfo, const TrackOffsetList &offsetList)
+  {
+    makeDiskData( cdInfo, offsetList );
+
+    if (!validCategory(cdInfo.category))
+      return InvalidCategory;
+
+    KIO::Job* job = createJob(cdInfo);
+
+    if (!job)
+      return UnknownError;
+
+    return runJob(job);
+  }
+
     CDDB::Result
   Submit::parseWrite(  const QString & line )
   {

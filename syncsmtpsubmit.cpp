@@ -36,18 +36,8 @@ namespace KCDDB
 
   }
 
-  CDDB::Result SyncSMTPSubmit::submit( const CDInfo& cdInfo, const TrackOffsetList& offsetList )
+  CDDB::Result SyncSMTPSubmit::runJob(KIO::Job* job)
   {
-    makeDiskData( cdInfo, offsetList );
-
-    if (!validCategory(cdInfo.category))
-      return InvalidCategory;
-
-    QString subject = QString("cddb %1 %2").arg(cdInfo.category, cdInfo.id);
-    makeURL(subject);
-
-    KIO::Job* job = KIO::storedPut(diskData_.utf8(), url_, -1, false, false, false);
-
     if ( KIO::NetAccess::synchronousRun(job, 0) )
       return Success;
 

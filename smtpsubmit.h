@@ -31,10 +31,9 @@ namespace KCDDB
       virtual ~SMTPSubmit();
 
     protected:
-      void initURL( const QString&, uint, const QString&);
-      void makeURL( const QString & );
-
       virtual void makeDiskData( const CDInfo&, const TrackOffsetList& );
+
+      virtual KIO::Job* createJob(const CDInfo& cdInfo);
 
       KURL url_;
       QString from_, to_;

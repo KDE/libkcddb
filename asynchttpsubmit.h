@@ -21,11 +21,6 @@
 
 #include "httpsubmit.h"
 
-namespace KIO
-{
-  class Job;
-}
-
 namespace KCDDB
 {
   class AsyncHTTPSubmit : public QObject, public HTTPSubmit
@@ -38,7 +33,7 @@ namespace KCDDB
     signals:
       void finished( CDDB::Result );
     protected:
-      virtual Result postData(KIO::Job* job);
+      virtual Result runJob(KIO::Job* job);
     private slots:
       void slotFinished(KIO::Job*);
   } ;

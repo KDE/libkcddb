@@ -25,6 +25,11 @@
 #include "cddb.h"
 #include "cdinfo.h"
 
+namespace KIO
+{
+  class Job;
+}
+
 namespace KCDDB
 {
   class Submit : public CDDB
@@ -41,10 +46,13 @@ namespace KCDDB
       Submit();
       virtual ~Submit();
 
-      virtual Result submit(const CDInfo &, const TrackOffsetList &) = 0;
-      bool validCategory(const QString&);
+      Result submit( const CDInfo& cdInfo, const TrackOffsetList &offsetList);
 
     protected:
+      virtual KIO::Job* createJob(const CDInfo& cdInfo) = 0;
+      virtual Result runJob(KIO::Job* job) = 0;
+    
+      bool validCategory(const QString&);
 
       Result parseWrite( const QString & );
       virtual void makeDiskData( const CDInfo&, const TrackOffsetList& );

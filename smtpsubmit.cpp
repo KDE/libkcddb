@@ -19,22 +19,13 @@
 
 #include "smtpsubmit.h"
 #include <kdebug.h>
+#include <kio/job.h>
 
 namespace KCDDB
 {
   SMTPSubmit::SMTPSubmit(const QString& hostname, uint port, const QString& username,
         const QString& from, const QString& to)
     : Submit(), from_(from), to_(to)
-  {
-    initURL( hostname, port, username );
-  }
-
-  SMTPSubmit::~SMTPSubmit()
-  {
-
-  }
-
-  void SMTPSubmit::initURL(const QString& hostname, uint port, const QString& username)
   {
     url_.setProtocol("smtp");
     url_.setHost(hostname);
@@ -44,11 +35,18 @@ namespace KCDDB
     url_.setPath("/send");
   }
 
-  void SMTPSubmit::makeURL( const QString& subject )
+  SMTPSubmit::~SMTPSubmit()
   {
-    url_.setQuery(QString("to=%1&subject=%2&from=%3")
-      .arg(to_, subject, from_));
+
+  }
+
+  KIO::Job* SMTPSubmit::createJob(const CDInfo& cdInfo)
+  {
+    url_.setQuery(QString("to=%1&subject=cddb %2 %3&from=%4")
+      .arg(to_, cdInfo.category, cdInfo.id, from_));
     kdDebug(60010) << "Url is: " << url_.prettyURL() << endl;
+
+    return KIO::storedPut(diskData_.utf8(), url_, -1, false, false, false);
   }
 
   void SMTPSubmit::makeDiskData( const CDInfo& cdInfo, const TrackOffsetList& offsetList )

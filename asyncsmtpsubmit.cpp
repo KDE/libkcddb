@@ -36,36 +36,12 @@ namespace KCDDB
 
   }
 
-  CDDB::Result AsyncSMTPSubmit::submit( const CDInfo& cdInfo, const TrackOffsetList &offsetList)
+  CDDB::Result AsyncSMTPSubmit::runJob(KIO::Job* job)
   {
-    makeDiskData( cdInfo, offsetList );
-
-    if (!validCategory(cdInfo.category))
-      return InvalidCategory;
-
-    QString subject = QString("cddb %1 %2").arg(cdInfo.category, cdInfo.id);
-    makeURL( subject );
-
-    KIO::TransferJob* job = KIO::put( url_, -1, false, false, false );
-    connect( job, SIGNAL( dataReq( KIO::Job*, QByteArray& ) ),
-               this, SLOT(slotDataReq( KIO::Job*, QByteArray& ) ) );
     connect( job, SIGNAL( result( KIO::Job* ) ),
                this, SLOT(slotDone( KIO::Job* ) ) ); 
 
-    sent = false;
-
     return Success;
-  }
-
-  void AsyncSMTPSubmit::slotDataReq( KIO::Job *, QByteArray & d )
-  {
-      kdDebug(60010) << k_funcinfo << endl;
-
-      if ( !sent )
-      {
-        d.duplicate( QCString( diskData_.utf8() ) );
-	sent = true;
-      }
   }
 
   void AsyncSMTPSubmit::slotDone( KIO::Job* job )

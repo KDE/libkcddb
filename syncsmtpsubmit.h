@@ -29,10 +29,8 @@ namespace KCDDB
       SyncSMTPSubmit(const QString& hostname, uint port, const QString& username,
                      const QString& from, const QString& to);
       virtual ~SyncSMTPSubmit();
-
-      virtual Result submit( const CDInfo &, const TrackOffsetList&);
     protected:
-      Result parseWrite( const QString & );
+      virtual Result runJob(KIO::Job* job);
   } ;
 }
 

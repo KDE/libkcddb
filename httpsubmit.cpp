@@ -35,18 +35,11 @@ namespace KCDDB
 
   }
 
-  CDDB::Result HTTPSubmit::submit(const CDInfo& cdInfo, const TrackOffsetList& offsetList)
+  KIO::Job* HTTPSubmit::createJob(const CDInfo& cdInfo)
   {
-    if (!validCategory(cdInfo.category))
-      return InvalidCategory;
-
     KURL url("http://freedb.freedb.org/~cddb/submit.cgi");
 
-    makeDiskData(cdInfo, offsetList);
-
     KIO::TransferJob* job = KIO::http_post(url, diskData_.utf8(), false);
-    if (!job)
-      return UnknownError;
 
     job->addMetaData("content-type", "Content-Type: text/plain");
     QString header;
@@ -61,6 +54,6 @@ namespace KCDDB
 
     job->addMetaData("customHTTPHeader", header);
 
-    return postData(job);
+    return job;
   }
 }

@@ -30,7 +30,7 @@ namespace KCDDB
       virtual ~SyncHTTPSubmit();
 
     protected:
-      virtual Result postData(KIO::Job* job);
+      virtual Result runJob(KIO::Job* job);
   } ;
 }
 
