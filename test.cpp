@@ -43,7 +43,22 @@ main(int argc, char ** argv)
 
   Error e = c.lookup(list);
 
-  std::cerr << errorToString(e) << std::endl;
+  std::cerr << "Client::lookup returned error: " << errorToString(e)
+    << std::endl;
+
+  QValueList<CDInfo> response = c.lookupResponse();
+
+  std::cerr << "Client::lookup returned : " << response.count() << " entries"
+    << std::endl;
+
+  QValueList<CDInfo>::ConstIterator it;
+
+  for (it = response.begin(); it != response.end(); ++it)
+  {
+    CDInfo i(*it);
+
+    std::cerr << "Disc title: " << i.title << std::endl;
+  }
 
   return 0;
 }

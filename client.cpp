@@ -22,6 +22,7 @@
 #include <qstringlist.h>
 #include <qdir.h>
 #include <qfile.h>
+#include <kstringhandler.h>
 #include <kextsock.h>
 #include <kdebug.h>
 
@@ -39,10 +40,13 @@ static QString readLine(KExtendedSocket & socket)
 
   QString buf;
 
-  int c =0;
+  int c = socket.getch();
 
-  while ('\n' != (c = socket.getch()))
+  while ('\n' != c)
+  {
     buf += c;
+    c = socket.getch();
+  }
 
   kdDebug() << "READ: `" << buf << "'" << endl;
   return buf;
@@ -65,6 +69,64 @@ static void writeLine(KExtendedSocket & socket, const QString & s)
   socket.writeBlock(buf.data(), buf.length());
 }
 
+  static KCDDB::CDInfo
+parseStringListToCDInfo(const QStringList & lineList)
+{
+  KCDDB::CDInfo ret;
+
+  QStringList::ConstIterator it;
+    
+  for (it = lineList.begin(); it != lineList.end(); ++it)
+  {
+    QString line(*it);
+
+    QStringList tokenList = KStringHandler::perlSplit('=', line, 2);
+
+    if (2 != tokenList.count())
+      continue;
+
+    QString key   = tokenList[0];
+    QString value = tokenList[1];
+
+    kdDebug() << "Useful line. Key == `" << key << "'" << endl;
+
+    value.replace(QRegExp("\\n"), "\n");
+    value.replace(QRegExp("\\t"), "\t");
+    value.replace(QRegExp("\\\\"), "\\");
+
+    if ('D' == key[0])
+    {
+      if ("DTITLE" == key)
+      {
+        ret.title = value;
+      }
+      else if ("DYEAR" == key)
+      {
+        ret.year = value.toUInt();
+      }
+      else if ("DGENRE" == key)
+      {
+        ret.genre = value;
+      }
+    }
+    else if ("TTITLE" == key.left(6))
+    {
+      uint trackNumber = key.mid(6).toUInt();
+
+      if (trackNumber < 1 || trackNumber > 200)
+      {
+        kdDebug() << "Track number out of sensible range." << endl;
+        continue;
+      }
+
+      KCDDB::TrackInfo trackInfo;
+      trackInfo.title = value;
+      ret.trackInfoList[trackNumber - 1] = trackInfo;
+    }
+  }
+
+  return ret;
+}
 
 namespace KCDDB
 {
@@ -354,17 +416,48 @@ namespace KCDDB
 
     for (matchIt = matchList.begin(); matchIt != matchList.end(); ++matchIt)
     {
-      kdDebug() << "Match: " << (*matchIt).first << " : "
-        << (*matchIt).second << endl;
+      QString category  = (*matchIt).first;
+      QString discid    = (*matchIt).second;
+
+      kdDebug() << "Match: " << category << " : " << discid << endl;
+
+      QString readRequest = "cddb read ";
+      readRequest += category;
+      readRequest += " ";
+      readRequest += discid;
+
+      writeLine(d->socket, readRequest);
+
+      QStringList lineList;
+
+      line = readLine(d->socket);
+
+      tokenList = QStringList::split(' ', line);
+
+      serverStatus = tokenList[0].toUInt();
+
+      if (210 != serverStatus)
+      {
+        kdDebug() << "Server error !" << endl;
+        return NoSuchCD;
+      }
+
+      line = readLine(d->socket);
+
+      while ('.' != line[0])
+      {
+        lineList.append(line);
+        line = readLine(d->socket);
+      }
+
+      d->cdInfoList.append(parseStringListToCDInfo(lineList));
     }
  
     writeLine(d->socket, "quit");
 
     d->socket.close();
 
-    // STUB
-    kdDebug() << "STUB (dropping out)" << endl;
-    return Unknown;
+    return None;
   }
 }
 
