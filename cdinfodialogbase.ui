@@ -172,6 +172,9 @@
                     <property name="duplicatesEnabled">
                         <bool>false</bool>
                     </property>
+                    <property name="toolTip" stdset="0">
+                        <string>Avoid custom values, as they will be written to CDDB as-is.</string>
+                    </property>
                 </widget>
                 <widget class="KIntSpinBox" row="3" column="1">
                     <property name="name">
@@ -328,13 +331,17 @@
     <forward>class KCDDBDlgBasePrivate</forward>
 </forwards>
 <variables>
-    <variable access="private">static const char *SEPARATOR;</variable>
-    <variable access="public">static const unsigned TRACK_ARTIST = 4;</variable>
-    <variable access="private">KCDDBDlgBasePrivate *d;</variable>
-    <variable access="public">static const unsigned TRACK_TIME = 1;</variable>
-    <variable access="public">static const unsigned TRACK_NUMBER = 0;</variable>
-    <variable access="public">static const unsigned TRACK_TITLE = 2;</variable>
     <variable access="public">static const unsigned TRACK_COMMENT = 3;</variable>
+    <variable access="public">static const unsigned TRACK_TITLE = 2;</variable>
+    <variable access="public">static const unsigned TRACK_NUMBER = 0;</variable>
+    <variable access="public">static const unsigned TRACK_TIME = 1;</variable>
+    <variable access="private">KCDDBDlgBasePrivate *d;</variable>
+    <variable access="public">static const unsigned TRACK_ARTIST = 4;</variable>
+    <variable access="private">static const char *SEPARATOR;</variable>
+    <variable access="private">QStringList m_categoryCDDB;</variable>
+    <variable access="private">QStringList m_categoryI18n;</variable>
+    <variable access="private">QStringList m_genreCDDB;</variable>
+    <variable access="private">QStringList m_genreI18n;</variable>
 </variables>
 <signals>
     <signal>play(int i)</signal>

@@ -14,173 +14,96 @@ void CDInfoDialogBase::init()
     //
     // http://www.freedb.org/modules.php?name=Sections&sop=viewarticle&artid=26
     //
-    // DON'T i18n them!
-    m_category->insertItem("blues");
-    m_category->insertItem("classical");
-    m_category->insertItem("country");
-    m_category->insertItem("data");
-    m_category->insertItem("folk");
-    m_category->insertItem("jazz");
-    m_category->insertItem("newage");
-    m_category->insertItem("reggae");
-    m_category->insertItem("rock");
-    m_category->insertItem("soundtrack");
-    m_category->insertItem("misc");
+    m_categoryCDDB << "blues" << "classical" << "country" <<
+        "data" << "folk" << "jazz" << "misc" <<
+        "newage" << "reggae" << "rock" << "soundtrack";
+    m_categoryI18n << i18n("Blues") << i18n("Classical") << i18n("Country") <<
+        i18n("Data") << i18n("Folk") << i18n("Jazz") << i18n("Miscellaneous") <<
+        i18n("New Age") << i18n("Reggae") << i18n("Rock") << i18n("Soundtrack");
+    m_category->insertStringList(m_categoryI18n);
 
     // On the other hand, the Genre is completely arbitrary. But we follow
     // kaudiocreator's cue and make life easy for people.
     //
     // To cope with preexisting records which don't match an entry, we will
     // add one later if needed.
-    m_genre->insertItem("Unknown");
-    m_genre->insertItem("A Cappella");
-    m_genre->insertItem("Acid Jazz");
-    m_genre->insertItem("Acid Punk");
-    m_genre->insertItem("Acid");
-    m_genre->insertItem("Acoustic");
-    m_genre->insertItem("Alternative");
-    m_genre->insertItem("Alt. Rock");
-    m_genre->insertItem("Ambient");
-    m_genre->insertItem("Anime");
-    m_genre->insertItem("Avantgarde");
-    m_genre->insertItem("Ballad");
-    m_genre->insertItem("Bass");
-    m_genre->insertItem("Beat");
-    m_genre->insertItem("Bebop");
-    m_genre->insertItem("Big Band");
-    m_genre->insertItem("Black Metal");
-    m_genre->insertItem("Bluegrass");
-    m_genre->insertItem("Blues");
-    m_genre->insertItem("Booty Bass");
-    m_genre->insertItem("BritPop");
-    m_genre->insertItem("Cabaret");
-    m_genre->insertItem("Celtic");
-    m_genre->insertItem("Chamber Music");
-    m_genre->insertItem("Chanson");
-    m_genre->insertItem("Chorus");
-    m_genre->insertItem("Christian Gangsta Rap");
-    m_genre->insertItem("Christian Rap");
-    m_genre->insertItem("Christian Rock");
-    m_genre->insertItem("Classical");
-    m_genre->insertItem("Classic Rock");
-    m_genre->insertItem("Club-house");
-    m_genre->insertItem("Club");
-    m_genre->insertItem("Comedy");
-    m_genre->insertItem("Contemporary Christian");
-    m_genre->insertItem("Country");
-    m_genre->insertItem("Crossover");
-    m_genre->insertItem("Cult");
-    m_genre->insertItem("Dance Hall");
-    m_genre->insertItem("Dance");
-    m_genre->insertItem("Darkwave");
-    m_genre->insertItem("Death Metal");
-    m_genre->insertItem("Disco");
-    m_genre->insertItem("Dream");
-    m_genre->insertItem("Drum & Bass");
-    m_genre->insertItem("Drum Solo");
-    m_genre->insertItem("Duet");
-    m_genre->insertItem("Easy Listening");
-    m_genre->insertItem("Electronic");
-    m_genre->insertItem("Ethnic");
-    m_genre->insertItem("Eurodance");
-    m_genre->insertItem("Euro-House");
-    m_genre->insertItem("Euro-Techno");
-    m_genre->insertItem("Fast-Fusion");
-    m_genre->insertItem("Folklore");
-    m_genre->insertItem("Folk/Rock");
-    m_genre->insertItem("Folk");
-    m_genre->insertItem("Freestyle");
-    m_genre->insertItem("Funk");
-    m_genre->insertItem("Fusion");
-    m_genre->insertItem("Game");
-    m_genre->insertItem("Gangsta Rap");
-    m_genre->insertItem("Goa");
-    m_genre->insertItem("Gospel");
-    m_genre->insertItem("Gothic Rock");
-    m_genre->insertItem("Gothic");
-    m_genre->insertItem("Grunge");
-    m_genre->insertItem("Hardcore");
-    m_genre->insertItem("Hard Rock");
-    m_genre->insertItem("Heavy Metal");
-    m_genre->insertItem("Hip-Hop");
-    m_genre->insertItem("House");
-    m_genre->insertItem("Humor");
-    m_genre->insertItem("Indie");
-    m_genre->insertItem("Industrial");
-    m_genre->insertItem("Instrumental Pop");
-    m_genre->insertItem("Instrumental Rock");
-    m_genre->insertItem("Instrumental");
-    m_genre->insertItem("Jazz+Funk");
-    m_genre->insertItem("Jazz");
-    m_genre->insertItem("JPop");
-    m_genre->insertItem("Jungle");
-    m_genre->insertItem("Latin");
-    m_genre->insertItem("Lo-Fi");
-    m_genre->insertItem("Meditative");
-    m_genre->insertItem("Merengue");
-    m_genre->insertItem("Metal");
-    m_genre->insertItem("Musical");
-    m_genre->insertItem("National Folk");
-    m_genre->insertItem("Native American");
-    m_genre->insertItem("Negerpunk");
-    m_genre->insertItem("New Age");
-    m_genre->insertItem("New Wave");
-    m_genre->insertItem("Noise");
-    m_genre->insertItem("Oldies");
-    m_genre->insertItem("Opera");
-    m_genre->insertItem("Other");
-    m_genre->insertItem("Polka");
-    m_genre->insertItem("Polsk Punk");
-    m_genre->insertItem("Pop-Funk");
-    m_genre->insertItem("Pop/Funk");
-    m_genre->insertItem("Pop");
-    m_genre->insertItem("Porn Groove");
-    m_genre->insertItem("Power Ballad");
-    m_genre->insertItem("Pranks");
-    m_genre->insertItem("Primus");
-    m_genre->insertItem("Progressive Rock");
-    m_genre->insertItem("Psychedelic Rock");
-    m_genre->insertItem("Psychedelic");
-    m_genre->insertItem("Punk Rock");
-    m_genre->insertItem("Punk");
-    m_genre->insertItem("R&B");
-    m_genre->insertItem("Rap");
-    m_genre->insertItem("Rave");
-    m_genre->insertItem("Reggae");
-    m_genre->insertItem("Retro");
-    m_genre->insertItem("Revival");
-    m_genre->insertItem("Rhythmic Soul");
-    m_genre->insertItem("Rock & Roll");
-    m_genre->insertItem("Rock");
-    m_genre->insertItem("Salsa");
-    m_genre->insertItem("Samba");
-    m_genre->insertItem("Satire");
-    m_genre->insertItem("Showtunes");
-    m_genre->insertItem("Ska");
-    m_genre->insertItem("Slow Jam");
-    m_genre->insertItem("Slow Rock");
-    m_genre->insertItem("Sonata");
-    m_genre->insertItem("Soul");
-    m_genre->insertItem("Sound Clip");
-    m_genre->insertItem("Soundtrack");
-    m_genre->insertItem("Southern Rock");
-    m_genre->insertItem("Space");
-    m_genre->insertItem("Speech");
-    m_genre->insertItem("Swing");
-    m_genre->insertItem("Symphonic Rock");
-    m_genre->insertItem("Symphony");
-    m_genre->insertItem("Synthpop");
-    m_genre->insertItem("Tango");
-    m_genre->insertItem("Techno-Industrial");
-    m_genre->insertItem("Techno");
-    m_genre->insertItem("Terror");
-    m_genre->insertItem("Thrash Metal");
-    m_genre->insertItem("Top 40");
-    m_genre->insertItem("Trailer");
-    m_genre->insertItem("Trance");
-    m_genre->insertItem("Tribal");
-    m_genre->insertItem("Trip-Hop");
-    m_genre->insertItem("Vocal");
+    m_genreCDDB << "Unknown" << "A Cappella" << "Acid Jazz" <<
+        "Acid Punk" << "Acid" << "Acoustic" << "Alternative" <<
+        "Alt. Rock" << "Ambient" << "Anime" << "Avantgarde" <<
+        "Ballad" << "Bass" << "Beat" << "Bebop" <<
+        "Big Band" << "Black Metal" << "Bluegrass" << "Blues" <<
+        "Booty Bass" << "BritPop" << "Cabaret" << "Celtic" <<
+        "Chamber Music" << "Chanson" << "Chorus" << "Christian Gangsta Rap" <<
+        "Christian Rap" << "Christian Rock" << "Classical" << "Classic Rock" <<
+        "Club-house" << "Club" << "Comedy" << "Contemporary Christian" <<
+        "Country" << "Crossover" << "Cult" << "Dance Hall" <<
+        "Dance" << "Darkwave" << "Death Metal" << "Disco" <<
+        "Dream" << "Drum & Bass" << "Drum Solo" << "Duet" <<
+        "Easy Listening" << "Electronic" << "Ethnic" << "Eurodance" <<
+        "Euro-House" << "Euro-Techno" << "Fast-Fusion" << "Folklore" <<
+        "Folk/Rock" << "Folk" << "Freestyle" << "Funk" <<
+        "Fusion" << "Game" << "Gangsta Rap" << "Goa" <<
+        "Gospel" << "Gothic Rock" << "Gothic" << "Grunge" <<
+        "Hardcore" << "Hard Rock" << "Heavy Metal" << "Hip-Hop" <<
+        "House" << "Humor" << "Indie" << "Industrial" <<
+        "Instrumental Pop" << "Instrumental Rock" << "Instrumental" << "Jazz+Funk" <<
+        "Jazz" << "JPop" << "Jungle" << "Latin" << "Lo-Fi" <<
+        "Meditative" << "Merengue" << "Metal" << "Musical" <<
+        "National Folk" << "Native American" << "Negerpunk" << "New Age" <<
+        "New Wave" << "Noise" << "Oldies" << "Opera" <<
+        "Other" << "Polka" << "Polsk Punk" << "Pop-Funk" <<
+        "Pop/Funk" << "Pop" << "Porn Groove" << "Power Ballad" <<
+        "Pranks" << "Primus" << "Progressive Rock" << "Psychedelic Rock" <<
+        "Psychedelic" << "Punk Rock" << "Punk" << "R&B" <<
+        "Rap" << "Rave" << "Reggae" << "Retro" <<
+        "Revival" << "Rhythmic Soul" << "Rock & Roll" << "Rock" <<
+        "Salsa" << "Samba" << "Satire" << "Showtunes" <<
+        "Ska" << "Slow Jam" << "Slow Rock" << "Sonata" <<
+        "Soul" << "Sound Clip" << "Soundtrack" << "Southern Rock" <<
+        "Space" << "Speech" << "Swing" << "Symphonic Rock" <<
+        "Symphony" << "Synthpop" << "Tango" << "Techno-Industrial" <<
+        "Techno" << "Terror" << "Thrash Metal" << "Top 40" <<
+        "Trailer" << "Trance" << "Tribal" << "Trip-Hop" <<
+        "Vocal";
+    m_genreI18n << i18n("Unknown") << i18n("A Cappella") << i18n("Acid Jazz") <<
+        i18n("Acid Punk") << i18n("Acid") << i18n("Acoustic") << i18n("Alternative") <<
+        i18n("Alt. Rock") << i18n("Ambient") << i18n("Anime") << i18n("Avantgarde") <<
+        i18n("Ballad") << i18n("Bass") << i18n("Beat") << i18n("Bebop") <<
+        i18n("Big Band") << i18n("Black Metal") << i18n("Bluegrass") << i18n("Blues") <<
+        i18n("Booty Bass") << i18n("BritPop") << i18n("Cabaret") << i18n("Celtic") <<
+        i18n("Chamber Music") << i18n("Chanson") << i18n("Chorus") << i18n("Christian Gangsta Rap") <<
+        i18n("Christian Rap") << i18n("Christian Rock") << i18n("Classical") << i18n("Classic Rock") <<
+        i18n("Club-house") << i18n("Club") << i18n("Comedy") << i18n("Contemporary Christian") <<
+        i18n("Country") << i18n("Crossover") << i18n("Cult") << i18n("Dance Hall") <<
+        i18n("Dance") << i18n("Darkwave") << i18n("Death Metal") << i18n("Disco") <<
+        i18n("Dream") << i18n("Drum & Bass") << i18n("Drum Solo") << i18n("Duet") <<
+        i18n("Easy Listening") << i18n("Electronic") << i18n("Ethnic") << i18n("Eurodance") <<
+        i18n("Euro-House") << i18n("Euro-Techno") << i18n("Fast-Fusion") << i18n("Folklore") <<
+        i18n("Folk/Rock") << i18n("Folk") << i18n("Freestyle") << i18n("Funk") <<
+        i18n("Fusion") << i18n("Game") << i18n("Gangsta Rap") << i18n("Goa") <<
+        i18n("Gospel") << i18n("Gothic Rock") << i18n("Gothic") << i18n("Grunge") <<
+        i18n("Hardcore") << i18n("Hard Rock") << i18n("Heavy Metal") << i18n("Hip-Hop") <<
+        i18n("House") << i18n("Humor") << i18n("Indie") << i18n("Industrial") <<
+        i18n("Instrumental Pop") << i18n("Instrumental Rock") << i18n("Instrumental") << i18n("Jazz+Funk") <<
+        i18n("Jazz") << i18n("JPop") << i18n("Jungle") << i18n("Latin") << i18n("Lo-Fi") <<
+        i18n("Meditative") << i18n("Merengue") << i18n("Metal") << i18n("Musical") <<
+        i18n("National Folk") << i18n("Native American") << i18n("Negerpunk") << i18n("New Age") <<
+        i18n("New Wave") << i18n("Noise") << i18n("Oldies") << i18n("Opera") <<
+        i18n("Other") << i18n("Polka") << i18n("Polsk Punk") << i18n("Pop-Funk") <<
+        i18n("Pop/Funk") << i18n("Pop") << i18n("Porn Groove") << i18n("Power Ballad") <<
+        i18n("Pranks") << i18n("Primus") << i18n("Progressive Rock") << i18n("Psychedelic Rock") <<
+        i18n("Psychedelic") << i18n("Punk Rock") << i18n("Punk") << i18n("R&B") <<
+        i18n("Rap") << i18n("Rave") << i18n("Reggae") << i18n("Retro") <<
+        i18n("Revival") << i18n("Rhythmic Soul") << i18n("Rock & Roll") << i18n("Rock") <<
+        i18n("Salsa") << i18n("Samba") << i18n("Satire") << i18n("Showtunes") <<
+        i18n("Ska") << i18n("Slow Jam") << i18n("Slow Rock") << i18n("Sonata") <<
+        i18n("Soul") << i18n("Sound Clip") << i18n("Soundtrack") << i18n("Southern Rock") <<
+        i18n("Space") << i18n("Speech") << i18n("Swing") << i18n("Symphonic Rock") <<
+        i18n("Symphony") << i18n("Synthpop") << i18n("Tango") << i18n("Techno-Industrial") <<
+        i18n("Techno") << i18n("Terror") << i18n("Thrash Metal") << i18n("Top 40") <<
+        i18n("Trailer") << i18n("Trance") << i18n("Tribal") << i18n("Trip-Hop") <<
+        i18n("Vocal");
+    m_genre->insertStringList(m_genreI18n);
 
     // We want control over the visibility of this column. See artistChanged().
     m_trackList->setColumnWidthMode(TRACK_ARTIST, QListView::Manual);
@@ -222,10 +145,25 @@ void CDInfoDialogBase::setInfo( const KCDDB::CDInfo &info, KCDDB::TrackOffsetLis
 {
     m_artist->setText(info.artist.stripWhiteSpace());
     m_title->setText(info.title.stripWhiteSpace());
-    m_category->setCurrentText(info.category.stripWhiteSpace());
+
+    // Lookup the CDDB category, and display the i18n'd version.
+    int index = m_categoryCDDB.findIndex(info.category.stripWhiteSpace());
+    m_category->setCurrentItem(index);
+
     // Make sure the revision is set before the genre to allow the genreChanged() handler to fire.
     m_revision->setText(QString::number(info.revision));
-    m_genre->setCurrentText(info.genre.stripWhiteSpace());
+
+    // Lookup the CDDB genre, and display the i18n'd version.
+    QString userDefinedGenre = info.genre.stripWhiteSpace();
+    index = m_genreCDDB.findIndex(userDefinedGenre);
+    if (index != -1)
+    {
+        m_genre->setCurrentItem(index);
+    }
+    else
+    {
+        m_genre->setCurrentText(userDefinedGenre);
+    }
     m_year->setValue(info.year);
     m_comment->setText(info.extd.stripWhiteSpace());
     m_id->setText(info.id.stripWhiteSpace());
@@ -281,8 +219,21 @@ KCDDB::CDInfo CDInfoDialogBase::info() const
 
     info.artist = m_artist->text().stripWhiteSpace();
     info.title = m_title->text().stripWhiteSpace();
-    info.category = m_category->currentText();
-    info.genre = m_genre->currentText().stripWhiteSpace();
+    
+    // Lookup the i18n category, and return the CDDB version.
+    info.category = m_categoryCDDB[m_category->currentItem()];
+
+    // Lookup the i18n genre, and return the CDDB version if we can.
+    QString userDefinedGenre = m_genre->currentText().stripWhiteSpace();
+    int index = m_genreI18n.findIndex(userDefinedGenre);
+    if (index != -1)
+    {
+        info.genre = m_genreCDDB[index];
+    }
+    else
+    {
+        info.genre = userDefinedGenre;
+    }
     info.year = m_year->value();
     info.extd = m_comment->text().stripWhiteSpace();
     info.revision = m_revision->text().stripWhiteSpace().toUInt();
