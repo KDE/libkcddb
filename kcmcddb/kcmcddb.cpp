@@ -47,6 +47,7 @@ K_EXPORT_COMPONENT_FACTORY ( kcm_cddb, KCDDBFactory( "kcmcddb" ) )
 CDDBModule::CDDBModule(QWidget *parent, const char *name, const QStringList &)
   : KCModule(parent, name)
 {
+  KGlobal::locale()->insertCatalogue("libkcddb");
   setButtons(Default | Apply);
 
   widget_ = new CDDBConfigWidget(this);
