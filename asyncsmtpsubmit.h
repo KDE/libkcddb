@@ -33,8 +33,13 @@ namespace KCDDB
       virtual ~AsyncSMTPSubmit();
 
       virtual Result submit( const CDInfo &, const TrackOffsetList & );
+    signals:
+      void finished( CDDB::Result );
     protected slots:
-      void slotDataReq( KIO::Job *, const QByteArray &data );
+      void slotDataReq( KIO::Job *, QByteArray &data );
+      void slotDone( KIO::Job * );
+    private:
+      bool sent;
   } ;
 }
 

@@ -20,6 +20,7 @@
 #include "asyncsmtpsubmit.h"
 #include "cdinfo.h"
 #include <qdatastream.h>
+#include <kdebug.h>
 
 namespace KCDDB
 {
@@ -38,17 +39,43 @@ namespace KCDDB
   CDDB::Result AsyncSMTPSubmit::submit( const CDInfo& cdInfo, const TrackOffsetList &offsetList )
   {
     makeDiskData( cdInfo, offsetList );
+
+    QString subject = QString("cddb %1 %2").arg(validCategory( cdInfo.genre ),
+        cdInfo.id);
+    makeURL( subject );
+
     KIO::TransferJob* job = KIO::put( url_, -1, false, false, false );
     connect( job, SIGNAL( dataReq( KIO::Job*, QByteArray& ) ),
                this, SLOT(slotDataReq( KIO::Job*, QByteArray& ) ) );
+    connect( job, SIGNAL( result( KIO::Job* ) ),
+               this, SLOT(slotDone( KIO::Job* ) ) ); 
+
+    sent = false;
 
     return Success;
   }
 
-  void AsyncSMTPSubmit::slotDataReq( KIO::Job *, const QByteArray &d )
+  void AsyncSMTPSubmit::slotDataReq( KIO::Job *, QByteArray & d )
   {
-      QDataStream s( d, IO_WriteOnly );
-      s << diskData_;
+      kdDebug() << k_funcinfo << endl;
+ 
+      if ( !sent )
+      {
+        QDataStream s( d, IO_WriteOnly );
+        s << diskData_;
+
+        sent = true;
+      }
+      else
+        d.resize( 0 );
+  }
+
+  void AsyncSMTPSubmit::slotDone( KIO::Job* job )
+  {
+      if ( job->error()==0 )
+        emit finished( Success );
+      else
+        emit finished( UnknownError );
   }
 }
 

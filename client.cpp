@@ -190,6 +190,14 @@ namespace KCDDB
     delete cdInfoLookup;
   }
 
+    void
+  Client::slotSubmitFinished( CDDB::Result r )
+  {
+    emit finished( r );
+
+    delete cdInfoSubmit;
+  }
+
     CDDB::Result
   Client::submit(const CDInfo &cdInfo, const TrackOffsetList& offsetList)
   {
@@ -229,7 +237,12 @@ namespace KCDDB
 	if ( blockingMode() )
 	  cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username, password );
 	else
+	{
 	  cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username, password );
+          connect( static_cast<AsyncSMTPSubmit *>( cdInfoSubmit ), 
+                  SIGNAL( finished( CDDB::Result ) ),
+                  SLOT( slotSubmitFinished( CDDB::Result ) ) );
+	}
         break;
       }
 
@@ -240,7 +253,12 @@ namespace KCDDB
         break;
     }
 	
-    return cdInfoSubmit->submit( cdInfo, offsetList );
+    CDDB::Result r = cdInfoSubmit->submit( cdInfo, offsetList );
+
+    if ( blockingMode() )
+      delete cdInfoSubmit;
+
+    return r;
   }
 }
 

@@ -69,6 +69,7 @@ namespace KCDDB
 
     protected slots:
       void slotFinished( CDDB::Result );
+      void slotSubmitFinished( CDDB::Result );
 
     private:
       class Private;
