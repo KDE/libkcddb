@@ -51,14 +51,14 @@ namespace KCDDB
       HTTPLookup();
       virtual ~HTTPLookup();
 
-      void makeQueryURL();
-      void makeReadURL( const CDDBMatch &  );
-
     protected:
 
       void initURL( const QString &, uint );
       void makeURL( const QString & );
-      Result submitJob();
+      Result fetchURL();
+
+      Result sendQuery();
+      Result sendRead( const CDDBMatch & );
 
     protected slots:
 

@@ -36,20 +36,21 @@ namespace KCDDB
   {
   }
 
-    void
-  HTTPLookup::makeQueryURL()
+    Lookup::Result
+  HTTPLookup::sendQuery()
   {
     QString cmd = QString( "cddb query %1 %2" )
       .arg( trackOffsetListToId() )
       .arg( trackOffsetListToString() ) ;
 
     makeURL( cmd );
+    Result result = fetchURL();
 
-    return;
+    return result;
   }
 
-    void
-  HTTPLookup::makeReadURL( const CDDBMatch & match )
+    Lookup::Result
+  HTTPLookup::sendRead( const CDDBMatch & match )
   {
     QString category  = match.first;
     QString discid    = match.second;
@@ -59,8 +60,9 @@ namespace KCDDB
         .arg( discid );
 
     makeURL( cmd );
+    Result result = fetchURL();
 
-    return;
+    return result;
   }
 
     void
@@ -94,7 +96,7 @@ namespace KCDDB
   }
 
     Lookup::Result
-  HTTPLookup::submitJob()
+  HTTPLookup::fetchURL()
   {
     kdDebug() << "About to fetch: " << cgiURL_.url() << endl;
 

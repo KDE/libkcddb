@@ -73,9 +73,7 @@ namespace KCDDB
     data_ = QString::null;
     state_ = WaitingForQueryResponse;
 
-    makeQueryURL();
-
-    result_ = submitJob();
+    result_ = sendQuery();
 
     return result_;
   }
@@ -110,9 +108,7 @@ namespace KCDDB
     data_ = QString::null;
     state_ = WaitingForReadResponse;
 
-    makeReadURL( match );
-
-    result_ = submitJob();
+    result_ = sendRead( match );
 
     if ( Success != result_ )
       emit finished( result_ );
