@@ -158,7 +158,7 @@ namespace KCDDB
       else if ( "EXTD" == key )
       {
         if (!extd.isEmpty())
-	  extd.append('\n');
+          extd.append('\n');
         extd.append( value );
       }
       else if ( "EXTT" == key.left( 4 ) )
@@ -168,7 +168,7 @@ namespace KCDDB
         checkTrack( trackNumber );
 
         if (!trackInfoList[ trackNumber ].extt.isEmpty())
-	  trackInfoList[ trackNumber ].extt.append('\n');
+          trackInfoList[ trackNumber ].extt.append('\n');
         trackInfoList[ trackNumber ].extt.append( value );
       }
     }
@@ -254,18 +254,27 @@ namespace KCDDB
 
     Q_ASSERT(name.length() < 254);
 
-    // Converted to a QCString, so we get the length in actual chars,
-    // and not Unicode characters.
-    QCString tmpValue = value.utf8();
+    QString tmpValue = value;
 
-    while ((name.length() + tmpValue.length() + 2) > 256)
+    int maxLength = 256 - name.length() - 2;
+
+    while (tmpValue.utf8().length() > maxLength)
     {
-      int l = 256 - name.length() - 2;
-      lines += QString("%1=%2\n").arg(name,QString::fromUtf8(tmpValue.left(l)));
-      tmpValue = tmpValue.mid(l);
+      QString tmp;
+      int l = 0;
+      // Get the longest string where string.utf8().length() <= maxLength
+      while (tmpValue.length() > 0 && l + tmpValue.left(1).utf8().length() <= maxLength)
+      {
+        QString firstChar = tmpValue.left(1);
+        l += firstChar.utf8().length();
+        tmp += firstChar;
+        tmpValue = tmpValue.mid(1);
+      }
+
+      lines += QString("%1=%2\n").arg(name,tmp);
     }
 
-    lines += QString("%1=%2\n").arg(name,QString::fromUtf8(tmpValue));
+    lines += QString("%1=%2\n").arg(name,tmpValue);
 
     return lines;
   }
