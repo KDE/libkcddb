@@ -29,7 +29,8 @@ namespace KCDDB
       SyncHTTPSubmit();
       virtual ~SyncHTTPSubmit();
 
-      virtual Result submit( const CDInfo &, const TrackOffsetList& );
+    protected:
+      virtual Result postData(KIO::Job* job);
   } ;
 }
 

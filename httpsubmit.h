@@ -21,6 +21,11 @@
 
 #include "submit.h"
 
+namespace KIO
+{
+  class Job;
+}
+
 namespace KCDDB
 {
   class HTTPSubmit : public Submit
@@ -28,6 +33,10 @@ namespace KCDDB
     public:
       HTTPSubmit();
       virtual ~HTTPSubmit();
+
+      virtual Result submit(const CDInfo& cdInfo, const TrackOffsetList& offsetList);
+    protected:
+      virtual Result postData(KIO::Job* job) = 0;
   } ;
 }
 

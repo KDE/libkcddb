@@ -6,3 +6,5 @@ Try to comply with freedb's: "Guidelines for optimal freedb support"
 http://www.freedb.org/modules.php?name=Sections&sop=viewarticle&artid=38
 
 Saving playlist
+
+Port the CDDBPLookup classes to KNetwork-classes

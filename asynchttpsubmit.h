@@ -35,9 +35,10 @@ namespace KCDDB
       AsyncHTTPSubmit();
       virtual ~AsyncHTTPSubmit();
 
-      virtual Result submit( const CDInfo &, const TrackOffsetList& );
     signals:
       void finished( CDDB::Result );
+    protected:
+      virtual Result postData(KIO::Job* job);
     private slots:
       void slotFinished(KIO::Job*);
   } ;
