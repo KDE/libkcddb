@@ -24,6 +24,7 @@
 
 #include <kdebug.h>
 #include <kstringhandler.h>
+#include <klocale.h>
 
 #include "cddb.h"
 
@@ -197,31 +198,31 @@ namespace KCDDB
     switch (r)
     {
       case Success:
-        return "Success";
+        return i18n("Success");
         break;
 
       case HostNotFound:
-        return "HostNotFound";
+        return i18n("Host not found");
         break;
 
       case NoResponse:
-        return "NoResponse";
+        return i18n("No response");
         break;
 
       case NoRecordFound:
-        return "NoRecordFound";
+        return i18n("No record found");
         break;
 
       case MultipleRecordFound:
-        return "MultipleRecordFound";
+        return i18n("Multiple records found");
         break;
 
       case CannotSave:
-        return "CannotSave";
+        return i18n("Cannot save");
         break;
 
       default:
-        return "UnknownError";
+        return i18n("Unknown error");
         break;
     }
   }
