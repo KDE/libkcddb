@@ -24,6 +24,7 @@
 #include "config.h"
 #include "cdinfo.h"
 #include <qobject.h>
+#include "cddb.h"
 
 namespace KCDDB
 {
@@ -57,11 +58,6 @@ namespace KCDDB
 
       void setBlockingMode( bool );
       bool blockingMode() const;
-
-    private:
-
-      QString clientName() { return "libkcddb"; }
-      QString clientVersion() { return "0.10"; }
 
     signals:
 

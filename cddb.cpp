@@ -180,7 +180,7 @@ namespace KCDDB
     return serverStatus;
   }
 
-    CDDB::Transport
+/*    CDDB::Transport
   CDDB::stringToTransport(const QString & s)
   {
     if  ("HTTP" == s )
@@ -189,7 +189,7 @@ namespace KCDDB
       return CDDBP;
     else
       return SMTP;
-  }
+  }*/
 
     QString
   CDDB::resultToString(Result r)
@@ -226,7 +226,7 @@ namespace KCDDB
     }
   }
 
-    QString
+/*    QString
   CDDB::transportToString(uint t)
   {
     switch (Transport(t))
@@ -247,7 +247,7 @@ namespace KCDDB
         return "UnknownTransport";
         break;
     }
-  }
+  }*/
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

@@ -31,6 +31,12 @@ namespace KCDDB
   {
     public:
 
+      enum Transport
+      {
+        SMTP,
+        HTTP
+      };
+
       Submit();
       virtual ~Submit();
 

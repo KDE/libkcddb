@@ -23,6 +23,7 @@
 
 #include "libkcddb/client.h"
 #include "libkcddb/config.h"
+#include "libkcddb/submit.h"
 
   int
 main(int argc, char ** argv)
@@ -34,8 +35,8 @@ main(int argc, char ** argv)
   using namespace KCDDB;
 
   Config config;
-  config.load();
-  config.setSubmitTransport(CDDB::SMTP);
+  config.readConfig();
+  config.setSubmitTransport(Submit::SMTP);
 
   TrackOffsetList list;
 

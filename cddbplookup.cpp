@@ -40,8 +40,8 @@ namespace KCDDB
     QString handshake = QString( "cddb hello %1 %2 %3 %4" )
         .arg( user_ )
         .arg( localHostName_ )
-        .arg( clientName_ )
-        .arg( clientVersion_ );
+        .arg( clientName() )
+        .arg( clientVersion() );
 
     writeLine( handshake );
   }

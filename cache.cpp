@@ -49,7 +49,7 @@ namespace KCDDB
 
     CDInfoList infoList;
     Config c;
-    c.load();
+    c.readConfig();
     QStringList cddbCacheDirs = c.cacheLocations();
 
     for (QStringList::Iterator cddbCacheDir = cddbCacheDirs.begin();
@@ -96,7 +96,7 @@ namespace KCDDB
     {
       CDInfo info( *it );
       Config c;
-      c.load();
+      c.readConfig();
 
       QString cacheDir = c.cacheLocations().first();
       QDir d(cacheDir);

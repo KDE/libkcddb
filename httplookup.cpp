@@ -87,8 +87,8 @@ namespace KCDDB
     QString hello = QString( "%1 %2 %3 %4" )
       .arg( user_ )
       .arg( localHostName_ )
-      .arg( clientName_ )
-      .arg( clientVersion_ );
+      .arg( clientName() )
+      .arg( clientVersion() );
 
     cgiURL_.addQueryItem( "cmd", cmd );
     cgiURL_.addQueryItem( "hello", hello );

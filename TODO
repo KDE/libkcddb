@@ -1,5 +1,4 @@
 
-SMTP
-In general you just have to use a KIO::put job and send the data to something 
-like: smtp://user:pass@host:25/send?to=user@host&subject=xkxkx
-The data in then passed by the method you connect to slotDataReq().
+Submit with http
+
+Better error checking, for example checking if the config is empty

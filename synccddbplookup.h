@@ -33,8 +33,7 @@ namespace KCDDB
       SyncCDDBPLookup();
       virtual ~SyncCDDBPLookup();
 
-      Result lookup( const QString &, uint, const QString &,
-          const QString &, const TrackOffsetList & );
+      Result lookup( const QString &, uint, const TrackOffsetList & );
 
       CDInfoList lookupResponse() const;
 

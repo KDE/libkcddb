@@ -52,8 +52,7 @@ namespace KCDDB
 
       virtual ~AsyncCDDBPLookup();
 
-      Result lookup( const QString &, uint, const QString &,
-          const QString &, const TrackOffsetList & );
+      Result lookup( const QString &, uint, const TrackOffsetList & );
 
     signals:
 

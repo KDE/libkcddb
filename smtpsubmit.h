@@ -27,11 +27,11 @@ namespace KCDDB
   class SMTPSubmit : public Submit
   {
     public:
-      SMTPSubmit(const QString&, uint, const QString&, const QString &);
+      SMTPSubmit(const QString&, uint, const QString&);
       virtual ~SMTPSubmit();
 
     protected:
-      void initURL( const QString&, uint, const QString&, const QString& );
+      void initURL( const QString&, uint, const QString&);
       void makeURL( const QString & );
 
       KURL url_;

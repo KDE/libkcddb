@@ -55,22 +55,15 @@ namespace KCDDB
         UnknownError
       };
 
-      enum Transport
-      {
-        CDDBP,
-        HTTP,
-        SMTP
-      };
-
       CDDB();
       virtual ~CDDB();
 
       static QString resultToString(Result);
-      static QString transportToString(uint);
-      static Transport stringToTransport(const QString &);
       static QString trackOffsetListToId( const TrackOffsetList & );
 
     protected:
+      QString clientName() { return "libkcddb"; }
+      QString clientVersion() { return "0.10"; }
 
       QString readLine();
       void writeLine( const QString & );
@@ -89,8 +82,6 @@ namespace KCDDB
       KExtendedSocket socket_;
 
       QString user_;
-      QString clientName_;
-      QString clientVersion_;
       QString localHostName_;
 
       bool readOnly_;

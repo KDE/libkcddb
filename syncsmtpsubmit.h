@@ -26,7 +26,7 @@ namespace KCDDB
   class SyncSMTPSubmit : public SMTPSubmit
   {
     public:
-      SyncSMTPSubmit(const QString&, uint, const QString&, const QString &);
+      SyncSMTPSubmit(const QString&, uint, const QString&);
       virtual ~SyncSMTPSubmit();
 
       virtual Result submit( const CDInfo &, const TrackOffsetList& );

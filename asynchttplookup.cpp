@@ -44,16 +44,12 @@ namespace KCDDB
   (
     const QString         & hostName,
     uint                    port,
-    const QString         & clientName,
-    const QString         & clientVersion,
     const TrackOffsetList & trackOffsetList
   )
   {
     if ( trackOffsetList.count() < 3 )
       return UnknownError;
 
-    clientName_ = clientName;
-    clientVersion_ = clientVersion;
     trackOffsetList_ = trackOffsetList;
 
     connect( this, SIGNAL( queryReady() ), SLOT( slotQueryReady() ) );

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kcfg SYSTEM "http://www.kde.org/standards/kcfg/1.0/kcfg.dtd">
+<kcfg>
+  <include>qdir.h</include>
+  <kcfgfile name="kcmcddbrc">
+  </kcfgfile>
+  <group name="Lookup">
+    <entry name="hostname" type="QString">
+      <label>Hostname</label>
+      <default>freedb.freedb.org</default>
+    </entry>
+    <entry name="port" type="int">
+      <label>Port</label>
+      <default>8880</default>
+    </entry>
+    <entry name="cachePolicy" type="Enum">
+      <label>Cache policy</label>
+      <values>
+        <value>OnlyCache</value>
+        <value>UseCache</value>
+        <value>IgnoreCache</value>
+      </values>
+      <default>UseCache</default>
+    </entry>
+    <entry name="lookupTransport" type="Enum">
+      <label>Transport</label>
+      <values>
+        <value>CDDBP</value>
+	<value>HTTP</value>
+      </values>
+      <default>CDDBP</default>
+    </entry>
+    <entry name="cacheLocations" type="QStringList">
+      <label>Cache Locations</label>
+      <default code="true">QDir::homeDirPath()+"/.cddb/"</default>
+    </entry>
+  </group>
+  <group name="Submit">
+    <entry name="submitTransport" type="Enum">
+      <label>Lookup Transport</label>
+      <values>
+        <value>SMTP</value>
+	<value>HTTP</value>
+      </values>
+      <default>SMTP</default>
+    </entry>
+    <entry name="smtpHostname" type="QString">
+      <label>SMTP Hostname</label>
+    </entry>
+    <entry name="smtpPort" type="int">
+      <label>SMTP Port</label>
+      <default>25</default>
+    </entry>
+    <entry name="smtpUsername" type="QString">
+      <label>SMTP Username</label>
+    </entry>
+  </group>
+</kcfg>

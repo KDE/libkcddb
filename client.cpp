@@ -50,7 +50,7 @@ namespace KCDDB
   Client::Client() : QObject()
   {
     d = new Private;
-    d->config.load();
+    d->config.readConfig();
   }
 
   Client::Client(const Config & config) : QObject()
@@ -123,18 +123,17 @@ namespace KCDDB
     }
 
     CDDB::Result r;
-    CDDB::Transport t = d->config.lookupTransport();
+    Lookup::Transport t = ( Lookup::Transport )d->config.lookupTransport();
 
     if ( blockingMode() )
     {
-      if( CDDB::CDDBP == t )
+      if( Lookup::CDDBP == t )
         cdInfoLookup = new SyncCDDBPLookup();
       else
         cdInfoLookup = new SyncHTTPLookup();
 
       r = cdInfoLookup->lookup( d->config.hostname(), 
-              d->config.port(), clientName(), clientVersion(),
-              trackOffsetList );
+              d->config.port(), trackOffsetList );
 
       if ( CDDB::Success == r )
       {
@@ -146,7 +145,7 @@ namespace KCDDB
     }
     else
     {
-      if( CDDB::CDDBP == t )
+      if( Lookup::CDDBP == t )
       {
         cdInfoLookup = new AsyncCDDBPLookup();
 
@@ -164,8 +163,7 @@ namespace KCDDB
       }
 
       r = cdInfoLookup->lookup( d->config.hostname(), 
-              d->config.port(), clientName(), clientVersion(),
-              trackOffsetList );
+              d->config.port(), trackOffsetList );
 
       if ( Lookup::Success != r )
         delete cdInfoLookup;
@@ -218,27 +216,26 @@ namespace KCDDB
 
     switch (d->config.submitTransport())
     {
-      case CDDB::HTTP:
+      case Submit::HTTP:
       {
         // TODO For now...
-        kdDebug(60010) << k_funcinfo << "HTTP Submit not supported yet: "
-          << CDDB::transportToString(d->config.submitTransport()) << endl;
+        kdDebug(60010) << k_funcinfo << "HTTP Submit not supported yet: " << endl;
+//          << CDDB::transportToString(d->config.submitTransport()) << endl;
         return CDDB::UnknownError;
         break;
       }
       break;
       
-      case CDDB::SMTP:
+      case Submit::SMTP:
       {
-	QString hostname = d->config.smtpHostName();
+	QString hostname = d->config.smtpHostname();
 	uint port = d->config.smtpPort();
 	QString username = d->config.smtpUsername();
-	QString password = d->config.smtpPassword();
 	if ( blockingMode() )
-	  cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username, password );
+	  cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username );
 	else
 	{
-	  cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username, password );
+	  cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username );
           connect( static_cast<AsyncSMTPSubmit *>( cdInfoSubmit ), 
                   SIGNAL( finished( CDDB::Result ) ),
                   SLOT( slotSubmitFinished( CDDB::Result ) ) );
@@ -247,8 +244,8 @@ namespace KCDDB
       }
 
       default:
-        kdDebug(60010) << k_funcinfo << "Unsupported transport: "
-          << CDDB::transportToString(d->config.submitTransport()) << endl;
+        kdDebug(60010) << k_funcinfo << "Unsupported transport: " << endl;
+//          << CDDB::transportToString(d->config.submitTransport()) << endl;
         return CDDB::UnknownError;
         break;
     }

@@ -9,8 +9,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>430</width>
-            <height>397</height>
+            <width>405</width>
+            <height>336</height>
         </rect>
     </property>
     <property name="caption">
@@ -228,61 +228,6 @@
                 </widget>
             </grid>
         </widget>
-        <widget class="QGroupBox">
-            <property name="name">
-                <cstring>GroupBox2</cstring>
-            </property>
-            <property name="title">
-                <string>Submissions</string>
-            </property>
-            <grid>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <property name="margin">
-                    <number>11</number>
-                </property>
-                <property name="spacing">
-                    <number>6</number>
-                </property>
-                <widget class="QCheckBox" row="0" column="0" rowspan="1" colspan="3">
-                    <property name="name">
-                        <cstring>submissionsEnable</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Enable submissions</string>
-                    </property>
-                    <property name="checked">
-                        <bool>true</bool>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Allow submission of CD information to a CDDB server. Enabling this makes you a good netizen.</string>
-                    </property>
-                </widget>
-                <widget class="QLineEdit" row="2" column="1" rowspan="1" colspan="3">
-                    <property name="name">
-                        <cstring>submissionsSendTo</cstring>
-                    </property>
-                    <property name="text">
-                        <string>freedb-submit@freedb.org</string>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Email address which will be used for SMTP CD information submissions.</string>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="2" column="0">
-                    <property name="name">
-                        <cstring>TextLabel3</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Emai&amp;l address:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>submissionsSendTo</cstring>
-                    </property>
-                </widget>
-            </grid>
-        </widget>
     </vbox>
 </widget>
 <connections>
@@ -305,18 +250,6 @@
         <slot>setEnabled(bool)</slot>
     </connection>
     <connection>
-        <sender>submissionsEnable</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>TextLabel3</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>submissionsEnable</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>submissionsSendTo</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
         <sender>cddbServer</sender>
         <signal>textChanged(const QString&amp;)</signal>
         <receiver>CDDBConfigWidgetBase</receiver>
@@ -331,18 +264,6 @@
     <connection>
         <sender>cddbType</sender>
         <signal>activated(int)</signal>
-        <receiver>CDDBConfigWidgetBase</receiver>
-        <slot>slotConfigChanged()</slot>
-    </connection>
-    <connection>
-        <sender>submissionsEnable</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>CDDBConfigWidgetBase</receiver>
-        <slot>slotConfigChanged()</slot>
-    </connection>
-    <connection>
-        <sender>submissionsSendTo</sender>
-        <signal>textChanged(const QString&amp;)</signal>
         <receiver>CDDBConfigWidgetBase</receiver>
         <slot>slotConfigChanged()</slot>
     </connection>
@@ -396,8 +317,6 @@
     <tabstop>cddbServer</tabstop>
     <tabstop>cddbPort</tabstop>
     <tabstop>cddbType</tabstop>
-    <tabstop>submissionsEnable</tabstop>
-    <tabstop>submissionsSendTo</tabstop>
 </tabstops>
 <slots>
     <slot access="protected">slotConfigChanged()</slot>

@@ -33,8 +33,8 @@
 #include "cddbconfigwidget.h"
 
 #include "kcmcddb.h"
-#include <libkcddb/lookup.h>
-#include <libkcddb/cache.h>
+#include "libkcddb/lookup.h"
+#include "libkcddb/cache.h"
 
 typedef KGenericFactory<CDDBModule, QWidget> KCDDBFactory;
 K_EXPORT_COMPONENT_FACTORY ( kcm_cddb, KCDDBFactory( "kcmcddb" ) )
@@ -80,10 +80,8 @@ CDDBModule::readConfigFromWidgets() const
 
   config.setHostname            (widget_->cddbServer->text());
   config.setPort                (widget_->cddbPort->value());
-  config.setEmailAddress        (widget_->submissionsSendTo->text());
-  config.setSubmissionsEnabled  (widget_->submissionsEnable->isChecked());
   config.setLookupTransport     (cddbLookup ?
-                                KCDDB::CDDB::CDDBP : KCDDB::CDDB::HTTP);
+                                KCDDB::Lookup::CDDBP : KCDDB::Lookup::HTTP);
   config.setCachePolicy         (policy);
 
   QStringList l;
@@ -98,13 +96,11 @@ CDDBModule::readConfigFromWidgets() const
   void
 CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
 {
-  bool cddbLookup = (config.lookupTransport() == KCDDB::CDDB::CDDBP);
+  bool cddbLookup = (config.lookupTransport() == KCDDB::Lookup::CDDBP);
 
   widget_->cddbType           ->setCurrentItem  (cddbLookup ? 0 : 1);
   widget_->cddbServer         ->setText         (config.hostname());
   widget_->cddbPort           ->setValue        (config.port());
-  widget_->submissionsEnable  ->setChecked      (config.submissionsEnabled());
-  widget_->submissionsSendTo  ->setText         (config.emailAddress());
   if (config.cachePolicy() == KCDDB::Cache::Only)
     widget_->cacheOnly->setChecked(true);
   else if (config.cachePolicy() == KCDDB::Cache::Use)
@@ -122,7 +118,7 @@ CDDBModule::save()
 
   if (newConfig != originalConfig_)
   {
-    newConfig.save();
+    newConfig.writeConfig();
     setChanged( false );
   }
 }
@@ -130,7 +126,7 @@ CDDBModule::save()
   void
 CDDBModule::load()
 {
-  originalConfig_.load();
+  originalConfig_.readConfig();
   updateWidgetsFromConfig(originalConfig_);
 }
 

@@ -3,6 +3,7 @@
 #include <kcmdlineargs.h>
 
 #include "asyncsmtpsubmittest.h"
+#include "libkcddb/submit.h"
 
 AsyncSMTPSubmitTest::AsyncSMTPSubmitTest()
   : QObject()
@@ -10,8 +11,8 @@ AsyncSMTPSubmitTest::AsyncSMTPSubmitTest()
   using namespace KCDDB;
 
   Config config;
-  config.load();
-  config.setSubmitTransport(CDDB::SMTP);
+  config.readConfig();
+  config.setSubmitTransport(Submit::SMTP);
 
   client_ = new Client(config);
   // Lookup sync

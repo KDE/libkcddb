@@ -34,11 +34,17 @@ namespace KCDDB
   {
     public:
 
+      enum Transport
+      {
+        CDDBP,
+        HTTP
+      };
+
+
       Lookup();
       virtual ~Lookup();
 
-      virtual Result lookup( const QString &, uint, const QString &,
-          const QString &, const TrackOffsetList & ) = 0;
+      virtual Result lookup( const QString &, uint, const TrackOffsetList & ) = 0;
 
       CDInfoList lookupResponse() const;
 

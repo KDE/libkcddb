@@ -2,7 +2,9 @@
 #include <kcmdlineargs.h>
 #include <kdebug.h>
 
-#include <libkcddb/client.h>
+#include "libkcddb/client.h"
+#include "libkcddb/cache.h"
+#include "libkcddb/lookup.h"
 
   int
 main(int argc, char ** argv)
@@ -15,9 +17,9 @@ main(int argc, char ** argv)
 
   Config config;
   config.setHostname("freedb.freedb.org");
-  config.setPort(8880);
+  config.setPort(80);
   config.setCachePolicy(Cache::Ignore);
-  config.setLookupTransport(CDDB::CDDBP);
+  config.setLookupTransport(Lookup::HTTP);
 
   Client c(config);
 
