@@ -21,11 +21,12 @@
 #include <qstringlist.h>
 #include <qdir.h>
 #include <qfile.h>
-#include <kextsock.h>
+#include <kextendedsocket.h>
 #include <kdebug.h>
 #include <qsocket.h>
 
 #include <libkcddb/client.h>
+#include <libkcddb/synccddblookup.h>
 
 namespace KCDDB
 {
@@ -41,29 +42,6 @@ namespace KCDDB
 
       KExtendedSocket    socket;
   };
-
-  static Error connectSocket
-    (
-      KExtendedSocket & socket,
-      const QString   & hostname,
-      uint              port
-    )
-  {
-    socket.setHost(hostname);
-    socket.setPort(port);
-
-    int lookupReturn = socket.lookup();
-
-    if (0 != lookupReturn)
-      return HostNotFound;
-
-    int connectReturn = socket.connect();
-
-    if (0 != connectReturn)
-      return NoResponse;
-
-    return None;
-  }
 
   Client::Client()
   {
@@ -146,7 +124,25 @@ namespace KCDDB
     {
       case CDDBLookup:
       case CDDBLookupIgnoreCached:
-        return cddbLookup(trackOffsetList);
+
+        {
+          SyncCDDBLookup lookup;
+
+          Error e =
+            lookup.lookup
+            (
+              trackOffsetList,
+              d->config.hostname(),
+              d->config.port(),
+              d->config.clientName(),
+              d->config.clientVersion()
+            );
+
+          d->cdInfoList = lookup.lookupResponse();
+
+          return e;
+        }
+
         break;
 
       case HTTPLookup:
@@ -229,58 +225,6 @@ return None;
   }
 
     Error
-  Client::cddbLookup(const TrackOffsetList & offsetList)
-  {
-    // Connect to server.
-
-    kdDebug()
-      << "Trying to connect to "
-      << d->config.hostname()
-      << ":"
-      << d->config.port()
-      << endl;
-
-    Error connectError =
-      connectSocket(d->socket, d->config.hostname(), d->config.port());
-
-    if (None != connectError)
-      return connectError;
-
-    kdDebug() << "Connected" << endl;
-
-    // Check welcome message.
-
-    if (!cddbServerWelcomeOk())
-      return NoResponse;
-
-    // Try a handshake.
-
-    if (!cddbShakeHands())
-      return NoResponse;
-
-    // Run a query.
-
-    CDDBMatchList matchList = cddbRunQuery(offsetList);
-
-    if (matchList.isEmpty())
-      return NoRecordFound;
-
-    kdDebug() << matchList.count() << " matches saved" << endl;
-
-    // For each match, read the cd info from the server and save it to
-    // d->cdInfoList.
-
-    if (!cddbGetMatchesToCDInfoList(matchList))
-      return Unknown; // XXX Do we need a ServerError ?
- 
-    writeLine("quit");
-
-    d->socket.close();
-
-    return None;
-  }
-
-    Error
   Client::httpLookup(const TrackOffsetList & offsetList)
   {
     kdDebug() << "Trying to connect to " << d->config.hostname()
@@ -299,220 +243,6 @@ return None;
     d->socket.disconnect();
 
     return Unknown;
-  }
-
-    QString
-  Client::readLine()
-  {
-    kdDebug() << k_funcinfo << endl;
-
-    if (220 != d->socket.socketStatus())
-    {
-      kdDebug() << "socket status: " << d->socket.socketStatus() << endl;
-      return QString::null;
-    }
-
-    QCString buf;
-
-    int c = d->socket.getch();
-
-    while ('\n' != c)
-    {
-      buf += c;
-      c = d->socket.getch();
-    }
-
-    kdDebug() << "READ: `" << buf << "'" << endl;
-    return QString::fromLatin1(buf.data(), buf.length());
-  }
-
-    void
-  Client::writeLine(const QString & s)
-  {
-    kdDebug() << k_funcinfo << endl;
-
-    if (220 != d->socket.socketStatus())
-    {
-      kdDebug() << "socket status: " << d->socket.socketStatus() << endl;
-      return;
-    }
-
-    QCString buf = s.latin1();
-    kdDebug() << "WRITE: `" << buf << "'" << endl;
-    buf.append("\n");
-
-    d->socket.writeBlock(buf.data(), buf.length());
-  }
-
-    bool
-  Client::cddbServerWelcomeOk()
-  {
-    QString line = readLine();
-
-    QStringList tokenList = QStringList::split(' ', line);
-
-    uint serverStatus = tokenList[0].toUInt();
-
-    if (200 == serverStatus)
-    {
-      kdDebug() << "Server response: read-only" << endl;
-    }
-    else if (201 == serverStatus)
-    {
-      kdDebug() << "Server response: read-write" << endl;
-    }
-    else
-    {
-      kdDebug() << "Server response: bugger off" << endl;
-      return false;
-    }
-
-    return true;
-  }
-
-    bool
-  Client::cddbShakeHands()
-  {
-    QString handshake = "cddb hello ";
-    handshake += d->config.user();
-    handshake += " ";
-    handshake += "localhost"; // FIXME
-    handshake += " ";
-    handshake += d->config.clientName();
-    handshake += " ";
-    handshake += d->config.clientVersion();
-
-    writeLine(handshake);
-
-    QString line = readLine();
-
-    QStringList tokenList = QStringList::split(' ', line);
-
-    uint serverStatus = tokenList[0].toUInt();
-
-    if ((200 != serverStatus) && (402 != serverStatus))
-    {
-      kdDebug() << "Handshake was too tight. Letting go." << endl;
-      return false;
-    }
-
-    kdDebug() << "Handshake successful" << endl;
-
-    return true;
-  }
-
-    CDDBMatchList
-  Client::cddbRunQuery(const TrackOffsetList & offsetList)
-  {
-    CDDBMatchList matchList;
-
-    QString query = "cddb query ";
-    query += d->cddbId;
-    query += " ";
-    query += trackOffsetListToString(offsetList);
-
-    writeLine(query);
-
-    QString line = readLine();
-
-    QStringList tokenList = QStringList::split(' ', line);
-
-    uint serverStatus = tokenList[0].toUInt();
-
-    kdDebug() << "Server status: " << serverStatus << endl;
-
-    if (200 == serverStatus)
-    {
-      kdDebug() << "Server found exact match" << endl;
-      matchList.append(qMakePair(tokenList[1], tokenList[2]));
-    }
-    else if (211 == serverStatus)
-    {
-      kdDebug() << "Server found inexact matches" << endl;
-
-      line = readLine();
-
-      while ('.' != line[0])
-      {
-        tokenList = QStringList::split(' ', line);
-        matchList.append(qMakePair(tokenList[0], tokenList[1]));
-        line = readLine();
-      }
-    }
-    else if (210 == serverStatus)
-    {
-      kdDebug() << "Server found multiple exact matches" << endl;
-
-      line = readLine();
-
-      while ('.' != line[0])
-      {
-        tokenList = QStringList::split(' ', line);
-        matchList.append(qMakePair(tokenList[0], tokenList[1]));
-        line = readLine();
-      }
-    }
-    else
-    {
-      kdDebug() << "Server said error" << endl;
-    }
-
-    return matchList;
-  }
-
-    bool
-  Client::cddbGetMatchesToCDInfoList(const CDDBMatchList & matchList)
-  {
-    // XXX Always returns true. Hmm...
-
-    CDDBMatchList::ConstIterator matchIt;
-
-    for (matchIt = matchList.begin(); matchIt != matchList.end(); ++matchIt)
-      (void) cddbGetMatchToCDInfoList(*matchIt);
-
-    return true;
-  }
-
-    bool
-  Client::cddbGetMatchToCDInfoList(const CDDBMatch & match)
-  {
-    QString category  = match.first;
-    QString discid    = match.second;
-
-    kdDebug() << "Match: " << category << " : " << discid << endl;
-
-    QString readRequest = "cddb read ";
-    readRequest += category;
-    readRequest += " ";
-    readRequest += discid;
-
-    writeLine(readRequest);
-
-    QStringList lineList;
-
-    QString line = readLine();
-
-    QStringList tokenList = QStringList::split(' ', line);
-
-    uint serverStatus = tokenList[0].toUInt();
-
-    if (210 != serverStatus)
-    {
-      kdDebug() << "Server error !" << endl;
-      return false;
-    }
-
-    line = readLine();
-
-    while ('.' != line[0])
-    {
-      lineList.append(line);
-      line = readLine();
-    }
-
-    d->cdInfoList.append(parseStringListToCDInfo(lineList));
-
-    return true;
   }
 }
 

@@ -26,6 +26,8 @@
 #include <qstringlist.h>
 #include <qvaluelist.h>
 
+class KExtendedSocket;
+
 namespace KCDDB
 {
   typedef QValueList<uint> TrackOffsetList;
@@ -108,6 +110,16 @@ namespace KCDDB
 
   typedef QPair<QString, QString> CDDBMatch;
   typedef QValueList<CDDBMatch> CDDBMatchList;
+
+  QString readLine(KExtendedSocket &);
+  void writeLine(KExtendedSocket &, const QString &);
+
+  Error connectSocket
+    (
+      KExtendedSocket & socket,
+      const QString   & hostname,
+      uint              port
+    );
 }
 
 #endif // KCDDB_DEFINES_H

@@ -20,6 +20,7 @@
 
 #include <kdebug.h>
 #include <kstringhandler.h>
+#include <kextendedsocket.h>
 
 #include <libkcddb/defines.h>
 
@@ -291,6 +292,73 @@ namespace KCDDB
     }
 
     return ret;
+  }
+
+    QString
+  readLine(KExtendedSocket & socket)
+  {
+    kdDebug() << k_funcinfo << endl;
+
+    if (KExtendedSocket::connected != socket.socketStatus())
+    {
+      kdDebug() << "socket status: " << socket.socketStatus() << endl;
+      return QString::null;
+    }
+
+    QCString buf;
+
+    int c = socket.getch();
+
+    while ('\n' != c)
+    {
+      buf += c;
+      c = socket.getch();
+    }
+
+    kdDebug() << "READ: `" << buf << "'" << endl;
+    return QString::fromLatin1(buf.data(), buf.length());
+  }
+
+    void
+  writeLine(KExtendedSocket & socket, const QString & s)
+  {
+    kdDebug() << k_funcinfo << endl;
+
+    if (KExtendedSocket::connected != socket.socketStatus())
+    {
+      kdDebug() << "socket status: " << socket.socketStatus() << endl;
+      return;
+    }
+
+    QCString buf = s.latin1();
+    kdDebug() << "WRITE: `" << buf << "'" << endl;
+    buf.append("\n");
+
+    socket.writeBlock(buf.data(), buf.length());
+  }
+
+    Error
+  connectSocket
+  (
+    KExtendedSocket & socket,
+    const QString   & hostname,
+    uint              port
+  )
+  {
+    socket.setHost(hostname);
+    socket.setPort(port);
+
+    int lookupReturn = socket.lookup();
+
+    if (0 != lookupReturn)
+      return HostNotFound;
+
+    int connectReturn = socket.connect();
+
+    if (0 != connectReturn)
+      return NoResponse;
+
+    return None;
   }
 }
 
