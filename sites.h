@@ -20,19 +20,30 @@
 #ifndef KCDDB_SITES_H
 #define KCDDB_SITES_H
 
-#include <qstringlist.h>
+#include <qvaluelist.h>
 #include "cddb.h"
+#include "lookup.h"
 
 namespace KCDDB
 {
+  class Mirror
+  {
+    public:
+      QString address;
+      Lookup::Transport transport;
+      uint port;
+      QString description;
+  } ;
+
   class Sites : public CDDB
   {
     public:
       Sites();
 
-      QStringList siteList();
+      QValueList<Mirror> siteList();
     private:
-      QStringList readFile(const QString& fileName);
+      QValueList<Mirror> readFile(const QString& fileName);
+      Mirror parseLine(const QString& line);
   } ;
 }
 

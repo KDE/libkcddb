@@ -22,6 +22,7 @@
 #include <kio/netaccess.h>
 #include <qfile.h>
 #include <kdebug.h>
+#include <qregexp.h>
 
 namespace KCDDB
 {
@@ -31,7 +32,7 @@ namespace KCDDB
 
   }
 
-    QStringList
+    QValueList<Mirror>
   Sites::siteList()
   {
     KURL url;
@@ -49,7 +50,7 @@ namespace KCDDB
     url.addQueryItem( "hello", hello );
     url.addQueryItem( "proto", "5" );
 
-    QStringList result;
+    QValueList<Mirror> result;
 
     QString tmpFile;
     if( KIO::NetAccess::download( url, tmpFile, 0 ) )
@@ -61,10 +62,10 @@ namespace KCDDB
     return result;
   }
 
-    QStringList
+    QValueList<Mirror>
   Sites::readFile(const QString& fileName)
   {
-    QStringList result;
+    QValueList<Mirror> result;
 
     QFile f(fileName);
     if (!f.open(IO_ReadOnly))
@@ -83,9 +84,36 @@ namespace KCDDB
       QString line = ts.readLine();
       if (line == ".")
         break;
-      result << line;
+      result << parseLine(line);
     }
 
     return result;
+  }
+  
+    Mirror
+  Sites::parseLine(const QString& line)
+  {
+    Mirror m;
+
+    QRegExp rexp("([^ ]+) (cddbp|http) (\\d+) ([^ ]+) [N|S]\\d{3}.\\d{2} [E|W]\\d{3}.\\d{2} (.*)");
+
+    if (rexp.search(line) != -1)
+    {
+      m.address = rexp.cap(1);
+
+      if (rexp.cap(2) == "cddbp")
+        m.transport = Lookup::CDDBP;
+      else
+        m.transport = Lookup::HTTP;
+
+      m.port = rexp.cap(3).toUInt();
+
+      if (m.transport == Lookup::HTTP && rexp.cap(4) != "/~cddb/cddb.cgi")
+        kdWarning() << "Non default urls are not supported for http" << endl;
+     
+      m.description = rexp.cap(5);
+    }
+
+    return m;
   }
 }
