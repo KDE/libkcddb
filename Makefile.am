@@ -18,7 +18,7 @@ httplookup.cpp\
 synchttplookup.cpp\
 asynchttplookup.cpp
 
-libkcddb_la_LDFLAGS = $(all_libraries) -version-info 1:0:0 -module
+libkcddb_la_LDFLAGS = $(all_libraries) -version-info 1:0:0
 libkcddb_la_LIBADD  = $(LIB_KDECORE) $(LIB_KIO)
 
 METASOURCES = AUTO
