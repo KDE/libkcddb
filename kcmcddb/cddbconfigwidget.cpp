@@ -32,61 +32,26 @@
 #include <klocale.h>
 #include <kinputdialog.h>
 #include <kmessagebox.h>
+#include <keditlistbox.h>
+#include <qwidgetstack.h>
+#include <kurlrequester.h>
 
 CDDBConfigWidget::CDDBConfigWidget(QWidget * parent, const char * name)
   : CDDBConfigWidgetBase(parent, name)
 {
   // Connections from widgets are made in designer.
+
+  KURLRequester* urlReq = new KURLRequester(this);
+  urlReq->setMode(KFile::Directory);
+
+  KEditListBox* editListBox = new KEditListBox(i18n("Cache Locations"), urlReq->customEditor(), cacheLocationsParent, "kcfg_cacheLocations");
+  cacheLocationsParent->raiseWidget(editListBox);
 }
 
   void
 CDDBConfigWidget::slotConfigChanged()
 {
   emit configChanged();
-}
-
-void CDDBConfigWidget::addCache()
-{
-  QString dir = KFileDialog::getExistingDirectory();
-  if (!dir.isEmpty())
-  {
-    cacheDirectories->insertItem(dir, 0);
-    slotConfigChanged();
-  }
-}
-
-void CDDBConfigWidget::removeCache()
-{
-    delete cacheDirectories->item(cacheDirectories->currentItem());
-    slotConfigChanged();
-}
-
-void CDDBConfigWidget::moveCacheUp()
-{
-    int currentPos = cacheDirectories->currentItem();
-    QString cur = cacheDirectories->currentText();
-    QString before = cacheDirectories->text(currentPos-1);
-    if (before != QString::null)
-    {
-      cacheDirectories->changeItem(cur, currentPos-1);
-      cacheDirectories->changeItem(before, currentPos);
-      cacheDirectories->setCurrentItem(currentPos-1);
-    }
-    emit configChanged();
-}
-
-void CDDBConfigWidget::moveCacheDown()
-{
-    int currentPos = cacheDirectories->currentItem();
-    QString cur = cacheDirectories->currentText();
-    QString after = cacheDirectories->text(currentPos+1);
-    if (after != QString::null)
-    {
-      cacheDirectories->changeItem(cur, currentPos+1);
-      cacheDirectories->changeItem(after, currentPos);
-      cacheDirectories->setCurrentItem(currentPos+1);
-    }
-    emit configChanged();
 }
 
 void CDDBConfigWidget::launchControlCenter()

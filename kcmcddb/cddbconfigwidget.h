@@ -35,11 +35,6 @@ class CDDBConfigWidget : public CDDBConfigWidgetBase
     virtual void launchControlCenter();
     virtual void slotConfigChanged();
 
-    virtual void addCache();
-    virtual void removeCache();
-    virtual void moveCacheUp();
-    virtual void moveCacheDown();
-
     virtual void showMirrorList();
 
     virtual void protocolChanged();

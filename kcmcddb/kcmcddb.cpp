@@ -82,12 +82,6 @@ CDDBModule::defaults()
   void
 CDDBModule::readConfigFromWidgets(KCDDB::Config &config) const
 {
-  QStringList l;
-  for (uint i=0; i < widget_->cacheDirectories->count(); i++)
-    l.append(widget_->cacheDirectories->text(i));
-
-  config.setCacheLocations(l);
-
   if (widget_->needsAuthenticationBox->isChecked())
     config.setSmtpUsername(widget_->usernameLineEdit->text());
   else
@@ -116,8 +110,6 @@ CDDBModule::readConfigFromWidgets(KCDDB::Config &config) const
   void
 CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
 {
-  widget_->cacheDirectories   ->clear();
-  widget_->cacheDirectories   ->insertStringList(config.cacheLocations());
   widget_->fromLabel->setText(config.globalEmail());
   widget_->replyToLabel->setText(config.globalReplyTo());
   widget_->hostLabel->setText(config.globalSmtpHost());
