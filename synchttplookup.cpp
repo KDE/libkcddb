@@ -90,6 +90,10 @@ namespace KCDDB
     if ( Success != result_ )
       return result_;
 
+    // ############ This is a busy loop!
+    // ############ The "proper" solution would rather be enter_loop/exit_loop, a la NetAccess,
+    // except that when this is called from a GUI application, the hidden-modal-widget dialog hack
+    // (a la NetAccess too) might be necessary too. (Not necessary from an ioslave)
     while ( !done_ )
       qApp->processOneEvent();
 
