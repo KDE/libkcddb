@@ -27,8 +27,6 @@
 
 namespace KCDDB
 {
-  typedef QValueList<CDInfo> CDInfoList;
-
   class CDInfo
   {
     public:
@@ -48,6 +46,8 @@ namespace KCDDB
       QString       id;
       TrackInfoList trackInfoList;
   };
+
+  typedef QValueList<CDInfo> CDInfoList;
 }
 
 #endif // KCDDB_CDINFO_H

@@ -63,13 +63,14 @@ namespace KCDDB
     CDInfoList::ConstIterator it=list.begin(); 
     while (it!=list.end())
     {
-      QString cacheFile = fileName(*it.id);
+      CDInfo info = *it;
+      QString cacheFile = fileName(info.id);
       kdDebug() << "Storing " << cacheFile << " in CDDB cache" << endl;
 
       QFile f(cacheFile);
       f.open(IO_WriteOnly);
       QTextStream ts(&f);
-      ts << *it;
+      ts << info.toString();
       f.close();
 
       ++it;

@@ -26,6 +26,7 @@
 #include <qstring.h>
 
 #include "defines.h"
+#include <libkcddb/cdinfo.h>
 
 namespace KCDDB
 {
@@ -41,7 +42,7 @@ namespace KCDDB
       };
 
       static CDInfo lookup(const QString &);
-      static void store(const QString &, const CDInfoList &);
+      static void store(const CDInfoList &);
 
     private:
       static QString fileName(const QString&);

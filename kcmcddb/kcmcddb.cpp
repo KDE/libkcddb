@@ -77,18 +77,14 @@ CDDBModule::readConfigFromWidgets() const
   bool cddbLookup = (0 == widget_->cddbType->currentItem());
   bool cacheEnabled = widget_->cacheEnable->isChecked();
 
-  config.setCachePolicy
-    (cacheEnabled ? KCDDB::Cache::Use : KCDDB::Cache::Ignore);
-
-  if (cddbLookup)
-    config.setLookupTransport(KCDDB::Lookup::CDDB);
-  else
-    config.setLookupTransport(KCDDB::Lookup::HTTP);
-
   config.setHostname            (widget_->cddbServer->text());
   config.setPort                (widget_->cddbPort->value());
   config.setEmailAddress        (widget_->submissionsSendTo->text());
   config.setSubmissionsEnabled  (widget_->submissionsEnable->isChecked());
+  config.setLookupTransport     (cddbLookup ?
+                                KCDDB::Lookup::CDDB : KCDDB::Lookup::HTTP);
+  config.setCachePolicy         (cacheEnabled ? 
+                                KCDDB::Cache::Use : KCDDB::Cache::Ignore);
 
   return config;
 }
@@ -97,7 +93,6 @@ CDDBModule::readConfigFromWidgets() const
 CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
 {
   bool cddbLookup = (config.lookupTransport() == KCDDB::Lookup::CDDB);
-
   bool cacheEnabled = (config.cachePolicy() == KCDDB::Cache::Use);
 
   widget_->cddbType           ->setCurrentItem  (cddbLookup ? 0 : 1);
