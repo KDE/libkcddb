@@ -48,7 +48,6 @@ Name[tr]=CDDB Erişimi
 Name[uk]=Звантаження CDDB
 Name[ven]=U humbula ha CDDB
 Name[xh]=CDDB Ukukangela
-Name[xx]=xxCDDB Retrievalxx
 Name[zh_CN]=CDDB 查询
 
 GenericName=CDDB Configuration
@@ -100,7 +99,6 @@ GenericName[uk]=Налаштування CDDB
 GenericName[uz]=CDDB мосламаси
 GenericName[ven]=Nzudzanyo ya CDDB
 GenericName[wa]=Apontiaedje di CDDB
-GenericName[xx]=xxCDDB Configurationxx
 GenericName[zh_CN]=CDDB 配置
 GenericName[zu]=Uhlanganiso lwe CDDB
 
@@ -117,6 +115,7 @@ Comment[et]=CDDB ülekannete seadistamine
 Comment[eu]=Konfiguratu CDDB berreskuraketa
 Comment[fi]=Aseta CDDB-haku
 Comment[fr]=Configurer la recherche CDDB
+Comment[hi]=सीडीडीबी प्राप्त करना कॉन्फ़िगर करें
 Comment[hu]=A CDDB-lekérdezés beállításai
 Comment[is]=Stilling CDDB 
 Comment[it]=Configura il recupero CDDB
@@ -132,19 +131,17 @@ Comment[ru]=Настройка CDDB
 Comment[sk]=Nastavenie CDDB
 Comment[sl]=Nastavi pridobivanje CDDB
 Comment[sr]=Подешавање добављања CDDB-а
-Comment[sr@Latn]=Подешавање добављања CDDB-а
+Comment[sr@Latn]=Podešavanje dobavljanja CDDB-a
 Comment[sv]=Anpassa hämtning från CDDB
 Comment[ta]=CDDB மீட்டெடுப்பை உள்ளமை
 Comment[tg]=Танзими Бозёбии CDDB
 Comment[tr]=CDDB Erişimini Yapılandır
 Comment[uk]=Налаштування звантаження CDDB
-Comment[xx]=xxConfigure the CDDB Retrievalxx
 Comment[zh_CN]=配置 CDDB 获取
 
 Keywords=cddb
 Keywords[bg]=компактдиск, диск, извличане, информация, песен, база, данни, cddb
 Keywords[hi]=सीडीडीबी
 Keywords[ta]=குறுந்தகடு தகவல்தளம்
-Keywords[xx]=xxcddbxx
 
 Categories=Qt;KDE;X-KDE-settings-sound;
