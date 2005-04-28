@@ -76,7 +76,7 @@ void CDInfoDialogBase::setInfo( const KCDDB::CDInfo &info, KCDDB::TrackOffsetLis
         item->setText(TRACK_TIME, framesTime(trackStartFrames[i + ((i + 1 < tracks) ? 1 : 2)] - trackStartFrames[i]));
         QString title = info.trackInfoList[i].title;
         int separator = title.find(SEPARATOR);
-        if (info.artist != "Various" || separator == -1)
+        if (info.artist != "Various" || separator == -1 || !m_multiple->isChecked() )
         {
             item->setText(TRACK_ARTIST, "");
             item->setText(TRACK_TITLE, title);
@@ -86,13 +86,14 @@ void CDInfoDialogBase::setInfo( const KCDDB::CDInfo &info, KCDDB::TrackOffsetLis
             // We seem to have a compilation.
             item->setText(TRACK_ARTIST, title.left(separator));
             item->setText(TRACK_TITLE, title.mid(separator + 3));
-        }
+    }
         item->setText(TRACK_COMMENT, info.trackInfoList[i].extt);
     }
     // FIXME KDE4: handle playorder here too, once KCDDBInfo::CDInfo is updated.
 
-    if (info.artist == "Various")
+    if (info.artist == "Various" || m_multiple->isChecked()){
         m_trackList->adjustColumn(TRACK_ARTIST);
+  }
 }
 
 QString CDInfoDialogBase::framesTime(unsigned frames)
@@ -147,8 +148,22 @@ KCDDB::CDInfo CDInfoDialogBase::info() const
 void CDInfoDialogBase::artistChanged( const QString &newArtist )
 {
     // Enable special handling of compilations.
-    if (newArtist.stripWhiteSpace().compare("Various") == 0)
-    {
+    m_multiple->setChecked(newArtist.stripWhiteSpace().compare("Various"));
+}
+
+void CDInfoDialogBase::genreChanged( const QString &newGenre )
+{
+    // Disable changes to category if the version number indicates that a record
+    // is already in the database, or if the genre is poorly set. The latter
+    // condition also provides a "back-door" override.
+    m_category->setEnabled((m_revision->text().stripWhiteSpace().toUInt() < 1) ||
+                            (newGenre.compare("Unknown") == 0));
+}
+
+
+void CDInfoDialogBase::slotMultipleArtists( bool hasMultipleArtist)
+{
+    if(hasMultipleArtist){
         for (QListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
         {
             QString title = item->text(TRACK_TITLE);
@@ -162,9 +177,8 @@ void CDInfoDialogBase::artistChanged( const QString &newArtist )
         }
         m_trackList->adjustColumn(TRACK_ARTIST);
         m_trackList->adjustColumn(TRACK_TITLE);
-    }
-    else
-    {
+    } 
+    else{
         for (QListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
         {
             QString artist = item->text(TRACK_ARTIST);
@@ -177,13 +191,4 @@ void CDInfoDialogBase::artistChanged( const QString &newArtist )
         m_trackList->hideColumn(TRACK_ARTIST);
         m_trackList->adjustColumn(TRACK_TITLE);
     }
-}
-
-void CDInfoDialogBase::genreChanged( const QString &newGenre )
-{
-    // Disable changes to category if the version number indicates that a record
-    // is already in the database, or if the genre is poorly set. The latter
-    // condition also provides a "back-door" override.
-    m_category->setEnabled((m_revision->text().stripWhiteSpace().toUInt() < 1) ||
-                            (newGenre.compare("Unknown") == 0));
 }
