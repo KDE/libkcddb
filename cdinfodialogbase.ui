@@ -8,9 +8,12 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>450</width>
-            <height>670</height>
+            <width>481</width>
+            <height>465</height>
         </rect>
+    </property>
+    <property name="caption">
+        <string>CDInfoDialogBase</string>
     </property>
     <vbox>
         <property name="name">
@@ -24,6 +27,14 @@
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
+                <widget class="KLineEdit" row="2" column="1" rowspan="1" colspan="3">
+                    <property name="name">
+                        <cstring>m_comment</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                </widget>
                 <widget class="QLabel" row="3" column="3">
                     <property name="name">
                         <cstring>m_length</cstring>
@@ -32,47 +43,15 @@
                         <string></string>
                     </property>
                 </widget>
-                <widget class="QLabel" row="5" column="2">
+                <widget class="KComboBox" row="4" column="1">
                     <property name="name">
-                        <cstring>lb_revision</cstring>
+                        <cstring>m_category</cstring>
                     </property>
-                    <property name="text">
-                        <string>Revision:</string>
+                    <property name="enabled">
+                        <bool>false</bool>
                     </property>
-                </widget>
-                <widget class="QLabel" row="3" column="0">
-                    <property name="name">
-                        <cstring>lb_year</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Year:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>m_year</cstring>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="1" column="0">
-                    <property name="name">
-                        <cstring>lb_title</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Title:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>m_title</cstring>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="5" column="3">
-                    <property name="name">
-                        <cstring>m_revision</cstring>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="3" column="2">
-                    <property name="name">
-                        <cstring>lb_length</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Length:</string>
+                    <property name="toolTip" stdset="0">
+                        <string>Disc Id values must be unique within a category.</string>
                     </property>
                 </widget>
                 <widget class="KLineEdit" row="1" column="1" rowspan="1" colspan="3">
@@ -83,80 +62,20 @@
                         <string>Use the name of the artist if there is no title.</string>
                     </property>
                 </widget>
-                <widget class="KLineEdit" row="0" column="1" rowspan="1" colspan="3">
+                <widget class="QLabel" row="3" column="2">
                     <property name="name">
-                        <cstring>m_artist</cstring>
-                    </property>
-                    <property name="toolTip" stdset="0">
-                        <string>Write names as "first last", not "last, first". Omit any leading "The".  Use "Various" for compilations.</string>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="5" column="0">
-                    <property name="name">
-                        <cstring>lb_id</cstring>
+                        <cstring>lb_length</cstring>
                     </property>
                     <property name="text">
-                        <string>Disc Id:</string>
+                        <string>Length:</string>
                     </property>
                 </widget>
-                <widget class="QLabel" row="2" column="0">
+                <widget class="QLabel" row="5" column="2">
                     <property name="name">
-                        <cstring>lb_comment</cstring>
+                        <cstring>lb_revision</cstring>
                     </property>
                     <property name="text">
-                        <string>Comment:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>le_discInfo</cstring>
-                    </property>
-                </widget>
-                <widget class="KLineEdit" row="2" column="1" rowspan="1" colspan="3">
-                    <property name="name">
-                        <cstring>m_comment</cstring>
-                    </property>
-                    <property name="text">
-                        <string></string>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="5" column="1">
-                    <property name="name">
-                        <cstring>m_id</cstring>
-                    </property>
-                    <property name="text">
-                        <string></string>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="4" column="0">
-                    <property name="name">
-                        <cstring>lb_category</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Category:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>m_category</cstring>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="4" column="2">
-                    <property name="name">
-                        <cstring>lb_genre</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Genre:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>m_genre</cstring>
-                    </property>
-                </widget>
-                <widget class="QLabel" row="0" column="0">
-                    <property name="name">
-                        <cstring>lb_artist</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Artist:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>m_artist</cstring>
+                        <string>Revision:</string>
                     </property>
                 </widget>
                 <widget class="KComboBox" row="4" column="3">
@@ -173,6 +92,17 @@
                         <string>Avoid custom values, as they will be written to CDDB as-is.</string>
                     </property>
                 </widget>
+                <widget class="QLabel" row="2" column="0">
+                    <property name="name">
+                        <cstring>lb_comment</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Comment:</string>
+                    </property>
+                    <property name="buddy" stdset="0">
+                        <cstring>le_discInfo</cstring>
+                    </property>
+                </widget>
                 <widget class="KIntSpinBox" row="3" column="1">
                     <property name="name">
                         <cstring>m_year</cstring>
@@ -184,15 +114,99 @@
                         <number>1900</number>
                     </property>
                 </widget>
-                <widget class="KComboBox" row="4" column="1">
+                <widget class="QLabel" row="0" column="0">
                     <property name="name">
+                        <cstring>lb_artist</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Artist:</string>
+                    </property>
+                    <property name="buddy" stdset="0">
+                        <cstring>m_artist</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="4" column="2">
+                    <property name="name">
+                        <cstring>lb_genre</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Genre:</string>
+                    </property>
+                    <property name="buddy" stdset="0">
+                        <cstring>m_genre</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="5" column="1">
+                    <property name="name">
+                        <cstring>m_id</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="5" column="3">
+                    <property name="name">
+                        <cstring>m_revision</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="1" column="0">
+                    <property name="name">
+                        <cstring>lb_title</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Title:</string>
+                    </property>
+                    <property name="buddy" stdset="0">
+                        <cstring>m_title</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="3" column="0">
+                    <property name="name">
+                        <cstring>lb_year</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Year:</string>
+                    </property>
+                    <property name="buddy" stdset="0">
+                        <cstring>m_year</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="4" column="0">
+                    <property name="name">
+                        <cstring>lb_category</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Category:</string>
+                    </property>
+                    <property name="buddy" stdset="0">
                         <cstring>m_category</cstring>
                     </property>
-                    <property name="enabled">
-                        <bool>false</bool>
+                </widget>
+                <widget class="QLabel" row="5" column="0">
+                    <property name="name">
+                        <cstring>lb_id</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Disc Id:</string>
+                    </property>
+                </widget>
+                <widget class="KLineEdit" row="0" column="1" rowspan="1" colspan="3">
+                    <property name="name">
+                        <cstring>m_artist</cstring>
                     </property>
                     <property name="toolTip" stdset="0">
-                        <string>Disc Id values must be unique within a category.</string>
+                        <string>Write names as "first last", not "last, first". Omit any leading "The".  Use "Various" for compilations.</string>
+                    </property>
+                </widget>
+                <widget class="QCheckBox" row="6" column="0" rowspan="1" colspan="3">
+                    <property name="name">
+                        <cstring>m_multiple</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Multiple artists</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+M</string>
                     </property>
                 </widget>
             </grid>
@@ -306,6 +320,12 @@
         <receiver>CDInfoDialogBase</receiver>
         <slot>genreChanged(const QString&amp;)</slot>
     </connection>
+    <connection>
+        <sender>m_multiple</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>CDInfoDialogBase</receiver>
+        <slot>slotMultipleArtists(bool)</slot>
+    </connection>
 </connections>
 <tabstops>
     <tabstop>m_artist</tabstop>
@@ -352,6 +372,7 @@
     <slot>setInfo( const KCDDB::CDInfo &amp; info, KCDDB::TrackOffsetList &amp; trackStartFrames )</slot>
     <slot>artistChanged( const QString &amp; newArtist )</slot>
     <slot>genreChanged( const QString &amp; newGenre )</slot>
+    <slot>slotMultipleArtists( bool hasMultipleArtist )</slot>
 </slots>
 <functions>
     <function access="private" specifier="non virtual">init()</function>
@@ -363,12 +384,12 @@
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
 <includehints>
     <includehint>klineedit.h</includehint>
-    <includehint>klineedit.h</includehint>
+    <includehint>kcombobox.h</includehint>
     <includehint>klineedit.h</includehint>
     <includehint>kcombobox.h</includehint>
     <includehint>klineedit.h</includehint>
     <includehint>knuminput.h</includehint>
-    <includehint>kcombobox.h</includehint>
+    <includehint>klineedit.h</includehint>
     <includehint>klistview.h</includehint>
     <includehint>klineedit.h</includehint>
 </includehints>
