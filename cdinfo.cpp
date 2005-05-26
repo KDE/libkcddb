@@ -158,7 +158,7 @@ namespace KCDDB
       else if ( "EXTD" == key )
       {
         if (!extd.isEmpty())
-	  extd.append('\n');
+          extd.append('\n');
         extd.append( value );
       }
       else if ( "EXTT" == key.left( 4 ) )
@@ -168,7 +168,7 @@ namespace KCDDB
         checkTrack( trackNumber );
 
         if (!trackInfoList[ trackNumber ].extt.isEmpty())
-	  trackInfoList[ trackNumber ].extt.append('\n');
+          trackInfoList[ trackNumber ].extt.append('\n');
         trackInfoList[ trackNumber ].extt.append( value );
       }
     }

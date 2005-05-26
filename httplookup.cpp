@@ -27,7 +27,7 @@
 namespace KCDDB
 {
   HTTPLookup::HTTPLookup()
-    : QObject(), Lookup(),
+    : Lookup(),
       block_( true ), state_( Idle ), result_( Success )
   {
   }
@@ -91,16 +91,8 @@ namespace KCDDB
   }
 
     void
-  HTTPLookup::slotResult( KIO::Job *job )
+  HTTPLookup::jobFinished()
   {
-    if ( 0 != job->error() )
-    {
-      result_ = ServerError;
-      if ( !block_ )
-        emit queryReady();
-      return;
-    }
-
     QStringList lineList = QStringList::split( "\n", QString::fromUtf8(data_, data_.size()) );
     QStringList::ConstIterator it = lineList.begin();
 

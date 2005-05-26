@@ -24,9 +24,8 @@
 
 namespace KCDDB
 {
-  AsyncCDDBPLookup::AsyncCDDBPLookup(QObject * parent, const char * name)
-    : QObject(parent, name),
-      CDDBPLookup(), 
+  AsyncCDDBPLookup::AsyncCDDBPLookup()
+    : CDDBPLookup(), 
       state_(Idle)
   {
     socket_.setBlockingMode( false );

@@ -120,6 +120,19 @@ namespace KCDDB
     }
   }
 
+    void
+  AsyncHTTPLookup::slotResult( KIO::Job *job )
+  {
+    if ( 0 != job->error() )
+    {
+      result_ = ServerError;
+      if ( !block_ )
+        emit queryReady();
+      return;
+    }
+
+    jobFinished();
+  }
 
     CDDB::Result
   AsyncHTTPLookup::fetchURL()

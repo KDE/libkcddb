@@ -34,7 +34,7 @@ namespace KIO
 
 namespace KCDDB
 {
-  class HTTPLookup : public QObject, public Lookup
+  class HTTPLookup : public Lookup
   {
 
     Q_OBJECT
@@ -57,12 +57,10 @@ namespace KCDDB
       void makeURL( const QString & );
       virtual Result fetchURL() = 0;
 
+      void jobFinished();
+
       Result sendQuery();
       Result sendRead( const CDDBMatch & );
-
-    protected slots:
-
-      virtual void slotResult( KIO::Job * );
 
     signals:
 
