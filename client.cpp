@@ -216,6 +216,8 @@ namespace KCDDB
 
     emit finished( r );
 
+    // FIXME Should probably use deleteLater() instead,
+    // but need to make Lookup inherit QObject first
     delete cdInfoLookup;
     cdInfoLookup = 0L;
   }
