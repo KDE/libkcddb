@@ -48,6 +48,7 @@ namespace KCDDB
       void requestCDInfoForMatch();
 
       void slotData( KIO::Job *, const QByteArray & );
+      void slotResult( KIO::Job * );
 
     protected:
       virtual Result fetchURL();

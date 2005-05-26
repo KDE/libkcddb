@@ -26,7 +26,7 @@ namespace KCDDB
 {
   AsyncSMTPSubmit::AsyncSMTPSubmit(const QString& hostname, uint port,
         const QString& username, const QString& from, const QString& to )
-    : QObject(), SMTPSubmit( hostname, port, username, from, to )
+    : SMTPSubmit( hostname, port, username, from, to )
   {
 
   }

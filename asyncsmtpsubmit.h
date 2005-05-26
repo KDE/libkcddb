@@ -24,7 +24,7 @@
 
 namespace KCDDB
 {
-  class AsyncSMTPSubmit : public QObject, public SMTPSubmit
+  class AsyncSMTPSubmit : public SMTPSubmit
   {
     Q_OBJECT
 

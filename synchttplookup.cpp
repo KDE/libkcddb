@@ -122,7 +122,7 @@ namespace KCDDB
     if (!KIO::NetAccess::synchronousRun(job, 0, &data_))
       return ServerError;
 
-    slotResult(job);
+    jobFinished();
 
     return Success;
   }

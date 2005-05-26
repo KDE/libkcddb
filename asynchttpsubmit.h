@@ -23,7 +23,7 @@
 
 namespace KCDDB
 {
-  class AsyncHTTPSubmit : public QObject, public HTTPSubmit
+  class AsyncHTTPSubmit : public HTTPSubmit
   {
     Q_OBJECT
     public:

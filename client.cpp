@@ -216,9 +216,7 @@ namespace KCDDB
 
     emit finished( r );
 
-    // FIXME Should probably use deleteLater() instead,
-    // but need to make Lookup inherit QObject first
-    delete cdInfoLookup;
+    cdInfoLookup->deleteLater();
     cdInfoLookup = 0L;
   }
 
@@ -227,7 +225,7 @@ namespace KCDDB
   {
     emit finished( r );
 
-    delete cdInfoSubmit;
+    cdInfoSubmit->deleteLater();
     cdInfoSubmit=0L;
   }
 

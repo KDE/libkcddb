@@ -27,7 +27,7 @@
 
 namespace KCDDB
 {
-  class AsyncCDDBPLookup : public QObject, public CDDBPLookup 
+  class AsyncCDDBPLookup : public CDDBPLookup 
   {
     Q_OBJECT
 
@@ -48,7 +48,7 @@ namespace KCDDB
         WaitingForQuitResponse
       };
 
-      AsyncCDDBPLookup( QObject * parent = 0, const char * name = 0 );
+      AsyncCDDBPLookup();
 
       virtual ~AsyncCDDBPLookup();
 
