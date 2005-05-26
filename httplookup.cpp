@@ -101,7 +101,7 @@ namespace KCDDB
       return;
     }
 
-    QStringList lineList = QStringList::split( "\n", QString::fromUtf8(data_) );
+    QStringList lineList = QStringList::split( "\n", QString::fromUtf8(data_, data_.size()) );
     QStringList::ConstIterator it = lineList.begin();
 
     switch ( state_ )
@@ -166,7 +166,7 @@ namespace KCDDB
         {
           CDInfo info;
 
-          if ( info.load( QString::fromUtf8(data_) ) )
+          if ( info.load( QString::fromUtf8(data_,data_.size()) ) )
           {
             info.category = category_;
             cdInfoList_.append( info );
@@ -175,6 +175,8 @@ namespace KCDDB
           if ( !block_ )
             emit readReady();
         }
+
+        return;
 
         break; 
 
