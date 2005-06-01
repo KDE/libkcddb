@@ -40,7 +40,7 @@ namespace KCDDB
     */
   typedef QValueList<uint> TrackOffsetList;
 
-  class KDE_EXPORT CDDB : public QObject
+  class KDE_EXPORT CDDB
   {
     public:
 
