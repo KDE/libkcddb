@@ -32,7 +32,7 @@ namespace KIO
 
 namespace KCDDB
 {
-  class Submit : public CDDB
+  class Submit : public CDDB, public QObject
   {
     public:
 

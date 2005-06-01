@@ -30,7 +30,7 @@ namespace KCDDB
   typedef QPair<QString, QString> CDDBMatch;
   typedef QValueList<CDDBMatch> CDDBMatchList;
 
-  class Lookup : public CDDB
+  class Lookup : public CDDB, public QObject
   {
     public:
 
