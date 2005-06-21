@@ -22,6 +22,8 @@
 #ifndef KCDDB_CDDBP_LOOKUP_H
 #define KCDDB_CDDBP_LOOKUP_H
 
+#include <kstreamsocket.h>
+
 #include "lookup.h"
 
 namespace KCDDB
@@ -40,13 +42,12 @@ namespace KCDDB
 
       void close();
     protected:
-      QString readLine();
       Q_LONG writeLine( const QString & );
 
       bool isConnected()
-        { return KExtendedSocket::connected == socket_.socketStatus(); }
+        { return KNetwork::KClientSocketBase::Connected == socket_->state(); }
 
-      KExtendedSocket socket_;
+      KNetwork::KStreamSocket* socket_;
   };
 }
 

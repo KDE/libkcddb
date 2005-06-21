@@ -24,6 +24,7 @@
 
 #include "cddb.h"
 #include "cdinfo.h"
+#include <qobject.h>
 
 namespace KCDDB
 {

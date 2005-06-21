@@ -32,7 +32,6 @@
 #include "lookup.h"
 
 #include <kdebug.h>
-#include <qsocket.h>
 
 namespace KCDDB
 {

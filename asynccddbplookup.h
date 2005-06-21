@@ -36,7 +36,6 @@ namespace KCDDB
       enum State
       {
         Idle,
-        WaitingForHostResolution,
         WaitingForConnection,
         WaitingForGreeting,
         WaitingForHandshake,
@@ -61,9 +60,8 @@ namespace KCDDB
 
     protected slots:
 
-      void slotLookupFinished( int );
+      void slotGotError(int error);
       void slotConnectionSuccess();
-      void slotConnectionFailed( int );
       void slotReadyRead();
 
     protected:
@@ -79,6 +77,9 @@ namespace KCDDB
       void parseCDInfoData();
 
       void read();
+
+      bool canReadLine();
+      QString readLine();
 
       QString stateToString() const;
 

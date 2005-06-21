@@ -26,7 +26,6 @@
 #include <qpair.h>
 #include <qvaluelist.h>
 
-#include <kextendedsocket.h>
 #include <kdelibs_export.h>
 
 namespace KCDDB

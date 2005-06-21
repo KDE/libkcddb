@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  Copyright (C) 2005 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -19,6 +20,7 @@
 */
 
 #include <kdebug.h>
+#include <kbufferedsocket.h>
 
 #include "asynccddbplookup.h"
 
@@ -28,38 +30,7 @@ namespace KCDDB
     : CDDBPLookup(), 
       state_(Idle)
   {
-    socket_.setBlockingMode( false );
-    socket_.enableRead( true );
 
-    socket_.setSocketFlags
-      ( socket_.socketFlags() | KExtendedSocket::inputBufferedSocket );
-
-    connect (
-        &socket_,
-        SIGNAL(lookupFinished(int)),
-        SLOT(slotLookupFinished(int))
-      );
-
-    connect
-      ( 
-        &socket_,
-        SIGNAL( connectionSuccess() ),
-        SLOT( slotConnectionSuccess() )
-      );
-
-    connect
-      ( 
-        &socket_,
-        SIGNAL( connectionFailed( int ) ),
-        SLOT( slotConnectionFailed( int ) )
-      );
-
-    connect
-      ( 
-        &socket_,
-        SIGNAL( readyRead() ),
-        SLOT( slotReadyRead() )
-      );
   }
 
   AsyncCDDBPLookup::~AsyncCDDBPLookup()
@@ -75,43 +46,46 @@ namespace KCDDB
     const TrackOffsetList & trackOffsetList
   )
   {
-    if (  trackOffsetList.count() < 3 )
+    socket_ = new KNetwork::KBufferedSocket(hostname,QString::number(port));
+    
+    socket_->setBlocking( false );
+
+    connect (socket_, SIGNAL(gotError(int)), SLOT(slotGotError(int)));
+
+    connect (socket_, SIGNAL( connected(const KResolverEntry &) ),
+      SLOT( slotConnectionSuccess() ) );
+
+    connect (socket_, SIGNAL( readyRead() ), SLOT( slotReadyRead() ) );
+
+    if ( trackOffsetList.count() < 3 )
       return UnknownError;
 
     trackOffsetList_ = trackOffsetList;
 
-    state_ = WaitingForHostResolution;
+    state_ = WaitingForConnection;
 
-    kdDebug(60010) << "Asking socket to connect to "
-      << hostname << ":" << port << endl;
-
-    socket_.setAddress( hostname, port );
-
-    if ( 0 != socket_.startAsyncLookup() )
-      return HostNotFound;
+    if ( !socket_->connect(hostname, QString::number(port)) )
+    {
+       state_ = Idle;
+       emit finished( NoResponse );
+       return NoResponse;
+    }
 
     return Success;
   }
 
     void
-  AsyncCDDBPLookup::slotLookupFinished( int hostCount )
+  AsyncCDDBPLookup::slotGotError(int error)
   {
-    kdDebug(60010) << "Found " << hostCount << " hosts" << endl;
-
-    if ( 0 == hostCount )
-    {
-      state_ = Idle;
+    state_ = Idle;
+    
+    if ( error == KNetwork::KSocketBase::LookupFailure )
       emit finished( HostNotFound );
-      return;
-    }
-
-    state_ = WaitingForConnection;
-
-    if( 0 != socket_.startAsyncConnect() )
-    {
-      state_ = Idle;
+    else if ( error == KNetwork::KSocketBase::ConnectionTimedOut ||
+        error == KNetwork::KSocketBase::NetFailure )
       emit finished( NoResponse );
-    }
+    else
+      emit finished( UnknownError );
   }
 
     void
@@ -122,20 +96,11 @@ namespace KCDDB
   }
 
     void
-  AsyncCDDBPLookup::slotConnectionFailed( int err )
-  {
-    kdDebug(60010) << "Connection failed, error: " << err << endl;
-    state_ = Idle;
-    emit finished( NoResponse );
-    return;
-  }
-
-    void
   AsyncCDDBPLookup::slotReadyRead()
   {
     kdDebug(60010) << "Ready to read. State: " << stateToString() << endl;
 
-    while ( Idle != state_ && isConnected() && socket_.canReadLine() )
+    while ( Idle != state_ && isConnected() && canReadLine() )
       read();
   }
 
@@ -180,7 +145,6 @@ namespace KCDDB
         break;
 
       case WaitingForQueryResponse:
-        
           result_ = parseQuery( readLine() );
 
           switch ( result_ )
@@ -204,7 +168,7 @@ namespace KCDDB
         {
           QString line = readLine();
 
-          if ('.' == line[ 0 ])
+          if (line.startsWith("."))
             requestCDInfoForMatch();
           else
             parseExtraMatch( line );
@@ -232,7 +196,7 @@ namespace KCDDB
         {
           QString line = readLine();
 
-          if ('.' == line[ 0 ])
+          if (line.startsWith("."))
           {
             parseCDInfoData();
             requestCDInfoForMatch();
@@ -247,8 +211,8 @@ namespace KCDDB
 
         state_ = Idle;
 
-        while ( socket_.bytesAvailable() )
-          socket_.getch();
+        while ( socket_->bytesAvailable() )
+          socket_->getch();
  
         emit finished( result_ );
 
@@ -258,6 +222,19 @@ namespace KCDDB
 
         break;
     }
+  }
+    
+    bool
+  AsyncCDDBPLookup::canReadLine()
+  {
+    return (static_cast<KNetwork::KBufferedSocket *>(socket_))->canReadLine();
+  }
+    
+    QString
+  AsyncCDDBPLookup::readLine()
+  {
+    return QString::fromUtf8(
+      (static_cast<KNetwork::KBufferedSocket *>(socket_))->readLine());
   }
 
     void
@@ -331,10 +308,6 @@ namespace KCDDB
     {
       case Idle:
         return "Idle";
-        break;
-
-      case WaitingForHostResolution:
-        return "WaitingForHostResolution";
         break;
 
       case WaitingForConnection:

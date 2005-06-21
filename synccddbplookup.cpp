@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  Copyright (C) 2005 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -28,7 +29,6 @@ namespace KCDDB
   SyncCDDBPLookup::SyncCDDBPLookup()
     : CDDBPLookup()
   {
-    socket_.setBlockingMode(  false );
   }
 
   SyncCDDBPLookup::~SyncCDDBPLookup()
@@ -49,10 +49,14 @@ namespace KCDDB
 
     trackOffsetList_ = trackOffsetList;
 
+    socket_ = new KNetwork::KStreamSocket(hostName, QString::number(port));
+    socket_->setBlocking( true );
+    socket_->setTimeout( 30000 );
+
     Result result;
 
     // Connect to server.
-    result = connect( hostName, port );
+    result = connect();
     if ( Success != result )
       return result;
 
@@ -90,19 +94,14 @@ namespace KCDDB
   }
 
     CDDB::Result
-  SyncCDDBPLookup::connect( const QString & hostName, uint port )
+  SyncCDDBPLookup::connect()
   {
-    kdDebug(60010) << "Trying to connect to " << hostName << ":" << port << endl;
+    kdDebug(60010) << "Trying to connect to " << endl;
 
-    if (    !socket_.setAddress(    hostName, port ) )
-      return UnknownError;
+    //if ( !socket_->lookup() )
+    //  return HostNotFound;
 
-    socket_.setTimeout(    30 );
-
-    if (    0 != socket_.lookup() )
-      return HostNotFound;
-
-    if (    0 != socket_.connect() )
+    if ( !socket_->connect() )
       return NoResponse;
 
     kdDebug(60010) << "Connected" << endl;
@@ -150,7 +149,7 @@ namespace KCDDB
       // We have multiple matches
       line = readLine();
 
-      while ( '.' != line[ 0 ] )
+      while (!line.startsWith(".") && !line.isNull() )
       {
         parseExtraMatch( line );
         line = readLine();
@@ -174,7 +173,7 @@ namespace KCDDB
     QStringList lineList;
     line = readLine();
 
-    while ( '.' != line[0] )
+    while ( !line.startsWith(".") && !line.isNull() )
     {
       lineList.append( line );
       line = readLine();
@@ -189,6 +188,55 @@ namespace KCDDB
     }
 
     return Success;
+  }
+
+    QString
+  SyncCDDBPLookup::readLine()
+  {
+    if ( !isConnected() )
+    {
+      kdDebug(60010) << "socket status: " << socket_->state() << endl;
+      return QString::null;
+    }
+
+    int eolPos = (m_data.count() == 0) ? -1 : m_data.find('\n');
+
+    if (eolPos == -1)
+    {
+      bool timeout;
+      socket_->waitForMore(-1, &timeout);
+
+      if (timeout)
+        return QString::null;
+
+      int n = socket_->bytesAvailable();
+      QByteArray newData(n);
+      socket_->readBlock(newData.data(),n);
+
+      int oldLength = m_data.count();
+      m_data.resize(oldLength+n);
+
+      for (int i=0; i < n; i++)
+        m_data[oldLength+i] = newData[i];
+
+      kdDebug(60010) << "Read " << newData.size() << " bytes" << endl;
+
+      eolPos = (m_data.count() == 0) ? -1 : m_data.find('\n');
+
+      if (eolPos == -1)
+        return QString::null;
+    }
+
+    QString line = QString::fromUtf8(m_data.data(),eolPos);
+
+    QByteArray newData(m_data.count()-eolPos-1);
+
+    for (unsigned i=0; i < (m_data.count()-eolPos-1); i++)
+      newData[i] = m_data[i+eolPos+1];
+
+    m_data = newData;
+
+    return line;
   }
 }
 

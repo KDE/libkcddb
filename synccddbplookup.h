@@ -38,11 +38,13 @@ namespace KCDDB
       CDInfoList lookupResponse() const;
 
     protected:
-
-      Result connect( const QString &, uint );
+      Result connect();
       Result shakeHands();
       Result runQuery();
       Result matchToCDInfo( const CDDBMatch & );
+
+      QString readLine();
+      QByteArray m_data;
   };
 }
 

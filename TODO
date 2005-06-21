@@ -5,8 +5,6 @@ http://www.freedb.org/modules.php?name=Sections&sop=viewarticle&artid=38
 
 Saving playlist
 
-Port the CDDBPLookup classes to KNetwork-classes
-
 Make it possible for a program to in some way mark that
 an entry is not coming from freedb, but created from the
 program. Now it's not possible to know the difference, so

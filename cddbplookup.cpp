@@ -28,11 +28,12 @@ namespace KCDDB
   CDDBPLookup::CDDBPLookup()
     : Lookup()
   {
-    socket_.setTimeout( 60 );
+
   }
 
   CDDBPLookup::~CDDBPLookup()
   {
+    delete socket_;
   }
 
     void
@@ -88,30 +89,8 @@ namespace KCDDB
     kdDebug(60010) << "Disconnect from server..." << endl;
     if ( isConnected() )
     {
-      socket_.flush();
-      socket_.closeNow();
+      socket_->close();
     }
-  }
-
-    QString
-  CDDBPLookup::readLine()
-  {
-    if ( !isConnected() )
-    {
-      kdDebug(60010) << "socket status: " << socket_.socketStatus() << endl;
-      return QString::null;
-    }
-
-    const uint maxRead = 4096;
-    QByteArray buf( maxRead );
-
-    if (socket_.readLine( buf.data(), maxRead - 1 ) == -1)
-    {
-        // error!
-        buf[0] = '\0';
-    }
-
-    return QString::fromUtf8( buf );
   }
 
     Q_LONG
@@ -119,15 +98,15 @@ namespace KCDDB
   {
     if ( !isConnected() )
     {
-      kdDebug(60010) << "socket status: " << socket_.socketStatus() << endl;
+      kdDebug(60010) << "socket status: " << socket_->state() << endl;
       return -1;
     }
 
     kdDebug(60010) << "WRITE: [" << line << "]" << endl;
-    QCString buf = line.latin1();
+    QCString buf = line.utf8();
     buf.append( "\n" );
 
-    return socket_.writeBlock( buf.data(), buf.length() );
+    return socket_->writeBlock( buf.data(), buf.length() );
   }
 }
 
