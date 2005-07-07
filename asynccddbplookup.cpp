@@ -35,7 +35,6 @@ namespace KCDDB
 
   AsyncCDDBPLookup::~AsyncCDDBPLookup()
   {
-    close();
   }
 
     CDDB::Result
@@ -213,6 +212,8 @@ namespace KCDDB
 
         while ( socket_->bytesAvailable() )
           socket_->getch();
+
+        close();
  
         emit finished( result_ );
 
