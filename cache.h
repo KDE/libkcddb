@@ -42,6 +42,10 @@ namespace KCDDB
 
       static CDInfoList lookup( const QString & );
       static void store( const CDInfoList & );
+      // KDE4: Should probably take a TrackOffsetList too, so
+      // the list can be stored in the file, and we can make
+      // sure the discid is correct (had to do the same fix in
+      // both kscd and kaudiocreator)
       static void store( const CDInfo & );
 
     private:
