@@ -40,7 +40,6 @@ namespace KCDDB
       QString title;
       QString extt;
       // KDE4: Add a member for length (in milliseconds)
-      // KDE4: Add a member for year
       // KDE4: Add a private variable so this doesn't happen again :P
   };
 
