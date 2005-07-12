@@ -20,7 +20,6 @@
 */
 
 #include <kdebug.h>
-#include <kbufferedsocket.h>
 
 #include "asynccddbplookup.h"
 
@@ -99,7 +98,7 @@ namespace KCDDB
   {
     kdDebug(60010) << "Ready to read. State: " << stateToString() << endl;
 
-    while ( Idle != state_ && isConnected() && canReadLine() )
+    while ( Idle != state_ && isConnected() && socket_->canReadLine() )
       read();
   }
 
@@ -225,17 +224,10 @@ namespace KCDDB
     }
   }
     
-    bool
-  AsyncCDDBPLookup::canReadLine()
-  {
-    return (static_cast<KNetwork::KBufferedSocket *>(socket_))->canReadLine();
-  }
-    
     QString
   AsyncCDDBPLookup::readLine()
   {
-    return QString::fromUtf8(
-      (static_cast<KNetwork::KBufferedSocket *>(socket_))->readLine());
+    return QString::fromUtf8(socket_->readLine());
   }
 
     void

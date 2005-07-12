@@ -22,7 +22,7 @@
 #ifndef KCDDB_CDDBP_LOOKUP_H
 #define KCDDB_CDDBP_LOOKUP_H
 
-#include <kstreamsocket.h>
+#include <kbufferedsocket.h>
 
 #include "lookup.h"
 
@@ -47,7 +47,7 @@ namespace KCDDB
       bool isConnected()
         { return KNetwork::KClientSocketBase::Connected == socket_->state(); }
 
-      KNetwork::KStreamSocket* socket_;
+      KNetwork::KBufferedSocket* socket_;
   };
 }
 

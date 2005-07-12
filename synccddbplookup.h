@@ -44,7 +44,6 @@ namespace KCDDB
       Result matchToCDInfo( const CDDBMatch & );
 
       QString readLine();
-      QByteArray m_data;
   };
 }
 

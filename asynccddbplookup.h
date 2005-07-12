@@ -78,7 +78,6 @@ namespace KCDDB
 
       void read();
 
-      bool canReadLine();
       QString readLine();
 
       QString stateToString() const;

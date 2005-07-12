@@ -49,9 +49,9 @@ namespace KCDDB
 
     trackOffsetList_ = trackOffsetList;
 
-    socket_ = new KNetwork::KStreamSocket(hostName, QString::number(port));
-    socket_->setBlocking( true );
+    socket_ = new KNetwork::KBufferedSocket(hostName, QString::number(port));
     socket_->setTimeout( 30000 );
+    socket_->setOutputBuffering(false);
 
     Result result;
 
@@ -98,14 +98,20 @@ namespace KCDDB
   {
     kdDebug(60010) << "Trying to connect to " << endl;
 
-    //if ( !socket_->lookup() )
-    //  return HostNotFound;
+    if ( !socket_->lookup() )
+      return HostNotFound;
+
+    socket_->peerResolver().wait();
+
+    if ( socket_->state() != KNetwork::KClientSocketBase::HostFound )
+      return HostNotFound;
 
     if ( !socket_->connect() )
-      return NoResponse;
+      return ServerError;
 
-    kdDebug(60010) << "Connected" << endl;
-    return Success;
+    socket_->waitForConnect();
+
+    return isConnected() ? Success : ServerError;
   }
 
     CDDB::Result
@@ -199,44 +205,17 @@ namespace KCDDB
       return QString::null;
     }
 
-    int eolPos = (m_data.count() == 0) ? -1 : m_data.find('\n');
-
-    if (eolPos == -1)
+    if (!socket_->canReadLine())
     {
       bool timeout;
-      socket_->waitForMore(-1, &timeout);
+
+      socket_->waitForMore(-1,&timeout);
 
       if (timeout)
         return QString::null;
-
-      int n = socket_->bytesAvailable();
-      QByteArray newData(n);
-      socket_->readBlock(newData.data(),n);
-
-      int oldLength = m_data.count();
-      m_data.resize(oldLength+n);
-
-      for (int i=0; i < n; i++)
-        m_data[oldLength+i] = newData[i];
-
-      kdDebug(60010) << "Read " << newData.size() << " bytes" << endl;
-
-      eolPos = (m_data.count() == 0) ? -1 : m_data.find('\n');
-
-      if (eolPos == -1)
-        return QString::null;
     }
 
-    QString line = QString::fromUtf8(m_data.data(),eolPos);
-
-    QByteArray newData(m_data.count()-eolPos-1);
-
-    for (unsigned i=0; i < (m_data.count()-eolPos-1); i++)
-      newData[i] = m_data[i+eolPos+1];
-
-    m_data = newData;
-
-    return line;
+    return QString::fromUtf8(socket_->readLine());
   }
 }
 
