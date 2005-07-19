@@ -10,8 +10,8 @@ libkcddb_la_SOURCES = \
     synchttplookup.cpp asynchttplookup.cpp smtpsubmit.cpp \
     asyncsmtpsubmit.cpp syncsmtpsubmit.cpp configbase.kcfgc \
     submit.cpp sites.cpp httpsubmit.cpp asynchttpsubmit.cpp \
-    synchttpsubmit.cpp \
-    cdinfodialogbase.ui categories.cpp genres.cpp
+    synchttpsubmit.cpp cdinfodialogbase.ui categories.cpp genres.cpp \
+    cdinfoencodingwidget.cpp cdinfoencodingwidgetbase.ui
 
 libkcddb_la_LDFLAGS = $(all_libraries) -version-info 1:0:0
 libkcddb_la_LIBADD  = $(LIB_KDECORE) $(LIB_KIO)

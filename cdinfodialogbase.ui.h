@@ -6,6 +6,13 @@
 ** init() function in place of a constructor, and a destroy() function in
 ** place of a destructor.
 *****************************************************************************/
+
+#include <qtextcodec.h>
+#include <kdebug.h>
+#include <kdialogbase.h>
+
+#include "cdinfoencodingwidget.h"
+
 const char *CDInfoDialogBase::SEPARATOR = " / ";
 
 void CDInfoDialogBase::init()
@@ -50,7 +57,6 @@ void CDInfoDialogBase::slotTrackDoubleClicked( QListViewItem *item, const QPoint
     m_trackList->rename(item, column);
 }
 
-#include <kdebug.h>
 void CDInfoDialogBase::setInfo( const KCDDB::CDInfo &info, KCDDB::TrackOffsetList &trackStartFrames )
 {
     m_artist->setText(info.artist.stripWhiteSpace());
@@ -190,5 +196,46 @@ void CDInfoDialogBase::slotMultipleArtists( bool hasMultipleArtist)
         }
         m_trackList->hideColumn(TRACK_ARTIST);
         m_trackList->adjustColumn(TRACK_TITLE);
+    }
+}
+
+
+void CDInfoDialogBase::slotChangeEncoding()
+{
+    kdDebug() << k_funcinfo << endl;
+    
+    KDialogBase* dialog = new KDialogBase(this, 0, true, i18n("Change Encoding"),
+        KDialogBase::Ok | KDialogBase::Cancel);
+
+    QStringList songTitles;
+    for (QListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
+    {
+        QString title = item->text(TRACK_ARTIST).stripWhiteSpace();
+        if (!title.isEmpty())
+            title.append(SEPARATOR);
+        title.append(item->text(TRACK_TITLE).stripWhiteSpace());
+        songTitles << title;
+    }
+
+    KCDDB::CDInfoEncodingWidget* encWidget = new KCDDB::CDInfoEncodingWidget(
+        dialog, m_artist->text(),m_title->text(), songTitles);
+
+    dialog->setMainWidget(encWidget);
+
+    if (dialog->exec())
+    {
+      QTextCodec* codec = QTextCodec::codecForName(encWidget->selectedEncoding().latin1());
+
+      m_artist->setText(codec->toUnicode(m_artist->text().latin1()));
+      m_title->setText(codec->toUnicode(m_title->text().latin1()));
+      m_genre->setCurrentText(codec->toUnicode(m_genre->currentText().latin1()));
+      m_comment->setText(codec->toUnicode(m_comment->text().latin1()));
+
+      for (QListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
+      {
+          item->setText(TRACK_ARTIST,codec->toUnicode(item->text(TRACK_ARTIST).latin1()));
+          item->setText(TRACK_TITLE,codec->toUnicode(item->text(TRACK_TITLE).latin1()));
+          item->setText(TRACK_COMMENT,codec->toUnicode(item->text(TRACK_COMMENT).latin1()));
+      }
     }
 }
