@@ -34,7 +34,7 @@
                 <cstring>groupBox1</cstring>
             </property>
             <property name="title">
-                <string>Preview:</string>
+                <string>Preview</string>
             </property>
             <vbox>
                 <property name="name">
