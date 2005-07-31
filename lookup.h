@@ -25,13 +25,12 @@
 #include "cddb.h"
 #include "cdinfo.h"
 #include <qobject.h>
-//Added by qt3to4:
-#include <Q3ValueList>
+#include <qlist.h>
 
 namespace KCDDB
 {
   typedef QPair<QString, QString> CDDBMatch;
-  typedef Q3ValueList<CDDBMatch> CDDBMatchList;
+  typedef QList<CDDBMatch> CDDBMatchList;
 
   class Lookup : public CDDB, public QObject
   {

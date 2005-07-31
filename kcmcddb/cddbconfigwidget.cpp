@@ -27,8 +27,7 @@
 #include <qcombobox.h>
 #include <qspinbox.h>
 #include <qlineedit.h>
-//Added by qt3to4:
-#include <Q3ValueList>
+#include <qlist.h>
 #include <kfiledialog.h>
 #include <kapplication.h>
 #include <klocale.h>
@@ -58,9 +57,9 @@ void CDDBConfigWidget::showMirrorList()
 {
     KCDDB::Sites s;
 
-    Q3ValueList<KCDDB::Mirror> sites = s.siteList();
+    QList<KCDDB::Mirror> sites = s.siteList();
     QMap<QString, KCDDB::Mirror> keys;
-    for (Q3ValueList<KCDDB::Mirror>::Iterator it = sites.begin(); it != sites.end(); ++it)
+    for (QList<KCDDB::Mirror>::Iterator it = sites.begin(); it != sites.end(); ++it)
       if ((*it).transport == KCDDB::Lookup::CDDBP)
         keys[(*it).address + "(CDDBP, " + QString::number((*it).port) + ") " + (*it).description] = *it;
       else

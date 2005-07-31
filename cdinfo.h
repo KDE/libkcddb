@@ -23,7 +23,7 @@
 #define KCDDB_CDINFO_H
 
 #include <qstringlist.h>
-#include <q3valuelist.h>
+#include <qlist.h>
 #include <kdemacros.h>
 #include <qvariant.h>
 
@@ -88,7 +88,7 @@ namespace KCDDB
 
   };
 
-  typedef Q3ValueList<TrackInfo> TrackInfoList;
+  typedef QList<TrackInfo> TrackInfoList;
 
   class KDE_EXPORT CDInfo
   {
@@ -123,7 +123,7 @@ namespace KCDDB
       class CDInfoPrivate *d;
   };
 
-  typedef Q3ValueList<CDInfo> CDInfoList;
+  typedef QList<CDInfo> CDInfoList;
 }
 
 #endif // KCDDB_CDINFO_H

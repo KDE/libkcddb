@@ -22,8 +22,7 @@
 #include <kcmdlineargs.h>
 
 #include "libkcddb/sites.h"
-//Added by qt3to4:
-#include <Q3ValueList>
+#include <qlist.h>
 
   int
 main(int argc, char ** argv)
@@ -38,8 +37,8 @@ main(int argc, char ** argv)
 
   kdDebug() << "Sites: " << endl;
 
-  Q3ValueList<Mirror> sites = s.siteList();
-  for (Q3ValueList<Mirror>::Iterator it = sites.begin(); it != sites.end(); ++it)
+  QList<Mirror> sites = s.siteList();
+  for (QList<Mirror>::Iterator it = sites.begin(); it != sites.end(); ++it)
     if ((*it).transport == Lookup::CDDBP)
       kdDebug() << (*it).address << " CDDBP " << (*it).port << " " << (*it).description << endl;
     else

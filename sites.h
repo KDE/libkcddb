@@ -20,7 +20,7 @@
 #ifndef KCDDB_SITES_H
 #define KCDDB_SITES_H
 
-#include <q3valuelist.h>
+#include <qlist.h>
 #include "cddb.h"
 #include "lookup.h"
 #include <kdelibs_export.h>
@@ -41,9 +41,9 @@ namespace KCDDB
     public:
       Sites();
 
-      Q3ValueList<Mirror> siteList();
+      QList<Mirror> siteList();
     private:
-      Q3ValueList<Mirror> readFile(const QString& fileName);
+      QList<Mirror> readFile(const QString& fileName);
       Mirror parseLine(const QString& line);
   } ;
 }

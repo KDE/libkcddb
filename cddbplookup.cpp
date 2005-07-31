@@ -22,8 +22,7 @@
 #include <kdebug.h>
 
 #include "cddbplookup.h"
-//Added by qt3to4:
-#include <Q3CString>
+#include <qbytearray.h>
 
 namespace KCDDB
 {
@@ -105,8 +104,8 @@ namespace KCDDB
     }
 
     kdDebug(60010) << "WRITE: [" << line << "]" << endl;
-    Q3CString buf = line.utf8();
-    buf.append( "\n" );
+    QByteArray buf(line.utf8());
+    buf.append( '\n' );
 
     return socket_->writeBlock( buf.data(), buf.length() );
   }

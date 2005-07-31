@@ -237,7 +237,7 @@ namespace KCDDB
       return CDDB::CannotSave;
 
     uint last=0;
-    for (uint i=0; i < (offsetList.count()-2); i++)
+    for (int i=0; i < (offsetList.count()-2); i++)
     {
       if(last >= offsetList[i])
         return CDDB::CannotSave;

@@ -24,7 +24,7 @@
 
 #include <qstring.h>
 #include <qpair.h>
-#include <q3valuelist.h>
+#include <qlist.h>
 
 #include <kdelibs_export.h>
 
@@ -37,7 +37,7 @@ namespace KCDDB
     as the first frame of the first track, the
     last one is the start frame of the leadout track.
     */
-  typedef Q3ValueList<uint> TrackOffsetList;
+  typedef QList<uint> TrackOffsetList;
 
   class KDE_EXPORT CDDB
   {
