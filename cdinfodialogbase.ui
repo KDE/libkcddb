@@ -4,6 +4,9 @@
     <property name="name">
         <cstring>CDInfoDialogBase</cstring>
     </property>
+    <property name="enabled">
+        <bool>true</bool>
+    </property>
     <property name="geometry">
         <rect>
             <x>0</x>
@@ -403,14 +406,16 @@
     <signal>trackInfoClicked(unsigned)</signal>
 </signals>
 <slots>
-    <slot access="protected">slotTrackSelected( QListViewItem * item )</slot>
+    <slot>slotTrackSelected( Q3ListViewItem * item )</slot>
     <slot access="protected">slotNextTrack()</slot>
-    <slot access="protected">slotTrackDoubleClicked( QListViewItem * item, const QPoint &amp;, int column )</slot>
+    <slot>slotTrackDoubleClicked( Q3ListViewItem * item, const QPoint &amp;, int column )</slot>
     <slot>setInfo( const KCDDB::CDInfo &amp; info, KCDDB::TrackOffsetList &amp; trackStartFrames )</slot>
     <slot>artistChanged( const QString &amp; newArtist )</slot>
     <slot>genreChanged( const QString &amp; newGenre )</slot>
     <slot>slotMultipleArtists( bool hasMultipleArtist )</slot>
     <slot access="private">slotChangeEncoding()</slot>
+    <slot access="protected">slotTrackSelected( QListViewItem * item )</slot>
+    <slot access="protected">slotTrackDoubleClicked( QListViewItem * item, const QPoint &amp;, int column )</slot>
 </slots>
 <functions>
     <function access="private" specifier="non virtual">init()</function>
@@ -422,7 +427,11 @@
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
 <includehints>
     <includehint>klineedit.h</includehint>
+    <includehint>klineedit.h</includehint>
     <includehint>knuminput.h</includehint>
+    <includehint>klineedit.h</includehint>
+    <includehint>klineedit.h</includehint>
     <includehint>klistview.h</includehint>
+    <includehint>klineedit.h</includehint>
 </includehints>
 </UI>

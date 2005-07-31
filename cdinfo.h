@@ -23,34 +23,79 @@
 #define KCDDB_CDINFO_H
 
 #include <qstringlist.h>
-#include <qvaluelist.h>
+#include <q3valuelist.h>
 #include <kdemacros.h>
+#include <qvariant.h>
 
 namespace KCDDB
 {
   class KDE_EXPORT TrackInfo
   {
     public:
-
+      /**
+       * The most common types
+       */
+      enum Type
+      {
+        Title,
+        Comment,
+        Artist,
+        Genre,
+        Year,
+        Length,
+        Category,
+        Extt
+      };
+    
       TrackInfo();
-      ~TrackInfo();
+      virtual ~TrackInfo();
       TrackInfo(const TrackInfo& clone);
       TrackInfo& operator=(const TrackInfo& clone);
+      
+      /**
+       * Get data for type that has been assigned to this track.
+       * @type is case insensitive.
+       * For example <code>get("title")</code>
+       */
+      QVariant get(const QString &type) const;
+      /**
+       * Helper function that calls type with the common name
+       */
+      QVariant get(Type type) const;
+      
+      /**
+       * Set any data from this track.
+       * @type is case insensitive.
+       * For example <code>set("title", "Rock this world")</code>
+       * Usefull for atributes that other apps want to add.
+       * Data will be stored in the local cddb cache, but not sent to the cddb server
+       */
+      void set(const QString &type, const QVariant &data);
 
-      QString title;
-      QString extt;
-      // KDE4: Add a member for length (in milliseconds)
-      // KDE4: Add a private variable so this doesn't happen again :P
+      /**
+       * @returns a CDDB compatible string of all the data assigned to this track
+       * tracknumber should be assigned before calling this.
+       */
+      QString toString() const;
+      
+      /**
+       * internal
+       */
+      void clear();
+      
+    private:
+      class TrackInfoPrivate *d;
+
   };
 
-  typedef QValueList<TrackInfo> TrackInfoList;
+  typedef Q3ValueList<TrackInfo> TrackInfoList;
 
   class KDE_EXPORT CDInfo
   {
     public:
 
       CDInfo();
-      ~CDInfo();
+      virtual ~CDInfo();
       CDInfo(const CDInfo& clone);
       CDInfo& operator=(const CDInfo& clone);
 
@@ -58,31 +103,27 @@ namespace KCDDB
       bool load(const QStringList &);
 
       void clear();
-
       bool isValid() const;
 
       QString toString(bool submit=false) const;
 
-      QString       id;
-      QString       artist;
-      QString       title;
-      QString       genre;
-      QString       category;
-      QString       extd;
-      uint          year;
-      uint          length; // in milliseconds
+      QVariant get(const QString &type) const;
+      void set(const QString &type, const QVariant &data);
+      
       uint          revision;
       TrackInfoList trackInfoList;
-      // KDE4: Add a member for "PLAYLIST"
 
     protected:
       QString createLine(const QString& name, const QString& value) const;
       void checkTrack( uint );
       static QString escape( const QString & );
       static QString unescape( const QString & );
+     
+     private:
+      class CDInfoPrivate *d;
   };
 
-  typedef QValueList<CDInfo> CDInfoList;
+  typedef Q3ValueList<CDInfo> CDInfoList;
 }
 
 #endif // KCDDB_CDINFO_H

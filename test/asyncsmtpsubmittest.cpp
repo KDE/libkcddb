@@ -28,25 +28,25 @@ AsyncSMTPSubmitTest::AsyncSMTPSubmitTest()
 
   CDInfo cdInfo;
 
-  cdInfo.id = "3606ed05";
+  cdInfo.set("discid", "3606ed05");
   cdInfo.revision = 4;
-  cdInfo.title  = "Bamse och Bronto";
-  cdInfo.artist = "Musiksage";
-  cdInfo.year   = 2001;
-  cdInfo.category = "misc";
-  cdInfo.genre  = "Barnsaga";
-  cdInfo.extd = QString::fromUtf8("Berättare: Olof Thunberg");
+  cdInfo.set("title", "Bamse och Bronto");
+  cdInfo.set("artist", "Musiksage");
+  cdInfo.set("year", 2001);
+  cdInfo.set("category", "misc");
+  cdInfo.set("genre", "Barnsaga");
+  cdInfo.set("extd", QString::fromUtf8("Berättare: Olof Thunberg"));
 
   TrackInfo info;
-  info.title = "Bamses signaturmelodi";
+  info.set("title", "Bamses signaturmelodi");
   cdInfo.trackInfoList.append(info);
-  info.title = "*";
+  info.set("title","*");
   cdInfo.trackInfoList.append(info);
-  info.title = "Brummavisan";
+  info.set("title", "Brummavisan");
   cdInfo.trackInfoList.append(info);
-  info.title = "*";
+  info.set("title", "*");
   cdInfo.trackInfoList.append(info);
-  info.title = QString::fromUtf8("Jätteödlan Bronto");
+  info.set("title", QString::fromUtf8("Jätteödlan Bronto"));
   cdInfo.trackInfoList.append(info);
 
   connect

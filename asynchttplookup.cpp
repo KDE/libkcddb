@@ -115,7 +115,7 @@ namespace KCDDB
   {
     if (data.size() > 0)
     {
-      QDataStream stream(data_, IO_WriteOnly | IO_Append);
+      QDataStream stream(&data_, QIODevice::WriteOnly | QIODevice::Append);
       stream.writeRawBytes(data.data(), data.size());
     }
   }

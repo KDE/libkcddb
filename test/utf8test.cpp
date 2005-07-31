@@ -44,7 +44,7 @@ main(int argc, char ** argv)
 
   CDInfo i( c.bestLookupResponse() );
 
-  kdDebug() << "Best CDInfo had title: " << i.title << endl;
+  kdDebug() << "Best CDInfo had title: " << i.get("title").toString() << endl;
   
   return 0;
 }

@@ -18,7 +18,7 @@
 */
 
 #include <qcombobox.h>
-#include <qlistbox.h>
+#include <q3listbox.h>
 #include <qlabel.h>
 #include <qtextcodec.h>
 #include <klocale.h>

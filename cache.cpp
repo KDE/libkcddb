@@ -24,6 +24,8 @@
 
 #include <qfile.h>
 #include <qdir.h>
+//Added by qt3to4:
+#include <QTextStream>
 
 #include "cache.h"
 #include "config.h"
@@ -34,10 +36,12 @@ namespace KCDDB
   Cache::fileName( const CDInfo& info, const QString& cacheDir )
   {
     QDir dir( cacheDir );
-    if ( !dir.exists( info.category ) )
-      dir.mkdir( info.category );
+    QString category(info.get("category").toString());
+    
+    if ( !dir.exists( category ) )
+      dir.mkdir( category );
 
-    QString cacheFile = cacheDir + "/" + info.category + "/" + info.id;
+    QString cacheFile = cacheDir + "/" + category + "/" + info.get("discid").toString();
 
     return cacheFile;
   }
@@ -66,7 +70,7 @@ namespace KCDDB
         if ( category[ 0 ] != '.' )
         {
           QFile f( *cddbCacheDir + "/" + category + "/" + cddbId );
-          if ( f.exists() && f.open(IO_ReadOnly) )
+          if ( f.exists() && f.open(QIODevice::ReadOnly) )
           {
               QTextStream ts(&f);
               ts.setEncoding(QTextStream::UnicodeUTF8);
@@ -74,7 +78,7 @@ namespace KCDDB
               f.close();
               CDInfo info;
               info.load(cddbData);
-              info.category = category;
+              info.set("category",category);
 
               infoList.append( info );
           }
@@ -114,7 +118,7 @@ namespace KCDDB
     kdDebug(60010) << "Storing " << cacheFile << " in CDDB cache" << endl;
 
     QFile f(cacheFile);
-    if ( f.open(IO_WriteOnly) )
+    if ( f.open(QIODevice::WriteOnly) )
     {
       QTextStream ts(&f);
       ts.setEncoding(QTextStream::UnicodeUTF8);

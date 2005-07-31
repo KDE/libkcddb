@@ -39,7 +39,7 @@ namespace KCDDB
   {
     makeDiskData( cdInfo, offsetList );
 
-    if (!validCategory(cdInfo.category))
+    if (!validCategory(cdInfo.get("category").toString()))
       return InvalidCategory;
 
     KIO::Job* job = createJob(cdInfo);
@@ -73,14 +73,14 @@ namespace KCDDB
       diskData_ += QString("#\t%1\n").arg(offsetList[i]);
 
     unsigned int l;
-    if (cdInfo.length == 0)
+    if (cdInfo.get("length").toInt() == 0)
     {
       l = (offsetList[numTracks+1] - offsetList[0]) / 75;
       // FIXME Is the submit test wrong, or the disc id calculation?
       l += 2;
     }
     else
-      l = cdInfo.length;
+      l = cdInfo.get("length").toInt();
 
     diskData_ += QString("# Disc length: %1 seconds\n").arg(l);
 

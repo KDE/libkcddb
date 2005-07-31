@@ -46,11 +46,11 @@ namespace KCDDB
 
     header += "Content-Type: text/plain\n";
 
-    header += "Category: " + cdInfo.category + "\n";
-    header += "Discid: " + cdInfo.id + "\n";
+    header += "Category: " + cdInfo.get("category").toString() + "\n";
+    header += "Discid: " + cdInfo.get("discid").toString() + "\n";
     header += "User-Email: " + from_ + "\n";
-    // Change to test for testing
-    header += "Submit-Mode: submit\n";
+    // Change to sumbit
+    header += "Submit-Mode: test\n";
     header += "Charset: UTF-8";
 
     job->addMetaData("customHTTPHeader", header);

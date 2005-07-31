@@ -13,6 +13,8 @@
 
 #include "cdinfoencodingwidget.h"
 
+using KCDDB::TrackInfo;
+
 const char *CDInfoDialogBase::SEPARATOR = " / ";
 
 void CDInfoDialogBase::init()
@@ -23,7 +25,7 @@ void CDInfoDialogBase::init()
     m_genre->insertStringList(m_genres.i18nList());
 
     // We want control over the visibility of this column. See artistChanged().
-    m_trackList->setColumnWidthMode(TRACK_ARTIST, QListView::Manual);
+    m_trackList->setColumnWidthMode(TRACK_ARTIST, Q3ListView::Manual);
 
     // Make the user-definable values in-place editable.
     m_trackList->setRenameable(TRACK_NUMBER, false);
@@ -37,7 +39,7 @@ void CDInfoDialogBase::destroy()
 {
 }
 
-void CDInfoDialogBase::slotTrackSelected( QListViewItem *item )
+void CDInfoDialogBase::slotTrackSelected( Q3ListViewItem *item )
 {
     emit play(item->text(0).toUInt()-1);
 }
@@ -46,29 +48,29 @@ void CDInfoDialogBase::slotNextTrack()
 {
     if (m_trackList->currentItem())
     {
-        QListViewItem *item = m_trackList->currentItem()->nextSibling();
+        Q3ListViewItem *item = m_trackList->currentItem()->nextSibling();
         m_trackList->setSelected(item, true);
         m_trackList->ensureItemVisible(item);
     }
 }
 
-void CDInfoDialogBase::slotTrackDoubleClicked( QListViewItem *item, const QPoint &, int column)
+void CDInfoDialogBase::slotTrackDoubleClicked( Q3ListViewItem *item, const QPoint &, int column)
 {
     m_trackList->rename(item, column);
 }
 
 void CDInfoDialogBase::setInfo( const KCDDB::CDInfo &info, KCDDB::TrackOffsetList &trackStartFrames )
 {
-    m_artist->setText(info.artist.stripWhiteSpace());
-    m_title->setText(info.title.stripWhiteSpace());
-    m_category->setCurrentText(m_categories.cddb2i18n(info.category));
+    m_artist->setText(info.get("artist").toString().stripWhiteSpace());
+    m_title->setText(info.get("title").toString().stripWhiteSpace());
+    m_category->setCurrentText(m_categories.cddb2i18n(info.get("category").toString()));
 
     // Make sure the revision is set before the genre to allow the genreChanged() handler to fire.
     m_revision->setText(QString::number(info.revision));
-    m_genre->setCurrentText(m_genres.cddb2i18n(info.genre));
-    m_year->setValue(info.year);
-    m_comment->setText(info.extd.stripWhiteSpace());
-    m_id->setText(info.id.stripWhiteSpace());
+    m_genre->setCurrentText(m_genres.cddb2i18n(info.get("genre").toString()));
+    m_year->setValue(info.get("year").toInt());
+    m_comment->setText(info.get("extd").toString().stripWhiteSpace());
+    m_id->setText(info.get("discid").toString().stripWhiteSpace());
 
     // Now do the individual tracks.
     unsigned tracks = info.trackInfoList.count();
@@ -76,28 +78,17 @@ void CDInfoDialogBase::setInfo( const KCDDB::CDInfo &info, KCDDB::TrackOffsetLis
     m_trackList->clear();
     for (unsigned i = 0; i < tracks; i++)
     {
-        QListViewItem *item = new QListViewItem(m_trackList, 0);
+        Q3ListViewItem *item = new Q3ListViewItem(m_trackList, 0);
 
         item->setText(TRACK_NUMBER, QString().sprintf("%02d", i + 1));
         item->setText(TRACK_TIME, framesTime(trackStartFrames[i + ((i + 1 < tracks) ? 1 : 2)] - trackStartFrames[i]));
-        QString title = info.trackInfoList[i].title;
-        int separator = title.find(SEPARATOR);
-        if (info.artist != "Various" || separator == -1 || !m_multiple->isChecked() )
-        {
-            item->setText(TRACK_ARTIST, "");
-            item->setText(TRACK_TITLE, title);
-        }
-        else
-        {
-            // We seem to have a compilation.
-            item->setText(TRACK_ARTIST, title.left(separator));
-            item->setText(TRACK_TITLE, title.mid(separator + 3));
-    }
-        item->setText(TRACK_COMMENT, info.trackInfoList[i].extt);
+        item->setText(TRACK_ARTIST, info.trackInfoList[i].get(TrackInfo::Artist).toString());
+        item->setText(TRACK_TITLE, info.trackInfoList[i].get(TrackInfo::Title).toString());
+        item->setText(TRACK_COMMENT, info.trackInfoList[i].get(TrackInfo::Extt).toString());
     }
     // FIXME KDE4: handle playorder here too, once KCDDBInfo::CDInfo is updated.
 
-    if (info.artist == "Various" || m_multiple->isChecked()){
+    if (info.get("artist").toString() == "Various" || m_multiple->isChecked()){
         m_trackList->adjustColumn(TRACK_ARTIST);
   }
 }
@@ -122,27 +113,21 @@ QString CDInfoDialogBase::framesTime(unsigned frames)
 KCDDB::CDInfo CDInfoDialogBase::info() const
 {
     KCDDB::CDInfo info;
-    KCDDB::TrackInfo track;
+    TrackInfo track;
 
-    info.artist = m_artist->text().stripWhiteSpace();
-    info.title = m_title->text().stripWhiteSpace();
-    info.category = m_categories.i18n2cddb(m_category->currentText());
-    info.genre = m_genres.i18n2cddb(m_genre->currentText());
-    info.year = m_year->value();
-    info.extd = m_comment->text().stripWhiteSpace();
+    info.set("artist", m_artist->text().stripWhiteSpace());
+    info.set("title", m_title->text().stripWhiteSpace());
+    info.set("category", m_categories.i18n2cddb(m_category->currentText()));
+    info.set("genre", m_genres.i18n2cddb(m_genre->currentText()));
+    info.set("year", m_year->value());
+    info.set("extd", m_comment->text().stripWhiteSpace());
     info.revision = m_revision->text().stripWhiteSpace().toUInt();
-    info.id = m_id->text().stripWhiteSpace();
-    for (QListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
+    info.set("discid", m_id->text().stripWhiteSpace());
+    for (Q3ListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
     {
-        // Combine the track artist if present with the title.
-        QString trackArtist = item->text(TRACK_ARTIST).stripWhiteSpace();
-        track.title = trackArtist;
-        if (!trackArtist.isEmpty())
-        {
-            track.title.append(SEPARATOR);
-        }
-        track.title.append(item->text(TRACK_TITLE).stripWhiteSpace());
-        track.extt = item->text(TRACK_COMMENT).stripWhiteSpace();
+        track.set("artist",item->text(TRACK_ARTIST).stripWhiteSpace());
+        track.set("title",item->text(TRACK_TITLE).stripWhiteSpace());
+        track.set("extt",item->text(TRACK_COMMENT).stripWhiteSpace());
         info.trackInfoList.append(track);
         // FIXME KDE4: handle track lengths here too, once KCDDBInfo::CDInfo is updated.
     }
@@ -170,7 +155,7 @@ void CDInfoDialogBase::genreChanged( const QString &newGenre )
 void CDInfoDialogBase::slotMultipleArtists( bool hasMultipleArtist)
 {
     if(hasMultipleArtist){
-        for (QListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
+        for (Q3ListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
         {
             QString title = item->text(TRACK_TITLE);
             int separator = title.find(SEPARATOR);
@@ -185,7 +170,7 @@ void CDInfoDialogBase::slotMultipleArtists( bool hasMultipleArtist)
         m_trackList->adjustColumn(TRACK_TITLE);
     } 
     else{
-        for (QListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
+        for (Q3ListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
         {
             QString artist = item->text(TRACK_ARTIST);
             if (!artist.isEmpty())
@@ -208,7 +193,7 @@ void CDInfoDialogBase::slotChangeEncoding()
         KDialogBase::Ok | KDialogBase::Cancel);
 
     QStringList songTitles;
-    for (QListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
+    for (Q3ListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
     {
         QString title = item->text(TRACK_ARTIST).stripWhiteSpace();
         if (!title.isEmpty())
@@ -231,7 +216,7 @@ void CDInfoDialogBase::slotChangeEncoding()
       m_genre->setCurrentText(codec->toUnicode(m_genre->currentText().latin1()));
       m_comment->setText(codec->toUnicode(m_comment->text().latin1()));
 
-      for (QListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
+      for (Q3ListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
       {
           item->setText(TRACK_ARTIST,codec->toUnicode(item->text(TRACK_ARTIST).latin1()));
           item->setText(TRACK_TITLE,codec->toUnicode(item->text(TRACK_TITLE).latin1()));

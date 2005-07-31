@@ -21,6 +21,9 @@
 #include <kurl.h>
 #include <kio/netaccess.h>
 #include <qfile.h>
+//Added by qt3to4:
+#include <Q3ValueList>
+#include <QTextStream>
 #include <kdebug.h>
 #include <qregexp.h>
 
@@ -32,7 +35,7 @@ namespace KCDDB
 
   }
 
-    QValueList<Mirror>
+    Q3ValueList<Mirror>
   Sites::siteList()
   {
     KURL url;
@@ -50,7 +53,7 @@ namespace KCDDB
     url.addQueryItem( "hello", hello );
     url.addQueryItem( "proto", "5" );
 
-    QValueList<Mirror> result;
+    Q3ValueList<Mirror> result;
 
     QString tmpFile;
     if( KIO::NetAccess::download( url, tmpFile, 0 ) )
@@ -62,13 +65,13 @@ namespace KCDDB
     return result;
   }
 
-    QValueList<Mirror>
+    Q3ValueList<Mirror>
   Sites::readFile(const QString& fileName)
   {
-    QValueList<Mirror> result;
+    Q3ValueList<Mirror> result;
 
     QFile f(fileName);
-    if (!f.open(IO_ReadOnly))
+    if (!f.open(QIODevice::ReadOnly))
     {
       kdDebug(60010) << "Couldn't read: " << fileName << endl;
       return result;

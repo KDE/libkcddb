@@ -160,7 +160,7 @@ namespace KCDDB
 
           if ( info.load( QString::fromUtf8(data_,data_.size()) ) )
           {
-            info.category = category_;
+            info.set( "category", category_ );
             cdInfoList_.append( info );
           }
 

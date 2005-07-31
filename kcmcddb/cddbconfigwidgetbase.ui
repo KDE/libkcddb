@@ -193,7 +193,7 @@
                                     <string>&amp;Port:</string>
                                 </property>
                                 <property name="alignment">
-                                    <set>AlignVCenter|AlignRight</set>
+                                    <set>Qt::AlignVCenter|Qt::AlignRight</set>
                                 </property>
                                 <property name="buddy" stdset="0">
                                     <cstring>kcfg_port</cstring>
@@ -238,7 +238,7 @@
                             <cstring>spacer5</cstring>
                         </property>
                         <property name="orientation">
-                            <enum>Vertical</enum>
+                            <enum>Qt::Vertical</enum>
                         </property>
                         <property name="sizeType">
                             <enum>Expanding</enum>
@@ -281,7 +281,7 @@
                             <cstring>spacer4</cstring>
                         </property>
                         <property name="orientation">
-                            <enum>Vertical</enum>
+                            <enum>Qt::Vertical</enum>
                         </property>
                         <property name="sizeType">
                             <enum>Expanding</enum>
@@ -309,7 +309,7 @@
                                     <cstring>spacer9</cstring>
                                 </property>
                                 <property name="orientation">
-                                    <enum>Horizontal</enum>
+                                    <enum>Qt::Horizontal</enum>
                                 </property>
                                 <property name="sizeType">
                                     <enum>Fixed</enum>
@@ -326,7 +326,7 @@
                                     <cstring>spacer10</cstring>
                                 </property>
                                 <property name="orientation">
-                                    <enum>Horizontal</enum>
+                                    <enum>Qt::Horizontal</enum>
                                 </property>
                                 <property name="sizeType">
                                     <enum>Fixed</enum>
@@ -362,7 +362,7 @@
                                     <cstring>spacer7</cstring>
                                 </property>
                                 <property name="orientation">
-                                    <enum>Horizontal</enum>
+                                    <enum>Qt::Horizontal</enum>
                                 </property>
                                 <property name="sizeType">
                                     <enum>Fixed</enum>
@@ -398,7 +398,7 @@
                                     <string>Port:</string>
                                 </property>
                                 <property name="alignment">
-                                    <set>AlignVCenter|AlignRight</set>
+                                    <set>Qt::AlignVCenter|Qt::AlignRight</set>
                                 </property>
                             </widget>
                             <widget class="QSpinBox" row="1" column="7">
@@ -512,7 +512,7 @@
                                     <cstring>spacer6</cstring>
                                 </property>
                                 <property name="orientation">
-                                    <enum>Horizontal</enum>
+                                    <enum>Qt::Horizontal</enum>
                                 </property>
                                 <property name="sizeType">
                                     <enum>Expanding</enum>

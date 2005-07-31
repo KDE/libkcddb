@@ -63,8 +63,8 @@ AsyncHTTPLookupTest::slotFinished(CDDB::Result r)
   {
     CDInfo i(*it);
 
-    kdDebug() << "Disc artist: `" << i.artist << "'" << endl;
-    kdDebug() << "Disc title: `" << i.title << "'" << endl;
+    kdDebug() << "Disc artist: `" << i.get("artist").toString() << "'" << endl;
+    kdDebug() << "Disc title: `" << i.get("title").toString() << "'" << endl;
     kdDebug() << "Disc revision: `" << i.revision << "'" << endl;
   }
 
@@ -75,23 +75,23 @@ AsyncHTTPLookupTest::slotFinished(CDDB::Result r)
 
     CDInfo i(l.first());
 
-    kdDebug() << "Disc artist: `" << i.artist << "'" << endl;
-    kdDebug() << "Disc title: `" << i.title << "'" << endl;
-    kdDebug() << "Disc genre: `" << i.genre << "'" << endl;
-    kdDebug() << "Disc year: `" << i.year << "'" << endl;
-    kdDebug() << "Disc length: `" << i.length << "'" << endl;
-    kdDebug() << "Disc id: `" << i.id << "'" << endl;
+    kdDebug() << "Disc artist: `" << i.get("artist").toString() << "'" << endl;
+    kdDebug() << "Disc title: `" << i.get("title").toString() << "'" << endl;
+    kdDebug() << "Disc genre: `" << i.get("genre").toString() << "'" << endl;
+    kdDebug() << "Disc year: `" << i.get("year").toString() << "'" << endl;
+    kdDebug() << "Disc length: `" << i.get("length").toString() << "'" << endl;
+    kdDebug() << "Disc id: `" << i.get("discid").toString() << "'" << endl;
     kdDebug() << "Tracks........" << endl;
 
     for (TrackInfoList::ConstIterator it(i.trackInfoList.begin()); it != i.trackInfoList.end(); ++it)
     {
-      kdDebug() << "  Track: `" << (*it).title << "'" << endl;
+      kdDebug() << "  Track: `" << (*it).get("title").toString() << "'" << endl;
     }
     kdDebug() << "---------------------------------------" << endl;
   }
   CDInfo i( client_->bestLookupResponse() );
 
-  kdDebug() << "Best CDInfo had title: " << i.title << endl;
+  kdDebug() << "Best CDInfo had title: " << i.get("title").toString() << endl;
   kdDebug() << "and revision: " << i.revision << endl;
 
   kapp->quit();

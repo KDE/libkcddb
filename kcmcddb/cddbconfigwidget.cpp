@@ -23,19 +23,21 @@
 #include "libkcddb/sites.h"
 #include "libkcddb/lookup.h"
 
-#include <qlistbox.h>
+#include <q3listbox.h>
 #include <qcombobox.h>
 #include <qspinbox.h>
 #include <qlineedit.h>
+//Added by qt3to4:
+#include <Q3ValueList>
 #include <kfiledialog.h>
 #include <kapplication.h>
 #include <klocale.h>
 #include <kinputdialog.h>
 #include <kmessagebox.h>
 #include <keditlistbox.h>
-#include <qwidgetstack.h>
+#include <q3widgetstack.h>
 #include <kurlrequester.h>
-#include <qbuttongroup.h>
+#include <q3buttongroup.h>
 #include <qcheckbox.h>
 
 CDDBConfigWidget::CDDBConfigWidget(QWidget * parent, const char * name)
@@ -56,9 +58,9 @@ void CDDBConfigWidget::showMirrorList()
 {
     KCDDB::Sites s;
 
-    QValueList<KCDDB::Mirror> sites = s.siteList();
+    Q3ValueList<KCDDB::Mirror> sites = s.siteList();
     QMap<QString, KCDDB::Mirror> keys;
-    for (QValueList<KCDDB::Mirror>::Iterator it = sites.begin(); it != sites.end(); ++it)
+    for (Q3ValueList<KCDDB::Mirror>::Iterator it = sites.begin(); it != sites.end(); ++it)
       if ((*it).transport == KCDDB::Lookup::CDDBP)
         keys[(*it).address + "(CDDBP, " + QString::number((*it).port) + ") " + (*it).description] = *it;
       else

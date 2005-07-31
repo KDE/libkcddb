@@ -189,7 +189,7 @@ namespace KCDDB
 
     if ( info.load( lineList ) )
     {
-      info.category = category_;
+      info.set( "category", category_ );
       cdInfoList_.append( info );
     }
 
