@@ -24,12 +24,13 @@
 
 namespace KCDDB
 {
-    class CDInfoEncodingWidget : public CDInfoEncodingWidgetBase
+    class CDInfoEncodingWidget : public QWidget, private Ui::CDInfoEncodingWidgetBase
     {
     Q_OBJECT
     public:
         CDInfoEncodingWidget(QWidget* parent, const QString& artist, const QString& title,
             const QStringList& songTitles);
+        virtual ~CDInfoEncodingWidget() { }
 
         QString selectedEncoding();
 

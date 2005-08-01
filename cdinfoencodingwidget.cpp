@@ -28,9 +28,11 @@ namespace KCDDB
 {
   CDInfoEncodingWidget::CDInfoEncodingWidget(QWidget* parent, const QString& artist,
           const QString& title, const QStringList& songTitles)
-    : CDInfoEncodingWidgetBase(parent), m_artist(artist), m_title(title),
+    : QWidget(parent), CDInfoEncodingWidgetBase(), m_artist(artist), m_title(title),
         m_songTitles(songTitles)
   {
+    setupUi(this);
+    
     QStringList encodings;
     encodings << "CP1250" << "CP1251" << "CP1252" << "CP1253"
       << "CP1254" << "CP1255" << "CP1256" << "CP1257";
