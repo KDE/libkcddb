@@ -25,6 +25,7 @@
 #include <qstringlist.h>
 #include <qvaluelist.h>
 #include <kdemacros.h>
+#include <qvariant.h>
 
 namespace KCDDB
 {
@@ -37,10 +38,18 @@ namespace KCDDB
       TrackInfo(const TrackInfo& clone);
       TrackInfo& operator=(const TrackInfo& clone);
 
+      /**
+       * Get data for type that has been assigned to this track.
+       * @type is case insensitive.
+       * For example <code>get("title")</code>
+       */
+      QVariant get(const QString &type) const;
+#ifndef KDE_NO_COMPAT        
+      // Use get("title");
       QString title;
+      // Use get("extt");
       QString extt;
-      // KDE4: Add a member for length (in milliseconds)
-      // KDE4: Add a private variable so this doesn't happen again :P
+#endif
   };
 
   typedef QValueList<TrackInfo> TrackInfoList;
@@ -60,9 +69,16 @@ namespace KCDDB
       void clear();
 
       bool isValid() const;
-
       QString toString(bool submit=false) const;
-
+      
+      /**
+       * Get data for type that has been assigned to this disc.
+       * @type is case insensitive.
+       * For example <code>get("title")</code>
+       */
+      QVariant get(const QString &type) const;
+#ifndef KDE_NO_COMPAT        
+      // Use get(...)
       QString       id;
       QString       artist;
       QString       title;
@@ -72,8 +88,9 @@ namespace KCDDB
       uint          year;
       uint          length; // in milliseconds
       uint          revision;
+#endif
+
       TrackInfoList trackInfoList;
-      // KDE4: Add a member for "PLAYLIST"
 
     protected:
       QString createLine(const QString& name, const QString& value) const;

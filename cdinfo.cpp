@@ -90,6 +90,14 @@ namespace KCDDB
     return *this;
   }
 
+  QVariant TrackInfo::get(const QString &type) const {
+    if(type == "title")
+      return title;
+    if(type == "extt")
+      return extt;
+    return QVariant();
+  }
+  
     bool
   CDInfo::load(const QString & s)
   {
@@ -318,6 +326,28 @@ namespace KCDDB
       return false;
 
     return true;
+  }
+
+  QVariant CDInfo::get(const QString &type) const {
+    if(type == "id")
+      return id;
+    if(type == "artist")
+      return artist;
+    if(type == "title")
+      return title;
+    if(type == "genre")
+      return genre;
+    if(type == "category")
+      return category;
+    if(type == "extd")
+      return extd;
+    if(type == "year")
+      return year;
+    if(type == "length")
+      return length;
+    if(type == "revision")
+      return revision;
+    return QVariant();
   }
 }
 
