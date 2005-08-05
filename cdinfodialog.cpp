@@ -155,7 +155,11 @@ namespace KCDDB
   void CDInfoDialog::artistChanged( const QString &newArtist )
   {
       // Enable special handling of compilations.
-      m_multiple->setChecked(newArtist.stripWhiteSpace().compare("Various"));
+      if (newArtist.stripWhiteSpace().compare("Various")) {
+          m_multiple->setChecked(false);
+      } else {
+          m_multiple->setChecked(true);
+      }
   }
 
   void CDInfoDialog::genreChanged( const QString &newGenre )
