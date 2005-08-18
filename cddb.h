@@ -28,6 +28,7 @@
 
 #include <kdelibs_export.h>
 
+/** The KCDDB namespace collects all the CDDB-related classes and methods. */
 namespace KCDDB
 {
    /** This list is used to calculate the CDDB disc id.
@@ -39,6 +40,9 @@ namespace KCDDB
     */
   typedef QValueList<uint> TrackOffsetList;
 
+  /** This is just a container class used for interpreting results
+   of CDDB queries.
+   */
   class KDE_EXPORT CDDB
   {
     public:

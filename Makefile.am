@@ -28,3 +28,6 @@ messages: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/libkcddb.pot
 
 config.lo: configbase.h
+
+include $(top_srcdir)/admin/Doxyfile.am
+
