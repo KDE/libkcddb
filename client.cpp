@@ -215,8 +215,11 @@ namespace KCDDB
 
     emit finished( r );
 
-    cdInfoLookup->deleteLater();
-    cdInfoLookup = 0L;
+    if ( cdInfoLookup ) // in case someone called lookup() while finished() was being processed, and deleted cdInfoLookup.
+    {
+      cdInfoLookup->deleteLater();
+      cdInfoLookup = 0L;
+    }
   }
 
     void
