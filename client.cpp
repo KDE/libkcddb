@@ -1,6 +1,6 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
-  Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  Copyright (C) 2002-2005 Benjamin C. Meyer <ben at meyerhome dot net>
   Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or

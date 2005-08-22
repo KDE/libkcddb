@@ -1,6 +1,6 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
-  Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  Copyright (C) 2002-2005 Benjamin C. Meyer <ben at meyerhome dot net>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -32,6 +32,14 @@ namespace KCDDB
   class Lookup;
   class Submit;
 
+  /**
+   * Class used to obtain CDDB information about a CD
+   * 
+   * Example:
+   * <code>KCDDB::Client *cddb = new KCDDB::Client();
+   * cddb->lookup(discSignature);
+   * CDInfo info = cddb->bestLookupResponse();</code>
+   */
   class KDE_EXPORT Client : public QObject
   {
     Q_OBJECT
@@ -47,25 +55,47 @@ namespace KCDDB
 
       Config & config() const;
 
+      /**
+       * @return a list of CDDB entries that match the disc signature
+       */
       CDInfoList lookupResponse() const;
+      /**
+       * @return a the CDDB entries that is the best match to the disc signature
+       */
       CDInfo bestLookupResponse() const;
 
-      CDDB::Result lookup(const TrackOffsetList &);
-      CDDB::Result submit(const CDInfo &, const TrackOffsetList &);
+      /**
+       * @return if the results of the lookup: Success, NoRecordFound, etc
+       */
+      CDDB::Result lookup(const TrackOffsetList &trackOffsetList);
+      /**
+       * @returns the results of trying to submit
+       */
+      CDDB::Result submit(const CDInfo &cdInfo, const TrackOffsetList &trackOffsetList);
 
       void setBlockingMode( bool );
       bool blockingMode() const;
 
     signals:
-      void finished( CDDB::Result );
+      /**
+       * emited when not blocking and lookup() finished.
+       */
+      void finished( CDDB::Result result );
 
     protected slots:
-      void slotFinished( CDDB::Result );
-      void slotSubmitFinished( CDDB::Result );
+      /**
+       * Called when the lookup is finished with the result
+       */ 
+      void slotFinished( CDDB::Result result );
+      /**
+       * Called whtne the submit is finished with the result
+       */
+      void slotSubmitFinished( CDDB::Result result );
 
     private:
       class Private;
       Private * d;
+      
       Lookup * cdInfoLookup;
       Submit * cdInfoSubmit;
   };

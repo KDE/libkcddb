@@ -1,6 +1,6 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
-  Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  Copyright (C) 2002-2005 Benjamin Meyer <ben-devel@meyerhome.net>
   Copyright (C) 2002-2004 Nadeem Hasan <nhasan@nadmm.com>
 
   This library is free software; you can redistribute it and/or
@@ -149,9 +149,9 @@ namespace KCDDB
   }
 
     bool
-  CDInfo::load(const QString & s)
+  CDInfo::load(const QString & string)
   {
-    return load(QStringList::split('\n', s));
+    return load(QStringList::split('\n', string));
   }
 
     bool
@@ -382,7 +382,7 @@ namespace KCDDB
   }
 
     void
-  CDInfo::checkTrack( uint trackNumber )
+  CDInfo::checkTrack( int trackNumber )
   {
     if ( trackInfoList.count() < trackNumber + 1 )
     {
