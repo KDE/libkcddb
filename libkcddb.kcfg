@@ -24,6 +24,7 @@
       <choices>
         <choice name="CDDBP"></choice>
         <choice name="HTTP"></choice>
+        <choice name="MusicBrainz"></choice>
       </choices>
       <default>HTTP</default>
     </entry>

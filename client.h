@@ -88,7 +88,7 @@ namespace KCDDB
        */ 
       void slotFinished( CDDB::Result result );
       /**
-       * Called whtne the submit is finished with the result
+       * Called when the submit is finished with the result
        */
       void slotSubmitFinished( CDDB::Result result );
 

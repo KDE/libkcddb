@@ -31,6 +31,11 @@
 #include "cache.h"
 #include "lookup.h"
 
+#include "../config.h"
+#if HAVE_MUSICBRAINZ
+#include "musicbrainz/musicbrainzlookup.h"
+#endif
+
 #include <kdebug.h>
 
 namespace KCDDB
@@ -155,8 +160,17 @@ namespace KCDDB
 
       if( Lookup::CDDBP == t )
         cdInfoLookup = new SyncCDDBPLookup();
-      else
+      else if ( Lookup::HTTP == t )
         cdInfoLookup = new SyncHTTPLookup();
+      else
+      {
+#if HAVE_MUSICBRAINZ
+        cdInfoLookup = new MusicBrainzLookup();
+#else
+        kdWarning() << "libkcddb not built with MusicBrainz support" << endl;
+        return CDDB::UnknownError;
+#endif
+      }
 
       r = cdInfoLookup->lookup( d->config.hostname(),
               d->config.port(), trackOffsetList );
@@ -180,13 +194,26 @@ namespace KCDDB
                   SIGNAL( finished( CDDB::Result ) ),
                   SLOT( slotFinished( CDDB::Result ) ) );
       }
-      else
+      else if ( Lookup::HTTP == t)
       {
         cdInfoLookup = new AsyncHTTPLookup();
 
         connect( static_cast<AsyncHTTPLookup *>( cdInfoLookup ),
                   SIGNAL( finished( CDDB::Result ) ),
                   SLOT( slotFinished( CDDB::Result ) ) );
+      }
+      else
+      {
+#if HAVE_MUSICBRAINZ
+        cdInfoLookup = new MusicBrainzLookup();
+
+        connect( static_cast<MusicBrainzLookup *>( cdInfoLookup ),
+                  SIGNAL( finished( CDDB::Result ) ),
+                  SLOT( slotFinished( CDDB::Result ) ) );
+#else
+        kdWarning() << "libkcddb not built with MusicBrainz support" << endl;
+        return CDDB::UnknownError;
+#endif
       }
 
       r = cdInfoLookup->lookup( d->config.hostname(),

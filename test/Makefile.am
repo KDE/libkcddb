@@ -2,7 +2,8 @@ INCLUDES = -I$(top_srcdir) -I$(top_builddir)/libkcddb $(all_includes)
 
 check_PROGRAMS = syncsmtpsubmittest asyncsmtpsubmittest asynchttplookuptest \
 	asynccddblookuptest synccddblookuptest synchttplookuptest \
-	asynchttpsubmittest synchttpsubmittest sitestest utf8test
+	asynchttpsubmittest synchttpsubmittest sitestest utf8test \
+	musicbrainztest
 
 syncsmtpsubmittest_SOURCES = syncsmtpsubmittest.cpp
 syncsmtpsubmittest_LDFLAGS = $(all_libraries)
@@ -35,6 +36,10 @@ synchttpsubmittest_LDADD = $(top_builddir)/libkcddb/libkcddb.la
 asynchttpsubmittest_SOURCES = asynchttpsubmittest.cpp
 asynchttpsubmittest_LDFLAGS = $(all_libraries)
 asynchttpsubmittest_LDADD = $(top_builddir)/libkcddb/libkcddb.la
+
+musicbrainztest_SOURCES = musicbrainztest.cpp
+musicbrainztest_LDFLAGS = $(all_libraries)
+musicbrainztest_LDADD = $(top_builddir)/libkcddb/libkcddb.la
 
 utf8test_SOURCES = utf8test.cpp
 utf8test_LDFLAGS = $(all_libraries)

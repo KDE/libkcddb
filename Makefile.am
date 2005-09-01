@@ -1,4 +1,11 @@
-SUBDIRS = . test # kcmcddb
+if build_MB
+  MB_DIR = musicbrainz
+  mb_lib = $(top_builddir)/libkcddb/musicbrainz/libmusicbrainz.la
+endif
+
+
+
+SUBDIRS = $(MB_DIR) . test # kcmcddb
 
 INCLUDES = -I$(srcdir)/.. $(all_includes)
 
@@ -15,7 +22,8 @@ libkcddb_la_SOURCES = \
     cdinfoencodingwidgetbase.ui
 
 libkcddb_la_LDFLAGS = $(all_libraries) -version-info 1:0:0
-libkcddb_la_LIBADD  = $(LIB_KDECORE) $(LIB_KIO)
+libkcddb_la_LIBADD  = $(LIB_KDECORE) $(LIB_KIO) $(mb_lib)
+    
 
 METASOURCES = AUTO
 

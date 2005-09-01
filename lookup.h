@@ -39,7 +39,8 @@ namespace KCDDB
       enum Transport
       {
         CDDBP,
-        HTTP
+        HTTP,
+        MusicBrainz
       };
 
 
