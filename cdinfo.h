@@ -29,6 +29,9 @@
 
 namespace KCDDB
 {
+  /**
+   * Information about a sepecific track in a cd.
+   */
   class KDE_EXPORT TrackInfo
   {
     public:
@@ -54,6 +57,14 @@ namespace KCDDB
 
   typedef QValueList<TrackInfo> TrackInfoList;
 
+  /**
+   * Information about a CD
+   *
+   * Typically CDInfo is obtained from the client such as:
+   * <code>KCDDB::Client *cddb = new KCDDB::Client();
+   * cddb->lookup(discSignature);
+   * CDInfo info = cddb->bestLookupResponse();</code>
+   */
   class KDE_EXPORT CDInfo
   {
     public:
@@ -63,12 +74,31 @@ namespace KCDDB
       CDInfo(const CDInfo& clone);
       CDInfo& operator=(const CDInfo& clone);
 
+      /**
+       * Load CDInfo from a string that is CDDB compatible
+       * @return true if successful
+       */
       bool load(const QString &);
+      /**
+       * Load CDInfo from a stringList that is CDDB compatible
+       * @return true if successful
+       */
       bool load(const QStringList &);
 
+      /**
+       * Clear all information, setting this to invalid
+       * internal
+       */
       void clear();
 
+      /**
+       * @return true if the cd information is valid
+       */
       bool isValid() const;
+      /**
+       * @param submit If submit is true only returns CDDB compatible information
+       * @return a string containing all of the CD's information. 
+       */
       QString toString(bool submit=false) const;
       
       /**
@@ -93,9 +123,21 @@ namespace KCDDB
       TrackInfoList trackInfoList;
 
     protected:
+      /**
+       * @returns a valid CDDB line made up of name and value
+       */
       QString createLine(const QString& name, const QString& value) const;
+      /**
+       * Checks to make sure that trackNumber exists
+       */
       void checkTrack( uint );
+      /**
+       * escape's string for CDDB processing
+       */
       static QString escape( const QString & );
+      /**
+       * fixes an escaped string that has been CDDB processed
+       */
       static QString unescape( const QString & );
   };
 
