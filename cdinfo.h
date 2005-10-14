@@ -57,7 +57,7 @@ namespace KCDDB
       
       /**
        * Get data for type that has been assigned to this track.
-       * @type is case insensitive.
+       * @p type is case insensitive.
        * For example <code>get("title")</code>
        */
       QVariant get(const QString &type) const;
@@ -140,7 +140,7 @@ namespace KCDDB
       
       /**
        * Get data for type that has been assigned to this disc.
-       * @type is case insensitive.
+       * @p type is case insensitive.
        * For example <code>get("title")</code>
        */
       QVariant get(const QString &type) const;
