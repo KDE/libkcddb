@@ -22,6 +22,8 @@
 #include <qlabel.h>
 #include <qtextcodec.h>
 #include <klocale.h>
+#include <kglobal.h>
+#include <kcharsets.h>
 #include "cdinfoencodingwidget.h"
 
 namespace KCDDB
@@ -31,11 +33,7 @@ namespace KCDDB
     : CDInfoEncodingWidgetBase(parent), m_artist(artist), m_title(title),
         m_songTitles(songTitles)
   {
-    QStringList encodings;
-    encodings << "CP1250" << "CP1251" << "CP1252" << "CP1253"
-      << "CP1254" << "CP1255" << "CP1256" << "CP1257";
-
-    encodingCombo->insertStringList(encodings);
+    encodingCombo->insertStringList(KGlobal::charsets()->descriptiveEncodingNames());
 
     slotEncodingChanged(encodingCombo->currentText());
 
@@ -50,7 +48,9 @@ namespace KCDDB
 
   void CDInfoEncodingWidget::slotEncodingChanged(const QString& encoding)
   {
-    QTextCodec* codec = QTextCodec::codecForName(encoding.latin1());
+    KCharsets* charsets = KGlobal::charsets();
+    
+    QTextCodec* codec = charsets->codecForName(charsets->encodingForName(encoding));
     
     songsBox->clear();
     QStringList newTitles;
