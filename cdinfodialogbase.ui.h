@@ -10,6 +10,8 @@
 #include <qtextcodec.h>
 #include <kdebug.h>
 #include <kdialogbase.h>
+#include <kglobal.h>
+#include <kcharsets.h>
 
 #include "cdinfoencodingwidget.h"
 
@@ -228,7 +230,8 @@ void CDInfoDialogBase::slotChangeEncoding()
 
     if (dialog->exec())
     {
-      QTextCodec* codec = QTextCodec::codecForName(encWidget->selectedEncoding().latin1());
+      KCharsets* charsets = KGlobal::charsets();
+      QTextCodec* codec = charsets->codecForName(charsets->encodingForName(encWidget->selectedEncoding()));
 
       m_artist->setText(codec->toUnicode(m_artist->text().latin1()));
       m_title->setText(codec->toUnicode(m_title->text().latin1()));
