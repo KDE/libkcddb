@@ -12,7 +12,7 @@ main(int argc, char ** argv)
 {
   KCmdLineArgs::init(argc, argv, "libkcddb_test", "", "", "");
 
-  KApplication app(false /* No styles */, false /* No GUI */);
+  KApplication app(false);
 
   using namespace KCDDB;
 

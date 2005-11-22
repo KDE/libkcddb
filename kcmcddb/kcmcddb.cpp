@@ -48,7 +48,7 @@ typedef KGenericFactory<CDDBModule, QWidget> KCDDBFactory;
 K_EXPORT_COMPONENT_FACTORY ( kcm_cddb, KCDDBFactory( "kcmcddb" ) )
 
 CDDBModule::CDDBModule(QWidget *parent, const char *name, const QStringList &)
-  : KCModule(parent, name)
+  : KCModule(KCDDBFactory::instance(), parent)
 {
   KGlobal::locale()->insertCatalog("libkcddb");
   setButtons(Default | Apply);

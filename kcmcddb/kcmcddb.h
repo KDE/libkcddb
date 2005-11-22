@@ -48,7 +48,7 @@ class CDDBModule : public KCModule
 
   private:
 
-    CDDBConfigWidgetBase  * widget_;
+    CDDBConfigWidget  * widget_;
 };
 
 #endif // KCMCDDB_H

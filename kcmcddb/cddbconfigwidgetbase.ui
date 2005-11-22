@@ -1,594 +1,521 @@
-<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>CDDBConfigWidgetBase</class>
-<comment>Used for configuring libkcddb.</comment>
-<widget class="QWidget">
-    <property name="name">
-        <cstring>CDDBConfigWidgetBase</cstring>
-    </property>
-    <property name="geometry">
-        <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>452</width>
-            <height>573</height>
-        </rect>
-    </property>
-    <property name="caption">
-        <string>CDDB Settings</string>
-    </property>
-    <vbox>
-        <property name="name">
-            <cstring>unnamed</cstring>
-        </property>
-        <property name="margin">
-            <number>0</number>
-        </property>
-        <widget class="QTabWidget">
-            <property name="name">
-                <cstring>tabWidget2</cstring>
+<ui version="4.0" >
+ <author></author>
+ <comment>Used for configuring libkcddb.</comment>
+ <exportmacro></exportmacro>
+ <class>CDDBConfigWidgetBase</class>
+ <widget class="QWidget" name="CDDBConfigWidgetBase" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>452</width>
+    <height>573</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>CDDB Settings</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="margin" >
+    <number>0</number>
+   </property>
+   <property name="spacing" >
+    <number>11</number>
+   </property>
+   <item>
+    <widget class="QTabWidget" name="tabWidget2" >
+     <widget class="QWidget" name="tab" >
+      <attribute name="title" >
+       <string>&amp;Lookup</string>
+      </attribute>
+      <layout class="QVBoxLayout" >
+       <property name="margin" >
+        <number>0</number>
+       </property>
+       <property name="spacing" >
+        <number>11</number>
+       </property>
+       <item>
+        <widget class="Q3ButtonGroup" name="kcfg_cachePolicy" >
+         <property name="sizePolicy" >
+          <sizepolicy>
+           <hsizetype>5</hsizetype>
+           <vsizetype>4</vsizetype>
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="title" >
+          <string>Mode</string>
+         </property>
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>6</number>
+          </property>
+          <property name="spacing" >
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QRadioButton" name="cacheOnly" >
+            <property name="whatsThis" >
+             <string>Only check in the local cache for CD information.</string>
             </property>
-            <widget class="QWidget">
-                <property name="name">
-                    <cstring>tab</cstring>
-                </property>
-                <attribute name="title">
-                    <string>&amp;Lookup</string>
-                </attribute>
-                <vbox>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
-                    </property>
-                    <widget class="QButtonGroup">
-                        <property name="name">
-                            <cstring>kcfg_cachePolicy</cstring>
-                        </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>5</hsizetype>
-                                <vsizetype>4</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                            </sizepolicy>
-                        </property>
-                        <property name="title">
-                            <string>Mode</string>
-                        </property>
-                        <hbox>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <property name="margin">
-                                <number>6</number>
-                            </property>
-                            <property name="spacing">
-                                <number>0</number>
-                            </property>
-                            <widget class="QRadioButton">
-                                <property name="name">
-                                    <cstring>cacheOnly</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>&amp;Cache only</string>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>Only check in the local cache for CD information.</string>
-                                </property>
-                            </widget>
-                            <widget class="QRadioButton">
-                                <property name="name">
-                                    <cstring>cacheAndRemote</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Cache &amp;and remote</string>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>Check for locally cached CD information before trying to look up at remote CDDB server.</string>
-                                </property>
-                            </widget>
-                            <widget class="QRadioButton">
-                                <property name="name">
-                                    <cstring>remoteOnly</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>&amp;Remote only</string>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>Only try to look up at remote CDDB server.</string>
-                                </property>
-                            </widget>
-                        </hbox>
-                    </widget>
-                    <widget class="QGroupBox">
-                        <property name="name">
-                            <cstring>serverBox</cstring>
-                        </property>
-                        <property name="title">
-                            <string>CDDB Server</string>
-                        </property>
-                        <grid>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <property name="margin">
-                                <number>11</number>
-                            </property>
-                            <property name="spacing">
-                                <number>6</number>
-                            </property>
-                            <widget class="QLabel" row="0" column="0">
-                                <property name="name">
-                                    <cstring>TextLabel7</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>CDD&amp;B server:</string>
-                                </property>
-                                <property name="buddy" stdset="0">
-                                    <cstring>kcfg_hostname</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="1" column="0">
-                                <property name="name">
-                                    <cstring>TextLabel9</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>&amp;Transport:</string>
-                                </property>
-                                <property name="buddy" stdset="0">
-                                    <cstring>kcfg_lookupTransport</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QComboBox" row="1" column="1">
-                                <item>
-                                    <property name="text">
-                                        <string>CDDB</string>
-                                    </property>
-                                </item>
-                                <item>
-                                    <property name="text">
-                                        <string>HTTP</string>
-                                    </property>
-                                </item>
-                                <property name="name">
-                                    <cstring>kcfg_lookupTransport</cstring>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>Type of lookup which should be tried at the CDDB server.</string>
-                                </property>
-                            </widget>
-                            <widget class="KPushButton" row="1" column="2" rowspan="1" colspan="3">
-                                <property name="name">
-                                    <cstring>mirrorListButton</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Show &amp;Mirror List</string>
-                                </property>
-                            </widget>
-                            <widget class="QSpinBox" row="0" column="4">
-                                <property name="name">
-                                    <cstring>kcfg_port</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>4</hsizetype>
-                                        <vsizetype>0</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="maxValue">
-                                    <number>64000</number>
-                                </property>
-                                <property name="value">
-                                    <number>8880</number>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>Port to connect to on CDDB server.</string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="0" column="3">
-                                <property name="name">
-                                    <cstring>TextLabel8</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>&amp;Port:</string>
-                                </property>
-                                <property name="alignment">
-                                    <set>Qt::AlignVCenter|Qt::AlignRight</set>
-                                </property>
-                                <property name="buddy" stdset="0">
-                                    <cstring>kcfg_port</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLineEdit" row="0" column="1" rowspan="1" colspan="2">
-                                <property name="name">
-                                    <cstring>kcfg_hostname</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>7</hsizetype>
-                                        <vsizetype>0</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="text">
-                                    <string>freedb.freedb.org</string>
-                                </property>
-                                <property name="whatsThis" stdset="0">
-                                    <string>Name of CDDB server which will be used to look up CD information.</string>
-                                </property>
-                            </widget>
-                        </grid>
-                    </widget>
-                    <widget class="QWidgetStack">
-                        <property name="name">
-                            <cstring>cacheLocationsParent</cstring>
-                        </property>
-                        <widget class="QWidget">
-                            <property name="name">
-                                <cstring>WStackPage</cstring>
-                            </property>
-                            <attribute name="id">
-                                <number>0</number>
-                            </attribute>
-                        </widget>
-                    </widget>
-                    <spacer>
-                        <property name="name">
-                            <cstring>spacer5</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Qt::Vertical</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>41</width>
-                                <height>260</height>
-                            </size>
-                        </property>
-                    </spacer>
-                </vbox>
-            </widget>
-            <widget class="QWidget">
-                <property name="name">
-                    <cstring>tab</cstring>
-                </property>
-                <attribute name="title">
-                    <string>&amp;Submit</string>
-                </attribute>
-                <grid>
-                    <property name="name">
-                        <cstring>unnamed</cstring>
-                    </property>
-                    <widget class="QLineEdit" row="0" column="1">
-                        <property name="name">
-                            <cstring>kcfg_emailAddress</cstring>
-                        </property>
-                    </widget>
-                    <widget class="QLabel" row="0" column="0">
-                        <property name="name">
-                            <cstring>textLabel1</cstring>
-                        </property>
-                        <property name="text">
-                            <string>Email address:</string>
-                        </property>
-                    </widget>
-                    <spacer row="2" column="1">
-                        <property name="name">
-                            <cstring>spacer4</cstring>
-                        </property>
-                        <property name="orientation">
-                            <enum>Qt::Vertical</enum>
-                        </property>
-                        <property name="sizeType">
-                            <enum>Expanding</enum>
-                        </property>
-                        <property name="sizeHint">
-                            <size>
-                                <width>21</width>
-                                <height>240</height>
-                            </size>
-                        </property>
-                    </spacer>
-                    <widget class="QButtonGroup" row="1" column="0" rowspan="1" colspan="2">
-                        <property name="name">
-                            <cstring>kcfg_submitTransport</cstring>
-                        </property>
-                        <property name="title">
-                            <string>Submit Method</string>
-                        </property>
-                        <grid>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <spacer row="7" column="1">
-                                <property name="name">
-                                    <cstring>spacer9</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Qt::Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Fixed</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>21</width>
-                                        <height>21</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <spacer row="1" column="0">
-                                <property name="name">
-                                    <cstring>spacer10</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Qt::Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Fixed</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>21</width>
-                                        <height>21</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <widget class="QLabel" row="1" column="1" rowspan="1" colspan="3">
-                                <property name="name">
-                                    <cstring>textLabel2</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Server:</string>
-                                </property>
-                            </widget>
-                            <widget class="QRadioButton" row="2" column="0" rowspan="1" colspan="6">
-                                <property name="name">
-                                    <cstring>radioButton8</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>SMTP (Email)</string>
-                                </property>
-                                <property name="buttonGroupId">
-                                    <number>1</number>
-                                </property>
-                            </widget>
-                            <spacer row="3" column="0" rowspan="5" colspan="1">
-                                <property name="name">
-                                    <cstring>spacer7</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Qt::Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Fixed</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>20</width>
-                                        <height>140</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <widget class="QRadioButton" row="0" column="0" rowspan="1" colspan="4">
-                                <property name="name">
-                                    <cstring>radioButton6</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>HTTP</string>
-                                </property>
-                                <property name="buttonGroupId">
-                                    <number>0</number>
-                                </property>
-                            </widget>
-                            <widget class="KLineEdit" row="1" column="4" rowspan="1" colspan="2">
-                                <property name="name">
-                                    <cstring>kcfg_httpSubmitServer</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="1" column="6">
-                                <property name="name">
-                                    <cstring>textLabel1_2</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Port:</string>
-                                </property>
-                                <property name="alignment">
-                                    <set>Qt::AlignVCenter|Qt::AlignRight</set>
-                                </property>
-                            </widget>
-                            <widget class="QSpinBox" row="1" column="7">
-                                <property name="name">
-                                    <cstring>kcfg_httpSubmitPort</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="3" column="1" rowspan="1" colspan="4">
-                                <property name="name">
-                                    <cstring>textLabel9_2</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Reply-To:</string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="4" column="1" rowspan="1" colspan="4">
-                                <property name="name">
-                                    <cstring>textLabel2_2</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>4</hsizetype>
-                                        <vsizetype>5</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="text">
-                                    <string>SMTP server:</string>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="5" column="1" rowspan="1" colspan="2">
-                                <property name="name">
-                                    <cstring>textLabel3</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>5</hsizetype>
-                                        <vsizetype>5</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="text">
-                                    <string>Port:</string>
-                                </property>
-                            </widget>
-                            <widget class="QLineEdit" row="3" column="5" rowspan="1" colspan="3">
-                                <property name="name">
-                                    <cstring>kcfg_replyTo</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QCheckBox" row="6" column="1" rowspan="1" colspan="7">
-                                <property name="name">
-                                    <cstring>needsAuthenticationBox</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Server needs authentication</string>
-                                </property>
-                            </widget>
-                            <widget class="QLineEdit" row="4" column="5" rowspan="1" colspan="3">
-                                <property name="name">
-                                    <cstring>kcfg_smtpHostname</cstring>
-                                </property>
-                            </widget>
-                            <widget class="QLabel" row="7" column="2" rowspan="1" colspan="3">
-                                <property name="name">
-                                    <cstring>textLabel4</cstring>
-                                </property>
-                                <property name="text">
-                                    <string>Username:</string>
-                                </property>
-                            </widget>
-                            <widget class="QLineEdit" row="7" column="5" rowspan="1" colspan="3">
-                                <property name="name">
-                                    <cstring>kcfg_smtpUsername</cstring>
-                                </property>
-                                <property name="enabled">
-                                    <bool>false</bool>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>7</hsizetype>
-                                        <vsizetype>5</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                            </widget>
-                            <widget class="QSpinBox" row="5" column="3" rowspan="1" colspan="2">
-                                <property name="name">
-                                    <cstring>kcfg_smtpPort</cstring>
-                                </property>
-                                <property name="sizePolicy">
-                                    <sizepolicy>
-                                        <hsizetype>4</hsizetype>
-                                        <vsizetype>0</vsizetype>
-                                        <horstretch>0</horstretch>
-                                        <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                </property>
-                                <property name="maxValue">
-                                    <number>65535</number>
-                                </property>
-                                <property name="value">
-                                    <number>25</number>
-                                </property>
-                            </widget>
-                            <spacer row="5" column="5" rowspan="1" colspan="3">
-                                <property name="name">
-                                    <cstring>spacer6</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Qt::Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>260</width>
-                                        <height>20</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                        </grid>
-                    </widget>
-                </grid>
-            </widget>
+            <property name="text" >
+             <string>&amp;Cache only</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="cacheAndRemote" >
+            <property name="whatsThis" >
+             <string>Check for locally cached CD information before trying to look up at remote CDDB server.</string>
+            </property>
+            <property name="text" >
+             <string>Cache &amp;and remote</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="remoteOnly" >
+            <property name="whatsThis" >
+             <string>Only try to look up at remote CDDB server.</string>
+            </property>
+            <property name="text" >
+             <string>&amp;Remote only</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
-    </vbox>
-</widget>
-<customwidgets>
-</customwidgets>
-<connections>
-    <connection>
-        <sender>cacheOnly</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>serverBox</receiver>
-        <slot>setDisabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>cacheAndRemote</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>serverBox</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>remoteOnly</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>serverBox</receiver>
-        <slot>setEnabled(bool)</slot>
-    </connection>
-    <connection>
-        <sender>needsAuthenticationBox</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>CDDBConfigWidgetBase</receiver>
-        <slot>needAuthenticationChanged(bool)</slot>
-    </connection>
-    <connection>
-        <sender>kcfg_lookupTransport</sender>
-        <signal>activated(int)</signal>
-        <receiver>CDDBConfigWidgetBase</receiver>
-        <slot>protocolChanged()</slot>
-    </connection>
-    <connection>
-        <sender>mirrorListButton</sender>
-        <signal>clicked()</signal>
-        <receiver>CDDBConfigWidgetBase</receiver>
-        <slot>showMirrorList()</slot>
-    </connection>
-</connections>
-<tabstops>
-    <tabstop>tabWidget2</tabstop>
-    <tabstop>cacheOnly</tabstop>
-    <tabstop>cacheAndRemote</tabstop>
-    <tabstop>remoteOnly</tabstop>
-    <tabstop>kcfg_hostname</tabstop>
-    <tabstop>kcfg_port</tabstop>
-    <tabstop>kcfg_lookupTransport</tabstop>
-</tabstops>
-<slots>
-    <slot access="protected">protocolChanged()</slot>
-    <slot access="protected">showMirrorList()</slot>
-    <slot access="protected">needAuthenticationChanged(bool)</slot>
-</slots>
-<layoutdefaults spacing="11" margin="6"/>
-<layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
-<includehints>
-    <includehint>kpushbutton.h</includehint>
-    <includehint>klineedit.h</includehint>
-</includehints>
-</UI>
+       </item>
+       <item>
+        <widget class="Q3GroupBox" name="serverBox" >
+         <property name="title" >
+          <string>CDDB Server</string>
+         </property>
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>11</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item row="0" column="0" >
+           <widget class="QLabel" name="TextLabel7" >
+            <property name="text" >
+             <string>CDD&amp;B server:</string>
+            </property>
+            <property name="buddy" >
+             <cstring>kcfg_hostname</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" >
+           <widget class="QLabel" name="TextLabel9" >
+            <property name="text" >
+             <string>&amp;Transport:</string>
+            </property>
+            <property name="buddy" >
+             <cstring>kcfg_lookupTransport</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" >
+           <widget class="QComboBox" name="kcfg_lookupTransport" >
+            <property name="whatsThis" >
+             <string>Type of lookup which should be tried at the CDDB server.</string>
+            </property>
+            <item>
+             <property name="text" >
+              <string>CDDB</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>HTTP</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="2" colspan="3" >
+           <widget class="KPushButton" name="mirrorListButton" />
+          </item>
+          <item row="0" column="4" >
+           <widget class="QSpinBox" name="kcfg_port" >
+            <property name="sizePolicy" >
+             <sizepolicy>
+              <hsizetype>4</hsizetype>
+              <vsizetype>0</vsizetype>
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="whatsThis" >
+             <string>Port to connect to on CDDB server.</string>
+            </property>
+            <property name="maximum" >
+             <number>64000</number>
+            </property>
+            <property name="value" >
+             <number>8880</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3" >
+           <widget class="QLabel" name="TextLabel8" >
+            <property name="text" >
+             <string>&amp;Port:</string>
+            </property>
+            <property name="alignment" >
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="buddy" >
+             <cstring>kcfg_port</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" colspan="2" >
+           <widget class="QLineEdit" name="kcfg_hostname" >
+            <property name="sizePolicy" >
+             <sizepolicy>
+              <hsizetype>7</hsizetype>
+              <vsizetype>0</vsizetype>
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="whatsThis" >
+             <string>Name of CDDB server which will be used to look up CD information.</string>
+            </property>
+            <property name="text" >
+             <string>freedb.freedb.org</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="Q3WidgetStack" name="cacheLocationsParent" >
+         <widget class="QWidget" name="WStackPage" />
+        </widget>
+       </item>
+       <item>
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType" >
+          <enum>QSizePolicy::Expanding</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>41</width>
+           <height>260</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab" >
+      <attribute name="title" >
+       <string>&amp;Submit</string>
+      </attribute>
+      <layout class="QGridLayout" >
+       <property name="margin" >
+        <number>0</number>
+       </property>
+       <property name="spacing" >
+        <number>11</number>
+       </property>
+       <item row="0" column="1" >
+        <widget class="QLineEdit" name="kcfg_emailAddress" />
+       </item>
+       <item row="0" column="0" >
+        <widget class="QLabel" name="textLabel1" >
+         <property name="text" >
+          <string>Email address:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" >
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType" >
+          <enum>QSizePolicy::Expanding</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>21</width>
+           <height>240</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="0" colspan="2" >
+        <widget class="Q3ButtonGroup" name="kcfg_submitTransport" >
+         <property name="title" >
+          <string>Submit Method</string>
+         </property>
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>5</number>
+          </property>
+          <property name="spacing" >
+           <number>11</number>
+          </property>
+          <item row="7" column="1" >
+           <spacer>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType" >
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" >
+             <size>
+              <width>21</width>
+              <height>21</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="0" >
+           <spacer>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType" >
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" >
+             <size>
+              <width>21</width>
+              <height>21</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="1" colspan="3" >
+           <widget class="QLabel" name="textLabel2" >
+            <property name="text" >
+             <string>Server:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" colspan="6" >
+           <widget class="QRadioButton" name="radioButton8" >
+            <property name="text" >
+             <string>SMTP (Email)</string>
+            </property>
+           </widget>
+          </item>
+          <item rowspan="5" row="3" column="0" >
+           <spacer>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType" >
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" >
+             <size>
+              <width>20</width>
+              <height>140</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="0" colspan="4" >
+           <widget class="QRadioButton" name="radioButton6" >
+            <property name="text" >
+             <string>HTTP</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4" colspan="2" >
+           <widget class="KLineEdit" name="kcfg_httpSubmitServer" />
+          </item>
+          <item row="1" column="6" >
+           <widget class="QLabel" name="textLabel1_2" >
+            <property name="text" >
+             <string>Port:</string>
+            </property>
+            <property name="alignment" >
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="7" >
+           <widget class="QSpinBox" name="kcfg_httpSubmitPort" />
+          </item>
+          <item row="3" column="1" colspan="4" >
+           <widget class="QLabel" name="textLabel9_2" >
+            <property name="text" >
+             <string>Reply-To:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1" colspan="4" >
+           <widget class="QLabel" name="textLabel2_2" >
+            <property name="sizePolicy" >
+             <sizepolicy>
+              <hsizetype>4</hsizetype>
+              <vsizetype>5</vsizetype>
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text" >
+             <string>SMTP server:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1" colspan="2" >
+           <widget class="QLabel" name="textLabel3" >
+            <property name="sizePolicy" >
+             <sizepolicy>
+              <hsizetype>5</hsizetype>
+              <vsizetype>5</vsizetype>
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text" >
+             <string>Port:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="5" colspan="3" >
+           <widget class="QLineEdit" name="kcfg_replyTo" />
+          </item>
+          <item row="6" column="1" colspan="7" >
+           <widget class="QCheckBox" name="needsAuthenticationBox" >
+            <property name="text" >
+             <string>Server needs authentication</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="5" colspan="3" >
+           <widget class="QLineEdit" name="kcfg_smtpHostname" />
+          </item>
+          <item row="7" column="2" colspan="3" >
+           <widget class="QLabel" name="textLabel4" >
+            <property name="text" >
+             <string>Username:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="5" colspan="3" >
+           <widget class="QLineEdit" name="kcfg_smtpUsername" >
+            <property name="enabled" >
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy" >
+             <sizepolicy>
+              <hsizetype>7</hsizetype>
+              <vsizetype>5</vsizetype>
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="3" colspan="2" >
+           <widget class="QSpinBox" name="kcfg_smtpPort" >
+            <property name="sizePolicy" >
+             <sizepolicy>
+              <hsizetype>4</hsizetype>
+              <vsizetype>0</vsizetype>
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximum" >
+             <number>65535</number>
+            </property>
+            <property name="value" >
+             <number>25</number>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="5" colspan="3" >
+           <spacer>
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType" >
+             <enum>QSizePolicy::Expanding</enum>
+            </property>
+            <property name="sizeHint" >
+             <size>
+              <width>260</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="11" margin="6" />
+ <layoutfunction spacing="KDialog::spacingHint" margin="KDialog::marginHint" />
+ <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
+ <customwidgets>
+  <customwidget>
+   <class>KPushButton</class>
+   <extends>QWidget</extends>
+   <header>kpushbutton.h</header>
+   <container>1</container>
+   <pixmap></pixmap>
+  </customwidget>
+  <customwidget>
+   <class>Q3WidgetStack</class>
+   <extends></extends>
+   <header>q3widgetstack.h</header>
+   <container>1</container>
+   <pixmap></pixmap>
+  </customwidget>
+  <customwidget>
+   <class>Q3ButtonGroup</class>
+   <extends></extends>
+   <header>Qt3Support/Q3ButtonGroup</header>
+   <container>1</container>
+   <pixmap></pixmap>
+  </customwidget>
+  <customwidget>
+   <class>Q3GroupBox</class>
+   <extends></extends>
+   <header>Qt3Support/Q3GroupBox</header>
+   <container>1</container>
+   <pixmap></pixmap>
+  </customwidget>
+  <customwidget>
+   <class>KLineEdit</class>
+   <extends>QWidget</extends>
+   <header>klineedit.h</header>
+   <container>1</container>
+   <pixmap></pixmap>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>tabWidget2</tabstop>
+  <tabstop>cacheOnly</tabstop>
+  <tabstop>cacheAndRemote</tabstop>
+  <tabstop>remoteOnly</tabstop>
+  <tabstop>kcfg_hostname</tabstop>
+  <tabstop>kcfg_port</tabstop>
+  <tabstop>kcfg_lookupTransport</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

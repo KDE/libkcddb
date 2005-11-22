@@ -39,9 +39,11 @@
 #include <q3buttongroup.h>
 #include <qcheckbox.h>
 
-CDDBConfigWidget::CDDBConfigWidget(QWidget * parent, const char * name)
-  : CDDBConfigWidgetBase(parent, name)
+CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
+  : QWidget(parent)
 {
+  setupUi(this);
+  
   // Connections from widgets are made in designer.
 
   KURLRequester* urlReq = new KURLRequester(this);

@@ -22,13 +22,13 @@
 
 #include "cddbconfigwidgetbase.h"
 
-class CDDBConfigWidget : public CDDBConfigWidgetBase
+class CDDBConfigWidget : public QWidget, public Ui::CDDBConfigWidgetBase
 {
   Q_OBJECT
 
   public:
 
-    CDDBConfigWidget(QWidget * parent = 0, const char * name = 0);
+    CDDBConfigWidget(QWidget * parent = 0);
 
   protected slots:
 

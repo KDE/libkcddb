@@ -5,7 +5,7 @@ endif
 
 
 
-SUBDIRS = $(MB_DIR) . test # kcmcddb
+SUBDIRS = $(MB_DIR) . test kcmcddb
 
 INCLUDES = -I$(srcdir)/.. $(all_includes)
 
