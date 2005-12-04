@@ -24,7 +24,7 @@
 
 namespace KCDDB
 {
-    class CDInfoDialog : public QWidget, private Ui::CDInfoDialogBase
+    class CDInfoDialog : public QWidget, public Ui::CDInfoDialogBase
     {
     Q_OBJECT
     public:
