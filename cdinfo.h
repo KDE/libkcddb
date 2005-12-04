@@ -107,7 +107,6 @@ namespace KCDDB
        * For example <code>get("title")</code>
        */
       QVariant get(const QString &type) const;
-#ifndef KDE_NO_COMPAT        
       // Use get(...)
       QString       id;
       QString       artist;
@@ -118,7 +117,6 @@ namespace KCDDB
       uint          year;
       uint          length; // in milliseconds
       uint          revision;
-#endif
 
       TrackInfoList trackInfoList;
 
