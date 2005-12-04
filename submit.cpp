@@ -1,7 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
-  Copyright (C) 2003-2004 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2003-2005 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -35,8 +35,12 @@ namespace KCDDB
     // Empty.
   }
 
-  CDDB::Result Submit::submit( const CDInfo& cdInfo, const TrackOffsetList &offsetList)
+  CDDB::Result Submit::submit( CDInfo cdInfo, const TrackOffsetList& offsetList)
   {
+    // If it was an inexact math from the server the discid might
+    // be different, so recalculate it
+    cdInfo.set("discid", trackOffsetListToId(offsetList));
+
     makeDiskData( cdInfo, offsetList );
 
     if (!validCategory(cdInfo.get("category").toString()))
@@ -72,16 +76,7 @@ namespace KCDDB
     for (uint i=0; i < numTracks; i++)
       diskData_ += QString("#\t%1\n").arg(offsetList[i]);
 
-    unsigned int l;
-    if (cdInfo.get("length").toInt() == 0)
-    {
-      l = (offsetList[numTracks+1] - offsetList[0]) / 75;
-      // FIXME Is the submit test wrong, or the disc id calculation?
-      l += 2;
-    }
-    else
-      l = cdInfo.get("length").toInt();
-
+    int l = offsetList[numTracks+1]/75;
     diskData_ += QString("# Disc length: %1 seconds\n").arg(l);
 
     diskData_ += cdInfo.toString(true);

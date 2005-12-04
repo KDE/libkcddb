@@ -2,6 +2,7 @@
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
   Copyright (C) 2002 Nadeem Hasan <nhasan@kde.org>
+  Copyright (C) 2005 Richard Lärkäng <nouseforaname@home.se>e>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -46,7 +47,7 @@ namespace KCDDB
       Submit();
       virtual ~Submit();
 
-      Result submit( const CDInfo& cdInfo, const TrackOffsetList &offsetList);
+      Result submit( CDInfo cdInfo, const TrackOffsetList &offsetList);
 
     protected:
       virtual KIO::Job* createJob(const CDInfo& cdInfo) = 0;
