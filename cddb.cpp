@@ -66,7 +66,7 @@ namespace KCDDB
       }
     }
 
-    unsigned int l = (list[numTracks + 1] + 1) / 75;
+    unsigned int l = list[numTracks + 1] / 75;
     l -= list[0] / 75;
 
     id = ( ( id % 255 ) << 24 ) | ( l << 8 ) | numTracks;
@@ -92,7 +92,6 @@ namespace KCDDB
 
     unsigned int discLengthInSec = ( trackOffsetList_[ numTracks+1 ] ) / 75;
 
-    // Disc length in seconds.
     ret.append( QString::number( discLengthInSec ) );
 
     return ret;
