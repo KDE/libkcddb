@@ -23,11 +23,9 @@
 #ifndef KCDDB_CONFIG_H
 #define KCDDB_CONFIG_H
 
-#include "cache.h"
-#include "cddb.h"
 #include "configbase.h"
-#include <qstring.h>
 #include <kdelibs_export.h>
+
 namespace KCDDB
 {
   class KDE_EXPORT Config : public ConfigBase

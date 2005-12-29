@@ -31,7 +31,7 @@ kde_kcfg_DATA = libkcddb.kcfg
 
 kcddbincludedir = $(includedir)/libkcddb
 kcddbinclude_HEADERS = \
-    cache.h cdinfo.h client.h config.h cddb.h configbase.h
+    cdinfo.h client.h config.h cddb.h configbase.h
 
 messages: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/libkcddb.pot

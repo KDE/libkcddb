@@ -27,8 +27,11 @@
 
 #include "cdinfo.h"
 #include <kdemacros.h>
+
 namespace KCDDB
 {
+  class Config;
+  
   class KDE_EXPORT Cache
   {
     public:
@@ -40,13 +43,13 @@ namespace KCDDB
         Ignore
       };
 
-      static CDInfoList lookup( const QString & );
-      static void store( const CDInfoList & );
+      static CDInfoList lookup( const QString &, const Config & );
+      static void store( const CDInfoList &, const Config & );
       // KDE4: Should probably take a TrackOffsetList too, so
       // the list can be stored in the file, and we can make
       // sure the discid is correct (had to do the same fix in
       // both kscd and kaudiocreator)
-      static void store( const CDInfo & );
+      static void store( const CDInfo &, const Config & );
 
     private:
       static QString fileName( const CDInfo &, const QString &cacheDir );

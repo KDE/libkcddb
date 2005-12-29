@@ -23,7 +23,6 @@
 #define KCDDB_CDDB_H
 
 #include <qstring.h>
-#include <qpair.h>
 #include <qlist.h>
 
 #include <kdelibs_export.h>
@@ -32,10 +31,8 @@ namespace KCDDB
 {
    /** This list is used to calculate the CDDB disc id.
     Insert the start frames ((minute*60 + seconds)*75+frames)
-    of all tracks, followed by the first frame of the disc and the last
-    frame of the disc. The first frame is for most audio CD's the same
-    as the first frame of the first track, the
-    last one is the start frame of the leadout track.
+    of all tracks, followed by the last frame of the disc. The
+    last frame is the start frame of the leadout track.
     */
   typedef QList<uint> TrackOffsetList;
 

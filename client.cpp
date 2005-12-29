@@ -128,7 +128,7 @@ namespace KCDDB
 
     if ( Cache::Ignore != d->config.cachePolicy() )
     {
-      d->cdInfoList = Cache::lookup( cddbId );
+      d->cdInfoList = Cache::lookup( cddbId, config() );
 
       kdDebug(60010) << "Found " << d->cdInfoList.count() << " hit(s)" << endl;
 
@@ -178,7 +178,7 @@ namespace KCDDB
       if ( CDDB::Success == r )
       {
         d->cdInfoList = cdInfoLookup->lookupResponse();
-        Cache::store( d->cdInfoList );
+        Cache::store( d->cdInfoList, config() );
       }
 
       delete cdInfoLookup;
@@ -235,7 +235,7 @@ namespace KCDDB
     if ( cdInfoLookup && CDDB::Success == r )
     {
       d->cdInfoList = cdInfoLookup->lookupResponse();
-      Cache::store( d->cdInfoList );
+      Cache::store( d->cdInfoList, config() );
     }
     else
       d->cdInfoList.clear();
@@ -323,7 +323,7 @@ namespace KCDDB
         return CDDB::UnknownError;
         break;
     }
-
+    
     CDDB::Result r = cdInfoSubmit->submit( cdInfo, offsetList );
 
     if ( blockingMode() )
@@ -333,6 +333,12 @@ namespace KCDDB
     }
 
     return r;
+  }
+    
+    void
+  Client::store(const CDInfo &cdInfo)
+  {
+    Cache::store(cdInfo, config());
   }
 }
 

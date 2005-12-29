@@ -79,6 +79,11 @@ namespace KCDDB
        */
       CDDB::Result submit(const CDInfo &cdInfo, const TrackOffsetList &trackOffsetList);
 
+      /**
+       * Stores the CD-information in the local cache
+       */
+      void store(const CDInfo &cdInfo);
+
       void setBlockingMode( bool );
       bool blockingMode() const;
 

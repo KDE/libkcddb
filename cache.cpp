@@ -47,13 +47,11 @@ namespace KCDDB
   }
 
     CDInfoList
-  Cache::lookup( const QString &cddbId )
+  Cache::lookup( const QString &cddbId, const Config& c )
   {
     kdDebug(60010) << "Looking up " << cddbId << " in CDDB cache" << endl;
 
     CDInfoList infoList;
-    Config c;
-    c.readConfig();
     QStringList cddbCacheDirs = c.cacheLocations();
 
     for (QStringList::Iterator cddbCacheDir = cddbCacheDirs.begin();
@@ -91,23 +89,20 @@ namespace KCDDB
   }
 
     void
-  Cache::store(const CDInfoList& list)
+  Cache::store(const CDInfoList& list, const Config& c)
   {
     CDInfoList::ConstIterator it=list.begin(); 
     while (it!=list.end())
     {
       CDInfo info( *it );
-      store(info);
+      store(info, c);
       ++it;
     }
   }
 
     void
-  Cache::store(const CDInfo& info)
+  Cache::store(const CDInfo& info, const Config& c)
   {
-    Config c;
-    c.readConfig();
-
     QString cacheDir = c.cacheLocations().first();
     QDir d(cacheDir);
     if (!d.exists())
