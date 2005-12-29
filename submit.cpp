@@ -76,7 +76,7 @@ namespace KCDDB
     for (uint i=0; i < numTracks; i++)
       diskData_ += QString("#\t%1\n").arg(offsetList[i]);
 
-    int l = offsetList[numTracks+1]/75;
+    int l = offsetList[numTracks]/75;
     diskData_ += QString("# Disc length: %1 seconds\n").arg(l);
 
     diskData_ += cdInfo.toString(true);

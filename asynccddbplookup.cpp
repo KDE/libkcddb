@@ -55,9 +55,6 @@ namespace KCDDB
 
     connect (socket_, SIGNAL( readyRead() ), SLOT( slotReadyRead() ) );
 
-    if ( trackOffsetList.count() < 3 )
-      return UnknownError;
-
     trackOffsetList_ = trackOffsetList;
 
     state_ = WaitingForConnection;

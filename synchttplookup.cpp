@@ -47,9 +47,6 @@ namespace KCDDB
     const TrackOffsetList & trackOffsetList
   )
   {
-    if ( trackOffsetList.count() < 3 )
-      return UnknownError;
-
     trackOffsetList_ = trackOffsetList;
 
     initURL( hostName, port );

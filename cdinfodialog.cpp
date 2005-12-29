@@ -92,14 +92,14 @@ namespace KCDDB
 
       // Now do the individual tracks.
       unsigned tracks = info.trackInfoList.count();
-      m_length->setText(framesTime(trackStartFrames[tracks + 1] - trackStartFrames[0]));
+      m_length->setText(framesTime(trackStartFrames[tracks] - trackStartFrames[0]));
       m_trackList->clear();
       for (unsigned i = 0; i < tracks; i++)
       {
           Q3ListViewItem *item = new Q3ListViewItem(m_trackList, 0);
 
           item->setText(TRACK_NUMBER, QString().sprintf("%02d", i + 1));
-          item->setText(TRACK_TIME, framesTime(trackStartFrames[i + ((i + 1 < tracks) ? 1 : 2)] - trackStartFrames[i]));
+          item->setText(TRACK_TIME, framesTime(trackStartFrames[i + 1] - trackStartFrames[i]));
           item->setText(TRACK_ARTIST, info.trackInfoList[i].get(TrackInfo::Artist).toString());
           item->setText(TRACK_TITLE, info.trackInfoList[i].get(TrackInfo::Title).toString());
           item->setText(TRACK_COMMENT, info.trackInfoList[i].get(TrackInfo::Extt).toString());

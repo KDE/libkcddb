@@ -22,7 +22,6 @@ main(int argc, char ** argv)
   list
   << 150
   << 61408
-  << 0
   << 177675;
 
   kdDebug() << "Stuff to send to server:" << endl;

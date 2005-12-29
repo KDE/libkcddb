@@ -44,9 +44,6 @@ namespace KCDDB
     const TrackOffsetList & trackOffsetList
   )
   {
-    if ( trackOffsetList.count() < 3 )
-      return UnknownError;
-
     trackOffsetList_ = trackOffsetList;
 
     socket_ = new KNetwork::KBufferedSocket(hostName, QString::number(port));

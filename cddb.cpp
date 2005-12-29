@@ -53,7 +53,7 @@ namespace KCDDB
   {
     // Taken from version by Michael Matz in kio_audiocd.
     unsigned int id = 0;
-    int numTracks = list.count() - 2;
+    int numTracks = list.count() - 1;
 
     // The last two in the list are disc begin and disc end.
     for ( int i = numTracks-1; i >= 0; i-- )
@@ -66,7 +66,7 @@ namespace KCDDB
       }
     }
 
-    unsigned int l = list[numTracks + 1] / 75;
+    unsigned int l = list[numTracks] / 75;
     l -= list[0] / 75;
 
     id = ( ( id % 255 ) << 24 ) | ( l << 8 ) | numTracks;
@@ -78,7 +78,7 @@ namespace KCDDB
   CDDB::trackOffsetListToString()
   {
     QString ret;
-    uint numTracks = trackOffsetList_.count()-2;
+    uint numTracks = trackOffsetList_.count()-1;
 
     // Disc start.
     ret.append( QString::number( numTracks ) );
@@ -90,7 +90,7 @@ namespace KCDDB
       ret.append( " " );
     }
 
-    unsigned int discLengthInSec = ( trackOffsetList_[ numTracks+1 ] ) / 75;
+    unsigned int discLengthInSec = ( trackOffsetList_[ numTracks ] ) / 75;
 
     ret.append( QString::number( discLengthInSec ) );
 

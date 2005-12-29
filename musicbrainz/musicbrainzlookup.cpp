@@ -80,7 +80,7 @@ namespace KCDDB
     // FIXME
     info.set("artist", QString::fromUtf8(mb.Data(MBE_AlbumGetArtistName, 1).c_str()));
 
-    int numTracks = trackOffsetList.count()-2;
+    int numTracks = trackOffsetList.count()-1;
 
     for (int i=1; i <= numTracks; i++)
     {
@@ -102,7 +102,7 @@ namespace KCDDB
   {
     // Code based on libmusicbrainz/lib/diskid.cpp
     
-    int numTracks = trackOffsetList.count()-2;
+    int numTracks = trackOffsetList.count()-1;
 
     SHA_INFO       sha;
     unsigned char  digest[20];
@@ -124,7 +124,7 @@ namespace KCDDB
     {
       long offset;
       if (i == 0)
-        offset = trackOffsetList[trackOffsetList.count()-1];
+        offset = trackOffsetList[numTracks];
       else if (i <= numTracks)
         offset = trackOffsetList[i-1];
       else

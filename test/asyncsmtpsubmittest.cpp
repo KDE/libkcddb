@@ -23,7 +23,6 @@ AsyncSMTPSubmitTest::AsyncSMTPSubmitTest()
     << 35472
     << 47891
     << 123310
-    << 150       // Disc start.
     << 133125;  // Disc end.
 
   CDInfo cdInfo;

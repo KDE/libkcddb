@@ -65,6 +65,12 @@ namespace KCDDB
       CDInfo bestLookupResponse() const;
 
       /**
+       * Searches the database for entries matching the offset list.
+       * Use lookupResponse() to get the results
+       * 
+       * @param trackOffsetList A List of the start offsets of the tracks,
+       * and the offset of the lead-out track at the end of the list
+       * 
        * @return if the results of the lookup: Success, NoRecordFound, etc
        */
       CDDB::Result lookup(const TrackOffsetList &trackOffsetList);

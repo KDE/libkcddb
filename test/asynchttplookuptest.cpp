@@ -39,7 +39,6 @@ AsyncHTTPLookupTest::AsyncHTTPLookupTest()
     << 222158
     << 247076
     << 278203   // Last track start.
-    << 10       // Disc start.
     << 316732;  // Disc end.
 
   client_->lookup(list);

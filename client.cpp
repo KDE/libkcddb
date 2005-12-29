@@ -118,13 +118,13 @@ namespace KCDDB
   {
     d->cdInfoList.clear();
 
-    QString cddbId = Lookup::trackOffsetListToId( trackOffsetList );
-
-    if ( cddbId.isNull() )
+    if ( trackOffsetList.count() <= 1 )
     {
-      kdDebug(60010) << "Can't create cddbid from offset list" << endl;
+      kdDebug(60010) << "Lookup called with empty offset list" << endl;
       return Lookup::NoRecordFound;
     }
+
+    QString cddbId = Lookup::trackOffsetListToId( trackOffsetList );
 
     if ( Cache::Ignore != d->config.cachePolicy() )
     {
@@ -267,7 +267,7 @@ namespace KCDDB
       return CDDB::CannotSave;
 
     uint last=0;
-    for (int i=0; i < (offsetList.count()-2); i++)
+    for (int i=0; i < offsetList.count(); i++)
     {
       if(last >= offsetList[i])
         return CDDB::CannotSave;
