@@ -5,6 +5,8 @@ check_PROGRAMS = syncsmtpsubmittest asyncsmtpsubmittest asynchttplookuptest \
 	asynchttpsubmittest synchttpsubmittest sitestest utf8test \
 	musicbrainztest
 
+AM_LDFLAGS = $(QT_LDFLAGS) $(X_LDFLAGS) $(KDE_RPATH)
+
 syncsmtpsubmittest_SOURCES = syncsmtpsubmittest.cpp
 syncsmtpsubmittest_LDFLAGS = $(all_libraries)
 syncsmtpsubmittest_LDADD = $(top_builddir)/libkcddb/libkcddb.la
@@ -27,7 +29,7 @@ synchttplookuptest_LDADD = $(top_builddir)/libkcddb/libkcddb.la
 
 synccddblookuptest_SOURCES = synccddblookuptest.cpp
 synccddblookuptest_LDFLAGS = $(all_libraries)
-synccddblookuptest_LDADD = $(top_builddir)/libkcddb/libkcddb.la
+synccddblookuptest_LDADD = $(top_builddir)/libkcddb/libkcddb.la -lQtTest_debug
 
 synchttpsubmittest_SOURCES = synchttpsubmittest.cpp
 synchttpsubmittest_LDFLAGS = $(all_libraries)
@@ -48,6 +50,8 @@ utf8test_LDADD = $(top_builddir)/libkcddb/libkcddb.la
 sitestest_SOURCES = sitestest.cpp
 sitestest_LDFLAGS = $(all_libraries)
 sitestest_LDADD = $(top_builddir)/libkcddb/libkcddb.la
+
+TESTS = synccddblookuptest
 
 METASOURCES = AUTO
 
