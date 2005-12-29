@@ -93,8 +93,9 @@ namespace KCDDB
   
   QString TrackInfo::toString() const {
     QString out;
-    int track = get("tracknumber").toInt();
-    if(track <= 0)
+    bool ok;
+    int track = get("tracknumber").toInt(&ok);
+    if(!ok)
       kdDebug(60010) << "Warning toString() on a track that doesn't have track number assigned." << endl;
     QMap<QString, QVariant>::const_iterator i = d->data.constBegin();
     while (i != d->data.constEnd()) {
@@ -153,11 +154,6 @@ namespace KCDDB
   {
     clear();
 
-    for (int i = 0; i < trackInfoList.count(); ++i){
-      trackInfoList[i].clear();
-      trackInfoList[i].set("tracknumber", i);
-    }
-    
     // We'll append to this until we've seen all the lines, then parse it after.
     QString dtitle;
 
@@ -198,7 +194,8 @@ namespace KCDDB
 
         checkTrack( trackNumber );
 
-        trackInfoList[ trackNumber ].set("title", value );
+        TrackInfo& ti = trackInfoList[trackNumber];
+        ti.set("title", ti.get("title").toString().append(value));
       }
       
       else if ( "EXTD" == key )
@@ -237,12 +234,16 @@ namespace KCDDB
         
         QString data = QString("^T.*_%1$").arg(trackNumber);
         if  ( key.find( data ) )
-          trackInfoList[ trackNumber ].set( key.mid(1, key.find('_')-1), value);
+        {
+          QString k = key.mid(1, key.find('_')-1);
+          TrackInfo& ti = trackInfoList[ trackNumber ];
+          ti.set( k, ti.get(k).toString().append(value) );
+        }
       }
       else if (key.find("^.*$" ))
       {
         // Custom Disk data
-        set( key, value);
+        set( key, get(key).toString().append(value) );
       }
     }
 
@@ -391,13 +392,10 @@ namespace KCDDB
     void
   CDInfo::checkTrack( int trackNumber )
   {
-    if ( trackInfoList.count() < trackNumber + 1 )
-    {
-      while ( trackInfoList.count() < trackNumber + 1 ){
-        int count = trackInfoList.count();
-        trackInfoList.append(TrackInfo());
-        trackInfoList[count].set("tracknumber", count);
-      }
+    while ( trackInfoList.count() < trackNumber + 1 ){
+      int count = trackInfoList.count();
+      trackInfoList.append(TrackInfo());
+      trackInfoList[count].set("tracknumber", count);
     }
   }
 
