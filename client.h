@@ -38,7 +38,7 @@ namespace KCDDB
    * Example:
    * <code>KCDDB::Client *cddb = new KCDDB::Client();
    * cddb->lookup(discSignature);
-   * CDInfo info = cddb->bestLookupResponse();</code>
+   * CDInfo info = cddb->lookupResponse().first();</code>
    */
   class KDE_EXPORT Client : public QObject
   {
@@ -59,10 +59,6 @@ namespace KCDDB
        * @return a list of CDDB entries that match the disc signature
        */
       CDInfoList lookupResponse() const;
-      /**
-       * @return a the CDDB entries that is the best match to the disc signature
-       */
-      CDInfo bestLookupResponse() const;
 
       /**
        * Searches the database for entries matching the offset list.
