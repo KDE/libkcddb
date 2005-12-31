@@ -21,7 +21,7 @@ libkcddb_la_SOURCES = \
     cdinfodialog.cpp cdinfodialogbase.ui cdinfoencodingwidget.cpp \
     cdinfoencodingwidgetbase.ui
 
-libkcddb_la_LDFLAGS = $(all_libraries) -version-info 1:0:0
+libkcddb_la_LDFLAGS = $(all_libraries) -version-info 1:0:0 -no-undefined
 libkcddb_la_LIBADD  = $(LIB_KDECORE) $(LIB_KIO) $(mb_lib)
     
 

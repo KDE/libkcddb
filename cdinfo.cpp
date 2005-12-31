@@ -28,11 +28,152 @@
 
 namespace KCDDB
 {
-  class TrackInfoPrivate {
+  class InfoBasePrivate {
     public:
-    TrackInfoPrivate(){
-    };
-    QMap<QString, QVariant> data;
+      /**
+       * Creates a line in the form NAME=VALUE, and splits it into several
+       * lines if the line gets longer than 256 chars
+       */
+        static QString
+      createLine(const QString& name, const QString& value)
+      {
+        Q_ASSERT(name.length() < 254);
+
+        int maxLength = 256 - name.length() - 2;
+
+        QString tmpValue = escape(value);
+
+        QString lines;
+
+        while (tmpValue.length() > maxLength)
+        {
+          lines += QString("%1=%2\n").arg(name,tmpValue.left(maxLength));
+          tmpValue = tmpValue.mid(maxLength);
+        }
+
+        lines += QString("%1=%2\n").arg(name,tmpValue);
+
+        return lines;
+      }
+
+      /**
+       * escape's string for CDDB processing
+       */
+        static QString
+      escape( const QString &value )
+      {
+        QString s = value;
+        s.replace( "\\", "\\\\" );
+        s.replace( "\n", "\\n" );
+        s.replace( "\t", "\\t" );
+
+        return s;
+      }
+
+      /**
+       * fixes an escaped string that has been CDDB processed
+       */
+        static QString
+      unescape( const QString &value )
+      {
+        QString s = value;
+
+        s.replace( "\\n", "\n" );
+        s.replace( "\\t", "\t" );
+        s.replace( "\\\\", "\\" );
+
+        return s;
+      }
+
+        QVariant
+      get(const QString& type)
+      {
+        return data[type.upper()];
+      }
+        QVariant
+      get(Type type)
+      {
+        switch(type){
+          case(Title):
+            return get("title");
+          case(Comment):
+            return get("comment");
+          case(Artist):
+            return get("artist");
+          case(Genre):
+            return get("genre");
+          case(Year):
+            return get("year");
+          case(Length):
+            return get("length");
+          case(Category):
+            return get("category");
+        }
+        return QVariant();
+      }
+
+        void
+      set(const QString& type, const QVariant &d)
+      {
+        //kdDebug() << "set: " << type << ", " << d.toString() << endl;
+        if(type.find("^T.*_.*$" ) != -1){
+          kdDebug(60010) << "Error: custom cdinfo::set data can not start with T and contain a _" << endl;
+          return;
+        }
+        if(type.upper() == "DTITLE"){
+          kdDebug(60010) << "Error: type: DTITLE is reserved and can not be set." << endl;
+          return;
+        }
+        
+        data[type.upper()] = d;
+      }
+        void
+      set(Type type, const QVariant &d)
+      {
+        switch(type)
+        {
+          case(Title):
+            set("title", d);
+            return;
+          case(Comment):
+            set("comment", d);
+            return;
+          case(Artist):
+            set("artist", d);
+            return;
+          case(Genre):
+            set("genre", d);
+            return;
+          case(Year):
+            set("year", d);
+            return;
+          case(Length):
+            set("length", d);
+            return;
+          case(Category):
+            set("category", d);
+            return;
+        }
+
+        Q_ASSERT(false);
+      }
+
+      // Appends text to data instead of overwriting it
+        void
+      append(const QString type, const QString& text)
+      {
+        set(type, get(type).toString().append(text));
+      }
+        void
+      append(Type type, const QString& text)
+      {
+        set(type, get(type).toString().append(text));
+      }
+      
+      QMap<QString, QVariant> data;
+  } ;
+  
+  class TrackInfoPrivate : public InfoBasePrivate {
   };
   
   TrackInfo::TrackInfo()
@@ -58,33 +199,19 @@ namespace KCDDB
   }
 
   QVariant TrackInfo::get(Type type) const {
-    switch(type){
-      case(Title):
-        return get("title");
-      case(Extt):
-        return get("extt");
-      case(Comment):
-        return get("comment");
-      case(Artist):
-        return get("artist");
-      case(Genre):
-        return get("genre");
-      case(Year):
-        return get("year");
-      case(Length):
-        return get("length");
-      case(Category):
-        return get("category");
-    }
-    return QVariant();
+    return d->get(type);
   }
 
   QVariant TrackInfo::get(const QString &type) const {
-    return d->data[type.upper()];
+    return d->get(type);
   }
   
   void TrackInfo::set(const QString &type, const QVariant &data){
-    d->data[type.upper()] = data;
+    d->set(type, data);
+  }
+
+  void TrackInfo::set(Type type, const QVariant &data) {
+    d->set(type, data);
   }
  
   void TrackInfo::clear(){
@@ -99,7 +226,7 @@ namespace KCDDB
       kdDebug(60010) << "Warning toString() on a track that doesn't have track number assigned." << endl;
     QMap<QString, QVariant>::const_iterator i = d->data.constBegin();
     while (i != d->data.constEnd()) {
-        if(i.key() != "EXTT" && i.key() != "TITLE" && i.key() != "ARTIST" && i.key() != "TRACKNUMBER") {
+        if(i.key() != "COMMENT" && i.key() != "TITLE" && i.key() != "ARTIST" && i.key() != "TRACKNUMBER") {
           out += QString("T%1_%2=%3\n").arg(i.key()).arg(track).arg( i.data().toString());
         }
         ++i;
@@ -108,23 +235,17 @@ namespace KCDDB
   }
 
   
-  class CDInfoPrivate {
-    public:
-    CDInfoPrivate(){
-    };
-    QMap<QString, QVariant> data;
+  class CDInfoPrivate : public InfoBasePrivate {
   };
   
   CDInfo::CDInfo()
-    : revision(0)
   {
     d = new CDInfoPrivate();
+    set("revision", 0);
   }
 
   CDInfo::CDInfo(const CDInfo& clone)
-    : revision(clone.revision),
-      trackInfoList(clone.trackInfoList)
-
+    : trackInfoList(clone.trackInfoList)
   {
     d = new CDInfoPrivate();
     d->data = clone.d->data;
@@ -137,7 +258,6 @@ namespace KCDDB
 
   CDInfo& CDInfo::operator=(const CDInfo& clone)
   {
-    revision = clone.revision;
     trackInfoList = clone.trackInfoList;
     d->data = clone.d->data;
     return *this;
@@ -170,7 +290,7 @@ namespace KCDDB
 
       if (rev.search(line) != -1)
       {
-        revision = rev.cap(1).toUInt();;
+        set("revision", rev.cap(1).toUInt());
         continue;
       }
 
@@ -182,7 +302,7 @@ namespace KCDDB
           continue;
       }
       else
-        value = unescape ( tokenList[1].stripWhiteSpace() );
+        value = d->unescape ( tokenList[1].stripWhiteSpace() );
 
       if ( "DTITLE" == key )
       {
@@ -192,27 +312,21 @@ namespace KCDDB
       {
         uint trackNumber = key.mid(6).toUInt();
 
-        checkTrack( trackNumber );
-
-        TrackInfo& ti = trackInfoList[trackNumber];
-        ti.set("title", ti.get("title").toString().append(value));
+        TrackInfo& ti = track(trackNumber);
+        ti.set(Title, ti.get(Title).toString().append(value));
       }
       
       else if ( "EXTD" == key )
       {
-        QString extd = get("extd").toString();
-        if (!extd.isEmpty())
-          extd.append('\n');
-        extd.append( value );
-        set("extd", extd);
+        d->append(Comment, value);
       }
       else if ( "DGENRE" == key )
       {
-        set("genre", value);
+        d->append(Genre, value);
       }
       else if ( "DYEAR" == key )
       {
-        set("year", value);
+        set(Year, value);
       }
       else if ( "EXTT" == key.left( 4 ) )
       {
@@ -220,10 +334,8 @@ namespace KCDDB
 
         checkTrack( trackNumber );
 
-        QString extt = trackInfoList[ trackNumber ].get("extt").toString();
-        if (!(extt).isEmpty())
-          extt.append('\n');
-        trackInfoList[ trackNumber ].set("extt", extt+value );
+        QString extt = track(trackNumber).get(Comment).toString();
+        track(trackNumber).set(Comment, extt+value );
       
       }
       else if ( "T" == key.left( 1 ))
@@ -236,14 +348,14 @@ namespace KCDDB
         if  ( key.find( data ) )
         {
           QString k = key.mid(1, key.find('_')-1);
-          TrackInfo& ti = trackInfoList[ trackNumber ];
+          TrackInfo& ti = track(trackNumber);
           ti.set( k, ti.get(k).toString().append(value) );
         }
       }
       else if (key.find("^.*$" ))
       {
         // Custom Disk data
-        set( key, get(key).toString().append(value) );
+        d->append( key, value );
       }
     }
 
@@ -252,17 +364,17 @@ namespace KCDDB
     if (-1 == slashPos)
     {
       // Use string for title _and_ artist.
-      set("artist", dtitle);
-      set("title", dtitle);
+      set(Artist, dtitle);
+      set(Title, dtitle);
     }
     else
     {
-      set("artist", dtitle.left(slashPos).stripWhiteSpace());
-      set("title", dtitle.mid(slashPos + 1).stripWhiteSpace());
+      set(Artist, dtitle.left(slashPos).stripWhiteSpace());
+      set(Title, dtitle.mid(slashPos + 1).stripWhiteSpace());
     }
 
-    if ( get("genre").toString().isEmpty() )
-      set("genre", "Unknown");
+    if ( get(Genre).toString().isEmpty() )
+      set(Genre, "Unknown");
 
     kdDebug(60010) << "Loaded CDInfo for " << get("discid").toString() << endl;
 
@@ -274,8 +386,8 @@ namespace KCDDB
   {
     QString s;
 
-    if (revision != 0)
-      s += "# Revision: " + QString::number(revision) + "\n";
+    if (get("revision") != 0)
+      s += "# Revision: " + get("revision").toString() + "\n";
 
     // If we are submiting make it a fully compliant CDDB entry
     if (submit)
@@ -285,34 +397,37 @@ namespace KCDDB
         CDDB::clientVersion());
     }
 
-    s += "DISCID=" + escape( get("discid").toString() ) + "\n";
-    QString artist = get("artist").toString();
-    s += createLine("DTITLE",escape( artist ) + " / " + escape( get("title").toString() ));
-    int year = get("year").toInt();
+    s += d->createLine("DISCID", get("discid").toString() );
+    QString artist = get(Artist).toString();
+    s += d->createLine("DTITLE", artist + " / " + get(Title).toString() );
+    int year = get(Year).toInt();
     s += "DYEAR=" + (0 == year ? QString::null : QString::number(year)) + "\n";
-    s += createLine("DGENRE",escape( get("genre").toString() ));
+    if (get(Genre) == "Unknown")
+      s += d->createLine("DGENRE", "");
+    else
+      s += d->createLine("DGENRE",get(Genre).toString());
     
     for (int i = 0; i < trackInfoList.count(); ++i){
-      QString trackTitle = trackInfoList[i].get("title").toString();
-      QString trackArtist = trackInfoList[i].get("artist").toString();
+      QString trackTitle = trackInfoList[i].get(Title).toString();
+      QString trackArtist = trackInfoList[i].get(Artist).toString();
       if(trackArtist != artist && !trackArtist.isEmpty())
-        s += createLine(QString("TTITLE%1").arg(i), QString("%1 / %2").arg(trackArtist).arg(trackTitle));
+        s += d->createLine(QString("TTITLE%1").arg(i), QString("%1 / %2").arg(trackArtist).arg(trackTitle));
       else
-        s += createLine(QString("TTITLE%1").arg(i), trackTitle);
+        s += d->createLine(QString("TTITLE%1").arg(i), trackTitle);
     }
     
-    s += createLine(QString("EXTD"), escape(get("extd").toString()));
+    s += d->createLine(QString("EXTD"), get(Comment).toString());
     
     for (int i = 0; i < trackInfoList.count(); ++i)
-      s += createLine(QString("EXTT%1").arg(i), trackInfoList[i].get("extt").toString());
+      s += d->createLine(QString("EXTT%1").arg(i), trackInfoList[i].get(Comment).toString());
     
     if (submit)
     {
-      s += createLine("PLAYORDER", "");
+      s += d->createLine("PLAYORDER", "");
       return s;
     }
 
-    s += createLine("PLAYORDER", escape( get("playorder").toString() ));
+    s += d->createLine("PLAYORDER", get("playorder").toString() );
     
     // Custom track data
     for (int i = 0; i < trackInfoList.count(); ++i)
@@ -320,7 +435,7 @@ namespace KCDDB
       QStringList lines = QStringList::split('\n', trackInfoList[i].toString(), true);
       for (QStringList::iterator it = lines.begin(); it != lines.end(); ++it)
         if(!(*it).isEmpty())
-          s += createLine((*it).mid(0,(*it).find('=')), escape( (*it).mid((*it).find('=')+1) ) );
+          s += d->createLine((*it).mid(0,(*it).find('=')), (*it).mid((*it).find('=')+1) );
     }
 
     QStringList cddbKeywords;
@@ -328,67 +443,43 @@ namespace KCDDB
       << "DISCID"
       << "ARTIST"
       << "TITLE"
-      << "EXTD"
+      << "COMMENT"
       << "YEAR"
       << "GENRE"
       << "PLAYORDER"
-      << "CATEGORY";
+      << "CATEGORY"
+      << "REVISION";
 
     // Custom disc data
     QMap<QString, QVariant>::const_iterator i = d->data.constBegin();
     while (i != d->data.constEnd()){
       if (!cddbKeywords.contains(i.key()))
       {
-        s+= createLine(QString("%1").arg(i.key()), escape(i.data().toString()));
+        s+= d->createLine(QString("%1").arg(i.key()), i.data().toString());
       }
       ++i;
     }
     
     return s;
   }
+    
+  QVariant CDInfo::get(Type type) const {
+    return d->get(type);
+  }
 
   QVariant CDInfo::get(const QString &type) const {
-    return d->data[type.upper()];
+    return d->get(type);
   }
-  
+
   void CDInfo::set(const QString &type, const QVariant &data){
-    //kdDebug() << "set: " << type << ", " << data.toString() << endl;
-    if(type.find("^T.*_.*$" ) != -1){
-      kdDebug(60010) << "Error: custom cdinfo::set data can not start with T and contain a _" << endl;
-      return;
-    }
-    if(type.upper() == "DTITLE"){
-      kdDebug(60010) << "Error: type: DTITLE is reserved and can not be set." << endl;
-      return;
-    }
-    
-    d->data[type.upper()] = data;
-  }
-    
-  // Creates a line in the form NAME=VALUE, and splits it into several
-  // lines if the line gets longer than 256 chars
-    QString
-  CDInfo::createLine(const QString& name, const QString& value) const
-  {
-    Q_ASSERT(name.length() < 254);
-
-    int maxLength = 256 - name.length() - 2;
-
-    QString tmpValue = value;
-
-    QString lines;
-
-    while (tmpValue.length() > maxLength)
-    {
-      lines += QString("%1=%2\n").arg(name,tmpValue.left(maxLength));
-      tmpValue = tmpValue.mid(maxLength);
-    }
-
-    lines += QString("%1=%2\n").arg(name,tmpValue);
-
-    return lines;
+    d->set(type, data);
   }
 
+  void CDInfo::set(Type type, const QVariant &data) {
+    d->set(type, data);
+  }
+ 
+    
     void
   CDInfo::checkTrack( int trackNumber )
   {
@@ -399,33 +490,9 @@ namespace KCDDB
     }
   }
 
-    QString
-  CDInfo::escape( const QString& value )
-  {
-    QString s = value;
-    s.replace( "\\", "\\\\" );
-    s.replace( "\n", "\\n" );
-    s.replace( "\t", "\\t" );
-
-    return s;
-  }
-
-    QString
-  CDInfo::unescape( const QString& value )
-  {
-    QString s = value;
-
-    s.replace( "\\n", "\n" );
-    s.replace( "\\t", "\t" );
-    s.replace( "\\\\", "\\" );
-
-    return s;
-  }
-
     void
   CDInfo::clear()
   {
-    revision = 0;
     d->data.clear();
     trackInfoList.clear();
   }
@@ -441,6 +508,28 @@ namespace KCDDB
       return false;
 
     return true;
+  }
+
+    TrackInfo &
+  CDInfo::track( int trackNumber )
+  {
+    checkTrack( trackNumber );
+    return trackInfoList[trackNumber];
+  }
+    
+    TrackInfo
+  CDInfo::track( int trackNumber ) const
+  {
+    if (trackInfoList.count() < trackNumber)
+      return trackInfoList[trackNumber];
+    else
+      return TrackInfo();
+  }
+    
+    int
+  CDInfo::numberOfTracks() const
+  {
+    return trackInfoList.count();
   }
 }
 

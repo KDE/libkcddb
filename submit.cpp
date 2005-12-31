@@ -43,7 +43,7 @@ namespace KCDDB
 
     makeDiskData( cdInfo, offsetList );
 
-    if (!validCategory(cdInfo.get("category").toString()))
+    if (!validCategory(cdInfo.get(Category).toString()))
       return InvalidCategory;
 
     KIO::Job* job = createJob(cdInfo);
@@ -67,7 +67,7 @@ namespace KCDDB
 
   void Submit::makeDiskData( const CDInfo& cdInfo, const TrackOffsetList& offsetList )
   {
-    unsigned numTracks = cdInfo.trackInfoList.count();
+    unsigned numTracks = cdInfo.numberOfTracks();
 
     diskData_ += "# xmcd\n";
     diskData_ += "#\n";

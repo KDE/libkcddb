@@ -36,7 +36,7 @@ namespace KCDDB
   Cache::fileName( const CDInfo& info, const QString& cacheDir )
   {
     QDir dir( cacheDir );
-    QString category(info.get("category").toString());
+    QString category(info.get(Category).toString());
     
     if ( !dir.exists( category ) )
       dir.mkdir( category );
@@ -76,7 +76,7 @@ namespace KCDDB
               f.close();
               CDInfo info;
               info.load(cddbData);
-              info.set("category",category);
+              info.set(Category,category);
 
               infoList.append( info );
           }

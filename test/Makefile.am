@@ -3,7 +3,7 @@ INCLUDES = -I$(top_srcdir) -I$(top_builddir)/libkcddb $(all_includes)
 check_PROGRAMS = syncsmtpsubmittest asyncsmtpsubmittest asynchttplookuptest \
 	asynccddblookuptest synccddblookuptest synchttplookuptest \
 	asynchttpsubmittest synchttpsubmittest sitestest utf8test \
-	musicbrainztest
+	musicbrainztest cdinfotest
 
 AM_LDFLAGS = $(QT_LDFLAGS) $(X_LDFLAGS) $(KDE_RPATH)
 
@@ -51,7 +51,11 @@ sitestest_SOURCES = sitestest.cpp
 sitestest_LDFLAGS = $(all_libraries)
 sitestest_LDADD = $(top_builddir)/libkcddb/libkcddb.la
 
-TESTS = synccddblookuptest
+cdinfotest_SOURCES = cdinfotest.cpp
+cdinfotest_LDFLAGS = $(all_libraries)
+cdinfotest_LDADD = $(top_builddir)/libkcddb/libkcddb.la -lQtTest_debug
+
+TESTS = synccddblookuptest cdinfotest
 
 METASOURCES = AUTO
 

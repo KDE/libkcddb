@@ -41,9 +41,9 @@ main(int argc, char ** argv)
   kdDebug() << "Client::lookup returned : " << response.count() << " entries"
     << endl;
 
-  CDInfo i( c.bestLookupResponse() );
+  CDInfo i( c.lookupResponse().first() );
 
-  kdDebug() << "Best CDInfo had title: " << i.get("title").toString() << endl;
+  kdDebug() << "First CDInfo had title: " << i.get("title").toString() << endl;
   
   return 0;
 }

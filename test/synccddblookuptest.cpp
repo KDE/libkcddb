@@ -64,24 +64,24 @@ void SyncCDDBLookupTest::testLookup()
   {
     CDInfo i(*it);
 
-    if (i.get("discid") == "3e0c3a05" && i.get("category") == "rock")
+    if (i.get("discid") == "3e0c3a05" && i.get(Category) == "rock")
     {
       // If any of the tests fail, check that the disc-info hasn't changed first
 
-      QCOMPARE(i.get("artist").toString(),QString("Pink Floyd"));
-      QCOMPARE(i.get("title").toString(),QString("Atom Heart Mother"));
-      QCOMPARE(i.get("genre").toString(),QString("Psychedelic Rock"));
-      QCOMPARE(i.get("year").toInt(),1970);
-      QCOMPARE(i.trackInfoList[0].get("title").toString(),QString("Atom Heart Mother : (a) Father's Shout (b) Breast Milky (c) Mother Fore (d) Funky Dung (e) Mind Your Throats Please (f) Remergegence"));
-      QCOMPARE(i.trackInfoList[1].get("title").toString(),QString("If"));
-      QCOMPARE(i.trackInfoList[2].get("title").toString(),QString("Summer '68"));
-      QCOMPARE(i.trackInfoList[3].get("title").toString(),QString("Fat Old Sun"));
-      QCOMPARE(i.trackInfoList[4].get("title").toString(),QString("Alan's Psychedelic Breakfast : (a) Rise and Shine (b) Sunny Side Up (c) Morning Glory"));
-      QCOMPARE(i.trackInfoList[0].get("extt").toString(),QString("ts Please\nf. Remergence"));
-      QCOMPARE(i.trackInfoList[1].get("extt").toString(),QString("Waters"));
-      QCOMPARE(i.trackInfoList[2].get("extt").toString(),QString("Wright"));
-      QCOMPARE(i.trackInfoList[3].get("extt").toString(),QString("Gilmour"));
-      QCOMPARE(i.trackInfoList[4].get("extt").toString(),QString("ide Up\nc. Morning Glory"));
+      QCOMPARE(i.get(Artist).toString(),QString("Pink Floyd"));
+      QCOMPARE(i.get(Title).toString(),QString("Atom Heart Mother"));
+      QCOMPARE(i.get(Genre).toString(),QString("Psychedelic Rock"));
+      QCOMPARE(i.get(Year).toInt(),1970);
+      QCOMPARE(i.track(0).get(Title).toString(),QString("Atom Heart Mother : (a) Father's Shout (b) Breast Milky (c) Mother Fore (d) Funky Dung (e) Mind Your Throats Please (f) Remergegence"));
+      QCOMPARE(i.track(1).get(Title).toString(),QString("If"));
+      QCOMPARE(i.track(2).get(Title).toString(),QString("Summer '68"));
+      QCOMPARE(i.track(3).get(Title).toString(),QString("Fat Old Sun"));
+      QCOMPARE(i.track(4).get(Title).toString(),QString("Alan's Psychedelic Breakfast : (a) Rise and Shine (b) Sunny Side Up (c) Morning Glory"));
+      QCOMPARE(i.track(0).get(Comment).toString(),QString("ts Please\nf. Remergence"));
+      QCOMPARE(i.track(1).get(Comment).toString(),QString("Waters"));
+      QCOMPARE(i.track(2).get(Comment).toString(),QString("Wright"));
+      QCOMPARE(i.track(3).get(Comment).toString(),QString("Gilmour"));
+      QCOMPARE(i.track(4).get(Comment).toString(),QString("ide Up\nc. Morning Glory"));
 
       hasRunTest = true;
     }

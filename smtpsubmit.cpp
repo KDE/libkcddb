@@ -43,7 +43,7 @@ namespace KCDDB
   KIO::Job* SMTPSubmit::createJob(const CDInfo& cdInfo)
   {
     url_.setQuery(QString("to=%1&subject=cddb %2 %3&from=%4")
-      .arg(to_, cdInfo.get("category").toString(),
+      .arg(to_, cdInfo.get(Category).toString(),
         cdInfo.get("discid").toString(), from_));
     kdDebug(60010) << "Url is: " << url_.prettyURL() << endl;
 

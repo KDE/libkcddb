@@ -56,14 +56,9 @@ main(int argc, char ** argv)
     CDInfo i(*it);
 
     kdDebug() << "Disc title: " << i.get("title").toString() << endl;
-    kdDebug() << "Total tracks: " << i.trackInfoList.count() << endl;
-    kdDebug() << "Disc revision: `" << i.revision << "'" << endl;
+    kdDebug() << "Total tracks: " << i.numberOfTracks() << endl;
+    kdDebug() << "Disc revision: `" << i.get("revision").toInt() << "'" << endl;
   }
   
-  CDInfo i( c.bestLookupResponse() );
-
-  kdDebug() << "Best CDInfo had title: " << i.get("title").toString() << endl;
-  kdDebug() << "and revision: " << i.revision << endl;
-
   return 0;
 }

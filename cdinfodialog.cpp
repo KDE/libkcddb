@@ -79,34 +79,36 @@ namespace KCDDB
 
   void CDInfoDialog::setInfo( const KCDDB::CDInfo &info, KCDDB::TrackOffsetList &trackStartFrames )
   {
-      m_artist->setText(info.get("artist").toString().stripWhiteSpace());
-      m_title->setText(info.get("title").toString().stripWhiteSpace());
-      m_category->setCurrentText(m_categories.cddb2i18n(info.get("category").toString()));
+      m_artist->setText(info.get(Artist).toString().stripWhiteSpace());
+      m_title->setText(info.get(Title).toString().stripWhiteSpace());
+      m_category->setCurrentText(m_categories.cddb2i18n(info.get(Category).toString()));
 
       // Make sure the revision is set before the genre to allow the genreChanged() handler to fire.
-      m_revision->setText(QString::number(info.revision));
-      m_genre->setCurrentText(m_genres.cddb2i18n(info.get("genre").toString()));
-      m_year->setValue(info.get("year").toInt());
-      m_comment->setText(info.get("extd").toString().stripWhiteSpace());
+      m_revision->setText(QString::number(info.get("revision").toInt()));
+      m_genre->setCurrentText(m_genres.cddb2i18n(info.get(Genre).toString()));
+      m_year->setValue(info.get(Year).toInt());
+      m_comment->setText(info.get(Comment).toString().stripWhiteSpace());
       m_id->setText(info.get("discid").toString().stripWhiteSpace());
 
       // Now do the individual tracks.
-      unsigned tracks = info.trackInfoList.count();
+      unsigned tracks = info.numberOfTracks();
       m_length->setText(framesTime(trackStartFrames[tracks] - trackStartFrames[0]));
       m_trackList->clear();
       for (unsigned i = 0; i < tracks; i++)
       {
           Q3ListViewItem *item = new Q3ListViewItem(m_trackList, 0);
 
+          TrackInfo ti(info.track(i));
+
           item->setText(TRACK_NUMBER, QString().sprintf("%02d", i + 1));
           item->setText(TRACK_TIME, framesTime(trackStartFrames[i + 1] - trackStartFrames[i]));
-          item->setText(TRACK_ARTIST, info.trackInfoList[i].get(TrackInfo::Artist).toString());
-          item->setText(TRACK_TITLE, info.trackInfoList[i].get(TrackInfo::Title).toString());
-          item->setText(TRACK_COMMENT, info.trackInfoList[i].get(TrackInfo::Extt).toString());
+          item->setText(TRACK_ARTIST, ti.get(Artist).toString());
+          item->setText(TRACK_TITLE, ti.get(Title).toString());
+          item->setText(TRACK_COMMENT, ti.get(Comment).toString());
       }
       // FIXME KDE4: handle playorder here too, once KCDDBInfo::CDInfo is updated.
 
-      if (info.get("artist").toString() == "Various" || m_multiple->isChecked()){
+      if (info.get(Artist).toString() == "Various" || m_multiple->isChecked()){
           m_trackList->adjustColumn(TRACK_ARTIST);
     }
   }
@@ -131,22 +133,23 @@ namespace KCDDB
   KCDDB::CDInfo CDInfoDialog::info() const
   {
       KCDDB::CDInfo info;
-      TrackInfo track;
 
-      info.set("artist", m_artist->text().stripWhiteSpace());
-      info.set("title", m_title->text().stripWhiteSpace());
-      info.set("category", m_categories.i18n2cddb(m_category->currentText()));
-      info.set("genre", m_genres.i18n2cddb(m_genre->currentText()));
-      info.set("year", m_year->value());
-      info.set("extd", m_comment->text().stripWhiteSpace());
-      info.revision = m_revision->text().stripWhiteSpace().toUInt();
+      info.set(Artist, m_artist->text().stripWhiteSpace());
+      info.set(Title, m_title->text().stripWhiteSpace());
+      info.set(Category, m_categories.i18n2cddb(m_category->currentText()));
+      info.set(Genre, m_genres.i18n2cddb(m_genre->currentText()));
+      info.set(Year, m_year->value());
+      info.set(Comment, m_comment->text().stripWhiteSpace());
+      info.set("revision", m_revision->text().stripWhiteSpace().toUInt());
       info.set("discid", m_id->text().stripWhiteSpace());
+      int i=0;
       for (Q3ListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
       {
-          track.set("artist",item->text(TRACK_ARTIST).stripWhiteSpace());
-          track.set("title",item->text(TRACK_TITLE).stripWhiteSpace());
-          track.set("extt",item->text(TRACK_COMMENT).stripWhiteSpace());
-          info.trackInfoList.append(track);
+          TrackInfo& track = info.track(i);
+          track.set(Artist,item->text(TRACK_ARTIST).stripWhiteSpace());
+          track.set(Title,item->text(TRACK_TITLE).stripWhiteSpace());
+          track.set(Comment,item->text(TRACK_COMMENT).stripWhiteSpace());
+          i++;
           // FIXME KDE4: handle track lengths here too, once KCDDBInfo::CDInfo is updated.
       }
       // FIXME KDE4: handle playorder here too, once KCDDBInfo::CDInfo is updated.

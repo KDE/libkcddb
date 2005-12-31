@@ -64,7 +64,7 @@ AsyncHTTPLookupTest::slotFinished(CDDB::Result r)
 
     kdDebug() << "Disc artist: `" << i.get("artist").toString() << "'" << endl;
     kdDebug() << "Disc title: `" << i.get("title").toString() << "'" << endl;
-    kdDebug() << "Disc revision: `" << i.revision << "'" << endl;
+    kdDebug() << "Disc revision: `" << i.get("revision") << "'" << endl;
   }
 
   if (!l.isEmpty())
@@ -72,26 +72,22 @@ AsyncHTTPLookupTest::slotFinished(CDDB::Result r)
     kdDebug() << "---------------------------------------" << endl;
     kdDebug() << "Showing first item" << endl;
 
-    CDInfo i(l.first());
+    CDInfo info(l.first());
 
-    kdDebug() << "Disc artist: `" << i.get("artist").toString() << "'" << endl;
-    kdDebug() << "Disc title: `" << i.get("title").toString() << "'" << endl;
-    kdDebug() << "Disc genre: `" << i.get("genre").toString() << "'" << endl;
-    kdDebug() << "Disc year: `" << i.get("year").toString() << "'" << endl;
-    kdDebug() << "Disc length: `" << i.get("length").toString() << "'" << endl;
-    kdDebug() << "Disc id: `" << i.get("discid").toString() << "'" << endl;
+    kdDebug() << "Disc artist: `" << info.get("artist").toString() << "'" << endl;
+    kdDebug() << "Disc title: `" << info.get("title").toString() << "'" << endl;
+    kdDebug() << "Disc genre: `" << info.get("genre").toString() << "'" << endl;
+    kdDebug() << "Disc year: `" << info.get("year").toString() << "'" << endl;
+    kdDebug() << "Disc length: `" << info.get("length").toString() << "'" << endl;
+    kdDebug() << "Disc id: `" << info.get("discid").toString() << "'" << endl;
     kdDebug() << "Tracks........" << endl;
 
-    for (TrackInfoList::ConstIterator it(i.trackInfoList.begin()); it != i.trackInfoList.end(); ++it)
+    for (int i=0; i < info.numberOfTracks(); i++)
     {
-      kdDebug() << "  Track: `" << (*it).get("title").toString() << "'" << endl;
+      kdDebug() << "  Track: `" << info.track(i).get("title").toString() << "'" << endl;
     }
     kdDebug() << "---------------------------------------" << endl;
   }
-  CDInfo i( client_->bestLookupResponse() );
-
-  kdDebug() << "Best CDInfo had title: " << i.get("title").toString() << endl;
-  kdDebug() << "and revision: " << i.revision << endl;
 
   kapp->quit();
 }

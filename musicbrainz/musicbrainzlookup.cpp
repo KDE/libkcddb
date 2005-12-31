@@ -76,19 +76,17 @@ namespace KCDDB
 
     CDInfo info;
 
-    info.set("title", QString::fromUtf8(mb.Data(MBE_AlbumGetAlbumName).c_str()));
+    info.set(Title, QString::fromUtf8(mb.Data(MBE_AlbumGetAlbumName).c_str()));
     // FIXME
-    info.set("artist", QString::fromUtf8(mb.Data(MBE_AlbumGetArtistName, 1).c_str()));
+    info.set(Artist, QString::fromUtf8(mb.Data(MBE_AlbumGetArtistName, 1).c_str()));
 
     int numTracks = trackOffsetList.count()-1;
 
     for (int i=1; i <= numTracks; i++)
     {
-      TrackInfo track;
-      track.set("artist", QString::fromUtf8(mb.Data(MBE_AlbumGetArtistName, i).c_str()));
-      track.set("title", QString::fromUtf8(mb.Data(MBE_AlbumGetTrackName, i).c_str()));
-
-      info.trackInfoList << track;
+      TrackInfo& track = info.track(i-1);
+      track.set(Artist, QString::fromUtf8(mb.Data(MBE_AlbumGetArtistName, i).c_str()));
+      track.set(Title, QString::fromUtf8(mb.Data(MBE_AlbumGetTrackName, i).c_str()));
     }
 
     kdDebug() << "Query succeeded :-)" << endl;

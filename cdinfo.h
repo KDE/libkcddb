@@ -30,25 +30,25 @@
 namespace KCDDB
 {
   /**
+   * The most common types
+   */
+  enum Type
+  {
+    Title,
+    Comment,
+    Artist,
+    Genre,
+    Year,
+    Length,
+    Category
+  };
+
+  /**
    * Information about a sepecific track in a cd.
    */
   class KDE_EXPORT TrackInfo
   {
     public:
-      /**
-       * The most common types
-       */
-      enum Type
-      {
-        Title,
-        Comment,
-        Artist,
-        Genre,
-        Year,
-        Length,
-        Category,
-        Extt
-      };
     
       TrackInfo();
       virtual ~TrackInfo();
@@ -74,6 +74,10 @@ namespace KCDDB
        * Data will be stored in the local cddb cache, but not sent to the cddb server
        */
       void set(const QString &type, const QVariant &data);
+      /**
+       * Helper function that calls type with the common name
+       */
+      void set(Type type, const QVariant &data);
 
       /**
        * @return a CDDB compatible string of all the data assigned to this track
@@ -99,7 +103,7 @@ namespace KCDDB
    * Typically CDInfo is obtained from the client such as:
    * <code>KCDDB::Client *cddb = new KCDDB::Client();
    * cddb->lookup(discSignature);
-   * CDInfo info = cddb->bestLookupResponse();</code>
+   * CDInfo info = cddb->lookupResponse().first();</code>
    */
   class KDE_EXPORT CDInfo
   {
@@ -144,6 +148,10 @@ namespace KCDDB
        * For example <code>get("title")</code>
        */
       QVariant get(const QString &type) const;
+      /**
+       * Helper function that calls type with the common name
+       */
+      QVariant get(Type type) const;
       
       /**
        * Set any data from this disc.
@@ -153,30 +161,37 @@ namespace KCDDB
        * Data will be stored in the local cddb cache, but not sent to the cddb server
        */
       void set(const QString &type, const QVariant &data);
-      
-      uint          revision;
-      TrackInfoList trackInfoList;
-
-    protected:
       /**
-       * @returns a valid CDDB line made up of name and value
+       * Helper function that calls type with the common name
        */
-      QString createLine(const QString& name, const QString& value) const;
+      void set(Type type, const QVariant &data);
+
+      /**
+       * Returns track with nr @p trackNumber and adds it to
+       * the track list if it doesn't exist (first track is 0)
+       */
+      TrackInfo & track( int trackNumber );
+
+      /**
+       * Returns a const track with nr @p trackNumber
+       * or a new if it doesn't exist (first track is 0)
+       */
+      TrackInfo track( int trackNumber ) const;
+
+      /**
+       * Returns number of tracks on CD
+       */
+      int numberOfTracks() const;
+      
+    protected:
       /**
        * Checks to make sure that trackNumber exists
        */
       void checkTrack( int trackNumber );
-      /**
-       * escape's string for CDDB processing
-       */
-      static QString escape( const QString &string );
-      /**
-       * fixes an escaped string that has been CDDB processed
-       */
-      static QString unescape( const QString &string );
      
      private:
       class CDInfoPrivate *d;
+      TrackInfoList trackInfoList;
   };
 
   typedef QList<CDInfo> CDInfoList;
