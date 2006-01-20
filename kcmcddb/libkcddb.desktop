@@ -52,6 +52,7 @@ Name[uk]=Звантаження CDDB
 Name[ven]=U humbula ha CDDB
 Name[xh]=CDDB Ukukangela
 Name[zh_CN]=CDDB 查询
+Name[zh_HK]=CDDB 資訊擷取
 
 GenericName=CDDB Configuration
 GenericName[ar]=اعدادت CDDB
@@ -105,6 +106,7 @@ GenericName[uz]=CDDB мосламаси
 GenericName[ven]=Nzudzanyo ya CDDB
 GenericName[wa]=Apontiaedje di CDDB
 GenericName[zh_CN]=CDDB 配置
+GenericName[zh_HK]=CDDB 設定
 GenericName[zu]=Uhlanganiso lwe CDDB
 
 Comment=Configure the CDDB Retrieval
@@ -146,6 +148,7 @@ Comment[tg]=Танзими Бозёбии CDDB
 Comment[tr]=CDDB Erişimini Yapılandır
 Comment[uk]=Налаштування звантаження CDDB
 Comment[zh_CN]=配置 CDDB 获取
+Comment[zh_HK]=設定 CDDB 資訊擷取
 
 Keywords=cddb
 Keywords[bg]=компактдиск, диск, извличане, информация, песен, база, данни, cddb
