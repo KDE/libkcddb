@@ -1,13 +1,29 @@
-#include <kdebug.h>
-#include <kapplication.h>
-#include <kcmdlineargs.h>
+/*
+  Copyright (C) 2006 Richard Lärkäng <nouseforaname@home.se>
 
+  This library is free software; you can redistribute it and/or
+  modify it under the terms of the GNU Library General Public
+  License as published by the Free Software Foundation; either
+  version 2 of the License, or (at your option) any later version.
+
+  This library is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  Library General Public License for more details.
+
+  You should have received a copy of the GNU Library General Public License
+  along with this library; see the file COPYING.LIB.  If not, write to
+  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  Boston, MA 02110-1301, USA.
+*/
+
+
+#include <qtest_kde.h>
 #include "asynchttplookuptest.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
 
-AsyncHTTPLookupTest::AsyncHTTPLookupTest()
-  : QObject()
+void AsyncHTTPLookupTest::testLookup()
 {
   using namespace KCDDB;
 
@@ -42,11 +58,39 @@ AsyncHTTPLookupTest::AsyncHTTPLookupTest()
     << 316732;  // Disc end.
 
   client_->lookup(list);
-}
 
-AsyncHTTPLookupTest::~AsyncHTTPLookupTest()
-{
+  m_eventLoop.exec(QEventLoop::ExcludeUserInput);
+
   delete client_;
+
+  // If revision doesn't match, test probably needs to be updated
+  // See: http://www.freedb.org/freedb/jazz/a1107d0a for updated data
+  QCOMPARE(m_info.get("revision").toInt(), 3);
+
+  QCOMPARE(m_info.get(Artist).toString(),QString("Various"));
+  QCOMPARE(m_info.get(Title).toString(),QString("The K&D Sessions [disc 1]"));
+  QCOMPARE(m_info.get(Genre).toString(),QString("Trip-Hop"));
+  QCOMPARE(m_info.get(Year).toInt(),1998);
+  QCOMPARE(m_info.track(0).get(Title).toString(),QString("Heroes [kruder's long loose bossa]"));
+  QCOMPARE(m_info.track(1).get(Title).toString(),QString("Jazz Master [k&d session]"));
+  QCOMPARE(m_info.track(2).get(Title).toString(),QString("Speechless [drum 'n' bass]"));
+  QCOMPARE(m_info.track(3).get(Title).toString(),QString("Going Under [main version - k&d session]"));
+  QCOMPARE(m_info.track(4).get(Title).toString(),QString("Bug Powder Dust [k&d session]"));
+  QCOMPARE(m_info.track(5).get(Title).toString(),QString("Rollin' On Chrome [wild motherfucker dub]"));
+  QCOMPARE(m_info.track(6).get(Title).toString(),QString("Useless [k&d session]"));
+  QCOMPARE(m_info.track(7).get(Title).toString(),QString("Gotta Jazz [dorfmeister remix]"));
+  QCOMPARE(m_info.track(8).get(Title).toString(),QString::fromUtf8("Donaueschingen [peter kruder's donaudampfschifffahrtsgesellschaftskapitänskajütenremix]"));
+  QCOMPARE(m_info.track(9).get(Title).toString(),QString("Trans Fatty Acid [k&d session]"));
+  QCOMPARE(m_info.track(0).get(Artist).toString(),QString("Roni Size"));
+  QCOMPARE(m_info.track(1).get(Artist).toString(),QString("Alex Reece"));
+  QCOMPARE(m_info.track(2).get(Artist).toString(),QString("Count Basic"));
+  QCOMPARE(m_info.track(3).get(Artist).toString(),QString("Rocker's HiFi"));
+  QCOMPARE(m_info.track(4).get(Artist).toString(),QString("Bomb The Bass"));
+  QCOMPARE(m_info.track(5).get(Artist).toString(),QString("Aphrodelics"));
+  QCOMPARE(m_info.track(6).get(Artist).toString(),QString("Depeche Mode"));
+  QCOMPARE(m_info.track(7).get(Artist).toString(),QString("Count Basic"));
+  QCOMPARE(m_info.track(8).get(Artist).toString(),QString::fromUtf8("Trüby Trio"));
+  QCOMPARE(m_info.track(9).get(Artist).toString(),QString("Lamb"));
 }
 
   void
@@ -58,49 +102,19 @@ AsyncHTTPLookupTest::slotFinished(CDDB::Result r)
 
   kdDebug() << "AsyncHTTPLookupTest::slotFinished: Item count: " <<  l.count() << endl;
 
-  for (CDInfoList::ConstIterator it(l.begin()); it != l.end(); ++it)
+  foreach(CDInfo i, l)
   {
-    CDInfo i(*it);
-
-    kdDebug() << "Disc artist: `" << i.get("artist").toString() << "'" << endl;
-    kdDebug() << "Disc title: `" << i.get("title").toString() << "'" << endl;
-    kdDebug() << "Disc revision: `" << i.get("revision") << "'" << endl;
-  }
-
-  if (!l.isEmpty())
-  {
-    kdDebug() << "---------------------------------------" << endl;
-    kdDebug() << "Showing first item" << endl;
-
-    CDInfo info(l.first());
-
-    kdDebug() << "Disc artist: `" << info.get("artist").toString() << "'" << endl;
-    kdDebug() << "Disc title: `" << info.get("title").toString() << "'" << endl;
-    kdDebug() << "Disc genre: `" << info.get("genre").toString() << "'" << endl;
-    kdDebug() << "Disc year: `" << info.get("year").toString() << "'" << endl;
-    kdDebug() << "Disc length: `" << info.get("length").toString() << "'" << endl;
-    kdDebug() << "Disc id: `" << info.get("discid").toString() << "'" << endl;
-    kdDebug() << "Tracks........" << endl;
-
-    for (int i=0; i < info.numberOfTracks(); i++)
+    if (i.get("discid") == "a1107d0a" && i.get(Category) == "jazz")
     {
-      kdDebug() << "  Track: `" << info.track(i).get("title").toString() << "'" << endl;
+      kdDebug() << "Found the CD" << endl;
+      m_info = i;
+      break;
     }
-    kdDebug() << "---------------------------------------" << endl;
   }
 
-  kapp->quit();
+  m_eventLoop.quit();
 }
 
-int main(int argc, char ** argv)
-{
-  KCmdLineArgs::init(argc, argv, "libkcddb_test", "", "", "");
-
-  KApplication app(false);
-
-  AsyncHTTPLookupTest a;
-
-  return app.exec();
-}
+QTEST_KDEMAIN(AsyncHTTPLookupTest, NoGUI);
 
 #include "asynchttplookuptest.moc"

@@ -373,6 +373,28 @@ namespace KCDDB
       set(Title, dtitle.mid(slashPos + 1).stripWhiteSpace());
     }
 
+    bool isSampler = true;
+    for (TrackInfoList::Iterator it = trackInfoList.begin(); it != trackInfoList.end(); ++it)
+    {
+      if ((*it).get(Title).toString().find(" / ") == -1)
+      {
+        isSampler = false;
+      }
+    }
+    for (TrackInfoList::Iterator it = trackInfoList.begin(); it != trackInfoList.end(); ++it)
+    {
+      if (isSampler)
+      {
+        int delimiter = (*it).get(Title).toString().find(" / ");
+        (*it).set(Artist, (*it).get(Title).toString().left(delimiter));
+        (*it).set(Title, (*it).get(Title).toString().mid(delimiter + 3));
+      }
+      else
+      {
+        (*it).set(Artist, get(Artist));
+      }
+    }
+
     if ( get(Genre).toString().isEmpty() )
       set(Genre, "Unknown");
 

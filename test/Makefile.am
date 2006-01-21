@@ -17,7 +17,7 @@ asyncsmtpsubmittest_LDADD = $(top_builddir)/libkcddb/libkcddb.la
 
 asynchttplookuptest_SOURCES = asynchttplookuptest.cpp
 asynchttplookuptest_LDFLAGS = $(all_libraries)
-asynchttplookuptest_LDADD = $(top_builddir)/libkcddb/libkcddb.la
+asynchttplookuptest_LDADD = $(top_builddir)/libkcddb/libkcddb.la -lQtTest_debug
 
 asynccddblookuptest_SOURCES = asynccddblookuptest.cpp
 asynccddblookuptest_LDFLAGS = $(all_libraries)
@@ -55,7 +55,7 @@ cdinfotest_SOURCES = cdinfotest.cpp
 cdinfotest_LDFLAGS = $(all_libraries)
 cdinfotest_LDADD = $(top_builddir)/libkcddb/libkcddb.la -lQtTest_debug
 
-TESTS = synccddblookuptest cdinfotest
+TESTS = synccddblookuptest cdinfotest asynchttplookuptest
 
 METASOURCES = AUTO
 

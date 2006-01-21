@@ -79,6 +79,10 @@ void SyncCDDBLookupTest::testLookup()
       QCOMPARE(i.track(2).get(Comment).toString(),QString("Wright"));
       QCOMPARE(i.track(3).get(Comment).toString(),QString("Gilmour"));
       QCOMPARE(i.track(4).get(Comment).toString(),QString("ide Up\nc. Morning Glory"));
+      for (int j=0; j <= 4; j++)
+      {
+        QCOMPARE(i.track(j).get(Artist).toString(),QString("Pink Floyd"));
+      }
 
       hasRunTest = true;
     }

@@ -25,7 +25,7 @@
 class SyncCDDBLookupTest : public QObject
 {
     Q_OBJECT
-private slots:
+  private slots:
     void testLookup();
 };
 
