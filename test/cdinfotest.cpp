@@ -17,11 +17,8 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <QtTest/qtest.h>
-#include <kaboutdata.h>
-#include <kcmdlineargs.h>
-#include <kapplication.h>
-#include <kdebug.h>
+#include <QtTest/QtTest>
+#include <QtCore/QCoreApplication>
 #include "libkcddb/cdinfo.h"
 #include "cdinfotest.h"
 
@@ -75,15 +72,6 @@ void CDInfoTest::testLongLines()
     }
 }
 
-int main(int argc, char *argv[])
-{
-    setenv("LC_ALL", "C", 1);
-    KAboutData aboutData( "qttest", "qttest", "version" );
-    KCmdLineArgs::init( argc, argv, &aboutData );
-    KApplication::disableAutoDcopRegistration();
-    KApplication app(false);
-    CDInfoTest tc;
-    return QTest::qExec( &tc, argc, argv );
-}
+QTEST_MAIN(CDInfoTest);
 
 #include "cdinfotest.moc"

@@ -17,10 +17,7 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <QtTest/qtest.h>
-#include <kaboutdata.h>
-#include <kcmdlineargs.h>
-#include <kapplication.h>
+#include <qtest_kde.h>
 #include "libkcddb/client.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
@@ -90,15 +87,6 @@ void SyncCDDBLookupTest::testLookup()
   QVERIFY(hasRunTest);
 }
 
-int main(int argc, char *argv[])
-{
-    setenv("LC_ALL", "C", 1);
-    KAboutData aboutData( "qttest", "qttest", "version" );
-    KCmdLineArgs::init( argc, argv, &aboutData );
-    KApplication::disableAutoDcopRegistration();
-    KApplication app(false);
-    SyncCDDBLookupTest tc;
-    return QTest::qExec( &tc, argc, argv );
-}
+QTEST_KDEMAIN(SyncCDDBLookupTest, NoGUI);
 
 #include "synccddblookuptest.moc"
