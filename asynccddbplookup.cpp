@@ -50,7 +50,7 @@ namespace KCDDB
 
     connect (socket_, SIGNAL(gotError(int)), SLOT(slotGotError(int)));
 
-    connect (socket_, SIGNAL( connected(const KResolverEntry &) ),
+    connect (socket_, SIGNAL(connected(const KNetwork::KResolverEntry &)),
       SLOT( slotConnectionSuccess() ) );
 
     connect (socket_, SIGNAL( readyRead() ), SLOT( slotReadyRead() ) );
