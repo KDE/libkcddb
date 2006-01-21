@@ -65,33 +65,37 @@ namespace KCDDB
       return UnknownError;
     }
 
-    if (mb.DataInt(MBE_GetNumAlbums) < 1)
+    int nrAlbums = mb.DataInt(MBE_GetNumAlbums);
+
+    if (nrAlbums < 1)
     {
       kdDebug() << "No CD Found" << endl;
 
       return UnknownError;
     }
 
-    mb.Select(MBS_SelectAlbum, 1);
-
-    CDInfo info;
-
-    info.set(Title, QString::fromUtf8(mb.Data(MBE_AlbumGetAlbumName).c_str()));
-    // FIXME
-    info.set(Artist, QString::fromUtf8(mb.Data(MBE_AlbumGetArtistName, 1).c_str()));
-
-    int numTracks = trackOffsetList.count()-1;
-
-    for (int i=1; i <= numTracks; i++)
+    for (int i=1; i <= nrAlbums; i++)
     {
-      TrackInfo& track = info.track(i-1);
-      track.set(Artist, QString::fromUtf8(mb.Data(MBE_AlbumGetArtistName, i).c_str()));
-      track.set(Title, QString::fromUtf8(mb.Data(MBE_AlbumGetTrackName, i).c_str()));
+      mb.Select(MBS_SelectAlbum, i);
+
+      CDInfo info;
+
+      info.set(Title, QString::fromUtf8(mb.Data(MBE_AlbumGetAlbumName).c_str()));
+      info.set(Artist, QString::fromUtf8(mb.Data(MBE_AlbumGetArtistName).c_str()));
+
+      int numTracks = trackOffsetList.count()-1;
+
+      for (int i=1; i <= numTracks; i++)
+      {
+        TrackInfo& track = info.track(i-1);
+        track.set(Artist, QString::fromUtf8(mb.Data(MBE_AlbumGetArtistName, i).c_str()));
+        track.set(Title, QString::fromUtf8(mb.Data(MBE_AlbumGetTrackName, i).c_str()));
+      }
+
+      cdInfoList_ << info;
     }
 
     kdDebug() << "Query succeeded :-)" << endl;
-
-    cdInfoList_ << info;
 
     return Success;
   }
