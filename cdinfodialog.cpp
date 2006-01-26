@@ -46,6 +46,12 @@ namespace KCDDB
       m_genres = KCDDB::Genres();
       m_genre->insertStringList(m_genres.i18nList());
 
+      m_trackList->addColumn(i18n("Track"));
+      m_trackList->addColumn(i18n("Length"));
+      m_trackList->addColumn(i18n("Title"));
+      m_trackList->addColumn(i18n("Comment"));
+      m_trackList->addColumn(i18n("Artist"));
+
       // We want control over the visibility of this column. See artistChanged().
       m_trackList->setColumnWidthMode(TRACK_ARTIST, Q3ListView::Manual);
 
