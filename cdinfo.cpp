@@ -542,10 +542,13 @@ namespace KCDDB
     TrackInfo
   CDInfo::track( int trackNumber ) const
   {
-    if (trackInfoList.count() < trackNumber)
+    if (trackNumber < trackInfoList.count())
       return trackInfoList[trackNumber];
     else
+    {
+      kdWarning() << "Couldn't find track " << trackNumber << endl;
       return TrackInfo();
+    }
   }
     
     int

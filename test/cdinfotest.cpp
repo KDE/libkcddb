@@ -69,6 +69,8 @@ void CDInfoTest::testLongLines()
         QCOMPARE(info2.get("custom").toString(), str);
         str.fill('G',10*i);
         QCOMPARE(info2.track(0).get(Title).toString(), str);
+        const CDInfo info3(info2);
+        QCOMPARE(info3.track(0).get(Title).toString(), str);
     }
 }
 
