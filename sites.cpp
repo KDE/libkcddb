@@ -36,7 +36,7 @@ namespace KCDDB
     QList<Mirror>
   Sites::siteList()
   {
-    KURL url;
+    KUrl url;
     url.setProtocol( "http" );
     url.setHost( "freedb.freedb.org" );
     url.setPort( 80 );

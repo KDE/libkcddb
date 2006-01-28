@@ -46,7 +46,7 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
   
   // Connections from widgets are made in designer.
 
-  KURLRequester* urlReq = new KURLRequester(this);
+  KUrlRequester* urlReq = new KUrlRequester(this);
   urlReq->setMode(KFile::Directory);
 
   KEditListBox* editListBox = new KEditListBox(i18n("Cache Locations"), urlReq->customEditor(), cacheLocationsParent, "kcfg_cacheLocations");

@@ -70,7 +70,7 @@ namespace KCDDB
     protected:
 
       bool block_;
-      KURL cgiURL_;
+      KUrl cgiURL_;
       QByteArray data_;
       State state_;
       Result result_;

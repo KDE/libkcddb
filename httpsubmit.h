@@ -33,7 +33,7 @@ namespace KCDDB
     protected:
       virtual KIO::Job* createJob(const CDInfo& cdInfo);
 
-      KURL url_;
+      KUrl url_;
       QString from_;
   } ;
 }
