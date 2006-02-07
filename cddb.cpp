@@ -104,16 +104,16 @@ namespace KCDDB
 
     if ( 200 == serverStatus )
     {
-      kdDebug(60010) << "Server response: read-only" << endl;
+      kDebug(60010) << "Server response: read-only" << endl;
       readOnly_ = true;
     }
     else if ( 201 == serverStatus )
     {
-      kdDebug(60010) << "Server response: read-write" << endl;
+      kDebug(60010) << "Server response: read-write" << endl;
     }
     else
     {
-      kdDebug(60010) << "Server response: bugger off" << endl;
+      kDebug(60010) << "Server response: bugger off" << endl;
       return false;
     }
 
@@ -127,11 +127,11 @@ namespace KCDDB
 
     if ( ( 200 != serverStatus ) && ( 402 != serverStatus ) )
     {
-      kdDebug(60010) << "Handshake was too tight. Letting go." << endl;
+      kDebug(60010) << "Handshake was too tight. Letting go." << endl;
       return false;
     }
 
-    kdDebug(60010) << "Handshake was warm and firm" << endl;
+    kDebug(60010) << "Handshake was warm and firm" << endl;
 
     return true;
   }

@@ -46,7 +46,7 @@ namespace KCDDB
 
   void AsyncSMTPSubmit::slotDone( KIO::Job* job )
   {
-      kdDebug(60010) << k_funcinfo << endl;
+      kDebug(60010) << k_funcinfo << endl;
       if ( job->error()==0 )
         emit finished( Success );
       else

@@ -87,7 +87,7 @@ namespace KCDDB
     void
   CDDBPLookup::close()
   {
-    kdDebug(60010) << "Disconnect from server..." << endl;
+    kDebug(60010) << "Disconnect from server..." << endl;
     if ( isConnected() )
     {
       socket_->close();
@@ -99,11 +99,11 @@ namespace KCDDB
   {
     if ( !isConnected() )
     {
-      kdDebug(60010) << "socket status: " << socket_->state() << endl;
+      kDebug(60010) << "socket status: " << socket_->state() << endl;
       return -1;
     }
 
-    kdDebug(60010) << "WRITE: [" << line << "]" << endl;
+    kDebug(60010) << "WRITE: [" << line << "]" << endl;
     QByteArray buf(line.utf8());
     buf.append( '\n' );
 

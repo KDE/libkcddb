@@ -43,7 +43,7 @@ namespace KCDDB
   
   void AsyncHTTPSubmit::slotFinished(KIO::Job* job)
   {
-    kdDebug() << "Finished" << endl;
+    kDebug() << "Finished" << endl;
 
     if ( job->error()==0 )
       emit finished( Success );

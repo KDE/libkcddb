@@ -70,7 +70,7 @@ namespace KCDDB
     if (matchList_.isEmpty())
       return NoRecordFound;
 
-    kdDebug(60010) << matchList_.count() << " matches found." << endl;
+    kDebug(60010) << matchList_.count() << " matches found." << endl;
 
     // For each match, read the cd info from the server and save it to
     // cdInfoList.
@@ -93,7 +93,7 @@ namespace KCDDB
     CDDB::Result
   SyncCDDBPLookup::connect()
   {
-    kdDebug(60010) << "Trying to connect to " << endl;
+    kDebug(60010) << "Trying to connect to " << endl;
 
     if ( !socket_->lookup() )
       return HostNotFound;
@@ -198,7 +198,7 @@ namespace KCDDB
   {
     if ( !isConnected() )
     {
-      kdDebug(60010) << "socket status: " << socket_->state() << endl;
+      kDebug(60010) << "socket status: " << socket_->state() << endl;
       return QString::null;
     }
 

@@ -53,41 +53,41 @@ AsyncCDDBLookupTest::~AsyncCDDBLookupTest()
   void
 AsyncCDDBLookupTest::slotFinished(CDDB::Result r)
 {
-  kdDebug() << "AsyncCDDBLookupTest::slotResult: Got " << KCDDB::CDDB::resultToString(r) << endl;
+  kDebug() << "AsyncCDDBLookupTest::slotResult: Got " << KCDDB::CDDB::resultToString(r) << endl;
 
   CDInfoList l = client_->lookupResponse();
 
-  kdDebug() << "AsyncCDDBLookupTest::slotResult: Item count: " <<  l.count() << endl;
+  kDebug() << "AsyncCDDBLookupTest::slotResult: Item count: " <<  l.count() << endl;
 
   for (CDInfoList::ConstIterator it(l.begin()); it != l.end(); ++it)
   {
     CDInfo i(*it);
 
-    kdDebug() << "Disc artist: `" << i.get("artist").toString() << "'" << endl;
-    kdDebug() << "Disc title: `" << i.get("title").toString() << "'" << endl;
-    kdDebug() << "Disc revision: `" << i.get("revision") << "'" << endl;
+    kDebug() << "Disc artist: `" << i.get("artist").toString() << "'" << endl;
+    kDebug() << "Disc title: `" << i.get("title").toString() << "'" << endl;
+    kDebug() << "Disc revision: `" << i.get("revision") << "'" << endl;
   }
 
   if (!l.isEmpty())
   {
-    kdDebug() << "---------------------------------------" << endl;
-    kdDebug() << "Showing first item" << endl;
+    kDebug() << "---------------------------------------" << endl;
+    kDebug() << "Showing first item" << endl;
 
     CDInfo info(l.first());
 
-    kdDebug() << "Disc artist: `" << info.get("artist").toString() << "'" << endl;
-    kdDebug() << "Disc title: `" << info.get("title").toString() << "'" << endl;
-    kdDebug() << "Disc genre: `" << info.get("genre").toString() << "'" << endl;
-    kdDebug() << "Disc year: `" << info.get("year").toString() << "'" << endl;
-    kdDebug() << "Disc length: `" << info.get("length").toString() << "'" << endl;
-    kdDebug() << "Disc id: `" << info.get("discid").toString() << "'" << endl;
-    kdDebug() << "Tracks........" << endl;
+    kDebug() << "Disc artist: `" << info.get("artist").toString() << "'" << endl;
+    kDebug() << "Disc title: `" << info.get("title").toString() << "'" << endl;
+    kDebug() << "Disc genre: `" << info.get("genre").toString() << "'" << endl;
+    kDebug() << "Disc year: `" << info.get("year").toString() << "'" << endl;
+    kDebug() << "Disc length: `" << info.get("length").toString() << "'" << endl;
+    kDebug() << "Disc id: `" << info.get("discid").toString() << "'" << endl;
+    kDebug() << "Tracks........" << endl;
 
     for (int i=0; i < info.numberOfTracks(); i++)
     {
-      kdDebug() << "  Track: `" << info.track(i).get("title").toString() << "'" << endl;
+      kDebug() << "  Track: `" << info.track(i).get("title").toString() << "'" << endl;
     }
-    kdDebug() << "---------------------------------------" << endl;
+    kDebug() << "---------------------------------------" << endl;
   }
 
   kapp->quit();

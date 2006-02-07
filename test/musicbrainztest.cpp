@@ -41,9 +41,9 @@ main(int argc, char ** argv)
     << 212506;
 
 
-  kdDebug() << "Stuff to send to server:" << endl;
+  kDebug() << "Stuff to send to server:" << endl;
 
-  kdDebug()
+  kDebug()
     << CDDB::trackOffsetListToId(list)
     << " "
     //<< trackOffsetListToString(list)
@@ -51,11 +51,11 @@ main(int argc, char ** argv)
 
   CDDB::Result r = c.lookup(list);
 
-  kdDebug() << "Client::lookup gave : " << CDDB::resultToString(r) << endl;
+  kDebug() << "Client::lookup gave : " << CDDB::resultToString(r) << endl;
 
   CDInfoList response = c.lookupResponse();
 
-  kdDebug() << "Client::lookup returned : " << response.count() << " entries"
+  kDebug() << "Client::lookup returned : " << response.count() << " entries"
     << endl;
 
   CDInfoList::ConstIterator it;
@@ -64,18 +64,18 @@ main(int argc, char ** argv)
   {
     CDInfo i(*it);
 
-    kdDebug() << "Disc title: " << i.get("title").toString() << endl;
-    kdDebug() << "Total tracks: " << i.numberOfTracks() << endl;
-    kdDebug() << "Disc revision: `" << i.get("revision").toInt() << "'" << endl;
+    kDebug() << "Disc title: " << i.get("title").toString() << endl;
+    kDebug() << "Total tracks: " << i.numberOfTracks() << endl;
+    kDebug() << "Disc revision: `" << i.get("revision").toInt() << "'" << endl;
   }
 
   CDInfo info( c.lookupResponse().first() );
 
-  kdDebug() << "First CDInfo had title: " << info.get("title").toString() << endl;
-  kdDebug() << "and revision: " << info.get("revision") << endl;
+  kDebug() << "First CDInfo had title: " << info.get("title").toString() << endl;
+  kDebug() << "and revision: " << info.get("revision") << endl;
   for (int i=0; i < info.numberOfTracks(); i++)
   {
-    kdDebug() << "  Track: `" << info.track(i).get("title").toString() << "'" << endl;
+    kDebug() << "  Track: `" << info.track(i).get("title").toString() << "'" << endl;
   }
 
   return 0;

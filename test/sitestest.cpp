@@ -35,14 +35,14 @@ main(int argc, char ** argv)
 
   Sites s;
 
-  kdDebug() << "Sites: " << endl;
+  kDebug() << "Sites: " << endl;
 
   QList<Mirror> sites = s.siteList();
   for (QList<Mirror>::Iterator it = sites.begin(); it != sites.end(); ++it)
     if ((*it).transport == Lookup::CDDBP)
-      kdDebug() << (*it).address << " CDDBP " << (*it).port << " " << (*it).description << endl;
+      kDebug() << (*it).address << " CDDBP " << (*it).port << " " << (*it).description << endl;
     else
-      kdDebug() << (*it).address << " HTTP " << (*it).port << " " << (*it).description << endl;
+      kDebug() << (*it).address << " HTTP " << (*it).port << " " << (*it).description << endl;
 
   return 0;
 }

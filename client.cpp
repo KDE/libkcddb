@@ -100,7 +100,7 @@ namespace KCDDB
 
     if ( trackOffsetList.count() <= 1 )
     {
-      kdDebug(60010) << "Lookup called with empty offset list" << endl;
+      kDebug(60010) << "Lookup called with empty offset list" << endl;
       return Lookup::NoRecordFound;
     }
 
@@ -110,7 +110,7 @@ namespace KCDDB
     {
       d->cdInfoList = Cache::lookup( cddbId, config() );
 
-      kdDebug(60010) << "Found " << d->cdInfoList.count() << " hit(s)" << endl;
+      kDebug(60010) << "Found " << d->cdInfoList.count() << " hit(s)" << endl;
 
       if ( !d->cdInfoList.isEmpty() )
       {
@@ -123,7 +123,7 @@ namespace KCDDB
 
     if ( Cache::Only == d->config.cachePolicy() )
     {
-      kdDebug(60010) << "Only trying cache. Give up now." << endl;
+      kDebug(60010) << "Only trying cache. Give up now." << endl;
       if ( !blockingMode() )
         emit finished( Lookup::NoRecordFound );
       return CDDB::NoRecordFound;
@@ -147,7 +147,7 @@ namespace KCDDB
 #if HAVE_MUSICBRAINZ
         cdInfoLookup = new MusicBrainzLookup();
 #else
-        kdWarning() << "libkcddb not built with MusicBrainz support" << endl;
+        kWarning() << "libkcddb not built with MusicBrainz support" << endl;
         return CDDB::UnknownError;
 #endif
       }
@@ -191,7 +191,7 @@ namespace KCDDB
                   SIGNAL( finished( CDDB::Result ) ),
                   SLOT( slotFinished( CDDB::Result ) ) );
 #else
-        kdWarning() << "libkcddb not built with MusicBrainz support" << endl;
+        kWarning() << "libkcddb not built with MusicBrainz support" << endl;
         return CDDB::UnknownError;
 #endif
       }
@@ -298,7 +298,7 @@ namespace KCDDB
         break;
       }
       default:
-        kdDebug(60010) << k_funcinfo << "Unsupported transport: " << endl;
+        kDebug(60010) << k_funcinfo << "Unsupported transport: " << endl;
 //          << CDDB::transportToString(d->config.submitTransport()) << endl;
         return CDDB::UnknownError;
         break;

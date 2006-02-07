@@ -24,9 +24,9 @@ main(int argc, char ** argv)
   << 61408
   << 177675;
 
-  kdDebug() << "Stuff to send to server:" << endl;
+  kDebug() << "Stuff to send to server:" << endl;
 
-  kdDebug()
+  kDebug()
     << CDDB::trackOffsetListToId(list)
     << " "
     //<< trackOffsetListToString(list)
@@ -34,16 +34,16 @@ main(int argc, char ** argv)
 
   CDDB::Result r = c.lookup(list);
 
-  kdDebug() << "Client::lookup gave : " << CDDB::resultToString(r) << endl;
+  kDebug() << "Client::lookup gave : " << CDDB::resultToString(r) << endl;
 
   CDInfoList response = c.lookupResponse();
 
-  kdDebug() << "Client::lookup returned : " << response.count() << " entries"
+  kDebug() << "Client::lookup returned : " << response.count() << " entries"
     << endl;
 
   CDInfo i( c.lookupResponse().first() );
 
-  kdDebug() << "First CDInfo had title: " << i.get("title").toString() << endl;
+  kDebug() << "First CDInfo had title: " << i.get("title").toString() << endl;
   
   return 0;
 }

@@ -43,7 +43,7 @@ void SyncCDDBLookupTest::testLookup()
     << 176085
     << 234500;
 
-  kdDebug()
+  kDebug()
     << CDDB::trackOffsetListToId(list)
     << " "
     //<< trackOffsetListToString(list)

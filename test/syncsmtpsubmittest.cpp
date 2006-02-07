@@ -69,6 +69,6 @@ main(int argc, char ** argv)
 
   CDDB::Result r = c.submit(cdInfo, list);
 
-  kdDebug() << "Result: " << CDDB::resultToString(r) << endl;
+  kDebug() << "Result: " << CDDB::resultToString(r) << endl;
 }
 

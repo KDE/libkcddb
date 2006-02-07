@@ -81,7 +81,7 @@ namespace KCDDB
 
     diskData_ += cdInfo.toString(true);
 
-    kdDebug(60010) << "diskData_ == " << diskData_ << endl;
+    kDebug(60010) << "diskData_ == " << diskData_ << endl;
   }
 
   bool Submit::validCategory( const QString& c )

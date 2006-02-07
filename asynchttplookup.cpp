@@ -74,7 +74,7 @@ namespace KCDDB
     void
   AsyncHTTPLookup::slotQueryReady()
   {
-    kdDebug(60010) << "Matches Found: " <<  matchList_.count() << endl;
+    kDebug(60010) << "Matches Found: " <<  matchList_.count() << endl;
 
     if ( Success != result_ )
     {
@@ -134,7 +134,7 @@ namespace KCDDB
     CDDB::Result
   AsyncHTTPLookup::fetchURL()
   {
-    kdDebug(60010) << "About to fetch: " << cgiURL_.url() << endl;
+    kDebug(60010) << "About to fetch: " << cgiURL_.url() << endl;
 
     KIO::TransferJob* job = KIO::get( cgiURL_, false, false );
 
