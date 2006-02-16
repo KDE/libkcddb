@@ -165,8 +165,6 @@ namespace KCDDB
       }
       else if ( "EXTD" == key )
       {
-        if (!extd.isEmpty())
-          extd.append('\n');
         extd.append( value );
       }
       else if ( "EXTT" == key.left( 4 ) )
@@ -175,8 +173,6 @@ namespace KCDDB
 
         checkTrack( trackNumber );
 
-        if (!trackInfoList[ trackNumber ].extt.isEmpty())
-          trackInfoList[ trackNumber ].extt.append('\n');
         trackInfoList[ trackNumber ].extt.append( value );
       }
     }
@@ -228,22 +224,11 @@ namespace KCDDB
                 escape( trackInfoList[ i ].title));
     }
 
-    QStringList extdLines = QStringList::split('\n', extd, true);
-    if (extdLines.isEmpty())
-      s += QString("EXTD=\n");
-    else
-      for (QStringList::iterator it = extdLines.begin(); it != extdLines.end(); ++it)
-        s += createLine("EXTD",escape( *it ));
+    s += createLine("EXTD", escape( extd ));
 
     for (uint i = 0; i < trackInfoList.count(); ++i)
     {
-      QStringList lines = QStringList::split('\n', trackInfoList[i].extt, true);
-      if (lines.isEmpty())
-        s += QString( "EXTT%1=\n" ).arg( i );
-      else
-        for (QStringList::iterator it = lines.begin(); it != lines.end(); ++it)
-          s += createLine(QString("EXTT%1").arg( i ),
-                  escape( *it ) );
+      s += createLine(QString("EXTT%1").arg(i), escape(trackInfoList[i].extt));
     }
 
     s +="PLAYORDER=\n";
