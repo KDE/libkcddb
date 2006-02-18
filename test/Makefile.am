@@ -41,7 +41,7 @@ asynchttpsubmittest_LDADD = $(top_builddir)/libkcddb/libkcddb.la
 
 musicbrainztest_SOURCES = musicbrainztest.cpp
 musicbrainztest_LDFLAGS = $(all_libraries)
-musicbrainztest_LDADD = $(top_builddir)/libkcddb/libkcddb.la
+musicbrainztest_LDADD = $(top_builddir)/libkcddb/libkcddb.la -lQtTest_debug
 
 utf8test_SOURCES = utf8test.cpp
 utf8test_LDFLAGS = $(all_libraries)
@@ -55,7 +55,7 @@ cdinfotest_SOURCES = cdinfotest.cpp
 cdinfotest_LDFLAGS = $(all_libraries)
 cdinfotest_LDADD = $(top_builddir)/libkcddb/libkcddb.la -lQtTest_debug
 
-TESTS = synccddblookuptest cdinfotest asynchttplookuptest
+TESTS = synccddblookuptest cdinfotest asynchttplookuptest musicbrainztest
 
 METASOURCES = AUTO
 
