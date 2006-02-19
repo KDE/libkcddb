@@ -8,12 +8,15 @@ X-KDE-Library=cddb
 Encoding=UTF-8
 
 Name=CDDB Retrieval
+Name[fr]=Recherche CDDB
 Name[x-test]=xxCDDB Retrievalxx
 
 GenericName=CDDB Configuration
+GenericName[fr]=Configuration CDDB
 GenericName[x-test]=xxCDDB Configurationxx
 
 Comment=Configure the CDDB Retrieval
+Comment[fr]=Configurer la recherche CDDB
 Comment[x-test]=xxConfigure the CDDB Retrievalxx
 
 Keywords=cddb
