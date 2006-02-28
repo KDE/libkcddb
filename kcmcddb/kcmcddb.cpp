@@ -75,7 +75,8 @@ CDDBModule::defaults()
 {
   KCModule::defaults();
 
-  updateWidgetsFromConfig(KCDDB::Config());
+  KCDDB::Config config;
+  updateWidgetsFromConfig( config );
 }
 
   void
