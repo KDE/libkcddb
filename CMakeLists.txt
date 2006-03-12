@@ -8,8 +8,12 @@ include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_D
 
 
 ########### next target ###############
+set(libmusicbrainz_SRCS 
+	${CMAKE_SOURCE_DIR}/libkcddb/musicbrainz/musicbrainzlookup.cpp 
+	${CMAKE_SOURCE_DIR}/libkcddb/musicbrainz/sha1.c 
+	)
 
-set(kcddb_LIB_SRCS 
+set(kcddb_LIB_SRCS ${libmusicbrainz_SRCS}
    cache.cpp 
    cdinfo.cpp 
    config.cpp 
@@ -43,7 +47,7 @@ kde4_add_kcfg_files(kcddb_LIB_SRCS configbase.kcfgc )
 
 kde4_add_library(kcddb SHARED ${kcddb_LIB_SRCS})
 
-target_link_libraries(kcddb  ${QT_AND_KDECORE_LIBS} kio )
+target_link_libraries(kcddb  ${LIB_KDE3SUPPORT} musicbrainz )
 
 set_target_properties(kcddb PROPERTIES VERSION 1.0.0 SOVERSION 1 )
 install_targets(${LIB_INSTALL_DIR} kcddb )
