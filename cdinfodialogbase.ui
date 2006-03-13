@@ -181,7 +181,7 @@
     </layout>
    </item>
    <item>
-    <widget class="KListView" name="m_trackList" >
+    <widget class="K3ListView" name="m_trackList" >
      <property name="toolTip" >
       <string>For a CD-Extra, set title to &quot;Data&quot;.</string>
      </property>
@@ -250,7 +250,7 @@
    <pixmap></pixmap>
   </customwidget>
   <customwidget>
-   <class>KListView</class>
+   <class>K3ListView</class>
    <extends>Q3ListView</extends>
    <header>klistview.h</header>
    <container>0</container>
