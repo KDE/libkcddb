@@ -252,7 +252,7 @@
   <customwidget>
    <class>K3ListView</class>
    <extends>Q3ListView</extends>
-   <header>klistview.h</header>
+   <header>k3listview.h</header>
    <container>0</container>
    <pixmap></pixmap>
   </customwidget>
