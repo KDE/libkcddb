@@ -23,7 +23,7 @@ install_targets(${LIB_INSTALL_DIR}/kde4 kcm_cddb )
 ########### install files ###############
 
 install_files( ${XDG_APPS_DIR} FILES libkcddb.desktop )
-install_files( ${DATA_INSTALL_DIR}/kconf_update FILES kcmcddb-emailsettings.upd )
+install_files( ${KCONF_UPDATE_INSTALL_DIR} FILES kcmcddb-emailsettings.upd )
 
 kde4_footer()
 
