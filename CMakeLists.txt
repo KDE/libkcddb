@@ -1,4 +1,5 @@
 kde4_header()
+project(libkcddb)
 
 add_subdirectory( test ) 
 add_subdirectory( kcmcddb ) 
