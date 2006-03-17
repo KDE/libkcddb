@@ -1,18 +1,23 @@
 kde4_header()
 project(libkcddb)
 
+
 add_subdirectory( test ) 
 add_subdirectory( kcmcddb ) 
+set(libmusicbrainz_SRCS)
 
-message(STATUS "${CMAKE_CURRENT_SOURCE_DIR}: skipped subdir $(MB_DIR)")
+if(MUSICBRAINZ_FOUND)
+	add_subdirectory(musicbrainz)
+	set(libmusicbrainz_SRCS ${libmusicbrainz_SRCS}
+    	${CMAKE_SOURCE_DIR}/libkcddb/musicbrainz/musicbrainzlookup.cpp
+    	${CMAKE_SOURCE_DIR}/libkcddb/musicbrainz/sha1.c
+    )	
+endif(MUSICBRAINZ_FOUND)
+
 include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
 
 
 ########### next target ###############
-set(libmusicbrainz_SRCS 
-	${CMAKE_SOURCE_DIR}/libkcddb/musicbrainz/musicbrainzlookup.cpp 
-	${CMAKE_SOURCE_DIR}/libkcddb/musicbrainz/sha1.c 
-	)
 
 set(kcddb_LIB_SRCS ${libmusicbrainz_SRCS}
    cache.cpp 
