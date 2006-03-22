@@ -53,7 +53,7 @@ kde4_add_kcfg_files(kcddb_LIB_SRCS configbase.kcfgc )
 
 kde4_add_library(kcddb SHARED ${kcddb_LIB_SRCS})
 
-target_link_libraries(kcddb  ${KDE4_KDE3SUPPORT_LIBRARIES} musicbrainz )
+target_link_libraries(kcddb  ${KDE4_KDE3SUPPORT_LIBS} musicbrainz )
 
 set_target_properties(kcddb PROPERTIES VERSION 1.0.0 SOVERSION 1 )
 install_targets(${LIB_INSTALL_DIR} kcddb )
