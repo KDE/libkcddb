@@ -13,7 +13,7 @@ if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(syncsmtpsubmittest ${syncsmtpsubmittest_SRCS})
 
-target_link_libraries(syncsmtpsubmittest  ${QT_AND_KDECORE_LIBS} kcddb )
+target_link_libraries(syncsmtpsubmittest  ${KDE4_KDECORE_LIBS} kcddb )
 
 endif(KDE4_BUILD_TESTS)
 
@@ -27,7 +27,7 @@ if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(asyncsmtpsubmittest ${asyncsmtpsubmittest_SRCS})
 
-target_link_libraries(asyncsmtpsubmittest  ${QT_AND_KDECORE_LIBS} kcddb )
+target_link_libraries(asyncsmtpsubmittest  ${KDE4_KDECORE_LIBS} kcddb )
 
 endif(KDE4_BUILD_TESTS)
 
@@ -41,7 +41,7 @@ if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(asynchttplookuptest ${asynchttplookuptest_SRCS})
 
-target_link_libraries(asynchttplookuptest  ${QT_AND_KDECORE_LIBS} kcddb QtTest_debug )
+target_link_libraries(asynchttplookuptest  ${KDE4_KDECORE_LIBS} kcddb QtTest_debug )
 
 endif(KDE4_BUILD_TESTS)
 
@@ -55,7 +55,7 @@ if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(asynccddblookuptest ${asynccddblookuptest_SRCS})
 
-target_link_libraries(asynccddblookuptest  ${QT_AND_KDECORE_LIBS} kcddb )
+target_link_libraries(asynccddblookuptest  ${KDE4_KDECORE_LIBS} kcddb )
 
 endif(KDE4_BUILD_TESTS)
 
@@ -69,7 +69,7 @@ if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(synccddblookuptest ${synccddblookuptest_SRCS})
 
-target_link_libraries(synccddblookuptest  ${QT_AND_KDECORE_LIBS} kcddb QtTest_debug )
+target_link_libraries(synccddblookuptest  ${KDE4_KDECORE_LIBS} kcddb QtTest_debug )
 
 endif(KDE4_BUILD_TESTS)
 
@@ -83,7 +83,7 @@ if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(synchttplookuptest ${synchttplookuptest_SRCS})
 
-target_link_libraries(synchttplookuptest  ${QT_AND_KDECORE_LIBS} kcddb )
+target_link_libraries(synchttplookuptest  ${KDE4_KDECORE_LIBS} kcddb )
 
 endif(KDE4_BUILD_TESTS)
 
@@ -97,7 +97,7 @@ if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(asynchttpsubmittest ${asynchttpsubmittest_SRCS})
 
-target_link_libraries(asynchttpsubmittest  ${QT_AND_KDECORE_LIBS} kcddb )
+target_link_libraries(asynchttpsubmittest  ${KDE4_KDECORE_LIBS} kcddb )
 
 endif(KDE4_BUILD_TESTS)
 
@@ -111,7 +111,7 @@ if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(synchttpsubmittest ${synchttpsubmittest_SRCS})
 
-target_link_libraries(synchttpsubmittest  ${QT_AND_KDECORE_LIBS} kcddb )
+target_link_libraries(synchttpsubmittest  ${KDE4_KDECORE_LIBS} kcddb )
 
 endif(KDE4_BUILD_TESTS)
 
@@ -125,7 +125,7 @@ if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(sitestest ${sitestest_SRCS})
 
-target_link_libraries(sitestest  ${QT_AND_KDECORE_LIBS} kcddb )
+target_link_libraries(sitestest  ${KDE4_KDECORE_LIBS} kcddb )
 
 endif(KDE4_BUILD_TESTS)
 
@@ -139,7 +139,7 @@ if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(utf8test ${utf8test_SRCS})
 
-target_link_libraries(utf8test  ${QT_AND_KDECORE_LIBS} kcddb )
+target_link_libraries(utf8test  ${KDE4_KDECORE_LIBS} kcddb )
 
 endif(KDE4_BUILD_TESTS)
 
@@ -153,7 +153,7 @@ if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(musicbrainztest ${musicbrainztest_SRCS})
 
-target_link_libraries(musicbrainztest  ${QT_AND_KDECORE_LIBS} kcddb QtTest_debug )
+target_link_libraries(musicbrainztest  ${KDE4_KDECORE_LIBS} kcddb QtTest_debug )
 
 endif(KDE4_BUILD_TESTS)
 
@@ -167,7 +167,7 @@ if(KDE4_BUILD_TESTS)
 
 kde4_add_executable(cdinfotest ${cdinfotest_SRCS})
 
-target_link_libraries(cdinfotest  ${QT_AND_KDECORE_LIBS} kcddb QtTest_debug )
+target_link_libraries(cdinfotest  ${KDE4_KDECORE_LIBS} kcddb QtTest_debug )
 
 endif(KDE4_BUILD_TESTS)
 
