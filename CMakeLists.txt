@@ -1,20 +1,21 @@
 kde4_header()
 project(libkcddb)
 
+add_subdirectory( test )
+add_subdirectory( kcmcddb )
 
-add_subdirectory( test ) 
-add_subdirectory( kcmcddb ) 
-set(libmusicbrainz_SRCS)
+macro_optional_find_package(MusicBrainz)
 
 if(MUSICBRAINZ_FOUND)
-	add_subdirectory(musicbrainz)
-	set(libmusicbrainz_SRCS ${libmusicbrainz_SRCS}
-    	${CMAKE_SOURCE_DIR}/libkcddb/musicbrainz/musicbrainzlookup.cpp
-    	${CMAKE_SOURCE_DIR}/libkcddb/musicbrainz/sha1.c
-    )	
+    set(HAVE_MUSICBRAINZ 1)
+    set(libmusicbrainz_SRCS ${libmusicbrainz_SRCS} musicbrainz/musicbrainzlookup.cpp musicbrainz/sha1.c)
+else(MUSICBRAINZ_FOUND)
+    set(HAVE_MUSICBRAINZ 0)
+    set(libmusicbrainz_SRCS)
 endif(MUSICBRAINZ_FOUND)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-musicbrainz.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-musicbrainz.h )
 
-include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
+include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} )
 
 
 ########### next target ###############
@@ -53,7 +54,10 @@ kde4_add_kcfg_files(kcddb_LIB_SRCS configbase.kcfgc )
 
 kde4_add_library(kcddb SHARED ${kcddb_LIB_SRCS})
 
-target_link_libraries(kcddb  ${KDE4_KDE3SUPPORT_LIBS} musicbrainz )
+target_link_libraries(kcddb ${KDE4_KDE3SUPPORT_LIBS})
+if(MUSICBRAINZ_FOUND)
+    target_link_libraries(kcddb musicbrainz)
+endif(MUSICBRAINZ_FOUND)
 
 set_target_properties(kcddb PROPERTIES VERSION 1.0.0 SOVERSION 1 )
 install_targets(${LIB_INSTALL_DIR} kcddb )

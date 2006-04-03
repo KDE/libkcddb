@@ -31,8 +31,8 @@
 #include "cache.h"
 #include "lookup.h"
 
-#include "../config.h"
-#if HAVE_MUSICBRAINZ
+#include "config-musicbrainz.h"
+#ifdef HAVE_MUSICBRAINZ
 #include "musicbrainz/musicbrainzlookup.h"
 #endif
 
@@ -144,7 +144,7 @@ namespace KCDDB
         cdInfoLookup = new SyncHTTPLookup();
       else
       {
-#if HAVE_MUSICBRAINZ
+#ifdef HAVE_MUSICBRAINZ
         cdInfoLookup = new MusicBrainzLookup();
 #else
         kWarning() << "libkcddb not built with MusicBrainz support" << endl;
@@ -184,7 +184,7 @@ namespace KCDDB
       }
       else
       {
-#if HAVE_MUSICBRAINZ
+#ifdef HAVE_MUSICBRAINZ
         cdInfoLookup = new MusicBrainzLookup();
 
         connect( static_cast<MusicBrainzLookup *>( cdInfoLookup ),
