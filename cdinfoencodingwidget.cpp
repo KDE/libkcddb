@@ -64,7 +64,7 @@ namespace KCDDB
     songsBox->clear();
     songsBox->insertStringList(newTitles);
       
-    titleLabel->setText(i18n("artist - cdtitle", "%1 - %2").arg(
+    titleLabel->setText(i18nc("artist - cdtitle", "%1 - %2",
           codec->toUnicode(m_artist.latin1()), codec->toUnicode(m_title.latin1())));
   }
 }
