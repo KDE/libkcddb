@@ -9,7 +9,7 @@ set(kcm_cddb_PART_SRCS cddbconfigwidget.cpp kcmcddb.cpp )
 
 kde4_automoc(${kcm_cddb_PART_SRCS})
 
-kde4_add_ui_files(kcm_cddb_PART_SRCS cddbconfigwidgetbase.ui )
+kde4_add_ui_files(kcm_cddb_PART_SRCS cddbconfigwidget.ui )
 
 kde4_add_plugin(kcm_cddb ${kcm_cddb_PART_SRCS})
 

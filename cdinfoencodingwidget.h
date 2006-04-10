@@ -20,7 +20,7 @@
 #ifndef KCDDB_CDINFOENCODINGWIDGET_H
 #define KCDDB_CDINFOENCODINGWIDGET_H
 
-#include "cdinfoencodingwidgetbase.h"
+#include "ui_cdinfoencodingwidget.h"
 
 namespace KCDDB
 {

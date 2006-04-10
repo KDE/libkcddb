@@ -20,7 +20,7 @@
 #ifndef CDDB_CONFIG_WIDGET_H
 #define CDDB_CONFIG_WIDGET_H
 
-#include "cddbconfigwidgetbase.h"
+#include "ui_cddbconfigwidget.h"
 
 class CDDBConfigWidget : public QWidget, public Ui::CDDBConfigWidgetBase
 {

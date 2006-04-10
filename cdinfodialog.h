@@ -20,7 +20,7 @@
 #ifndef KCDDB_CDINFODIALOG_H
 #define KCDDB_CDINFODIALOG_H
 
-#include "cdinfodialogbase.h"
+#include "ui_cdinfodialog.h"
 
 namespace KCDDB
 {

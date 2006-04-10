@@ -48,7 +48,7 @@ set(kcddb_LIB_SRCS ${libmusicbrainz_SRCS}
 
 kde4_automoc(${kcddb_LIB_SRCS})
 
-kde4_add_ui_files(kcddb_LIB_SRCS cdinfodialogbase.ui cdinfoencodingwidgetbase.ui )
+kde4_add_ui_files(kcddb_LIB_SRCS cdinfodialog.ui cdinfoencodingwidget.ui )
 
 kde4_add_kcfg_files(kcddb_LIB_SRCS configbase.kcfgc )
 
