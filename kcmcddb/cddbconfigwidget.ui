@@ -24,7 +24,7 @@
    </property>
    <item>
     <widget class="QTabWidget" name="tabWidget2" >
-     <widget class="QWidget" name="tab" >
+     <widget class="QWidget" name="tabLookup" >
       <attribute name="title" >
        <string>&amp;Lookup</string>
       </attribute>
@@ -218,7 +218,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab" >
+     <widget class="QWidget" name="tabSubmit" >
       <attribute name="title" >
        <string>&amp;Submit</string>
       </attribute>
@@ -472,23 +472,16 @@
  <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
  <customwidgets>
   <customwidget>
-   <class>KPushButton</class>
-   <extends>QWidget</extends>
-   <header>kpushbutton.h</header>
-   <container>1</container>
-   <pixmap></pixmap>
-  </customwidget>
-  <customwidget>
-   <class>Q3WidgetStack</class>
-   <extends></extends>
-   <header>q3widgetstack.h</header>
-   <container>1</container>
-   <pixmap></pixmap>
-  </customwidget>
-  <customwidget>
    <class>Q3ButtonGroup</class>
    <extends></extends>
    <header>Qt3Support/Q3ButtonGroup</header>
+   <container>1</container>
+   <pixmap></pixmap>
+  </customwidget>
+  <customwidget>
+   <class>KLineEdit</class>
+   <extends>QWidget</extends>
+   <header>klineedit.h</header>
    <container>1</container>
    <pixmap></pixmap>
   </customwidget>
@@ -500,9 +493,16 @@
    <pixmap></pixmap>
   </customwidget>
   <customwidget>
-   <class>KLineEdit</class>
+   <class>KPushButton</class>
    <extends>QWidget</extends>
-   <header>klineedit.h</header>
+   <header>kpushbutton.h</header>
+   <container>1</container>
+   <pixmap></pixmap>
+  </customwidget>
+  <customwidget>
+   <class>Q3WidgetStack</class>
+   <extends></extends>
+   <header>q3widgetstack.h</header>
    <container>1</container>
    <pixmap></pixmap>
   </customwidget>
