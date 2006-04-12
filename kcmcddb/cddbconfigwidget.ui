@@ -500,6 +500,13 @@
    <pixmap></pixmap>
   </customwidget>
   <customwidget>
+   <class>KDialog</class>
+   <extends>QWidget</extends>
+   <header>kdialog.h</header>
+   <container>1</container>
+   <pixmap></pixmap>
+  </customwidget>
+  <customwidget>
    <class>Q3WidgetStack</class>
    <extends></extends>
    <header>q3widgetstack.h</header>
