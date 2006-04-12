@@ -12,7 +12,7 @@ INCLUDES = -I$(srcdir)/.. $(all_includes)
 lib_LTLIBRARIES = libkcddb.la
 
 libkcddb_la_SOURCES = \
-    cache.cpp cdinfo.cpp config.cpp client.cpp cddb.cpp lookup.cpp \
+    cache.cpp cdinfo.cpp kcddbconfig.cpp client.cpp cddb.cpp lookup.cpp \
     cddbplookup.cpp synccddbplookup.cpp asynccddbplookup.cpp httplookup.cpp \
     synchttplookup.cpp asynchttplookup.cpp smtpsubmit.cpp \
     asyncsmtpsubmit.cpp syncsmtpsubmit.cpp configbase.kcfgc \
@@ -31,9 +31,9 @@ kde_kcfg_DATA = libkcddb.kcfg
 
 kcddbincludedir = $(includedir)/libkcddb
 kcddbinclude_HEADERS = \
-    cdinfo.h client.h config.h cddb.h configbase.h
+    cdinfo.h client.h kcddbconfig.h cddb.h configbase.h
 
 messages: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/libkcddb.pot
 
-config.lo: configbase.h
+kcddbconfig.lo: configbase.h

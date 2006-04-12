@@ -23,7 +23,7 @@ include_directories(${CMAKE_BINARY_DIR}/libkcddb/ ${KDE4_INCLUDE_DIR} ${QT_INCLU
 set(kcddb_LIB_SRCS ${libmusicbrainz_SRCS}
    cache.cpp 
    cdinfo.cpp 
-   config.cpp 
+   kcddbconfig.cpp 
    client.cpp 
    cddb.cpp 
    lookup.cpp 
@@ -65,7 +65,7 @@ install_targets(${LIB_INSTALL_DIR} kcddb )
 
 ########### install files ###############
 
-install_files( /include/libkcddb FILES cdinfo.h client.h config.h cddb.h configbase.h )
+install_files( /include/libkcddb FILES cdinfo.h client.h kcddbconfig.h cddb.h configbase.h )
 install_files( ${KCFG_INSTALL_DIR} FILES libkcddb.kcfg )
 
 kde4_footer()
@@ -88,7 +88,7 @@ kde4_footer()
 #lib_LTLIBRARIES = libkcddb.la
 #
 #libkcddb_la_SOURCES = \
-#    cache.cpp cdinfo.cpp config.cpp client.cpp cddb.cpp lookup.cpp \
+#    cache.cpp cdinfo.cpp kcddbconfig.cpp client.cpp cddb.cpp lookup.cpp \
 #    cddbplookup.cpp synccddbplookup.cpp asynccddbplookup.cpp httplookup.cpp \
 #    synchttplookup.cpp asynchttplookup.cpp smtpsubmit.cpp \
 #    asyncsmtpsubmit.cpp syncsmtpsubmit.cpp configbase.kcfgc \
@@ -107,9 +107,9 @@ kde4_footer()
 #
 #kcddbincludedir = $(includedir)/libkcddb
 #kcddbinclude_HEADERS = \
-#    cdinfo.h client.h config.h cddb.h configbase.h
+#    cdinfo.h client.h kcddbconfig.h cddb.h configbase.h
 #
 #messages: rc.cpp
 #	$(XGETTEXT) *.cpp -o $(podir)/libkcddb.pot
 #
-#config.lo: configbase.h
+#kcddbconfig.lo: configbase.h

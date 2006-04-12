@@ -21,7 +21,7 @@
 #ifndef KCDDB_CLIENT_H
 #define KCDDB_CLIENT_H
 
-#include "config.h"
+#include "kcddbconfig.h"
 #include "cdinfo.h"
 #include <qobject.h>
 #include "cddb.h"

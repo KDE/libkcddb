@@ -22,7 +22,7 @@
 
 #include <kemailsettings.h>
 
-#include <libkcddb/config.h>
+#include <libkcddb/kcddbconfig.h>
 
 namespace KCDDB
 {

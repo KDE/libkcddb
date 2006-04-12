@@ -22,7 +22,7 @@
 #include <kcmdlineargs.h>
 
 #include "libkcddb/client.h"
-#include "libkcddb/config.h"
+#include "libkcddb/kcddbconfig.h"
 #include "libkcddb/submit.h"
 
   int

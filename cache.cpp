@@ -28,7 +28,7 @@
 #include <QTextStream>
 
 #include "cache.h"
-#include "config.h"
+#include "kcddbconfig.h"
 
 namespace KCDDB
 {

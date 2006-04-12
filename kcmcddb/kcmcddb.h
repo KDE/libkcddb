@@ -22,7 +22,7 @@
 
 #include <kcmodule.h>
 
-#include "libkcddb/config.h"
+#include "libkcddb/kcddbconfig.h"
 
 class CDDBConfigWidgetBase;
 class KConfigDialogManager;
