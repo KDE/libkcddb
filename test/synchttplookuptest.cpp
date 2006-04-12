@@ -1,18 +1,30 @@
-#include <kapplication.h>
-#include <kcmdlineargs.h>
-#include <kdebug.h>
+/*
+  Copyright (C) 2006 Richard Lärkäng <nouseforaname@home.se>
 
+  This library is free software; you can redistribute it and/or
+  modify it under the terms of the GNU Library General Public
+  License as published by the Free Software Foundation; either
+  version 2 of the License, or (at your option) any later version.
+
+  This library is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  Library General Public License for more details.
+
+  You should have received a copy of the GNU Library General Public License
+  along with this library; see the file COPYING.LIB.  If not, write to
+  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  Boston, MA 02110-1301, USA.
+*/
+
+#include <qtest_kde.h>
 #include "libkcddb/client.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
+#include "synchttplookuptest.h"
 
-  int
-main(int argc, char ** argv)
+void SyncHTTPLookupTest::testLookup()
 {
-  KCmdLineArgs::init(argc, argv, "libkcddb_test", "", "", "");
-
-  KApplication app(false /* No styles */);
-
   using namespace KCDDB;
 
   Client c;
@@ -20,7 +32,6 @@ main(int argc, char ** argv)
   c.config().setPort(80);
   c.config().setCachePolicy(Cache::Ignore);
   c.config().setLookupTransport(Lookup::HTTP);
-
 
   TrackOffsetList list;
 
@@ -32,33 +43,56 @@ main(int argc, char ** argv)
     << 176085
     << 234500;
 
-  kDebug() << "Stuff to send to server:" << endl;
-
   kDebug()
     << CDDB::trackOffsetListToId(list)
     << " "
     //<< trackOffsetListToString(list)
     << endl;
 
-  CDDB::Result r = c.lookup(list);
-
-  kDebug() << "Client::lookup gave : " << CDDB::resultToString(r) << endl;
+  c.lookup(list);
 
   CDInfoList response = c.lookupResponse();
 
-  kDebug() << "Client::lookup returned : " << response.count() << " entries"
-    << endl;
-
   CDInfoList::ConstIterator it;
+
+  bool hasRunTest = false;
 
   for (it = response.begin(); it != response.end(); ++it)
   {
     CDInfo i(*it);
 
-    kDebug() << "Disc title: " << i.get("title").toString() << endl;
-    kDebug() << "Total tracks: " << i.numberOfTracks() << endl;
-    kDebug() << "Disc revision: `" << i.get("revision").toInt() << "'" << endl;
+    if (i.get("discid") == "3e0c3a05" && i.get(Category) == "rock")
+    {
+      // If revision doesn't match, test probably needs to be updated
+      // See: http://www.freedb.org/freedb/rock/3e0c3a05 for updated data
+      QCOMPARE(i.get("revision").toInt(), 10);
+
+      QCOMPARE(i.get(Artist).toString(),QString("Pink Floyd"));
+      QCOMPARE(i.get(Title).toString(),QString("Atom Heart Mother"));
+      QCOMPARE(i.get(Genre).toString(),QString("Psychedelic Rock"));
+      QCOMPARE(i.get(Year).toInt(),1970);
+      QCOMPARE(i.track(0).get(Title).toString(),QString("Atom Heart Mother"));
+      QCOMPARE(i.track(1).get(Title).toString(),QString("If"));
+      QCOMPARE(i.track(2).get(Title).toString(),QString("Summer '68"));
+      QCOMPARE(i.track(3).get(Title).toString(),QString("Fat Old Sun"));
+      QCOMPARE(i.track(4).get(Title).toString(),QString::fromUtf8("Alan´s Psychedelic Breakfast"));
+      QCOMPARE(i.track(0).get(Comment).toString(),QString("ts Please\nf. Remergence"));
+      QCOMPARE(i.track(1).get(Comment).toString(),QString("Waters"));
+      QCOMPARE(i.track(2).get(Comment).toString(),QString("Wright"));
+      QCOMPARE(i.track(3).get(Comment).toString(),QString("Gilmour"));
+      QCOMPARE(i.track(4).get(Comment).toString(),QString("ide Up\nc. Morning Glory"));
+      for (int j=0; j <= 4; j++)
+      {
+        QCOMPARE(i.track(j).get(Artist).toString(),QString("Pink Floyd"));
+      }
+
+      hasRunTest = true;
+    }
   }
-  
-  return 0;
+
+  QVERIFY(hasRunTest);
 }
+
+QTEST_KDEMAIN(SyncHTTPLookupTest, NoGUI);
+
+#include "synchttplookuptest.moc"

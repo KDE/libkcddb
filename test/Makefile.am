@@ -21,11 +21,11 @@ asynchttplookuptest_LDADD = $(top_builddir)/libkcddb/libkcddb.la -lQtTest_debug
 
 asynccddblookuptest_SOURCES = asynccddblookuptest.cpp
 asynccddblookuptest_LDFLAGS = $(all_libraries)
-asynccddblookuptest_LDADD = $(top_builddir)/libkcddb/libkcddb.la
+asynccddblookuptest_LDADD = $(top_builddir)/libkcddb/libkcddb.la -lQtTest_debug
 
 synchttplookuptest_SOURCES = synchttplookuptest.cpp
 synchttplookuptest_LDFLAGS = $(all_libraries)
-synchttplookuptest_LDADD = $(top_builddir)/libkcddb/libkcddb.la
+synchttplookuptest_LDADD = $(top_builddir)/libkcddb/libkcddb.la -lQtTest_debug
 
 synccddblookuptest_SOURCES = synccddblookuptest.cpp
 synccddblookuptest_LDFLAGS = $(all_libraries)

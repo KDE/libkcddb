@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2006 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -17,27 +17,16 @@
   Boston, MA 02110-1301, USA.
 */
 
-#ifndef TEST_H
-#define TEST_H
+#ifndef SYNCHTTPLOOKUPTEST_H
+#define SYNCHTTPLOOKUPTEST_H
 
-#include <QEventLoop>
-#include <QObject>
-#include <libkcddb/client.h>
+#include <qobject.h>
 
-using namespace KCDDB;
-
-class AsyncCDDBLookupTest : public QObject
+class SyncHTTPLookupTest : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
   private slots:
     void testLookup();
-    void slotFinished(CDDB::Result);
-
-  private:
-
-    QEventLoop m_eventLoop;
-    KCDDB::Client * client_;
-    CDInfo m_info;
 };
 
 #endif

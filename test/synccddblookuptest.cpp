@@ -65,7 +65,7 @@ void SyncCDDBLookupTest::testLookup()
     {
       // If revision doesn't match, test probably needs to be updated
       // See: http://www.freedb.org/freedb/rock/3e0c3a05 for updated data
-      QCOMPARE(i.get("revision").toInt(), 9);
+      QCOMPARE(i.get("revision").toInt(), 10);
 
       QCOMPARE(i.get(Artist).toString(),QString("Pink Floyd"));
       QCOMPARE(i.get(Title).toString(),QString("Atom Heart Mother"));
