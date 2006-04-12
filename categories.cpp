@@ -6,8 +6,8 @@
 // (at your option) any later version.
 //
 
-#include <categories.h>
 #include <klocale.h>
+#include "categories.h"
 
 KCDDB::Categories::Categories()
 {

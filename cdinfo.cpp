@@ -23,7 +23,7 @@
 #include <kstringhandler.h>
 
 #include "cdinfo.h"
-#include <client.h>
+#include "client.h"
 #include <qmap.h>
 
 namespace KCDDB

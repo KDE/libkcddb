@@ -20,7 +20,7 @@
 #ifndef MUSICBRAINZLOOKUP_H
 #define MUSICBRAINZLOOKUP_H
 
-#include "lookup.h"
+#include "../lookup.h"
 
 namespace KCDDB
 {

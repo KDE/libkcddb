@@ -6,8 +6,8 @@
 // (at your option) any later version.
 //
 
-#include <genres.h>
 #include <klocale.h>
+#include "genres.h"
 
 KCDDB::Genres::Genres()
 {
