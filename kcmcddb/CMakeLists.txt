@@ -17,7 +17,7 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_cddb )
 
 target_link_libraries(kcm_cddb  ${KDE4_KDEUI_LIBS} kcddb  )
 
-install_targets(${LIB_INSTALL_DIR}/kde4 kcm_cddb )
+install_targets(${PLUGIN_INSTALL_DIR} kcm_cddb )
 
 
 ########### install files ###############
