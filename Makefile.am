@@ -33,7 +33,5 @@ kcddbincludedir = $(includedir)/libkcddb
 kcddbinclude_HEADERS = \
     cdinfo.h client.h kcddbconfig.h cddb.h configbase.h
 
-messages: rc.cpp
-	$(XGETTEXT) *.cpp -o $(podir)/libkcddb.pot
 
 kcddbconfig.lo: configbase.h
