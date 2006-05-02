@@ -40,7 +40,7 @@ namespace KCDDB
     : QWidget(parent), Ui::CDInfoDialogBase()
   {
       setupUi(this);
-    
+
       m_categories = KCDDB::Categories();
       m_category->insertStringList(m_categories.i18nList());
       m_genres = KCDDB::Genres();
@@ -189,7 +189,7 @@ namespace KCDDB
           for (Q3ListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
           {
               QString title = item->text(TRACK_TITLE);
-              int separator = title.find(SEPARATOR);
+              int separator = title.indexOf(SEPARATOR);
               if (separator != -1)
               {
                   // Artists probably entered already
@@ -199,7 +199,7 @@ namespace KCDDB
           }
           m_trackList->adjustColumn(TRACK_ARTIST);
           m_trackList->adjustColumn(TRACK_TITLE);
-      } 
+      }
       else{
           for (Q3ListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
           {
@@ -219,7 +219,7 @@ namespace KCDDB
   void CDInfoDialog::slotChangeEncoding()
   {
       kDebug() << k_funcinfo << endl;
-      
+
       KDialogBase* dialog = new KDialogBase(this, 0, true, i18n("Change Encoding"),
           KDialogBase::Ok | KDialogBase::Cancel);
 

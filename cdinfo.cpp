@@ -116,7 +116,7 @@ namespace KCDDB
       set(const QString& type, const QVariant &d)
       {
         //kDebug() << "set: " << type << ", " << d.toString() << endl;
-        if(type.find("^T.*_.*$" ) != -1){
+        if(type.contains(QRegExp( "^T.*_.*$" ) )){
           kDebug(60010) << "Error: custom cdinfo::set data can not start with T and contain a _" << endl;
           return;
         }
@@ -124,7 +124,7 @@ namespace KCDDB
           kDebug(60010) << "Error: type: DTITLE is reserved and can not be set." << endl;
           return;
         }
-        
+
         data[type.upper()] = d;
       }
         void
@@ -169,13 +169,13 @@ namespace KCDDB
       {
         set(type, get(type).toString().append(text));
       }
-      
+
       QMap<QString, QVariant> data;
   } ;
-  
+
   class TrackInfoPrivate : public InfoBasePrivate {
   };
-  
+
   TrackInfo::TrackInfo()
   {
     d = new TrackInfoPrivate();
@@ -205,7 +205,7 @@ namespace KCDDB
   QVariant TrackInfo::get(const QString &type) const {
     return d->get(type);
   }
-  
+
   void TrackInfo::set(const QString &type, const QVariant &data){
     d->set(type, data);
   }
@@ -213,11 +213,11 @@ namespace KCDDB
   void TrackInfo::set(Type type, const QVariant &data) {
     d->set(type, data);
   }
- 
+
   void TrackInfo::clear(){
     d->data.clear();
   }
-  
+
   QString TrackInfo::toString() const {
     QString out;
     bool ok;
@@ -234,10 +234,10 @@ namespace KCDDB
     return out;
   }
 
-  
+
   class CDInfoPrivate : public InfoBasePrivate {
   };
-  
+
   CDInfo::CDInfo()
   {
     d = new CDInfoPrivate();
@@ -315,7 +315,7 @@ namespace KCDDB
         TrackInfo& ti = track(trackNumber);
         ti.set(Title, ti.get(Title).toString().append(value));
       }
-      
+
       else if ( "EXTD" == key )
       {
         d->append(Comment, value);
@@ -336,30 +336,30 @@ namespace KCDDB
 
         QString extt = track(trackNumber).get(Comment).toString();
         track(trackNumber).set(Comment, extt+value );
-      
+
       }
       else if ( "T" == key.left( 1 ))
       {
         // Custom Track data
-        uint trackNumber = key.mid( key.find('_')+1 ).toUInt();
+        uint trackNumber = key.mid( key.indexOf('_')+1 ).toUInt();
         checkTrack( trackNumber );
-        
+
         QString data = QString("^T.*_%1$").arg(trackNumber);
-        if  ( key.find( data ) )
+        if  ( key.indexOf( data ) )
         {
-          QString k = key.mid(1, key.find('_')-1);
+          QString k = key.mid(1, key.indexOf('_')-1);
           TrackInfo& ti = track(trackNumber);
           ti.set( k, ti.get(k).toString().append(value) );
         }
       }
-      else if (key.find("^.*$" ))
+      else if (key.contains(QRegExp( "^.*$" ) ))
       {
         // Custom Disk data
         d->append( key, value );
       }
     }
 
-    int slashPos = dtitle.find('/');
+    int slashPos = dtitle.indexOf('/');
 
     if (-1 == slashPos)
     {
@@ -376,7 +376,7 @@ namespace KCDDB
     bool isSampler = true;
     for (TrackInfoList::Iterator it = trackInfoList.begin(); it != trackInfoList.end(); ++it)
     {
-      if ((*it).get(Title).toString().find(" / ") == -1)
+      if (!(*it).get(Title).toString().contains(" / "))
       {
         isSampler = false;
       }
@@ -385,7 +385,7 @@ namespace KCDDB
     {
       if (isSampler)
       {
-        int delimiter = (*it).get(Title).toString().find(" / ");
+        int delimiter = (*it).get(Title).toString().indexOf(" / ");
         (*it).set(Artist, (*it).get(Title).toString().left(delimiter));
         (*it).set(Title, (*it).get(Title).toString().mid(delimiter + 3));
       }
@@ -428,7 +428,7 @@ namespace KCDDB
       s += d->createLine("DGENRE", "");
     else
       s += d->createLine("DGENRE",get(Genre).toString());
-    
+
     for (int i = 0; i < trackInfoList.count(); ++i){
       QString trackTitle = trackInfoList[i].get(Title).toString();
       QString trackArtist = trackInfoList[i].get(Artist).toString();
@@ -437,12 +437,12 @@ namespace KCDDB
       else
         s += d->createLine(QString("TTITLE%1").arg(i), trackTitle);
     }
-    
+
     s += d->createLine(QString("EXTD"), get(Comment).toString());
-    
+
     for (int i = 0; i < trackInfoList.count(); ++i)
       s += d->createLine(QString("EXTT%1").arg(i), trackInfoList[i].get(Comment).toString());
-    
+
     if (submit)
     {
       s += d->createLine("PLAYORDER", "");
@@ -450,14 +450,14 @@ namespace KCDDB
     }
 
     s += d->createLine("PLAYORDER", get("playorder").toString() );
-    
+
     // Custom track data
     for (int i = 0; i < trackInfoList.count(); ++i)
     {
       QStringList lines = QStringList::split('\n', trackInfoList[i].toString(), true);
       for (QStringList::iterator it = lines.begin(); it != lines.end(); ++it)
         if(!(*it).isEmpty())
-          s += d->createLine((*it).mid(0,(*it).find('=')), (*it).mid((*it).find('=')+1) );
+          s += d->createLine((*it).mid(0,(*it).indexOf('=')), (*it).mid((*it).indexOf('=')+1) );
     }
 
     QStringList cddbKeywords;
@@ -481,10 +481,10 @@ namespace KCDDB
       }
       ++i;
     }
-    
+
     return s;
   }
-    
+
   QVariant CDInfo::get(Type type) const {
     return d->get(type);
   }
@@ -500,8 +500,8 @@ namespace KCDDB
   void CDInfo::set(Type type, const QVariant &data) {
     d->set(type, data);
   }
- 
-    
+
+
     void
   CDInfo::checkTrack( int trackNumber )
   {
@@ -538,7 +538,7 @@ namespace KCDDB
     checkTrack( trackNumber );
     return trackInfoList[trackNumber];
   }
-    
+
     TrackInfo
   CDInfo::track( int trackNumber ) const
   {
@@ -550,7 +550,7 @@ namespace KCDDB
       return TrackInfo();
     }
   }
-    
+
     int
   CDInfo::numberOfTracks() const
   {
