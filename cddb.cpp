@@ -71,7 +71,7 @@ namespace KCDDB
 
     id = ( ( id % 255 ) << 24 ) | ( l << 8 ) | numTracks;
 
-    return QString::number( id, 16 ).rightJustify( 8, '0' );
+    return QString::number( id, 16 ).rightJustified( 8, '0' );
   }
 
     QString

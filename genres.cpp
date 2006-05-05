@@ -96,7 +96,7 @@ KCDDB::Genres::Genres()
 
 const QString KCDDB::Genres::cddb2i18n(const QString &genre) const
 {
-    QString userDefinedGenre = genre.stripWhiteSpace();
+    QString userDefinedGenre = genre.trimmed();
     int index = m_cddb.findIndex(userDefinedGenre);
     if (index != -1)
     {
@@ -110,7 +110,7 @@ const QString KCDDB::Genres::cddb2i18n(const QString &genre) const
 
 const QString KCDDB::Genres::i18n2cddb(const QString &genre) const
 {
-    QString userDefinedGenre = genre.stripWhiteSpace();
+    QString userDefinedGenre = genre.trimmed();
     int index = m_i18n.findIndex(userDefinedGenre);
     if (index != -1)
     {

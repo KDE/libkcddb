@@ -29,7 +29,7 @@
       <default>HTTP</default>
     </entry>
     <entry name="cacheLocations" type="PathList">
-      <default code="true">QStringList(QDir::homeDirPath()+"/.cddb/")</default>
+      <default code="true">QStringList(QDir::homePath()+"/.cddb/")</default>
     </entry>
   </group>
   <group name="Submit">

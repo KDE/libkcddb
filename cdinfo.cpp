@@ -294,7 +294,7 @@ namespace KCDDB
         continue;
       }
 
-      QString key = tokenList[0].stripWhiteSpace();
+      QString key = tokenList[0].trimmed();
       QString value;
       if (2 != tokenList.count())
       {
@@ -302,7 +302,7 @@ namespace KCDDB
           continue;
       }
       else
-        value = d->unescape ( tokenList[1].stripWhiteSpace() );
+        value = d->unescape ( tokenList[1].trimmed() );
 
       if ( "DTITLE" == key )
       {
@@ -369,8 +369,8 @@ namespace KCDDB
     }
     else
     {
-      set(Artist, dtitle.left(slashPos).stripWhiteSpace());
-      set(Title, dtitle.mid(slashPos + 1).stripWhiteSpace());
+      set(Artist, dtitle.left(slashPos).trimmed());
+      set(Title, dtitle.mid(slashPos + 1).trimmed());
     }
 
     bool isSampler = true;

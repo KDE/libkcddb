@@ -85,16 +85,16 @@ namespace KCDDB
 
   void CDInfoDialog::setInfo( const KCDDB::CDInfo &info, KCDDB::TrackOffsetList &trackStartFrames )
   {
-      m_artist->setText(info.get(Artist).toString().stripWhiteSpace());
-      m_title->setText(info.get(Title).toString().stripWhiteSpace());
+      m_artist->setText(info.get(Artist).toString().trimmed());
+      m_title->setText(info.get(Title).toString().trimmed());
       m_category->setCurrentText(m_categories.cddb2i18n(info.get(Category).toString()));
 
       // Make sure the revision is set before the genre to allow the genreChanged() handler to fire.
       m_revision->setText(QString::number(info.get("revision").toInt()));
       m_genre->setCurrentText(m_genres.cddb2i18n(info.get(Genre).toString()));
       m_year->setValue(info.get(Year).toInt());
-      m_comment->setText(info.get(Comment).toString().stripWhiteSpace());
-      m_id->setText(info.get("discid").toString().stripWhiteSpace());
+      m_comment->setText(info.get(Comment).toString().trimmed());
+      m_id->setText(info.get("discid").toString().trimmed());
 
       // Now do the individual tracks.
       unsigned tracks = info.numberOfTracks();
@@ -140,21 +140,21 @@ namespace KCDDB
   {
       KCDDB::CDInfo info;
 
-      info.set(Artist, m_artist->text().stripWhiteSpace());
-      info.set(Title, m_title->text().stripWhiteSpace());
+      info.set(Artist, m_artist->text().trimmed());
+      info.set(Title, m_title->text().trimmed());
       info.set(Category, m_categories.i18n2cddb(m_category->currentText()));
       info.set(Genre, m_genres.i18n2cddb(m_genre->currentText()));
       info.set(Year, m_year->value());
-      info.set(Comment, m_comment->text().stripWhiteSpace());
-      info.set("revision", m_revision->text().stripWhiteSpace().toUInt());
-      info.set("discid", m_id->text().stripWhiteSpace());
+      info.set(Comment, m_comment->text().trimmed());
+      info.set("revision", m_revision->text().trimmed().toUInt());
+      info.set("discid", m_id->text().trimmed());
       int i=0;
       for (Q3ListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
       {
           TrackInfo& track = info.track(i);
-          track.set(Artist,item->text(TRACK_ARTIST).stripWhiteSpace());
-          track.set(Title,item->text(TRACK_TITLE).stripWhiteSpace());
-          track.set(Comment,item->text(TRACK_COMMENT).stripWhiteSpace());
+          track.set(Artist,item->text(TRACK_ARTIST).trimmed());
+          track.set(Title,item->text(TRACK_TITLE).trimmed());
+          track.set(Comment,item->text(TRACK_COMMENT).trimmed());
           i++;
           // FIXME KDE4: handle track lengths here too, once KCDDBInfo::CDInfo is updated.
       }
@@ -166,7 +166,7 @@ namespace KCDDB
   void CDInfoDialog::artistChanged( const QString &newArtist )
   {
       // Enable special handling of compilations.
-      if (newArtist.stripWhiteSpace().compare("Various")) {
+      if (newArtist.trimmed().compare("Various")) {
           m_multiple->setChecked(false);
       } else {
           m_multiple->setChecked(true);
@@ -178,7 +178,7 @@ namespace KCDDB
       // Disable changes to category if the version number indicates that a record
       // is already in the database, or if the genre is poorly set. The latter
       // condition also provides a "back-door" override.
-      m_category->setEnabled((m_revision->text().stripWhiteSpace().toUInt() < 1) ||
+      m_category->setEnabled((m_revision->text().trimmed().toUInt() < 1) ||
                               (newGenre.compare("Unknown") == 0));
   }
 
@@ -226,10 +226,10 @@ namespace KCDDB
       QStringList songTitles;
       for (Q3ListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
       {
-          QString title = item->text(TRACK_ARTIST).stripWhiteSpace();
+          QString title = item->text(TRACK_ARTIST).trimmed();
           if (!title.isEmpty())
               title.append(SEPARATOR);
-          title.append(item->text(TRACK_TITLE).stripWhiteSpace());
+          title.append(item->text(TRACK_TITLE).trimmed());
           songTitles << title;
       }
 
