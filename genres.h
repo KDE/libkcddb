@@ -10,6 +10,7 @@
 
 #include <qstring.h>
 #include <qstringlist.h>
+#include <kdemacros.h>
 
 namespace KCDDB
 {
@@ -17,7 +18,7 @@ namespace KCDDB
      * The Genre is completely arbitrary. But we follow kaudiocreator's cue
      * and make life easy for people.
      */
-    class Genres
+    class KDE_EXPORT Genres
     {
     public:
         Genres();
