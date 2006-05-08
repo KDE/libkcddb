@@ -2,6 +2,7 @@
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002-2005 Benjamin Meyer <ben-devel@meyerhome.net>
   Copyright (C) 2002-2004 Nadeem Hasan <nhasan@nadmm.com>
+  Copyright (C) 2006 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -88,7 +89,7 @@ namespace KCDDB
         QVariant
       get(const QString& type)
       {
-        return data[type.upper()];
+        return data[type.toUpper()];
       }
         QVariant
       get(Type type)
@@ -120,12 +121,12 @@ namespace KCDDB
           kDebug(60010) << "Error: custom cdinfo::set data can not start with T and contain a _" << endl;
           return;
         }
-        if(type.upper() == "DTITLE"){
+        if(type.toUpper() == "DTITLE"){
           kDebug(60010) << "Error: type: DTITLE is reserved and can not be set." << endl;
           return;
         }
 
-        data[type.upper()] = d;
+        data[type.toUpper()] = d;
       }
         void
       set(Type type, const QVariant &d)
@@ -227,7 +228,7 @@ namespace KCDDB
     QMap<QString, QVariant>::const_iterator i = d->data.constBegin();
     while (i != d->data.constEnd()) {
         if(i.key() != "COMMENT" && i.key() != "TITLE" && i.key() != "ARTIST" && i.key() != "TRACKNUMBER") {
-          out += QString("T%1_%2=%3\n").arg(i.key()).arg(track).arg( i.data().toString());
+          out += d->createLine(QString("T%1_%2").arg(i.key()).arg(track),i.value().toString());
         }
         ++i;
     }
@@ -266,7 +267,7 @@ namespace KCDDB
     bool
   CDInfo::load(const QString & string)
   {
-    return load(QStringList::split('\n', string));
+    return load(string.split('\n',QString::SkipEmptyParts));
   }
 
     bool
@@ -280,35 +281,35 @@ namespace KCDDB
     QStringList::ConstIterator it = lineList.begin();
 
     QRegExp rev("# Revision: (\\d+)");
+    QRegExp eol("[\r\n]");
 
     while ( it != lineList.end() )
     {
       QString line(*it);
+      line.replace(eol,"");
       ++it;
 
-      QStringList tokenList = KStringHandler::perlSplit('=', line, 2);
-
-      if (rev.search(line) != -1)
+      if (rev.indexIn(line) != -1)
       {
         set("revision", rev.cap(1).toUInt());
         continue;
       }
 
-      QString key = tokenList[0].trimmed();
-      QString value;
+      QStringList tokenList = KStringHandler::perlSplit('=', line, 2);
+
       if (2 != tokenList.count())
       {
-        if (!key.startsWith("EXT"))
-          continue;
+        continue;
       }
-      else
-        value = d->unescape ( tokenList[1].trimmed() );
+
+      QString key = tokenList[0].trimmed();
+      QString value = d->unescape ( tokenList[1] );
 
       if ( "DTITLE" == key )
       {
         dtitle += value;
       }
-      else if ( "TTITLE" == key.left( 6 ) )
+      else if ( key.startsWith("TTITLE") )
       {
         uint trackNumber = key.mid(6).toUInt();
 
@@ -328,7 +329,7 @@ namespace KCDDB
       {
         set(Year, value);
       }
-      else if ( "EXTT" == key.left( 4 ) )
+      else if ( key.startsWith("EXTT") )
       {
         uint trackNumber = key.mid( 4 ).toUInt();
 
@@ -336,30 +337,29 @@ namespace KCDDB
 
         QString extt = track(trackNumber).get(Comment).toString();
         track(trackNumber).set(Comment, extt+value );
-
       }
-      else if ( "T" == key.left( 1 ))
+      else if ( key.startsWith("T") )
       {
         // Custom Track data
         uint trackNumber = key.mid( key.indexOf('_')+1 ).toUInt();
         checkTrack( trackNumber );
 
-        QString data = QString("^T.*_%1$").arg(trackNumber);
-        if  ( key.indexOf( data ) )
+        QRegExp data(QString("^T.*_%1$").arg(trackNumber));
+        if  ( key.contains( data ) )
         {
           QString k = key.mid(1, key.indexOf('_')-1);
           TrackInfo& ti = track(trackNumber);
           ti.set( k, ti.get(k).toString().append(value) );
         }
       }
-      else if (key.contains(QRegExp( "^.*$" ) ))
+      else
       {
         // Custom Disk data
         d->append( key, value );
       }
     }
 
-    int slashPos = dtitle.indexOf('/');
+    int slashPos = dtitle.indexOf(" / ");
 
     if (-1 == slashPos)
     {
@@ -370,7 +370,7 @@ namespace KCDDB
     else
     {
       set(Artist, dtitle.left(slashPos).trimmed());
-      set(Title, dtitle.mid(slashPos + 1).trimmed());
+      set(Title, dtitle.mid(slashPos + 3).trimmed());
     }
 
     bool isSampler = true;
@@ -453,12 +453,7 @@ namespace KCDDB
 
     // Custom track data
     for (int i = 0; i < trackInfoList.count(); ++i)
-    {
-      QStringList lines = QStringList::split('\n', trackInfoList[i].toString(), true);
-      for (QStringList::iterator it = lines.begin(); it != lines.end(); ++it)
-        if(!(*it).isEmpty())
-          s += d->createLine((*it).mid(0,(*it).indexOf('=')), (*it).mid((*it).indexOf('=')+1) );
-    }
+      s += trackInfoList[i].toString();
 
     QStringList cddbKeywords;
     cddbKeywords
@@ -477,7 +472,7 @@ namespace KCDDB
     while (i != d->data.constEnd()){
       if (!cddbKeywords.contains(i.key()))
       {
-        s+= d->createLine(QString("%1").arg(i.key()), i.data().toString());
+        s+= d->createLine(i.key(), i.value().toString());
       }
       ++i;
     }

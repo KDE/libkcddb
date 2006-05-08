@@ -21,6 +21,8 @@
 
 #include "httpsubmit.h"
 
+class KJob;
+
 namespace KCDDB
 {
   class AsyncHTTPSubmit : public HTTPSubmit
@@ -35,7 +37,7 @@ namespace KCDDB
     protected:
       virtual Result runJob(KIO::Job* job);
     private slots:
-      void slotFinished(KIO::Job*);
+      void slotFinished(KJob*);
   } ;
 }
 

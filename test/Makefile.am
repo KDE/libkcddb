@@ -45,7 +45,7 @@ musicbrainztest_LDADD = $(top_builddir)/libkcddb/libkcddb.la -lQtTest_debug
 
 utf8test_SOURCES = utf8test.cpp
 utf8test_LDFLAGS = $(all_libraries)
-utf8test_LDADD = $(top_builddir)/libkcddb/libkcddb.la
+utf8test_LDADD = $(top_builddir)/libkcddb/libkcddb.la -lQtTest_debug
 
 sitestest_SOURCES = sitestest.cpp
 sitestest_LDFLAGS = $(all_libraries)

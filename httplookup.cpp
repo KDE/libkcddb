@@ -148,7 +148,7 @@ namespace KCDDB
 
               break;
           }
-          
+
         }
 
         break;
@@ -170,7 +170,7 @@ namespace KCDDB
 
         return;
 
-        break; 
+        break;
 
       default:
 

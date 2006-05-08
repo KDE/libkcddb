@@ -34,13 +34,20 @@ namespace KCDDB
    */
   enum Type
   {
-    Title,
-    Comment,
-    Artist,
-    Genre,
-    Year,
-    Length,
-    Category
+    Title, /**< The title of the track or CD */
+    Comment, /**< A comment for the track or CD */
+    Artist, /**< The artist of the track or CD */
+    Genre, /**< The genre of the track or CD */
+    Year, /**< The year the cd or track was produced
+               By default, the year of the track is the
+               same as for the whole cd
+               @todo Doesn't do that for tracks right now.*/
+    Length, /**< The length of a track or a full CD
+                 @todo In what unit? */
+    Category /**< The freedb category of the entry.
+                  Needs to be one of: blues, classical,
+                  country, data, fold, jazz, misc, newage,
+                  reggae, rock, soundtrack */
   };
 
   /**
@@ -49,12 +56,12 @@ namespace KCDDB
   class KDE_EXPORT TrackInfo
   {
     public:
-    
+
       TrackInfo();
       virtual ~TrackInfo();
       TrackInfo(const TrackInfo& clone);
       TrackInfo& operator=(const TrackInfo& clone);
-      
+
       /**
        * Get data for type that has been assigned to this track.
        * @p type is case insensitive.
@@ -65,7 +72,7 @@ namespace KCDDB
        * Helper function that calls type with the common name
        */
       QVariant get(Type type) const;
-      
+
       /**
        * Set any data from this track.
        * @p type is case insensitive.
@@ -84,12 +91,12 @@ namespace KCDDB
        * tracknumber must be assigned before calling this.
        */
       QString toString() const;
-      
+
       /**
        * internal
        */
       void clear();
-      
+
     private:
       class TrackInfoPrivate *d;
 
@@ -110,7 +117,7 @@ namespace KCDDB
     public:
       CDInfo();
       virtual ~CDInfo();
-      
+
       CDInfo(const CDInfo& clone);
       CDInfo& operator=(const CDInfo& clone);
 
@@ -130,7 +137,7 @@ namespace KCDDB
        * internal
        */
       void clear();
-      
+
       /**
        * @return true if the cd information is valid
        */
@@ -138,10 +145,10 @@ namespace KCDDB
 
       /**
        * @param submit If submit is true only returns CDDB compatible information
-       * @return a string containing all of the CD's information. 
+       * @return a string containing all of the CD's information.
        */
       QString toString(bool submit=false) const;
-      
+
       /**
        * Get data for type that has been assigned to this disc.
        * @p type is case insensitive.
@@ -152,7 +159,7 @@ namespace KCDDB
        * Helper function that calls type with the common name
        */
       QVariant get(Type type) const;
-      
+
       /**
        * Set any data from this disc.
        * @p type is case insensitive.
@@ -182,13 +189,13 @@ namespace KCDDB
        * Returns number of tracks on CD
        */
       int numberOfTracks() const;
-      
+
     protected:
       /**
        * Checks to make sure that trackNumber exists
        */
       void checkTrack( int trackNumber );
-     
+
      private:
       class CDInfoPrivate *d;
       TrackInfoList trackInfoList;

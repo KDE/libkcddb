@@ -37,6 +37,7 @@ void CDInfoTest::testLongLines()
         str.fill('A',10*i);
         info.set(Title, str);
         str.fill('B',10*i);
+        str.append('\n');
         info.set(Comment, str);
         str.fill('C',10*i);
         info.set(Artist, str);
@@ -45,9 +46,13 @@ void CDInfoTest::testLongLines()
         str.fill('E',10*i);
         info.set(Length, str);
         str.fill('F',10*i);
+        str.append('\n');
         info.set("custom", str);
         str.fill('G',10*i);
         tinfo.set(Title, str);
+        str.fill('H',10*i);
+        str.append('\n');
+        tinfo.set("custom", str);
         QString data = info.toString();
 
         CDInfo info2;
@@ -55,6 +60,7 @@ void CDInfoTest::testLongLines()
         str.fill('A',10*i);
         QCOMPARE(info2.get(Title).toString(), str);
         str.fill('B',10*i);
+        str.append('\n');
         QCOMPARE(info2.get(Comment).toString(), str);
         str.fill('C',10*i);
         QCOMPARE(info2.get(Artist).toString(), str);
@@ -66,11 +72,15 @@ void CDInfoTest::testLongLines()
         str.fill('E',10*i);
         QCOMPARE(info2.get(Length).toString(), str);
         str.fill('F',10*i);
+        str.append('\n');
         QCOMPARE(info2.get("custom").toString(), str);
         str.fill('G',10*i);
         QCOMPARE(info2.track(0).get(Title).toString(), str);
         const CDInfo info3(info2);
         QCOMPARE(info3.track(0).get(Title).toString(), str);
+        str.fill('H',10*i);
+        str.append('\n');
+        QCOMPARE(info2.track(0).get("custom").toString(), str);
     }
 }
 

@@ -1,7 +1,5 @@
-#ifndef ASYNCSMTPSUBMIT_H
-#define ASYNCSMTPSUBMIT_H
 /*
-  Copyright (C) 2003-2004 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2006 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -19,33 +17,16 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include "smtpsubmit.h"
+#ifndef UTF8TEST_H
+#define UTF8TEST_H
 
-class KJob;
-namespace KIO
-{
-  class Job;
-}
+#include <qobject.h>
 
-namespace KCDDB
+class Utf8Test : public QObject
 {
-  class AsyncSMTPSubmit : public SMTPSubmit
-  {
     Q_OBJECT
+  private slots:
+    void testLookup();
+};
 
-    public:
-      AsyncSMTPSubmit(const QString& hostname, uint port, const QString& username,
-                      const QString& from, const QString& to);
-      virtual ~AsyncSMTPSubmit();
-
-    signals:
-      void finished( CDDB::Result );
-    protected slots:
-      void slotDone( KJob * );
-    protected:
-      virtual Result runJob(KIO::Job* job);
-  } ;
-}
-
-#endif // ASYNCSMTPSUBMIT_H
-// vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1
+#endif

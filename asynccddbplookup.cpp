@@ -26,7 +26,7 @@
 namespace KCDDB
 {
   AsyncCDDBPLookup::AsyncCDDBPLookup()
-    : CDDBPLookup(), 
+    : CDDBPLookup(),
       state_(Idle)
   {
 
@@ -45,7 +45,7 @@ namespace KCDDB
   )
   {
     socket_ = new KNetwork::KBufferedSocket(hostname,QString::number(port));
-    
+
     socket_->setBlocking( false );
 
     connect (socket_, SIGNAL(gotError(int)), SLOT(slotGotError(int)));
@@ -73,7 +73,7 @@ namespace KCDDB
   AsyncCDDBPLookup::slotGotError(int error)
   {
     state_ = Idle;
-    
+
     if ( error == KNetwork::KSocketBase::LookupFailure )
       emit finished( HostNotFound );
     else if ( error == KNetwork::KSocketBase::ConnectionTimedOut ||
@@ -206,11 +206,12 @@ namespace KCDDB
 
         state_ = Idle;
 
+        char c;
         while ( socket_->bytesAvailable() )
-          socket_->getch();
+          socket_->getChar(&c);
 
         close();
- 
+
         emit finished( result_ );
 
         break;
@@ -220,7 +221,7 @@ namespace KCDDB
         break;
     }
   }
-    
+
     QString
   AsyncCDDBPLookup::readLine()
   {

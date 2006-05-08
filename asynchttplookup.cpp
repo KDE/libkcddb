@@ -118,7 +118,7 @@ namespace KCDDB
   }
 
     void
-  AsyncHTTPLookup::slotResult( KIO::Job *job )
+  AsyncHTTPLookup::slotResult( KJob *job )
   {
     if ( 0 != job->error() )
     {
@@ -143,8 +143,8 @@ namespace KCDDB
 
     connect( job, SIGNAL( data( KIO::Job *, const QByteArray & ) ),
           SLOT( slotData( KIO::Job *, const QByteArray & ) ) );
-    connect( job, SIGNAL( result( KIO::Job * ) ),
-          SLOT( slotResult( KIO::Job * ) ) );
+    connect( job, SIGNAL( result( KJob * ) ),
+          SLOT( slotResult( KJob * ) ) );
 
     return Success;
   }

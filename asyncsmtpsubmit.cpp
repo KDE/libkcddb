@@ -21,6 +21,7 @@
 #include "cdinfo.h"
 #include <qdatastream.h>
 #include <kdebug.h>
+#include <kio/job.h>
 
 namespace KCDDB
 {
@@ -38,13 +39,13 @@ namespace KCDDB
 
   CDDB::Result AsyncSMTPSubmit::runJob(KIO::Job* job)
   {
-    connect( job, SIGNAL( result( KIO::Job* ) ),
-               this, SLOT(slotDone( KIO::Job* ) ) ); 
+    connect( job, SIGNAL( result( KJob* ) ),
+               this, SLOT(slotDone( KJob* ) ) );
 
     return Success;
   }
 
-  void AsyncSMTPSubmit::slotDone( KIO::Job* job )
+  void AsyncSMTPSubmit::slotDone( KJob* job )
   {
       kDebug(60010) << k_funcinfo << endl;
       if ( job->error()==0 )

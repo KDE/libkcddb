@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2004-2005 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2004-2006 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -17,24 +17,21 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <kapplication.h>
-#include <kcmdlineargs.h>
-#include <kdebug.h>
-
+#include <qtest_kde.h>
 #include "libkcddb/client.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
+#include "utf8test.h"
 
-  int
-main(int argc, char ** argv)
+void Utf8Test::testLookup()
 {
-  KCmdLineArgs::init(argc, argv, "libkcddb_test", "", "", "");
-
-  KApplication app;
-
   using namespace KCDDB;
 
   Client c;
+  c.config().setHostname("freedb.freedb.org");
+  c.config().setPort(80);
+  c.config().setCachePolicy(Cache::Ignore);
+  c.config().setLookupTransport(Lookup::HTTP);
 
   TrackOffsetList list;
 
@@ -43,26 +40,52 @@ main(int argc, char ** argv)
   << 61408
   << 177675;
 
-  kDebug() << "Stuff to send to server:" << endl;
-
   kDebug()
     << CDDB::trackOffsetListToId(list)
     << " "
     //<< trackOffsetListToString(list)
     << endl;
 
-  CDDB::Result r = c.lookup(list);
-
-  kDebug() << "Client::lookup gave : " << CDDB::resultToString(r) << endl;
+  c.lookup(list);
 
   CDInfoList response = c.lookupResponse();
 
-  kDebug() << "Client::lookup returned : " << response.count() << " entries"
-    << endl;
+  CDInfoList::ConstIterator it;
 
-  CDInfo i( c.lookupResponse().first() );
+  bool hasRunTest = false;
 
-  kDebug() << "First CDInfo had title: " << i.get("title").toString() << endl;
-  
-  return 0;
+  for (it = response.begin(); it != response.end(); ++it)
+  {
+    CDInfo i(*it);
+
+    if (i.get("discid") == "13093f02" && i.get(Category) == "blues")
+    {
+      // If revision doesn't match, test probably needs to be updated
+      // See: http://www.freedb.org/freedb/blues/13093f02 for updated data
+      QCOMPARE(i.get("revision").toInt(), 3);
+
+      QString artist = QString::fromUtf8("神城麻郁(浪川大輔)/宮藤深衣奈(中原麻衣)/小野寺樺恋(清水愛)/織部椿(根谷美智子)/島崎康生(鈴村健一)/風見みずほ(井上喜久子)/森野苺(田村ゆかり)/四道跨(三浦祥朗)/四道晴子(新谷良子)/佐川秋那(浅野真澄)/真下双葉(佐久間紅美)/菊池浩美(進藤尚美)/草薙桂(保志総一郎)/縁川小石(川澄綾子)/間雲漂介(岩田光央)/水澄楓(大原さやか)/まりえ(金田朋子)/山田政臣(杉田智和)神城麻郁(浪川大輔)/宮藤深衣奈(中原麻衣)/小野寺樺恋(清水愛)/織部椿(根谷美智子)/島崎康生(鈴村健一)/風見みずほ(井上喜久子)/森野苺(田村ゆかり)/四道跨(三Y祥朗)/四道晴子(新谷良子)/佐川秋那(浅野真澄)/真下双葉(佐久間紅美)/菊池浩美(進藤尚美)/草薙桂(保志総一郎)/縁川小石(川澄綾子)/間雲漂介(岩田光央)/水澄楓(大原さやか)/まりえ(金田朋子)/山田政臣(杉田智和)");
+
+      QCOMPARE(i.get(Artist).toString(),artist);
+      QCOMPARE(i.get(Title).toString(),QString::fromUtf8("みずほ先生とはちみつツインズ ドラマアルバム2時間目「百合百合ツインズ」"));
+      QCOMPARE(i.get(Genre).toString(),QString("Anime"));
+      QCOMPARE(i.get(Year).toInt(),2004);
+      QCOMPARE(i.track(0).get(Title).toString(),QString::fromUtf8("第EX話 おねがい☆全員集合"));
+      QCOMPARE(i.track(1).get(Title).toString(),QString::fromUtf8("エピローグ"));
+      QCOMPARE(i.track(0).get(Comment).toString(),QString(""));
+      QCOMPARE(i.track(1).get(Comment).toString(),QString(""));
+      for (int j=0; j <= 1; j++)
+      {
+        QCOMPARE(i.track(j).get(Artist).toString(),artist);
+      }
+
+      hasRunTest = true;
+    }
+  }
+
+  QVERIFY(hasRunTest);
 }
+
+QTEST_KDEMAIN(Utf8Test, NoGUI);
+
+#include "utf8test.moc"

@@ -90,7 +90,7 @@ namespace KCDDB
 
     return result;
   }
-  
+
     Mirror
   Sites::parseLine(const QString& line)
   {
@@ -111,7 +111,7 @@ namespace KCDDB
 
       if (m.transport == Lookup::HTTP && rexp.cap(4) != "/~cddb/cddb.cgi")
         kWarning() << "Non default urls are not supported for http" << endl;
-     
+
       m.description = rexp.cap(5);
     }
 

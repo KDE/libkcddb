@@ -23,6 +23,8 @@
 
 #include "httplookup.h"
 
+class KJob;
+
 namespace KCDDB
 {
   class AsyncHTTPLookup : public HTTPLookup
@@ -48,7 +50,7 @@ namespace KCDDB
       void requestCDInfoForMatch();
 
       void slotData( KIO::Job *, const QByteArray & );
-      void slotResult( KIO::Job * );
+      void slotResult( KJob * );
 
     protected:
       virtual Result fetchURL();

@@ -53,7 +53,7 @@ if(KDE4_BUILD_TESTS)
     set(utf8test_SRCS utf8test.cpp )
     kde4_automoc(${utf8test_SRCS})
     kde4_add_executable(utf8test RUN_UNINSTALLED ${utf8test_SRCS})
-    target_link_libraries(utf8test  ${KDE4_KDECORE_LIBS} kcddb )
+    target_link_libraries(utf8test  ${KDE4_KDECORE_LIBS} kcddb QtTest_debug )
 
     set(musicbrainztest_SRCS musicbrainztest.cpp )
     kde4_automoc(${musicbrainztest_SRCS})

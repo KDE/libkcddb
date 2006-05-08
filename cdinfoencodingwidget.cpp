@@ -51,9 +51,9 @@ namespace KCDDB
   void CDInfoEncodingWidget::slotEncodingChanged(const QString& encoding)
   {
     KCharsets* charsets = KGlobal::charsets();
-    
+
     QTextCodec* codec = charsets->codecForName(charsets->encodingForName(encoding));
-    
+
     songsBox->clear();
     QStringList newTitles;
 
@@ -63,7 +63,7 @@ namespace KCDDB
 
     songsBox->clear();
     songsBox->insertStringList(newTitles);
-      
+
     titleLabel->setText(i18nc("artist - cdtitle", "%1 - %2",
           codec->toUnicode(m_artist.latin1()), codec->toUnicode(m_title.latin1())));
   }

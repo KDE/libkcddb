@@ -23,7 +23,7 @@ libkcddb_la_SOURCES = \
 
 libkcddb_la_LDFLAGS = $(all_libraries) -version-info 1:0:0 -no-undefined
 libkcddb_la_LIBADD  = $(LIB_KDECORE) $(LIB_KIO) $(mb_lib)
-    
+
 
 METASOURCES = AUTO
 
@@ -35,3 +35,5 @@ kcddbinclude_HEADERS = \
 
 
 kcddbconfig.lo: configbase.h
+
+include ../admin/Doxyfile.am

@@ -158,7 +158,7 @@ namespace KCDDB
         line = readLine();
       }
     }
- 
+
     return Success;
   }
 

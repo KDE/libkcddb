@@ -104,7 +104,7 @@ namespace KCDDB
     }
 
     kDebug(60010) << "WRITE: [" << line << "]" << endl;
-    QByteArray buf(line.utf8());
+    QByteArray buf(line.toUtf8());
     buf.append( '\n' );
 
     return socket_->writeBlock( buf.data(), buf.length() );

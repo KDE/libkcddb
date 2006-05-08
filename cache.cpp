@@ -37,7 +37,7 @@ namespace KCDDB
   {
     QDir dir( cacheDir );
     QString category(info.get(Category).toString());
-    
+
     if ( !dir.exists( category ) )
       dir.mkdir( category );
 
@@ -71,8 +71,8 @@ namespace KCDDB
           if ( f.exists() && f.open(QIODevice::ReadOnly) )
           {
               QTextStream ts(&f);
-              ts.setEncoding(QTextStream::UnicodeUTF8);
-              QString cddbData = ts.read();
+              ts.setCodec("UTF-8");
+              QString cddbData = ts.readAll();
               f.close();
               CDInfo info;
               info.load(cddbData);
@@ -91,7 +91,7 @@ namespace KCDDB
     void
   Cache::store(const CDInfoList& list, const Config& c)
   {
-    CDInfoList::ConstIterator it=list.begin(); 
+    CDInfoList::ConstIterator it=list.begin();
     while (it!=list.end())
     {
       CDInfo info( *it );
@@ -116,7 +116,7 @@ namespace KCDDB
     if ( f.open(QIODevice::WriteOnly) )
     {
       QTextStream ts(&f);
-      ts.setEncoding(QTextStream::UnicodeUTF8);
+      ts.setCodec("UTF-8");
       ts << info.toString();
       f.close();
     }

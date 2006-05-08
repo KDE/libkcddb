@@ -277,7 +277,7 @@ namespace KCDDB
                   SIGNAL(finished( CDDB::Result ) ),
                   SLOT( slotSubmitFinished( CDDB::Result ) ) );
         }
-        
+
         break;
       }
       case Submit::SMTP:
@@ -303,7 +303,7 @@ namespace KCDDB
         return CDDB::UnknownError;
         break;
     }
-    
+
     CDDB::Result r = cdInfoSubmit->submit( cdInfo, offsetList );
 
     if ( blockingMode() )
@@ -314,7 +314,7 @@ namespace KCDDB
 
     return r;
   }
-    
+
     void
   Client::store(const CDInfo &cdInfo)
   {

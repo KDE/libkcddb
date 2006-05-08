@@ -61,11 +61,11 @@ void SyncHTTPLookupTest::testLookup()
   {
     CDInfo i(*it);
 
-    if (i.get("discid") == "3e0c3a05" && i.get(Category) == "rock")
+    if (i.get("discid") == "3e0c3a05" && i.get(Category) == "misc")
     {
       // If revision doesn't match, test probably needs to be updated
-      // See: http://www.freedb.org/freedb/rock/3e0c3a05 for updated data
-      QCOMPARE(i.get("revision").toInt(), 10);
+      // See: http://www.freedb.org/freedb/misc/3e0c3a05 for updated data
+      QCOMPARE(i.get("revision").toInt(), 11);
 
       QCOMPARE(i.get(Artist).toString(),QString("Pink Floyd"));
       QCOMPARE(i.get(Title).toString(),QString("Atom Heart Mother"));
@@ -75,12 +75,12 @@ void SyncHTTPLookupTest::testLookup()
       QCOMPARE(i.track(1).get(Title).toString(),QString("If"));
       QCOMPARE(i.track(2).get(Title).toString(),QString("Summer '68"));
       QCOMPARE(i.track(3).get(Title).toString(),QString("Fat Old Sun"));
-      QCOMPARE(i.track(4).get(Title).toString(),QString::fromUtf8("Alan´s Psychedelic Breakfast"));
-      QCOMPARE(i.track(0).get(Comment).toString(),QString("ts Please\nf. Remergence"));
+      QCOMPARE(i.track(4).get(Title).toString(),QString("Alan's Psychedelic Breakfast"));
+      QCOMPARE(i.track(0).get(Comment).toString(),QString("(a) - Father's Shout; (b) - Breast Milky; (c) - Mother Fore; (d) - Funky Dung; (e) - Mind Your Throats Please; (f) - Remergence."));
       QCOMPARE(i.track(1).get(Comment).toString(),QString("Waters"));
       QCOMPARE(i.track(2).get(Comment).toString(),QString("Wright"));
       QCOMPARE(i.track(3).get(Comment).toString(),QString("Gilmour"));
-      QCOMPARE(i.track(4).get(Comment).toString(),QString("ide Up\nc. Morning Glory"));
+      QCOMPARE(i.track(4).get(Comment).toString(),QString("(a) - Rise And Shine; (b) - Subby Side Up; (c) - Morning Glory."));
       for (int j=0; j <= 4; j++)
       {
         QCOMPARE(i.track(j).get(Artist).toString(),QString("Pink Floyd"));

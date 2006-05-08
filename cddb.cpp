@@ -139,7 +139,7 @@ namespace KCDDB
     uint
   CDDB::statusCode( const QString & line )
   {
-    QStringList tokenList = QStringList::split( ' ', line );
+    QStringList tokenList = line.split(' ', QString::SkipEmptyParts );
 
     uint serverStatus = tokenList[ 0 ].toUInt();
 
