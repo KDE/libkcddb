@@ -24,9 +24,9 @@
 #include "libkcddb/lookup.h"
 
 #include <q3listbox.h>
-#include <qcombobox.h>
-#include <qspinbox.h>
-#include <qlineedit.h>
+#include <QComboBox>
+#include <QSpinBox>
+#include <QLineEdit>
 #include <qlist.h>
 #include <kfiledialog.h>
 #include <kapplication.h>
@@ -37,7 +37,7 @@
 #include <q3widgetstack.h>
 #include <kurlrequester.h>
 #include <q3buttongroup.h>
-#include <qcheckbox.h>
+#include <QCheckBox>
 
 CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
   : QWidget(parent)

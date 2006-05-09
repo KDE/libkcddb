@@ -22,7 +22,7 @@
 #ifndef KCDDB_CDDB_H
 #define KCDDB_CDDB_H
 
-#include <qstring.h>
+#include <QString>
 #include <qlist.h>
 
 #include <kdelibs_export.h>

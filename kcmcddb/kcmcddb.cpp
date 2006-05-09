@@ -18,14 +18,14 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include <qlayout.h>
-#include <qcheckbox.h>
-#include <qcombobox.h>
-#include <qspinbox.h>
-#include <qlineedit.h>
+#include <QLayout>
+#include <QCheckBox>
+#include <QComboBox>
+#include <QSpinBox>
+#include <QLineEdit>
 #include <qradiobutton.h>
 #include <q3listbox.h>
-#include <qlabel.h>
+#include <QLabel>
 #include <q3buttongroup.h>
 //Added by qt3to4:
 #include <QVBoxLayout>

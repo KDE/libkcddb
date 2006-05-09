@@ -25,7 +25,7 @@
 #include <qstringlist.h>
 #include <qlist.h>
 #include <kdemacros.h>
-#include <qvariant.h>
+#include <QVariant>
 
 namespace KCDDB
 {

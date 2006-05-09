@@ -20,10 +20,10 @@
 #include "sites.h"
 #include <kurl.h>
 #include <kio/netaccess.h>
-#include <qfile.h>
+#include <QFile>
 #include <QTextStream>
 #include <kdebug.h>
-#include <qregexp.h>
+#include <QRegExp>
 
 namespace KCDDB
 {

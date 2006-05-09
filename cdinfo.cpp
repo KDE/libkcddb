@@ -25,7 +25,7 @@
 
 #include "cdinfo.h"
 #include "client.h"
-#include <qmap.h>
+#include <QMap>
 
 namespace KCDDB
 {

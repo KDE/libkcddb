@@ -8,7 +8,7 @@
 #ifndef KCDDB_GENRES_H
 #define KCDDB_GENRES_H
 
-#include <qstring.h>
+#include <QString>
 #include <qstringlist.h>
 #include <kdemacros.h>
 

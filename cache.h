@@ -23,7 +23,7 @@
 #define KCDDB_CACHE_H
 
 #include <qpair.h>
-#include <qstring.h>
+#include <QString>
 
 #include "cdinfo.h"
 #include <kdemacros.h>

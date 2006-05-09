@@ -22,8 +22,8 @@
 #include <kdebug.h>
 #include <kstandarddirs.h>
 
-#include <qfile.h>
-#include <qdir.h>
+#include <QFile>
+#include <QDir>
 //Added by qt3to4:
 #include <QTextStream>
 

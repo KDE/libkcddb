@@ -8,7 +8,7 @@
 #ifndef KCDDB_CATEGORIES_H
 #define KCDDB_CATEGORIES_H
 
-#include <qstring.h>
+#include <QString>
 #include <qstringlist.h>
 
 namespace KCDDB
