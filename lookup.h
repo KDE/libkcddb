@@ -24,7 +24,7 @@
 
 #include "cddb.h"
 #include "cdinfo.h"
-#include <qobject.h>
+#include <QObject>
 #include <qpair.h>
 #include <qlist.h>
 

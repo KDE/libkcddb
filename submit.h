@@ -25,7 +25,7 @@
 
 #include "cddb.h"
 #include "cdinfo.h"
-#include <qobject.h>
+#include <QObject>
 
 namespace KIO
 {

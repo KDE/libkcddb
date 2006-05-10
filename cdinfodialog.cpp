@@ -22,7 +22,7 @@
 #include <qtextcodec.h>
 #include <kdebug.h>
 #include <kdialogbase.h>
-#include <qdatetime.h>
+#include <QDateTime>
 #include <kglobal.h>
 #include <kcharsets.h>
 

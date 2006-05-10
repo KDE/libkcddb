@@ -20,7 +20,7 @@
 #ifndef MUSICBRAINZTEST_H
 #define MUSICBRAINZTEST_H
 
-#include <qobject.h>
+#include <QObject>
 
 class MusicBrainzTest : public QObject
 {
