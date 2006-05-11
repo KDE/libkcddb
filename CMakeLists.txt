@@ -13,9 +13,10 @@ else(MUSICBRAINZ_FOUND)
     set(HAVE_MUSICBRAINZ 0)
     set(libmusicbrainz_SRCS)
 endif(MUSICBRAINZ_FOUND)
+
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-musicbrainz.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-musicbrainz.h )
 
-include_directories(${CMAKE_BINARY_DIR}/libkcddb/ ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} )
+include_directories(${CMAKE_BINARY_DIR}/libkcddb/ )
 
 
 ########### next target ###############
