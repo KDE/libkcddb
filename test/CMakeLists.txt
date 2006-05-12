@@ -1,4 +1,3 @@
-kde4_header()
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. ${CMAKE_CURRENT_BINARY_DIR}/..  )
 
@@ -67,5 +66,4 @@ if(KDE4_BUILD_TESTS)
 
 endif(KDE4_BUILD_TESTS)
 
-kde4_footer()
 

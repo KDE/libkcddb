@@ -1,4 +1,3 @@
-kde4_header()
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. ${CMAKE_CURRENT_BINARY_DIR}/..  )
 
@@ -26,7 +25,6 @@ install_targets(${PLUGIN_INSTALL_DIR} kcm_cddb )
 install_files( ${XDG_APPS_DIR} FILES libkcddb.desktop )
 install_files( ${KCONF_UPDATE_INSTALL_DIR} FILES kcmcddb-emailsettings.upd )
 
-kde4_footer()
 
 
 

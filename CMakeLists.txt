@@ -1,4 +1,3 @@
-kde4_header()
 project(libkcddb)
 
 add_subdirectory( test )
@@ -69,7 +68,6 @@ install_targets(${LIB_INSTALL_DIR} kcddb )
 install_files( /include/libkcddb FILES cdinfo.h client.h kcddbconfig.h cddb.h configbase.h )
 install_files( ${KCFG_INSTALL_DIR} FILES libkcddb.kcfg )
 
-kde4_footer()
 
 
 
