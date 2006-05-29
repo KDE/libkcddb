@@ -76,7 +76,7 @@ void CDDBConfigWidget::showMirrorList()
       i18n("Select one of these mirrors"), keys.keys(),
       QStringList(), false, &ok, this);
 
-    if (&ok && result.count() == 1)
+    if (ok && result.count() == 1)
     {
       KCDDB::Mirror m = keys[*(result.begin())];
 
