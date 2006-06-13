@@ -21,7 +21,7 @@
 
 #include <qtextcodec.h>
 #include <kdebug.h>
-#include <kdialogbase.h>
+#include <kdialog.h>
 #include <QDateTime>
 #include <kglobal.h>
 #include <kcharsets.h>
@@ -220,8 +220,11 @@ namespace KCDDB
   {
       kDebug() << k_funcinfo << endl;
 
-      KDialogBase* dialog = new KDialogBase(this, 0, true, i18n("Change Encoding"),
-          KDialogBase::Ok | KDialogBase::Cancel);
+      KDialog* dialog = new KDialog(this);
+      dialog->setCaption(i18n("Change Encoding"));
+      dialog->setButtons( KDialog::Ok | KDialog::Cancel);
+      dialog->setModal( true );
+
 
       QStringList songTitles;
       for (Q3ListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
