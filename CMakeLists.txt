@@ -60,13 +60,13 @@ if(MUSICBRAINZ_FOUND)
 endif(MUSICBRAINZ_FOUND)
 
 set_target_properties(kcddb PROPERTIES VERSION 1.0.0 SOVERSION 1 )
-install_targets(${LIB_INSTALL_DIR} kcddb )
+install(TARGETS kcddb  DESTINATION ${LIB_INSTALL_DIR} )
 
 
 ########### install files ###############
 
-install_files( /include/libkcddb FILES cdinfo.h client.h kcddbconfig.h cddb.h configbase.h )
-install_files( ${KCFG_INSTALL_DIR} FILES libkcddb.kcfg )
+install( FILES cdinfo.h client.h kcddbconfig.h cddb.h configbase.h  DESTINATION ${INCLUDE_INSTALL_DIR}/libkcddb)
+install( FILES libkcddb.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 
 
 

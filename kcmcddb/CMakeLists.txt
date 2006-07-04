@@ -17,13 +17,13 @@ kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_cddb )
 
 target_link_libraries(kcm_cddb  ${KDE4_KDEUI_LIBS} kcddb  )
 
-install_targets(${PLUGIN_INSTALL_DIR} kcm_cddb )
+install(TARGETS kcm_cddb  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
 
 ########### install files ###############
 
-install_files( ${XDG_APPS_DIR} FILES libkcddb.desktop )
-install_files( ${KCONF_UPDATE_INSTALL_DIR} FILES kcmcddb-emailsettings.upd )
+install( FILES libkcddb.desktop  DESTINATION  ${XDG_APPS_DIR} )
+install( FILES kcmcddb-emailsettings.upd  DESTINATION  ${KCONF_UPDATE_INSTALL_DIR} )
 
 
 
