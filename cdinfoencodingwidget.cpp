@@ -35,7 +35,7 @@ namespace KCDDB
   {
     setupUi(this);
 
-    encodingCombo->insertStringList(KGlobal::charsets()->descriptiveEncodingNames());
+    encodingCombo->addItems(KGlobal::charsets()->descriptiveEncodingNames());
 
     slotEncodingChanged(encodingCombo->currentText());
 

@@ -42,9 +42,9 @@ namespace KCDDB
       setupUi(this);
 
       m_categories = KCDDB::Categories();
-      m_category->insertStringList(m_categories.i18nList());
+      m_category->addItems(m_categories.i18nList());
       m_genres = KCDDB::Genres();
-      m_genre->insertStringList(m_genres.i18nList());
+      m_genre->addItems(m_genres.i18nList());
 
       m_trackList->addColumn(i18n("Track"));
       m_trackList->addColumn(i18n("Length"));
