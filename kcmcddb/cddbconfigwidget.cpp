@@ -83,7 +83,7 @@ void CDDBConfigWidget::showMirrorList()
     {
       KCDDB::Mirror m = keys[*(result.begin())];
 
-      kcfg_lookupTransport->setCurrentItem(m.transport == KCDDB::Lookup::CDDBP ? 0 : 1);
+      kcfg_lookupTransport->setCurrentIndex(m.transport == KCDDB::Lookup::CDDBP ? 0 : 1);
       kcfg_hostname->setText(m.address);
       kcfg_port->setValue(m.port);
     }
