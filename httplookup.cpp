@@ -93,7 +93,7 @@ namespace KCDDB
     void
   HTTPLookup::jobFinished()
   {
-    QStringList lineList = QStringList::split( "\n", QString::fromUtf8(data_, data_.size()) );
+    QStringList lineList = QString::fromUtf8(data_, data_.size()).split( "\n", QString::SkipEmptyParts );
     QStringList::ConstIterator it = lineList.begin();
 
     switch ( state_ )

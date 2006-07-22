@@ -262,8 +262,7 @@ namespace KCDDB
       return;
     }
 
-    CDDBMatch match = matchList_.first();
-    matchList_.remove( match );
+    CDDBMatch match = matchList_.takeFirst();
 
     sendRead( match );
 

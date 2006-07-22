@@ -25,7 +25,7 @@ KCDDB::Categories::Categories()
 
 const QString KCDDB::Categories::cddb2i18n(const QString &category) const
 {
-    int index = m_cddb.findIndex(category.trimmed());
+    int index = m_cddb.indexOf(category.trimmed());
     if (index != -1)
     {
         return m_i18n[index];
@@ -38,7 +38,7 @@ const QString KCDDB::Categories::cddb2i18n(const QString &category) const
 
 const QString KCDDB::Categories::i18n2cddb(const QString &category) const
 {
-    int index = m_i18n.findIndex(category.trimmed());
+    int index = m_i18n.indexOf(category.trimmed());
     if (index != -1)
     {
         return m_cddb[index];

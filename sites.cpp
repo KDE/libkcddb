@@ -98,7 +98,7 @@ namespace KCDDB
 
     QRegExp rexp("([^ ]+) (cddbp|http) (\\d+) ([^ ]+) [N|S]\\d{3}.\\d{2} [E|W]\\d{3}.\\d{2} (.*)");
 
-    if (rexp.search(line) != -1)
+    if (rexp.indexIn(line) != -1)
     {
       m.address = rexp.cap(1);
 

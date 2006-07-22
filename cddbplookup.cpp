@@ -107,7 +107,7 @@ namespace KCDDB
     QByteArray buf(line.toUtf8());
     buf.append( '\n' );
 
-    return socket_->writeBlock( buf.data(), buf.length() );
+    return socket_->write( buf );
   }
 }
 

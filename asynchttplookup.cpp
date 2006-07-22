@@ -95,8 +95,7 @@ namespace KCDDB
       return;
     }
 
-    CDDBMatch match = matchList_.first();
-    matchList_.remove(  match );
+    CDDBMatch match = matchList_.takeFirst();
 
     data_ = QByteArray();
     state_ = WaitingForReadResponse;
@@ -111,10 +110,7 @@ namespace KCDDB
   AsyncHTTPLookup::slotData( KIO::Job *, const QByteArray &data )
   {
     if (data.size() > 0)
-    {
-      QDataStream stream(&data_, QIODevice::WriteOnly | QIODevice::Append);
-      stream.writeRawBytes(data.data(), data.size());
-    }
+      data_.append(data);
   }
 
     void
