@@ -29,6 +29,12 @@ extern "C" {
 #include <cstring>
 #include <musicbrainz/musicbrainz.h>
 
+// Added in libmusicbrainz 2.1.3
+#ifndef MBE_AlbumGetAlbumArtistName
+#define MBE_AlbumGetAlbumArtistName \
+  "http://purl.org/dc/elements/1.1/creator http://purl.org/dc/elements/1.1/title"
+#endif
+
 namespace KCDDB
 {
   MusicBrainzLookup::MusicBrainzLookup()
@@ -81,7 +87,7 @@ namespace KCDDB
       CDInfo info;
 
       info.set(Title, QString::fromUtf8(mb.Data(MBE_AlbumGetAlbumName).c_str()));
-      info.set(Artist, QString::fromUtf8(mb.Data(MBE_AlbumGetArtistName).c_str()));
+      info.set(Artist, QString::fromUtf8(mb.Data(MBE_AlbumGetAlbumArtistName).c_str()));
 
       int numTracks = trackOffsetList.count()-1;
 
