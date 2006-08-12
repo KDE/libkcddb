@@ -7,7 +7,10 @@ macro_optional_find_package(MusicBrainz)
 
 if(MUSICBRAINZ_FOUND)
     set(HAVE_MUSICBRAINZ 1)
-    set(libmusicbrainz_SRCS ${libmusicbrainz_SRCS} musicbrainz/musicbrainzlookup.cpp musicbrainz/sha1.c)
+    set(libmusicbrainz_SRCS ${libmusicbrainz_SRCS}
+       musicbrainz/musicbrainzlookup.cpp
+       musicbrainz/asyncmusicbrainzlookup.cpp
+       musicbrainz/sha1.c )
 else(MUSICBRAINZ_FOUND)
     set(HAVE_MUSICBRAINZ 0)
     set(libmusicbrainz_SRCS)

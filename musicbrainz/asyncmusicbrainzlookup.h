@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2005 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2006 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -17,30 +17,41 @@
   Boston, MA 02110-1301, USA.
 */
 
-#ifndef MUSICBRAINZLOOKUP_H
-#define MUSICBRAINZLOOKUP_H
+#ifndef ASYNCMUSICBRAINZLOOKUP_H
+#define ASYNCMUSICBRAINZLOOKUP_H
 
-#include "../lookup.h"
+#include "lookup.h"
 
 namespace KCDDB
 {
-  class MusicBrainzLookup : public Lookup
+  class LookupThread;
+
+  class AsyncMusicBrainzLookup : public Lookup
   {
+
     Q_OBJECT
 
     public:
 
-      MusicBrainzLookup();
-      virtual ~MusicBrainzLookup();
+      AsyncMusicBrainzLookup();
+      virtual ~AsyncMusicBrainzLookup();
 
-      // FIXME Only freedb lookup needs the first two arguments (host/port)
-      virtual Result lookup( const QString &, uint, const TrackOffsetList & );
+      Result lookup( const QString &, uint, const TrackOffsetList & );
+
+      CDInfoList lookupResponse() const;
+
+    signals:
+
+      void finished( CDDB::Result );
+
+    protected slots:
+      void lookupFinished( );
 
     private:
-
-      QString calculateDiscId(const TrackOffsetList & );
-  } ;
+      LookupThread* m_lookupThread;
+  };
 }
 
-#endif // MUSICBRAINZ_H
+#endif // ASYNCMUSICBRAINZLOOKUP_H
+
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

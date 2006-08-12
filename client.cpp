@@ -34,6 +34,7 @@
 #include "config-musicbrainz.h"
 #ifdef HAVE_MUSICBRAINZ
 #include "musicbrainz/musicbrainzlookup.h"
+#include "musicbrainz/asyncmusicbrainzlookup.h"
 #endif
 
 #include <kdebug.h>
@@ -185,9 +186,9 @@ namespace KCDDB
       else
       {
 #ifdef HAVE_MUSICBRAINZ
-        cdInfoLookup = new MusicBrainzLookup();
+        cdInfoLookup = new AsyncMusicBrainzLookup();
 
-        connect( static_cast<MusicBrainzLookup *>( cdInfoLookup ),
+        connect( static_cast<AsyncMusicBrainzLookup *>( cdInfoLookup ),
                   SIGNAL( finished( CDDB::Result ) ),
                   SLOT( slotFinished( CDDB::Result ) ) );
 #else

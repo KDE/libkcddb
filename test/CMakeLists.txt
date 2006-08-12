@@ -71,6 +71,13 @@ if(KDE4_BUILD_TESTS)
 
     add_test(musicbrainztest ${EXECUTABLE_OUTPUT_PATH}/musicbrainztest)
 
+    set(asyncmusicbrainztest_SRCS asyncmusicbrainztest.cpp )
+    kde4_automoc(${asyncmusicbrainztest_SRCS})
+    kde4_add_executable(asyncmusicbrainztest RUN_UNINSTALLED ${asyncmusicbrainztest_SRCS})
+    target_link_libraries(asyncmusicbrainztest  ${KDE4_KDECORE_LIBS} kcddb QtTest_debug )
+
+    add_test(asyncmusicbrainztest ${EXECUTABLE_OUTPUT_PATH}/asyncmusicbrainztest)
+
     set(cdinfotest_SRCS cdinfotest.cpp )
     kde4_automoc(${cdinfotest_SRCS})
     kde4_add_executable(cdinfotest RUN_UNINSTALLED ${cdinfotest_SRCS})
