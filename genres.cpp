@@ -63,7 +63,7 @@ KCDDB::Genres::Genres()
             i18n("Chamber Music") << i18n("Chanson") << i18n("Chorus") << i18n("Christian Gangsta Rap") <<
             i18n("Christian Rap") << i18n("Christian Rock") << i18n("Classical") << i18n("Classic Rock") <<
             i18n("Club-house") << i18n("Club") << i18n("Comedy") << i18n("Contemporary Christian") <<
-            i18n("Country") << i18n("Crossover") << i18n("Cult") << i18n("Dance Hall") <<
+            i18n("music genre", "Country") << i18n("Crossover") << i18n("Cult") << i18n("Dance Hall") <<
             i18n("Dance") << i18n("Darkwave") << i18n("Death Metal") << i18n("Disco") <<
             i18n("Dream") << i18n("Drum & Bass") << i18n("Drum Solo") << i18n("Duet") <<
             i18n("Easy Listening") << i18n("Electronic") << i18n("Ethnic") << i18n("Eurodance") <<
