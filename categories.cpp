@@ -18,7 +18,7 @@ KCDDB::Categories::Categories()
     m_cddb << "blues" << "classical" << "country" <<
             "data" << "folk" << "jazz" << "misc" <<
             "newage" << "reggae" << "rock" << "soundtrack";
-    m_i18n << i18n("Blues") << i18n("Classical") << i18n("Country") <<
+    m_i18n << i18n("Blues") << i18n("Classical") << i18nc("music genre", "Country") <<
             i18n("Data") << i18n("Folk") << i18n("Jazz") << i18n("Miscellaneous") <<
             i18n("New Age") << i18n("Reggae") << i18n("Rock") << i18n("Soundtrack");
 }
