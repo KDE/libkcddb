@@ -113,6 +113,6 @@ void MusicBrainzTest::testLookup()
   }
 }
 
-QTEST_KDEMAIN(MusicBrainzTest, NoGUI);
+QTEST_KDEMAIN(MusicBrainzTest, NoGUI)
 
 #include "musicbrainztest.moc"
