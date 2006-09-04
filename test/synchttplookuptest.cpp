@@ -93,6 +93,6 @@ void SyncHTTPLookupTest::testLookup()
   QVERIFY(hasRunTest);
 }
 
-QTEST_KDEMAIN(SyncHTTPLookupTest, NoGUI);
+QTEST_KDEMAIN(SyncHTTPLookupTest, NoGUI)
 
 #include "synchttplookuptest.moc"

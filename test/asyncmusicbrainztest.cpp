@@ -151,6 +151,6 @@ AsyncMusicBrainzTest::slotFinished(CDDB::Result r)
   m_eventLoop.quit();
 }
 
-QTEST_KDEMAIN(AsyncMusicBrainzTest, NoGUI);
+QTEST_KDEMAIN(AsyncMusicBrainzTest, NoGUI)
 
 #include "asyncmusicbrainztest.moc"

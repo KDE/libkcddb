@@ -86,6 +86,6 @@ void Utf8Test::testLookup()
   QVERIFY(hasRunTest);
 }
 
-QTEST_KDEMAIN(Utf8Test, NoGUI);
+QTEST_KDEMAIN(Utf8Test, NoGUI)
 
 #include "utf8test.moc"

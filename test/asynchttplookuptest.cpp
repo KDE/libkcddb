@@ -115,6 +115,6 @@ AsyncHTTPLookupTest::slotFinished(CDDB::Result r)
   m_eventLoop.quit();
 }
 
-QTEST_KDEMAIN(AsyncHTTPLookupTest, NoGUI);
+QTEST_KDEMAIN(AsyncHTTPLookupTest, NoGUI)
 
 #include "asynchttplookuptest.moc"
