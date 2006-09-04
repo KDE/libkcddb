@@ -114,6 +114,6 @@ AsyncCDDBLookupTest::slotFinished(CDDB::Result r)
   m_eventLoop.quit();
 }
 
-QTEST_KDEMAIN(AsyncCDDBLookupTest, NoGUI);
+QTEST_KDEMAIN(AsyncCDDBLookupTest, NoGUI)
 
 #include "asynccddblookuptest.moc"
