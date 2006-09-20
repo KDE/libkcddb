@@ -45,7 +45,7 @@
 #include "libkcddb/submit.h"
 
 typedef KGenericFactory<CDDBModule, QWidget> KCDDBFactory;
-K_EXPORT_COMPONENT_FACTORY ( kcm_cddb, KCDDBFactory( "kcmcddb" ) )
+K_EXPORT_COMPONENT_FACTORY ( cddb, KCDDBFactory( "kcmcddb" ) )
 
 CDDBModule::CDDBModule(QWidget *parent, const QStringList &)
   : KCModule(KCDDBFactory::instance(), parent)

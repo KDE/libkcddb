@@ -1,11 +1,14 @@
 [Desktop Entry]
+Encoding=UTF-8
 Exec=kcmshell libkcddb
 Icon=cdaudio_unmount
-Type=Application
-NoDisplay=true
-X-KDE-ModuleType=Library
+Type=Service
+ServiceTypes=KCModule
+
 X-KDE-Library=cddb
-Encoding=UTF-8
+X-KDE-FactoryName=cddb
+X-KDE-ParentApp=kcontrol
+
 
 Name=CDDB Retrieval
 Name[fr]=Recherche CDDB
