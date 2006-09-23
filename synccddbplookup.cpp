@@ -199,7 +199,7 @@ namespace KCDDB
     if ( !isConnected() )
     {
       kDebug(60010) << "socket status: " << socket_->state() << endl;
-      return QString::null;
+      return QString();
     }
 
     if (!socket_->canReadLine())
@@ -209,7 +209,7 @@ namespace KCDDB
       socket_->waitForMore(-1,&timeout);
 
       if (timeout)
-        return QString::null;
+        return QString();
     }
 
     return QString::fromUtf8(socket_->readLine());
