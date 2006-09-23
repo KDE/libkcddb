@@ -52,8 +52,7 @@ namespace KCDDB
 
   void SMTPSubmit::makeDiskData( const CDInfo& cdInfo, const TrackOffsetList& offsetList )
   {
-    diskData_ = "Content-Type: text/plain; charset=\"utf-8\";";
-    diskData_ += "\n";
+    diskData_ = "Content-Type: text/plain; charset=\"utf-8\";\n";
 
     Submit::makeDiskData(cdInfo, offsetList);
   }

@@ -46,9 +46,9 @@ namespace KCDDB
 
     header += "Content-Type: text/plain\n";
 
-    header += "Category: " + cdInfo.get(Category).toString() + "\n";
-    header += "Discid: " + cdInfo.get("discid").toString() + "\n";
-    header += "User-Email: " + from_ + "\n";
+    header += "Category: " + cdInfo.get(Category).toString() + '\n';
+    header += "Discid: " + cdInfo.get("discid").toString() + '\n';
+    header += "User-Email: " + from_ + '\n';
     // Change to sumbit
     header += "Submit-Mode: test\n";
     header += "Charset: UTF-8";

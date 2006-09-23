@@ -409,7 +409,7 @@ namespace KCDDB
     QString s;
 
     if (get("revision") != 0)
-      s += "# Revision: " + get("revision").toString() + "\n";
+      s += "# Revision: " + get("revision").toString() + '\n';
 
     // If we are submiting make it a fully compliant CDDB entry
     if (submit)
@@ -423,7 +423,7 @@ namespace KCDDB
     QString artist = get(Artist).toString();
     s += d->createLine("DTITLE", artist + " / " + get(Title).toString() );
     int year = get(Year).toInt();
-    s += "DYEAR=" + (0 == year ? QString::null : QString::number(year)) + "\n";
+    s += "DYEAR=" + (0 == year ? QString::null : QString::number(year)) + '\n';
     if (get(Genre) == "Unknown")
       s += d->createLine("DGENRE", "");
     else

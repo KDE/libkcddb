@@ -41,7 +41,7 @@ namespace KCDDB
     if ( !dir.exists( category ) )
       dir.mkdir( category );
 
-    QString cacheFile = cacheDir + "/" + category + "/" + info.get("discid").toString();
+    QString cacheFile = cacheDir + '/' + category + '/' + info.get("discid").toString();
 
     return cacheFile;
   }
@@ -67,7 +67,7 @@ namespace KCDDB
         QString category( *it );
         if ( category[ 0 ] != '.' )
         {
-          QFile f( *cddbCacheDir + "/" + category + "/" + cddbId );
+          QFile f( *cddbCacheDir + '/' + category + '/' + cddbId );
           if ( f.exists() && f.open(QIODevice::ReadOnly) )
           {
               QTextStream ts(&f);
