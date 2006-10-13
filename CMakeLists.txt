@@ -53,7 +53,7 @@ kde4_automoc(kcddb ${kcddb_LIB_SRCS})
 
 kde4_add_ui_files(kcddb_LIB_SRCS cdinfodialog.ui cdinfoencodingwidget.ui )
 
-kde4_add_kcfg_files(kcddb_LIB_SRCS configbase.kcfgc )
+kde4_add_kcfg_files(kcddb kcddb_LIB_SRCS configbase.kcfgc )
 
 kde4_add_library(kcddb SHARED ${kcddb_LIB_SRCS})
 
