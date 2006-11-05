@@ -49,7 +49,7 @@ namespace KCDDB
       static void store( const CDInfo & );
 
     private:
-      static QString fileName( const CDInfo &, const QString &cacheDir );
+      static QString fileName( const QString &category, const QString& discid, const QString &cacheDir );
   };
 }
 

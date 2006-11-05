@@ -31,15 +31,13 @@
 namespace KCDDB
 {
     QString
-  Cache::fileName( const CDInfo& info, const QString& cacheDir )
+  Cache::fileName( const QString &category, const QString &discid, const QString &cacheDir )
   {
     QDir dir( cacheDir );
-    if ( !dir.exists( info.category ) )
-      dir.mkdir( info.category );
+    if ( !dir.exists( category ) )
+      dir.mkdir( category );
 
-    QString cacheFile = cacheDir + "/" + info.category + "/" + info.id;
-
-    return cacheFile;
+    return cacheDir + "/" + category + "/" + discid;
   }
 
     CDInfoList
@@ -109,17 +107,23 @@ namespace KCDDB
     if (!d.exists())
       d.mkdir(cacheDir);
 
-    QString cacheFile = fileName(info, cacheDir);
-
-    kdDebug(60010) << "Storing " << cacheFile << " in CDDB cache" << endl;
-
-    QFile f(cacheFile);
-    if ( f.open(IO_WriteOnly) )
+    // The same entry can contain several discids (separated by a ','),
+    // so we save the entry to all of them
+    QStringList discids = QStringList::split(',', info.id);
+    for (QStringList::Iterator it = discids.begin(); it != discids.end(); ++it)
     {
-      QTextStream ts(&f);
-      ts.setEncoding(QTextStream::UnicodeUTF8);
-      ts << info.toString();
-      f.close();
+      QString cacheFile = fileName(info.category, *it, cacheDir);
+
+      kdDebug(60010) << "Storing " << cacheFile << " in CDDB cache" << endl;
+
+      QFile f(cacheFile);
+      if ( f.open(IO_WriteOnly) )
+      {
+        QTextStream ts(&f);
+        ts.setEncoding(QTextStream::UnicodeUTF8);
+        ts << info.toString();
+        f.close();
+      }
     }
   }
 }
