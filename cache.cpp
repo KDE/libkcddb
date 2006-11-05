@@ -24,7 +24,6 @@
 
 #include <QFile>
 #include <QDir>
-//Added by qt3to4:
 #include <QTextStream>
 
 #include "cache.h"
@@ -33,17 +32,14 @@
 namespace KCDDB
 {
     QString
-  Cache::fileName( const CDInfo& info, const QString& cacheDir )
+  Cache::fileName( const QString &category, const QString& discid, const QString &cacheDir )
   {
     QDir dir( cacheDir );
-    QString category(info.get(Category).toString());
 
     if ( !dir.exists( category ) )
       dir.mkdir( category );
 
-    QString cacheFile = cacheDir + '/' + category + '/' + info.get("discid").toString();
-
-    return cacheFile;
+    return cacheDir + "/" + category + "/" + discid;
   }
 
     CDInfoList
@@ -108,17 +104,25 @@ namespace KCDDB
     if (!d.exists())
       d.mkdir(cacheDir);
 
-    QString cacheFile = fileName(info, cacheDir);
-
-    kDebug(60010) << "Storing " << cacheFile << " in CDDB cache" << endl;
-
-    QFile f(cacheFile);
-    if ( f.open(QIODevice::WriteOnly) )
+    // The same entry can contain several discids (separated by a ','),
+    // so we save the entry to all of them
+    // FIXME Probably, the list of discids should be replaced by only
+    // the one that was used for the lookup
+    QStringList discids = info.get("discid").toString().split(',');
+    for (QStringList::Iterator it = discids.begin(); it != discids.end(); ++it)
     {
-      QTextStream ts(&f);
-      ts.setCodec("UTF-8");
-      ts << info.toString();
-      f.close();
+      QString cacheFile = fileName(info.get("category").toString(), *it, cacheDir);
+
+      kDebug(60010) << "Storing " << cacheFile << " in CDDB cache" << endl;
+
+      QFile f(cacheFile);
+      if ( f.open(QIODevice::WriteOnly) )
+      {
+        QTextStream ts(&f);
+        ts.setCodec("UTF-8");
+        ts << info.toString();
+        f.close();
+      }
     }
   }
 }
