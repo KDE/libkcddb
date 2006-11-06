@@ -119,7 +119,7 @@
                         <number>2100</number>
                     </property>
                     <property name="minValue">
-                        <number>1900</number>
+                        <number>0</number>
                     </property>
                 </widget>
                 <widget class="QCheckBox" row="6" column="0" rowspan="1" colspan="2">
@@ -422,6 +422,7 @@
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
 <includehints>
     <includehint>klineedit.h</includehint>
+    <includehint>kcombobox.h</includehint>
     <includehint>knuminput.h</includehint>
     <includehint>klistview.h</includehint>
 </includehints>
