@@ -13,7 +13,7 @@ kde4_add_ui_files(kcm_cddb_PART_SRCS cddbconfigwidget.ui )
 
 kde4_add_plugin(kcm_cddb ${kcm_cddb_PART_SRCS})
 
-kde4_install_libtool_file( ${PLUGIN_INSTALL_DIR} kcm_cddb )
+
 
 target_link_libraries(kcm_cddb  ${KDE4_KDEUI_LIBS} kcddb  )
 
