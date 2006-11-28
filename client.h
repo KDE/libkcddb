@@ -40,7 +40,7 @@ namespace KCDDB
    * cddb->lookup(discSignature);
    * CDInfo info = cddb->lookupResponse().first();</code>
    */
-  class KDE_EXPORT Client : public QObject
+  class KCDDB_EXPORT Client : public QObject
   {
     Q_OBJECT
 

@@ -24,7 +24,7 @@
 
 #include <qstringlist.h>
 #include <qlist.h>
-#include <kdemacros.h>
+#include <kcddb_export.h>
 #include <QVariant>
 
 namespace KCDDB
@@ -53,7 +53,7 @@ namespace KCDDB
   /**
    * Information about a sepecific track in a cd.
    */
-  class KDE_EXPORT TrackInfo
+  class KCDDB_EXPORT TrackInfo
   {
     public:
 
@@ -112,7 +112,7 @@ namespace KCDDB
    * cddb->lookup(discSignature);
    * CDInfo info = cddb->lookupResponse().first();</code>
    */
-  class KDE_EXPORT CDInfo
+  class KCDDB_EXPORT CDInfo
   {
     public:
       CDInfo();

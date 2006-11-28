@@ -25,7 +25,7 @@
 #include <QString>
 #include <qlist.h>
 
-#include <kdelibs_export.h>
+#include <kcddb_export.h>
 
 namespace KCDDB
 {
@@ -36,7 +36,7 @@ namespace KCDDB
     */
   typedef QList<uint> TrackOffsetList;
 
-  class KDE_EXPORT CDDB
+  class KCDDB_EXPORT CDDB
   {
     public:
 

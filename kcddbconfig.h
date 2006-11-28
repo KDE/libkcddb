@@ -23,12 +23,12 @@
 #ifndef KCDDB_CONFIG_H
 #define KCDDB_CONFIG_H
 
+#include <kcddb_export.h>
 #include "configbase.h"
-#include <kdelibs_export.h>
 
 namespace KCDDB
 {
-  class KDE_EXPORT Config : public ConfigBase
+  class KCDDB_EXPORT Config : public ConfigBase
   {
     public:
       Config();

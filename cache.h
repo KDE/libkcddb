@@ -32,7 +32,7 @@ namespace KCDDB
 {
   class Config;
   
-  class KDE_EXPORT Cache
+  class KCDDB_EXPORT Cache
   {
     public:
 

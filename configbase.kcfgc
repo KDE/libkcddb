@@ -1,4 +1,5 @@
 ClassName=ConfigBase
 File=libkcddb.kcfg
 Mutators=true
-Visibility=KDE_EXPORT
+IncludeFiles=kcddb_export.h
+Visibility=KCDDB_EXPORT

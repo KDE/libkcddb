@@ -25,7 +25,7 @@
 
 namespace KCDDB
 {
-    class KDE_EXPORT CDInfoDialog : public QWidget, public Ui::CDInfoDialogBase
+    class KCDDB_EXPORT CDInfoDialog : public QWidget, public Ui::CDInfoDialogBase
     {
     Q_OBJECT
     public:
