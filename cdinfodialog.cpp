@@ -246,16 +246,16 @@ namespace KCDDB
         KCharsets* charsets = KGlobal::charsets();
         QTextCodec* codec = charsets->codecForName(charsets->encodingForName(encWidget->selectedEncoding()));
 
-        m_artist->setText(codec->toUnicode(m_artist->text().latin1()));
-        m_title->setText(codec->toUnicode(m_title->text().latin1()));
-        m_genre->setCurrentText(codec->toUnicode(m_genre->currentText().latin1()));
-        m_comment->setText(codec->toUnicode(m_comment->text().latin1()));
+        m_artist->setText(codec->toUnicode(m_artist->text().toLatin1()));
+        m_title->setText(codec->toUnicode(m_title->text().toLatin1()));
+        m_genre->setCurrentText(codec->toUnicode(m_genre->currentText().toLatin1()));
+        m_comment->setText(codec->toUnicode(m_comment->text().toLatin1()));
 
         for (Q3ListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
         {
-            item->setText(TRACK_ARTIST,codec->toUnicode(item->text(TRACK_ARTIST).latin1()));
-            item->setText(TRACK_TITLE,codec->toUnicode(item->text(TRACK_TITLE).latin1()));
-            item->setText(TRACK_COMMENT,codec->toUnicode(item->text(TRACK_COMMENT).latin1()));
+            item->setText(TRACK_ARTIST,codec->toUnicode(item->text(TRACK_ARTIST).toLatin1()));
+            item->setText(TRACK_TITLE,codec->toUnicode(item->text(TRACK_TITLE).toLatin1()));
+            item->setText(TRACK_COMMENT,codec->toUnicode(item->text(TRACK_COMMENT).toLatin1()));
         }
       }
   }
