@@ -59,13 +59,13 @@ namespace KCDDB
 
     for (QStringList::const_iterator it = m_songTitles.begin();
         it != m_songTitles.end(); ++it)
-      newTitles << codec->toUnicode((*it).toLatin1());
+      newTitles << codec->toUnicode((*it).latin1());
 
     songsBox->clear();
     songsBox->insertStringList(newTitles);
 
     titleLabel->setText(i18nc("artist - cdtitle", "%1 - %2",
-          codec->toUnicode(m_artist.toLatin1()), codec->toUnicode(m_title.toLatin1())));
+          codec->toUnicode(m_artist.toLatin1()), codec->toUnicode(m_title.latin1())));
   }
 }
 
