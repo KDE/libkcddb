@@ -23,9 +23,11 @@
 #include "ui_cdinfodialog.h"
 #include <kdemacros.h>
 
+#include <KDialog>
+
 namespace KCDDB
 {
-    class KCDDB_EXPORT CDInfoDialog : public QWidget, public Ui::CDInfoDialogBase
+    class KCDDB_EXPORT CDInfoDialog : public KDialog, public Ui::CDInfoDialogBase
     {
     Q_OBJECT
     public:

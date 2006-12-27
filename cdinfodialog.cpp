@@ -21,7 +21,6 @@
 
 #include <qtextcodec.h>
 #include <kdebug.h>
-#include <kdialog.h>
 #include <QDateTime>
 #include <kglobal.h>
 #include <kcharsets.h>
@@ -35,9 +34,8 @@ namespace KCDDB
 {
   const char *CDInfoDialog::SEPARATOR = " / ";
 
-  // FIXME Make a KDialog??
   CDInfoDialog::CDInfoDialog(QWidget* parent)
-    : QWidget(parent), Ui::CDInfoDialogBase()
+    : KDialog(parent), Ui::CDInfoDialogBase()
   {
       setupUi(this);
 
