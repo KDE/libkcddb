@@ -39,7 +39,7 @@ namespace KCDDB
     if ( !dir.exists( category ) )
       dir.mkdir( category );
 
-    return cacheDir + "/" + category + "/" + discid;
+    return cacheDir + '/' + category + '/' + discid;
   }
 
     CDInfoList

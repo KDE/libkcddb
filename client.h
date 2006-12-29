@@ -34,7 +34,7 @@ namespace KCDDB
 
   /**
    * Class used to obtain CDDB information about a CD
-   * 
+   *
    * Example:
    * <code>KCDDB::Client *cddb = new KCDDB::Client();
    * cddb->lookup(discSignature);
@@ -63,10 +63,10 @@ namespace KCDDB
       /**
        * Searches the database for entries matching the offset list.
        * Use lookupResponse() to get the results
-       * 
+       *
        * @param trackOffsetList A List of the start offsets of the tracks,
        * and the offset of the lead-out track at the end of the list
-       * 
+       *
        * @return if the results of the lookup: Success, NoRecordFound, etc
        */
       CDDB::Result lookup(const TrackOffsetList &trackOffsetList);
@@ -85,14 +85,14 @@ namespace KCDDB
 
     signals:
       /**
-       * emited when not blocking and lookup() finished.
+       * emitted when not blocking and lookup() finished.
        */
       void finished( CDDB::Result result );
 
     protected slots:
       /**
        * Called when the lookup is finished with the result
-       */ 
+       */
       void slotFinished( CDDB::Result result );
       /**
        * Called when the submit is finished with the result
@@ -102,7 +102,7 @@ namespace KCDDB
     private:
       class Private;
       Private * d;
-      
+
       Lookup * cdInfoLookup;
       Submit * cdInfoSubmit;
   };
