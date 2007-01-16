@@ -11,14 +11,17 @@ X-KDE-ParentApp=kcontrol
 
 
 Name=CDDB Retrieval
+Name[el]=Ανάκτηση CDDB
 Name[fr]=Recherche CDDB
 Name[x-test]=xxCDDB Retrievalxx
 
 GenericName=CDDB Configuration
+GenericName[el]=Ρύθμιση CDDB
 GenericName[fr]=Configuration CDDB
 GenericName[x-test]=xxCDDB Configurationxx
 
 Comment=Configure the CDDB Retrieval
+Comment[el]=Ρύθμιση της ανάκτησης CDDB
 Comment[fr]=Configurer la recherche CDDB
 Comment[x-test]=xxConfigure the CDDB Retrievalxx
 
