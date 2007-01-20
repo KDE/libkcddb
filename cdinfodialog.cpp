@@ -37,7 +37,9 @@ namespace KCDDB
   CDInfoDialog::CDInfoDialog(QWidget* parent)
     : KDialog(parent), Ui::CDInfoDialogBase()
   {
-      setupUi(this);
+      QWidget* w = new QWidget(this);
+      setupUi(w);
+      setMainWidget(w);
 
       m_categories = KCDDB::Categories();
       m_category->addItems(m_categories.i18nList());
