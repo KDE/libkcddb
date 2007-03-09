@@ -11,6 +11,7 @@ X-KDE-ParentApp=kcontrol
 
 
 Name=CDDB Retrieval
+Name[bg]=Извличане от CDDB
 Name[ca]=Recuperació CDDB
 Name[cs]=Získání CDDB
 Name[cy]=Cyrchu CDDB
@@ -61,6 +62,7 @@ Name[zh_TW]=CDDB 取得資訊
 
 GenericName=CDDB Configuration
 GenericName[ar]=اعدادت CDDB
+GenericName[bg]=Настройки на CDDB
 GenericName[br]=Kefluniadur CDDB
 GenericName[ca]=Configuració CDDB
 GenericName[cs]=Nastavení CDDB
@@ -114,6 +116,7 @@ GenericName[zh_HK]=CDDB 設定
 GenericName[zh_TW]=CDDB 設定
 
 Comment=Configure the CDDB Retrieval
+Comment[bg]=Настройки на извличане от CDDB
 Comment[ca]=Configura la recuperació CDDB
 Comment[cs]=Nastavení stahování z CDDB
 Comment[cy]=Ffurfweddu Nôl o'r CDDB
@@ -160,6 +163,7 @@ Comment[zh_HK]=設定 CDDB 資訊擷取
 Comment[zh_TW]=CDDB 取得資訊設定
 
 Keywords=cddb
+Keywords[bg]=компактдиск, диск, извличане, информация, песен, база, данни, cddb
 Keywords[nds]=CDDB
 Keywords[ta]=குறுந்தகடு தகவல்தளம்
 Keywords[x-test]=xxcddbxx
