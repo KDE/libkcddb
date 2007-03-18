@@ -90,11 +90,11 @@ namespace KCDDB
   {
       m_artist->setText(info.get(Artist).toString().trimmed());
       m_title->setText(info.get(Title).toString().trimmed());
-      m_category->setCurrentText(m_categories.cddb2i18n(info.get(Category).toString()));
+      m_category->setItemText(m_category->currentIndex(), m_categories.cddb2i18n(info.get(Category).toString()));
 
       // Make sure the revision is set before the genre to allow the genreChanged() handler to fire.
       m_revision->setText(QString::number(info.get("revision").toInt()));
-      m_genre->setCurrentText(m_genres.cddb2i18n(info.get(Genre).toString()));
+      m_genre->setItemText(m_genre->currentIndex(), m_genres.cddb2i18n(info.get(Genre).toString()));
       m_year->setValue(info.get(Year).toInt());
       m_comment->setText(info.get(Comment).toString().trimmed());
       m_id->setText(info.get("discid").toString().trimmed());
@@ -255,7 +255,7 @@ namespace KCDDB
 
         m_artist->setText(codec->toUnicode(m_artist->text().toLatin1()));
         m_title->setText(codec->toUnicode(m_title->text().toLatin1()));
-        m_genre->setCurrentText(codec->toUnicode(m_genre->currentText().toLatin1()));
+        m_genre->setItemText(m_genre->currentIndex(), codec->toUnicode(m_genre->currentText().toLatin1()));
         m_comment->setText(codec->toUnicode(m_comment->text().toLatin1()));
 
         for (Q3ListViewItem *item = m_trackList->firstChild(); item; item=item->nextSibling())
