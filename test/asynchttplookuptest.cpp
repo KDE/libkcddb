@@ -65,11 +65,11 @@ void AsyncHTTPLookupTest::testLookup()
 
   // If revision doesn't match, test probably needs to be updated
   // See: http://www.freedb.org/freedb/jazz/a1107d0a for updated data
-  QCOMPARE(m_info.get("revision").toInt(), 3);
+  QCOMPARE(m_info.get("revision").toInt(), 4);
 
-  QCOMPARE(m_info.get(Artist).toString(),QString("Various"));
-  QCOMPARE(m_info.get(Title).toString(),QString("The K&D Sessions [disc 1]"));
-  QCOMPARE(m_info.get(Genre).toString(),QString("Trip-Hop"));
+  QCOMPARE(m_info.get(Artist).toString(),QString("Kruder & Dorfmeister"));
+  QCOMPARE(m_info.get(Title).toString(),QString("K&D Sessions"));
+  QCOMPARE(m_info.get(Genre).toString(),QString("Tribal"));
   QCOMPARE(m_info.get(Year).toInt(),1998);
   QCOMPARE(m_info.track(0).get(Title).toString(),QString("Heroes [kruder's long loose bossa]"));
   QCOMPARE(m_info.track(1).get(Title).toString(),QString("Jazz Master [k&d session]"));
