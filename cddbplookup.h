@@ -22,7 +22,7 @@
 #ifndef KCDDB_CDDBP_LOOKUP_H
 #define KCDDB_CDDBP_LOOKUP_H
 
-#include <kbufferedsocket.h>
+#include <k3bufferedsocket.h>
 
 #include "lookup.h"
 
