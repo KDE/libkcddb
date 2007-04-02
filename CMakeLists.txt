@@ -9,8 +9,7 @@ if(MUSICBRAINZ_FOUND)
     set(HAVE_MUSICBRAINZ 1)
     set(libmusicbrainz_SRCS ${libmusicbrainz_SRCS}
        musicbrainz/musicbrainzlookup.cpp
-       musicbrainz/asyncmusicbrainzlookup.cpp
-       musicbrainz/sha1.c )
+       musicbrainz/asyncmusicbrainzlookup.cpp)
 else(MUSICBRAINZ_FOUND)
     set(HAVE_MUSICBRAINZ 0)
     set(libmusicbrainz_SRCS)

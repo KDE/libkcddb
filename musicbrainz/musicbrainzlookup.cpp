@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2005 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2005-2007 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -19,12 +19,9 @@
 
 
 #include "musicbrainzlookup.h"
-extern "C" {
-#include "sha1.h"
-//#include "base64.h"
-}
 #include <kdebug.h>
 #include <kcodecs.h>
+#include <qcryptographichash.h>
 #include <cstdio>
 #include <cstring>
 #include <musicbrainz/musicbrainz.h>
@@ -112,21 +109,18 @@ namespace KCDDB
     
     int numTracks = trackOffsetList.count()-1;
 
-    SHA_INFO       sha;
-    unsigned char  digest[20];
+    QCryptographicHash sha(QCryptographicHash::Sha1);
     char           temp[9];
-
-    sha_init(&sha);
 
     // FIXME How do I check that?
     int firstTrack = 1;
     int lastTrack = numTracks;
 
     sprintf(temp, "%02X", firstTrack);
-    sha_update(&sha, (unsigned char *)temp, strlen(temp));
+    sha.addData(temp, strlen(temp));
 
     sprintf(temp, "%02X", lastTrack);
-    sha_update(&sha, (unsigned char *)temp, strlen(temp));
+    sha.addData(temp, strlen(temp));
 
     for(int i = 0; i < 100; i++)
     {
@@ -139,18 +133,14 @@ namespace KCDDB
         offset = 0;
 
       sprintf(temp, "%08lX", offset);
-      sha_update(&sha, (unsigned char *)temp, strlen(temp));
+      sha.addData(temp, strlen(temp));
     }
     
-    sha_final(digest, &sha);
-
-    QByteArray base64 = KCodecs::base64Encode(QByteArray((const char *)digest, 20));
+    QByteArray base64 = KCodecs::base64Encode(sha.result());
 
     // '/' '+' and '=' replaced for MusicBrainz
     QString res = QString::fromLatin1(base64).replace('/',"_").replace('+',".").replace('=',"-");
     
-    //free(base64);
-
     return res;
   }
 }
