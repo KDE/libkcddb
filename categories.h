@@ -21,8 +21,8 @@ namespace KCDDB
     public:
         Categories();
 
-        const QStringList &cddbList() const { return m_cddb; };
-        const QStringList &i18nList() const { return m_i18n; };
+        const QStringList &cddbList() const { return m_cddb; }
+        const QStringList &i18nList() const { return m_i18n; }
         
         /**
          * Lookup the CDDB category, and return the i18n'd version.
