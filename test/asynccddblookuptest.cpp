@@ -58,7 +58,7 @@ void AsyncCDDBLookupTest::testLookup()
 
   client_->lookup(list);
 
-  m_eventLoop.exec(QEventLoop::ExcludeUserInput);
+  m_eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
 
   delete client_;
 

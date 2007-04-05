@@ -64,7 +64,7 @@ void AsyncMusicBrainzTest::testLookup()
 
   client_->lookup(list);
 
-  m_eventLoop.exec(QEventLoop::ExcludeUserInput);
+  m_eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
 
   // See http://musicbrainz.org/release/dbb3e39a-4bea-4e32-a546-456654f30ca6.html for changes
   QCOMPARE(m_info.numberOfTracks(),17);
