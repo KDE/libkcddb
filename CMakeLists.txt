@@ -19,6 +19,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-musicbrainz.h.cmake ${CMAKE_CU
 
 include_directories(${CMAKE_BINARY_DIR}/libkcddb/ )
 
+add_definitions (-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS)
 
 ########### next target ###############
 
