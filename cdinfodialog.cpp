@@ -86,7 +86,7 @@ namespace KCDDB
       m_trackList->rename(item, column);
   }
 
-  void CDInfoDialog::setInfo( const KCDDB::CDInfo &info, KCDDB::TrackOffsetList &trackStartFrames )
+  void CDInfoDialog::setInfo( const KCDDB::CDInfo &info, const KCDDB::TrackOffsetList &trackStartFrames )
   {
       m_artist->setText(info.get(Artist).toString().trimmed());
       m_title->setText(info.get(Title).toString().trimmed());
