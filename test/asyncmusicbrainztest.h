@@ -31,7 +31,7 @@ class AsyncMusicBrainzTest : public QObject
   Q_OBJECT
   private slots:
     void testLookup();
-    void slotFinished(CDDB::Result);
+    void slotFinished(KCDDB::Result);
 
   private:
 

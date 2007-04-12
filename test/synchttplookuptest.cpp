@@ -43,12 +43,6 @@ void SyncHTTPLookupTest::testLookup()
     << 176085
     << 234500;
 
-  kDebug()
-    << CDDB::trackOffsetListToId(list)
-    << " "
-    //<< trackOffsetListToString(list)
-    << endl;
-
   c.lookup(list);
 
   CDInfoList response = c.lookupResponse();

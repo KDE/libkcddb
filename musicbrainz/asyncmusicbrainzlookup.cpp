@@ -34,12 +34,12 @@ namespace KCDDB
 
       m_result = lookup.lookup("", 0, m_offsetList);
 
-      if (m_result == CDDB::Success)
+      if (m_result == Success)
         m_lookupResponse = lookup.lookupResponse();
     }
 
     TrackOffsetList m_offsetList;
-    CDDB::Result m_result;
+    Result m_result;
     CDInfoList m_lookupResponse;
   } ;
 
@@ -53,7 +53,7 @@ namespace KCDDB
     delete m_lookupThread;
   }
   
-  CDDB::Result AsyncMusicBrainzLookup::lookup( const QString &, uint, const TrackOffsetList & trackOffsetList )
+  Result AsyncMusicBrainzLookup::lookup( const QString &, uint, const TrackOffsetList & trackOffsetList )
   {
     m_lookupThread = new LookupThread();
     m_lookupThread->m_offsetList = trackOffsetList;

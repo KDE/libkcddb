@@ -40,12 +40,6 @@ void Utf8Test::testLookup()
   << 61408
   << 177675;
 
-  kDebug()
-    << CDDB::trackOffsetListToId(list)
-    << " "
-    //<< trackOffsetListToString(list)
-    << endl;
-
   c.lookup(list);
 
   CDInfoList response = c.lookupResponse();

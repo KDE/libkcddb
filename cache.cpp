@@ -28,6 +28,7 @@
 
 #include "cache.h"
 #include "kcddbconfig.h"
+#include "cddb.h"
 
 namespace KCDDB
 {
@@ -43,8 +44,10 @@ namespace KCDDB
   }
 
     CDInfoList
-  Cache::lookup( const QString &cddbId, const Config& c )
+  Cache::lookup( const TrackOffsetList &offsetList, const Config& c )
   {
+    QString cddbId = CDDB::trackOffsetListToId(offsetList);
+
     kDebug(60010) << "Looking up " << cddbId << " in CDDB cache" << endl;
 
     CDInfoList infoList;

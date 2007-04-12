@@ -24,49 +24,26 @@
 
 #include <QString>
 #include <qlist.h>
-
-#include <kcddb_export.h>
+#include "kcddb.h"
 
 namespace KCDDB
 {
-   /** This list is used to calculate the CDDB disc id.
-    Insert the start frames ((minute*60 + seconds)*75+frames)
-    of all tracks, followed by the last frame of the disc. The
-    last frame is the start frame of the leadout track.
-    */
-  typedef QList<uint> TrackOffsetList;
-
-  class KCDDB_EXPORT CDDB
+  class CDDB
   {
     public:
-
-      enum Result
-      {
-        Success,
-        ServerError,
-        HostNotFound,
-        NoResponse,
-        NoRecordFound,
-        MultipleRecordFound,
-        CannotSave,
-        InvalidCategory,
-        UnknownError
-      };
-
       CDDB();
       virtual ~CDDB();
 
-      static QString resultToString(Result);
       static QString trackOffsetListToId( const TrackOffsetList & );
 
       static QString clientName() { return QLatin1String("libkcddb"); }
       static QString clientVersion() { return QLatin1String("0.4"); }
 
+      static uint statusCode( const QString & );
+
     protected:
       bool parseGreeting( const QString & );
       bool parseHandshake( const QString & );
-
-      uint statusCode( const QString & );
 
       QString trackOffsetListToId();
       QString trackOffsetListToString();

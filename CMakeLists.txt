@@ -28,6 +28,7 @@ set(kcddb_LIB_SRCS ${libmusicbrainz_SRCS}
    cdinfo.cpp 
    kcddbconfig.cpp 
    client.cpp 
+   kcddb.cpp
    cddb.cpp 
    lookup.cpp 
    cddbplookup.cpp 
@@ -68,7 +69,7 @@ install(TARGETS kcddb  DESTINATION ${LIB_INSTALL_DIR} )
 
 ########### install files ###############
 
-install( FILES cdinfo.h client.h kcddbconfig.h cddb.h ${CMAKE_CURRENT_BINARY_DIR}/configbase.h  DESTINATION ${INCLUDE_INSTALL_DIR}/libkcddb)
+install( FILES cdinfo.h client.h kcddbconfig.h kcddb.h ${CMAKE_CURRENT_BINARY_DIR}/configbase.h  DESTINATION ${INCLUDE_INSTALL_DIR}/libkcddb)
 install( FILES libkcddb.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 
 

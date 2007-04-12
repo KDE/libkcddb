@@ -33,7 +33,7 @@ namespace KCDDB
       virtual ~AsyncHTTPSubmit();
 
     signals:
-      void finished( CDDB::Result );
+      void finished( KCDDB::Result );
     protected:
       virtual Result runJob(KIO::Job* job);
     private slots:

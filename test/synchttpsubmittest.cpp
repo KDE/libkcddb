@@ -65,8 +65,8 @@ main(int argc, char ** argv)
   c.config().setSubmitTransport(Submit::HTTP);
   c.setBlockingMode( true );
 
-  CDDB::Result r = c.submit(cdInfo, list);
+  Result r = c.submit(cdInfo, list);
 
-  kDebug() << "Result: " << CDDB::resultToString(r) << endl;
+  kDebug() << "Result: " << resultToString(r) << endl;
 }
 

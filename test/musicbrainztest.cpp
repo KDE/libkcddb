@@ -52,9 +52,9 @@ void MusicBrainzTest::testLookup()
     << 194958
     << 212506;
 
-  CDDB::Result r = c.lookup(list);
+  Result r = c.lookup(list);
 
-  kDebug() << "Client::lookup gave : " << CDDB::resultToString(r) << endl;
+  kDebug() << "Client::lookup gave : " << resultToString(r) << endl;
 
   CDInfoList response = c.lookupResponse();
 

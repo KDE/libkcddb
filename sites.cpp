@@ -28,7 +28,6 @@
 namespace KCDDB
 {
   Sites::Sites()
-    : CDDB()
   {
 
   }
@@ -45,7 +44,7 @@ namespace KCDDB
     url.setQuery( QString::null );
 
     QString hello = QString("%1 %2 %3 %4")
-        .arg(user_, localHostName_, clientName(), clientVersion());
+        .arg("libkcddb-user", "localHost", CDDB::clientName(), CDDB::clientVersion());
 
     url.addQueryItem( "cmd", "sites" );
     url.addQueryItem( "hello", hello );
@@ -77,7 +76,7 @@ namespace KCDDB
 
     QTextStream ts(&f);
 
-    if (statusCode(ts.readLine()) != 210)
+    if (CDDB::statusCode(ts.readLine()) != 210)
       return result;
 
     while (!ts.atEnd())

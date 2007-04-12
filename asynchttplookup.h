@@ -43,7 +43,7 @@ namespace KCDDB
 
     signals:
 
-      void finished( CDDB::Result );
+      void finished( KCDDB::Result );
 
     protected slots:
       void slotQueryReady();

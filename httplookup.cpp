@@ -36,7 +36,7 @@ namespace KCDDB
   {
   }
 
-    CDDB::Result
+    Result
   HTTPLookup::sendQuery()
   {
     QString cmd = QString( "cddb query %1 %2" )
@@ -48,7 +48,7 @@ namespace KCDDB
     return result;
   }
 
-    CDDB::Result
+    Result
   HTTPLookup::sendRead( const CDDBMatch & match )
   {
     category_  = match.first;

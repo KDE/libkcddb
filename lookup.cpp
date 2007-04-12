@@ -35,7 +35,7 @@ namespace KCDDB
     // Empty.
   }
 
-    CDDB::Result
+    Result
   Lookup::parseQuery(  const QString & line )
   {
     uint serverStatus = statusCode(  line );
@@ -65,7 +65,7 @@ namespace KCDDB
     matchList_.append(  qMakePair(  tokenList[  0 ], tokenList[  1 ] ) );
   }
 
-    CDDB::Result
+    Result
   Lookup::parseRead(  const QString & line )
   {
     uint serverStatus = statusCode(  line );

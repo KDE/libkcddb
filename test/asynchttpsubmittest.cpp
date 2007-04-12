@@ -60,20 +60,15 @@ AsyncHTTPSubmitTest::AsyncHTTPSubmitTest()
   cdInfo.track(3).set("title", "*");
   cdInfo.track(4).set("title", QString::fromUtf8("Jätteödlan Bronto"));
 
-  connect
-    (
-      client_,
-      SIGNAL(finished(CDDB::Result)),
-      SLOT(slotFinished(CDDB::Result))
-    );
+  connect(client_,SIGNAL(finished(KCDDB::Result)),SLOT(slotFinished(KCDDB::Result)));
 
   client_->submit(cdInfo, list);
 }
 
   void
-AsyncHTTPSubmitTest::slotFinished(CDDB::Result r)
+AsyncHTTPSubmitTest::slotFinished(Result r)
 {
-  kDebug() << "AsyncHTTPSubmitTest::slotFinished: Got " << KCDDB::CDDB::resultToString(r) << endl;
+  kDebug() << "AsyncHTTPSubmitTest::slotFinished: Got " << KCDDB::resultToString(r) << endl;
 
   kapp->quit();
 }

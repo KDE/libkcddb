@@ -44,7 +44,7 @@ namespace KCDDB
 
   }
   
-  CDDB::Result MusicBrainzLookup::lookup( const QString &, uint, const TrackOffsetList & trackOffsetList )
+  Result MusicBrainzLookup::lookup( const QString &, uint, const TrackOffsetList & trackOffsetList )
   {
     QString discId = calculateDiscId(trackOffsetList);
     

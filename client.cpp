@@ -94,7 +94,7 @@ namespace KCDDB
     return d->cdInfoList;
   }
 
-    CDDB::Result
+    Result
   Client::lookup(const TrackOffsetList & trackOffsetList)
   {
     d->cdInfoList.clear();
@@ -102,23 +102,23 @@ namespace KCDDB
     if ( trackOffsetList.count() <= 1 )
     {
       kDebug(60010) << "Lookup called with empty offset list" << endl;
-      return Lookup::NoRecordFound;
+      return NoRecordFound;
     }
 
     QString cddbId = Lookup::trackOffsetListToId( trackOffsetList );
 
     if ( Cache::Ignore != d->config.cachePolicy() )
     {
-      d->cdInfoList = Cache::lookup( cddbId, config() );
+      d->cdInfoList = Cache::lookup( trackOffsetList, config() );
 
       kDebug(60010) << "Found " << d->cdInfoList.count() << " hit(s)" << endl;
 
       if ( !d->cdInfoList.isEmpty() )
       {
         if ( !blockingMode() )
-          emit finished( Lookup::Success );
+          emit finished( Success );
 
-        return CDDB::Success;
+        return Success;
       }
     }
 
@@ -126,11 +126,11 @@ namespace KCDDB
     {
       kDebug(60010) << "Only trying cache. Give up now." << endl;
       if ( !blockingMode() )
-        emit finished( Lookup::NoRecordFound );
-      return CDDB::NoRecordFound;
+        emit finished( NoRecordFound );
+      return NoRecordFound;
     }
 
-    CDDB::Result r;
+    Result r;
     Lookup::Transport t = ( Lookup::Transport )d->config.lookupTransport();
 
     // just in case we have an info lookup hanging around, prevent mem leakage
@@ -149,14 +149,14 @@ namespace KCDDB
         cdInfoLookup = new MusicBrainzLookup();
 #else
         kWarning() << "libkcddb not built with MusicBrainz support" << endl;
-        return CDDB::UnknownError;
+        return UnknownError;
 #endif
       }
 
       r = cdInfoLookup->lookup( d->config.hostname(),
               d->config.port(), trackOffsetList );
 
-      if ( CDDB::Success == r )
+      if ( Success == r )
       {
         d->cdInfoList = cdInfoLookup->lookupResponse();
         Cache::store( d->cdInfoList, config() );
@@ -172,16 +172,16 @@ namespace KCDDB
         cdInfoLookup = new AsyncCDDBPLookup();
 
         connect( static_cast<AsyncCDDBPLookup *>( cdInfoLookup ),
-                  SIGNAL( finished( CDDB::Result ) ),
-                  SLOT( slotFinished( CDDB::Result ) ) );
+                  SIGNAL( finished( KCDDB::Result ) ),
+                  SLOT( slotFinished( KCDDB::Result ) ) );
       }
       else if ( Lookup::HTTP == t)
       {
         cdInfoLookup = new AsyncHTTPLookup();
 
         connect( static_cast<AsyncHTTPLookup *>( cdInfoLookup ),
-                  SIGNAL( finished( CDDB::Result ) ),
-                  SLOT( slotFinished( CDDB::Result ) ) );
+                  SIGNAL( finished( KCDDB::Result ) ),
+                  SLOT( slotFinished( KCDDB::Result ) ) );
       }
       else
       {
@@ -189,18 +189,18 @@ namespace KCDDB
         cdInfoLookup = new AsyncMusicBrainzLookup();
 
         connect( static_cast<AsyncMusicBrainzLookup *>( cdInfoLookup ),
-                  SIGNAL( finished( CDDB::Result ) ),
-                  SLOT( slotFinished( CDDB::Result ) ) );
+                  SIGNAL( finished( KCDDB::Result ) ),
+                  SLOT( slotFinished( KCDDB::Result ) ) );
 #else
         kWarning() << "libkcddb not built with MusicBrainz support" << endl;
-        return CDDB::UnknownError;
+        return UnknownError;
 #endif
       }
 
       r = cdInfoLookup->lookup( d->config.hostname(),
               d->config.port(), trackOffsetList );
 
-      if ( Lookup::Success != r )
+      if ( Success != r )
       {
         delete cdInfoLookup;
         cdInfoLookup = 0L;
@@ -211,9 +211,9 @@ namespace KCDDB
   }
 
     void
-  Client::slotFinished( CDDB::Result r )
+  Client::slotFinished( Result r )
   {
-    if ( cdInfoLookup && CDDB::Success == r )
+    if ( cdInfoLookup && Success == r )
     {
       d->cdInfoList = cdInfoLookup->lookupResponse();
       Cache::store( d->cdInfoList, config() );
@@ -231,7 +231,7 @@ namespace KCDDB
   }
 
     void
-  Client::slotSubmitFinished( CDDB::Result r )
+  Client::slotSubmitFinished( Result r )
   {
     emit finished( r );
 
@@ -239,19 +239,19 @@ namespace KCDDB
     cdInfoSubmit=0L;
   }
 
-    CDDB::Result
+    Result
   Client::submit(const CDInfo &cdInfo, const TrackOffsetList& offsetList)
   {
     // Check if it's valid
 
     if (!cdInfo.isValid())
-      return CDDB::CannotSave;
+      return CannotSave;
 
     uint last=0;
     for (int i=0; i < offsetList.count(); i++)
     {
       if(last >= offsetList[i])
-        return CDDB::CannotSave;
+        return CannotSave;
       last = offsetList[i];
     }
 
@@ -275,8 +275,8 @@ namespace KCDDB
         {
           cdInfoSubmit = new AsyncHTTPSubmit(from, hostname, port);
           connect( static_cast<AsyncHTTPSubmit *>( cdInfoSubmit ),
-                  SIGNAL(finished( CDDB::Result ) ),
-                  SLOT( slotSubmitFinished( CDDB::Result ) ) );
+                  SIGNAL(finished( KCDDB::Result ) ),
+                  SLOT( slotSubmitFinished( KCDDB::Result ) ) );
         }
 
         break;
@@ -293,19 +293,19 @@ namespace KCDDB
         {
           cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
           connect( static_cast<AsyncSMTPSubmit *>( cdInfoSubmit ),
-                  SIGNAL( finished( CDDB::Result ) ),
-                  SLOT( slotSubmitFinished( CDDB::Result ) ) );
+                  SIGNAL( finished( KCDDB::Result ) ),
+                  SLOT( slotSubmitFinished( KCDDB::Result ) ) );
         }
         break;
       }
       default:
         kDebug(60010) << k_funcinfo << "Unsupported transport: " << endl;
 //          << CDDB::transportToString(d->config.submitTransport()) << endl;
-        return CDDB::UnknownError;
+        return UnknownError;
         break;
     }
 
-    CDDB::Result r = cdInfoSubmit->submit( cdInfo, offsetList );
+    Result r = cdInfoSubmit->submit( cdInfo, offsetList );
 
     if ( blockingMode() )
     {

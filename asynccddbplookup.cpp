@@ -36,7 +36,7 @@ namespace KCDDB
   {
   }
 
-    CDDB::Result
+    Result
   AsyncCDDBPLookup::lookup
   (
     const QString         & hostname,

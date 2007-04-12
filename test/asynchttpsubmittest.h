@@ -34,7 +34,7 @@ class AsyncHTTPSubmitTest : public QObject
 
   public slots:
 
-    void slotFinished(CDDB::Result);
+    void slotFinished(KCDDB::Result);
 
   private:
 

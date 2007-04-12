@@ -287,7 +287,7 @@
  </tabstops>
  <includes>
   <include location="local" >libkcddb/cdinfo.h</include>
-  <include location="local" >libkcddb/cddb.h</include>
+  <include location="local" >libkcddb/kcddb.h</include>
   <include location="local" >libkcddb/categories.h</include>
   <include location="local" >libkcddb/genres.h</include>
  </includes>

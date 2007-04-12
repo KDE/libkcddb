@@ -39,7 +39,7 @@ namespace KCDDB
       virtual ~AsyncSMTPSubmit();
 
     signals:
-      void finished( CDDB::Result );
+      void finished( KCDDB::Result );
     protected slots:
       void slotDone( KJob * );
     protected:

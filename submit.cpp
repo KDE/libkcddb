@@ -35,7 +35,7 @@ namespace KCDDB
     // Empty.
   }
 
-  CDDB::Result Submit::submit( CDInfo cdInfo, const TrackOffsetList& offsetList)
+  Result Submit::submit( CDInfo cdInfo, const TrackOffsetList& offsetList)
   {
     // If it was an inexact math from the server the discid might
     // be different, so recalculate it
@@ -54,7 +54,7 @@ namespace KCDDB
     return runJob(job);
   }
 
-    CDDB::Result
+    Result
   Submit::parseWrite(  const QString & line )
   {
     uint serverStatus = statusCode(  line );

@@ -39,7 +39,7 @@ namespace KCDDB
     // Empty.
   }
 
-    CDDB::Result
+    Result
   AsyncHTTPLookup::lookup
   (
     const QString         & hostName,
@@ -60,7 +60,7 @@ namespace KCDDB
     return result_;
   }
 
-    CDDB::Result
+    Result
   AsyncHTTPLookup::runQuery()
   {
     data_ = QByteArray();
@@ -127,7 +127,7 @@ namespace KCDDB
     jobFinished();
   }
 
-    CDDB::Result
+    Result
   AsyncHTTPLookup::fetchURL()
   {
     kDebug(60010) << "About to fetch: " << cgiURL_.url() << endl;

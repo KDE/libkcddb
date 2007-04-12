@@ -25,6 +25,7 @@
 #include <qpair.h>
 #include <QString>
 
+#include "kcddb.h"
 #include "cdinfo.h"
 #include <kdemacros.h>
 
@@ -43,7 +44,7 @@ namespace KCDDB
         Ignore
       };
 
-      static CDInfoList lookup( const QString &, const Config & );
+      static CDInfoList lookup( const TrackOffsetList & , const Config & );
       static void store( const CDInfoList &, const Config & );
       // KDE4: Should probably take a TrackOffsetList too, so
       // the list can be stored in the file, and we can make

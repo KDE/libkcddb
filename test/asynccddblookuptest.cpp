@@ -33,12 +33,7 @@ void AsyncCDDBLookupTest::testLookup()
   client_->config().setLookupTransport(Lookup::CDDBP);
   client_->setBlockingMode( false );
 
-  connect
-    (
-      client_,
-      SIGNAL(finished(CDDB::Result)),
-      SLOT(slotFinished(CDDB::Result))
-    );
+  connect(client_,SIGNAL(finished(KCDDB::Result)),SLOT(slotFinished(KCDDB::Result)));
 
   TrackOffsetList list;
 
@@ -93,9 +88,9 @@ void AsyncCDDBLookupTest::testLookup()
 }
 
   void
-AsyncCDDBLookupTest::slotFinished(CDDB::Result r)
+AsyncCDDBLookupTest::slotFinished(Result r)
 {
-  kDebug() << "AsyncCDDBLookupTest::slotResult: Got " << KCDDB::CDDB::resultToString(r) << endl;
+  kDebug() << "AsyncCDDBLookupTest::slotResult: Got " << KCDDB::resultToString(r) << endl;
 
   CDInfoList l = client_->lookupResponse();
 

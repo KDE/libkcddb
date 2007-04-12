@@ -24,7 +24,7 @@
 #include "kcddbconfig.h"
 #include "cdinfo.h"
 #include <QObject>
-#include "cddb.h"
+#include "kcddb.h"
 #include <kdemacros.h>
 
 namespace KCDDB
@@ -69,11 +69,11 @@ namespace KCDDB
        *
        * @return if the results of the lookup: Success, NoRecordFound, etc
        */
-      CDDB::Result lookup(const TrackOffsetList &trackOffsetList);
+      Result lookup(const TrackOffsetList &trackOffsetList);
       /**
        * @returns the results of trying to submit
        */
-      CDDB::Result submit(const CDInfo &cdInfo, const TrackOffsetList &trackOffsetList);
+      Result submit(const CDInfo &cdInfo, const TrackOffsetList &trackOffsetList);
 
       /**
        * Stores the CD-information in the local cache
@@ -87,17 +87,17 @@ namespace KCDDB
       /**
        * emitted when not blocking and lookup() finished.
        */
-      void finished( CDDB::Result result );
+      void finished( KCDDB::Result result );
 
     protected slots:
       /**
        * Called when the lookup is finished with the result
        */
-      void slotFinished( CDDB::Result result );
+      void slotFinished( KCDDB::Result result );
       /**
        * Called when the submit is finished with the result
        */
-      void slotSubmitFinished( CDDB::Result result );
+      void slotSubmitFinished( KCDDB::Result result );
 
     private:
       class Private;

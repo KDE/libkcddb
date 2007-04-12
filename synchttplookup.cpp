@@ -39,7 +39,7 @@ namespace KCDDB
     // Empty.
   }
 
-    CDDB::Result
+    Result
   SyncHTTPLookup::lookup
   (
     const QString         & hostName,
@@ -76,7 +76,7 @@ namespace KCDDB
     return result_;
   }
 
-    CDDB::Result
+    Result
   SyncHTTPLookup::runQuery()
   {
     data_ = QByteArray();
@@ -92,7 +92,7 @@ namespace KCDDB
     return result_;
   }
 
-    CDDB::Result
+    Result
   SyncHTTPLookup::matchToCDInfo( const CDDBMatch & match )
   {
     data_ = QByteArray();
@@ -106,7 +106,7 @@ namespace KCDDB
     return result_;
   }
 
-    CDDB::Result
+    Result
   SyncHTTPLookup::fetchURL()
   {
     kDebug(60010) << "About to fetch: " << cgiURL_.url() << endl;

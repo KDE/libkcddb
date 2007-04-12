@@ -34,13 +34,13 @@ namespace KCDDB
 
   }
 
-  CDDB::Result SyncHTTPSubmit::runJob(KIO::Job* job)
+  Result SyncHTTPSubmit::runJob(KIO::Job* job)
   {
     bool success = KIO::NetAccess::synchronousRun(job, 0);
 
     if (success)
-      return CDDB::Success;
+      return Success;
     else
-      return CDDB::UnknownError;
+      return UnknownError;
   }
 }

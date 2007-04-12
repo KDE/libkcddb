@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2003-2004 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2007 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -17,30 +17,37 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include "syncsmtpsubmit.h"
-#include "cdinfo.h"
-#include <kio/netaccess.h>
-#include <kio/job.h>
+#ifndef KCDDB_H
+#define KCDDB_H
+
+#include <QList>
+#include <QString>
+
+#include <kcddb_export.h>
 
 namespace KCDDB
 {
-  SyncSMTPSubmit::SyncSMTPSubmit(const QString& hostname, uint port,
-        const QString& username, const QString& from, const QString& to)
-    : SMTPSubmit( hostname, port, username, from, to )
+  /** This list is used to calculate the CDDB disc id.
+    Insert the start frames ((minute*60 + seconds)*75+frames)
+    of all tracks, followed by the last frame of the disc. The
+    last frame is the start frame of the leadout track.
+    */
+  typedef QList<uint> TrackOffsetList;
+
+  enum Result
   {
+    Success,
+    ServerError,
+    HostNotFound,
+    NoResponse,
+    NoRecordFound,
+    MultipleRecordFound,
+    CannotSave,
+    InvalidCategory,
+    UnknownError
+  };
 
-  }
-
-  SyncSMTPSubmit::~SyncSMTPSubmit()
-  {
-
-  }
-
-  Result SyncSMTPSubmit::runJob(KIO::Job* job)
-  {
-    if ( KIO::NetAccess::synchronousRun(job, 0) )
-      return Success;
-
-    return UnknownError;
-  }
+  KCDDB_EXPORT QString resultToString(Result);
 }
+
+#endif

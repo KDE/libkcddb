@@ -36,7 +36,7 @@ namespace KCDDB
       QString description;
   } ;
 
-  class KCDDB_EXPORT Sites : public CDDB
+  class KCDDB_EXPORT Sites
   {
     public:
       Sites();

@@ -34,11 +34,11 @@ namespace KCDDB
 
   }
 
-  CDDB::Result AsyncHTTPSubmit::runJob(KIO::Job* job)
+  Result AsyncHTTPSubmit::runJob(KIO::Job* job)
   {
     connect(job, SIGNAL(result(KJob *)), SLOT(slotFinished(KJob *)));
 
-    return CDDB::Success;
+    return Success;
   }
 
   void AsyncHTTPSubmit::slotFinished(KJob* job)
