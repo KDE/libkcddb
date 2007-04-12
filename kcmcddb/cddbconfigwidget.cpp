@@ -50,9 +50,14 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
   urlReq->setMode(KFile::Directory);
 
   KEditListBox* editListBox = new KEditListBox(i18n("Cache Locations"), urlReq->customEditor(), cacheLocationsParent, "kcfg_cacheLocations");
-  cacheLocationsParent->raiseWidget(editListBox);
+  cacheLocationsParent->addWidget(editListBox);
+  cacheLocationsParent->setCurrentWidget(editListBox);
 
   kcfg_submitTransport->remove(needsAuthenticationBox);
+
+  connect(needsAuthenticationBox,SIGNAL(toggled(bool)),SLOT(needAuthenticationChanged(bool)));
+  connect(kcfg_lookupTransport,SIGNAL(activated(int)),SLOT(protocolChanged()));
+  connect(mirrorListButton,SIGNAL(clicked()),SLOT(showMirrorList()));
 }
 
 void CDDBConfigWidget::showMirrorList()

@@ -1,60 +1,65 @@
 <ui version="4.0" >
- <author></author>
  <comment>Used for configuring libkcddb.</comment>
- <exportmacro></exportmacro>
  <class>CDDBConfigWidgetBase</class>
  <widget class="QWidget" name="CDDBConfigWidgetBase" >
   <property name="geometry" >
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>452</width>
-    <height>573</height>
+    <width>472</width>
+    <height>642</height>
    </rect>
   </property>
   <property name="windowTitle" >
    <string>CDDB Settings</string>
   </property>
   <layout class="QVBoxLayout" >
-   <property name="margin" >
-    <number>0</number>
-   </property>
    <property name="spacing" >
     <number>11</number>
    </property>
+   <property name="leftMargin" >
+    <number>0</number>
+   </property>
+   <property name="topMargin" >
+    <number>0</number>
+   </property>
+   <property name="rightMargin" >
+    <number>0</number>
+   </property>
+   <property name="bottomMargin" >
+    <number>0</number>
+   </property>
    <item>
     <widget class="QTabWidget" name="tabWidget2" >
+     <property name="currentIndex" >
+      <number>0</number>
+     </property>
      <widget class="QWidget" name="tabLookup" >
       <attribute name="title" >
        <string>&amp;Lookup</string>
       </attribute>
       <layout class="QVBoxLayout" >
-       <property name="margin" >
-        <number>0</number>
-       </property>
        <property name="spacing" >
         <number>11</number>
        </property>
+       <property name="leftMargin" >
+        <number>0</number>
+       </property>
+       <property name="topMargin" >
+        <number>0</number>
+       </property>
+       <property name="rightMargin" >
+        <number>0</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>0</number>
+       </property>
        <item>
-        <widget class="Q3ButtonGroup" name="kcfg_cachePolicy" >
-         <property name="sizePolicy" >
-          <sizepolicy>
-           <hsizetype>5</hsizetype>
-           <vsizetype>4</vsizetype>
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
+        <widget class="KButtonGroup" name="kcfg_cachePolicy" >
          <property name="title" >
           <string>Mode</string>
          </property>
          <layout class="QHBoxLayout" >
-          <property name="margin" >
-           <number>6</number>
-          </property>
-          <property name="spacing" >
-           <number>0</number>
-          </property>
           <item>
            <widget class="QRadioButton" name="cacheOnly" >
             <property name="whatsThis" >
@@ -94,10 +99,22 @@
           <string>CDDB Server</string>
          </property>
          <layout class="QGridLayout" >
-          <property name="margin" >
+          <property name="leftMargin" >
            <number>11</number>
           </property>
-          <property name="spacing" >
+          <property name="topMargin" >
+           <number>11</number>
+          </property>
+          <property name="rightMargin" >
+           <number>11</number>
+          </property>
+          <property name="bottomMargin" >
+           <number>11</number>
+          </property>
+          <property name="horizontalSpacing" >
+           <number>6</number>
+          </property>
+          <property name="verticalSpacing" >
            <number>6</number>
           </property>
           <item row="0" column="0" >
@@ -138,14 +155,16 @@
            </widget>
           </item>
           <item row="1" column="2" colspan="3" >
-           <widget class="KPushButton" name="mirrorListButton" />
+           <widget class="KPushButton" name="mirrorListButton" >
+            <property name="text" >
+             <string>Show &amp;Mirror List</string>
+            </property>
+           </widget>
           </item>
           <item row="0" column="4" >
            <widget class="QSpinBox" name="kcfg_port" >
             <property name="sizePolicy" >
-             <sizepolicy>
-              <hsizetype>4</hsizetype>
-              <vsizetype>0</vsizetype>
+             <sizepolicy vsizetype="Fixed" hsizetype="Maximum" >
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -167,7 +186,7 @@
              <string>&amp;Port:</string>
             </property>
             <property name="alignment" >
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignAbsolute|Qt::AlignBottom|Qt::AlignCenter|Qt::AlignHCenter|Qt::AlignHorizontal_Mask|Qt::AlignJustify|Qt::AlignLeading|Qt::AlignLeft|Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing|Qt::AlignVCenter|Qt::AlignVertical_Mask</set>
             </property>
             <property name="buddy" >
              <cstring>kcfg_port</cstring>
@@ -177,9 +196,7 @@
           <item row="0" column="1" colspan="2" >
            <widget class="QLineEdit" name="kcfg_hostname" >
             <property name="sizePolicy" >
-             <sizepolicy>
-              <hsizetype>7</hsizetype>
-              <vsizetype>0</vsizetype>
+             <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -196,9 +213,7 @@
         </widget>
        </item>
        <item>
-        <widget class="Q3WidgetStack" name="cacheLocationsParent" >
-         <widget class="QWidget" name="WStackPage" />
-        </widget>
+        <widget class="QStackedWidget" name="cacheLocationsParent" />
        </item>
        <item>
         <spacer>
@@ -223,10 +238,22 @@
        <string>&amp;Submit</string>
       </attribute>
       <layout class="QGridLayout" >
-       <property name="margin" >
+       <property name="leftMargin" >
         <number>0</number>
        </property>
-       <property name="spacing" >
+       <property name="topMargin" >
+        <number>0</number>
+       </property>
+       <property name="rightMargin" >
+        <number>0</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>0</number>
+       </property>
+       <property name="horizontalSpacing" >
+        <number>11</number>
+       </property>
+       <property name="verticalSpacing" >
         <number>11</number>
        </property>
        <item row="0" column="1" >
@@ -261,10 +288,22 @@
           <string>Submit Method</string>
          </property>
          <layout class="QGridLayout" >
-          <property name="margin" >
+          <property name="leftMargin" >
            <number>5</number>
           </property>
-          <property name="spacing" >
+          <property name="topMargin" >
+           <number>5</number>
+          </property>
+          <property name="rightMargin" >
+           <number>5</number>
+          </property>
+          <property name="bottomMargin" >
+           <number>5</number>
+          </property>
+          <property name="horizontalSpacing" >
+           <number>11</number>
+          </property>
+          <property name="verticalSpacing" >
            <number>11</number>
           </property>
           <item row="7" column="1" >
@@ -307,7 +346,7 @@
            </widget>
           </item>
           <item row="2" column="0" colspan="6" >
-           <widget class="QRadioButton" name="radioButton8" >
+           <widget class="QRadioButton" name="smtpButton" >
             <property name="text" >
              <string>SMTP (Email)</string>
             </property>
@@ -330,7 +369,7 @@
            </spacer>
           </item>
           <item row="0" column="0" colspan="4" >
-           <widget class="QRadioButton" name="radioButton6" >
+           <widget class="QRadioButton" name="httpButton" >
             <property name="text" >
              <string>HTTP</string>
             </property>
@@ -345,7 +384,7 @@
              <string>Port:</string>
             </property>
             <property name="alignment" >
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignAbsolute|Qt::AlignBottom|Qt::AlignCenter|Qt::AlignHCenter|Qt::AlignHorizontal_Mask|Qt::AlignJustify|Qt::AlignLeading|Qt::AlignLeft|Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing|Qt::AlignVCenter|Qt::AlignVertical_Mask</set>
             </property>
            </widget>
           </item>
@@ -362,9 +401,7 @@
           <item row="4" column="1" colspan="4" >
            <widget class="QLabel" name="textLabel2_2" >
             <property name="sizePolicy" >
-             <sizepolicy>
-              <hsizetype>4</hsizetype>
-              <vsizetype>5</vsizetype>
+             <sizepolicy vsizetype="Preferred" hsizetype="Maximum" >
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -377,9 +414,7 @@
           <item row="5" column="1" colspan="2" >
            <widget class="QLabel" name="textLabel3" >
             <property name="sizePolicy" >
-             <sizepolicy>
-              <hsizetype>5</hsizetype>
-              <vsizetype>5</vsizetype>
+             <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -415,9 +450,7 @@
              <bool>false</bool>
             </property>
             <property name="sizePolicy" >
-             <sizepolicy>
-              <hsizetype>7</hsizetype>
-              <vsizetype>5</vsizetype>
+             <sizepolicy vsizetype="Preferred" hsizetype="Expanding" >
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -427,9 +460,7 @@
           <item row="5" column="3" colspan="2" >
            <widget class="QSpinBox" name="kcfg_smtpPort" >
             <property name="sizePolicy" >
-             <sizepolicy>
-              <hsizetype>4</hsizetype>
-              <vsizetype>0</vsizetype>
+             <sizepolicy vsizetype="Fixed" hsizetype="Maximum" >
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -472,57 +503,91 @@
  <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
  <customwidgets>
   <customwidget>
+   <class>Q3GroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>Qt3Support/Q3GroupBox</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
    <class>Q3ButtonGroup</class>
-   <extends></extends>
+   <extends>Q3GroupBox</extends>
    <header>Qt3Support/Q3ButtonGroup</header>
    <container>1</container>
-   <pixmap></pixmap>
   </customwidget>
   <customwidget>
    <class>KLineEdit</class>
-   <extends>QWidget</extends>
+   <extends>QLineEdit</extends>
    <header>klineedit.h</header>
    <container>1</container>
-   <pixmap></pixmap>
-  </customwidget>
-  <customwidget>
-   <class>Q3GroupBox</class>
-   <extends></extends>
-   <header>Qt3Support/Q3GroupBox</header>
-   <container>1</container>
-   <pixmap></pixmap>
   </customwidget>
   <customwidget>
    <class>KPushButton</class>
-   <extends>QWidget</extends>
+   <extends>QPushButton</extends>
    <header>kpushbutton.h</header>
    <container>1</container>
-   <pixmap></pixmap>
   </customwidget>
   <customwidget>
-   <class>KDialog</class>
-   <extends>QWidget</extends>
-   <header>kdialog.h</header>
+   <class>KButtonGroup</class>
+   <extends>QGroupBox</extends>
+   <header>kbuttongroup.h</header>
    <container>1</container>
-   <pixmap></pixmap>
-  </customwidget>
-  <customwidget>
-   <class>Q3WidgetStack</class>
-   <extends></extends>
-   <header>q3widgetstack.h</header>
-   <container>1</container>
-   <pixmap></pixmap>
   </customwidget>
  </customwidgets>
  <tabstops>
   <tabstop>tabWidget2</tabstop>
-  <tabstop>cacheOnly</tabstop>
-  <tabstop>cacheAndRemote</tabstop>
-  <tabstop>remoteOnly</tabstop>
   <tabstop>kcfg_hostname</tabstop>
   <tabstop>kcfg_port</tabstop>
   <tabstop>kcfg_lookupTransport</tabstop>
  </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>cacheOnly</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>serverBox</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>86</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>251</x>
+     <y>131</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cacheAndRemote</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>serverBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>251</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>251</x>
+     <y>131</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>remoteOnly</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>serverBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>416</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>251</x>
+     <y>131</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
