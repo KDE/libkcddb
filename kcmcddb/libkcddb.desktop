@@ -2,6 +2,7 @@
 Exec=kcmshell libkcddb
 Icon=cdaudio_unmount
 Type=Application
+NoDisplay=true
 X-KDE-ModuleType=Library
 X-KDE-Library=cddb
 Encoding=UTF-8
