@@ -64,6 +64,13 @@ namespace KCDDB
 
       // ensure we get our translations
       KGlobal::locale()->insertCatalog("libkcddb");
+      connect( m_trackList, SIGNAL( selectionChanged(Q3ListViewItem*) ), this, SLOT( slotTrackSelected(Q3ListViewItem*) ) );
+      connect( m_trackList, SIGNAL( doubleClicked(Q3ListViewItem*,const QPoint&,int) ), this, SLOT( slotTrackDoubleClicked(Q3ListViewItem*,const QPoint&,int) ) );
+      connect( m_artist, SIGNAL( textChanged(const QString&) ), this, SLOT( artistChanged(const QString&) ) );
+      connect( m_genre, SIGNAL( textChanged(const QString&) ), this, SLOT( genreChanged(const QString&) ) );
+      connect( m_multiple, SIGNAL( toggled(bool) ), this, SLOT( slotMultipleArtists(bool) ) );
+
+      connect(m_changeEncoding,SIGNAL(clicked()),SLOT(slotChangeEncoding()));
   }
 
   void CDInfoDialog::slotTrackSelected( Q3ListViewItem *item )
