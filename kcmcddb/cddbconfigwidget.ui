@@ -373,6 +373,9 @@
             <property name="text" >
              <string>HTTP</string>
             </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>  
            </widget>
           </item>
           <item row="1" column="4" colspan="2" >
