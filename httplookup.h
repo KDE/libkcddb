@@ -28,7 +28,6 @@
 
 namespace KIO
 {
-  class TransferJob;
   class Job;
 }
 

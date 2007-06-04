@@ -24,8 +24,6 @@
 
 #include "libkcddb/kcddbconfig.h"
 
-class CDDBConfigWidgetBase;
-class KConfigDialogManager;
 
 class CDDBModule : public KCModule
 {
