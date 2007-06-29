@@ -61,6 +61,7 @@ kde4_add_library(kcddb SHARED ${kcddb_LIB_SRCS})
 target_link_libraries(kcddb ${KDE4_KDE3SUPPORT_LIBS})
 if(MUSICBRAINZ_FOUND)
     target_link_libraries(kcddb musicbrainz)
+    include_directories(${MUSICBRAINZ_INCLUDE_DIR})
 endif(MUSICBRAINZ_FOUND)
 
 set_target_properties(kcddb PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
