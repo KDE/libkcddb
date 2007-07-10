@@ -50,7 +50,6 @@ set(kcddb_LIB_SRCS ${libmusicbrainz_SRCS}
    cdinfodialog.cpp 
    cdinfoencodingwidget.cpp )
 
-kde4_automoc(${kcddb_LIB_SRCS})
 
 kde4_add_ui_files(kcddb_LIB_SRCS cdinfodialog.ui cdinfoencodingwidget.ui )
 
