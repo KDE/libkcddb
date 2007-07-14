@@ -22,13 +22,13 @@
 #ifndef KCDDB_CDDB_H
 #define KCDDB_CDDB_H
 
-#include <QString>
-#include <qlist.h>
-#include "kcddb.h"
+#include <QtCore/QString>
+#include <QtCore/QList>
+#include <libkcddb/kcddb.h>
 
 namespace KCDDB
 {
-  class CDDB
+  class KCDDB_EXPORT CDDB
   {
     public:
       CDDB();

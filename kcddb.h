@@ -20,10 +20,10 @@
 #ifndef KCDDB_H
 #define KCDDB_H
 
-#include <QList>
-#include <QString>
+#include <QtCore/QList>
+#include <QtCore/QString>
 
-#include <kcddb_export.h>
+#include <libkcddb/kcddb_export.h>
 
 namespace KCDDB
 {

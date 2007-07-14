@@ -22,18 +22,18 @@
 #ifndef KCDDB_LOOKUP_H
 #define KCDDB_LOOKUP_H
 
-#include "cddb.h"
-#include "cdinfo.h"
-#include <QObject>
-#include <qpair.h>
-#include <qlist.h>
+#include <QtCore/QList>
+#include <QtCore/QObject>
+#include <QtCore/QPair>
+#include <libkcddb/cddb.h>
+#include <libkcddb/cdinfo.h>
 
 namespace KCDDB
 {
   typedef QPair<QString, QString> CDDBMatch;
   typedef QList<CDDBMatch> CDDBMatchList;
 
-  class Lookup : public CDDB, public QObject
+  class KCDDB_EXPORT Lookup : public CDDB, public QObject
   {
     public:
 

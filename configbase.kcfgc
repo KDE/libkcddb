@@ -1,5 +1,5 @@
 ClassName=ConfigBase
 File=libkcddb.kcfg
 Mutators=true
-IncludeFiles=kcddb_export.h
+IncludeFiles=libkcddb/kcddb_export.h
 Visibility=KCDDB_EXPORT

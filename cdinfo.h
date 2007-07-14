@@ -22,10 +22,9 @@
 #ifndef KCDDB_CDINFO_H
 #define KCDDB_CDINFO_H
 
-#include <qstringlist.h>
-#include <qlist.h>
-#include <kcddb_export.h>
-#include <QVariant>
+#include <QtCore/QStringList>
+#include <QtCore/QVariant>
+#include <libkcddb/kcddb_export.h>
 
 namespace KCDDB
 {

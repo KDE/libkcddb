@@ -83,13 +83,13 @@ namespace KCDDB
       void setBlockingMode( bool );
       bool blockingMode() const;
 
-    signals:
+    Q_SIGNALS:
       /**
        * emitted when not blocking and lookup() finished.
        */
       void finished( KCDDB::Result result );
 
-    protected slots:
+    protected Q_SLOTS:
       /**
        * Called when the lookup is finished with the result
        */
