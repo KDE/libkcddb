@@ -23,7 +23,7 @@
 
 #include "kcddbconfig.h"
 #include "cdinfo.h"
-#include <QObject>
+#include <QtCore/QObject>
 #include "kcddb.h"
 #include <kdemacros.h>
 
