@@ -69,7 +69,16 @@ install(TARGETS kcddb  DESTINATION ${LIB_INSTALL_DIR} )
 
 ########### install files ###############
 
-install( FILES cdinfo.h client.h kcddbconfig.h kcddb.h ${CMAKE_CURRENT_BINARY_DIR}/configbase.h  DESTINATION ${INCLUDE_INSTALL_DIR}/libkcddb)
+install(FILES
+   cddb.h
+   cdinfo.h
+   client.h
+   kcddbconfig.h
+   kcddb.h
+   kcddb_export.h
+   lookup.h
+   ${CMAKE_CURRENT_BINARY_DIR}/configbase.h
+   DESTINATION ${INCLUDE_INSTALL_DIR}/libkcddb)
 install( FILES libkcddb.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 
 
