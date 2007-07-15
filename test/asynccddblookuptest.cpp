@@ -57,6 +57,8 @@ void AsyncCDDBLookupTest::testLookup()
 
   delete client_;
 
+  QVERIFY(m_result == Success);
+
   // If revision doesn't match, test probably needs to be updated
   // See: http://www.freedb.org/freedb/jazz/a1107d0a for updated data
   QCOMPARE(m_info.get("revision").toInt(), 4);
@@ -90,6 +92,7 @@ void AsyncCDDBLookupTest::testLookup()
   void
 AsyncCDDBLookupTest::slotFinished(Result r)
 {
+  m_result = r;
   kDebug() << "AsyncCDDBLookupTest::slotResult: Got " << KCDDB::resultToString(r) << endl;
 
   CDInfoList l = client_->lookupResponse();

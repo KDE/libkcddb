@@ -54,6 +54,8 @@ void MusicBrainzTest::testLookup()
 
   Result r = c.lookup(list);
 
+  QVERIFY(r == Success);
+
   kDebug() << "Client::lookup gave : " << resultToString(r) << endl;
 
   CDInfoList response = c.lookupResponse();

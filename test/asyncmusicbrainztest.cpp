@@ -61,6 +61,8 @@ void AsyncMusicBrainzTest::testLookup()
 
   m_eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
 
+  QVERIFY(m_result == Success);
+
   // See http://musicbrainz.org/release/dbb3e39a-4bea-4e32-a546-456654f30ca6.html for changes
   QCOMPARE(m_info.numberOfTracks(),17);
 
@@ -134,6 +136,7 @@ void AsyncMusicBrainzTest::testLookup()
   void
 AsyncMusicBrainzTest::slotFinished(Result r)
 {
+  m_result = r;
   kDebug() << k_funcinfo << ": Got " << KCDDB::resultToString(r) << endl;
 
   CDInfoList l = client_->lookupResponse();

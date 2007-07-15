@@ -43,7 +43,9 @@ void SyncCDDBLookupTest::testLookup()
     << 176085
     << 234500;
 
-  c.lookup(list);
+  Result r = c.lookup(list);
+
+  QVERIFY(r == Success);
 
   CDInfoList response = c.lookupResponse();
 

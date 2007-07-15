@@ -23,6 +23,7 @@
 #include <QEventLoop>
 #include <QObject>
 #include <libkcddb/client.h>
+#include <libkcddb/kcddb.h>
 
 using namespace KCDDB;
 
@@ -38,6 +39,7 @@ class AsyncMusicBrainzTest : public QObject
     QEventLoop m_eventLoop;
     KCDDB::Client * client_;
     CDInfo m_info;
+    Result m_result;
 };
 
 #endif
