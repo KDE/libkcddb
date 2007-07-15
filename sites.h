@@ -43,7 +43,7 @@ namespace KCDDB
 
       QList<Mirror> siteList();
     private:
-      QList<Mirror> readFile(const QString& fileName);
+      QList<Mirror> readData(const QByteArray& data);
       Mirror parseLine(const QString& line);
   } ;
 }

@@ -20,6 +20,7 @@
 #include "sites.h"
 #include <kurl.h>
 #include <kio/netaccess.h>
+#include <kio/job.h>
 #include <QFile>
 #include <QTextStream>
 #include <kdebug.h>
@@ -52,29 +53,22 @@ namespace KCDDB
 
     QList<Mirror> result;
 
-    QString tmpFile;
-    if( KIO::NetAccess::download( url, tmpFile, 0 ) )
+    KIO::Job* job = KIO::get( url, false, false );
+    QByteArray data;
+    if( KIO::NetAccess::synchronousRun( job, 0, &data ) )
     {
-      result = readFile( tmpFile );
-      KIO::NetAccess::removeTempFile( tmpFile );
+      result = readData( data );
     }
 
     return result;
   }
 
     QList<Mirror>
-  Sites::readFile(const QString& fileName)
+  Sites::readData(const QByteArray& data)
   {
     QList<Mirror> result;
 
-    QFile f(fileName);
-    if (!f.open(QIODevice::ReadOnly))
-    {
-      kDebug(60010) << "Couldn't read: " << fileName << endl;
-      return result;
-    }
-
-    QTextStream ts(&f);
+    QTextStream ts(data);
 
     if (CDDB::statusCode(ts.readLine()) != 210)
       return result;
