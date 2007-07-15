@@ -69,11 +69,11 @@ namespace KCDDB
   CDDBPLookup::sendRead( const CDDBMatch & match )
   {
     category_  = match.first;
-    QString discid    = match.second;
+    discid_    = match.second;
 
     QString readRequest = QString( "cddb read %1 %2" )
         .arg( category_ )
-        .arg( discid );
+        .arg( discid_ );
 
     writeLine( readRequest );
   }

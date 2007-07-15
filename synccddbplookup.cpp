@@ -174,6 +174,7 @@ namespace KCDDB
     if ( info.load( lineList ) )
     {
       info.set( "category", category_ );
+      info.set( "discid", discid_ );
       cdInfoList_.append( info );
     }
 

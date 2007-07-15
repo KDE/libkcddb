@@ -269,6 +269,7 @@ namespace KCDDB
     if (info.load( cdInfoBuffer_ ))
     {
       info.set( "category", category_ );
+      info.set( "discid", discid_ );
       cdInfoList_.append( info );
     }
 

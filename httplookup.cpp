@@ -52,10 +52,10 @@ namespace KCDDB
   HTTPLookup::sendRead( const CDDBMatch & match )
   {
     category_  = match.first;
-    QString discid    = match.second;
+    discid_    = match.second;
 
     QString cmd = QString( "cddb read %1 %2" )
-        .arg( category_, discid );
+        .arg( category_, discid_ );
 
     makeURL( cmd );
     Result result = fetchURL();
@@ -162,6 +162,7 @@ namespace KCDDB
           if ( info.load( QString::fromUtf8(data_,data_.size()) ) )
           {
             info.set( "category", category_ );
+            info.set( "discid", discid_ );
             cdInfoList_.append( info );
           }
 
