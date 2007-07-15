@@ -157,6 +157,7 @@ namespace KCDDB
 
         {
           CDInfo info;
+          info.set("source", "freedb");
 
           if ( info.load( QString::fromUtf8(data_,data_.size()) ) )
           {

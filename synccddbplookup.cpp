@@ -21,6 +21,7 @@
 
 #include <qstringlist.h>
 #include <kdebug.h>
+#include <ksocketfactory.h>
 
 #include "synccddbplookup.h"
 
@@ -46,16 +47,22 @@ namespace KCDDB
   {
     trackOffsetList_ = trackOffsetList;
 
-    socket_ = new KNetwork::KBufferedSocket(hostName, QString::number(port));
-    socket_->setTimeout( 30000 );
-    socket_->setOutputBuffering(false);
+    socket_ = KSocketFactory::synchronousConnectToHost("cddbp", hostName, port);
+
+    if ( !socket_->isValid() )
+    {
+      kDebug(60010) << "Couldn't connect to " << socket_->peerName() << ":" << socket_->peerPort() << endl;
+      kDebug(60010) << "Socket error: " << socket_->errorString() << endl;
+
+      if ( socket_->error() == QAbstractSocket::HostNotFoundError )
+        return HostNotFound;
+      else if ( socket_->error() == QAbstractSocket::SocketTimeoutError )
+        return NoResponse;
+      else
+        return UnknownError;
+    }
 
     Result result;
-
-    // Connect to server.
-    result = connect();
-    if ( Success != result )
-      return result;
 
     // Try a handshake.
     result = shakeHands();
@@ -88,27 +95,6 @@ namespace KCDDB
     close();
 
     return Success;
-  }
-
-    Result
-  SyncCDDBPLookup::connect()
-  {
-    kDebug(60010) << "Trying to connect to " << endl;
-
-    if ( !socket_->lookup() )
-      return HostNotFound;
-
-    socket_->peerResolver().wait();
-
-    if ( socket_->state() != KNetwork::KClientSocketBase::HostFound )
-      return HostNotFound;
-
-    if ( !socket_->connect() )
-      return ServerError;
-
-    socket_->waitForConnect();
-
-    return isConnected() ? Success : ServerError;
   }
 
     Result
@@ -183,6 +169,7 @@ namespace KCDDB
     }
 
     CDInfo info;
+    info.set("source", "freedb");
 
     if ( info.load( lineList ) )
     {
@@ -204,11 +191,7 @@ namespace KCDDB
 
     if (!socket_->canReadLine())
     {
-      bool timeout;
-
-      socket_->waitForMore(-1,&timeout);
-
-      if (timeout)
+      if (!socket_->waitForReadyRead(-1))
         return QString();
     }
 

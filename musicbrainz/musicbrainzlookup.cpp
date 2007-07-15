@@ -82,6 +82,7 @@ namespace KCDDB
       mb.Select(MBS_SelectAlbum, i);
 
       CDInfo info;
+      info.set("source", "musicbrainz");
 
       info.set(Title, QString::fromUtf8(mb.Data(MBE_AlbumGetAlbumName).c_str()));
       info.set(Artist, QString::fromUtf8(mb.Data(MBE_AlbumGetAlbumArtistName).c_str()));
@@ -142,6 +143,14 @@ namespace KCDDB
     QString res = QString::fromLatin1(base64).replace('/',"_").replace('+',".").replace('=',"-");
     
     return res;
+  }
+
+  QStringList MusicBrainzLookup::cacheFilenames(const TrackOffsetList& offsetList)
+  {
+    QStringList filenames;
+    filenames << QString("musicbrainz/") + calculateDiscId(offsetList);
+
+    return filenames;
   }
 }
 

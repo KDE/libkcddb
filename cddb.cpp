@@ -27,6 +27,7 @@
 #include <klocale.h>
 
 #include "cddb.h"
+#include "categories.h"
 
 namespace KCDDB
 {
@@ -97,45 +98,6 @@ namespace KCDDB
     return ret;
   }
 
-    bool
-  CDDB::parseGreeting( const QString & line )
-  {
-    uint serverStatus = statusCode( line );
-
-    if ( 200 == serverStatus )
-    {
-      kDebug(60010) << "Server response: read-only" << endl;
-      readOnly_ = true;
-    }
-    else if ( 201 == serverStatus )
-    {
-      kDebug(60010) << "Server response: read-write" << endl;
-    }
-    else
-    {
-      kDebug(60010) << "Server response: bugger off" << endl;
-      return false;
-    }
-
-    return true;
-  }
-
-    bool
-  CDDB::parseHandshake( const QString & line )
-  {
-    uint serverStatus = statusCode( line );
-
-    if ( ( 200 != serverStatus ) && ( 402 != serverStatus ) )
-    {
-      kDebug(60010) << "Handshake was too tight. Letting go." << endl;
-      return false;
-    }
-
-    kDebug(60010) << "Handshake was warm and firm" << endl;
-
-    return true;
-  }
-
     uint
   CDDB::statusCode( const QString & line )
   {
@@ -144,6 +106,18 @@ namespace KCDDB
     uint serverStatus = tokenList[ 0 ].toUInt();
 
     return serverStatus;
+  }
+
+    QStringList
+  CDDB::cacheFilenames(const TrackOffsetList& offsetList)
+  {
+    QStringList filenames;
+    Categories c;
+    QStringList categories = c.cddbList();
+    foreach(QString dir, categories)
+      filenames << dir+"/"+trackOffsetListToId(offsetList);
+
+    return filenames;
   }
 }
 

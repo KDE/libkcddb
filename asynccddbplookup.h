@@ -60,7 +60,7 @@ namespace KCDDB
 
     protected slots:
 
-      void slotGotError(int error);
+      void slotGotError(QAbstractSocket::SocketError error);
       void slotConnectionSuccess();
       void slotReadyRead();
 

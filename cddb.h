@@ -41,10 +41,9 @@ namespace KCDDB
 
       static uint statusCode( const QString & );
 
-    protected:
-      bool parseGreeting( const QString & );
-      bool parseHandshake( const QString & );
+      static QStringList cacheFilenames(const TrackOffsetList & );
 
+    protected:
       QString trackOffsetListToId();
       QString trackOffsetListToString();
  

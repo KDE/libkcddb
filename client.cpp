@@ -105,8 +105,6 @@ namespace KCDDB
       return NoRecordFound;
     }
 
-    QString cddbId = Lookup::trackOffsetListToId( trackOffsetList );
-
     if ( Cache::Ignore != d->config.cachePolicy() )
     {
       d->cdInfoList = Cache::lookup( trackOffsetList, config() );

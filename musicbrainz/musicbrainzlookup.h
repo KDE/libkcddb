@@ -36,9 +36,11 @@ namespace KCDDB
       // FIXME Only freedb lookup needs the first two arguments (host/port)
       virtual Result lookup( const QString &, uint, const TrackOffsetList & );
 
+      static QStringList cacheFilenames(const TrackOffsetList & );
+
     private:
 
-      QString calculateDiscId(const TrackOffsetList & );
+      static QString calculateDiscId(const TrackOffsetList & );
   } ;
 }
 

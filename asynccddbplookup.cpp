@@ -20,6 +20,7 @@
 */
 
 #include <kdebug.h>
+#include <ksocketfactory.h>
 
 #include "asynccddbplookup.h"
 
@@ -44,13 +45,11 @@ namespace KCDDB
     const TrackOffsetList & trackOffsetList
   )
   {
-    socket_ = new KNetwork::KBufferedSocket(hostname,QString::number(port));
+    socket_ = KSocketFactory::connectToHost("cddbp", hostname, port);
 
-    socket_->setBlocking( false );
+    connect (socket_, SIGNAL(error(QAbstractSocket::SocketError)), SLOT(slotGotError(QAbstractSocket::SocketError)));
 
-    connect (socket_, SIGNAL(gotError(int)), SLOT(slotGotError(int)));
-
-    connect (socket_, SIGNAL(connected(const KNetwork::KResolverEntry &)),
+    connect (socket_, SIGNAL(connected()),
       SLOT( slotConnectionSuccess() ) );
 
     connect (socket_, SIGNAL( readyRead() ), SLOT( slotReadyRead() ) );
@@ -59,25 +58,17 @@ namespace KCDDB
 
     state_ = WaitingForConnection;
 
-    if ( !socket_->connect(hostname, QString::number(port)) )
-    {
-       state_ = Idle;
-       emit finished( NoResponse );
-       return NoResponse;
-    }
-
     return Success;
   }
 
     void
-  AsyncCDDBPLookup::slotGotError(int error)
+  AsyncCDDBPLookup::slotGotError(QAbstractSocket::SocketError error)
   {
     state_ = Idle;
 
-    if ( error == KNetwork::KSocketBase::LookupFailure )
+    if ( error == QAbstractSocket::HostNotFoundError )
       emit finished( HostNotFound );
-    else if ( error == KNetwork::KSocketBase::ConnectionTimedOut ||
-        error == KNetwork::KSocketBase::NetFailure )
+    else if ( error == QAbstractSocket::SocketTimeoutError )
       emit finished( NoResponse );
     else
       emit finished( UnknownError );
@@ -273,6 +264,7 @@ namespace KCDDB
   AsyncCDDBPLookup::parseCDInfoData()
   {
     CDInfo info;
+    info.set("source", "freedb");
 
     if (info.load( cdInfoBuffer_ ))
     {

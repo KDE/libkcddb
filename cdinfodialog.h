@@ -52,6 +52,7 @@ namespace KCDDB
     private:
         QString framesTime(unsigned frames);
 
+        CDInfo m_info;
         KCDDB::Genres m_genres;
         KCDDB::Categories m_categories;
         static const char *SEPARATOR;

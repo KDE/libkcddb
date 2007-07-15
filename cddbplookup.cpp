@@ -94,6 +94,46 @@ namespace KCDDB
     }
   }
 
+    bool
+  CDDBPLookup::parseGreeting( const QString & line )
+  {
+    uint serverStatus = statusCode( line );
+
+    if ( 200 == serverStatus )
+    {
+      kDebug(60010) << "Server response: read-only" << endl;
+      readOnly_ = true;
+    }
+    else if ( 201 == serverStatus )
+    {
+      kDebug(60010) << "Server response: read-write" << endl;
+    }
+    else
+    {
+      kDebug(60010) << "Server response: bugger off" << endl;
+      return false;
+    }
+
+    return true;
+  }
+
+    bool
+  CDDBPLookup::parseHandshake( const QString & line )
+  {
+    uint serverStatus = statusCode( line );
+
+    if ( ( 200 != serverStatus ) && ( 402 != serverStatus ) )
+    {
+      kDebug(60010) << "Handshake was too tight. Letting go." << endl;
+      return false;
+    }
+
+    kDebug(60010) << "Handshake was warm and firm" << endl;
+
+    return true;
+  }
+
+
     Q_LONG
   CDDBPLookup::writeLine( const QString & line )
   {

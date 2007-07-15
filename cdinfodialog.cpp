@@ -95,6 +95,8 @@ namespace KCDDB
 
   void CDInfoDialog::setInfo( const KCDDB::CDInfo &info, const KCDDB::TrackOffsetList &trackStartFrames )
   {
+      m_info = info;
+
       m_artist->setText(info.get(Artist).toString().trimmed());
       m_title->setText(info.get(Title).toString().trimmed());
       m_category->setItemText(m_category->currentIndex(), m_categories.cddb2i18n(info.get(Category).toString()));
@@ -152,7 +154,7 @@ namespace KCDDB
 
   KCDDB::CDInfo CDInfoDialog::info() const
   {
-      KCDDB::CDInfo info;
+      KCDDB::CDInfo info = m_info;
 
       info.set(Artist, m_artist->text().trimmed());
       info.set(Title, m_title->text().trimmed());

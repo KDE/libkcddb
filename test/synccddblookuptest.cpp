@@ -61,17 +61,17 @@ void SyncCDDBLookupTest::testLookup()
     {
       // If revision doesn't match, test probably needs to be updated
       // See: http://www.freedb.org/freedb/misc/3e0c3a05 for updated data
-      QCOMPARE(i.get("revision").toInt(), 16);
+      QCOMPARE(i.get("revision").toInt(), 17);
 
       QCOMPARE(i.get(Artist).toString(),QString("Pink Floyd"));
       QCOMPARE(i.get(Title).toString(),QString("Atom Heart Mother"));
       QCOMPARE(i.get(Genre).toString(),QString("Psychedelic Rock"));
       QCOMPARE(i.get(Year).toInt(),1970);
-      QCOMPARE(i.track(0).get(Title).toString(),QString("Atom heart mother: a) Father's shout b) Breast milky c) Mother fore d) Funky dung e) Mind your throats please f) Remergence"));
+      QCOMPARE(i.track(0).get(Title).toString(),QString("Atom Heart Mother: Father's Shout/Breast Milky/Mother Fore/Funky Dung/Mind Your Throats Please/Remergence"));
       QCOMPARE(i.track(1).get(Title).toString(),QString("If"));
       QCOMPARE(i.track(2).get(Title).toString(),QString("Summer '68"));
       QCOMPARE(i.track(3).get(Title).toString(),QString("Fat Old Sun"));
-      QCOMPARE(i.track(4).get(Title).toString(),QString("Alan's psychedelic breakfast: a) Rise and shine b) Sunny side up c) Morning glory"));
+      QCOMPARE(i.track(4).get(Title).toString(),QString("Alan's Psychedelic Breakfast: Rise and Shine/Sunny Side Up/Morning Glory"));
       QCOMPARE(i.track(0).get(Comment).toString(),QString(""));
       QCOMPARE(i.track(1).get(Comment).toString(),QString(""));
       QCOMPARE(i.track(2).get(Comment).toString(),QString(""));

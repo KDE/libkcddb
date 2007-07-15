@@ -22,7 +22,7 @@
 #ifndef KCDDB_CDDBP_LOOKUP_H
 #define KCDDB_CDDBP_LOOKUP_H
 
-#include <k3bufferedsocket.h>
+#include <qtcpsocket.h>
 
 #include "lookup.h"
 
@@ -44,10 +44,13 @@ namespace KCDDB
     protected:
       Q_LONG writeLine( const QString & );
 
-      bool isConnected()
-        { return KNetwork::KClientSocketBase::Connected == socket_->state(); }
+      bool parseGreeting( const QString & );
+      bool parseHandshake( const QString & );
 
-      KNetwork::KBufferedSocket* socket_;
+      bool isConnected()
+        { return QAbstractSocket::Connected == socket_->state(); }
+
+      QTcpSocket* socket_;
   };
 }
 
