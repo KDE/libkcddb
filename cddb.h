@@ -28,7 +28,7 @@
 
 namespace KCDDB
 {
-  class KCDDB_EXPORT CDDB
+  class CDDB
   {
     public:
       CDDB();
