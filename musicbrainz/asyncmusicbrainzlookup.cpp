@@ -18,7 +18,9 @@
 */
 
 #include "asyncmusicbrainzlookup.h"
+
 #include "musicbrainzlookup.h"
+
 #include <QtCore/QThread>
 
 #include <kdebug.h>

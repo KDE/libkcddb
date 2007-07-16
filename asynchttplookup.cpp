@@ -18,13 +18,13 @@
   Boston, MA 02110-1301, USA.
 */
 
+#include "asynchttplookup.h"
+
 #include <qstringlist.h>
 #include <qapplication.h>
 
 #include <kdebug.h>
 #include <kio/job.h>
-
-#include "asynchttplookup.h"
 
 namespace KCDDB
 {

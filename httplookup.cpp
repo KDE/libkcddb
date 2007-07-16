@@ -19,10 +19,10 @@
   Boston, MA 02110-1301, USA.
 */
 
+#include "httplookup.h"
+
 #include <kio/job.h>
 #include <kdebug.h>
-
-#include "httplookup.h"
 
 namespace KCDDB
 {

@@ -18,6 +18,13 @@
   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
+#include "kcmcddb.h"
+#include "cddbconfigwidget.h"
+
+#include "libkcddb/lookup.h"
+#include "libkcddb/cache.h"
+#include "libkcddb/submit.h"
+
 #include <QLayout>
 #include <QCheckBox>
 #include <QComboBox>
@@ -27,7 +34,6 @@
 #include <q3listbox.h>
 #include <QLabel>
 #include <q3buttongroup.h>
-//Added by qt3to4:
 #include <QVBoxLayout>
 
 #include <kconfig.h>
@@ -36,13 +42,6 @@
 #include <kgenericfactory.h>
 #include <kmessagebox.h>
 #include <kconfigdialogmanager.h>
-
-#include "cddbconfigwidget.h"
-
-#include "kcmcddb.h"
-#include "libkcddb/lookup.h"
-#include "libkcddb/cache.h"
-#include "libkcddb/submit.h"
 
 typedef KGenericFactory<CDDBModule, QWidget> KCDDBFactory;
 K_EXPORT_COMPONENT_FACTORY ( cddb, KCDDBFactory( "kcmcddb" ) )

@@ -18,6 +18,7 @@
 */
 
 #include "kcddb.h"
+
 #include <klocale.h>
 
 namespace KCDDB

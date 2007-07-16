@@ -18,8 +18,11 @@
 */
 
 #include "asyncsmtpsubmit.h"
+
 #include "cdinfo.h"
+
 #include <QDataStream>
+
 #include <kdebug.h>
 #include <kio/job.h>
 

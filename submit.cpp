@@ -20,6 +20,7 @@
 */
 
 #include "submit.h"
+
 #include <kdebug.h>
 
 namespace KCDDB

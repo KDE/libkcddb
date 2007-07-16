@@ -19,9 +19,9 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <kdebug.h>
-
 #include "lookup.h"
+
+#include <kdebug.h>
 
 namespace KCDDB
 {

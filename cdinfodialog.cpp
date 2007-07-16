@@ -18,15 +18,15 @@
   Boston, MA 02110-1301, USA.
 */
 
+#include "cdinfodialog.h"
+
+#include "cdinfoencodingwidget.h"
 
 #include <qtextcodec.h>
 #include <kdebug.h>
 #include <QDateTime>
 #include <kglobal.h>
 #include <kcharsets.h>
-
-#include "cdinfodialog.h"
-#include "cdinfoencodingwidget.h"
 
 using KCDDB::TrackInfo;
 

@@ -19,16 +19,17 @@
   Boston, MA 02110-1301, USA.
 */
 
+#include "cache.h"
+
+#include "kcddbconfig.h"
+#include "cddb.h"
+
 #include <kdebug.h>
 #include <kstandarddirs.h>
 
 #include <QFile>
 #include <QDir>
 #include <QTextStream>
-
-#include "cache.h"
-#include "kcddbconfig.h"
-#include "cddb.h"
 
 namespace KCDDB
 {

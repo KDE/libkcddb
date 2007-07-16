@@ -20,9 +20,9 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <kemailsettings.h>
-
 #include <libkcddb/kcddbconfig.h>
+
+#include <kemailsettings.h>
 
 namespace KCDDB
 {

@@ -20,6 +20,7 @@
 */
 
 #include "client.h"
+
 #include "synccddbplookup.h"
 #include "asynccddbplookup.h"
 #include "synchttplookup.h"
@@ -46,8 +47,19 @@ namespace KCDDB
     public:
 
       Private()
-        : block( true )
+        : cdInfoLookup(0),
+          cdInfoSubmit(0),
+          block( true )
       {}
+
+      ~Private()
+      {
+        delete cdInfoLookup;
+        delete cdInfoSubmit;
+      }
+
+      Lookup * cdInfoLookup;
+      Submit * cdInfoSubmit;
 
       Config config;
       CDInfoList cdInfoList;
@@ -55,19 +67,14 @@ namespace KCDDB
   };
 
   Client::Client()
-    : QObject(),
-      cdInfoLookup(0),
-      cdInfoSubmit(0)
+    : d(new Private)
   {
-    d = new Private;
     d->config.readConfig();
   }
 
   Client::~Client()
   {
     delete d;
-    delete cdInfoLookup;
-    delete cdInfoSubmit;
   }
 
     Config &
@@ -132,61 +139,61 @@ namespace KCDDB
     Lookup::Transport t = ( Lookup::Transport )d->config.lookupTransport();
 
     // just in case we have an info lookup hanging around, prevent mem leakage
-    delete cdInfoLookup;
+    delete d->cdInfoLookup;
 
     if ( blockingMode() )
     {
 
       if( Lookup::CDDBP == t )
-        cdInfoLookup = new SyncCDDBPLookup();
+        d->cdInfoLookup = new SyncCDDBPLookup();
       else if ( Lookup::HTTP == t )
-        cdInfoLookup = new SyncHTTPLookup();
+        d->cdInfoLookup = new SyncHTTPLookup();
       else
       {
 #ifdef HAVE_MUSICBRAINZ
-        cdInfoLookup = new MusicBrainzLookup();
+        d->cdInfoLookup = new MusicBrainzLookup();
 #else
         kWarning() << "libkcddb not built with MusicBrainz support" << endl;
         return UnknownError;
 #endif
       }
 
-      r = cdInfoLookup->lookup( d->config.hostname(),
+      r = d->cdInfoLookup->lookup( d->config.hostname(),
               d->config.port(), trackOffsetList );
 
       if ( Success == r )
       {
-        d->cdInfoList = cdInfoLookup->lookupResponse();
+        d->cdInfoList = d->cdInfoLookup->lookupResponse();
         Cache::store( d->cdInfoList, config() );
       }
 
-      delete cdInfoLookup;
-      cdInfoLookup = 0L;
+      delete d->cdInfoLookup;
+      d->cdInfoLookup = 0L;
     }
     else
     {
       if( Lookup::CDDBP == t )
       {
-        cdInfoLookup = new AsyncCDDBPLookup();
+        d->cdInfoLookup = new AsyncCDDBPLookup();
 
-        connect( static_cast<AsyncCDDBPLookup *>( cdInfoLookup ),
+        connect( static_cast<AsyncCDDBPLookup *>( d->cdInfoLookup ),
                   SIGNAL( finished( KCDDB::Result ) ),
                   SLOT( slotFinished( KCDDB::Result ) ) );
       }
       else if ( Lookup::HTTP == t)
       {
-        cdInfoLookup = new AsyncHTTPLookup();
+        d->cdInfoLookup = new AsyncHTTPLookup();
 
-        connect( static_cast<AsyncHTTPLookup *>( cdInfoLookup ),
+        connect( static_cast<AsyncHTTPLookup *>( d->cdInfoLookup ),
                   SIGNAL( finished( KCDDB::Result ) ),
                   SLOT( slotFinished( KCDDB::Result ) ) );
       }
       else
       {
 #ifdef HAVE_MUSICBRAINZ
-        cdInfoLookup = new AsyncMusicBrainzLookup();
+        d->cdInfoLookup = new AsyncMusicBrainzLookup();
 
-        connect( static_cast<AsyncMusicBrainzLookup *>( cdInfoLookup ),
+        connect( static_cast<AsyncMusicBrainzLookup *>( d->cdInfoLookup ),
                   SIGNAL( finished( KCDDB::Result ) ),
                   SLOT( slotFinished( KCDDB::Result ) ) );
 #else
@@ -195,13 +202,13 @@ namespace KCDDB
 #endif
       }
 
-      r = cdInfoLookup->lookup( d->config.hostname(),
+      r = d->cdInfoLookup->lookup( d->config.hostname(),
               d->config.port(), trackOffsetList );
 
       if ( Success != r )
       {
-        delete cdInfoLookup;
-        cdInfoLookup = 0L;
+        delete d->cdInfoLookup;
+        d->cdInfoLookup = 0L;
       }
     }
 
@@ -211,9 +218,9 @@ namespace KCDDB
     void
   Client::slotFinished( Result r )
   {
-    if ( cdInfoLookup && Success == r )
+    if ( d->cdInfoLookup && Success == r )
     {
-      d->cdInfoList = cdInfoLookup->lookupResponse();
+      d->cdInfoList = d->cdInfoLookup->lookupResponse();
       Cache::store( d->cdInfoList, config() );
     }
     else
@@ -221,10 +228,10 @@ namespace KCDDB
 
     emit finished( r );
 
-    if ( cdInfoLookup ) // in case someone called lookup() while finished() was being processed, and deleted cdInfoLookup.
+    if ( d->cdInfoLookup ) // in case someone called lookup() while finished() was being processed, and deleted cdInfoLookup.
     {
-      cdInfoLookup->deleteLater();
-      cdInfoLookup = 0L;
+      d->cdInfoLookup->deleteLater();
+      d->cdInfoLookup = 0L;
     }
   }
 
@@ -233,8 +240,8 @@ namespace KCDDB
   {
     emit finished( r );
 
-    cdInfoSubmit->deleteLater();
-    cdInfoSubmit=0L;
+    d->cdInfoSubmit->deleteLater();
+    d->cdInfoSubmit=0L;
   }
 
     Result
@@ -256,7 +263,7 @@ namespace KCDDB
     //TODO Check that it is edited
 
     // just in case we have a cdInfoSubmit, prevent memory leakage
-    delete cdInfoSubmit;
+    delete d->cdInfoSubmit;
 
     QString from = d->config.emailAddress();
 
@@ -268,11 +275,11 @@ namespace KCDDB
         uint port = d->config.httpSubmitPort();
 
         if ( blockingMode() )
-          cdInfoSubmit = new SyncHTTPSubmit(from, hostname, port);
+          d->cdInfoSubmit = new SyncHTTPSubmit(from, hostname, port);
         else
         {
-          cdInfoSubmit = new AsyncHTTPSubmit(from, hostname, port);
-          connect( static_cast<AsyncHTTPSubmit *>( cdInfoSubmit ),
+          d->cdInfoSubmit = new AsyncHTTPSubmit(from, hostname, port);
+          connect( static_cast<AsyncHTTPSubmit *>( d->cdInfoSubmit ),
                   SIGNAL(finished( KCDDB::Result ) ),
                   SLOT( slotSubmitFinished( KCDDB::Result ) ) );
         }
@@ -286,11 +293,11 @@ namespace KCDDB
         QString username = d->config.smtpUsername();
 
         if ( blockingMode() )
-          cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
+          d->cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
         else
         {
-          cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
-          connect( static_cast<AsyncSMTPSubmit *>( cdInfoSubmit ),
+          d->cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
+          connect( static_cast<AsyncSMTPSubmit *>( d->cdInfoSubmit ),
                   SIGNAL( finished( KCDDB::Result ) ),
                   SLOT( slotSubmitFinished( KCDDB::Result ) ) );
         }
@@ -303,12 +310,12 @@ namespace KCDDB
         break;
     }
 
-    Result r = cdInfoSubmit->submit( cdInfo, offsetList );
+    Result r = d->cdInfoSubmit->submit( cdInfo, offsetList );
 
     if ( blockingMode() )
     {
-      delete cdInfoSubmit;
-      cdInfoSubmit = 0L;
+      delete d->cdInfoSubmit;
+      d->cdInfoSubmit = 0L;
     }
 
     return r;

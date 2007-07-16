@@ -19,15 +19,16 @@
   Boston, MA 02110-1301, USA.
 */
 
+#include "cddb.h"
+
+#include "categories.h"
+
 #include <QRegExp>
 #include <qstringlist.h>
 
 #include <kdebug.h>
 #include <kstringhandler.h>
 #include <klocale.h>
-
-#include "cddb.h"
-#include "categories.h"
 
 namespace KCDDB
 {

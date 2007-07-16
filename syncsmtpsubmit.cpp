@@ -18,7 +18,9 @@
 */
 
 #include "syncsmtpsubmit.h"
+
 #include "cdinfo.h"
+
 #include <kio/netaccess.h>
 #include <kio/job.h>
 

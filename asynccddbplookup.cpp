@@ -19,10 +19,10 @@
   Boston, MA 02110-1301, USA.
 */
 
+#include "asynccddbplookup.h"
+
 #include <kdebug.h>
 #include <ksocketfactory.h>
-
-#include "asynccddbplookup.h"
 
 namespace KCDDB
 {

@@ -101,10 +101,7 @@ namespace KCDDB
 
     private:
       class Private;
-      Private * d;
-
-      Lookup * cdInfoLookup;
-      Submit * cdInfoSubmit;
+      Private * const d;
   };
 }
 

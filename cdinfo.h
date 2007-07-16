@@ -195,9 +195,8 @@ namespace KCDDB
        */
       void checkTrack( int trackNumber );
 
-     private:
-      class CDInfoPrivate *d;
-      TrackInfoList trackInfoList;
+    private:
+      class CDInfoPrivate * const d;
   };
 
   typedef QList<CDInfo> CDInfoList;

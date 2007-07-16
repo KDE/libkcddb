@@ -17,6 +17,8 @@
   Boston, MA 02110-1301, USA.
 */
 
+#include "cdinfoencodingwidget.h"
+
 #include <QComboBox>
 #include <q3listbox.h>
 #include <QLabel>
@@ -24,7 +26,6 @@
 #include <klocale.h>
 #include <kglobal.h>
 #include <kcharsets.h>
-#include "cdinfoencodingwidget.h"
 
 namespace KCDDB
 {

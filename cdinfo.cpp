@@ -20,12 +20,14 @@
   Boston, MA 02110-1301, USA.
 */
 
+#include "cdinfo.h"
+
+#include "client.h"
+#include "cddb.h"
+
 #include <kdebug.h>
 #include <kstringhandler.h>
 
-#include "cdinfo.h"
-#include "client.h"
-#include "cddb.h"
 #include <QMap>
 
 namespace KCDDB
@@ -162,7 +164,7 @@ namespace KCDDB
 
       // Appends text to data instead of overwriting it
         void
-      append(const QString type, const QString& text)
+      append(const QString& type, const QString& text)
       {
         set(type, get(type).toString().append(text));
       }
@@ -238,19 +240,21 @@ namespace KCDDB
 
 
   class CDInfoPrivate : public InfoBasePrivate {
+    public:
+      TrackInfoList trackInfoList;
   };
 
   CDInfo::CDInfo()
+    : d(new CDInfoPrivate())
   {
-    d = new CDInfoPrivate();
     set("revision", 0);
   }
 
   CDInfo::CDInfo(const CDInfo& clone)
-    : trackInfoList(clone.trackInfoList)
+    : d(new CDInfoPrivate())
   {
-    d = new CDInfoPrivate();
     d->data = clone.d->data;
+    d->trackInfoList = clone.d->trackInfoList;
   }
 
   CDInfo::~CDInfo()
@@ -260,7 +264,7 @@ namespace KCDDB
 
   CDInfo& CDInfo::operator=(const CDInfo& clone)
   {
-    trackInfoList = clone.trackInfoList;
+    d->trackInfoList = clone.d->trackInfoList;
     d->data = clone.d->data;
     return *this;
   }
@@ -375,14 +379,14 @@ namespace KCDDB
     }
 
     bool isSampler = true;
-    for (TrackInfoList::Iterator it = trackInfoList.begin(); it != trackInfoList.end(); ++it)
+    for (TrackInfoList::Iterator it = d->trackInfoList.begin(); it != d->trackInfoList.end(); ++it)
     {
       if (!(*it).get(Title).toString().contains(" / "))
       {
         isSampler = false;
       }
     }
-    for (TrackInfoList::Iterator it = trackInfoList.begin(); it != trackInfoList.end(); ++it)
+    for (TrackInfoList::Iterator it = d->trackInfoList.begin(); it != d->trackInfoList.end(); ++it)
     {
       if (isSampler)
       {
@@ -430,9 +434,9 @@ namespace KCDDB
     else
       s += d->createLine("DGENRE",get(Genre).toString());
 
-    for (int i = 0; i < trackInfoList.count(); ++i){
-      QString trackTitle = trackInfoList[i].get(Title).toString();
-      QString trackArtist = trackInfoList[i].get(Artist).toString();
+    for (int i = 0; i < d->trackInfoList.count(); ++i){
+      QString trackTitle = d->trackInfoList[i].get(Title).toString();
+      QString trackArtist = d->trackInfoList[i].get(Artist).toString();
       if(trackArtist != artist && !trackArtist.isEmpty())
         s += d->createLine(QString("TTITLE%1").arg(i), QString("%1 / %2").arg(trackArtist).arg(trackTitle));
       else
@@ -441,8 +445,8 @@ namespace KCDDB
 
     s += d->createLine(QString("EXTD"), get(Comment).toString());
 
-    for (int i = 0; i < trackInfoList.count(); ++i)
-      s += d->createLine(QString("EXTT%1").arg(i), trackInfoList[i].get(Comment).toString());
+    for (int i = 0; i < d->trackInfoList.count(); ++i)
+      s += d->createLine(QString("EXTT%1").arg(i), d->trackInfoList[i].get(Comment).toString());
 
     if (submit)
     {
@@ -453,8 +457,8 @@ namespace KCDDB
     s += d->createLine("PLAYORDER", get("playorder").toString() );
 
     // Custom track data
-    for (int i = 0; i < trackInfoList.count(); ++i)
-      s += trackInfoList[i].toString();
+    for (int i = 0; i < d->trackInfoList.count(); ++i)
+      s += d->trackInfoList[i].toString();
 
     QStringList cddbKeywords;
     cddbKeywords
@@ -501,10 +505,10 @@ namespace KCDDB
     void
   CDInfo::checkTrack( int trackNumber )
   {
-    while ( trackInfoList.count() < trackNumber + 1 ){
-      int count = trackInfoList.count();
-      trackInfoList.append(TrackInfo());
-      trackInfoList[count].set("tracknumber", count);
+    while ( d->trackInfoList.count() <= trackNumber ){
+      int count = d->trackInfoList.count();
+      d->trackInfoList.append(TrackInfo());
+      d->trackInfoList[count].set("tracknumber", count);
     }
   }
 
@@ -512,7 +516,7 @@ namespace KCDDB
   CDInfo::clear()
   {
     d->data.clear();
-    trackInfoList.clear();
+    d->trackInfoList.clear();
   }
 
     bool
@@ -532,14 +536,14 @@ namespace KCDDB
   CDInfo::track( int trackNumber )
   {
     checkTrack( trackNumber );
-    return trackInfoList[trackNumber];
+    return d->trackInfoList[trackNumber];
   }
 
     TrackInfo
   CDInfo::track( int trackNumber ) const
   {
-    if (trackNumber < trackInfoList.count())
-      return trackInfoList[trackNumber];
+    if (trackNumber < d->trackInfoList.count())
+      return d->trackInfoList[trackNumber];
     else
     {
       kWarning() << "Couldn't find track " << trackNumber << endl;
@@ -550,7 +554,7 @@ namespace KCDDB
     int
   CDInfo::numberOfTracks() const
   {
-    return trackInfoList.count();
+    return d->trackInfoList.count();
   }
 }
 

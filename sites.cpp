@@ -18,6 +18,7 @@
 */
 
 #include "sites.h"
+
 #include <kurl.h>
 #include <kio/netaccess.h>
 #include <kio/job.h>
