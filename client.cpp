@@ -64,6 +64,7 @@ namespace KCDDB
       Config config;
       CDInfoList cdInfoList;
       TrackOffsetList trackOffsetList;
+      QList<Lookup *> pendingLookups;
       bool block;
   };
 
@@ -114,7 +115,7 @@ namespace KCDDB
       return NoRecordFound;
     }
 
-    if ( Cache::Ignore != d->config.cachePolicy() )
+    if ( d->config.cacheLookupEnabled() )
     {
       d->cdInfoList = Cache::lookup( trackOffsetList, config() );
 
@@ -129,92 +130,97 @@ namespace KCDDB
       }
     }
 
-    if ( Cache::Only == d->config.cachePolicy() )
-    {
-      kDebug(60010) << "Only trying cache. Give up now." << endl;
-      if ( !blockingMode() )
-        emit finished( NoRecordFound );
-      return NoRecordFound;
-    }
-
-    Result r;
-    Lookup::Transport t = ( Lookup::Transport )d->config.lookupTransport();
+    Result r = NoRecordFound;
 
     // just in case we have an info lookup hanging around, prevent mem leakage
     delete d->cdInfoLookup;
+    d->cdInfoLookup = 0;
 
     if ( blockingMode() )
     {
-
-      if( Lookup::CDDBP == t )
-        d->cdInfoLookup = new SyncCDDBPLookup();
-      else if ( Lookup::HTTP == t )
-        d->cdInfoLookup = new SyncHTTPLookup();
-      else
-      {
 #ifdef HAVE_MUSICBRAINZ
+      if ( d->config.musicBrainzLookupEnabled() )
+      {
         d->cdInfoLookup = new MusicBrainzLookup();
-#else
-        kWarning() << "libkcddb not built with MusicBrainz support" << endl;
-        return UnknownError;
-#endif
-      }
 
-      r = d->cdInfoLookup->lookup( d->config.hostname(),
-              d->config.port(), trackOffsetList );
+        r = d->cdInfoLookup->lookup( d->config.hostname(),
+                d->config.port(), trackOffsetList );
 
-      if ( Success == r )
-      {
-        d->cdInfoList = d->cdInfoLookup->lookupResponse();
-        Cache::store( d->trackOffsetList, d->cdInfoList, config() );
-      }
+        if ( Success == r )
+        {
+          d->cdInfoList = d->cdInfoLookup->lookupResponse();
+          Cache::store( d->trackOffsetList, d->cdInfoList, config() );
 
-      delete d->cdInfoLookup;
-      d->cdInfoLookup = 0L;
-    }
-    else
-    {
-      if( Lookup::CDDBP == t )
-      {
-        d->cdInfoLookup = new AsyncCDDBPLookup();
+          return r;
+        }
 
-        connect( static_cast<AsyncCDDBPLookup *>( d->cdInfoLookup ),
-                  SIGNAL( finished( KCDDB::Result ) ),
-                  SLOT( slotFinished( KCDDB::Result ) ) );
-      }
-      else if ( Lookup::HTTP == t)
-      {
-        d->cdInfoLookup = new AsyncHTTPLookup();
-
-        connect( static_cast<AsyncHTTPLookup *>( d->cdInfoLookup ),
-                  SIGNAL( finished( KCDDB::Result ) ),
-                  SLOT( slotFinished( KCDDB::Result ) ) );
-      }
-      else
-      {
-#ifdef HAVE_MUSICBRAINZ
-        d->cdInfoLookup = new AsyncMusicBrainzLookup();
-
-        connect( static_cast<AsyncMusicBrainzLookup *>( d->cdInfoLookup ),
-                  SIGNAL( finished( KCDDB::Result ) ),
-                  SLOT( slotFinished( KCDDB::Result ) ) );
-#else
-        kWarning() << "libkcddb not built with MusicBrainz support" << endl;
-        return UnknownError;
-#endif
-      }
-
-      r = d->cdInfoLookup->lookup( d->config.hostname(),
-              d->config.port(), trackOffsetList );
-
-      if ( Success != r )
-      {
         delete d->cdInfoLookup;
         d->cdInfoLookup = 0L;
       }
-    }
+#endif
 
-    return r;
+      if ( d->config.freedbLookupEnabled() )
+      {
+        Lookup::Transport t = ( Lookup::Transport )d->config.freedbLookupTransport();
+        if( Lookup::CDDBP == t )
+          d->cdInfoLookup = new SyncCDDBPLookup();
+        else
+          d->cdInfoLookup = new SyncHTTPLookup();
+
+        r = d->cdInfoLookup->lookup( d->config.hostname(),
+                d->config.port(), trackOffsetList );
+
+        if ( Success == r )
+        {
+          d->cdInfoList = d->cdInfoLookup->lookupResponse();
+          Cache::store( d->trackOffsetList, d->cdInfoList, config() );
+
+          return r;
+        }
+
+        delete d->cdInfoLookup;
+        d->cdInfoLookup = 0L;
+      }
+
+      return r;
+    }
+    else
+    {
+#ifdef HAVE_MUSICBRAINZ
+      if ( d->config.musicBrainzLookupEnabled() )
+      {
+        AsyncMusicBrainzLookup* lookup = new AsyncMusicBrainzLookup();
+
+        connect( lookup, SIGNAL( finished( KCDDB::Result ) ),
+                 SLOT( slotFinished( KCDDB::Result ) ) );
+        d->pendingLookups.append( lookup );
+      }
+#endif
+
+      if ( d->config.freedbLookupEnabled() )
+      {
+        Lookup::Transport t = ( Lookup::Transport )d->config.freedbLookupTransport();
+
+        if( Lookup::CDDBP == t )
+        {
+          AsyncCDDBPLookup* lookup = new AsyncCDDBPLookup();
+
+          connect( lookup, SIGNAL( finished( KCDDB::Result ) ),
+                   SLOT( slotFinished( KCDDB::Result ) ) );
+          d->pendingLookups.append( lookup );
+        }
+        else
+        {
+          AsyncHTTPLookup* lookup = new AsyncHTTPLookup();
+
+          connect( lookup, SIGNAL( finished( KCDDB::Result ) ),
+                   SLOT( slotFinished( KCDDB::Result ) ) );
+          d->pendingLookups.append( lookup );
+        }
+      }
+
+      return runPendingLookups();
+    }
   }
 
     void
@@ -228,12 +234,21 @@ namespace KCDDB
     else
       d->cdInfoList.clear();
 
-    emit finished( r );
-
     if ( d->cdInfoLookup ) // in case someone called lookup() while finished() was being processed, and deleted cdInfoLookup.
     {
       d->cdInfoLookup->deleteLater();
       d->cdInfoLookup = 0L;
+    }
+
+    if ( Success == r )
+    {
+      emit finished( r );
+      qDeleteAll( d->pendingLookups );
+      d->pendingLookups.clear();
+    }
+    else
+    {
+      runPendingLookups();
     }
   }
 
@@ -269,7 +284,7 @@ namespace KCDDB
 
     QString from = d->config.emailAddress();
 
-    switch (d->config.submitTransport())
+    switch (d->config.freedbSubmitTransport())
     {
       case Submit::HTTP:
       {
@@ -321,6 +336,31 @@ namespace KCDDB
     }
 
     return r;
+  }
+
+    Result
+  Client::runPendingLookups()
+  {
+    if (!d->pendingLookups.empty())
+    {
+      d->cdInfoLookup = d->pendingLookups.takeFirst();
+
+      Result r = d->cdInfoLookup->lookup( d->config.hostname(),
+              d->config.port(), d->trackOffsetList );
+
+      if ( Success != r )
+      {
+        delete d->cdInfoLookup;
+        d->cdInfoLookup = 0L;
+      }
+
+      return r;
+    }
+    else
+    {
+      emit finished( NoRecordFound );
+      return NoRecordFound;
+    }
   }
 
     void

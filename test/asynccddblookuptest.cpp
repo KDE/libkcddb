@@ -29,8 +29,10 @@ void AsyncCDDBLookupTest::testLookup()
   client_ = new Client;
   client_->config().setHostname("freedb.freedb.org");
   client_->config().setPort(8880);
-  client_->config().setCachePolicy(Cache::Ignore);
-  client_->config().setLookupTransport(Lookup::CDDBP);
+  client_->config().setCacheLookupEnabled(false);
+  client_->config().setFreedbLookupEnabled(true);
+  client_->config().setMusicBrainzLookupEnabled(false);
+  client_->config().setFreedbLookupTransport(Lookup::CDDBP);
   client_->setBlockingMode( false );
 
   connect(client_,SIGNAL(finished(KCDDB::Result)),SLOT(slotFinished(KCDDB::Result)));

@@ -30,7 +30,7 @@ AsyncHTTPSubmitTest::AsyncHTTPSubmitTest()
   using namespace KCDDB;
 
   client_ = new Client;
-  client_->config().setSubmitTransport(Submit::HTTP);
+  client_->config().setFreedbSubmitTransport(Submit::HTTP);
   client_->setBlockingMode( false );
 
   TrackOffsetList list;

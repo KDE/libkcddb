@@ -12,19 +12,19 @@
     <entry name="port" type="Int">
       <default>80</default>
     </entry>
-    <entry name="cachePolicy" type="Enum">
-      <choices>
-        <choice name="OnlyCache"></choice>
-        <choice name="UseCache"></choice>
-        <choice name="IgnoreCache"></choice>
-      </choices>
-      <default>UseCache</default>
+    <entry name="MusicBrainzLookupEnabled" type="Bool">
+      <default>false</default>
     </entry>
-    <entry name="lookupTransport" type="Enum">
+    <entry name="FreedbLookupEnabled" type="Bool">
+      <default>true</default>
+    </entry>
+    <entry name="CacheLookupEnabled" type="Bool">
+      <default>true</default>
+    </entry>
+    <entry name="FreedbLookupTransport" type="Enum">
       <choices>
         <choice name="CDDBP"></choice>
         <choice name="HTTP"></choice>
-        <choice name="MusicBrainz"></choice>
       </choices>
       <default>HTTP</default>
     </entry>
@@ -33,7 +33,7 @@
     </entry>
   </group>
   <group name="Submit">
-    <entry name="submitTransport" type="Enum">
+    <entry name="FreedbSubmitTransport" type="Enum">
       <choices>
         <choice name="HTTP"></choice>
         <choice name="SMTP"></choice>

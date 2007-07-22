@@ -20,6 +20,8 @@
 
 #include "cddbconfigwidget.h"
 
+#include "config-musicbrainz.h"
+
 #include "libkcddb/sites.h"
 #include "libkcddb/lookup.h"
 
@@ -43,6 +45,10 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
   : QWidget(parent)
 {
   setupUi(this);
+
+#ifndef HAVE_MUSICBRAINZ
+  kcfg_MusicBrainzLookupEnabled->hide();
+#endif
   
   // Connections from widgets are made in designer.
 
@@ -53,10 +59,11 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
   cacheLocationsParent->addWidget(editListBox);
   cacheLocationsParent->setCurrentWidget(editListBox);
 
-  kcfg_submitTransport->remove(needsAuthenticationBox);
+  kcfg_FreedbSubmitTransport->remove(needsAuthenticationBox);
 
   connect(needsAuthenticationBox,SIGNAL(toggled(bool)),SLOT(needAuthenticationChanged(bool)));
-  connect(kcfg_lookupTransport,SIGNAL(activated(int)),SLOT(protocolChanged()));
+  connect(kcfg_FreedbLookupTransport,SIGNAL(activated(int)),SLOT(protocolChanged()));
+  connect(kcfg_FreedbLookupEnabled,SIGNAL(toggled(bool)),freedbServerBox,SLOT(setEnabled(bool)));
   connect(mirrorListButton,SIGNAL(clicked()),SLOT(showMirrorList()));
 }
 
@@ -88,7 +95,7 @@ void CDDBConfigWidget::showMirrorList()
     {
       KCDDB::Mirror m = keys[*(result.begin())];
 
-      kcfg_lookupTransport->setCurrentIndex(m.transport == KCDDB::Lookup::CDDBP ? 0 : 1);
+      kcfg_FreedbLookupTransport->setCurrentIndex(m.transport == KCDDB::Lookup::CDDBP ? 0 : 1);
       kcfg_hostname->setText(m.address);
       kcfg_port->setValue(m.port);
     }
@@ -98,9 +105,9 @@ void CDDBConfigWidget::protocolChanged()
 {
     // Change the port if the port is the default-value for the old protocol
 
-    if (kcfg_lookupTransport->currentText() == i18n("HTTP") && kcfg_port->value() == 8880)
+    if (kcfg_FreedbLookupTransport->currentText() == i18n("HTTP") && kcfg_port->value() == 8880)
       kcfg_port->setValue(80);
-    else if (kcfg_lookupTransport->currentText() == i18n("CDDB") && kcfg_port->value() == 80)
+    else if (kcfg_FreedbLookupTransport->currentText() == i18n("CDDB") && kcfg_port->value() == 80)
       kcfg_port->setValue(8880);
 }
 

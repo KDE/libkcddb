@@ -91,13 +91,13 @@ CDDBModule::checkSettings() const
       (!config.replyTo().isEmpty() && !config.replyTo().contains("@")))
       
   {
-    if (config.submitTransport() == KCDDB::Submit::SMTP)
+    if (config.freedbSubmitTransport() == KCDDB::Submit::SMTP)
     {
       KMessageBox::sorry(widget_, i18n("freedb has been set to use HTTP for submissions "
                                     "because the email details you have entered are "
                                     "incomplete. Please review your email settings "
                                     "and try again."), i18n("Incorrect Email Settings"));
-      config.setSubmitTransport(KCDDB::Submit::HTTP);
+      config.setFreedbSubmitTransport(KCDDB::Submit::HTTP);
 
       config.writeConfig();
     }

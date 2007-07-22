@@ -62,7 +62,7 @@ main(int argc, char ** argv)
   cdInfo.track(4).set("title", QString::fromUtf8("Jätteödlan Bronto"));
 
   Client c;
-  c.config().setSubmitTransport(Submit::SMTP);
+  c.config().setFreedbSubmitTransport(Submit::SMTP);
   c.config().setSubmitAddress("test-submit@freedb.org");
 
   c.setBlockingMode( true );

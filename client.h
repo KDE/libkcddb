@@ -100,6 +100,8 @@ namespace KCDDB
       void slotSubmitFinished( KCDDB::Result result );
 
     private:
+      Result runPendingLookups();
+
       class Private;
       Private * const d;
   };

@@ -30,8 +30,10 @@ void SyncHTTPLookupTest::testLookup()
   Client c;
   c.config().setHostname("freedb.freedb.org");
   c.config().setPort(80);
-  c.config().setCachePolicy(Cache::Ignore);
-  c.config().setLookupTransport(Lookup::HTTP);
+  c.config().setCacheLookupEnabled(false);
+  c.config().setFreedbLookupEnabled(true);
+  c.config().setMusicBrainzLookupEnabled(false);
+  c.config().setFreedbLookupTransport(Lookup::HTTP);
 
   TrackOffsetList list;
 

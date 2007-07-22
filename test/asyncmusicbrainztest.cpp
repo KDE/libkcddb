@@ -28,8 +28,9 @@ void AsyncMusicBrainzTest::testLookup()
   using namespace KCDDB;
 
   client_ = new Client;
-  client_->config().setCachePolicy(Cache::Ignore);
-  client_->config().setLookupTransport(Lookup::MusicBrainz);
+  client_->config().setCacheLookupEnabled(false);
+  client_->config().setFreedbLookupEnabled(false);
+  client_->config().setMusicBrainzLookupEnabled(true);
   client_->setBlockingMode( false );
 
   connect(client_,SIGNAL(finished(KCDDB::Result)),SLOT(slotFinished(KCDDB::Result)));
@@ -110,7 +111,9 @@ void AsyncMusicBrainzTest::testLookup()
     QCOMPARE(m_info.track(j).get(Comment).toString(),QString());
 
   // Make sure it's the same when loaded from the cache again
-  client_->config().setCachePolicy(Cache::Only);
+  client_->config().setCacheLookupEnabled(true);
+  client_->config().setFreedbLookupEnabled(false);
+  client_->config().setMusicBrainzLookupEnabled(false);
   client_->setBlockingMode(true);
 
   client_->lookup(list);

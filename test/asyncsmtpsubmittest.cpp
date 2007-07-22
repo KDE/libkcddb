@@ -30,7 +30,7 @@ AsyncSMTPSubmitTest::AsyncSMTPSubmitTest()
   using namespace KCDDB;
 
   client_ = new Client;
-  client_->config().setSubmitTransport(Submit::SMTP);
+  client_->config().setFreedbSubmitTransport(Submit::SMTP);
   client_->config().setSubmitAddress("test-submit@freedb.org");
   client_->setBlockingMode( false );
 

@@ -36,14 +36,6 @@ namespace KCDDB
   class KCDDB_EXPORT Cache
   {
     public:
-
-      enum Policy
-      {
-        Only,
-        Use,
-        Ignore
-      };
-
       static CDInfoList lookup( const TrackOffsetList & , const Config & );
       static void store( const TrackOffsetList &, const CDInfoList &, const Config & );
       static void store( const TrackOffsetList &, const CDInfo &, const Config & );

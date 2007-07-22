@@ -29,8 +29,9 @@ void MusicBrainzTest::testLookup()
   using namespace KCDDB;
 
   Client c;
-  c.config().setCachePolicy(Cache::Ignore);
-  c.config().setLookupTransport(Lookup::MusicBrainz);
+  c.config().setCacheLookupEnabled(false);
+  c.config().setFreedbLookupEnabled(false);
+  c.config().setMusicBrainzLookupEnabled(true);
 
   TrackOffsetList list;
 
@@ -93,7 +94,9 @@ void MusicBrainzTest::testLookup()
     QCOMPARE(i.track(j).get(Comment).toString(),QString());
 
   // Make sure it's the same when loaded from the cache again
-  c.config().setCachePolicy(Cache::Only);
+  c.config().setCacheLookupEnabled(true);
+  c.config().setFreedbLookupEnabled(false);
+  c.config().setMusicBrainzLookupEnabled(false);
 
   c.lookup(list);
 
