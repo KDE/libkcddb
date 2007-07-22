@@ -157,12 +157,12 @@ namespace KCDDB
 
         {
           CDInfo info;
-          info.set("source", "freedb");
 
           if ( info.load( QString::fromUtf8(data_,data_.size()) ) )
           {
             info.set( "category", category_ );
             info.set( "discid", discid_ );
+            info.set( "source", "freedb" );
             cdInfoList_.append( info );
           }
 

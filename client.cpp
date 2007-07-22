@@ -63,6 +63,7 @@ namespace KCDDB
 
       Config config;
       CDInfoList cdInfoList;
+      TrackOffsetList trackOffsetList;
       bool block;
   };
 
@@ -105,6 +106,7 @@ namespace KCDDB
   Client::lookup(const TrackOffsetList & trackOffsetList)
   {
     d->cdInfoList.clear();
+    d->trackOffsetList = trackOffsetList;
 
     if ( trackOffsetList.count() <= 1 )
     {
@@ -164,7 +166,7 @@ namespace KCDDB
       if ( Success == r )
       {
         d->cdInfoList = d->cdInfoLookup->lookupResponse();
-        Cache::store( d->cdInfoList, config() );
+        Cache::store( d->trackOffsetList, d->cdInfoList, config() );
       }
 
       delete d->cdInfoLookup;
@@ -221,7 +223,7 @@ namespace KCDDB
     if ( d->cdInfoLookup && Success == r )
     {
       d->cdInfoList = d->cdInfoLookup->lookupResponse();
-      Cache::store( d->cdInfoList, config() );
+      Cache::store( d->trackOffsetList, d->cdInfoList, config() );
     }
     else
       d->cdInfoList.clear();
@@ -322,9 +324,9 @@ namespace KCDDB
   }
 
     void
-  Client::store(const CDInfo &cdInfo)
+  Client::store(const CDInfo &cdInfo, const TrackOffsetList& offsetList)
   {
-    Cache::store(cdInfo, config());
+    Cache::store(offsetList, cdInfo, config());
   }
 }
 

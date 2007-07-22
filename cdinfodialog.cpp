@@ -41,6 +41,8 @@ namespace KCDDB
       setupUi(w);
       setMainWidget(w);
 
+      m_info.set("source", "user");
+
       m_categories = KCDDB::Categories();
       m_category->addItems(m_categories.i18nList());
       m_genres = KCDDB::Genres();

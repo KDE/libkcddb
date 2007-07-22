@@ -84,6 +84,9 @@ namespace KCDDB
 
       CDInfo info;
       info.set("source", "musicbrainz");
+      // FIXME Could have different discid than the one above?
+      // Will break cache if several entries have same discid
+      info.set("discid", discId);
 
       info.set(Title, QString::fromUtf8(mb.Data(MBE_AlbumGetAlbumName).c_str()));
       info.set(Artist, QString::fromUtf8(mb.Data(MBE_AlbumGetAlbumArtistName).c_str()));

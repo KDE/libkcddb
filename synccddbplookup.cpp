@@ -169,12 +169,12 @@ namespace KCDDB
     }
 
     CDInfo info;
-    info.set("source", "freedb");
 
     if ( info.load( lineList ) )
     {
       info.set( "category", category_ );
       info.set( "discid", discid_ );
+      info.set( "source", "freedb" );
       cdInfoList_.append( info );
     }
 

@@ -475,7 +475,7 @@ namespace KCDDB
     // Custom disc data
     QMap<QString, QVariant>::const_iterator i = d->data.constBegin();
     while (i != d->data.constEnd()){
-      if (!cddbKeywords.contains(i.key()))
+      if (!cddbKeywords.contains(i.key()) && i.key() != "SOURCE")
       {
         s+= d->createLine(i.key(), i.value().toString());
       }

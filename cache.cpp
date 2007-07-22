@@ -2,6 +2,7 @@
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
   Copyright (C) 2002 Nadeem Hasan <nhasan@kde.org>
+  Copyright (C) 2007 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -33,17 +34,6 @@
 
 namespace KCDDB
 {
-    QString
-  Cache::fileName( const QString &category, const QString& discid, const QString &cacheDir )
-  {
-    QDir dir( cacheDir );
-
-    if ( !dir.exists( category ) )
-      dir.mkdir( category );
-
-    return cacheDir + '/' + category + '/' + discid;
-  }
-
     CDInfoList
   Cache::lookup( const TrackOffsetList &offsetList, const Config& c )
   {
@@ -89,44 +79,85 @@ namespace KCDDB
   }
 
     void
-  Cache::store(const CDInfoList& list, const Config& c)
+  Cache::store(const TrackOffsetList& offsetList, const CDInfoList& list, const Config& c)
   {
-    CDInfoList::ConstIterator it=list.begin();
-    while (it!=list.end())
+    foreach( CDInfo info, list )
     {
-      CDInfo info( *it );
-      store(info, c);
-      ++it;
+      store(offsetList, info, c);
     }
   }
 
     void
-  Cache::store(const CDInfo& info, const Config& c)
+  Cache::store(const TrackOffsetList& offsetList, const CDInfo& info, const Config& c)
   {
-    QString cacheDir = c.cacheLocations().first();
-    QDir d(cacheDir);
-    if (!d.exists())
-      d.mkdir(cacheDir);
+    QString discid = info.get("discid").toString();
 
-    // The same entry can contain several discids (separated by a ','),
-    // so we save the entry to all of them
-    // FIXME Probably, the list of discids should be replaced by only
-    // the one that was used for the lookup
-    QStringList discids = info.get("discid").toString().split(',');
-    for (QStringList::Iterator it = discids.begin(); it != discids.end(); ++it)
+    // Some entries from freedb could contain several discids separated
+    // by a ','. Store for each discid, but replace the discid line
+    // so it doesn't happen again.
+    QStringList discids = discid.split(',');
+    if (discids.count() > 2)
     {
-      QString cacheFile = fileName(info.get("category").toString(), *it, cacheDir);
-
-      kDebug(60010) << "Storing " << cacheFile << " in CDDB cache" << endl;
-
-      QFile f(cacheFile);
-      if ( f.open(QIODevice::WriteOnly) )
+      foreach(QString newid, discids)
       {
-        QTextStream ts(&f);
-        ts.setCodec("UTF-8");
-        ts << info.toString();
-        f.close();
+        CDInfo newInfo = info;
+        newInfo.set("discid", newid);
+        store(offsetList, newInfo, c);
       }
+    }
+
+    QString source = info.get("source").toString();
+
+    QString cacheDir;
+    QString cacheFile;
+
+    CDInfo newInfo = info;
+
+    if (source == "freedb")
+    {
+      cacheDir = '/' + info.get("category").toString() + '/';
+      cacheFile = discid;
+    }
+    else if (source == "musicbrainz")
+    {
+      cacheDir = "/musicbrainz/";
+      cacheFile = discid;
+    }
+    else if (source == "user")
+    {
+      cacheDir = "/user/";
+      QString id = CDDB::trackOffsetListToId(offsetList);
+      cacheFile = id;
+      newInfo.set("discid", id);
+    }
+    else
+    {
+      kWarning(60010) << "Unknown source " << source << " for CDInfo, can't store discinfo" << endl;
+      return;
+    }
+
+    cacheDir = c.cacheLocations().first() + cacheDir;
+
+    QDir dir;
+
+    if (!dir.exists(cacheDir))
+    {
+      if (!dir.mkpath(cacheDir))
+      {
+        kWarning(60010) << "Couldn't create cache directory " << cacheDir << endl;
+        return;
+      }
+    }
+
+    kDebug(60010) << "Storing " << cacheFile << " in CDDB cache" << endl;
+
+    QFile f(cacheDir + '/' + cacheFile);
+    if ( f.open(QIODevice::WriteOnly) )
+    {
+      QTextStream ts(&f);
+      ts.setCodec("UTF-8");
+      ts << newInfo.toString();
+      f.close();
     }
   }
 }

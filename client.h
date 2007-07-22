@@ -78,7 +78,7 @@ namespace KCDDB
       /**
        * Stores the CD-information in the local cache
        */
-      void store(const CDInfo &cdInfo);
+      void store(const CDInfo &cdInfo, const TrackOffsetList &trackOffsetList);
 
       void setBlockingMode( bool );
       bool blockingMode() const;

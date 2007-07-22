@@ -264,12 +264,12 @@ namespace KCDDB
   AsyncCDDBPLookup::parseCDInfoData()
   {
     CDInfo info;
-    info.set("source", "freedb");
 
     if (info.load( cdInfoBuffer_ ))
     {
       info.set( "category", category_ );
       info.set( "discid", discid_ );
+      info.set( "source", "freedb" );
       cdInfoList_.append( info );
     }
 
