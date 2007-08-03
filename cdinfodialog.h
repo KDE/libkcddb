@@ -20,14 +20,17 @@
 #ifndef KCDDB_CDINFODIALOG_H
 #define KCDDB_CDINFODIALOG_H
 
-#include "ui_cdinfodialog.h"
-#include <kdemacros.h>
+#include <Q3ListView>
+
+#include <libkcddb/kcddb_export.h>
+#include <libkcddb/cdinfo.h>
+#include <libkcddb/kcddb.h>
 
 #include <KDialog>
 
 namespace KCDDB
 {
-    class KCDDB_EXPORT CDInfoDialog : public KDialog, public Ui::CDInfoDialogBase
+    class KCDDB_EXPORT CDInfoDialog : public KDialog
     {
     Q_OBJECT
     public:
