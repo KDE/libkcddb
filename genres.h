@@ -21,10 +21,14 @@ namespace KCDDB
     {
     public:
         Genres();
+        Genres(const Genres&);
+        ~Genres();
 
-        const QStringList &cddbList() const { return m_cddb; }
-        const QStringList &i18nList() const { return m_i18n; }
-        
+        Genres& operator=(const Genres&);
+
+        const QStringList &cddbList() const;
+        const QStringList &i18nList() const;
+
         /**
          * Lookup the CDDB genre, and return the i18n'd version.
          */
@@ -35,8 +39,8 @@ namespace KCDDB
          */
         const QString i18n2cddb(const QString &genre) const;
     private:
-        QStringList m_cddb;
-        QStringList m_i18n;
+        class Private;
+        Private * const d;
     };
 }
 

@@ -71,7 +71,9 @@ install(TARGETS kcddb  DESTINATION ${LIB_INSTALL_DIR} )
 
 install(FILES
    cdinfo.h
+   cdinfodialog.h
    client.h
+   genres.h
    kcddbconfig.h
    kcddb.h
    kcddb_export.h

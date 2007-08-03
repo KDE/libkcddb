@@ -52,15 +52,8 @@ namespace KCDDB
     private:
         QString framesTime(unsigned frames);
 
-        CDInfo m_info;
-        KCDDB::Genres m_genres;
-        KCDDB::Categories m_categories;
-        static const char *SEPARATOR;
-        static const unsigned TRACK_TIME = 1;
-        static const unsigned TRACK_NUMBER = 0;
-        static const unsigned TRACK_TITLE = 2;
-        static const unsigned TRACK_COMMENT = 3;
-        static const unsigned TRACK_ARTIST = 4;
+        class Private;
+        Private * const d;
     } ;
 }
 

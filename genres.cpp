@@ -10,14 +10,22 @@
 
 #include <klocale.h>
 
+class KCDDB::Genres::Private
+{
+public:
+    QStringList cddb;
+    QStringList i18n;
+};
+
 KCDDB::Genres::Genres()
+    : d(new Private)
 {
     // The Genre is completely arbitrary. But we follow kaudiocreator's cue
     // and make life easy for people.
     //
     // To cope with preexisting records which don't match an entry, we will
     // add one later if needed.
-    m_cddb << "Unknown" << "A Cappella" << "Acid Jazz" <<
+    d->cddb << "Unknown" << "A Cappella" << "Acid Jazz" <<
             "Acid Punk" << "Acid" << "Acoustic" << "Alternative" <<
             "Alt. Rock" << "Ambient" << "Anime" << "Avantgarde" <<
             "Ballad" << "Bass" << "Beat" << "Bebop" <<
@@ -55,7 +63,7 @@ KCDDB::Genres::Genres()
             "Techno" << "Terror" << "Thrash Metal" << "Top 40" <<
             "Trailer" << "Trance" << "Tribal" << "Trip-Hop" <<
             "Vocal";
-    m_i18n << i18n("Unknown") << i18n("A Cappella") << i18n("Acid Jazz") <<
+    d->i18n << i18n("Unknown") << i18n("A Cappella") << i18n("Acid Jazz") <<
             i18n("Acid Punk") << i18n("Acid") << i18n("Acoustic") << i18n("Alternative") <<
             i18n("Alt. Rock") << i18n("Ambient") << i18n("Anime") << i18n("Avantgarde") <<
             i18n("Ballad") << i18n("Bass") << i18n("Beat") << i18n("Bebop") <<
@@ -95,13 +103,40 @@ KCDDB::Genres::Genres()
             i18n("Vocal");
 }
 
+KCDDB::Genres::~Genres()
+{
+    delete d;
+}
+
+KCDDB::Genres::Genres(const Genres& other)
+    :d(new Private)
+{
+    *d = *other.d;
+}
+
+KCDDB::Genres& KCDDB::Genres::operator=(const Genres& other)
+{
+    *d = *other.d;
+    return *this;
+}
+
+const QStringList &KCDDB::Genres::cddbList() const
+{
+    return d->cddb;
+}
+
+const QStringList &KCDDB::Genres::i18nList() const
+{
+    return d->i18n;
+}
+
 const QString KCDDB::Genres::cddb2i18n(const QString &genre) const
 {
     QString userDefinedGenre = genre.trimmed();
-    int index = m_cddb.indexOf(userDefinedGenre);
+    int index = d->cddb.indexOf(userDefinedGenre);
     if (index != -1)
     {
-        return m_i18n[index];
+        return d->i18n[index];
     }
     else
     {
@@ -112,10 +147,10 @@ const QString KCDDB::Genres::cddb2i18n(const QString &genre) const
 const QString KCDDB::Genres::i18n2cddb(const QString &genre) const
 {
     QString userDefinedGenre = genre.trimmed();
-    int index = m_i18n.indexOf(userDefinedGenre);
+    int index = d->i18n.indexOf(userDefinedGenre);
     if (index != -1)
     {
-        return m_cddb[index];
+        return d->cddb[index];
     }
     else
     {
