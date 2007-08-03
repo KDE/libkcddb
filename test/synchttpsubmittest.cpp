@@ -67,6 +67,6 @@ main(int argc, char ** argv)
 
   Result r = c.submit(cdInfo, list);
 
-  kDebug() << "Result: " << resultToString(r) << endl;
+  kDebug() << "Result: " << resultToString(r);
 }
 

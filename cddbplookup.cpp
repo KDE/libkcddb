@@ -88,7 +88,7 @@ namespace KCDDB
     void
   CDDBPLookup::close()
   {
-    kDebug(60010) << "Disconnect from server..." << endl;
+    kDebug(60010) << "Disconnect from server...";
     if ( isConnected() )
     {
       socket_->close();
@@ -102,16 +102,16 @@ namespace KCDDB
 
     if ( 200 == serverStatus )
     {
-      kDebug(60010) << "Server response: read-only" << endl;
+      kDebug(60010) << "Server response: read-only";
       readOnly_ = true;
     }
     else if ( 201 == serverStatus )
     {
-      kDebug(60010) << "Server response: read-write" << endl;
+      kDebug(60010) << "Server response: read-write";
     }
     else
     {
-      kDebug(60010) << "Server response: bugger off" << endl;
+      kDebug(60010) << "Server response: bugger off";
       return false;
     }
 
@@ -125,11 +125,11 @@ namespace KCDDB
 
     if ( ( 200 != serverStatus ) && ( 402 != serverStatus ) )
     {
-      kDebug(60010) << "Handshake was too tight. Letting go." << endl;
+      kDebug(60010) << "Handshake was too tight. Letting go.";
       return false;
     }
 
-    kDebug(60010) << "Handshake was warm and firm" << endl;
+    kDebug(60010) << "Handshake was warm and firm";
 
     return true;
   }
@@ -140,11 +140,11 @@ namespace KCDDB
   {
     if ( !isConnected() )
     {
-      kDebug(60010) << "socket status: " << socket_->state() << endl;
+      kDebug(60010) << "socket status: " << socket_->state();
       return -1;
     }
 
-    kDebug(60010) << "WRITE: [" << line << "]" << endl;
+    kDebug(60010) << "WRITE: [" << line << "]";
     QByteArray buf(line.toUtf8());
     buf.append( '\n' );
 

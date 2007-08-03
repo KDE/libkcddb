@@ -49,7 +49,7 @@ namespace KCDDB
   {
     QString discId = calculateDiscId(trackOffsetList);
     
-    kDebug() << "Should lookup " << discId << endl;
+    kDebug() << "Should lookup " << discId;
 
     ::MusicBrainz mb;
 
@@ -64,7 +64,7 @@ namespace KCDDB
       string error;
       
       mb.GetQueryError(error);
-      kDebug() << "Query failed: " << error.c_str() << endl;
+      kDebug() << "Query failed: " << error.c_str();
       
       return UnknownError;
     }
@@ -73,7 +73,7 @@ namespace KCDDB
 
     if (nrAlbums < 1)
     {
-      kDebug() << "No CD Found" << endl;
+      kDebug() << "No CD Found";
 
       return UnknownError;
     }
@@ -103,7 +103,7 @@ namespace KCDDB
       cdInfoList_ << info;
     }
 
-    kDebug() << "Query succeeded :-)" << endl;
+    kDebug() << "Query succeeded :-)";
 
     return Success;
   }

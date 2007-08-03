@@ -68,7 +68,7 @@ AsyncHTTPSubmitTest::AsyncHTTPSubmitTest()
   void
 AsyncHTTPSubmitTest::slotFinished(Result r)
 {
-  kDebug() << "AsyncHTTPSubmitTest::slotFinished: Got " << KCDDB::resultToString(r) << endl;
+  kDebug() << "AsyncHTTPSubmitTest::slotFinished: Got " << KCDDB::resultToString(r);
 
   kapp->quit();
 }

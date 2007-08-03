@@ -95,17 +95,17 @@ void AsyncCDDBLookupTest::testLookup()
 AsyncCDDBLookupTest::slotFinished(Result r)
 {
   m_result = r;
-  kDebug() << "AsyncCDDBLookupTest::slotResult: Got " << KCDDB::resultToString(r) << endl;
+  kDebug() << "AsyncCDDBLookupTest::slotResult: Got " << KCDDB::resultToString(r);
 
   CDInfoList l = client_->lookupResponse();
 
-  kDebug() << "AsyncCDDBLookupTest::slotResult: Item count: " <<  l.count() << endl;
+  kDebug() << "AsyncCDDBLookupTest::slotResult: Item count: " <<  l.count();
 
   foreach(CDInfo i, l)
   {
     if (i.get("discid") == "a1107d0a" && i.get(Category) == "jazz")
     {
-      kDebug() << "Found the CD" << endl;
+      kDebug() << "Found the CD";
       m_info = i;
       break;
     }

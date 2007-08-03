@@ -119,13 +119,13 @@ namespace KCDDB
         void
       set(const QString& type, const QVariant &d)
       {
-        //kDebug() << "set: " << type << ", " << d.toString() << endl;
+        //kDebug() << "set: " << type << ", " << d.toString();
         if(type.contains(QRegExp( "^T.*_.*$" ) )){
-          kDebug(60010) << "Error: custom cdinfo::set data can not start with T and contain a _" << endl;
+          kDebug(60010) << "Error: custom cdinfo::set data can not start with T and contain a _";
           return;
         }
         if(type.toUpper() == "DTITLE"){
-          kDebug(60010) << "Error: type: DTITLE is reserved and can not be set." << endl;
+          kDebug(60010) << "Error: type: DTITLE is reserved and can not be set.";
           return;
         }
 
@@ -227,7 +227,7 @@ namespace KCDDB
     bool ok;
     int track = get("tracknumber").toInt(&ok);
     if(!ok)
-      kDebug(60010) << "Warning toString() on a track that doesn't have track number assigned." << endl;
+      kDebug(60010) << "Warning toString() on a track that doesn't have track number assigned.";
     QMap<QString, QVariant>::const_iterator i = d->data.constBegin();
     while (i != d->data.constEnd()) {
         if(i.key() != "COMMENT" && i.key() != "TITLE" && i.key() != "ARTIST" && i.key() != "TRACKNUMBER") {
@@ -403,7 +403,7 @@ namespace KCDDB
     if ( get(Genre).toString().isEmpty() )
       set(Genre, "Unknown");
 
-    kDebug(60010) << "Loaded CDInfo for " << get("discid").toString() << endl;
+    kDebug(60010) << "Loaded CDInfo for " << get("discid").toString();
 
     return true;
   }
@@ -546,7 +546,7 @@ namespace KCDDB
       return d->trackInfoList[trackNumber];
     else
     {
-      kWarning() << "Couldn't find track " << trackNumber << endl;
+      kWarning() << "Couldn't find track " << trackNumber;
       return TrackInfo();
     }
   }

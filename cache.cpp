@@ -39,7 +39,7 @@ namespace KCDDB
   {
     QString cddbId = CDDB::trackOffsetListToId(offsetList);
 
-    kDebug(60010) << "Looking up " << cddbId << " in CDDB cache" << endl;
+    kDebug(60010) << "Looking up " << cddbId << " in CDDB cache";
 
     CDInfoList infoList;
     QStringList cddbCacheDirs = c.cacheLocations();
@@ -132,7 +132,7 @@ namespace KCDDB
     }
     else
     {
-      kWarning(60010) << "Unknown source " << source << " for CDInfo, can't store discinfo" << endl;
+      kWarning(60010) << "Unknown source " << source << " for CDInfo, can't store discinfo";
       return;
     }
 
@@ -144,12 +144,12 @@ namespace KCDDB
     {
       if (!dir.mkpath(cacheDir))
       {
-        kWarning(60010) << "Couldn't create cache directory " << cacheDir << endl;
+        kWarning(60010) << "Couldn't create cache directory " << cacheDir;
         return;
       }
     }
 
-    kDebug(60010) << "Storing " << cacheFile << " in CDDB cache" << endl;
+    kDebug(60010) << "Storing " << cacheFile << " in CDDB cache";
 
     QFile f(cacheDir + '/' + cacheFile);
     if ( f.open(QIODevice::WriteOnly) )

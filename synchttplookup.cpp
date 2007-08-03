@@ -57,7 +57,7 @@ namespace KCDDB
     if ( Success != result_ )
       return result_;
 
-    kDebug(60010) << matchList_.count() << " matches found." << endl;
+    kDebug(60010) << matchList_.count() << " matches found.";
 
     if (matchList_.isEmpty())
       return NoRecordFound;
@@ -87,7 +87,7 @@ namespace KCDDB
     if ( Success != result_ )
       return result_;
 
-    kDebug(60010) << "runQuery() Result: " << resultToString(result_) << endl;
+    kDebug(60010) << "runQuery() Result: " << resultToString(result_);
 
     return result_;
   }
@@ -109,7 +109,7 @@ namespace KCDDB
     Result
   SyncHTTPLookup::fetchURL()
   {
-    kDebug(60010) << "About to fetch: " << cgiURL_.url() << endl;
+    kDebug(60010) << "About to fetch: " << cgiURL_.url();
 
     KIO::TransferJob* job = KIO::get( cgiURL_, false, false );
 

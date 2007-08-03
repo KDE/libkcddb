@@ -69,7 +69,7 @@ AsyncSMTPSubmitTest::AsyncSMTPSubmitTest()
   void
 AsyncSMTPSubmitTest::slotFinished(Result r)
 {
-  kDebug() << "AsyncSMTPSubmitTest::slotFinished: Got " << KCDDB::resultToString(r) << endl;
+  kDebug() << "AsyncSMTPSubmitTest::slotFinished: Got " << KCDDB::resultToString(r);
 
   kapp->quit();
 }

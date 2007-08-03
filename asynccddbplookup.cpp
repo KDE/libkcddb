@@ -77,14 +77,14 @@ namespace KCDDB
     void
   AsyncCDDBPLookup::slotConnectionSuccess()
   {
-    kDebug(60010) << "Connection successful" << endl;
+    kDebug(60010) << "Connection successful";
     state_ = WaitingForGreeting;
   }
 
     void
   AsyncCDDBPLookup::slotReadyRead()
   {
-    kDebug(60010) << "Ready to read. State: " << stateToString() << endl;
+    kDebug(60010) << "Ready to read. State: " << stateToString();
 
     while ( Idle != state_ && isConnected() && socket_->canReadLine() )
       read();

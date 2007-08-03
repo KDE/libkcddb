@@ -51,8 +51,8 @@ namespace KCDDB
 
     if ( !socket_->isValid() )
     {
-      kDebug(60010) << "Couldn't connect to " << socket_->peerName() << ":" << socket_->peerPort() << endl;
-      kDebug(60010) << "Socket error: " << socket_->errorString() << endl;
+      kDebug(60010) << "Couldn't connect to " << socket_->peerName() << ":" << socket_->peerPort();
+      kDebug(60010) << "Socket error: " << socket_->errorString();
 
       if ( socket_->error() == QAbstractSocket::HostNotFoundError )
         return HostNotFound;
@@ -77,7 +77,7 @@ namespace KCDDB
     if (matchList_.isEmpty())
       return NoRecordFound;
 
-    kDebug(60010) << matchList_.count() << " matches found." << endl;
+    kDebug(60010) << matchList_.count() << " matches found.";
 
     // For each match, read the cd info from the server and save it to
     // cdInfoList.
@@ -186,7 +186,7 @@ namespace KCDDB
   {
     if ( !isConnected() )
     {
-      kDebug(60010) << "socket status: " << socket_->state() << endl;
+      kDebug(60010) << "socket status: " << socket_->state();
       return QString();
     }
 

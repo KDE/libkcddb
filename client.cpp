@@ -111,7 +111,7 @@ namespace KCDDB
 
     if ( trackOffsetList.count() <= 1 )
     {
-      kDebug(60010) << "Lookup called with empty offset list" << endl;
+      kDebug(60010) << "Lookup called with empty offset list";
       return NoRecordFound;
     }
 
@@ -119,7 +119,7 @@ namespace KCDDB
     {
       d->cdInfoList = Cache::lookup( trackOffsetList, config() );
 
-      kDebug(60010) << "Found " << d->cdInfoList.count() << " hit(s)" << endl;
+      kDebug(60010) << "Found " << d->cdInfoList.count() << " hit(s)";
 
       if ( !d->cdInfoList.isEmpty() )
       {
@@ -321,7 +321,7 @@ namespace KCDDB
         break;
       }
       default:
-        kDebug(60010) << k_funcinfo << "Unsupported transport: " << endl;
+        kDebug(60010) << k_funcinfo << "Unsupported transport: ";
 //          << CDDB::transportToString(d->config.submitTransport()) << endl;
         return UnknownError;
         break;

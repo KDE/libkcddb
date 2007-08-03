@@ -46,7 +46,7 @@ namespace KCDDB
     url_.setQuery(QString("to=%1&subject=cddb %2 %3&from=%4")
       .arg(to_, cdInfo.get(Category).toString(),
         cdInfo.get("discid").toString(), from_));
-    kDebug(60010) << "Url is: " << url_.prettyUrl() << endl;
+    kDebug(60010) << "Url is: " << url_.prettyUrl();
 
     return KIO::storedPut(diskData_.toUtf8().data(), url_, -1, false, false, false);
   }
