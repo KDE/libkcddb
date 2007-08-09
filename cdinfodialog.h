@@ -20,13 +20,13 @@
 #ifndef KCDDB_CDINFODIALOG_H
 #define KCDDB_CDINFODIALOG_H
 
-#include <Q3ListView>
-
 #include <libkcddb/kcddb_export.h>
 #include <libkcddb/cdinfo.h>
 #include <libkcddb/kcddb.h>
 
-#include <KDialog>
+#include <KDE/KDialog>
+
+class Q3ListViewItem;
 
 namespace KCDDB
 {
@@ -40,10 +40,10 @@ namespace KCDDB
         void setInfo( const KCDDB::CDInfo &info, const KCDDB::TrackOffsetList &trackStartFrames );
         KCDDB::CDInfo info() const;
 
-    signals:
+    Q_SIGNALS:
         void play( int );
 
-    private slots:
+    private Q_SLOTS:
         void slotTrackSelected( Q3ListViewItem* );
         void slotNextTrack();
         void slotTrackDoubleClicked( Q3ListViewItem *item, const QPoint &, int column );
