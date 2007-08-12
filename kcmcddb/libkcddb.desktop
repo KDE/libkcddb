@@ -5,7 +5,7 @@ Icon=cdaudio_unmount
 Type=Service
 ServiceTypes=KCModule
 
-X-KDE-Library=cddb
+X-KDE-Library=kcm_cddb
 X-KDE-FactoryName=cddb
 X-KDE-ParentApp=kcontrol
 
