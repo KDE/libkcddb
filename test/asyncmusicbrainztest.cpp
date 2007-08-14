@@ -119,20 +119,16 @@ void AsyncMusicBrainzTest::testLookup()
   client_->lookup(list);
 
   CDInfoList response = client_->lookupResponse();
-  QEXPECT_FAIL("", "Cache doesn't work yet", Continue);
   QVERIFY(response.count() > 0);
-  // FIXME
-  return;
 
   CDInfo cacheInfo(response.first());
   QCOMPARE(m_info.get(Artist).toString(),cacheInfo.get(Artist).toString());
   QCOMPARE(m_info.get(Title).toString(),cacheInfo.get(Title).toString());
-  QCOMPARE(m_info.get(Genre).toString(),cacheInfo.get(Genre).toString());
   QCOMPARE(m_info.get(Year).toInt(),cacheInfo.get(Year).toInt());
   for (int j=0; j < 17; j++)
   {
-    QCOMPARE(m_info.track(j).get(Title).toString(),cacheInfo.get(Title).toString());
-    QCOMPARE(m_info.track(j).get(Comment).toString(),cacheInfo.get(Comment).toString());
+    QCOMPARE(m_info.track(j).get(Title).toString(),cacheInfo.track(j).get(Title).toString());
+    QCOMPARE(m_info.track(j).get(Comment).toString(),cacheInfo.track(j).get(Comment).toString());
   }
 }
 

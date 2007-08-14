@@ -109,16 +109,47 @@ namespace KCDDB
     return serverStatus;
   }
 
-    QStringList
-  CDDB::cacheFilenames(const TrackOffsetList& offsetList)
+    CDInfoList
+  CDDB::cacheFiles(const TrackOffsetList &offsetList, const Config& config )
   {
-    QStringList filenames;
     Categories c;
     QStringList categories = c.cddbList();
-    foreach(QString dir, categories)
-      filenames << dir+"/"+trackOffsetListToId(offsetList);
+    // Also load user-created entries
+    categories << "user";
 
-    return filenames;
+    CDInfoList infoList;
+    QStringList cddbCacheDirs = config.cacheLocations();
+
+    for (QStringList::Iterator cddbCacheDir = cddbCacheDirs.begin();
+        cddbCacheDir != cddbCacheDirs.end(); ++cddbCacheDir)
+    {
+      foreach(QString category, categories)
+      {
+        QFile f( *cddbCacheDir + '/' + category + '/' + trackOffsetListToId(offsetList) );
+        if ( f.exists() && f.open(QIODevice::ReadOnly) )
+        {
+            QTextStream ts(&f);
+            ts.setCodec("UTF-8");
+            QString cddbData = ts.readAll();
+            f.close();
+            CDInfo info;
+            info.load(cddbData);
+            if (category != "user")
+            {
+              info.set(Category,category);
+              info.set("source", "freedb");
+            }
+            else
+            {
+              info.set("source", "user");
+            }
+
+            infoList.append( info );
+        }
+      }
+    }
+
+    return infoList;
   }
 }
 

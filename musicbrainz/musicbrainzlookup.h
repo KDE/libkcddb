@@ -21,6 +21,9 @@
 #define MUSICBRAINZLOOKUP_H
 
 #include "../lookup.h"
+#include "../cdinfo.h"
+#include "../kcddb.h"
+#include "../kcddbconfig.h"
 
 namespace KCDDB
 {
@@ -36,7 +39,7 @@ namespace KCDDB
       // FIXME Only freedb lookup needs the first two arguments (host/port)
       virtual Result lookup( const QString &, uint, const TrackOffsetList & );
 
-      static QStringList cacheFilenames(const TrackOffsetList & );
+      static CDInfoList cacheFiles(const TrackOffsetList &, const Config& );
 
     private:
 

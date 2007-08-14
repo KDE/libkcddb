@@ -67,7 +67,7 @@ bool CacheTest::verify(const QString& source, const QString& discid, const CDInf
   CDInfoList results = Cache::lookup(m_list, m_client->config());
   foreach(CDInfo newInfo, results)
   {
-    if (/*newInfo.get("source") == source &&*/ newInfo.get("discid").toString() == discid)
+    if (newInfo.get("source") == source && newInfo.get("discid").toString() == discid)
     {
       if (newInfo.get(Artist) != m_info.get(Artist))
         continue;
@@ -120,7 +120,6 @@ void CacheTest::testMusicbrainz()
   testInfo.set("source", "musicbrainz");
   testInfo.set("discid", "wdABQ7s86gS7eVmS74CCQ6KwPUI-");
 
-  QEXPECT_FAIL("", "MusicBrainz cache doesn't work yet", Continue);
   QVERIFY(verify("musicbrainz", "wdABQ7s86gS7eVmS74CCQ6KwPUI-", testInfo));
 
   QFile::remove(QDir::homePath()+"/.cddbTest/musicbrainz/wdABQ7s86gS7eVmS74CCQ6KwPUI-");

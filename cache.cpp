@@ -25,6 +25,11 @@
 #include "kcddbconfig.h"
 #include "cddb.h"
 
+#include "config-musicbrainz.h"
+#ifdef HAVE_MUSICBRAINZ
+#include "musicbrainz/musicbrainzlookup.h"
+#endif
+
 #include <kdebug.h>
 #include <kstandarddirs.h>
 
@@ -42,38 +47,11 @@ namespace KCDDB
     kDebug(60010) << "Looking up " << cddbId << " in CDDB cache";
 
     CDInfoList infoList;
-    QStringList cddbCacheDirs = c.cacheLocations();
 
-    for (QStringList::Iterator cddbCacheDir = cddbCacheDirs.begin();
-        cddbCacheDir != cddbCacheDirs.end(); ++cddbCacheDir)
-    {
-      QDir dir( *cddbCacheDir );
-      QStringList dirList = dir.entryList( QDir::Dirs );
-
-      QStringList::ConstIterator it = dirList.begin();
-
-      while ( it != dirList.end() )
-      {
-        QString category( *it );
-        if ( category[ 0 ] != '.' )
-        {
-          QFile f( *cddbCacheDir + '/' + category + '/' + cddbId );
-          if ( f.exists() && f.open(QIODevice::ReadOnly) )
-          {
-              QTextStream ts(&f);
-              ts.setCodec("UTF-8");
-              QString cddbData = ts.readAll();
-              f.close();
-              CDInfo info;
-              info.load(cddbData);
-              info.set(Category,category);
-
-              infoList.append( info );
-          }
-        }
-        ++it;
-      }
-    }
+    infoList << CDDB::cacheFiles(offsetList, c);
+#ifdef HAVE_MUSICBRAINZ
+    infoList << MusicBrainzLookup::cacheFiles(offsetList, c);
+#endif
 
     return infoList;
   }

@@ -25,6 +25,8 @@
 #include <QtCore/QString>
 #include <QtCore/QList>
 #include <libkcddb/kcddb.h>
+#include <libkcddb/cdinfo.h>
+#include <libkcddb/kcddbconfig.h>
 
 namespace KCDDB
 {
@@ -41,7 +43,7 @@ namespace KCDDB
 
       static uint statusCode( const QString & );
 
-      static QStringList cacheFilenames(const TrackOffsetList & );
+      static CDInfoList cacheFiles(const TrackOffsetList &, const Config& );
 
     protected:
       QString trackOffsetListToId();

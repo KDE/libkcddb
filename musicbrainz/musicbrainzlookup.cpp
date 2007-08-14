@@ -149,12 +149,34 @@ namespace KCDDB
     return res;
   }
 
-  QStringList MusicBrainzLookup::cacheFilenames(const TrackOffsetList& offsetList)
+  CDInfoList MusicBrainzLookup::cacheFiles(const TrackOffsetList &offsetList, const Config& c )
   {
-    QStringList filenames;
-    filenames << QString("musicbrainz/") + calculateDiscId(offsetList);
+    CDInfoList infoList;
+    QStringList cddbCacheDirs = c.cacheLocations();
+    QString discid = calculateDiscId(offsetList);
 
-    return filenames;
+    for (QStringList::Iterator cddbCacheDir = cddbCacheDirs.begin();
+        cddbCacheDir != cddbCacheDirs.end(); ++cddbCacheDir)
+    {
+      QString fileName = *cddbCacheDir + "/musicbrainz/" + discid;
+
+      QFile f( fileName );
+      if ( f.exists() && f.open(QIODevice::ReadOnly) )
+      {
+        QTextStream ts(&f);
+        ts.setCodec("UTF-8");
+        QString cddbData = ts.readAll();
+        f.close();
+        CDInfo info;
+        info.load(cddbData);
+        info.set("source", "musicbrainz");
+        info.set("discid", discid);
+
+        infoList.append( info );
+      }
+    }
+
+    return infoList;
   }
 }
 
