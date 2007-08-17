@@ -80,7 +80,7 @@ namespace KCDDB
     // The whole query has to constructed each time as the
     // CDDB CGI script expects the parameters in strict order
 
-    cgiURL_.setQuery( QString::null );
+    cgiURL_.setQuery( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
 
     QString hello = QString("%1 %2 %3 %4")
         .arg(user_, localHostName_, clientName(), clientVersion());

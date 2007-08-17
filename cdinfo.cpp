@@ -428,7 +428,7 @@ namespace KCDDB
     QString artist = get(Artist).toString();
     s += d->createLine("DTITLE", artist + " / " + get(Title).toString() );
     int year = get(Year).toInt();
-    s += "DYEAR=" + (0 == year ? QString::null : QString::number(year)) + '\n';
+    s += "DYEAR=" + (0 == year ? QString::null : QString::number(year)) + '\n';	//krazy:exclude=nullstrassign for old broken gcc
     if (get(Genre) == "Unknown")
       s += d->createLine("DGENRE", "");
     else
