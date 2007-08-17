@@ -246,7 +246,7 @@ public:
           QString artist = item->text(Private::TRACK_ARTIST);
           if (!artist.isEmpty())
           {
-              item->setText(Private::TRACK_ARTIST, QString::null);	//krazy:exclude=nullstrassign for old broken gcc
+              item->setText(Private::TRACK_ARTIST, QString());
               item->setText(Private::TRACK_TITLE, artist + Private::SEPARATOR + item->text(Private::TRACK_TITLE));
           }
       }
