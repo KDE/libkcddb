@@ -136,11 +136,11 @@ void AsyncMusicBrainzTest::testLookup()
 AsyncMusicBrainzTest::slotFinished(Result r)
 {
   m_result = r;
-  kDebug() << k_funcinfo << ": Got " << KCDDB::resultToString(r);
+  kDebug() << ": Got " << KCDDB::resultToString(r);
 
   CDInfoList l = client_->lookupResponse();
 
-  kDebug() << k_funcinfo << ": Item count: " <<  l.count();
+  kDebug() << ": Item count: " <<  l.count();
 
   QVERIFY(l.count() > 0);
   m_info = l.first();

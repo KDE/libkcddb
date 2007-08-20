@@ -321,7 +321,7 @@ namespace KCDDB
         break;
       }
       default:
-        kDebug(60010) << k_funcinfo << "Unsupported transport: ";
+        kDebug(60010) << "Unsupported transport: ";
 //          << CDDB::transportToString(d->config.submitTransport()) << endl;
         return UnknownError;
         break;

@@ -258,7 +258,7 @@ public:
 
   void CDInfoDialog::slotChangeEncoding()
   {
-      kDebug() << k_funcinfo;
+      kDebug() ;
 
   KDialog* dialog = new KDialog(this);
   dialog->setCaption(i18n("Change Encoding"));

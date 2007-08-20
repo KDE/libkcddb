@@ -68,7 +68,7 @@ namespace KCDDB
 
   void AsyncMusicBrainzLookup::lookupFinished()
   {
-    kDebug() << k_funcinfo;
+    kDebug() ;
 
     cdInfoList_ = m_lookupThread->m_lookupResponse;
 
