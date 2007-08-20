@@ -141,7 +141,7 @@ namespace KCDDB
       sha.addData(temp, strlen(temp));
     }
     
-    QByteArray base64 = KCodecs::base64Encode(sha.result());
+    QByteArray base64 = sha.result().toBase64();
 
     // '/' '+' and '=' replaced for MusicBrainz
     QString res = QString::fromLatin1(base64).replace('/',"_").replace('+',".").replace('=',"-");
