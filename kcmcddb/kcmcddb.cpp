@@ -43,10 +43,11 @@
 #include <kmessagebox.h>
 #include <kconfigdialogmanager.h>
 
-typedef KGenericFactory<CDDBModule, QWidget> KCDDBFactory;
-K_EXPORT_COMPONENT_FACTORY ( cddb, KCDDBFactory( "kcmcddb" ) )
+K_PLUGIN_FACTORY(KCDDBFactory, registerPlugin<CDDBModule>();)
+K_EXPORT_PLUGIN(KCDDBFactory( "kcmcddb" ))
 
-CDDBModule::CDDBModule(QWidget *parent, const QStringList &)
+
+CDDBModule::CDDBModule(QWidget *parent, const QVariantList &)
   : KCModule(KCDDBFactory::componentData(), parent)
 {
   KGlobal::locale()->insertCatalog("libkcddb");
