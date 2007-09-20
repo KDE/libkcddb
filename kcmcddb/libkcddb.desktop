@@ -58,6 +58,7 @@ Name[tr]=CDDB Erişimi
 Name[uk]=Звантаження CDDB
 Name[x-test]=xxCDDB Retrievalxx
 Name[xh]=CDDB Ukukangela
+Name[zh_CN]=CDDB 检索
 Name[zh_HK]=CDDB 資訊擷取
 Name[zh_TW]=CDDB 取得資訊
 
@@ -115,6 +116,7 @@ GenericName[uk]=Налаштування CDDB
 GenericName[uz]=CDDB мосламаси
 GenericName[wa]=Apontiaedje di CDDB
 GenericName[x-test]=xxCDDB Configurationxx
+GenericName[zh_CN]=CDDB 配置
 GenericName[zh_HK]=CDDB 設定
 GenericName[zh_TW]=CDDB 設定
 
@@ -164,6 +166,7 @@ Comment[th]=ปรับแต่งการดึงข้อมูลจา�
 Comment[tr]=CDDB Erişimini Yapılandır
 Comment[uk]=Налаштування звантаження CDDB
 Comment[x-test]=xxConfigure the CDDB Retrievalxx
+Comment[zh_CN]=CDDB 检索配置
 Comment[zh_HK]=設定 CDDB 資訊擷取
 Comment[zh_TW]=CDDB 取得資訊設定
 
