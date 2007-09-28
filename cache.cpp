@@ -101,17 +101,15 @@ namespace KCDDB
       cacheDir = "/musicbrainz/";
       cacheFile = discid;
     }
-    else if (source == "user")
+    else
     {
+      if (source != "user")
+        kWarning(60010) << "Unknown source " << source << " for CDInfo";
+
       cacheDir = "/user/";
       QString id = CDDB::trackOffsetListToId(offsetList);
       cacheFile = id;
       newInfo.set("discid", id);
-    }
-    else
-    {
-      kWarning(60010) << "Unknown source " << source << " for CDInfo, can't store discinfo";
-      return;
     }
 
     cacheDir = c.cacheLocations().first() + cacheDir;
