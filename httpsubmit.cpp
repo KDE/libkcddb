@@ -41,7 +41,7 @@ namespace KCDDB
 
   KIO::Job* HTTPSubmit::createJob(const CDInfo& cdInfo)
   {
-    KIO::TransferJob* job = KIO::http_post(url_, diskData_.toUtf8().data(), false);
+    KIO::TransferJob* job = KIO::http_post(url_, diskData_.toUtf8().data(), KIO::HideProgressInfo);
 
     job->addMetaData("content-type", "Content-Type: text/plain");
     QString header;

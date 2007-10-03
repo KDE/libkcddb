@@ -54,7 +54,7 @@ namespace KCDDB
 
     QList<Mirror> result;
 
-    KIO::Job* job = KIO::get( url, false, false );
+    KIO::Job* job = KIO::get( url, KIO::NoReload, KIO::HideProgressInfo );
     QByteArray data;
     if( KIO::NetAccess::synchronousRun( job, 0, &data ) )
     {

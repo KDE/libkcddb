@@ -111,7 +111,7 @@ namespace KCDDB
   {
     kDebug(60010) << "About to fetch: " << cgiURL_.url();
 
-    KIO::TransferJob* job = KIO::get( cgiURL_, false, false );
+    KIO::TransferJob* job = KIO::get( cgiURL_, KIO::NoReload, KIO::HideProgressInfo );
 
     if ( 0 == job )
       return ServerError;
