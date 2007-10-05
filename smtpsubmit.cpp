@@ -48,7 +48,7 @@ namespace KCDDB
         cdInfo.get("discid").toString(), from_));
     kDebug(60010) << "Url is: " << url_.prettyUrl();
 
-    return KIO::storedPut(diskData_.toUtf8().data(), url_, -1, false, false, false);
+    return KIO::storedPut(diskData_.toUtf8().data(), url_, -1, KIO::HideProgressInfo);
   }
 
   void SMTPSubmit::makeDiskData( const CDInfo& cdInfo, const TrackOffsetList& offsetList )
