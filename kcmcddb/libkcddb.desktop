@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Exec=kcmshell libkcddb
+Exec=kcmshell4 libkcddb
 Icon=cdaudio_unmount
 Type=Service
 ServiceTypes=KCModule
