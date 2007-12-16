@@ -4,6 +4,7 @@ add_subdirectory( test )
 add_subdirectory( kcmcddb )
 
 macro_optional_find_package(MusicBrainz)
+macro_log_feature(MUSICBRAINZ_FOUND "MusicBrainz" "A library that provides access to metadata lookup on the MusicBrainz server" "http://www.musicbrainz.org" FALSE "" "Music metadata lookup for KDE multimedia applications.")
 
 if(MUSICBRAINZ_FOUND)
     set(HAVE_MUSICBRAINZ 1)
