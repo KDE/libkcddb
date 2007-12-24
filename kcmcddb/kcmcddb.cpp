@@ -25,14 +25,9 @@
 #include "libkcddb/cache.h"
 #include "libkcddb/submit.h"
 
-#include <QLayout>
 #include <QCheckBox>
-#include <QComboBox>
-#include <QSpinBox>
-#include <QLineEdit>
 #include <qradiobutton.h>
 #include <q3listbox.h>
-#include <QLabel>
 #include <q3buttongroup.h>
 #include <QVBoxLayout>
 

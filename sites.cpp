@@ -22,7 +22,6 @@
 #include <kurl.h>
 #include <kio/netaccess.h>
 #include <kio/job.h>
-#include <QFile>
 #include <QTextStream>
 #include <kdebug.h>
 #include <QRegExp>

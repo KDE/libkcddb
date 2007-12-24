@@ -19,9 +19,7 @@
 
 #include "cdinfoencodingwidget.h"
 
-#include <QComboBox>
 #include <q3listbox.h>
-#include <QLabel>
 #include <qtextcodec.h>
 #include <klocale.h>
 #include <kglobal.h>

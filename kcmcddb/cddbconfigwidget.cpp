@@ -26,9 +26,6 @@
 #include "libkcddb/lookup.h"
 
 #include <q3listbox.h>
-#include <QComboBox>
-#include <QSpinBox>
-#include <QLineEdit>
 #include <qlist.h>
 #include <kfiledialog.h>
 #include <kapplication.h>

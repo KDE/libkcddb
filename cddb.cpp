@@ -23,7 +23,6 @@
 
 #include "categories.h"
 
-#include <QRegExp>
 #include <qstringlist.h>
 
 #include <kdebug.h>

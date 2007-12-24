@@ -21,7 +21,6 @@
 #define KCMCDDB_H
 
 #include <kcmodule.h>
-#include <KPluginFactory>
 #include "libkcddb/kcddbconfig.h"
 
 class CDDBConfigWidget;

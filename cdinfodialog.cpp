@@ -25,7 +25,6 @@
 
 #include <qtextcodec.h>
 #include <kdebug.h>
-#include <QDateTime>
 #include <kglobal.h>
 #include <kcharsets.h>
 

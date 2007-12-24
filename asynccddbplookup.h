@@ -21,7 +21,6 @@
 #ifndef KCDDB_ASYNC_CDDBP_LOOKUP_H
 #define KCDDB_ASYNC_CDDBP_LOOKUP_H
 
-#include <QObject>
 
 #include "cddbplookup.h"
 
