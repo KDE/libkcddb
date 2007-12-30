@@ -4,6 +4,7 @@ Exec=kcmshell4 libkcddb
 Icon=cdaudio_unmount
 Type=Service
 ServiceTypes=KCModule
+X-KDE-System-Settings-Parent-Category=advanced-user-settings
 
 X-KDE-Library=kcm_cddb
 X-KDE-ParentApp=kcontrol
