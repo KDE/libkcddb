@@ -54,6 +54,8 @@ namespace KCDDB
   {
     // Taken from version by Michael Matz in kio_audiocd.
     unsigned int id = 0;
+    if ( list.isEmpty() )
+        return QString();
     int numTracks = list.count() - 1;
 
     // The last two in the list are disc begin and disc end.
