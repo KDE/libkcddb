@@ -65,7 +65,7 @@ bool CacheTest::verify(const QString& source, const QString& discid, const CDInf
   Cache::store(m_list, info, m_client->config());
 
   CDInfoList results = Cache::lookup(m_list, m_client->config());
-  foreach(CDInfo newInfo, results)
+  foreach(const CDInfo &newInfo, results)
   {
     if (newInfo.get("source") == source && newInfo.get("discid").toString() == discid)
     {

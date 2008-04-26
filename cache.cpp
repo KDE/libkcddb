@@ -59,7 +59,7 @@ namespace KCDDB
     void
   Cache::store(const TrackOffsetList& offsetList, const CDInfoList& list, const Config& c)
   {
-    foreach( CDInfo info, list )
+    foreach( const CDInfo &info, list )
     {
       store(offsetList, info, c);
     }
@@ -76,7 +76,7 @@ namespace KCDDB
     QStringList discids = discid.split(',');
     if (discids.count() > 2)
     {
-      foreach(QString newid, discids)
+      foreach(const QString &newid, discids)
       {
         CDInfo newInfo = info;
         newInfo.set("discid", newid);

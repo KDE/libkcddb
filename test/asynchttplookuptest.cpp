@@ -102,7 +102,7 @@ AsyncHTTPLookupTest::slotFinished(Result r)
 
   kDebug() << "AsyncHTTPLookupTest::slotFinished: Item count: " <<  l.count();
 
-  foreach(CDInfo i, l)
+  foreach(const CDInfo &i, l)
   {
     if (i.get("discid") == "a1107d0a" && i.get(Category) == "jazz")
     {
