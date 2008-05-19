@@ -101,6 +101,12 @@ public:
       emit play(item->text(0).toUInt()-1);
   }
 
+
+  CDInfoDialog::~CDInfoDialog()
+  {
+      delete d;
+  }
+
   void CDInfoDialog::slotNextTrack()
   {
       if (d->ui->m_trackList->currentItem())

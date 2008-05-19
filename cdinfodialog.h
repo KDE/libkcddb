@@ -35,7 +35,7 @@ namespace KCDDB
     Q_OBJECT
     public:
         explicit CDInfoDialog(QWidget* parent);
-        virtual ~CDInfoDialog() { }
+        virtual ~CDInfoDialog();
 
         void setInfo( const KCDDB::CDInfo &info, const KCDDB::TrackOffsetList &trackStartFrames );
         KCDDB::CDInfo info() const;
