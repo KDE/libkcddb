@@ -66,7 +66,7 @@ if(MUSICBRAINZ_FOUND)
 endif(MUSICBRAINZ_FOUND)
 
 set_target_properties(kcddb PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
-install(TARGETS kcddb  DESTINATION ${LIB_INSTALL_DIR} )
+install(TARGETS kcddb  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### install files ###############
