@@ -238,6 +238,15 @@ namespace KCDDB
     return out;
   }
 
+    bool TrackInfo::operator==( const TrackInfo& other ) const
+    {
+        return d->data == other.d->data;
+    }
+
+    bool TrackInfo::operator!=( const TrackInfo& other ) const
+    {
+        return d->data != other.d->data;
+    }
 
   class CDInfoPrivate : public InfoBasePrivate {
     public:
@@ -556,6 +565,18 @@ namespace KCDDB
   {
     return d->trackInfoList.count();
   }
+
+    bool CDInfo::operator==( const CDInfo& other ) const
+    {
+        return(  d->data == other.d->data &&
+                 d->trackInfoList == other.d->trackInfoList );
+    }
+
+    bool CDInfo::operator!=( const CDInfo& other ) const
+    {
+        return(  d->data != other.d->data ||
+                 d->trackInfoList != other.d->trackInfoList );
+    }
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

@@ -61,6 +61,9 @@ namespace KCDDB
       TrackInfo(const TrackInfo& clone);
       TrackInfo& operator=(const TrackInfo& clone);
 
+      bool operator==(const TrackInfo&) const;
+      bool operator!=(const TrackInfo&) const;
+
       /**
        * Get data for type that has been assigned to this track.
        * @p type is case insensitive.
@@ -119,6 +122,9 @@ namespace KCDDB
 
       CDInfo(const CDInfo& clone);
       CDInfo& operator=(const CDInfo& clone);
+
+      bool operator==(const CDInfo&) const;
+      bool operator!=(const CDInfo&) const;
 
       /**
        * Load CDInfo from a string that is CDDB compatible
