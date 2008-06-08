@@ -80,7 +80,7 @@ install(FILES
    kcddb.h
    kcddb_export.h
    ${CMAKE_CURRENT_BINARY_DIR}/configbase.h
-   DESTINATION ${INCLUDE_INSTALL_DIR}/libkcddb)
+   DESTINATION ${INCLUDE_INSTALL_DIR}/libkcddb COMPONENT Devel )
 install( FILES libkcddb.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 
 
