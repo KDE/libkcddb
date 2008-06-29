@@ -4,7 +4,6 @@ Icon=cdaudio_unmount
 Type=Application
 X-KDE-ModuleType=Library
 X-KDE-Library=cddb
-Encoding=UTF-8
 
 Name=CDDB Retrieval
 Name[bg]=Извличане от CDDB
