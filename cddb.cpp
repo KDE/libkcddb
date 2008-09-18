@@ -121,7 +121,7 @@ namespace KCDDB
     CDInfoList infoList;
     QStringList cddbCacheDirs = config.cacheLocations();
 
-    for (QStringList::Iterator cddbCacheDir = cddbCacheDirs.begin();
+    for (QStringList::const_iterator cddbCacheDir = cddbCacheDirs.begin();
         cddbCacheDir != cddbCacheDirs.end(); ++cddbCacheDir)
     {
       foreach(const QString &category, categories)
