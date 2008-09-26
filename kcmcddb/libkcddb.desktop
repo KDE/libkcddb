@@ -7,7 +7,7 @@ X-KDE-System-Settings-Parent-Category=advanced-user-settings
 
 X-KDE-Library=kcm_cddb
 X-KDE-ParentApp=kcontrol
-
+X-DocPath=kscd/index.html#cddb-page
 
 Name=CDDB Retrieval
 Name[bg]=Извличане от CDDB
