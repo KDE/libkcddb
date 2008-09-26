@@ -46,7 +46,7 @@ CDDBModule::CDDBModule(QWidget *parent, const QVariantList &)
   : KCModule(KCDDBFactory::componentData(), parent)
 {
   KGlobal::locale()->insertCatalog("libkcddb");
-  setButtons(Default | Apply);
+  setButtons(Default | Apply | Help);
 
   widget_ = new CDDBConfigWidget(this);
 
