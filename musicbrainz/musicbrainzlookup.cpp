@@ -155,8 +155,8 @@ namespace KCDDB
     QStringList cddbCacheDirs = c.cacheLocations();
     QString discid = calculateDiscId(offsetList);
 
-    for (QStringList::const_iterator cddbCacheDir = cddbCacheDirs.begin();
-        cddbCacheDir != cddbCacheDirs.end(); ++cddbCacheDir)
+    for (QStringList::const_iterator cddbCacheDir = cddbCacheDirs.constBegin();
+        cddbCacheDir != cddbCacheDirs.constEnd(); ++cddbCacheDir)
     {
       QString fileName = *cddbCacheDir + "/musicbrainz/" + discid;
 

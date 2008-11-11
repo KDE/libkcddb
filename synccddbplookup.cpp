@@ -81,9 +81,9 @@ namespace KCDDB
 
     // For each match, read the cd info from the server and save it to
     // cdInfoList.
-    CDDBMatchList::ConstIterator matchIt = matchList_.begin();
+    CDDBMatchList::ConstIterator matchIt = matchList_.constBegin();
 
-    while ( matchIt != matchList_.end() )
+    while ( matchIt != matchList_.constEnd() )
     {
       CDDBMatch match( *matchIt );
       result = matchToCDInfo( match );

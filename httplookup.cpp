@@ -94,13 +94,13 @@ namespace KCDDB
   HTTPLookup::jobFinished()
   {
     QStringList lineList = QString::fromUtf8(data_, data_.size()).split( "\n", QString::SkipEmptyParts );
-    QStringList::ConstIterator it = lineList.begin();
+    QStringList::ConstIterator it = lineList.constBegin();
 
     switch ( state_ )
     {
       case WaitingForQueryResponse:
 
-        if ( it != lineList.end() )
+        if ( it != lineList.constEnd() )
         {
           QString line( *it );
 
@@ -117,7 +117,7 @@ namespace KCDDB
             case MultipleRecordFound:
 
               ++it;
-              while ( it != lineList.end() )
+              while ( it != lineList.constEnd() )
               {
                 QString line( *it );
 
