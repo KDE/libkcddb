@@ -68,6 +68,7 @@ Name[zh_HK]=CDDB 資訊擷取
 Name[zh_TW]=CDDB 取得資訊
 
 GenericName=CDDB Configuration
+GenericName[ar]=إعدادات CDDB
 GenericName[bg]=Настройки на CDDB
 GenericName[br]=Kefluniadur CDDB
 GenericName[ca]=Configuració CDDB
