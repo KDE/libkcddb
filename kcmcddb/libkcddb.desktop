@@ -10,6 +10,7 @@ X-KDE-ParentApp=kcontrol
 X-DocPath=kscd/index.html#cddb-page
 
 Name=CDDB Retrieval
+Name[ar]=جَلْبُ CDDB
 Name[bg]=Извличане от CDDB
 Name[ca]=Recuperació CDDB
 Name[cs]=Získání CDDB
@@ -131,6 +132,7 @@ GenericName[zh_HK]=CDDB 設定
 GenericName[zh_TW]=CDDB 設定
 
 Comment=Configure the CDDB Retrieval
+Comment[ar]=تهيئة جلب CDDB
 Comment[bg]=Настройки на извличане от CDDB
 Comment[ca]=Configura la recuperació CDDB
 Comment[cs]=Nastavení stahování z CDDB
