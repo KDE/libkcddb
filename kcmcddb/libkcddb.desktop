@@ -10,6 +10,7 @@ X-KDE-ParentApp=kcontrol
 X-DocPath=kscd/index.html#cddb-page
 
 Name=CDDB Retrieval
+Name[af]=CDDB Aanvraging
 Name[ar]=جَلْبُ CDDB
 Name[bg]=Извличане от CDDB
 Name[ca]=Recuperació CDDB
@@ -72,6 +73,7 @@ Name[zh_HK]=CDDB 資訊擷取
 Name[zh_TW]=CDDB 取得資訊
 
 GenericName=CDDB Configuration
+GenericName[af]=CDDB Opstelling
 GenericName[ar]=إعدادات CDDB
 GenericName[bg]=Настройки на CDDB
 GenericName[br]=Kefluniadur CDDB
@@ -136,6 +138,7 @@ GenericName[zh_HK]=CDDB 設定
 GenericName[zh_TW]=CDDB 設定
 
 Comment=Configure the CDDB Retrieval
+Comment[af]=Stel die CDDB aanvraging op
 Comment[ar]=تهيئة جلب CDDB
 Comment[bg]=Настройки на извличане от CDDB
 Comment[ca]=Configura la recuperació CDDB
