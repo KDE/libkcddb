@@ -55,7 +55,7 @@
        <item row="2" column="0" >
         <widget class="QGroupBox" name="freedbServerBox" >
          <property name="title" >
-          <string>Freedb server</string>
+          <string>Freedb Server</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_3" >
           <item row="0" column="0" >
