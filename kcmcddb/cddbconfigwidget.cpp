@@ -53,10 +53,9 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
   urlReq->setMode(KFile::Directory);
 
   KEditListBox* editListBox = new KEditListBox(i18n("Cache Locations"), urlReq->customEditor(), cacheLocationsParent, "kcfg_cacheLocations");
-  cacheLocationsParent->addWidget(editListBox);
-  cacheLocationsParent->setCurrentWidget(editListBox);
-
-  kcfg_FreedbSubmitTransport->remove(needsAuthenticationBox);
+  QHBoxLayout *layout = new QHBoxLayout(cacheLocationsParent);
+  layout->setMargin(0);
+  layout->addWidget(editListBox);
 
   connect(needsAuthenticationBox,SIGNAL(toggled(bool)),SLOT(needAuthenticationChanged(bool)));
   connect(kcfg_FreedbLookupTransport,SIGNAL(activated(int)),SLOT(protocolChanged()));

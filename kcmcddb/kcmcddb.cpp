@@ -56,10 +56,8 @@ CDDBModule::CDDBModule(QWidget *parent, const QVariantList &)
   addConfig(cfg, widget_);
 
   QVBoxLayout * layout = new QVBoxLayout(this);
-  layout->setSpacing(0);
 
   layout->addWidget(widget_);
-  layout->addStretch();
 
   setQuickHelp(i18n("CDDB is used to get information like artist, title and song-names in CD's"));
 
