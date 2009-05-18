@@ -50,7 +50,7 @@ void Utf8Test::testLookup()
 
   bool hasRunTest = false;
 
-  for (it = response.begin(); it != response.end(); ++it)
+  for (it = response.constBegin(); it != response.constEnd(); ++it)
   {
     CDInfo i(*it);
 
