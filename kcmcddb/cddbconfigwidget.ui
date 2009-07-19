@@ -82,7 +82,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="kcfg_port">
+             <widget class="KIntSpinBox" name="kcfg_port">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -211,7 +211,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="kcfg_httpSubmitPort"/>
+             <widget class="KIntSpinBox" name="kcfg_httpSubmitPort"/>
             </item>
            </layout>
           </item>
@@ -244,7 +244,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="kcfg_smtpPort">
+             <widget class="KIntSpinBox" name="kcfg_smtpPort">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -318,6 +318,12 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>KIntSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>knuminput.h</header>
+   <container>1</container>
+  </customwidget>
   <customwidget>
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>
