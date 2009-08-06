@@ -22,10 +22,15 @@
 #include "asyncmusicbrainztest.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
+#include "config-musicbrainz.h"
 
 void AsyncMusicBrainzTest::testLookup()
 {
   using namespace KCDDB;
+
+#ifndef HAVE_MUSICBRAINZ
+  QSKIP("This test requires libmusicbrainz", SkipAll);
+#endif
 
   client_ = new Client;
   client_->config().setCacheLookupEnabled(false);
@@ -68,7 +73,7 @@ void AsyncMusicBrainzTest::testLookup()
   QCOMPARE(m_info.numberOfTracks(),17);
 
   QCOMPARE(m_info.get(Artist).toString(),QString("Various Artists"));
-  QCOMPARE(m_info.get(Title).toString(),QString::fromUtf8("Definitivt 50 Spänn 10"));
+  QCOMPARE(m_info.get(Title).toString(),QString::fromUtf8("Definitivt 50 spänn 10"));
   // genre and year not really supported for musicbrainz
   QCOMPARE(m_info.get(Genre).toString(),QString());
   QCOMPARE(m_info.get(Year).toInt(),0);
@@ -105,7 +110,7 @@ void AsyncMusicBrainzTest::testLookup()
   QCOMPARE(m_info.track(13).get(Artist).toString(),QString::fromUtf8("SBD"));
   QCOMPARE(m_info.track(14).get(Artist).toString(),QString::fromUtf8("Skumdum"));
   QCOMPARE(m_info.track(15).get(Artist).toString(),QString::fromUtf8("Text"));
-  QCOMPARE(m_info.track(16).get(Artist).toString(),QString::fromUtf8("Ohlson har semester production"));
+  QCOMPARE(m_info.track(16).get(Artist).toString(),QString::fromUtf8("Ohlson Har Semester Production"));
   // comments not supported in a simple way
   for (int j=0; j < 17; j++)
     QCOMPARE(m_info.track(j).get(Comment).toString(),QString());

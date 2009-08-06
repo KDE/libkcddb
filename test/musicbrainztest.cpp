@@ -22,11 +22,16 @@
 #include "libkcddb/client.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
+#include "config-musicbrainz.h"
 
 
 void MusicBrainzTest::testLookup()
 {
   using namespace KCDDB;
+
+#ifndef HAVE_MUSICBRAINZ
+  QSKIP("This test requires libmusicbrainz", SkipAll);
+#endif
 
   Client c;
   c.config().setCacheLookupEnabled(false);
