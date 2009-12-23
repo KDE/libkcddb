@@ -11,6 +11,7 @@ X-DocPath=kscd/index.html#cddb-page
 
 Name=CDDB Retrieval
 Name[ar]=جَلْبُ CDDB
+Name[ast]=Baxada de CDDB
 Name[bg]=Извличане от CDDB
 Name[ca]=Recuperació CDDB
 Name[cs]=Získání CDDB
@@ -75,6 +76,7 @@ Name[zh_TW]=CDDB 取得資訊
 
 GenericName=CDDB Configuration
 GenericName[ar]=ضبط CDDB
+GenericName[ast]=Configuración de CDDB
 GenericName[bg]=Настройки на CDDB
 GenericName[br]=Kefluniadur CDDB
 GenericName[ca]=Configuració CDDB
@@ -141,6 +143,7 @@ GenericName[zh_TW]=CDDB 設定
 
 Comment=Configure the CDDB Retrieval
 Comment[ar]=تهيئة جلب CDDB
+Comment[ast]=Configurar la baxada de CDDB
 Comment[bg]=Настройки на извличане от CDDB
 Comment[ca]=Configura la recuperació CDDB
 Comment[cs]=Nastavení stahování z CDDB
@@ -201,6 +204,7 @@ Comment[zh_TW]=CDDB 取得資訊設定
 
 Keywords=cddb
 Keywords[ar]=cddb
+Keywords[ast]=cddb
 Keywords[be]=cddb
 Keywords[bg]=cddb
 Keywords[bn]=cddb
