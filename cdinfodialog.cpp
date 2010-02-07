@@ -23,7 +23,10 @@
 #include "cdinfoencodingwidget.h"
 #include "ui_cdinfodialog.h"
 
-#include <qtextcodec.h>
+#include <QTextCodec>
+#include <QStringList>
+#include <QStandardItemModel>
+
 #include <kdebug.h>
 #include <kglobal.h>
 #include <kcharsets.h>
@@ -32,9 +35,10 @@ using KCDDB::TrackInfo;
 
 namespace KCDDB
 {
+
 class CDInfoDialog::Private
 {
-public:
+  public:
     Private()
         : ui(new Ui::CDInfoDialogBase)
     {
@@ -45,11 +49,11 @@ public:
     KCDDB::Categories categories;
     Ui::CDInfoDialogBase* ui;
     static const char *SEPARATOR;
-    static const unsigned TRACK_TIME = 1;
     static const unsigned TRACK_NUMBER = 0;
+    static const unsigned TRACK_TIME = 1;
     static const unsigned TRACK_TITLE = 2;
-    static const unsigned TRACK_COMMENT = 3;
-    static const unsigned TRACK_ARTIST = 4;
+    static const unsigned TRACK_ARTIST = 3;
+    static const unsigned TRACK_COMMENT = 4;
 };
 
   const char *CDInfoDialog::Private::SEPARATOR = " / ";
@@ -69,26 +73,16 @@ public:
       d->genres = KCDDB::Genres();
       d->ui->m_genre->addItems(d->genres.i18nList());
 
-      d->ui->m_trackList->addColumn(i18n("Track"));
-      d->ui->m_trackList->addColumn(i18n("Length"));
-      d->ui->m_trackList->addColumn(i18n("Title"));
-      d->ui->m_trackList->addColumn(i18n("Comment"));
-      d->ui->m_trackList->addColumn(i18n("Artist"));
+      m_trackModel = new QStandardItemModel(0, 5, this);
+      d->ui->m_trackList->setModel(m_trackModel);
 
       // We want control over the visibility of this column. See artistChanged().
-      d->ui->m_trackList->setColumnWidthMode(Private::TRACK_ARTIST, Q3ListView::Manual);
-
-      // Make the user-definable values in-place editable.
-      d->ui->m_trackList->setRenameable(Private::TRACK_NUMBER, false);
-      d->ui->m_trackList->setRenameable(Private::TRACK_TIME, false);
-      d->ui->m_trackList->setRenameable(Private::TRACK_TITLE, true);
-      d->ui->m_trackList->setRenameable(Private::TRACK_COMMENT, true);
-      d->ui->m_trackList->setRenameable(Private::TRACK_ARTIST, true);
+//      d->ui->m_trackList->setColumnWidthMode(Private::TRACK_ARTIST, Q3ListView::Manual);
 
       // ensure we get our translations
       KGlobal::locale()->insertCatalog("libkcddb");
-      connect( d->ui->m_trackList, SIGNAL( selectionChanged(Q3ListViewItem*) ), this, SLOT( slotTrackSelected(Q3ListViewItem*) ) );
-      connect( d->ui->m_trackList, SIGNAL( doubleClicked(Q3ListViewItem*,const QPoint&,int) ), this, SLOT( slotTrackDoubleClicked(Q3ListViewItem*,const QPoint&,int) ) );
+      connect( d->ui->m_trackList, SIGNAL( activated(const QModelIndex &) ), this, SLOT( slotTrackSelected(const QModelIndex &) ) );
+      connect( d->ui->m_trackList, SIGNAL( doubleClicked(const QModelIndex &) ), this, SLOT( slotTrackDoubleClicked(const QModelIndex &) ) );
       connect( d->ui->m_artist, SIGNAL( textChanged(const QString&) ), this, SLOT( artistChanged(const QString&) ) );
       connect( d->ui->m_genre, SIGNAL( textChanged(const QString&) ), this, SLOT( genreChanged(const QString&) ) );
       connect( d->ui->m_multiple, SIGNAL( toggled(bool) ), this, SLOT( slotMultipleArtists(bool) ) );
@@ -96,9 +90,9 @@ public:
       connect(d->ui->m_changeEncoding,SIGNAL(clicked()),SLOT(slotChangeEncoding()));
   }
 
-  void CDInfoDialog::slotTrackSelected( Q3ListViewItem *item )
+  void CDInfoDialog::slotTrackSelected( const QModelIndex &index )
   {
-      emit play(item->text(0).toUInt()-1);
+      emit play(index.data().toUInt()-1);
   }
 
 
@@ -109,17 +103,18 @@ public:
 
   void CDInfoDialog::slotNextTrack()
   {
-      if (d->ui->m_trackList->currentItem())
+/*      QTreeWidgetItem *item = d->ui->m_trackList->itemBelow(d->ui->m_trackList->currentItem());
+      if (item)
       {
-          Q3ListViewItem *item = d->ui->m_trackList->currentItem()->nextSibling();
-          d->ui->m_trackList->setSelected(item, true);
-          d->ui->m_trackList->ensureItemVisible(item);
-      }
+          
+          d->ui->m_trackList->setCurrentItem(item);*/
+//          d->ui->m_trackList->ensureItemVisible(item);
+//       }
   }
 
-  void CDInfoDialog::slotTrackDoubleClicked( Q3ListViewItem *item, const QPoint &, int column)
+  void CDInfoDialog::slotTrackDoubleClicked(const QModelIndex &index)
   {
-      d->ui->m_trackList->rename(item, column);
+//       d->ui->m_trackList->editItem(item);
   }
 
   void CDInfoDialog::setInfo( const KCDDB::CDInfo &info, const KCDDB::TrackOffsetList &trackStartFrames )
@@ -144,23 +139,32 @@ public:
          d->ui->m_length->setText(framesTime(trackStartFrames[tracks] - trackStartFrames[0]));
       }
 
-      d->ui->m_trackList->clear();
-      for (unsigned i = 0; i < tracks; i++)
-      {
-          Q3ListViewItem *item = new Q3ListViewItem(d->ui->m_trackList, 0);
-
+      m_trackModel->clear();
+      QStringList labels;
+      labels << i18n("Track") << i18n("Length") << i18n("Title") << i18n("Artist") << i18n("Comment");
+      m_trackModel->setHorizontalHeaderLabels(labels);
+      for (unsigned i = 0; i < tracks; i++) {
+          QList<QStandardItem *> trackItems = QList<QStandardItem *>();
           TrackInfo ti(info.track(i));
+          QStandardItem *trackNumberItem = new QStandardItem(QString().sprintf("%02d", i + 1));
+          trackNumberItem->setEditable(FALSE);
+          trackItems << trackNumberItem;
+          QStandardItem *trackLengthItem = new QStandardItem(framesTime(trackStartFrames[i + 1] - trackStartFrames[i]));
+          trackLengthItem->setEditable(FALSE);
+          trackItems << trackLengthItem;
+          QStandardItem *trackTitleItem = new QStandardItem(ti.get(Title).toString());
+          trackItems << trackTitleItem;
+          QStandardItem *trackArtistItem = new QStandardItem(ti.get(Artist).toString());
+          trackItems << trackArtistItem;
+          QStandardItem *trackCommentItem = new QStandardItem(ti.get(Comment).toString());
+          trackItems << trackCommentItem;
 
-          item->setText(Private::TRACK_NUMBER, QString().sprintf("%02d", i + 1));
-          item->setText(Private::TRACK_TIME, framesTime(trackStartFrames[i + 1] - trackStartFrames[i]));
-          item->setText(Private::TRACK_ARTIST, ti.get(Artist).toString());
-          item->setText(Private::TRACK_TITLE, ti.get(Title).toString());
-          item->setText(Private::TRACK_COMMENT, ti.get(Comment).toString());
+          m_trackModel->appendRow(trackItems);
       }
       // FIXME KDE4: handle playorder here too, once KCDDBInfo::CDInfo is updated.
 
       if (info.get(Artist).toString() == "Various" || d->ui->m_multiple->isChecked()){
-          d->ui->m_trackList->adjustColumn(Private::TRACK_ARTIST);
+          d->ui->m_trackList->resizeColumnToContents(Private::TRACK_ARTIST);
     }
   }
 
@@ -193,14 +197,12 @@ public:
       info.set(Comment, d->ui->m_comment->text().trimmed());
       info.set("revision", d->ui->m_revision->text().trimmed().toUInt());
       info.set("discid", d->ui->m_id->text().trimmed());
-      int i=0;
-      for (Q3ListViewItem *item = d->ui->m_trackList->firstChild(); item; item=item->nextSibling())
-      {
-          TrackInfo& track = info.track(i);
-          track.set(Artist,item->text(Private::TRACK_ARTIST).trimmed());
-          track.set(Title,item->text(Private::TRACK_TITLE).trimmed());
-          track.set(Comment,item->text(Private::TRACK_COMMENT).trimmed());
-          i++;
+      
+    for (int t = 0; t < m_trackModel->rowCount(); ++t) {
+          TrackInfo& track = info.track(t);
+          track.set(Artist, m_trackModel->index(t, Private::TRACK_ARTIST).data().toString().trimmed());
+          track.set(Title, m_trackModel->index(t, Private::TRACK_TITLE).data().toString().trimmed());
+          track.set(Comment, m_trackModel->index(t, Private::TRACK_COMMENT).data().toString().trimmed());
           // FIXME KDE4: handle track lengths here too, once KCDDBInfo::CDInfo is updated.
       }
       // FIXME KDE4: handle playorder here too, once KCDDBInfo::CDInfo is updated.
@@ -230,56 +232,49 @@ public:
 
   void CDInfoDialog::slotMultipleArtists( bool hasMultipleArtist)
   {
-      if(hasMultipleArtist){
-          for (Q3ListViewItem *item = d->ui->m_trackList->firstChild(); item; item=item->nextSibling())
-          {
-              QString title = item->text(Private::TRACK_TITLE);
-          int separator = title.indexOf(Private::SEPARATOR);
-          if (separator != -1)
-          {
-              // Artists probably entered already
-              item->setText(Private::TRACK_ARTIST, title.left(separator));
-              item->setText(Private::TRACK_TITLE, title.mid(separator + 3));
+      if (hasMultipleArtist) {
+        for (int t = 0; t < m_trackModel->rowCount(); ++t) {
+              QString title = m_trackModel->index(t, Private::TRACK_TITLE).data().toString();
+              int separator = title.indexOf(Private::SEPARATOR);
+              if (separator != -1) {
+                  // Artists probably entered already
+                  m_trackModel->setData(m_trackModel->index(t, Private::TRACK_ARTIST), title.left(separator));
+                  m_trackModel->setData(m_trackModel->index(t, Private::TRACK_TITLE), title.mid(separator + 3));
+              }
           }
-      }
-      d->ui->m_trackList->adjustColumn(Private::TRACK_ARTIST);
-      d->ui->m_trackList->adjustColumn(Private::TRACK_TITLE);
-  }
-  else{
-      for (Q3ListViewItem *item = d->ui->m_trackList->firstChild(); item; item=item->nextSibling())
-      {
-          QString artist = item->text(Private::TRACK_ARTIST);
-          if (!artist.isEmpty())
-          {
-              item->setText(Private::TRACK_ARTIST, QString());
-              item->setText(Private::TRACK_TITLE, artist + Private::SEPARATOR + item->text(Private::TRACK_TITLE));
-          }
+          d->ui->m_trackList->resizeColumnToContents(Private::TRACK_ARTIST);
+          d->ui->m_trackList->resizeColumnToContents(Private::TRACK_TITLE);
+      } else {
+        for (int t = 0; t < m_trackModel->rowCount(); ++t) {
+              QString artist = m_trackModel->index(t, Private::TRACK_ARTIST).data().toString();
+              if (!artist.isEmpty()) {
+                  m_trackModel->setData(m_trackModel->index(t, Private::TRACK_ARTIST), QString());
+                  QString title = m_trackModel->index(t, Private::TRACK_TITLE).data().toString();
+                  m_trackModel->setData(m_trackModel->index(t, Private::TRACK_TITLE), artist + Private::SEPARATOR + title);
+              }
       }
       d->ui->m_trackList->hideColumn(Private::TRACK_ARTIST);
-      d->ui->m_trackList->adjustColumn(Private::TRACK_TITLE);
+      d->ui->m_trackList->resizeColumnToContents(Private::TRACK_TITLE);
   }
 }
 
 
   void CDInfoDialog::slotChangeEncoding()
   {
-      kDebug() ;
-
-  KDialog* dialog = new KDialog(this);
-  dialog->setCaption(i18n("Change Encoding"));
-  dialog->setButtons( KDialog::Ok | KDialog::Cancel);
-  dialog->setModal( true );
+      KDialog* dialog = new KDialog(this);
+      dialog->setCaption(i18n("Change Encoding"));
+      dialog->setButtons( KDialog::Ok | KDialog::Cancel);
+      dialog->setModal( true );
 
 
-  QStringList songTitles;
-  for (Q3ListViewItem *item = d->ui->m_trackList->firstChild(); item; item=item->nextSibling())
-  {
-      QString title = item->text(Private::TRACK_ARTIST).trimmed();
-      if (!title.isEmpty())
-          title.append(Private::SEPARATOR);
-          title.append(item->text(Private::TRACK_TITLE).trimmed());
-          songTitles << title;
-      }
+      QStringList songTitles;
+        for (int t = 0; t < m_trackModel->rowCount(); ++t) {
+              QString title = m_trackModel->index(t, Private::TRACK_ARTIST).data().toString().trimmed();
+              if (!title.isEmpty())
+              title.append(Private::SEPARATOR);
+              title.append(m_trackModel->index(t, Private::TRACK_TITLE).data().toString().trimmed());
+              songTitles << title;
+          }
 
       KCDDB::CDInfoEncodingWidget* encWidget = new KCDDB::CDInfoEncodingWidget(
           dialog, d->ui->m_artist->text(),d->ui->m_title->text(), songTitles);
@@ -296,11 +291,15 @@ public:
         d->ui->m_genre->setItemText(d->ui->m_genre->currentIndex(), codec->toUnicode(d->ui->m_genre->currentText().toLatin1()));
         d->ui->m_comment->setText(codec->toUnicode(d->ui->m_comment->text().toLatin1()));
 
-        for (Q3ListViewItem *item = d->ui->m_trackList->firstChild(); item; item=item->nextSibling())
-        {
-            item->setText(Private::TRACK_ARTIST,codec->toUnicode(item->text(Private::TRACK_ARTIST).toLatin1()));
-            item->setText(Private::TRACK_TITLE,codec->toUnicode(item->text(Private::TRACK_TITLE).toLatin1()));
-            item->setText(Private::TRACK_COMMENT,codec->toUnicode(item->text(Private::TRACK_COMMENT).toLatin1()));
+        QModelIndex trackIndex = m_trackModel->index(0, 0, QModelIndex());
+        int trackRows = m_trackModel->rowCount(trackIndex);
+        for (int t = 0; t < trackRows; ++t) {
+            QString artist = m_trackModel->index(t, Private::TRACK_ARTIST, trackIndex).data().toString();
+            m_trackModel->setData(m_trackModel->index(t, Private::TRACK_ARTIST, trackIndex), codec->toUnicode(artist.toLatin1()));
+            QString title = m_trackModel->index(t, Private::TRACK_TITLE, trackIndex).data().toString();
+            m_trackModel->setData(m_trackModel->index(t, Private::TRACK_TITLE, trackIndex), codec->toUnicode(title.toLatin1()));
+            QString comment = m_trackModel->index(t, Private::TRACK_COMMENT, trackIndex).data().toString();
+            m_trackModel->setData(m_trackModel->index(t, Private::TRACK_COMMENT, trackIndex), codec->toUnicode(comment.toLatin1()));
         }
       }
   }

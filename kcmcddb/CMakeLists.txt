@@ -14,7 +14,7 @@ kde4_add_plugin(kcm_cddb ${kcm_cddb_PART_SRCS})
 
 
 
-target_link_libraries(kcm_cddb  ${KDE4_KIO_LIBS} kcddb ${QT_QT3SUPPORT_LIBRARY} )
+target_link_libraries(kcm_cddb  ${KDE4_KIO_LIBS} kcddb)
 
 install(TARGETS kcm_cddb  DESTINATION ${PLUGIN_INSTALL_DIR} )
 

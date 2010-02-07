@@ -135,7 +135,7 @@ namespace KCDDB
   }
 
 
-    Q_LONG
+    qint64
   CDDBPLookup::writeLine( const QString & line )
   {
     if ( !isConnected() )

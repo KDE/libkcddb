@@ -19,8 +19,6 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-musicbrainz.h.cmake ${CMAKE_CU
 
 include_directories(${CMAKE_BINARY_DIR}/libkcddb/ )
 
-add_definitions (-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS)
-
 ########### next target ###############
 
 set(kcddb_LIB_SRCS ${libmusicbrainz_SRCS}
@@ -57,7 +55,7 @@ kde4_add_kcfg_files(kcddb_LIB_SRCS configbase.kcfgc )
 
 kde4_add_library(kcddb SHARED ${kcddb_LIB_SRCS})
 
-target_link_libraries(kcddb ${KDE4_KDE3SUPPORT_LIBS})
+target_link_libraries(kcddb ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS})
 if(MUSICBRAINZ_FOUND)
     target_link_libraries(kcddb ${MUSICBRAINZ_LIBRARIES})
 endif(MUSICBRAINZ_FOUND)

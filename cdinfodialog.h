@@ -26,7 +26,8 @@
 
 #include <KDE/KDialog>
 
-class Q3ListViewItem;
+class QStandardItemModel;
+class QModelIndex;
 
 namespace KCDDB
 {
@@ -44,9 +45,9 @@ namespace KCDDB
         void play( int );
 
     private Q_SLOTS:
-        void slotTrackSelected( Q3ListViewItem* );
+        void slotTrackSelected( const QModelIndex &index );
         void slotNextTrack();
-        void slotTrackDoubleClicked( Q3ListViewItem *item, const QPoint &, int column );
+        void slotTrackDoubleClicked(const QModelIndex &index);
         void artistChanged( const QString &newArtist );
         void genreChanged( const QString &newGenre );
         void slotMultipleArtists( bool hasMultipleArtist );
@@ -54,6 +55,7 @@ namespace KCDDB
 
     private:
         QString framesTime(unsigned frames);
+	QStandardItemModel *m_trackModel;
 
         class Private;
         Private * const d;

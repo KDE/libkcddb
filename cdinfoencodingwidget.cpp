@@ -19,7 +19,6 @@
 
 #include "cdinfoencodingwidget.h"
 
-#include <q3listbox.h>
 #include <qtextcodec.h>
 #include <klocale.h>
 #include <kglobal.h>
@@ -61,7 +60,7 @@ namespace KCDDB
       newTitles << codec->toUnicode((*it).toLatin1().constData());
 
     songsBox->clear();
-    songsBox->insertStringList(newTitles);
+    songsBox->addItems(newTitles);
 
     titleLabel->setText(i18nc("artist - cdtitle", "%1 - %2",
           codec->toUnicode(m_artist.toLatin1()), codec->toUnicode(m_title.toLatin1().constData())));

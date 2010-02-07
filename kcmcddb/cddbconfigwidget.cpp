@@ -25,7 +25,6 @@
 #include "libkcddb/sites.h"
 #include "libkcddb/lookup.h"
 
-#include <q3listbox.h>
 #include <qlist.h>
 #include <kfiledialog.h>
 #include <kapplication.h>
@@ -33,9 +32,7 @@
 #include <kinputdialog.h>
 #include <kmessagebox.h>
 #include <keditlistbox.h>
-#include <q3widgetstack.h>
 #include <kurlrequester.h>
-#include <q3buttongroup.h>
 #include <QCheckBox>
 
 CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)

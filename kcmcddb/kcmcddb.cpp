@@ -27,8 +27,6 @@
 
 #include <QCheckBox>
 #include <qradiobutton.h>
-#include <q3listbox.h>
-#include <q3buttongroup.h>
 #include <QVBoxLayout>
 
 #include <kconfig.h>

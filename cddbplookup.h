@@ -42,13 +42,13 @@ namespace KCDDB
 
       void close();
     protected:
-      Q_LONG writeLine( const QString & );
+      qint64 writeLine( const QString & );
 
       bool parseGreeting( const QString & );
       bool parseHandshake( const QString & );
 
       bool isConnected()
-        { return QAbstractSocket::Connected == socket_->state(); }
+        { return QAbstractSocket::ConnectedState == socket_->state(); }
 
       QTcpSocket* socket_;
   };
