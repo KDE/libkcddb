@@ -1,0 +1,285 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kscd;">
+  <!ENTITY package "kdemultimedia">
+  <!ENTITY % English "INCLUDE" > <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<article lang="&language;">
+
+<articleinfo>
+<title>CDDB Retrieval</title>
+
+<authorgroup>
+
+<author>
+<firstname>Mike</firstname>
+<surname>McBride</surname> 
+<affiliation><address>&Mike.McBride.mail;</address></affiliation>
+</author>
+
+<author>
+<firstname>Jonathan</firstname>
+<surname>Singer</surname>
+<affiliation><address>&Jonathan.Singer.mail;</address></affiliation>
+</author>
+
+<author>
+<firstname>David</firstname>
+<surname>White</surname>
+<affiliation><address><email>a9403784@unet.univie.ac.at</email></address>
+</affiliation>
+</author>
+
+<othercredit role="developer">
+<firstname>Bernd</firstname>
+<othername>Johannes</othername>
+<surname>Wuebben</surname>
+<affiliation><address>&Bernd.Johannes.Wuebben.mail;</address></affiliation>
+<contrib>Developer</contrib>
+</othercredit>
+
+<othercredit role="developer">
+<firstname>Dirk</firstname>
+<surname>Forsterling</surname>
+<affiliation><address><email>milliByte@gmx.net</email></address></affiliation>
+<contrib>Developer</contrib>
+</othercredit>
+
+<othercredit role="developer">
+<firstname>Dirk</firstname>
+<surname>Foersterling</surname>
+<affiliation><address><email>milliByte@gmx.net</email></address></affiliation>
+<contrib>Developer</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<affiliation><address>&Lauri.Watts.mail;</address></affiliation>
+<contrib>Reviewer</contrib>
+</othercredit>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+
+<copyright>
+<year>2000</year><year>2004</year>
+<holder>J Singer</holder>
+
+</copyright>
+<copyright>
+
+<year>2005-2006</year>
+<holder>&Mike.McBride;</holder>
+</copyright>
+
+<date>2010-02-19</date>
+<releaseinfo>&kde; 4.4</releaseinfo>
+
+</articleinfo>
+
+<sect1 id="cddb-page">
+<title>The <guilabel>CDDB</guilabel> Page</title>
+<para>The <guilabel>CDDB</guilabel> page is divided in the <guilabel>Lookup</guilabel> tab
+and the <guilabel>Submit</guilabel> tab.</para>
+
+<sect2 id="lookup-tab">
+<title>The <guilabel>Lookup</guilabel> Tab</title>
+<screenshot>
+<screeninfo>The <guilabel>Lookup</guilabel> tab of the configuration dialog</screeninfo>
+<mediaobject>
+<imageobject> <imagedata fileref="kscd14.png" format="PNG"/> </imageobject>
+<textobject><phrase>The <guilabel>Lookup</guilabel> tab of the configuration
+dialog</phrase></textobject>
+</mediaobject>
+</screenshot>
+
+<para> The <guilabel>Lookup</guilabel> tab sets up the <acronym>CDDB</acronym> functions
+of &kde;.</para>
+
+<para>You can select the options <guilabel>Enable MusicBrainz lookup</guilabel> or <guilabel>Enable freedb lookup</guilabel>.</para>
+
+<para>The <guilabel>Freedb server</guilabel> section determines which CDDB mirror site is used by &kde; to 
+get album information.  You can enter a server name, port number and protocol using the text boxes and drop 
+down boxes or you can click the <guibutton>Show Mirror List</guibutton> button.  Clicking this button will 
+open a new window with a list of CDDB mirrors and their locations.  Simply select the server you want from 
+the list and click <guibutton>OK</guibutton>.</para>
+
+<para>The section labeled <guilabel>Cache Locations</guilabel> lets you determine where the CDDB information 
+is saved on your computer.  To add a folder, enter the folder location in the text box at the top of the section and click 
+<guibutton>Add</guibutton>.  You can also select a 
+folder by clicking on the blue file folder to the right of the text box. To delete a folder, click on the folder name 
+once with the &LMB; and click <guibutton>Remove</guibutton>. You can change the order the folders are searched by 
+clicking on the folder name and clicking on the <guibutton>Move Up</guibutton> and <guibutton>Move Down</guibutton> buttons.</para>
+
+<para>The <guibutton>Help</guibutton> button opens the this help contents
+page. The <guibutton>Defaults</guibutton> button restores the default values of all entries in this dialog; <guibutton>OK</guibutton> saves the current settings and exits;
+<guibutton>Apply</guibutton> saves the current settings without exiting;
+<guibutton>Cancel</guibutton> exits without saving. </para>
+
+</sect2>
+
+<sect2 id="submit-tab">
+<title>The <guilabel>Submit</guilabel> Tab</title>
+
+<screenshot>
+<screeninfo>The Submit tab</screeninfo>
+<mediaobject>
+<imageobject><imagedata fileref="kscd16.png" format="PNG"/></imageobject>
+</mediaobject>
+</screenshot>
+
+<para>The <guilabel>Submit</guilabel> tab sets up connection to a mail
+server or a web server to submit new <acronym>CDDB</acronym> entries. This is useful
+if you do not have your own system configured as a server. </para>
+
+<para>If you plan to submit a CDDB entry, enter your email address into the first textbox,
+then you must decide between submitting between &HTTP;
+and submitting the entry as an email (via &SMTP;).  </para>
+
+<tip><para>It is simpler to submit new entries using &HTTP;.  Some firewalls block this traffic.  If your 
+firewall prevents you from sending new entries using &HTTP;, you can use &SMTP;.</para></tip>
+
+<para>First select either <guilabel>&HTTP;</guilabel> or <guilabel>SMTP (Email)</guilabel> to determine which 
+protocol to use.</para>
+
+<sect3 id="http-options">
+<title>Using &HTTP; to send CDDB information</title>
+<para>You can enter a server name or port number in the text boxes provided.  If 
+you want to send this information to the international servers, you do not need to 
+change anything.</para>
+</sect3>
+
+<sect3 id="smtp-options">
+<title>Using &SMTP; (Email) to send CDDB information</title>
+
+<para>To prepare to submit information using email, enter your email address in the 
+text box labeled <guilabel>Reply-To:</guilabel>, your email server in the text box 
+labeled <guilabel>SMTP server:</guilabel> and select the port number in the spinbox 
+labeled <guilabel>Port:</guilabel>.</para>
+<para>If you need to use a password to send email using the email server, place a mark in the 
+check box labeled <guilabel>Server needs authentication</guilabel> and enter your 
+username in the text box labeled <guilabel>Username</guilabel>.</para>
+
+</sect3>
+</sect2>
+</sect1>
+
+<!-- follwing chapters need proofreading -->
+<sect1 id="cddb-editor">
+<title>The CD Database Editor</title>
+
+<screenshot>
+<screeninfo>The &CD; Database Editor</screeninfo>
+<mediaobject>
+<imageobject><imagedata fileref="kscd13.png" format="PNG"/></imageobject>
+<textobject><phrase>The &CD; Database Editor</phrase></textobject>
+</mediaobject>
+</screenshot>
+
+<para>The &CD; Database Editor allows you to modify, download, save, annotate,
+and upload <link linkend="cddb-support"><acronym>CDDB</acronym> (Compact Disc
+Data Base)</link> entries.</para>
+
+<para>If there is an entry in your local <acronym>CDDB</acronym> tree
+(see the <link linkend="cddb-page">CDDB subsection</link> in the
+Configuration chapter) for the &CD; in your &CD-ROM; drive, or if the
+disc could be found in the freedb, you will see the name of the artist
+and the title of the &CD; in the <guilabel>Artist:</guilabel> and
+<guilabel>Title</guilabel> fields and a list of tracks with song
+titles in the <interface>Tracks</interface> selection box. Otherwise,
+you will see a list of tracks and play times without titles.</para>
+
+<para>You can make an annotation for the entire disc with the
+<guilabel>Comment</guilabel> field under the
+<guilabel>Title</guilabel> field, or for a selected track in the
+<guilabel>Tracks</guilabel> selection box with the adjacent
+<guibutton>Comment</guibutton> button. If you select a track in the
+<guilabel>Tracks</guilabel> selection box, the title, if present, will
+appear in the <guilabel>Title</guilabel> field below. You can type a
+title for the track in the box, or edit the entry to suit your
+needs. Press the <keycap>Return</keycap> key on your keyboard, and the
+text will appear in the proper line in the selection box.</para>
+
+<para>Once all tracks have been given titles and the
+<guilabel>Artist:</guilabel> and <guilabel>Title</guilabel> fields have
+been filled out, you can press the <guibutton>Upload</guibutton>
+button to send your submission by email to freedb.</para>
+
+<para>You will be prompted to select a category for the
+submission. The <guilabel>Disc ID</guilabel> section displays the 32
+bit <acronym>ID</acronym> code used by freedb to identify a compact
+disc. Above the <acronym>ID</acronym> code is the category of the
+<guilabel>freedb</guilabel> entry. These categories correspond to the
+subfolders tree of the folder chosen in the <guilabel>freedb
+Base Folder:</guilabel> in the <link
+linkend="cddb-page"><guilabel>CDDB</guilabel> page</link> of the 
+configuration window.</para>
+
+<para>The <guilabel>Length:</guilabel> display shows the total play time of
+the &CD;.</para>
+
+<para>Press the <guibutton>Fetch Info</guibutton> button to download 
+<acronym>CDDB</acronym> data.
+Press the <guibutton>OK</guibutton> button to save your changes locally.
+The <guibutton>Cancel</guibutton> button closes the &CD;
+Database Editor without saving.</para>
+
+</sect1>
+
+<sect1 id="cddb-support">
+<title><acronym>CDDB</acronym> Support</title>
+
+<para>freedb is a distributed network database accessible
+over the Internet that contains information about most audio &CD;s in
+circulation. If you have Internet access, you will likely never have to manually
+enter track information for your &CD;s if you have this set up properly. See
+<link linkend="cddb-page">The CDDB Page</link> subsection section 
+for detailed instructions on how to configure this service, and
+the <link linkend="cddb-editor">&CD; Database Editor</link> section for
+instructions on how to edit <acronym>CDDB</acronym> entries.</para>
+
+<para>Use of the <acronym>CDDB</acronym> is free. Submissions from users are
+encouraged.</para>
+
+<para>When preparing entries for the <acronym>CDDB</acronym>, please keep the
+following points in mind:</para>
+
+<itemizedlist>
+<listitem><para>Use <quote>standard</quote> latin characters in the entries. Some
+special characters are supported, but Cyrillic or Greek alphabet submissions,
+for example, cannot be accepted.</para></listitem>
+<listitem><para>Use only one <keysym>/</keysym> character in the
+<guilabel>Disc Artist / Title</guilabel> field in the &CD; Database
+Editor.</para>
+
+<para>For classical &CD;s, it is standard practice to put the composer's name in
+the Artist section (before the slash) and the performer's name in the Title
+section (after the slash).</para></listitem> 
+<listitem><para>If you send an entry that already exists in the database, any
+additional information you provide may be added to the existing entry.</para>
+</listitem>
+</itemizedlist>
+
+<para>By default, the standard <acronym>CDDB</acronym>
+categories are installed in <filename class="directory">$HOME/.cddb</filename>. You can create as
+many category subfolders as you like. However, when uploading, only the
+official <acronym>CDDB</acronym> categories are displayed. The default upload
+address is <email>freedb-submit@freedb.org</email>. For more information about
+<abbrev>freedb</abbrev> visit the <abbrev>freedb</abbrev> homepage.</para>
+
+<para>The local <acronym>CDDB</acronym> entry for a particular &CD; is stored in
+the file <filename><replaceable>category name</replaceable>/<replaceable>disc
+ID</replaceable></filename> under the <acronym>CDDB</acronym> Base
+Folder. These files can be edited with any text editor.</para>
+</sect1>
+
+</article>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
