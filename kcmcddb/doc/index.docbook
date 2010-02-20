@@ -235,7 +235,7 @@ Database Editor without saving.</para>
 over the Internet that contains information about most audio &CD;s in
 circulation. If you have Internet access, you will likely never have to manually
 enter track information for your &CD;s if you have this set up properly. See
-<link linkend="cddb-page">The CDDB Page</link> subsection section 
+<link linkend="cddb-page">The CDDB Page</link> section 
 for detailed instructions on how to configure this service, and
 the <link linkend="cddb-editor">&CD; Database Editor</link> section for
 instructions on how to edit <acronym>CDDB</acronym> entries.</para>
