@@ -81,7 +81,7 @@
 
 <sect1 id="cddb-page">
 <title>CDDB Retrieval</title>
-<para>The modul <guilabel>CDDB Retrieval</guilabel> is divided in the <guilabel>Lookup</guilabel> tab
+<para>The module <guilabel>CDDB Retrieval</guilabel> is divided in the <guilabel>Lookup</guilabel> tab
 and the <guilabel>Submit</guilabel> tab.</para>
 
 <sect2 id="lookup-tab">
