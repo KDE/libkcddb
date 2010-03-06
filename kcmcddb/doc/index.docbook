@@ -80,18 +80,17 @@
 </articleinfo>
 
 <sect1 id="cddb-page">
-<title>The <guilabel>CDDB</guilabel> Page</title>
-<para>The <guilabel>CDDB</guilabel> page is divided in the <guilabel>Lookup</guilabel> tab
+<title>CDDB Retrieval</title>
+<para>The modul <guilabel>CDDB Retrieval</guilabel> is divided in the <guilabel>Lookup</guilabel> tab
 and the <guilabel>Submit</guilabel> tab.</para>
 
 <sect2 id="lookup-tab">
 <title>The <guilabel>Lookup</guilabel> Tab</title>
 <screenshot>
-<screeninfo>The <guilabel>Lookup</guilabel> tab of the configuration dialog</screeninfo>
+<screeninfo>The <guilabel>Lookup</guilabel> tab</screeninfo>
 <mediaobject>
 <imageobject> <imagedata fileref="kscd14.png" format="PNG"/> </imageobject>
-<textobject><phrase>The <guilabel>Lookup</guilabel> tab of the configuration
-dialog</phrase></textobject>
+<textobject><phrase>The <guilabel>Lookup</guilabel> tab</phrase></textobject>
 </mediaobject>
 </screenshot>
 
@@ -115,8 +114,7 @@ clicking on the folder name and clicking on the <guibutton>Move Up</guibutton> a
 
 <para>The <guibutton>Help</guibutton> button opens the this help contents
 page. The <guibutton>Defaults</guibutton> button restores the default values of all entries in this dialog; <guibutton>OK</guibutton> saves the current settings and exits;
-<guibutton>Apply</guibutton> saves the current settings without exiting;
-<guibutton>Cancel</guibutton> exits without saving. </para>
+<guibutton>Apply</guibutton> saves the current settings without exiting.</para>
 
 </sect2>
 
