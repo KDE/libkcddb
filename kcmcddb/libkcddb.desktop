@@ -3,7 +3,7 @@ Exec=kcmshell4 libkcddb
 Icon=media-optical-audio
 Type=Service
 ServiceTypes=KCModule
-X-KDE-System-Settings-Parent-Category=advanced-user-settings
+X-KDE-System-Settings-Parent-Category=audio-and-video
 
 X-KDE-Library=kcm_cddb
 X-KDE-ParentApp=kcontrol
