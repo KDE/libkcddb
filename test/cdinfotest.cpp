@@ -54,6 +54,7 @@ void CDInfoTest::testLongLines()
         str.append('\n');
         tinfo.set("custom", str);
         QString data = info.toString();
+        QString submitData = info.toString(true);
 
         CDInfo info2;
         info2.load(data);
@@ -81,6 +82,9 @@ void CDInfoTest::testLongLines()
         str.fill('H',10*i);
         str.append('\n');
         QCOMPARE(info2.track(0).get("custom").toString(), str);
+
+        QVERIFY(!submitData.contains("CUSTOM"));
+        QVERIFY(data.contains("CUSTOM"));
     }
 }
 

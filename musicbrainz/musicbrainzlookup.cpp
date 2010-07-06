@@ -25,13 +25,10 @@
 #include <qcryptographichash.h>
 #include <cstdio>
 #include <cstring>
-#include <musicbrainz/musicbrainz.h>
-
-// Added in libmusicbrainz 2.1.3
-#ifndef MBE_AlbumGetAlbumArtistName
-#define MBE_AlbumGetAlbumArtistName \
-  "http://purl.org/dc/elements/1.1/creator http://purl.org/dc/elements/1.1/title"
-#endif
+#include <musicbrainz3/musicbrainz.h>
+#include <musicbrainz3/query.h>
+#include <musicbrainz3/release.h>
+#include <musicbrainz3/filters.h>
 
 namespace KCDDB
 {
@@ -44,74 +41,84 @@ namespace KCDDB
   {
 
   }
-  
+
   Result MusicBrainzLookup::lookup( const QString &, uint, const TrackOffsetList & trackOffsetList )
   {
     QString discId = calculateDiscId(trackOffsetList);
-    
+
     kDebug() << "Should lookup " << discId;
 
-    ::MusicBrainz mb;
+    MusicBrainz::Query q;
+    MusicBrainz::ReleaseResultList results;
 
-    mb.UseUTF8(true);
-    mb.SetDepth(4);
-
-    vector<string> args;
-    args.insert(args.begin(), discId.toLatin1().data());
-
-    if (!mb.Query(MBQ_GetCDInfoFromCDIndexId, &args))
+    try {
+        MusicBrainz::ReleaseFilter f = MusicBrainz::ReleaseFilter().discId(std::string(discId.toAscii()));
+        results = q.getReleases(&f);
+    }
+		// FIXME Doesn't seem to get caught, why?
+    // catch (MusicBrainz::WebServiceError &e)
+    catch (...)
     {
-      string error;
-      
-      mb.GetQueryError(error);
-      kDebug() << "Query failed: " << error.c_str();
-      
-      return UnknownError;
+        kDebug() << "Query failed"; //<< e.what();
+        return UnknownError;
     }
 
-    int nrAlbums = mb.DataInt(MBE_GetNumAlbums);
+    int relnr=1;
+    for (MusicBrainz::ReleaseResultList::iterator i = results.begin(); i != results.end(); i++) {
+        MusicBrainz::ReleaseResult *result = *i;
+        MusicBrainz::Release *release;
+        try {
+            release = q.getReleaseById(result->getRelease()->getId(), &MusicBrainz::ReleaseIncludes().tracks().artist());
+        }
+        catch (MusicBrainz::WebServiceError &e) {
+            kDebug() << "Error: " << e.what();
+            continue;
+        }
+        CDInfo info;
+        info.set("source", "musicbrainz");
+        // Uses musicbrainz discid for the first release,
+        // then discid-2, discid-3 and so on, to
+        // allow multiple releases with the same discid
+        if (relnr == 1)
+          info.set("discid", discId);
+        else
+          info.set("discid", discId+"-"+QString::number(relnr));
 
-    if (nrAlbums < 1)
-    {
-      kDebug() << "No CD Found";
+        info.set(Title, QString::fromUtf8(release->getTitle().c_str()));
+        info.set(Artist, QString::fromUtf8(release->getArtist()->getName().c_str()));
 
-      return UnknownError;
+        int trackno = 0;
+        for (MusicBrainz::TrackList::iterator j = release->getTracks().begin(); j != release->getTracks().end(); j++) {
+            MusicBrainz::Track *mb_track = *j;
+            MusicBrainz::Artist *artist = mb_track->getArtist();
+            if (!artist)
+              artist = release->getArtist();
+            TrackInfo& track = info.track(trackno);
+            track.set(Artist, QString::fromUtf8(artist->getName().c_str()));
+            track.set(Title, QString::fromUtf8(mb_track->getTitle().c_str()));
+            trackno++;
+        }
+        delete result;
+
+        cdInfoList_ << info;
+        relnr++;
     }
 
-    for (int i=1; i <= nrAlbums; i++)
+    if (cdInfoList_.isEmpty())
     {
-      mb.Select(MBS_SelectAlbum, i);
-
-      CDInfo info;
-      info.set("source", "musicbrainz");
-      // FIXME Could have different discid than the one above?
-      // Will break cache if several entries have same discid
-      info.set("discid", discId);
-
-      info.set(Title, QString::fromUtf8(mb.Data(MBE_AlbumGetAlbumName).c_str()));
-      info.set(Artist, QString::fromUtf8(mb.Data(MBE_AlbumGetAlbumArtistName).c_str()));
-
-      int numTracks = trackOffsetList.count()-1;
-
-      for (int i=1; i <= numTracks; i++)
-      {
-        TrackInfo& track = info.track(i-1);
-        track.set(Artist, QString::fromUtf8(mb.Data(MBE_AlbumGetArtistName, i).c_str()));
-        track.set(Title, QString::fromUtf8(mb.Data(MBE_AlbumGetTrackName, i).c_str()));
-      }
-
-      cdInfoList_ << info;
+        kDebug() << "No record found";
+        return NoRecordFound;
     }
 
     kDebug() << "Query succeeded :-)";
 
     return Success;
   }
-  
+
   QString MusicBrainzLookup::calculateDiscId(const TrackOffsetList & trackOffsetList )
   {
     // Code based on libmusicbrainz/lib/diskid.cpp
-    
+
     int numTracks = trackOffsetList.count()-1;
 
     QCryptographicHash sha(QCryptographicHash::Sha1);
@@ -140,12 +147,12 @@ namespace KCDDB
       sprintf(temp, "%08lX", offset);
       sha.addData(temp, strlen(temp));
     }
-    
+
     QByteArray base64 = sha.result().toBase64();
 
     // '/' '+' and '=' replaced for MusicBrainz
     QString res = QString::fromLatin1(base64).replace('/',"_").replace('+',".").replace('=',"-");
-    
+
     return res;
   }
 
@@ -158,21 +165,32 @@ namespace KCDDB
     for (QStringList::const_iterator cddbCacheDir = cddbCacheDirs.constBegin();
         cddbCacheDir != cddbCacheDirs.constEnd(); ++cddbCacheDir)
     {
-      QString fileName = *cddbCacheDir + "/musicbrainz/" + discid;
+      // Looks for all files in cddbdir/musicbrainz/discid*
+      // Several files can correspond to the same discid,
+      // then they are named discid, discid-2, discid-3 and so on
+      QDir dir(*cddbCacheDir+"/musicbrainz/");
+      dir.setNameFilters(QStringList(discid+"*"));
 
-      QFile f( fileName );
-      if ( f.exists() && f.open(QIODevice::ReadOnly) )
+      QStringList files = dir.entryList();
+      kDebug() << "Cache files found: " << files.count();
+      for (QStringList::iterator it = files.begin(); it != files.end(); ++it)
       {
-        QTextStream ts(&f);
-        ts.setCodec("UTF-8");
-        QString cddbData = ts.readAll();
-        f.close();
-        CDInfo info;
-        info.load(cddbData);
-        info.set("source", "musicbrainz");
-        info.set("discid", discid);
+        QFile f( dir.filePath(*it) );
+        if ( f.exists() && f.open(QIODevice::ReadOnly) )
+        {
+          QTextStream ts(&f);
+          ts.setCodec("UTF-8");
+          QString cddbData = ts.readAll();
+          f.close();
+          CDInfo info;
+          info.load(cddbData);
+          info.set("source", "musicbrainz");
+          info.set("discid", discid);
 
-        infoList.append( info );
+          infoList.append( info );
+        }
+        else
+          kDebug() << "Could not read file: " << f.fileName();
       }
     }
 

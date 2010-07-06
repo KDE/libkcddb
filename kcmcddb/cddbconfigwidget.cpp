@@ -40,10 +40,10 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
 {
   setupUi(this);
 
-#ifndef HAVE_MUSICBRAINZ
+#ifndef HAVE_MUSICBRAINZ3
   kcfg_MusicBrainzLookupEnabled->hide();
 #endif
-  
+
   // Connections from widgets are made in designer.
 
   KUrlRequester* urlReq = new KUrlRequester(this);

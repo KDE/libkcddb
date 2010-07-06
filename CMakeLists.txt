@@ -3,17 +3,19 @@ project(libkcddb)
 add_subdirectory( test )
 add_subdirectory( kcmcddb )
 
-if(MUSICBRAINZ_FOUND)
-    set(HAVE_MUSICBRAINZ 1)
-    include_directories(${MUSICBRAINZ_INCLUDE_DIR})
+if(MUSICBRAINZ3_FOUND)
+    set(HAVE_MUSICBRAINZ3 1)
+    include_directories(${MUSICBRAINZ3_INCLUDE_DIR})
 
     set(libmusicbrainz_SRCS ${libmusicbrainz_SRCS}
        musicbrainz/musicbrainzlookup.cpp
        musicbrainz/asyncmusicbrainzlookup.cpp)
-else(MUSICBRAINZ_FOUND)
-    set(HAVE_MUSICBRAINZ 0)
+
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
+else(MUSICBRAINZ3_FOUND)
+    set(HAVE_MUSICBRAINZ3 0)
     set(libmusicbrainz_SRCS)
-endif(MUSICBRAINZ_FOUND)
+endif(MUSICBRAINZ3_FOUND)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-musicbrainz.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-musicbrainz.h )
 
@@ -22,30 +24,30 @@ include_directories(${CMAKE_BINARY_DIR}/libkcddb/ )
 ########### next target ###############
 
 set(kcddb_LIB_SRCS ${libmusicbrainz_SRCS}
-   cache.cpp 
-   cdinfo.cpp 
-   kcddbconfig.cpp 
-   client.cpp 
+   cache.cpp
+   cdinfo.cpp
+   kcddbconfig.cpp
+   client.cpp
    kcddb.cpp
-   cddb.cpp 
-   lookup.cpp 
-   cddbplookup.cpp 
-   synccddbplookup.cpp 
-   asynccddbplookup.cpp 
-   httplookup.cpp 
-   synchttplookup.cpp 
-   asynchttplookup.cpp 
-   smtpsubmit.cpp 
-   asyncsmtpsubmit.cpp 
-   syncsmtpsubmit.cpp 
-   submit.cpp 
-   sites.cpp 
-   httpsubmit.cpp 
-   asynchttpsubmit.cpp 
-   synchttpsubmit.cpp 
-   categories.cpp 
-   genres.cpp 
-   cdinfodialog.cpp 
+   cddb.cpp
+   lookup.cpp
+   cddbplookup.cpp
+   synccddbplookup.cpp
+   asynccddbplookup.cpp
+   httplookup.cpp
+   synchttplookup.cpp
+   asynchttplookup.cpp
+   smtpsubmit.cpp
+   asyncsmtpsubmit.cpp
+   syncsmtpsubmit.cpp
+   submit.cpp
+   sites.cpp
+   httpsubmit.cpp
+   asynchttpsubmit.cpp
+   synchttpsubmit.cpp
+   categories.cpp
+   genres.cpp
+   cdinfodialog.cpp
    cdinfoencodingwidget.cpp )
 
 
@@ -56,9 +58,9 @@ kde4_add_kcfg_files(kcddb_LIB_SRCS configbase.kcfgc )
 kde4_add_library(kcddb SHARED ${kcddb_LIB_SRCS})
 
 target_link_libraries(kcddb ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS})
-if(MUSICBRAINZ_FOUND)
-    target_link_libraries(kcddb ${MUSICBRAINZ_LIBRARIES})
-endif(MUSICBRAINZ_FOUND)
+if(MUSICBRAINZ3_FOUND)
+    target_link_libraries(kcddb ${MUSICBRAINZ3_LIBRARIES})
+endif(MUSICBRAINZ3_FOUND)
 
 set_target_properties(kcddb PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 install(TARGETS kcddb  ${INSTALL_TARGETS_DEFAULT_ARGS} )

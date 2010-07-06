@@ -28,7 +28,7 @@ void AsyncMusicBrainzTest::testLookup()
 {
   using namespace KCDDB;
 
-#ifndef HAVE_MUSICBRAINZ
+#ifndef HAVE_MUSICBRAINZ3
   QSKIP("This test requires libmusicbrainz", SkipAll);
 #endif
 

@@ -26,7 +26,7 @@
 #include "cddb.h"
 
 #include "config-musicbrainz.h"
-#ifdef HAVE_MUSICBRAINZ
+#ifdef HAVE_MUSICBRAINZ3
 #include "musicbrainz/musicbrainzlookup.h"
 #endif
 
@@ -49,7 +49,7 @@ namespace KCDDB
     CDInfoList infoList;
 
     infoList << CDDB::cacheFiles(offsetList, c);
-#ifdef HAVE_MUSICBRAINZ
+#ifdef HAVE_MUSICBRAINZ3
     infoList << MusicBrainzLookup::cacheFiles(offsetList, c);
 #endif
 
