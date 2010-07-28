@@ -98,7 +98,9 @@ class CDInfoDialog::Private
 
   CDInfoDialog::~CDInfoDialog()
   {
+      delete d->ui;
       delete d;
+
   }
 
   void CDInfoDialog::slotNextTrack()
