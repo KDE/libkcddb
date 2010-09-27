@@ -80,7 +80,7 @@ class CDInfoDialog::Private
 //      d->ui->m_trackList->setColumnWidthMode(Private::TRACK_ARTIST, Q3ListView::Manual);
 
       // ensure we get our translations
-      KGlobal::locale()->insertCatalog("libkcddb");
+      KGlobal::locale()->insertCatalog( QLatin1String( "libkcddb" ));
       connect( d->ui->m_trackList, SIGNAL( activated(const QModelIndex &) ), this, SLOT( slotTrackSelected(const QModelIndex &) ) );
       connect( d->ui->m_trackList, SIGNAL( doubleClicked(const QModelIndex &) ), this, SLOT( slotTrackDoubleClicked(const QModelIndex &) ) );
       connect( d->ui->m_artist, SIGNAL( textChanged(const QString&) ), this, SLOT( artistChanged(const QString&) ) );
