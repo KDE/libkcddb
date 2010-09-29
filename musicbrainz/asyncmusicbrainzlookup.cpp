@@ -34,7 +34,7 @@ namespace KCDDB
     {
       MusicBrainzLookup lookup;
 
-      m_result = lookup.lookup("", 0, m_offsetList);
+      m_result = lookup.lookup(QString(), 0, m_offsetList);
 
       if (m_result == Success)
         m_lookupResponse = lookup.lookupResponse();
@@ -54,7 +54,7 @@ namespace KCDDB
   {
     delete m_lookupThread;
   }
-  
+
   Result AsyncMusicBrainzLookup::lookup( const QString &, uint, const TrackOffsetList & trackOffsetList )
   {
     m_lookupThread = new LookupThread();

@@ -75,14 +75,14 @@ namespace KCDDB
             continue;
         }
         CDInfo info;
-        info.set("source", "musicbrainz");
+        info.set(QLatin1String( "source" ), QLatin1String( "musicbrainz" ));
         // Uses musicbrainz discid for the first release,
         // then discid-2, discid-3 and so on, to
         // allow multiple releases with the same discid
         if (relnr == 1)
-          info.set("discid", discId);
+          info.set(QLatin1String( "discid" ), discId);
         else
-          info.set("discid", discId+"-"+QString::number(relnr));
+          info.set(QLatin1String( "discid" ), discId+QLatin1String( "-" )+QString::number(relnr));
 
         info.set(Title, QString::fromUtf8(release->getTitle().c_str()));
         info.set(Artist, QString::fromUtf8(release->getArtist()->getName().c_str()));
@@ -151,7 +151,7 @@ namespace KCDDB
     QByteArray base64 = sha.result().toBase64();
 
     // '/' '+' and '=' replaced for MusicBrainz
-    QString res = QString::fromLatin1(base64).replace('/',"_").replace('+',".").replace('=',"-");
+    QString res = QString::fromLatin1(base64).replace(QLatin1Char( '/' ),QLatin1String( "_" )).replace(QLatin1Char( '+' ),QLatin1String( "." )).replace(QLatin1Char( '=' ),QLatin1String( "-" ));
 
     return res;
   }
@@ -168,8 +168,8 @@ namespace KCDDB
       // Looks for all files in cddbdir/musicbrainz/discid*
       // Several files can correspond to the same discid,
       // then they are named discid, discid-2, discid-3 and so on
-      QDir dir(*cddbCacheDir+"/musicbrainz/");
-      dir.setNameFilters(QStringList(discid+"*"));
+      QDir dir(*cddbCacheDir+QLatin1String( "/musicbrainz/" ));
+      dir.setNameFilters(QStringList(discid+QLatin1String( "*" )));
 
       QStringList files = dir.entryList();
       kDebug() << "Cache files found: " << files.count();
@@ -184,8 +184,8 @@ namespace KCDDB
           f.close();
           CDInfo info;
           info.load(cddbData);
-          info.set("source", "musicbrainz");
-          info.set("discid", discid);
+          info.set(QLatin1String( "source" ), QLatin1String( "musicbrainz" ));
+          info.set(QLatin1String( "discid" ), discid);
 
           infoList.append( info );
         }

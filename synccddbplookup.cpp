@@ -47,7 +47,7 @@ namespace KCDDB
   {
     trackOffsetList_ = trackOffsetList;
 
-    socket_ = KSocketFactory::synchronousConnectToHost("cddbp", hostName, port);
+    socket_ = KSocketFactory::synchronousConnectToHost(QLatin1String( "cddbp" ), hostName, port);
 
     if ( !socket_->isValid() )
     {
@@ -138,7 +138,7 @@ namespace KCDDB
       // We have multiple matches
       line = readLine();
 
-      while (!line.startsWith(".") && !line.isNull() )
+      while (!line.startsWith(QLatin1String( "." )) && !line.isNull() )
       {
         parseExtraMatch( line );
         line = readLine();
@@ -162,7 +162,7 @@ namespace KCDDB
     QStringList lineList;
     line = readLine();
 
-    while ( !line.startsWith(".") && !line.isNull() )
+    while ( !line.startsWith(QLatin1String( "." )) && !line.isNull() )
     {
       lineList.append( line );
       line = readLine();
@@ -172,9 +172,9 @@ namespace KCDDB
 
     if ( info.load( lineList ) )
     {
-      info.set( "category", category_ );
-      info.set( "discid", discid_ );
-      info.set( "source", "freedb" );
+      info.set( QLatin1String( "category" ), category_ );
+      info.set( QLatin1String( "discid" ), discid_ );
+      info.set( QLatin1String( "source" ), QLatin1String( "freedb" ) );
       cdInfoList_.append( info );
     }
 

@@ -28,12 +28,12 @@ namespace KCDDB
         const QString& from, const QString& to)
     : Submit(), from_(from), to_(to)
   {
-    url_.setProtocol("smtp");
+    url_.setProtocol(QLatin1String( "smtp" ));
     url_.setHost(hostname);
     url_.setPort(port);
     if (!username.isEmpty())
       url_.setUser(username);
-    url_.setPath("/send");
+    url_.setPath(QLatin1String( "/send" ));
   }
 
   SMTPSubmit::~SMTPSubmit()
@@ -43,9 +43,9 @@ namespace KCDDB
 
   KIO::Job* SMTPSubmit::createJob(const CDInfo& cdInfo)
   {
-    url_.setQuery(QString("to=%1&subject=cddb %2 %3&from=%4")
+      url_.setQuery(QString::fromLatin1("to=%1&subject=cddb %2 %3&from=%4")
       .arg(to_, cdInfo.get(Category).toString(),
-        cdInfo.get("discid").toString(), from_));
+        cdInfo.get(QLatin1String( "discid" )).toString(), from_));
     kDebug(60010) << "Url is: " << url_.prettyUrl();
 
     return KIO::storedPut(diskData_.toUtf8().data(), url_, -1, KIO::HideProgressInfo);
@@ -53,7 +53,7 @@ namespace KCDDB
 
   void SMTPSubmit::makeDiskData( const CDInfo& cdInfo, const TrackOffsetList& offsetList )
   {
-    diskData_ = "Content-Type: text/plain; charset=\"utf-8\";\n";
+    diskData_ = QLatin1String( "Content-Type: text/plain; charset=\"utf-8\";\n" );
 
     Submit::makeDiskData(cdInfo, offsetList);
   }

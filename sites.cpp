@@ -37,19 +37,19 @@ namespace KCDDB
   Sites::siteList()
   {
     KUrl url;
-    url.setProtocol( "http" );
-    url.setHost( "freedb.freedb.org" );
+    url.setProtocol( QLatin1String( "http" ) );
+    url.setHost( QLatin1String( "freedb.freedb.org" ) );
     url.setPort( 80 );
-    url.setPath( "/~cddb/cddb.cgi" );
+    url.setPath( QLatin1String( "/~cddb/cddb.cgi" ) );
 
     url.setQuery( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
 
-    QString hello = QString("%1 %2 %3 %4")
-        .arg("libkcddb-user", "localHost", CDDB::clientName(), CDDB::clientVersion());
+    QString hello = QString::fromLatin1("%1 %2 %3 %4")
+        .arg(QLatin1String( "libkcddb-user" ), QLatin1String( "localHost" ), CDDB::clientName(), CDDB::clientVersion());
 
-    url.addQueryItem( "cmd", "sites" );
-    url.addQueryItem( "hello", hello );
-    url.addQueryItem( "proto", "5" );
+    url.addQueryItem( QLatin1String( "cmd" ), QLatin1String( "sites" ) );
+    url.addQueryItem( QLatin1String( "hello" ), hello );
+    url.addQueryItem( QLatin1String( "proto" ), QLatin1String( "5" ) );
 
     QList<Mirror> result;
 
@@ -76,7 +76,7 @@ namespace KCDDB
     while (!ts.atEnd())
     {
       QString line = ts.readLine();
-      if (line == ".")
+      if (line == QLatin1String( "." ))
         break;
       result << parseLine(line);
     }
@@ -89,20 +89,20 @@ namespace KCDDB
   {
     Mirror m;
 
-    QRegExp rexp("([^ ]+) (cddbp|http) (\\d+) ([^ ]+) [N|S]\\d{3}.\\d{2} [E|W]\\d{3}.\\d{2} (.*)");
+    QRegExp rexp(QLatin1String( "([^ ]+) (cddbp|http) (\\d+) ([^ ]+) [N|S]\\d{3}.\\d{2} [E|W]\\d{3}.\\d{2} (.*)" ));
 
     if (rexp.indexIn(line) != -1)
     {
       m.address = rexp.cap(1);
 
-      if (rexp.cap(2) == "cddbp")
+      if (rexp.cap(2) == QLatin1String( "cddbp" ))
         m.transport = Lookup::CDDBP;
       else
         m.transport = Lookup::HTTP;
 
       m.port = rexp.cap(3).toUInt();
 
-      if (m.transport == Lookup::HTTP && rexp.cap(4) != "/~cddb/cddb.cgi")
+      if (m.transport == Lookup::HTTP && rexp.cap(4) != QLatin1String( "/~cddb/cddb.cgi" ))
         kWarning() << "Non default urls are not supported for http";
 
       m.description = rexp.cap(5);

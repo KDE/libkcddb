@@ -45,7 +45,7 @@ namespace KCDDB
     const TrackOffsetList & trackOffsetList
   )
   {
-    socket_ = KSocketFactory::connectToHost("cddbp", hostname, port);
+    socket_ = KSocketFactory::connectToHost(QLatin1String( "cddbp" ), hostname, port);
 
     connect (socket_, SIGNAL(error(QAbstractSocket::SocketError)), SLOT(slotGotError(QAbstractSocket::SocketError)));
 
@@ -154,7 +154,7 @@ namespace KCDDB
         {
           QString line = readLine();
 
-          if (line.startsWith("."))
+          if (line.startsWith(QLatin1String( "." )))
             requestCDInfoForMatch();
           else
             parseExtraMatch( line );
@@ -182,7 +182,7 @@ namespace KCDDB
         {
           QString line = readLine();
 
-          if (line.startsWith("."))
+          if (line.startsWith(QLatin1String( "." )))
           {
             parseCDInfoData();
             requestCDInfoForMatch();
@@ -267,9 +267,9 @@ namespace KCDDB
 
     if (info.load( cdInfoBuffer_ ))
     {
-      info.set( "category", category_ );
-      info.set( "discid", discid_ );
-      info.set( "source", "freedb" );
+      info.set( QLatin1String( "category" ), category_ );
+      info.set( QLatin1String( "discid" ), discid_ );
+      info.set( QLatin1String( "source" ), QLatin1String( "freedb" ) );
       cdInfoList_.append( info );
     }
 
@@ -290,47 +290,47 @@ namespace KCDDB
     switch (state_)
     {
       case Idle:
-        return "Idle";
+        return QLatin1String( "Idle" );
         break;
 
       case WaitingForConnection:
-        return "WaitingForConnection";
+        return QLatin1String( "WaitingForConnection" );
         break;
 
       case WaitingForGreeting:
-        return "WaitingForGreeting";
+        return QLatin1String( "WaitingForGreeting" );
         break;
 
       case WaitingForProtoResponse:
-        return "WaitingForProtoResponse";
+        return QLatin1String( "WaitingForProtoResponse" );
         break;
 
       case WaitingForHandshake:
-        return "WaitingForHandshake";
+        return QLatin1String( "WaitingForHandshake" );
         break;
 
       case WaitingForQueryResponse:
-        return "WaitingForQueryResponse";
+        return QLatin1String( "WaitingForQueryResponse" );
         break;
 
       case WaitingForMoreMatches:
-        return "WaitingForMoreMatches";
+        return QLatin1String( "WaitingForMoreMatches" );
         break;
 
       case WaitingForCDInfoResponse:
-        return "WaitingForCDInfoResponse";
+        return QLatin1String( "WaitingForCDInfoResponse" );
         break;
 
       case WaitingForCDInfoData:
-        return "WaitingForCDInfoData";
+        return QLatin1String( "WaitingForCDInfoData" );
         break;
 
       case WaitingForQuitResponse:
-        return "WaitingForQuitResponse";
+        return QLatin1String( "WaitingForQuitResponse" );
         break;
 
       default:
-        return "Unknown";
+        return QLatin1String( "Unknown" );
         break;
     }
   }

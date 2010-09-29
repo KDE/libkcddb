@@ -32,8 +32,8 @@
 namespace KCDDB
 {
   CDDB::CDDB()
-    : user_( "libkcddb-user" ),
-      localHostName_( "localHost" ),
+    : user_( QLatin1String( "libkcddb-user" ) ),
+      localHostName_( QLatin1String( "localHost" ) ),
       readOnly_( false )
   {
 
@@ -74,7 +74,7 @@ namespace KCDDB
 
     id = ( ( id % 255 ) << 24 ) | ( l << 8 ) | numTracks;
 
-    return QString::number( id, 16 ).rightJustified( 8, '0' );
+    return QString::number( id, 16 ).rightJustified( 8, QLatin1Char( '0' ) );
   }
 
     QString
@@ -85,12 +85,12 @@ namespace KCDDB
 
     // Disc start.
     ret.append( QString::number( numTracks ) );
-    ret.append( " " );
+    ret.append( QLatin1String( " " ) );
 
     for ( uint i = 0; i < numTracks; i++ )
     {
       ret.append( QString::number( trackOffsetList_[ i ] ) );
-      ret.append( " " );
+      ret.append( QLatin1String( " " ) );
     }
 
     unsigned int discLengthInSec = ( trackOffsetList_[ numTracks ] ) / 75;
@@ -103,7 +103,7 @@ namespace KCDDB
     uint
   CDDB::statusCode( const QString & line )
   {
-    QStringList tokenList = line.split(' ', QString::SkipEmptyParts );
+    QStringList tokenList = line.split(QLatin1Char( ' ' ), QString::SkipEmptyParts );
 
     uint serverStatus = tokenList[ 0 ].toUInt();
 
@@ -116,7 +116,7 @@ namespace KCDDB
     Categories c;
     QStringList categories = c.cddbList();
     // Also load user-created entries
-    categories << "user";
+    categories << QLatin1String( "user" );
 
     CDInfoList infoList;
     QStringList cddbCacheDirs = config.cacheLocations();
@@ -126,7 +126,7 @@ namespace KCDDB
     {
       foreach(const QString &category, categories)
       {
-        QFile f( *cddbCacheDir + '/' + category + '/' + trackOffsetListToId(offsetList) );
+        QFile f( *cddbCacheDir + QLatin1Char( '/' ) + category + QLatin1Char( '/' ) + trackOffsetListToId(offsetList) );
         if ( f.exists() && f.open(QIODevice::ReadOnly) )
         {
             QTextStream ts(&f);
@@ -135,14 +135,14 @@ namespace KCDDB
             f.close();
             CDInfo info;
             info.load(cddbData);
-            if (category != "user")
+            if (category != QLatin1String( "user" ))
             {
               info.set(Category,category);
-              info.set("source", "freedb");
+              info.set(QLatin1String( "source" ), QLatin1String( "freedb" ));
             }
             else
             {
-              info.set("source", "user");
+              info.set(QLatin1String( "source" ), QLatin1String( "user" ));
             }
 
             infoList.append( info );

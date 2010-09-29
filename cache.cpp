@@ -68,48 +68,48 @@ namespace KCDDB
     void
   Cache::store(const TrackOffsetList& offsetList, const CDInfo& info, const Config& c)
   {
-    QString discid = info.get("discid").toString();
+    QString discid = info.get(QLatin1String( "discid" )).toString();
 
     // Some entries from freedb could contain several discids separated
     // by a ','. Store for each discid, but replace the discid line
     // so it doesn't happen again.
-    QStringList discids = discid.split(',');
+    QStringList discids = discid.split(QLatin1Char( ',' ));
     if (discids.count() > 2)
     {
       foreach(const QString &newid, discids)
       {
         CDInfo newInfo = info;
-        newInfo.set("discid", newid);
+        newInfo.set(QLatin1String( "discid" ), newid);
         store(offsetList, newInfo, c);
       }
     }
 
-    QString source = info.get("source").toString();
+    QString source = info.get(QLatin1String( "source" )).toString();
 
     QString cacheDir;
     QString cacheFile;
 
     CDInfo newInfo = info;
 
-    if (source == "freedb")
+    if (source == QLatin1String( "freedb" ))
     {
-      cacheDir = '/' + info.get("category").toString() + '/';
+      cacheDir = QLatin1Char( '/' ) + info.get(QLatin1String( "category" )).toString() + QLatin1Char( '/' );
       cacheFile = discid;
     }
-    else if (source == "musicbrainz")
+    else if (source == QLatin1String( "musicbrainz" ))
     {
-      cacheDir = "/musicbrainz/";
+      cacheDir = QLatin1String( "/musicbrainz/" );
       cacheFile = discid;
     }
     else
     {
-      if (source != "user")
+      if (source != QLatin1String( "user" ))
         kWarning(60010) << "Unknown source " << source << " for CDInfo";
 
-      cacheDir = "/user/";
+      cacheDir = QLatin1String( "/user/" );
       QString id = CDDB::trackOffsetListToId(offsetList);
       cacheFile = id;
-      newInfo.set("discid", id);
+      newInfo.set(QLatin1String( "discid" ), id);
     }
 
     cacheDir = c.cacheLocations().first() + cacheDir;
@@ -127,7 +127,7 @@ namespace KCDDB
 
     kDebug(60010) << "Storing " << cacheFile << " in CDDB cache";
 
-    QFile f(cacheDir + '/' + cacheFile);
+    QFile f(cacheDir + QLatin1Char( '/' ) + cacheFile);
     if ( f.open(QIODevice::WriteOnly) )
     {
       QTextStream ts(&f);

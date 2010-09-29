@@ -51,11 +51,11 @@ namespace KCDDB
 
         while (tmpValue.length() > maxLength)
         {
-          lines += QString("%1=%2\n").arg(name,tmpValue.left(maxLength));
+            lines += QString::fromLatin1("%1=%2\n").arg(name,tmpValue.left(maxLength));
           tmpValue = tmpValue.mid(maxLength);
         }
 
-        lines += QString("%1=%2\n").arg(name,tmpValue);
+        lines += QString::fromLatin1("%1=%2\n").arg(name,tmpValue);
 
         return lines;
       }
@@ -67,9 +67,9 @@ namespace KCDDB
       escape( const QString &value )
       {
         QString s = value;
-        s.replace( "\\", "\\\\" );
-        s.replace( "\n", "\\n" );
-        s.replace( "\t", "\\t" );
+        s.replace( QLatin1String( "\\" ), QLatin1String( "\\\\" ) );
+        s.replace( QLatin1String( "\n" ), QLatin1String( "\\n" ) );
+        s.replace( QLatin1String( "\t" ), QLatin1String( "\\t" ) );
 
         return s;
       }
@@ -82,9 +82,9 @@ namespace KCDDB
       {
         QString s = value;
 
-        s.replace( "\\n", "\n" );
-        s.replace( "\\t", "\t" );
-        s.replace( "\\\\", "\\" );
+        s.replace( QLatin1String( "\\n" ), QLatin1String( "\n" ) );
+        s.replace( QLatin1String( "\\t" ), QLatin1String( "\t" ) );
+        s.replace( QLatin1String( "\\\\" ), QLatin1String( "\\" ) );
 
         return s;
       }
@@ -99,19 +99,19 @@ namespace KCDDB
       {
         switch(type){
           case(Title):
-            return get("title");
+            return get(QLatin1String( "title" ));
           case(Comment):
-            return get("comment");
+            return get(QLatin1String( "comment" ));
           case(Artist):
-            return get("artist");
+            return get(QLatin1String( "artist" ));
           case(Genre):
-            return get("genre");
+            return get(QLatin1String( "genre" ));
           case(Year):
-            return get("year");
+            return get(QLatin1String( "year" ));
           case(Length):
-            return get("length");
+            return get(QLatin1String( "length" ));
           case(Category):
-            return get("category");
+            return get(QLatin1String( "category" ));
         }
         return QVariant();
       }
@@ -120,11 +120,11 @@ namespace KCDDB
       set(const QString& type, const QVariant &d)
       {
         //kDebug() << "set: " << type << ", " << d.toString();
-        if(type.contains(QRegExp( "^T.*_.*$" ) )){
+        if(type.contains(QRegExp( QLatin1String( "^T.*_.*$" )) )){
           kDebug(60010) << "Error: custom cdinfo::set data can not start with T and contain a _";
           return;
         }
-        if(type.toUpper() == "DTITLE"){
+        if(type.toUpper() == QLatin1String( "DTITLE" )){
           kDebug(60010) << "Error: type: DTITLE is reserved and can not be set.";
           return;
         }
@@ -137,25 +137,25 @@ namespace KCDDB
         switch(type)
         {
           case(Title):
-            set("title", d);
+            set(QLatin1String( "title" ), d);
             return;
           case(Comment):
-            set("comment", d);
+            set(QLatin1String( "comment" ), d);
             return;
           case(Artist):
-            set("artist", d);
+            set(QLatin1String( "artist" ), d);
             return;
           case(Genre):
-            set("genre", d);
+            set(QLatin1String( "genre" ), d);
             return;
           case(Year):
-            set("year", d);
+            set(QLatin1String( "year" ), d);
             return;
           case(Length):
-            set("length", d);
+            set(QLatin1String( "length" ), d);
             return;
           case(Category):
-            set("category", d);
+            set(QLatin1String( "category" ), d);
             return;
         }
 
@@ -225,13 +225,13 @@ namespace KCDDB
   QString TrackInfo::toString() const {
     QString out;
     bool ok;
-    int track = get("tracknumber").toInt(&ok);
+    int track = get(QLatin1String( "tracknumber" )).toInt(&ok);
     if(!ok)
       kDebug(60010) << "Warning toString() on a track that doesn't have track number assigned.";
     QMap<QString, QVariant>::const_iterator i = d->data.constBegin();
     while (i != d->data.constEnd()) {
-        if(i.key() != "COMMENT" && i.key() != "TITLE" && i.key() != "ARTIST" && i.key() != "TRACKNUMBER") {
-          out += d->createLine(QString("T%1_%2").arg(i.key()).arg(track),i.value().toString());
+        if(i.key() != QLatin1String( "COMMENT" ) && i.key() != QLatin1String( "TITLE" ) && i.key() != QLatin1String( "ARTIST" ) && i.key() != QLatin1String( "TRACKNUMBER" )) {
+            out += d->createLine(QString::fromLatin1("T%1_%2").arg(i.key()).arg(track),i.value().toString());
         }
         ++i;
     }
@@ -256,7 +256,7 @@ namespace KCDDB
   CDInfo::CDInfo()
     : d(new CDInfoPrivate())
   {
-    set("revision", 0);
+    set(QLatin1String( "revision" ), 0);
   }
 
   CDInfo::CDInfo(const CDInfo& clone)
@@ -281,7 +281,7 @@ namespace KCDDB
     bool
   CDInfo::load(const QString & string)
   {
-    return load(string.split('\n',QString::SkipEmptyParts));
+    return load(string.split(QLatin1Char( '\n' ),QString::SkipEmptyParts));
   }
 
     bool
@@ -294,22 +294,22 @@ namespace KCDDB
 
     QStringList::ConstIterator it = lineList.begin();
 
-    QRegExp rev("# Revision: (\\d+)");
-    QRegExp eol("[\r\n]");
+    QRegExp rev(QLatin1String( "# Revision: (\\d+)" ));
+    QRegExp eol(QLatin1String( "[\r\n]" ));
 
     while ( it != lineList.end() )
     {
       QString line(*it);
-      line.replace(eol,"");
+      line.replace(eol,QLatin1String( "" ));
       ++it;
 
       if (rev.indexIn(line) != -1)
       {
-        set("revision", rev.cap(1).toUInt());
+        set(QLatin1String( "revision" ), rev.cap(1).toUInt());
         continue;
       }
 
-      QStringList tokenList = KStringHandler::perlSplit('=', line, 2);
+      QStringList tokenList = KStringHandler::perlSplit(QLatin1Char( '=' ), line, 2);
 
       if (2 != tokenList.count())
       {
@@ -319,11 +319,11 @@ namespace KCDDB
       QString key = tokenList[0].trimmed();
       QString value = d->unescape ( tokenList[1] );
 
-      if ( "DTITLE" == key )
+      if ( QLatin1String( "DTITLE" ) == key )
       {
         dtitle += value;
       }
-      else if ( key.startsWith("TTITLE") )
+      else if ( key.startsWith(QLatin1String( "TTITLE" )) )
       {
         uint trackNumber = key.mid(6).toUInt();
 
@@ -331,19 +331,19 @@ namespace KCDDB
         ti.set(Title, ti.get(Title).toString().append(value));
       }
 
-      else if ( "EXTD" == key )
+      else if ( QLatin1String( "EXTD" ) == key )
       {
         d->append(Comment, value);
       }
-      else if ( "DGENRE" == key )
+      else if ( QLatin1String( "DGENRE" ) == key )
       {
         d->append(Genre, value);
       }
-      else if ( "DYEAR" == key )
+      else if ( QLatin1String( "DYEAR" ) == key )
       {
         set(Year, value);
       }
-      else if ( key.startsWith("EXTT") )
+      else if ( key.startsWith(QLatin1String( "EXTT" )) )
       {
         uint trackNumber = key.mid( 4 ).toUInt();
 
@@ -352,16 +352,16 @@ namespace KCDDB
         QString extt = track(trackNumber).get(Comment).toString();
         track(trackNumber).set(Comment, extt+value );
       }
-      else if ( key.startsWith("T") )
+      else if ( key.startsWith(QLatin1String( "T" )) )
       {
         // Custom Track data
-        uint trackNumber = key.mid( key.indexOf('_')+1 ).toUInt();
+        uint trackNumber = key.mid( key.indexOf(QLatin1Char( '_' ))+1 ).toUInt();
         checkTrack( trackNumber );
 
-        QRegExp data(QString("^T.*_%1$").arg(trackNumber));
+        QRegExp data(QString::fromLatin1("^T.*_%1$").arg(trackNumber));
         if  ( key.contains( data ) )
         {
-          QString k = key.mid(1, key.indexOf('_')-1);
+          QString k = key.mid(1, key.indexOf(QLatin1Char( '_' ))-1);
           TrackInfo& ti = track(trackNumber);
           ti.set( k, ti.get(k).toString().append(value) );
         }
@@ -373,7 +373,7 @@ namespace KCDDB
       }
     }
 
-    int slashPos = dtitle.indexOf(" / ");
+    int slashPos = dtitle.indexOf(QLatin1String( " / " ));
 
     if (-1 == slashPos)
     {
@@ -390,7 +390,7 @@ namespace KCDDB
     bool isSampler = true;
     for (TrackInfoList::Iterator it = d->trackInfoList.begin(); it != d->trackInfoList.end(); ++it)
     {
-      if (!(*it).get(Title).toString().contains(" / "))
+      if (!(*it).get(Title).toString().contains(QLatin1String( " / " )))
       {
         isSampler = false;
       }
@@ -399,7 +399,7 @@ namespace KCDDB
     {
       if (isSampler)
       {
-        int delimiter = (*it).get(Title).toString().indexOf(" / ");
+        int delimiter = (*it).get(Title).toString().indexOf(QLatin1String( " / " ));
         (*it).set(Artist, (*it).get(Title).toString().left(delimiter));
         (*it).set(Title, (*it).get(Title).toString().mid(delimiter + 3));
       }
@@ -410,9 +410,9 @@ namespace KCDDB
     }
 
     if ( get(Genre).toString().isEmpty() )
-      set(Genre, "Unknown");
+      set(Genre, QLatin1String( "Unknown" ));
 
-    kDebug(60010) << "Loaded CDInfo for " << get("discid").toString();
+    kDebug(60010) << "Loaded CDInfo for " << get(QLatin1String( "discid" )).toString();
 
     return true;
   }
@@ -422,48 +422,48 @@ namespace KCDDB
   {
     QString s;
 
-    if (get("revision") != 0)
-      s += "# Revision: " + get("revision").toString() + '\n';
+    if (get(QLatin1String( "revision" )) != 0)
+      s += QLatin1String( "# Revision: " ) + get(QLatin1String( "revision" )).toString() + QLatin1Char( '\n' );
 
     // If we are submiting make it a fully compliant CDDB entry
     if (submit)
     {
-      s += "#\n";
-      s += QString("# Submitted via: %1 %2\n").arg(CDDB::clientName(),
+      s += QLatin1String( "#\n" );
+      s += QString::fromLatin1("# Submitted via: %1 %2\n").arg(CDDB::clientName(),
         CDDB::clientVersion());
     }
 
-    s += d->createLine("DISCID", get("discid").toString() );
+    s += d->createLine(QLatin1String( "DISCID" ), get(QLatin1String( "discid" )).toString() );
     QString artist = get(Artist).toString();
-    s += d->createLine("DTITLE", artist + " / " + get(Title).toString() );
+    s += d->createLine(QLatin1String( "DTITLE" ), artist + QLatin1String( " / " ) + get(Title).toString() );
     int year = get(Year).toInt();
-    s += "DYEAR=" + (0 == year ? QString::null : QString::number(year)) + '\n';	//krazy:exclude=nullstrassign for old broken gcc
-    if (get(Genre) == "Unknown")
-      s += d->createLine("DGENRE", "");
+    s += QLatin1String( "DYEAR=" ) + (0 == year ? QString::null : QString::number(year)) + QLatin1Char( '\n' );	//krazy:exclude=nullstrassign for old broken gcc
+    if (get(Genre) == QLatin1String( "Unknown" ))
+      s += d->createLine(QLatin1String( "DGENRE" ), QString());
     else
-      s += d->createLine("DGENRE",get(Genre).toString());
+      s += d->createLine(QLatin1String( "DGENRE" ),get(Genre).toString());
 
     for (int i = 0; i < d->trackInfoList.count(); ++i){
       QString trackTitle = d->trackInfoList[i].get(Title).toString();
       QString trackArtist = d->trackInfoList[i].get(Artist).toString();
       if(trackArtist != artist && !trackArtist.isEmpty())
-        s += d->createLine(QString("TTITLE%1").arg(i), QString("%1 / %2").arg(trackArtist).arg(trackTitle));
+          s += d->createLine(QString::fromLatin1("TTITLE%1").arg(i), QString::fromLatin1("%1 / %2").arg(trackArtist).arg(trackTitle));
       else
-        s += d->createLine(QString("TTITLE%1").arg(i), trackTitle);
+          s += d->createLine(QString::fromLatin1("TTITLE%1").arg(i), trackTitle);
     }
 
-    s += d->createLine(QString("EXTD"), get(Comment).toString());
+    s += d->createLine(QLatin1String("EXTD"), get(Comment).toString());
 
     for (int i = 0; i < d->trackInfoList.count(); ++i)
-      s += d->createLine(QString("EXTT%1").arg(i), d->trackInfoList[i].get(Comment).toString());
+        s += d->createLine(QString::fromLatin1("EXTT%1").arg(i), d->trackInfoList[i].get(Comment).toString());
 
     if (submit)
     {
-      s += d->createLine("PLAYORDER", "");
+      s += d->createLine(QLatin1String( "PLAYORDER" ), QString());
       return s;
     }
 
-    s += d->createLine("PLAYORDER", get("playorder").toString() );
+    s += d->createLine(QLatin1String( "PLAYORDER" ), get(QLatin1String( "playorder" )).toString() );
 
     // Custom track data
     for (int i = 0; i < d->trackInfoList.count(); ++i)
@@ -471,20 +471,20 @@ namespace KCDDB
 
     QStringList cddbKeywords;
     cddbKeywords
-      << "DISCID"
-      << "ARTIST"
-      << "TITLE"
-      << "COMMENT"
-      << "YEAR"
-      << "GENRE"
-      << "PLAYORDER"
-      << "CATEGORY"
-      << "REVISION";
+      << QLatin1String( "DISCID" )
+      << QLatin1String( "ARTIST" )
+      << QLatin1String( "TITLE" )
+      << QLatin1String( "COMMENT" )
+      << QLatin1String( "YEAR" )
+      << QLatin1String( "GENRE" )
+      << QLatin1String( "PLAYORDER" )
+      << QLatin1String( "CATEGORY" )
+      << QLatin1String( "REVISION" );
 
     // Custom disc data
     QMap<QString, QVariant>::const_iterator i = d->data.constBegin();
     while (i != d->data.constEnd()){
-      if (!cddbKeywords.contains(i.key()) && i.key() != "SOURCE")
+      if (!cddbKeywords.contains(i.key()) && i.key() != QLatin1String( "SOURCE" ))
       {
         s+= d->createLine(i.key(), i.value().toString());
       }
@@ -517,7 +517,7 @@ namespace KCDDB
     while ( d->trackInfoList.count() <= trackNumber ){
       int count = d->trackInfoList.count();
       d->trackInfoList.append(TrackInfo());
-      d->trackInfoList[count].set("tracknumber", count);
+      d->trackInfoList[count].set(QLatin1String( "tracknumber" ), count);
     }
   }
 
@@ -531,11 +531,11 @@ namespace KCDDB
     bool
   CDInfo::isValid() const
   {
-    QString discid = get("DISCID").toString();
+    QString discid = get(QLatin1String( "DISCID" )).toString();
     if (discid.isEmpty())
       return false;
 
-    if (discid == "0")
+    if (discid == QLatin1String( "0" ))
       return false;
 
     return true;

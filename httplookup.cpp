@@ -39,7 +39,7 @@ namespace KCDDB
     Result
   HTTPLookup::sendQuery()
   {
-    QString cmd = QString( "cddb query %1 %2" )
+      QString cmd = QString::fromLatin1( "cddb query %1 %2" )
       .arg( trackOffsetListToId(), trackOffsetListToString() ) ;
 
     makeURL( cmd );
@@ -54,7 +54,7 @@ namespace KCDDB
     category_  = match.first;
     discid_    = match.second;
 
-    QString cmd = QString( "cddb read %1 %2" )
+    QString cmd = QString::fromLatin1( "cddb read %1 %2" )
         .arg( category_, discid_ );
 
     makeURL( cmd );
@@ -66,10 +66,10 @@ namespace KCDDB
     void
   HTTPLookup::initURL( const QString & hostName, uint port )
   {
-    cgiURL_.setProtocol( "http" );
+    cgiURL_.setProtocol( QLatin1String( "http" ) );
     cgiURL_.setHost( hostName );
     cgiURL_.setPort( port );
-    cgiURL_.setPath( "/~cddb/cddb.cgi" );
+    cgiURL_.setPath( QLatin1String( "/~cddb/cddb.cgi" ) );
 
     return;
   }
@@ -82,18 +82,18 @@ namespace KCDDB
 
     cgiURL_.setQuery( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
 
-    QString hello = QString("%1 %2 %3 %4")
+    QString hello = QString::fromLatin1("%1 %2 %3 %4")
         .arg(user_, localHostName_, clientName(), clientVersion());
 
-    cgiURL_.addQueryItem( "cmd", cmd );
-    cgiURL_.addQueryItem( "hello", hello );
-    cgiURL_.addQueryItem( "proto", "6" );
+    cgiURL_.addQueryItem( QLatin1String( "cmd" ), cmd );
+    cgiURL_.addQueryItem( QLatin1String( "hello" ), hello );
+    cgiURL_.addQueryItem( QLatin1String( "proto" ), QLatin1String( "6" ) );
   }
 
     void
   HTTPLookup::jobFinished()
   {
-    QStringList lineList = QString::fromUtf8(data_, data_.size()).split( "\n", QString::SkipEmptyParts );
+    QStringList lineList = QString::fromUtf8(data_, data_.size()).split( QLatin1String( "\n" ), QString::SkipEmptyParts );
     QStringList::ConstIterator it = lineList.constBegin();
 
     switch ( state_ )
@@ -121,7 +121,7 @@ namespace KCDDB
               {
                 QString line( *it );
 
-                if ( '.' == line[ 0 ] )
+                if ( QLatin1Char( '.' ) == line[ 0 ] )
                 {
                   result_ = Success;
 
@@ -160,9 +160,9 @@ namespace KCDDB
 
           if ( info.load( QString::fromUtf8(data_,data_.size()) ) )
           {
-            info.set( "category", category_ );
-            info.set( "discid", discid_ );
-            info.set( "source", "freedb" );
+            info.set( QLatin1String( "category" ), category_ );
+            info.set( QLatin1String( "discid" ), discid_ );
+            info.set( QLatin1String( "source" ), QLatin1String( "freedb" ) );
             cdInfoList_.append( info );
           }
 

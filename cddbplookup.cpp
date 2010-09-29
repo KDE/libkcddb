@@ -41,7 +41,7 @@ namespace KCDDB
     void
   CDDBPLookup::sendHandshake()
   {
-    QString handshake = QString( "cddb hello %1 %2 %3 %4" )
+      QString handshake = QString::fromLatin1( "cddb hello %1 %2 %3 %4" )
         .arg( user_ )
         .arg( localHostName_ )
         .arg( clientName() )
@@ -53,13 +53,13 @@ namespace KCDDB
     void
   CDDBPLookup::sendProto()
   {
-    writeLine( "proto 6" );
+    writeLine( QLatin1String( "proto 6" ) );
   }
 
     void
   CDDBPLookup::sendQuery()
   {
-    QString query = QString( "cddb query %1 %2" )
+      QString query = QString::fromLatin1( "cddb query %1 %2" )
         .arg( trackOffsetListToId() )
         .arg( trackOffsetListToString() );
 
@@ -72,7 +72,7 @@ namespace KCDDB
     category_  = match.first;
     discid_    = match.second;
 
-    QString readRequest = QString( "cddb read %1 %2" )
+    QString readRequest = QString::fromLatin1( "cddb read %1 %2" )
         .arg( category_ )
         .arg( discid_ );
 
@@ -82,7 +82,7 @@ namespace KCDDB
     void
   CDDBPLookup::sendQuit()
   {
-    writeLine( "quit" );
+    writeLine( QLatin1String( "quit" ) );
   }
 
     void
