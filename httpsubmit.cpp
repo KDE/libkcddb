@@ -28,10 +28,10 @@ namespace KCDDB
   HTTPSubmit::HTTPSubmit(const QString& from, const QString& hostname, uint port)
     : Submit(), from_(from)
   {
-    url_.setProtocol("http");
+    url_.setProtocol( QLatin1String( "http" ));
     url_.setHost(hostname);
     url_.setPort(port);
-    url_.setPath("/~cddb/submit.cgi");
+    url_.setPath(QLatin1String( "/~cddb/submit.cgi" ));
   }
 
   HTTPSubmit::~HTTPSubmit()
@@ -43,19 +43,19 @@ namespace KCDDB
   {
     KIO::TransferJob* job = KIO::http_post(url_, diskData_.toUtf8().data(), KIO::HideProgressInfo);
 
-    job->addMetaData("content-type", "Content-Type: text/plain");
+    job->addMetaData(QLatin1String( "content-type" ), QLatin1String( "Content-Type: text/plain" ));
     QString header;
 
-    header += "Content-Type: text/plain\n";
+    header += QLatin1String( "Content-Type: text/plain\n" );
 
-    header += "Category: " + cdInfo.get(Category).toString() + '\n';
-    header += "Discid: " + cdInfo.get("discid").toString() + '\n';
-    header += "User-Email: " + from_ + '\n';
+    header += QLatin1String( "Category: " ) + cdInfo.get(Category).toString() + QLatin1Char( '\n' );
+    header += QLatin1String( "Discid: " ) + cdInfo.get(QLatin1String( "discid" )).toString() + QLatin1Char( '\n' );
+    header += QLatin1String( "User-Email: " ) + from_ + QLatin1Char( '\n' );
     // Change to sumbit
-    header += "Submit-Mode: test\n";
-    header += "Charset: UTF-8";
+    header += QLatin1String( "Submit-Mode: test\n" );
+    header += QLatin1String( "Charset: UTF-8" );
 
-    job->addMetaData("customHTTPHeader", header);
+    job->addMetaData(QLatin1String( "customHTTPHeader" ), header);
 
     return job;
   }

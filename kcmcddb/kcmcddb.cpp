@@ -79,9 +79,9 @@ CDDBModule::checkSettings() const
   config.readConfig();
 
   if (config.smtpHostname().isEmpty() || config.emailAddress().isEmpty()
-      || !config.emailAddress().contains("@") ||
-      (!config.replyTo().isEmpty() && !config.replyTo().contains("@")))
-      
+      || !config.emailAddress().contains(QLatin1String( "@" )) ||
+      (!config.replyTo().isEmpty() && !config.replyTo().contains(QLatin1String( "@" ))))
+
   {
     if (config.freedbSubmitTransport() == KCDDB::Submit::SMTP)
     {

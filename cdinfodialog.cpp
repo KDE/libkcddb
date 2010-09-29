@@ -48,7 +48,7 @@ class CDInfoDialog::Private
     KCDDB::Genres genres;
     KCDDB::Categories categories;
     Ui::CDInfoDialogBase* ui;
-    static const char *SEPARATOR;
+    static QLatin1String SEPARATOR;
     static const unsigned TRACK_NUMBER = 0;
     static const unsigned TRACK_TIME = 1;
     static const unsigned TRACK_TITLE = 2;
@@ -56,7 +56,7 @@ class CDInfoDialog::Private
     static const unsigned TRACK_COMMENT = 4;
 };
 
-  const char *CDInfoDialog::Private::SEPARATOR = " / ";
+  QLatin1String CDInfoDialog::Private::SEPARATOR = QLatin1String( " / " );
 
   CDInfoDialog::CDInfoDialog(QWidget* parent)
     : KDialog(parent),
@@ -66,7 +66,7 @@ class CDInfoDialog::Private
       d->ui->setupUi(w);
       setMainWidget(w);
 
-      d->info.set("source", "user");
+      d->info.set(QLatin1String( "source" ), QLatin1String( "user" ));
 
       d->categories = KCDDB::Categories();
       d->ui->m_category->addItems(d->categories.i18nList());
@@ -108,7 +108,7 @@ class CDInfoDialog::Private
 /*      QTreeWidgetItem *item = d->ui->m_trackList->itemBelow(d->ui->m_trackList->currentItem());
       if (item)
       {
-          
+
           d->ui->m_trackList->setCurrentItem(item);*/
 //          d->ui->m_trackList->ensureItemVisible(item);
 //       }
@@ -128,11 +128,11 @@ class CDInfoDialog::Private
       d->ui->m_category->setItemText(d->ui->m_category->currentIndex(), d->categories.cddb2i18n(info.get(Category).toString()));
 
       // Make sure the revision is set before the genre to allow the genreChanged() handler to fire.
-      d->ui->m_revision->setText(QString::number(info.get("revision").toInt()));
+      d->ui->m_revision->setText(QString::number(info.get(QLatin1String( "revision" )).toInt()));
       d->ui->m_genre->setItemText(d->ui->m_genre->currentIndex(), d->genres.cddb2i18n(info.get(Genre).toString()));
       d->ui->m_year->setValue(info.get(Year).toInt());
       d->ui->m_comment->setText(info.get(Comment).toString().trimmed());
-      d->ui->m_id->setText(info.get("discid").toString().trimmed());
+      d->ui->m_id->setText(info.get(QLatin1String( "discid" )).toString().trimmed());
 
       // Now do the individual tracks.
       unsigned tracks = info.numberOfTracks();
@@ -165,7 +165,7 @@ class CDInfoDialog::Private
       }
       // FIXME KDE4: handle playorder here too, once KCDDBInfo::CDInfo is updated.
 
-      if (info.get(Artist).toString() == "Various" || d->ui->m_multiple->isChecked()){
+      if (info.get(Artist).toString() == QLatin1String( "Various" ) || d->ui->m_multiple->isChecked()){
           d->ui->m_trackList->resizeColumnToContents(Private::TRACK_ARTIST);
     }
   }
@@ -181,9 +181,9 @@ class CDInfoDialog::Private
       // Use ".zzz" for milliseconds...
       QString temp2;
       if (time.hour() > 0)
-          temp2 = time.toString("hh:mm:ss");
+          temp2 = time.toString(QLatin1String( "hh:mm:ss" ));
       else
-          temp2 = time.toString("mm:ss");
+          temp2 = time.toString(QLatin1String( "mm:ss" ));
       return temp2;
   } // framesTime
 
@@ -197,9 +197,9 @@ class CDInfoDialog::Private
       info.set(Genre, d->genres.i18n2cddb(d->ui->m_genre->currentText()));
       info.set(Year, d->ui->m_year->value());
       info.set(Comment, d->ui->m_comment->text().trimmed());
-      info.set("revision", d->ui->m_revision->text().trimmed().toUInt());
-      info.set("discid", d->ui->m_id->text().trimmed());
-      
+      info.set(QLatin1String( "revision" ), d->ui->m_revision->text().trimmed().toUInt());
+      info.set(QLatin1String( "discid" ), d->ui->m_id->text().trimmed());
+
     for (int t = 0; t < m_trackModel->rowCount(); ++t) {
           TrackInfo& track = info.track(t);
           track.set(Artist, m_trackModel->index(t, Private::TRACK_ARTIST).data().toString().trimmed());
@@ -215,7 +215,7 @@ class CDInfoDialog::Private
   void CDInfoDialog::artistChanged( const QString &newArtist )
   {
       // Enable special handling of compilations.
-      if (newArtist.trimmed().compare("Various")) {
+      if (newArtist.trimmed().compare(QLatin1String( "Various" ))) {
           d->ui->m_multiple->setChecked(false);
       } else {
           d->ui->m_multiple->setChecked(true);
@@ -228,7 +228,7 @@ class CDInfoDialog::Private
       // is already in the database, or if the genre is poorly set. The latter
       // condition also provides a "back-door" override.
       d->ui->m_category->setEnabled((d->ui->m_revision->text().trimmed().toUInt() < 1) ||
-                              (newGenre.compare("Unknown") == 0));
+                              (newGenre.compare(QLatin1String( "Unknown" )) == 0));
   }
 
 

@@ -68,9 +68,9 @@ void CDDBConfigWidget::showMirrorList()
     QMap<QString, KCDDB::Mirror> keys;
     for (QList<KCDDB::Mirror>::ConstIterator it = sites.begin(); it != sites.end(); ++it)
       if ((*it).transport == KCDDB::Lookup::CDDBP)
-        keys[(*it).address + "(CDDBP, " + QString::number((*it).port) + ") " + (*it).description] = *it;
+        keys[(*it).address + QLatin1String( "(CDDBP, " ) + QString::number((*it).port) + QLatin1String( ") " ) + (*it).description] = *it;
       else
-        keys[(*it).address + "(HTTP, " + QString::number((*it).port) + ") " + (*it).description] = *it;
+        keys[(*it).address + QLatin1String( "(HTTP, " ) + QString::number((*it).port) + QLatin1String( ") " ) + (*it).description] = *it;
 
     bool ok;
 

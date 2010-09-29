@@ -25,44 +25,44 @@ KCDDB::Genres::Genres()
     //
     // To cope with preexisting records which don't match an entry, we will
     // add one later if needed.
-    d->cddb << "Unknown" << "A Cappella" << "Acid Jazz" <<
-            "Acid Punk" << "Acid" << "Acoustic" << "Alternative" <<
-            "Alt. Rock" << "Ambient" << "Anime" << "Avantgarde" <<
-            "Ballad" << "Bass" << "Beat" << "Bebop" <<
-            "Big Band" << "Black Metal" << "Bluegrass" << "Blues" <<
-            "Booty Bass" << "BritPop" << "Cabaret" << "Celtic" <<
-            "Chamber Music" << "Chanson" << "Chorus" << "Christian Gangsta Rap" <<
-            "Christian Rap" << "Christian Rock" << "Classical" << "Classic Rock" <<
-            "Club-house" << "Club" << "Comedy" << "Contemporary Christian" <<
-            "Country" << "Crossover" << "Cult" << "Dance Hall" <<
-            "Dance" << "Darkwave" << "Death Metal" << "Disco" <<
-            "Dream" << "Drum & Bass" << "Drum Solo" << "Duet" <<
-            "Easy Listening" << "Electronic" << "Ethnic" << "Eurodance" <<
-            "Euro-House" << "Euro-Techno" << "Fast-Fusion" << "Folklore" <<
-            "Folk/Rock" << "Folk" << "Freestyle" << "Funk" <<
-            "Fusion" << "Game" << "Gangsta Rap" << "Goa" <<
-            "Gospel" << "Gothic Rock" << "Gothic" << "Grunge" <<
-            "Hardcore" << "Hard Rock" << "Heavy Metal" << "Hip-Hop" <<
-            "House" << "Humor" << "Indie" << "Industrial" <<
-            "Instrumental Pop" << "Instrumental Rock" << "Instrumental" << "Jazz+Funk" <<
-            "Jazz" << "JPop" << "Jungle" << "Latin" << "Lo-Fi" <<
-            "Meditative" << "Merengue" << "Metal" << "Musical" <<
-            "National Folk" << "Native American" << "Negerpunk" << "New Age" <<
-            "New Wave" << "Noise" << "Oldies" << "Opera" <<
-            "Other" << "Polka" << "Polsk Punk" << "Pop-Funk" <<
-            "Pop/Funk" << "Pop" << "Porn Groove" << "Power Ballad" <<
-            "Pranks" << "Primus" << "Progressive Rock" << "Psychedelic Rock" <<
-            "Psychedelic" << "Punk Rock" << "Punk" << "R&B" <<
-            "Rap" << "Rave" << "Reggae" << "Retro" <<
-            "Revival" << "Rhythmic Soul" << "Rock & Roll" << "Rock" <<
-            "Salsa" << "Samba" << "Satire" << "Showtunes" <<
-            "Ska" << "Slow Jam" << "Slow Rock" << "Sonata" <<
-            "Soul" << "Sound Clip" << "Soundtrack" << "Southern Rock" <<
-            "Space" << "Speech" << "Swing" << "Symphonic Rock" <<
-            "Symphony" << "Synthpop" << "Tango" << "Techno-Industrial" <<
-            "Techno" << "Terror" << "Thrash Metal" << "Top 40" <<
-            "Trailer" << "Trance" << "Tribal" << "Trip-Hop" <<
-            "Vocal";
+    d->cddb << QLatin1String( "Unknown" ) << QLatin1String( "A Cappella" ) << QLatin1String( "Acid Jazz" ) <<
+            QLatin1String( "Acid Punk" ) << QLatin1String( "Acid" ) << QLatin1String( "Acoustic" ) << QLatin1String( "Alternative" ) <<
+            QLatin1String( "Alt. Rock" ) << QLatin1String( "Ambient" ) << QLatin1String( "Anime" ) << QLatin1String( "Avantgarde" ) <<
+            QLatin1String( "Ballad" ) << QLatin1String( "Bass" ) << QLatin1String( "Beat" ) << QLatin1String( "Bebop" ) <<
+            QLatin1String( "Big Band" ) << QLatin1String( "Black Metal" ) << QLatin1String( "Bluegrass" ) << QLatin1String( "Blues" ) <<
+            QLatin1String( "Booty Bass" ) << QLatin1String( "BritPop" ) << QLatin1String( "Cabaret" ) << QLatin1String( "Celtic" ) <<
+            QLatin1String( "Chamber Music" ) << QLatin1String( "Chanson" ) << QLatin1String( "Chorus" ) << QLatin1String( "Christian Gangsta Rap" ) <<
+            QLatin1String( "Christian Rap" ) << QLatin1String( "Christian Rock" ) << QLatin1String( "Classical" ) << QLatin1String( "Classic Rock" ) <<
+            QLatin1String( "Club-house" ) << QLatin1String( "Club" ) << QLatin1String( "Comedy" ) << QLatin1String( "Contemporary Christian" ) <<
+            QLatin1String( "Country" ) << QLatin1String( "Crossover" ) << QLatin1String( "Cult" ) << QLatin1String( "Dance Hall" ) <<
+            QLatin1String( "Dance" ) << QLatin1String( "Darkwave" ) << QLatin1String( "Death Metal" ) << QLatin1String( "Disco" ) <<
+            QLatin1String( "Dream" ) << QLatin1String( "Drum & Bass" ) << QLatin1String( "Drum Solo" ) << QLatin1String( "Duet" ) <<
+            QLatin1String( "Easy Listening" ) << QLatin1String( "Electronic" ) << QLatin1String( "Ethnic" ) << QLatin1String( "Eurodance" ) <<
+            QLatin1String( "Euro-House" ) << QLatin1String( "Euro-Techno" ) << QLatin1String( "Fast-Fusion" ) << QLatin1String( "Folklore" ) <<
+            QLatin1String( "Folk/Rock" ) << QLatin1String( "Folk" ) << QLatin1String( "Freestyle" ) << QLatin1String( "Funk" ) <<
+            QLatin1String( "Fusion" ) << QLatin1String( "Game" ) << QLatin1String( "Gangsta Rap" ) << QLatin1String( "Goa" ) <<
+            QLatin1String( "Gospel" ) << QLatin1String( "Gothic Rock" ) << QLatin1String( "Gothic" ) << QLatin1String( "Grunge" ) <<
+            QLatin1String( "Hardcore" ) << QLatin1String( "Hard Rock" ) << QLatin1String( "Heavy Metal" ) << QLatin1String( "Hip-Hop" ) <<
+            QLatin1String( "House" ) << QLatin1String( "Humor" ) << QLatin1String( "Indie" ) << QLatin1String( "Industrial" ) <<
+            QLatin1String( "Instrumental Pop" ) << QLatin1String( "Instrumental Rock" ) << QLatin1String( "Instrumental" ) << QLatin1String( "Jazz+Funk" ) <<
+            QLatin1String( "Jazz" ) << QLatin1String( "JPop" ) << QLatin1String( "Jungle" ) << QLatin1String( "Latin" ) << QLatin1String( "Lo-Fi" ) <<
+            QLatin1String( "Meditative" ) << QLatin1String( "Merengue" ) << QLatin1String( "Metal" ) << QLatin1String( "Musical" ) <<
+            QLatin1String( "National Folk" ) << QLatin1String( "Native American" ) << QLatin1String( "Negerpunk" ) << QLatin1String( "New Age" ) <<
+            QLatin1String( "New Wave" ) << QLatin1String( "Noise" ) << QLatin1String( "Oldies" ) << QLatin1String( "Opera" ) <<
+            QLatin1String( "Other" ) << QLatin1String( "Polka" ) << QLatin1String( "Polsk Punk" ) << QLatin1String( "Pop-Funk" ) <<
+            QLatin1String( "Pop/Funk" ) << QLatin1String( "Pop" ) << QLatin1String( "Porn Groove" ) << QLatin1String( "Power Ballad" ) <<
+            QLatin1String( "Pranks" ) << QLatin1String( "Primus" ) << QLatin1String( "Progressive Rock" ) << QLatin1String( "Psychedelic Rock" ) <<
+            QLatin1String( "Psychedelic" )<< QLatin1String( "Punk Rock" ) << QLatin1String( "Punk" ) << QLatin1String( "R&B" ) <<
+            QLatin1String( "Rap" ) << QLatin1String( "Rave" ) << QLatin1String( "Reggae" ) << QLatin1String( "Retro" ) <<
+            QLatin1String( "Revival" ) << QLatin1String( "Rhythmic Soul" ) << QLatin1String( "Rock & Roll" ) << QLatin1String( "Rock" ) <<
+            QLatin1String( "Salsa" ) << QLatin1String( "Samba" ) << QLatin1String( "Satire" ) << QLatin1String( "Showtunes" ) <<
+            QLatin1String( "Ska" ) << QLatin1String( "Slow Jam" ) << QLatin1String( "Slow Rock" ) << QLatin1String( "Sonata" ) <<
+            QLatin1String( "Soul" ) << QLatin1String( "Sound Clip" ) << QLatin1String( "Soundtrack" ) << QLatin1String( "Southern Rock" ) <<
+            QLatin1String( "Space" ) << QLatin1String( "Speech" ) << QLatin1String( "Swing" ) << QLatin1String( "Symphonic Rock" ) <<
+            QLatin1String( "Symphony" ) << QLatin1String( "Synthpop" ) << QLatin1String( "Tango" ) << QLatin1String( "Techno-Industrial" ) <<
+            QLatin1String( "Techno" ) << QLatin1String( "Terror" ) << QLatin1String( "Thrash Metal" ) << QLatin1String( "Top 40" ) <<
+            QLatin1String( "Trailer" ) << QLatin1String( "Trance" ) << QLatin1String( "Tribal" ) << QLatin1String( "Trip-Hop" ) <<
+            QLatin1String( "Vocal" );
     d->i18n << i18n("Unknown") << i18n("A Cappella") << i18n("Acid Jazz") <<
             i18n("Acid Punk") << i18n("Acid") << i18n("Acoustic") << i18n("Alternative") <<
             i18n("Alt. Rock") << i18n("Ambient") << i18n("Anime") << i18n("Avantgarde") <<

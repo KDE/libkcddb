@@ -16,9 +16,9 @@ KCDDB::Categories::Categories()
     //
     // http://www.freedb.org/modules.php?name=Sections&sop=viewarticle&artid=26
     //
-    m_cddb << "blues" << "classical" << "country" <<
-            "data" << "folk" << "jazz" << "misc" <<
-            "newage" << "reggae" << "rock" << "soundtrack";
+    m_cddb << QLatin1String( "blues" ) << QLatin1String( "classical" ) << QLatin1String( "country" ) <<
+        QLatin1String( "data" ) << QLatin1String( "folk" ) << QLatin1String( "jazz" ) << QLatin1String( "misc" ) <<
+        QLatin1String( "newage" ) << QLatin1String( "reggae" ) << QLatin1String( "rock" ) << QLatin1String( "soundtrack" );
     m_i18n << i18n("Blues") << i18n("Classical") << i18nc("music genre", "Country") <<
             i18n("Data") << i18n("Folk") << i18n("Jazz") << i18n("Miscellaneous") <<
             i18n("New Age") << i18n("Reggae") << i18n("Rock") << i18n("Soundtrack");
@@ -33,7 +33,7 @@ const QString KCDDB::Categories::cddb2i18n(const QString &category) const
     }
     else
     {
-        return cddb2i18n("misc");
+        return cddb2i18n(QLatin1String( "misc" ));
     }
 }
 
@@ -46,6 +46,6 @@ const QString KCDDB::Categories::i18n2cddb(const QString &category) const
     }
     else
     {
-        return "misc";
+        return QLatin1String( "misc" );
     }
 }
