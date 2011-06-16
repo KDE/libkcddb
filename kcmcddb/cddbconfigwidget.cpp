@@ -31,7 +31,7 @@
 #include <klocale.h>
 #include <kinputdialog.h>
 #include <kmessagebox.h>
-#include <keditlistbox.h>
+#include <keditlistwidget.h>
 #include <kurlrequester.h>
 #include <QCheckBox>
 
@@ -49,10 +49,19 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
   KUrlRequester* urlReq = new KUrlRequester(this);
   urlReq->setMode(KFile::Directory);
 
-  KEditListBox* editListBox = new KEditListBox(i18n("Cache Locations"), urlReq->customEditor(), cacheLocationsParent, "kcfg_cacheLocations");
+  QGroupBox* groupBox = new QGroupBox(cacheLocationsParent);
+  groupBox->setTitle(i18n("Cache Locations"));
+  QVBoxLayout* gbLayout = new QVBoxLayout(groupBox);
+  gbLayout->setMargin(0);
+
+  KEditListWidget* editListWidget = new KEditListWidget(groupBox);
+  editListWidget->setCustomEditor(urlReq->customEditor());
+  editListWidget->setObjectName(QString::fromLatin1("kcfg_cacheLocations"));
+  gbLayout->addWidget(editListWidget);
+
   QHBoxLayout *layout = new QHBoxLayout(cacheLocationsParent);
   layout->setMargin(0);
-  layout->addWidget(editListBox);
+  layout->addWidget(groupBox);
 
   connect(needsAuthenticationBox,SIGNAL(toggled(bool)),SLOT(needAuthenticationChanged(bool)));
   connect(kcfg_FreedbLookupTransport,SIGNAL(activated(int)),SLOT(protocolChanged()));
