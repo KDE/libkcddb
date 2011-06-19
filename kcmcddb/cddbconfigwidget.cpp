@@ -22,6 +22,8 @@
 
 #include "config-musicbrainz.h"
 
+#include <kdemacros.h> // KDE_NO_DEPRECATED
+
 #include "libkcddb/sites.h"
 #include "libkcddb/lookup.h"
 
