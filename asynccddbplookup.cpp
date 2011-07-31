@@ -50,9 +50,9 @@ namespace KCDDB
     connect (socket_, SIGNAL(error(QAbstractSocket::SocketError)), SLOT(slotGotError(QAbstractSocket::SocketError)));
 
     connect (socket_, SIGNAL(connected()),
-      SLOT( slotConnectionSuccess() ) );
+      SLOT(slotConnectionSuccess()) );
 
-    connect (socket_, SIGNAL( readyRead() ), SLOT( slotReadyRead() ) );
+    connect (socket_, SIGNAL(readyRead()), SLOT(slotReadyRead()) );
 
     trackOffsetList_ = trackOffsetList;
 

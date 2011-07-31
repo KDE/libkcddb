@@ -81,11 +81,11 @@ class CDInfoDialog::Private
 
       // ensure we get our translations
       KGlobal::locale()->insertCatalog( QLatin1String( "libkcddb" ));
-      connect( d->ui->m_trackList, SIGNAL( activated(const QModelIndex &) ), this, SLOT( slotTrackSelected(const QModelIndex &) ) );
-      connect( d->ui->m_trackList, SIGNAL( doubleClicked(const QModelIndex &) ), this, SLOT( slotTrackDoubleClicked(const QModelIndex &) ) );
-      connect( d->ui->m_artist, SIGNAL( textChanged(const QString&) ), this, SLOT( artistChanged(const QString&) ) );
-      connect( d->ui->m_genre, SIGNAL( textChanged(const QString&) ), this, SLOT( genreChanged(const QString&) ) );
-      connect( d->ui->m_multiple, SIGNAL( toggled(bool) ), this, SLOT( slotMultipleArtists(bool) ) );
+      connect( d->ui->m_trackList, SIGNAL(activated(QModelIndex)), this, SLOT(slotTrackSelected(QModelIndex)) );
+      connect( d->ui->m_trackList, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotTrackDoubleClicked(QModelIndex)) );
+      connect( d->ui->m_artist, SIGNAL(textChanged(QString)), this, SLOT(artistChanged(QString)) );
+      connect( d->ui->m_genre, SIGNAL(textChanged(QString)), this, SLOT(genreChanged(QString)) );
+      connect( d->ui->m_multiple, SIGNAL(toggled(bool)), this, SLOT(slotMultipleArtists(bool)) );
 
       connect(d->ui->m_changeEncoding,SIGNAL(clicked()),SLOT(slotChangeEncoding()));
   }

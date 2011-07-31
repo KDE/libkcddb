@@ -37,8 +37,8 @@ namespace KCDDB
 
     slotEncodingChanged(encodingCombo->currentText());
 
-    connect(encodingCombo,SIGNAL(activated(const QString&)),
-        this,SLOT(slotEncodingChanged(const QString&)));
+    connect(encodingCombo,SIGNAL(activated(QString)),
+        this,SLOT(slotEncodingChanged(QString)));
   }
 
   QString CDInfoEncodingWidget::selectedEncoding()

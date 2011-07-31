@@ -191,8 +191,8 @@ namespace KCDDB
       {
         AsyncMusicBrainzLookup* lookup = new AsyncMusicBrainzLookup();
 
-        connect( lookup, SIGNAL( finished( KCDDB::Result ) ),
-                 SLOT( slotFinished( KCDDB::Result ) ) );
+        connect( lookup, SIGNAL(finished(KCDDB::Result)),
+                 SLOT(slotFinished(KCDDB::Result)) );
         d->pendingLookups.append( lookup );
       }
 #endif
@@ -205,16 +205,16 @@ namespace KCDDB
         {
           AsyncCDDBPLookup* lookup = new AsyncCDDBPLookup();
 
-          connect( lookup, SIGNAL( finished( KCDDB::Result ) ),
-                   SLOT( slotFinished( KCDDB::Result ) ) );
+          connect( lookup, SIGNAL(finished(KCDDB::Result)),
+                   SLOT(slotFinished(KCDDB::Result)) );
           d->pendingLookups.append( lookup );
         }
         else
         {
           AsyncHTTPLookup* lookup = new AsyncHTTPLookup();
 
-          connect( lookup, SIGNAL( finished( KCDDB::Result ) ),
-                   SLOT( slotFinished( KCDDB::Result ) ) );
+          connect( lookup, SIGNAL(finished(KCDDB::Result)),
+                   SLOT(slotFinished(KCDDB::Result)) );
           d->pendingLookups.append( lookup );
         }
       }
@@ -297,8 +297,8 @@ namespace KCDDB
         {
           d->cdInfoSubmit = new AsyncHTTPSubmit(from, hostname, port);
           connect( static_cast<AsyncHTTPSubmit *>( d->cdInfoSubmit ),
-                  SIGNAL(finished( KCDDB::Result ) ),
-                  SLOT( slotSubmitFinished( KCDDB::Result ) ) );
+                  SIGNAL(finished(KCDDB::Result)),
+                  SLOT(slotSubmitFinished(KCDDB::Result)) );
         }
 
         break;
@@ -315,8 +315,8 @@ namespace KCDDB
         {
           d->cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
           connect( static_cast<AsyncSMTPSubmit *>( d->cdInfoSubmit ),
-                  SIGNAL( finished( KCDDB::Result ) ),
-                  SLOT( slotSubmitFinished( KCDDB::Result ) ) );
+                  SIGNAL(finished(KCDDB::Result)),
+                  SLOT(slotSubmitFinished(KCDDB::Result)) );
         }
         break;
       }

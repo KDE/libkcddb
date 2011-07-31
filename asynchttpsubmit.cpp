@@ -37,7 +37,7 @@ namespace KCDDB
 
   Result AsyncHTTPSubmit::runJob(KIO::Job* job)
   {
-    connect(job, SIGNAL(result(KJob *)), SLOT(slotFinished(KJob *)));
+    connect(job, SIGNAL(result(KJob*)), SLOT(slotFinished(KJob*)));
 
     return Success;
   }
