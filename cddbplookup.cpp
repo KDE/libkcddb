@@ -29,13 +29,15 @@ namespace KCDDB
 {
   CDDBPLookup::CDDBPLookup()
     : Lookup()
+    , socket_(0)
   {
 
   }
 
   CDDBPLookup::~CDDBPLookup()
   {
-    delete socket_;
+    if (socket_)
+      delete socket_;
   }
 
     void
