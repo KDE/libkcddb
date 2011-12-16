@@ -129,7 +129,7 @@
         <string>Comment:</string>
        </property>
        <property name="buddy">
-        <cstring>le_discInfo</cstring>
+        <cstring>m_comment</cstring>
        </property>
       </widget>
      </item>
@@ -245,10 +245,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
-   <container>1</container>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
   </customwidget>
   <customwidget>
    <class>KLineEdit</class>
@@ -257,9 +256,10 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
+   <class>KIntSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>knuminput.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <tabstops>
