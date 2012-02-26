@@ -25,6 +25,11 @@
 #include "../kcddb.h"
 #include "../kcddbconfig.h"
 
+namespace MusicBrainz4
+{
+  class CArtistCredit;
+}
+
 namespace KCDDB
 {
   class MusicBrainzLookup : public Lookup
@@ -44,6 +49,7 @@ namespace KCDDB
     private:
 
       static QString calculateDiscId(const TrackOffsetList & );
+      static QString artistFromCreditList(MusicBrainz4::CArtistCredit * );
   } ;
 }
 

@@ -46,7 +46,7 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
 {
   setupUi(this);
 
-#ifndef HAVE_MUSICBRAINZ3
+#ifndef HAVE_MUSICBRAINZ4
   kcfg_MusicBrainzLookupEnabled->hide();
 #endif
 

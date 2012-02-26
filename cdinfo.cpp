@@ -443,13 +443,30 @@ namespace KCDDB
     else
       s += d->createLine(QLatin1String( "DGENRE" ),get(Genre).toString());
 
+    bool isSampler = false;
+    for (int i = 0; i < d->trackInfoList.count(); ++i){
+      QString trackArtist = d->trackInfoList[i].get(Artist).toString();
+      if (!trackArtist.isEmpty() && trackArtist != artist)
+      {
+        isSampler = true;
+        break;
+      }
+    }
+
     for (int i = 0; i < d->trackInfoList.count(); ++i){
       QString trackTitle = d->trackInfoList[i].get(Title).toString();
       QString trackArtist = d->trackInfoList[i].get(Artist).toString();
-      if(trackArtist != artist && !trackArtist.isEmpty())
+      if (isSampler)
+      {
+        if (trackArtist.isEmpty())
+          s += d->createLine(QString::fromLatin1("TTITLE%1").arg(i), QString::fromLatin1("%1 / %2").arg(artist).arg(trackTitle));
+        else
           s += d->createLine(QString::fromLatin1("TTITLE%1").arg(i), QString::fromLatin1("%1 / %2").arg(trackArtist).arg(trackTitle));
+      }
       else
+      {
           s += d->createLine(QString::fromLatin1("TTITLE%1").arg(i), trackTitle);
+      }
     }
 
     s += d->createLine(QLatin1String("EXTD"), get(Comment).toString());

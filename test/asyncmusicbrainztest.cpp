@@ -28,7 +28,7 @@ void AsyncMusicBrainzTest::testLookup()
 {
   using namespace KCDDB;
 
-#ifndef HAVE_MUSICBRAINZ3
+#ifndef HAVE_MUSICBRAINZ4
   QSKIP("This test requires libmusicbrainz", SkipAll);
 #endif
 
@@ -78,14 +78,14 @@ void AsyncMusicBrainzTest::testLookup()
   QCOMPARE(m_info.get(Genre).toString(),QString());
   QCOMPARE(m_info.get(Year).toInt(),0);
   QCOMPARE(m_info.track(0).get(Title).toString(),QString::fromUtf8("Uphill Struggle"));
-  QCOMPARE(m_info.track(1).get(Title).toString(),QString::fromUtf8("Vill du bli miljonär?"));
+  QCOMPARE(m_info.track(1).get(Title).toString(),QString::fromUtf8("Vill du bli miljonär"));
   QCOMPARE(m_info.track(2).get(Title).toString(),QString::fromUtf8("Här är jag"));
   QCOMPARE(m_info.track(3).get(Title).toString(),QString::fromUtf8("Århundradets fest"));
   QCOMPARE(m_info.track(4).get(Title).toString(),QString::fromUtf8("Vem valde mittemellan"));
   QCOMPARE(m_info.track(5).get(Title).toString(),QString::fromUtf8("Hippieambulansen"));
   QCOMPARE(m_info.track(6).get(Title).toString(),QString::fromUtf8("Jonsson"));
   QCOMPARE(m_info.track(7).get(Title).toString(),QString::fromUtf8("Jag lämnar filmen"));
-  QCOMPARE(m_info.track(8).get(Title).toString(),QString::fromUtf8("39 Steg"));
+  QCOMPARE(m_info.track(8).get(Title).toString(),QString::fromUtf8("39 steg"));
   QCOMPARE(m_info.track(9).get(Title).toString(),QString::fromUtf8("Lyckliga land"));
   QCOMPARE(m_info.track(10).get(Title).toString(),QString::fromUtf8("Helpless"));
   QCOMPARE(m_info.track(11).get(Title).toString(),QString::fromUtf8("Tunna skivor"));

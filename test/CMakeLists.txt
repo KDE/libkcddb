@@ -27,6 +27,7 @@ KCDDB_UNIT_TESTS(
     asyncmusicbrainztest
     cdinfotest
     cachetest
+    musicbrainztest-severaldiscs
 )
 
 KCDDB_EXECUTABLE_TESTS(

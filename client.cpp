@@ -33,7 +33,7 @@
 #include "lookup.h"
 
 #include "config-musicbrainz.h"
-#ifdef HAVE_MUSICBRAINZ3
+#ifdef HAVE_MUSICBRAINZ4
 #include "musicbrainz/musicbrainzlookup.h"
 #include "musicbrainz/asyncmusicbrainzlookup.h"
 #endif
@@ -138,7 +138,7 @@ namespace KCDDB
 
     if ( blockingMode() )
     {
-#ifdef HAVE_MUSICBRAINZ3
+#ifdef HAVE_MUSICBRAINZ4
       if ( d->config.musicBrainzLookupEnabled() )
       {
         d->cdInfoLookup = new MusicBrainzLookup();
@@ -186,7 +186,7 @@ namespace KCDDB
     }
     else
     {
-#ifdef HAVE_MUSICBRAINZ3
+#ifdef HAVE_MUSICBRAINZ4
       if ( d->config.musicBrainzLookupEnabled() )
       {
         AsyncMusicBrainzLookup* lookup = new AsyncMusicBrainzLookup();

@@ -51,8 +51,8 @@ namespace KCDDB
     header += QLatin1String( "Category: " ) + cdInfo.get(Category).toString() + QLatin1Char( '\n' );
     header += QLatin1String( "Discid: " ) + cdInfo.get(QLatin1String( "discid" )).toString() + QLatin1Char( '\n' );
     header += QLatin1String( "User-Email: " ) + from_ + QLatin1Char( '\n' );
-    // Change to sumbit
-    header += QLatin1String( "Submit-Mode: test\n" );
+    //header += QLatin1String( "Submit-Mode: test\n" );
+    header += QLatin1String( "Submit-Mode: submit\n" );
     header += QLatin1String( "Charset: UTF-8" );
 
     job->addMetaData(QLatin1String( "customHTTPHeader" ), header);

@@ -22,13 +22,21 @@
 
 #include <kdebug.h>
 #include <kcodecs.h>
+#include <klocale.h>
 #include <qcryptographichash.h>
 #include <cstdio>
 #include <cstring>
-#include <musicbrainz3/musicbrainz.h>
-#include <musicbrainz3/query.h>
-#include <musicbrainz3/release.h>
-#include <musicbrainz3/filters.h>
+#include <musicbrainz4/Query.h>
+#include "musicbrainz4/Medium.h"
+#include "musicbrainz4/Release.h"
+#include "musicbrainz4/ReleaseGroup.h"
+#include "musicbrainz4/Track.h"
+#include "musicbrainz4/Recording.h"
+#include "musicbrainz4/Disc.h"
+#include "musicbrainz4/HTTPFetch.h"
+#include "musicbrainz4/ArtistCredit.h"
+#include "musicbrainz4/Artist.h"
+#include "musicbrainz4/NameCredit.h"
 
 namespace KCDDB
 {
@@ -48,60 +56,166 @@ namespace KCDDB
 
     kDebug() << "Should lookup " << discId;
 
-    MusicBrainz::Query q;
-    MusicBrainz::ReleaseResultList results;
+    MusicBrainz4::CQuery Query("libkcddb-0.5");
+
+    // Code adapted from libmusicbrainz/examples/cdlookup.cc
 
     try {
-        MusicBrainz::ReleaseFilter f = MusicBrainz::ReleaseFilter().discId(std::string(discId.toAscii()));
-        results = q.getReleases(&f);
+      MusicBrainz4::CMetadata Metadata=Query.Query("discid",discId.toAscii().constData());
+
+      if (Metadata.Disc() && Metadata.Disc()->ReleaseList())
+      {
+        MusicBrainz4::CReleaseList *ReleaseList=Metadata.Disc()->ReleaseList();
+        kDebug() << "Found " << ReleaseList->NumItems() << " release(s)";
+
+        int relnr=1;
+
+        for (int i = 0; i < ReleaseList->NumItems(); i++)
+        {
+          MusicBrainz4::CRelease* Release=ReleaseList->Item(i);
+
+          //The releases returned from LookupDiscID don't contain full information
+
+          MusicBrainz4::CQuery::tParamMap Params;
+          Params["inc"]="artists labels recordings release-groups url-rels discids artist-credits";
+
+          std::string ReleaseID=Release->ID();
+
+          MusicBrainz4::CMetadata Metadata2=Query.Query("release",ReleaseID,"",Params);
+          if (Metadata2.Release())
+          {
+            MusicBrainz4::CRelease *FullRelease=Metadata2.Release();
+
+            //However, these releases will include information for all media in the release
+            //So we need to filter out the only the media we want.
+
+            MusicBrainz4::CMediumList MediaList=FullRelease->MediaMatchingDiscID(discId.toAscii().constData());
+
+            if (MediaList.NumItems() > 0)
+            {
+              /*if (FullRelease->ReleaseGroup())
+                kDebug() << "Release group title: " << FullRelease->ReleaseGroup()->Title();
+              else
+                kDebug() << "No release group for this release";*/
+
+              kDebug() << "Found " << MediaList.NumItems() << " media item(s)";
+
+              for (int i=0; i < MediaList.NumItems(); i++)
+              {
+                MusicBrainz4::CMedium* Medium= MediaList.Item(i);
+
+                /*kDebug() << "Found media: '" << Medium.Title() << "', position " << Medium.Position();*/
+
+                CDInfo info;
+                info.set(QLatin1String( "source" ), QLatin1String( "musicbrainz" ));
+                // Uses musicbrainz discid for the first release,
+                // then discid-2, discid-3 and so on, to
+                // allow multiple releases with the same discid
+                if (relnr == 1)
+                  info.set(QLatin1String( "discid" ), discId);
+                else
+                  info.set(QLatin1String( "discid" ), discId+QLatin1String( "-" )+QString::number(relnr));
+
+                QString title = QString::fromUtf8(FullRelease->Title().c_str());
+
+                if (FullRelease->MediumList()->NumItems() > 1)
+                  title = i18n("%1 (disc %2)", title, Medium->Position());
+
+                info.set(Title, title);
+                info.set(Artist, artistFromCreditList(FullRelease->ArtistCredit()));
+
+                MusicBrainz4::CTrackList *TrackList=Medium->TrackList();
+                if (TrackList)
+                {
+                  for (int i=0; i < TrackList->NumItems(); i++)
+                  {
+                    MusicBrainz4::CTrack* Track=TrackList->Item(i);
+                    MusicBrainz4::CRecording *Recording=Track->Recording();
+
+                    /*if (Recording)
+                      kDebug() << "Track: " << Track.Position() << " - '" << Recording->Title() << "'";
+                    else
+                      kDebug() << "Track: " << Track.Position() << " - '" << Track.Title() << "'";*/
+                    TrackInfo& track = info.track(i);
+                    if (Recording)
+                    {
+                      track.set(Artist, artistFromCreditList(Recording->ArtistCredit()));
+                      track.set(Title, QString::fromUtf8(Recording->Title().c_str()));
+                    }
+                    else
+                    {
+                      track.set(Artist, artistFromCreditList(Track->ArtistCredit()));
+                      track.set(Title, QString::fromUtf8(Track->Title().c_str()));
+                    }
+                  }
+                }
+                cdInfoList_ << info;
+                relnr++;
+              }
+            }
+          }
+        }
+      }
     }
-		// FIXME Doesn't seem to get caught, why?
-    // catch (MusicBrainz::WebServiceError &e)
-    catch (...)
+
+    catch (MusicBrainz4::CConnectionError& Error)
     {
-        kDebug() << "Query failed"; //<< e.what();
-        return UnknownError;
+      kDebug() << "Connection Exception: '" << Error.what() << "'";
+      kDebug() << "LastResult: " << Query.LastResult();
+      kDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
+      kDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
+
+      return ServerError;
     }
 
-    int relnr=1;
-    for (MusicBrainz::ReleaseResultList::iterator i = results.begin(); i != results.end(); i++) {
-        MusicBrainz::ReleaseResult *result = *i;
-        MusicBrainz::Release *release;
-        try {
-            release = q.getReleaseById(result->getRelease()->getId(), &MusicBrainz::ReleaseIncludes().tracks().artist());
-        }
-        catch (MusicBrainz::WebServiceError &e) {
-            kDebug() << "Error: " << e.what();
-            continue;
-        }
-        CDInfo info;
-        info.set(QLatin1String( "source" ), QLatin1String( "musicbrainz" ));
-        // Uses musicbrainz discid for the first release,
-        // then discid-2, discid-3 and so on, to
-        // allow multiple releases with the same discid
-        if (relnr == 1)
-          info.set(QLatin1String( "discid" ), discId);
-        else
-          info.set(QLatin1String( "discid" ), discId+QLatin1String( "-" )+QString::number(relnr));
+    catch (MusicBrainz4::CTimeoutError& Error)
+    {
+      kDebug() << "Timeout Exception: '" << Error.what() << "'";
+      kDebug() << "LastResult: " << Query.LastResult();
+      kDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
+      kDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
 
-        info.set(Title, QString::fromUtf8(release->getTitle().c_str()));
-        info.set(Artist, QString::fromUtf8(release->getArtist()->getName().c_str()));
+      return ServerError;
+    }
 
-        int trackno = 0;
-        for (MusicBrainz::TrackList::iterator j = release->getTracks().begin(); j != release->getTracks().end(); j++) {
-            MusicBrainz::Track *mb_track = *j;
-            MusicBrainz::Artist *artist = mb_track->getArtist();
-            if (!artist)
-              artist = release->getArtist();
-            TrackInfo& track = info.track(trackno);
-            track.set(Artist, QString::fromUtf8(artist->getName().c_str()));
-            track.set(Title, QString::fromUtf8(mb_track->getTitle().c_str()));
-            trackno++;
-        }
-        delete result;
+    catch (MusicBrainz4::CAuthenticationError& Error)
+    {
+      kDebug() << "Authentication Exception: '" << Error.what() << "'";
+      kDebug() << "LastResult: " << Query.LastResult();
+      kDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
+      kDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
 
-        cdInfoList_ << info;
-        relnr++;
+      return ServerError;
+    }
+
+    catch (MusicBrainz4::CFetchError& Error)
+    {
+      kDebug() << "Fetch Exception: '" << Error.what() << "'";
+      kDebug() << "LastResult: " << Query.LastResult();
+      kDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
+      kDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
+
+      return ServerError;
+    }
+
+    catch (MusicBrainz4::CRequestError& Error)
+    {
+      kDebug() << "Request Exception: '" << Error.what() << "'";
+      kDebug() << "LastResult: " << Query.LastResult();
+      kDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
+      kDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
+
+      return ServerError;
+    }
+
+    catch (MusicBrainz4::CResourceNotFoundError& Error)
+    {
+      kDebug() << "ResourceNotFound Exception: '" << Error.what() << "'";
+      kDebug() << "LastResult: " << Query.LastResult();
+      kDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
+      kDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
+
+      return ServerError;
     }
 
     if (cdInfoList_.isEmpty())
@@ -195,6 +309,35 @@ namespace KCDDB
     }
 
     return infoList;
+  }
+
+  QString MusicBrainzLookup::artistFromCreditList(MusicBrainz4::CArtistCredit * artistCredit )
+  {
+    kDebug() << k_funcinfo;
+    QString artistName;
+
+    MusicBrainz4::CNameCreditList *ArtistList=artistCredit->NameCreditList();
+
+    if (ArtistList)
+    {
+      for (int i=0; i < ArtistList->NumItems(); i++)
+      {
+        MusicBrainz4::CNameCredit* Name=ArtistList->Item(i);
+        MusicBrainz4::CArtist* Artist = Name->Artist();
+
+        if (!Name->Name().empty())
+          artistName += QString::fromUtf8(Name->Name().c_str());
+        else
+          artistName += QString::fromUtf8(Artist->Name().c_str());
+
+        artistName += QString::fromUtf8(Name->JoinPhrase().c_str());
+      }
+
+      kDebug() << "Artist:" << artistName;
+
+    }
+
+    return artistName;
   }
 }
 
