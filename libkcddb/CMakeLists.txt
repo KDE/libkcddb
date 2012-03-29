@@ -1,4 +1,6 @@
 
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+
 ########### next target ###############
 
 set(kcddb_LIB_SRCS ${libmusicbrainz_SRCS}
