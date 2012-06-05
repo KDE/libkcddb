@@ -29,6 +29,7 @@ KCDDB_UNIT_TESTS(
     cdinfotest
     cachetest
     musicbrainztest-severaldiscs
+    musicbrainztest-fulldate
 )
 
 KCDDB_EXECUTABLE_TESTS(

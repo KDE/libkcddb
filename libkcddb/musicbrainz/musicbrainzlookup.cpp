@@ -124,6 +124,19 @@ namespace KCDDB
                 info.set(Title, title);
                 info.set(Artist, artistFromCreditList(FullRelease->ArtistCredit()));
 
+                QString date = QString::fromUtf8(FullRelease->Date().c_str());
+                QRegExp yearRe("^(\\d{4,4})(-\\d{1,2}-\\d{1,2})?$");
+                int year = 0;
+                if (yearRe.indexIn(date) > -1)
+                {
+                  QString yearString = yearRe.cap(1);
+                  bool ok;
+                  year=yearString.toInt(&ok);
+                  if (!ok)
+                    year = 0;
+                }
+                info.set(Year, year);
+
                 MusicBrainz5::CTrackList *TrackList=Medium->TrackList();
                 if (TrackList)
                 {
@@ -132,21 +145,23 @@ namespace KCDDB
                     MusicBrainz5::CTrack* Track=TrackList->Item(i);
                     MusicBrainz5::CRecording *Recording=Track->Recording();
 
-                    /*if (Recording)
-                      kDebug() << "Track: " << Track.Position() << " - '" << Recording->Title() << "'";
-                    else
-                      kDebug() << "Track: " << Track.Position() << " - '" << Track.Title() << "'";*/
                     TrackInfo& track = info.track(i);
-                    if (Recording)
-                    {
+
+                    // Prefer title and artist from the track credits, but
+                    // it appears to be empty if same as in Recording
+                    // Noticable in the musicbrainztest-fulldate test,
+                    // where the title on the credits of track 18 are
+                    // "Bara om min älskade väntar", but the recording
+                    // has title "Men bara om min älskade"
+                    if(Recording && Track->ArtistCredit() == 0)
                       track.set(Artist, artistFromCreditList(Recording->ArtistCredit()));
-                      track.set(Title, QString::fromUtf8(Recording->Title().c_str()));
-                    }
                     else
-                    {
                       track.set(Artist, artistFromCreditList(Track->ArtistCredit()));
+
+                    if(Recording && Track->Title().empty())
+                      track.set(Title, QString::fromUtf8(Recording->Title().c_str()));
+                    else
                       track.set(Title, QString::fromUtf8(Track->Title().c_str()));
-                    }
                   }
                 }
                 cdInfoList_ << info;

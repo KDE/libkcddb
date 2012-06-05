@@ -76,15 +76,15 @@ void MusicBrainzTestSeveralDiscs::testLookup()
 
   QVERIFY(response.count() > 0);
 
-  // See http://musicbrainz.org/tracklist/165651 for changes
+  // See http://musicbrainz.org/release/4e0655b5-22fc-496e-9c14-2ee1a6027b45 for changes (disc 2)
   CDInfo i(response.first());
   QCOMPARE(i.numberOfTracks(),20);
 
   QCOMPARE(i.get(Artist).toString(),QString("Billy Bragg"));
   QCOMPARE(i.get(Title).toString(),QString("Must I Paint You a Picture? The Essential Billy Bragg (disc 2)"));
-  // genre and year not really supported for musicbrainz
+  // genre not really supported for musicbrainz
   QCOMPARE(i.get(Genre).toString(),QString());
-  QCOMPARE(i.get(Year).toInt(),0);
+  QCOMPARE(i.get(Year).toInt(),2003);
   QCOMPARE(i.track(0).get(Title).toString(),QString("Sexuality"));
   QCOMPARE(i.track(1).get(Title).toString(),QString("Cindy of 1000 Lives"));
   QCOMPARE(i.track(2).get(Title).toString(),QString("Moving the Goalposts"));
@@ -103,14 +103,14 @@ void MusicBrainzTestSeveralDiscs::testLookup()
   QCOMPARE(i.track(15).get(Title).toString(),QString("All You Fascists Bound to Lose (Blokes version)"));
   QCOMPARE(i.track(16).get(Title).toString(),QString("NPWA"));
   QCOMPARE(i.track(17).get(Title).toString(),QString("St. Monday"));
-  QCOMPARE(i.track(18).get(Title).toString(),QString("Some Days I See the Point"));
+  QCOMPARE(i.track(18).get(Title).toString(),QString("Somedays I See the Point"));
   QCOMPARE(i.track(19).get(Title).toString(),QString("Take Down the Union Jack (Band version)"));
   for (int j=0; j < 12; j++)
-    QCOMPARE(i.track(0).get(Artist).toString(),QString("Billy Bragg"));
+    QCOMPARE(i.track(j).get(Artist).toString(),QString("Billy Bragg"));
   for (int j=12; j < 15; j++)
-    QCOMPARE(i.track(0).get(Artist).toString(),QString("Billy Bragg"));
+    QCOMPARE(i.track(j).get(Artist).toString(),QString("Billy Bragg & Wilco"));
   for (int j=15; j < 20; j++)
-    QCOMPARE(i.track(0).get(Artist).toString(),QString("Billy Bragg"));
+    QCOMPARE(i.track(j).get(Artist).toString(),QString("Billy Bragg and The Blokes"));
   // comments not supported in a simple way
   for (int j=0; j < 19; j++)
     QCOMPARE(i.track(j).get(Comment).toString(),QString());

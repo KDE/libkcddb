@@ -71,15 +71,15 @@ void MusicBrainzTest::testLookup()
 
   QVERIFY(response.count() > 0);
 
-  // See http://musicbrainz.org/showalbum.html?albumid=375639 for changes
+  // See http://musicbrainz.org/release/68ec4a09-576c-472e-9103-aed99b6a3ffc for changes
   CDInfo i(response.first());
   QCOMPARE(i.numberOfTracks(),14);
 
   QCOMPARE(i.get(Artist).toString(),QString("The Liptones"));
   QCOMPARE(i.get(Title).toString(),QString("The Latest News"));
-  // genre and year not really supported for musicbrainz
+  // genre not really supported for musicbrainz
   QCOMPARE(i.get(Genre).toString(),QString());
-  QCOMPARE(i.get(Year).toInt(),0);
+  QCOMPARE(i.get(Year).toInt(),2002);
   QCOMPARE(i.track(0).get(Title).toString(),QString("Jungle Heat"));
   QCOMPARE(i.track(1).get(Title).toString(),QString("It's All I Hear You Say"));
   QCOMPARE(i.track(2).get(Title).toString(),QString("Girl for Tonight"));
