@@ -29,7 +29,7 @@ void MusicBrainzTest::testLookup()
 {
   using namespace KCDDB;
 
-#ifndef HAVE_MUSICBRAINZ4
+#ifndef HAVE_MUSICBRAINZ5
   QSKIP("This test requires libmusicbrainz", SkipAll);
 #endif
 

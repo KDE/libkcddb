@@ -38,9 +38,9 @@ kde4_add_kcfg_files(kcddb_LIB_SRCS configbase.kcfgc )
 kde4_add_library(kcddb SHARED ${kcddb_LIB_SRCS})
 
 target_link_libraries(kcddb ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS})
-if(MUSICBRAINZ4_FOUND)
-    target_link_libraries(kcddb ${MUSICBRAINZ4_LIBRARIES})
-endif(MUSICBRAINZ4_FOUND)
+if(MUSICBRAINZ5_FOUND)
+    target_link_libraries(kcddb ${MUSICBRAINZ5_LIBRARIES})
+endif(MUSICBRAINZ5_FOUND)
 
 set_target_properties(kcddb PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 install(TARGETS kcddb EXPORT LibkcddbTargets ${INSTALL_TARGETS_DEFAULT_ARGS} )

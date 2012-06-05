@@ -26,17 +26,17 @@
 #include <qcryptographichash.h>
 #include <cstdio>
 #include <cstring>
-#include <musicbrainz4/Query.h>
-#include "musicbrainz4/Medium.h"
-#include "musicbrainz4/Release.h"
-#include "musicbrainz4/ReleaseGroup.h"
-#include "musicbrainz4/Track.h"
-#include "musicbrainz4/Recording.h"
-#include "musicbrainz4/Disc.h"
-#include "musicbrainz4/HTTPFetch.h"
-#include "musicbrainz4/ArtistCredit.h"
-#include "musicbrainz4/Artist.h"
-#include "musicbrainz4/NameCredit.h"
+#include <musicbrainz5/Query.h>
+#include "musicbrainz5/Medium.h"
+#include "musicbrainz5/Release.h"
+#include "musicbrainz5/ReleaseGroup.h"
+#include "musicbrainz5/Track.h"
+#include "musicbrainz5/Recording.h"
+#include "musicbrainz5/Disc.h"
+#include "musicbrainz5/HTTPFetch.h"
+#include "musicbrainz5/ArtistCredit.h"
+#include "musicbrainz5/Artist.h"
+#include "musicbrainz5/NameCredit.h"
 
 namespace KCDDB
 {
@@ -56,40 +56,40 @@ namespace KCDDB
 
     kDebug() << "Should lookup " << discId;
 
-    MusicBrainz4::CQuery Query("libkcddb-0.5");
+    MusicBrainz5::CQuery Query("libkcddb-0.5");
 
     // Code adapted from libmusicbrainz/examples/cdlookup.cc
 
     try {
-      MusicBrainz4::CMetadata Metadata=Query.Query("discid",discId.toAscii().constData());
+      MusicBrainz5::CMetadata Metadata=Query.Query("discid",discId.toAscii().constData());
 
       if (Metadata.Disc() && Metadata.Disc()->ReleaseList())
       {
-        MusicBrainz4::CReleaseList *ReleaseList=Metadata.Disc()->ReleaseList();
+        MusicBrainz5::CReleaseList *ReleaseList=Metadata.Disc()->ReleaseList();
         kDebug() << "Found " << ReleaseList->NumItems() << " release(s)";
 
         int relnr=1;
 
         for (int i = 0; i < ReleaseList->NumItems(); i++)
         {
-          MusicBrainz4::CRelease* Release=ReleaseList->Item(i);
+          MusicBrainz5::CRelease* Release=ReleaseList->Item(i);
 
           //The releases returned from LookupDiscID don't contain full information
 
-          MusicBrainz4::CQuery::tParamMap Params;
+          MusicBrainz5::CQuery::tParamMap Params;
           Params["inc"]="artists labels recordings release-groups url-rels discids artist-credits";
 
           std::string ReleaseID=Release->ID();
 
-          MusicBrainz4::CMetadata Metadata2=Query.Query("release",ReleaseID,"",Params);
+          MusicBrainz5::CMetadata Metadata2=Query.Query("release",ReleaseID,"",Params);
           if (Metadata2.Release())
           {
-            MusicBrainz4::CRelease *FullRelease=Metadata2.Release();
+            MusicBrainz5::CRelease *FullRelease=Metadata2.Release();
 
             //However, these releases will include information for all media in the release
             //So we need to filter out the only the media we want.
 
-            MusicBrainz4::CMediumList MediaList=FullRelease->MediaMatchingDiscID(discId.toAscii().constData());
+            MusicBrainz5::CMediumList MediaList=FullRelease->MediaMatchingDiscID(discId.toAscii().constData());
 
             if (MediaList.NumItems() > 0)
             {
@@ -102,7 +102,7 @@ namespace KCDDB
 
               for (int i=0; i < MediaList.NumItems(); i++)
               {
-                MusicBrainz4::CMedium* Medium= MediaList.Item(i);
+                MusicBrainz5::CMedium* Medium= MediaList.Item(i);
 
                 /*kDebug() << "Found media: '" << Medium.Title() << "', position " << Medium.Position();*/
 
@@ -124,13 +124,13 @@ namespace KCDDB
                 info.set(Title, title);
                 info.set(Artist, artistFromCreditList(FullRelease->ArtistCredit()));
 
-                MusicBrainz4::CTrackList *TrackList=Medium->TrackList();
+                MusicBrainz5::CTrackList *TrackList=Medium->TrackList();
                 if (TrackList)
                 {
                   for (int i=0; i < TrackList->NumItems(); i++)
                   {
-                    MusicBrainz4::CTrack* Track=TrackList->Item(i);
-                    MusicBrainz4::CRecording *Recording=Track->Recording();
+                    MusicBrainz5::CTrack* Track=TrackList->Item(i);
+                    MusicBrainz5::CRecording *Recording=Track->Recording();
 
                     /*if (Recording)
                       kDebug() << "Track: " << Track.Position() << " - '" << Recording->Title() << "'";
@@ -158,7 +158,7 @@ namespace KCDDB
       }
     }
 
-    catch (MusicBrainz4::CConnectionError& Error)
+    catch (MusicBrainz5::CConnectionError& Error)
     {
       kDebug() << "Connection Exception: '" << Error.what() << "'";
       kDebug() << "LastResult: " << Query.LastResult();
@@ -168,7 +168,7 @@ namespace KCDDB
       return ServerError;
     }
 
-    catch (MusicBrainz4::CTimeoutError& Error)
+    catch (MusicBrainz5::CTimeoutError& Error)
     {
       kDebug() << "Timeout Exception: '" << Error.what() << "'";
       kDebug() << "LastResult: " << Query.LastResult();
@@ -178,7 +178,7 @@ namespace KCDDB
       return ServerError;
     }
 
-    catch (MusicBrainz4::CAuthenticationError& Error)
+    catch (MusicBrainz5::CAuthenticationError& Error)
     {
       kDebug() << "Authentication Exception: '" << Error.what() << "'";
       kDebug() << "LastResult: " << Query.LastResult();
@@ -188,7 +188,7 @@ namespace KCDDB
       return ServerError;
     }
 
-    catch (MusicBrainz4::CFetchError& Error)
+    catch (MusicBrainz5::CFetchError& Error)
     {
       kDebug() << "Fetch Exception: '" << Error.what() << "'";
       kDebug() << "LastResult: " << Query.LastResult();
@@ -198,7 +198,7 @@ namespace KCDDB
       return ServerError;
     }
 
-    catch (MusicBrainz4::CRequestError& Error)
+    catch (MusicBrainz5::CRequestError& Error)
     {
       kDebug() << "Request Exception: '" << Error.what() << "'";
       kDebug() << "LastResult: " << Query.LastResult();
@@ -208,7 +208,7 @@ namespace KCDDB
       return ServerError;
     }
 
-    catch (MusicBrainz4::CResourceNotFoundError& Error)
+    catch (MusicBrainz5::CResourceNotFoundError& Error)
     {
       kDebug() << "ResourceNotFound Exception: '" << Error.what() << "'";
       kDebug() << "LastResult: " << Query.LastResult();
@@ -311,19 +311,19 @@ namespace KCDDB
     return infoList;
   }
 
-  QString MusicBrainzLookup::artistFromCreditList(MusicBrainz4::CArtistCredit * artistCredit )
+  QString MusicBrainzLookup::artistFromCreditList(MusicBrainz5::CArtistCredit * artistCredit )
   {
     kDebug() << k_funcinfo;
     QString artistName;
 
-    MusicBrainz4::CNameCreditList *ArtistList=artistCredit->NameCreditList();
+    MusicBrainz5::CNameCreditList *ArtistList=artistCredit->NameCreditList();
 
     if (ArtistList)
     {
       for (int i=0; i < ArtistList->NumItems(); i++)
       {
-        MusicBrainz4::CNameCredit* Name=ArtistList->Item(i);
-        MusicBrainz4::CArtist* Artist = Name->Artist();
+        MusicBrainz5::CNameCredit* Name=ArtistList->Item(i);
+        MusicBrainz5::CArtist* Artist = Name->Artist();
 
         if (!Name->Name().empty())
           artistName += QString::fromUtf8(Name->Name().c_str());
