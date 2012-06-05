@@ -27,16 +27,16 @@
 #include <cstdio>
 #include <cstring>
 #include <musicbrainz5/Query.h>
-#include "musicbrainz5/Medium.h"
-#include "musicbrainz5/Release.h"
-#include "musicbrainz5/ReleaseGroup.h"
-#include "musicbrainz5/Track.h"
-#include "musicbrainz5/Recording.h"
-#include "musicbrainz5/Disc.h"
-#include "musicbrainz5/HTTPFetch.h"
-#include "musicbrainz5/ArtistCredit.h"
-#include "musicbrainz5/Artist.h"
-#include "musicbrainz5/NameCredit.h"
+#include <musicbrainz5/Medium.h>
+#include <musicbrainz5/Release.h>
+#include <musicbrainz5/ReleaseGroup.h>
+#include <musicbrainz5/Track.h>
+#include <musicbrainz5/Recording.h>
+#include <musicbrainz5/Disc.h>
+#include <musicbrainz5/HTTPFetch.h>
+#include <musicbrainz5/ArtistCredit.h>
+#include <musicbrainz5/Artist.h>
+#include <musicbrainz5/NameCredit.h>
 
 namespace KCDDB
 {
