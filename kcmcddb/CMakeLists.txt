@@ -1,6 +1,7 @@
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../libkcddb ${CMAKE_CURRENT_BINARY_DIR}/../libkcddb  )
 
+add_subdirectory ( doc )
 
 ########### next target ###############
 
