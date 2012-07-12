@@ -110,7 +110,7 @@ Comment[x-test]=xxConfigure the CDDB Retrievalxx
 Comment[zh_CN]=配置 CDDB 获取
 Comment[zh_TW]=CDDB 取得資訊設定
 
-Keywords=cddb
+Keywords=cddb;
 Keywords[ca]=cddb
 Keywords[cs]=cddb
 Keywords[da]=cddb
