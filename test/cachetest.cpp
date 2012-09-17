@@ -23,6 +23,7 @@
 #include <qtest_kde.h>
 #include "libkcddb/cdinfo.h"
 #include "libkcddb/client.h"
+#include "config-musicbrainz.h"
 
 using namespace KCDDB;
 
@@ -116,6 +117,7 @@ void CacheTest::testUser()
 
 void CacheTest::testMusicbrainz()
 {
+#ifdef HAVE_MUSICBRAINZ5
   CDInfo testInfo = m_info;
   testInfo.set("source", "musicbrainz");
   testInfo.set("discid", "wdABQ7s86gS7eVmS74CCQ6KwPUI-");
@@ -124,6 +126,7 @@ void CacheTest::testMusicbrainz()
 
   QFile::remove(QDir::homePath()+"/.cddbTest/musicbrainz/wdABQ7s86gS7eVmS74CCQ6KwPUI-");
   QDir().rmdir(QDir::homePath()+"/.cddbTest/musicbrainz/");
+#endif
 }
 
 QTEST_KDEMAIN(CacheTest, NoGUI)
