@@ -6,7 +6,7 @@
   <!ENTITY % addindex "IGNORE">
 ]>
 
-<article lang="&language;">
+<article id="kcmcddb" lang="&language;">
 
 <articleinfo>
 <title>CDDB Retrieval</title>
