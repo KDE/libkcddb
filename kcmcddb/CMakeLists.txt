@@ -23,6 +23,5 @@ install(TARGETS kcm_cddb  DESTINATION ${PLUGIN_INSTALL_DIR} )
 ########### install files ###############
 
 install( FILES libkcddb.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
-install( FILES kcmcddb-emailsettings.upd  DESTINATION  ${KCONF_UPDATE_INSTALL_DIR} )
 
 
