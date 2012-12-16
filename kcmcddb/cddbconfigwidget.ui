@@ -194,7 +194,6 @@
            <layout class="QHBoxLayout" name="horizontalLayout">
             <item>
              <widget class="KLineEdit" name="kcfg_httpSubmitServer">
-              <zorder>textLabel3_2</zorder>
              </widget>
             </item>
             <item>
