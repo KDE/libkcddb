@@ -11,6 +11,7 @@ X-DocPath=kcontrol/cddbretrieval/index.html
 
 Name=CDDB Retrieval
 Name[bg]=Изтегляне на данни от CDDB
+Name[bs]=Dobavljanje iz CDDB‑a
 Name[ca]=Recuperació CDDB
 Name[cs]=Získání CDDB
 Name[da]=CDDB-hentning
@@ -52,6 +53,7 @@ Name[zh_TW]=CDDB 取得資訊
 
 GenericName=CDDB Configuration
 GenericName[bg]=Настройки на CDDB
+GenericName[bs]=Konfiguracija CDDB‑a
 GenericName[ca]=Configuració CDDB
 GenericName[cs]=Nastavení CDDB
 GenericName[da]=CDDB-indstilling
@@ -93,6 +95,7 @@ GenericName[zh_TW]=CDDB 設定
 
 Comment=Configure the CDDB Retrieval
 Comment[bg]=Настройки на изтегляне на данни от CDDB
+Comment[bs]=Podesite dobavljanje iz CDDB‑a
 Comment[ca]=Configura la recuperació CDDB
 Comment[cs]=Nastavení stahování z CDDB
 Comment[da]=Indstil hentning via CDDB
