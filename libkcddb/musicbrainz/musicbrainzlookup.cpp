@@ -37,6 +37,7 @@
 #include <musicbrainz5/ArtistCredit.h>
 #include <musicbrainz5/Artist.h>
 #include <musicbrainz5/NameCredit.h>
+#include <musicbrainz5/SecondaryType.h>
 
 namespace KCDDB
 {
