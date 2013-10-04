@@ -99,7 +99,7 @@ void AsyncMusicBrainzTest::testLookup()
   QCOMPARE(m_info.track(2).get(Artist).toString(),QString::fromUtf8("Mimikry"));
   QCOMPARE(m_info.track(3).get(Artist).toString(),QString::fromUtf8("Lundberg & Dellamorte"));
   QCOMPARE(m_info.track(4).get(Artist).toString(),QString::fromUtf8("Charta 77"));
-  QCOMPARE(m_info.track(5).get(Artist).toString(),QString::fromUtf8("Ubba"));
+  QCOMPARE(m_info.track(5).get(Artist).toString(),QString::fromUtf8("UBBA"));
   QCOMPARE(m_info.track(6).get(Artist).toString(),QString::fromUtf8("Coca Carola"));
   QCOMPARE(m_info.track(7).get(Artist).toString(),QString::fromUtf8("Spoiler"));
   QCOMPARE(m_info.track(8).get(Artist).toString(),QString::fromUtf8("Strebers"));
