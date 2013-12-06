@@ -74,8 +74,8 @@
 <holder>&Mike.McBride;</holder>
 </copyright>
 
-<date>2010-02-19</date>
-<releaseinfo>&kde; 4.4</releaseinfo>
+<date>2013-12-05</date>
+<releaseinfo>&kde; 4.12</releaseinfo>
 
 </articleinfo>
 
@@ -85,7 +85,7 @@
 and the <guilabel>Submit</guilabel> tab.</para>
 
 <sect2 id="lookup-tab">
-<title>The <guilabel>Lookup</guilabel> Tab</title>
+<title>The Lookup Tab</title>
 <screenshot>
 <screeninfo>The <guilabel>Lookup</guilabel> tab</screeninfo>
 <mediaobject>
@@ -119,7 +119,7 @@ page. The <guibutton>Defaults</guibutton> button restores the default values of 
 </sect2>
 
 <sect2 id="submit-tab">
-<title>The <guilabel>Submit</guilabel> Tab</title>
+<title>The Submit Tab</title>
 
 <screenshot>
 <screeninfo>The Submit tab</screeninfo>
