@@ -23,7 +23,7 @@
 #include <kio/netaccess.h>
 #include <kio/job.h>
 #include <QTextStream>
-#include <kdebug.h>
+#include <QtCore/QDebug>
 #include <QRegExp>
 
 namespace KCDDB
@@ -103,7 +103,7 @@ namespace KCDDB
       m.port = rexp.cap(3).toUInt();
 
       if (m.transport == Lookup::HTTP && rexp.cap(4) != QLatin1String( "/~cddb/cddb.cgi" ))
-        kWarning() << "Non default urls are not supported for http";
+        qWarning() << "Non default urls are not supported for http";
 
       m.description = rexp.cap(5);
     }

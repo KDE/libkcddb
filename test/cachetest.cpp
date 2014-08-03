@@ -130,5 +130,3 @@ void CacheTest::testMusicbrainz()
 }
 
 QTEST_KDEMAIN(CacheTest, NoGUI)
-
-#include "cachetest.moc"

@@ -1,3 +1,5 @@
+#ifndef LOGGING_H
+#define LOGGING_H
 /*
   Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
 
@@ -17,39 +19,8 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include "asynchttpsubmit.h"
+#include <QtCore/QLoggingCategory>
 
-#include <kio/job.h>
-#include <QtCore/QDebug>
+Q_DECLARE_LOGGING_CATEGORY(LIBKCDDB)
 
-namespace KCDDB
-{
-  AsyncHTTPSubmit::AsyncHTTPSubmit(const QString& from, const QString& hostname, uint port)
-    : HTTPSubmit(from, hostname, port)
-  {
-
-  }
-
-  AsyncHTTPSubmit::~AsyncHTTPSubmit()
-  {
-
-  }
-
-  Result AsyncHTTPSubmit::runJob(KIO::Job* job)
-  {
-    connect(job, SIGNAL(result(KJob*)), SLOT(slotFinished(KJob*)));
-
-    return Success;
-  }
-
-  void AsyncHTTPSubmit::slotFinished(KJob* job)
-  {
-    qDebug() << "Finished";
-
-    if ( job->error()==0 )
-      emit finished( Success );
-    else
-      emit finished( UnknownError );
-  }
-}
-
+#endif // LOGGING_H

@@ -17,7 +17,7 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <kdebug.h>
+#include <QtCore/QDebug>
 #include <kapplication.h>
 #include <kcmdlineargs.h>
 
@@ -35,14 +35,14 @@ main(int argc, char ** argv)
 
   Sites s;
 
-  kDebug() << "Sites: ";
+  qDebug() << "Sites: ";
 
   QList<Mirror> sites = s.siteList();
   for (QList<Mirror>::Iterator it = sites.begin(); it != sites.end(); ++it)
     if ((*it).transport == Lookup::CDDBP)
-      kDebug() << (*it).address << " CDDBP " << (*it).port << " " << (*it).description;
+      qDebug() << (*it).address << " CDDBP " << (*it).port << " " << (*it).description;
     else
-      kDebug() << (*it).address << " HTTP " << (*it).port << " " << (*it).description;
+      qDebug() << (*it).address << " HTTP " << (*it).port << " " << (*it).description;
 
   return 0;
 }

@@ -20,7 +20,7 @@
 
 #include "httpsubmit.h"
 
-#include <kdebug.h>
+#include <QtCore/QDebug>
 #include <kio/job.h>
 
 namespace KCDDB

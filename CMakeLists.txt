@@ -1,15 +1,27 @@
 project(libkcddb)
 
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+cmake_minimum_required(VERSION 2.8.12)
 
-find_package(KDE4 REQUIRED)
-include(KDE4Defaults)
-include(MacroLibrary)
-include_directories(${KDE4_INCLUDES})
+find_package(ECM REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH "${ECM_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
+include(KDEInstallDirs)
+include(KDECompilerSettings)
+include(KDECMakeSettings)
+include(FeatureSummary)
+include(GenerateExportHeader)
+
+find_package(Qt5 REQUIRED COMPONENTS Test)
+find_package(KF5 REQUIRED COMPONENTS Config DocTools KDELibs4Support Codecs KIO)
+
 include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
 
-macro_optional_find_package(MusicBrainz5)
-macro_log_feature(MUSICBRAINZ5_FOUND "MusicBrainz5" "A library that provides access to metadata lookup on the MusicBrainz server" "http://www.musicbrainz.org" FALSE "" "Music metadata lookup for KDE multimedia applications through libkcddb. You need version 5.x of libmusicbrainz")
+find_package(MusicBrainz5)
+set_package_properties(MusicBrainz5 PROPERTIES
+	DESCRIPTION "Music metadata lookup for KDE multimedia applications through libkcddb. You need version 5.x of libmusicbrainz"
+	URL "http://www.musicbrainz.org"
+	TYPE OPTIONAL
+	PURPOSE "A library that provides access to metadata lookup on the MusicBrainz server")
 
 if(MUSICBRAINZ5_FOUND)
     set(HAVE_MUSICBRAINZ5 1)
@@ -20,10 +32,10 @@ if(MUSICBRAINZ5_FOUND)
        musicbrainz/asyncmusicbrainzlookup.cpp)
 
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
-else(MUSICBRAINZ5_FOUND)
+else()
     set(HAVE_MUSICBRAINZ5 0)
     set(libmusicbrainz_SRCS)
-endif(MUSICBRAINZ5_FOUND)
+endif()
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-musicbrainz.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-musicbrainz.h )
 

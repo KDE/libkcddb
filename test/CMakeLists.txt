@@ -2,23 +2,23 @@ set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. ${CMAKE_CURRENT_BINARY_DIR}/../libkcddb  )
 
+macro(kcddb_executable_tests)
+	   foreach(_testname ${ARGN})
+               add_executable(${_testname} ${_testname}.cpp)
+               add_test( ${_testname} ${_testname} )
+			   target_link_libraries(${_testname} Qt5::Test kcddb)
+	   endforeach()
+endmacro()
 
-MACRO(KCDDB_EXECUTABLE_TESTS)
-       FOREACH(_testname ${ARGN})
-               kde4_add_executable(${_testname} TEST ${_testname}.cpp)
-               target_link_libraries(${_testname} ${KDE4_KDEUI_LIBS}
-                                     ${QT_QTTEST_LIBRARY} kcddb)
-       ENDFOREACH(_testname)
-ENDMACRO(KCDDB_EXECUTABLE_TESTS)
-MACRO(KCDDB_UNIT_TESTS)
-       FOREACH(_testname ${ARGN})
-               kde4_add_unit_test(${_testname} TESTNAME kcddb-${_testname} ${_testname}.cpp)
-               target_link_libraries(${_testname} ${KDE4_KDEUI_LIBS}
-                                     ${QT_QTTEST_LIBRARY} kcddb)
-       ENDFOREACH(_testname)
-ENDMACRO(KCDDB_UNIT_TESTS)
+macro(kcddb_unit_tests)
+	   foreach(_testname ${ARGN})
+               add_executable(${_testname} ${_testname}.cpp)
+               add_test( kcddb-${_testname} ${_testname} )
+			   target_link_libraries(${_testname} Qt5::Test kcddb)
+	   endforeach()
+endmacro()
 
-KCDDB_UNIT_TESTS(
+kcddb_unit_tests(
     asynchttplookuptest
     asynccddblookuptest
     synccddblookuptest
@@ -32,11 +32,10 @@ KCDDB_UNIT_TESTS(
     musicbrainztest-fulldate
 )
 
-KCDDB_EXECUTABLE_TESTS(
+kcddb_executable_tests(
     syncsmtpsubmittest
     asyncsmtpsubmittest
     asynchttpsubmittest
     synchttpsubmittest
     sitestest
 )
-

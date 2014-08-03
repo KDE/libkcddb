@@ -96,17 +96,17 @@ void AsyncHTTPLookupTest::testLookup()
 AsyncHTTPLookupTest::slotFinished(Result r)
 {
   m_result = r;
-  kDebug() << "AsyncHTTPLookupTest::slotFinished: Got " << KCDDB::resultToString(r);
+  qDebug() << "AsyncHTTPLookupTest::slotFinished: Got " << KCDDB::resultToString(r);
 
   CDInfoList l = client_->lookupResponse();
 
-  kDebug() << "AsyncHTTPLookupTest::slotFinished: Item count: " <<  l.count();
+  qDebug() << "AsyncHTTPLookupTest::slotFinished: Item count: " <<  l.count();
 
   foreach(const CDInfo &i, l)
   {
     if (i.get("discid") == "a1107d0a" && i.get(Category) == "jazz")
     {
-      kDebug() << "Found the CD";
+      qDebug() << "Found the CD";
       m_info = i;
       break;
     }
@@ -116,5 +116,3 @@ AsyncHTTPLookupTest::slotFinished(Result r)
 }
 
 QTEST_KDEMAIN(AsyncHTTPLookupTest, NoGUI)
-
-#include "asynchttplookuptest.moc"

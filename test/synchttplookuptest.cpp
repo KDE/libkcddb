@@ -92,5 +92,3 @@ void SyncHTTPLookupTest::testLookup()
 }
 
 QTEST_KDEMAIN(SyncHTTPLookupTest, NoGUI)
-
-#include "synchttplookuptest.moc"

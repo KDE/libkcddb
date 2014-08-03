@@ -67,4 +67,3 @@ namespace KCDDB
   }
 }
 
-#include "cdinfoencodingwidget.moc"

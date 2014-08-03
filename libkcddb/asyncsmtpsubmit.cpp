@@ -18,11 +18,11 @@
 */
 
 #include "asyncsmtpsubmit.h"
+#include "logging.h"
 
 #include "cdinfo.h"
 
 
-#include <kdebug.h>
 #include <kio/job.h>
 
 namespace KCDDB
@@ -49,7 +49,7 @@ namespace KCDDB
 
   void AsyncSMTPSubmit::slotDone( KJob* job )
   {
-      kDebug(60010) ;
+	  qCDebug(LIBKCDDB) ;
       if ( job->error()==0 )
         emit finished( Success );
       else
@@ -57,4 +57,3 @@ namespace KCDDB
   }
 }
 
-#include "asyncsmtpsubmit.moc"

@@ -89,5 +89,3 @@ void CDInfoTest::testLongLines()
 }
 
 QTEST_MAIN(CDInfoTest)
-
-#include "cdinfotest.moc"

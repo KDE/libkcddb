@@ -28,19 +28,21 @@ set(kcddb_LIB_SRCS ${libmusicbrainz_SRCS}
    categories.cpp
    genres.cpp
    cdinfodialog.cpp
-   cdinfoencodingwidget.cpp )
+   cdinfoencodingwidget.cpp
+   logging.cpp )
 
+qt5_wrap_ui(kcddb_LIB_SRCS cdinfodialog.ui cdinfoencodingwidget.ui )
 
-kde4_add_ui_files(kcddb_LIB_SRCS cdinfodialog.ui cdinfoencodingwidget.ui )
+kconfig_add_kcfg_files(kcddb_LIB_SRCS configbase.kcfgc )
 
-kde4_add_kcfg_files(kcddb_LIB_SRCS configbase.kcfgc )
+add_library(kcddb SHARED ${kcddb_LIB_SRCS})
 
-kde4_add_library(kcddb SHARED ${kcddb_LIB_SRCS})
-
-target_link_libraries(kcddb ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS})
+target_link_libraries(kcddb KF5::Codecs KF5::ConfigGui KF5::KDELibs4Support KF5::KIOCore)
 if(MUSICBRAINZ5_FOUND)
     target_link_libraries(kcddb ${MUSICBRAINZ5_LIBRARIES})
 endif(MUSICBRAINZ5_FOUND)
+
+generate_export_header(kcddb)
 
 set_target_properties(kcddb PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 install(TARGETS kcddb EXPORT LibkcddbTargets ${INSTALL_TARGETS_DEFAULT_ARGS} )

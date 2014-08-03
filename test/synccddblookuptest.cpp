@@ -92,5 +92,3 @@ void SyncCDDBLookupTest::testLookup()
 }
 
 QTEST_KDEMAIN(SyncCDDBLookupTest, NoGUI)
-
-#include "synccddblookuptest.moc"

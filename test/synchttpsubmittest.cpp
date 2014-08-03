@@ -17,7 +17,7 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <kdebug.h>
+#include <QtCore/QDebug>
 #include <kapplication.h>
 #include <kcmdlineargs.h>
 
@@ -67,6 +67,6 @@ main(int argc, char ** argv)
 
   Result r = c.submit(cdInfo, list);
 
-  kDebug() << "Result: " << resultToString(r);
+  qDebug() << "Result: " << resultToString(r);
 }
 

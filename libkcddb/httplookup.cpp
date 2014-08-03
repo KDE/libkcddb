@@ -22,7 +22,7 @@
 #include "httplookup.h"
 
 #include <kio/job.h>
-#include <kdebug.h>
+#include <QtCore/QDebug>
 
 namespace KCDDB
 {
@@ -182,7 +182,5 @@ namespace KCDDB
     result_ = Success;
   }
 }
-
-#include "httplookup.moc"
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

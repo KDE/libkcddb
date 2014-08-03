@@ -95,17 +95,17 @@ void AsyncCDDBLookupTest::testLookup()
 AsyncCDDBLookupTest::slotFinished(Result r)
 {
   m_result = r;
-  kDebug() << "AsyncCDDBLookupTest::slotResult: Got " << KCDDB::resultToString(r);
+  qDebug() << "AsyncCDDBLookupTest::slotResult: Got " << KCDDB::resultToString(r);
 
   CDInfoList l = client_->lookupResponse();
 
-  kDebug() << "AsyncCDDBLookupTest::slotResult: Item count: " <<  l.count();
+  qDebug() << "AsyncCDDBLookupTest::slotResult: Item count: " <<  l.count();
 
   foreach(const CDInfo &i, l)
   {
     if (i.get("discid") == "a1107d0a" && i.get(Category) == "jazz")
     {
-      kDebug() << "Found the CD";
+      qDebug() << "Found the CD";
       m_info = i;
       break;
     }
@@ -115,5 +115,3 @@ AsyncCDDBLookupTest::slotFinished(Result r)
 }
 
 QTEST_KDEMAIN(AsyncCDDBLookupTest, NoGUI)
-
-#include "asynccddblookuptest.moc"

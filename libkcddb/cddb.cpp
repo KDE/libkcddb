@@ -25,7 +25,7 @@
 
 #include <qstringlist.h>
 
-#include <kdebug.h>
+#include <QtCore/QDebug>
 #include <kstringhandler.h>
 #include <klocale.h>
 

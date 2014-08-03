@@ -18,8 +18,8 @@
 */
 
 #include "smtpsubmit.h"
+#include "logging.h"
 
-#include <kdebug.h>
 #include <kio/job.h>
 
 namespace KCDDB
@@ -46,7 +46,7 @@ namespace KCDDB
       url_.setQuery(QString::fromLatin1("to=%1&subject=cddb %2 %3&from=%4")
       .arg(to_, cdInfo.get(Category).toString(),
         cdInfo.get(QLatin1String( "discid" )).toString(), from_));
-    kDebug(60010) << "Url is: " << url_.prettyUrl();
+	qCDebug(LIBKCDDB) << "Url is: " << url_.prettyUrl();
 
     return KIO::storedPut(diskData_.toUtf8().data(), url_, -1, KIO::HideProgressInfo);
   }

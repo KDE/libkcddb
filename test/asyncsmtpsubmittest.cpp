@@ -17,7 +17,7 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <kdebug.h>
+#include <QtCore/QDebug>
 #include <kapplication.h>
 #include <kcmdlineargs.h>
 
@@ -69,7 +69,7 @@ AsyncSMTPSubmitTest::AsyncSMTPSubmitTest()
   void
 AsyncSMTPSubmitTest::slotFinished(Result r)
 {
-  kDebug() << "AsyncSMTPSubmitTest::slotFinished: Got " << KCDDB::resultToString(r);
+  qDebug() << "AsyncSMTPSubmitTest::slotFinished: Got " << KCDDB::resultToString(r);
 
   kapp->quit();
 }
@@ -84,5 +84,3 @@ int main(int argc, char ** argv)
 
   return app.exec();
 }
-
-#include "asyncsmtpsubmittest.moc"

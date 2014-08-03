@@ -27,7 +27,7 @@
 #include <QStringList>
 #include <QStandardItemModel>
 
-#include <kdebug.h>
+#include <QtCore/QDebug>
 #include <kglobal.h>
 #include <kcharsets.h>
 
@@ -149,10 +149,10 @@ class CDInfoDialog::Private
           QList<QStandardItem *> trackItems = QList<QStandardItem *>();
           TrackInfo ti(info.track(i));
           QStandardItem *trackNumberItem = new QStandardItem(QString().sprintf("%02d", i + 1));
-          trackNumberItem->setEditable(FALSE);
+		  trackNumberItem->setEditable(false);
           trackItems << trackNumberItem;
           QStandardItem *trackLengthItem = new QStandardItem(framesTime(trackStartFrames[i + 1] - trackStartFrames[i]));
-          trackLengthItem->setEditable(FALSE);
+		  trackLengthItem->setEditable(false);
           trackItems << trackLengthItem;
           QStandardItem *trackTitleItem = new QStandardItem(ti.get(Title).toString());
           trackItems << trackTitleItem;
@@ -307,4 +307,3 @@ class CDInfoDialog::Private
   }
 }
 
-#include "cdinfodialog.moc"

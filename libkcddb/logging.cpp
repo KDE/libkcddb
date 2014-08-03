@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2003-2004 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -17,39 +17,6 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include "asynchttpsubmit.h"
+#include "logging.h"
 
-#include <kio/job.h>
-#include <QtCore/QDebug>
-
-namespace KCDDB
-{
-  AsyncHTTPSubmit::AsyncHTTPSubmit(const QString& from, const QString& hostname, uint port)
-    : HTTPSubmit(from, hostname, port)
-  {
-
-  }
-
-  AsyncHTTPSubmit::~AsyncHTTPSubmit()
-  {
-
-  }
-
-  Result AsyncHTTPSubmit::runJob(KIO::Job* job)
-  {
-    connect(job, SIGNAL(result(KJob*)), SLOT(slotFinished(KJob*)));
-
-    return Success;
-  }
-
-  void AsyncHTTPSubmit::slotFinished(KJob* job)
-  {
-    qDebug() << "Finished";
-
-    if ( job->error()==0 )
-      emit finished( Success );
-    else
-      emit finished( UnknownError );
-  }
-}
-
+Q_LOGGING_CATEGORY(LIBKCDDB, "libkcddb")

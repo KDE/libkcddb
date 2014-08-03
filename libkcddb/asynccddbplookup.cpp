@@ -20,8 +20,8 @@
 */
 
 #include "asynccddbplookup.h"
+#include "logging.h"
 
-#include <kdebug.h>
 #include <ksocketfactory.h>
 
 namespace KCDDB
@@ -77,14 +77,14 @@ namespace KCDDB
     void
   AsyncCDDBPLookup::slotConnectionSuccess()
   {
-    kDebug(60010) << "Connection successful";
+	qCDebug(LIBKCDDB) << "Connection successful";
     state_ = WaitingForGreeting;
   }
 
     void
   AsyncCDDBPLookup::slotReadyRead()
   {
-    kDebug(60010) << "Ready to read. State: " << stateToString();
+	qCDebug(LIBKCDDB) << "Ready to read. State: " << stateToString();
 
     while ( Idle != state_ && isConnected() && socket_->canReadLine() )
       read();
@@ -336,7 +336,5 @@ namespace KCDDB
   }
 }
 
-
-#include "asynccddbplookup.moc"
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

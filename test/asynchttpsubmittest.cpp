@@ -17,7 +17,7 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <kdebug.h>
+#include <QtCore/QDebug>
 #include <kapplication.h>
 #include <kcmdlineargs.h>
 
@@ -68,7 +68,7 @@ AsyncHTTPSubmitTest::AsyncHTTPSubmitTest()
   void
 AsyncHTTPSubmitTest::slotFinished(Result r)
 {
-  kDebug() << "AsyncHTTPSubmitTest::slotFinished: Got " << KCDDB::resultToString(r);
+  qDebug() << "AsyncHTTPSubmitTest::slotFinished: Got " << KCDDB::resultToString(r);
 
   kapp->quit();
 }
@@ -83,5 +83,3 @@ int main(int argc, char ** argv)
 
   return app.exec();
 }
-
-#include "asynchttpsubmittest.moc"
