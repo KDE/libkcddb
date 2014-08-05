@@ -28,14 +28,13 @@
 #include "libkcddb/lookup.h"
 
 #include <qlist.h>
-#include <kfiledialog.h>
 #include <kapplication.h>
 #include <klocale.h>
-#include <kinputdialog.h>
 #include <kmessagebox.h>
 #include <keditlistwidget.h>
 #include <kurlrequester.h>
-#include <QCheckBox>
+#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QInputDialog>
 
 CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
   : QWidget(parent)
@@ -91,13 +90,13 @@ void CDDBConfigWidget::showMirrorList()
       return;
     }
 
-    QStringList result = KInputDialog::getItemList(i18n("Select mirror"),
+    QString result = QInputDialog::getItem(this, i18n("Select mirror"),
       i18n("Select one of these mirrors"), keys.keys(),
-      QStringList(), false, &ok, this);
+      0, false, &ok);
 
-    if (ok && result.count() == 1)
+    if (ok)
     {
-      KCDDB::Mirror m = keys[*(result.begin())];
+      KCDDB::Mirror m = keys[result];
 
       kcfg_FreedbLookupTransport->setCurrentIndex(m.transport == KCDDB::Lookup::CDDBP ? 0 : 1);
       kcfg_hostname->setText(m.address);

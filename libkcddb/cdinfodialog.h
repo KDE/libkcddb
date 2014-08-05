@@ -24,14 +24,14 @@
 #include <libkcddb/cdinfo.h>
 #include <libkcddb/kcddb.h>
 
-#include <KDE/KDialog>
+#include <QtWidgets/QDialog>
 
 class QStandardItemModel;
 class QModelIndex;
 
 namespace KCDDB
 {
-    class KCDDB_EXPORT CDInfoDialog : public KDialog
+    class KCDDB_EXPORT CDInfoDialog : public QDialog
     {
     Q_OBJECT
     public:

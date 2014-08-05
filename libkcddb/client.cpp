@@ -70,7 +70,7 @@ namespace KCDDB
   Client::Client()
     : d(new Private)
   {
-    d->config.readConfig();
+    d->config.load();
   }
 
   Client::~Client()

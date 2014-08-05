@@ -18,14 +18,13 @@
 */
 
 #include <QtCore/QDebug>
-#include <kapplication.h>
-#include <kcmdlineargs.h>
+#include <QtCore/QCoreApplication>
 
 #include "asynchttpsubmittest.h"
 #include "libkcddb/submit.h"
 
-AsyncHTTPSubmitTest::AsyncHTTPSubmitTest()
-  : QObject()
+AsyncHTTPSubmitTest::AsyncHTTPSubmitTest(QCoreApplication& app)
+  : app_(app)
 {
   using namespace KCDDB;
 
@@ -70,16 +69,15 @@ AsyncHTTPSubmitTest::slotFinished(Result r)
 {
   qDebug() << "AsyncHTTPSubmitTest::slotFinished: Got " << KCDDB::resultToString(r);
 
-  kapp->quit();
+  app_.quit();
 }
 
 int main(int argc, char ** argv)
 {
-  KCmdLineArgs::init(argc, argv, "libkcddb_test", 0, KLocalizedString(), "");
+  QCoreApplication app(argc, argv);
+  app.setApplicationName("libkcddb_test");
 
-  KApplication app(false);
-
-  new AsyncHTTPSubmitTest;
+  new AsyncHTTPSubmitTest(app);
 
   return app.exec();
 }

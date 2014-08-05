@@ -23,13 +23,15 @@
 #include "cdinfoencodingwidget.h"
 #include "ui_cdinfodialog.h"
 
-#include <QTextCodec>
-#include <QStringList>
-#include <QStandardItemModel>
+#include <QtCore/QStringList>
+#include <QtCore/QTextCodec>
+#include <QtCore/QTime>
+#include <QtGui/QStandardItemModel>
+#include <QtWidgets/QVBoxLayout>
 
 #include <QtCore/QDebug>
 #include <kglobal.h>
-#include <kcharsets.h>
+#include <KCodecs/KCharsets>
 
 using KCDDB::TrackInfo;
 
@@ -59,12 +61,14 @@ class CDInfoDialog::Private
   QLatin1String CDInfoDialog::Private::SEPARATOR = QLatin1String( " / " );
 
   CDInfoDialog::CDInfoDialog(QWidget* parent)
-    : KDialog(parent),
+    : QDialog(parent),
       d(new Private)
   {
       QWidget* w = new QWidget(this);
       d->ui->setupUi(w);
-      setMainWidget(w);
+
+      QVBoxLayout* layout = new QVBoxLayout(this);
+      layout->addWidget(w);
 
       d->info.set(QLatin1String( "source" ), QLatin1String( "user" ));
 
@@ -263,9 +267,8 @@ class CDInfoDialog::Private
 
   void CDInfoDialog::slotChangeEncoding()
   {
-      KDialog* dialog = new KDialog(this);
-      dialog->setCaption(i18n("Change Encoding"));
-      dialog->setButtons( KDialog::Ok | KDialog::Cancel);
+      QDialog* dialog = new QDialog(this);
+      dialog->setWindowTitle(i18n("Change Encoding"));
       dialog->setModal( true );
 
 
@@ -281,11 +284,12 @@ class CDInfoDialog::Private
       KCDDB::CDInfoEncodingWidget* encWidget = new KCDDB::CDInfoEncodingWidget(
           dialog, d->ui->m_artist->text(),d->ui->m_title->text(), songTitles);
 
-      dialog->setMainWidget(encWidget);
+      QVBoxLayout* layout = new QVBoxLayout(dialog);
+      layout->addWidget(encWidget);
 
       if (dialog->exec())
       {
-        KCharsets* charsets = KGlobal::charsets();
+        KCharsets* charsets = KCharsets::charsets();
         QTextCodec* codec = charsets->codecForName(charsets->encodingForName(encWidget->selectedEncoding()));
 
         d->ui->m_artist->setText(codec->toUnicode(d->ui->m_artist->text().toLatin1()));

@@ -49,7 +49,7 @@ namespace KCDDB
   {
     loadEmailSettings();
 
-    readConfig();
+    load();
   }
 }
 

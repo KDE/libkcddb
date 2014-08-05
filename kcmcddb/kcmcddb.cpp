@@ -49,7 +49,7 @@ CDDBModule::CDDBModule(QWidget *parent, const QVariantList &args)
   widget_ = new CDDBConfigWidget(this);
 
   KCDDB::Config* cfg = new KCDDB::Config();
-  cfg->readConfig();
+  cfg->load();
 
   addConfig(cfg, widget_);
 
@@ -76,7 +76,7 @@ CDDBModule::checkSettings() const
 {
   KCDDB::Config config;
 
-  config.readConfig();
+  config.load();
 
   if (config.smtpHostname().isEmpty() || config.emailAddress().isEmpty()
       || !config.emailAddress().contains(QLatin1String( "@" )) ||
@@ -91,7 +91,7 @@ CDDBModule::checkSettings() const
                                     "and try again."), i18n("Incorrect Email Settings"));
       config.setFreedbSubmitTransport(KCDDB::Submit::HTTP);
 
-      config.writeConfig();
+      config.save();
     }
   }
 }
@@ -118,7 +118,7 @@ CDDBModule::load()
   KCModule::load();
 
   KCDDB::Config config;
-  config.readConfig();
+  config.load();
   updateWidgetsFromConfig(config);
 }
 

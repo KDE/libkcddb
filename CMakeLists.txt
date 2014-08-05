@@ -18,10 +18,10 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
 
 find_package(MusicBrainz5)
 set_package_properties(MusicBrainz5 PROPERTIES
-	DESCRIPTION "Music metadata lookup for KDE multimedia applications through libkcddb. You need version 5.x of libmusicbrainz"
-	URL "http://www.musicbrainz.org"
-	TYPE OPTIONAL
-	PURPOSE "A library that provides access to metadata lookup on the MusicBrainz server")
+   DESCRIPTION "Music metadata lookup for KDE multimedia applications through libkcddb. You need version 5.x of libmusicbrainz"
+   URL "http://www.musicbrainz.org"
+   TYPE OPTIONAL
+   PURPOSE "A library that provides access to metadata lookup on the MusicBrainz server")
 
 if(MUSICBRAINZ5_FOUND)
     set(HAVE_MUSICBRAINZ5 1)

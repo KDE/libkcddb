@@ -18,18 +18,16 @@
 */
 
 #include <QtCore/QDebug>
-#include <kapplication.h>
-#include <kcmdlineargs.h>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QList>
 
 #include "libkcddb/sites.h"
-#include <qlist.h>
 
   int
 main(int argc, char ** argv)
 {
-  KCmdLineArgs::init(argc, argv, "libkcddb_test", 0, KLocalizedString(), "");
-
-  KApplication app(true);
+  QCoreApplication app(argc, argv);
+  app.setApplicationName("libkcddb_test");
 
   using namespace KCDDB;
 
