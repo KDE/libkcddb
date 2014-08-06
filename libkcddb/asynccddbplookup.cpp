@@ -22,8 +22,6 @@
 #include "asynccddbplookup.h"
 #include "logging.h"
 
-#include <ksocketfactory.h>
-
 namespace KCDDB
 {
   AsyncCDDBPLookup::AsyncCDDBPLookup()
@@ -45,7 +43,8 @@ namespace KCDDB
     const TrackOffsetList & trackOffsetList
   )
   {
-    socket_ = KSocketFactory::connectToHost(QLatin1String( "cddbp" ), hostname, port);
+    socket_ = new QTcpSocket;
+    socket_->connectToHost(hostname, port);
 
     connect (socket_, SIGNAL(error(QAbstractSocket::SocketError)), SLOT(slotGotError(QAbstractSocket::SocketError)));
 
