@@ -25,16 +25,14 @@
 #include "libkcddb/cache.h"
 #include "libkcddb/submit.h"
 
-#include <QCheckBox>
-#include <qradiobutton.h>
-#include <QVBoxLayout>
+#include <QtCore/QDebug>
+#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QRadioButton>
+#include <QtWidgets/QVBoxLayout>
 
-#include <kconfig.h>
-#include <klocale.h>
-#include <kglobal.h>
-#include <kgenericfactory.h>
+#include <KI18n/KLocalizedString>
+#include <KCoreAddons/KPluginFactory>
 #include <kmessagebox.h>
-#include <kconfigdialogmanager.h>
 
 K_PLUGIN_FACTORY(KCDDBFactory, registerPlugin<CDDBModule>();)
 K_EXPORT_PLUGIN(KCDDBFactory( "kcmcddb" ))
@@ -43,7 +41,9 @@ K_EXPORT_PLUGIN(KCDDBFactory( "kcmcddb" ))
 CDDBModule::CDDBModule(QWidget *parent, const QVariantList &args)
   : KCModule(parent, args)
 {
-  KGlobal::locale()->insertCatalog( QLatin1String( "libkcddb" ));
+  // TODO: ensure we get our translations
+  // KGlobal::locale()->insertCatalog( QLatin1String( "libkcddb" ));
+  qWarning() << "KGlobal::locale()->insertCatalog( QLatin1String( \"libkcddb\" )) needs to be ported to KF5.  See the Ki18n programmers guide.";
   setButtons(Default | Apply | Help);
 
   widget_ = new CDDBConfigWidget(this);
