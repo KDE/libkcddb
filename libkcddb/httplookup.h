@@ -22,9 +22,8 @@
 #ifndef KCDDB_HTTP_LOOKUP_H
 #define KCDDB_HTTP_LOOKUP_H
 
-#include <kurl.h>
-
 #include "lookup.h"
+#include <QtCore/QUrl>
 
 namespace KIO
 {
@@ -69,7 +68,7 @@ namespace KCDDB
     protected:
 
       bool block_;
-      KUrl cgiURL_;
+      QUrl cgiURL_;
       QByteArray data_;
       State state_;
       Result result_;

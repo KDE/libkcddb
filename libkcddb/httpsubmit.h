@@ -20,7 +20,7 @@
 */
 
 #include "submit.h"
-#include <kurl.h>
+#include <QtCore/QUrl>
 
 namespace KCDDB
 {
@@ -33,7 +33,7 @@ namespace KCDDB
     protected:
       virtual KIO::Job* createJob(const CDInfo& cdInfo);
 
-      KUrl url_;
+      QUrl url_;
       QString from_;
   } ;
 }

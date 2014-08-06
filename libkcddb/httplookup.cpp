@@ -21,7 +21,8 @@
 
 #include "httplookup.h"
 
-#include <kio/job.h>
+#include <KIO/Job>
+#include <QtCore/QUrlQuery>
 #include <QtCore/QDebug>
 
 namespace KCDDB
@@ -66,7 +67,7 @@ namespace KCDDB
     void
   HTTPLookup::initURL( const QString & hostName, uint port )
   {
-    cgiURL_.setProtocol( QLatin1String( "http" ) );
+    cgiURL_.setScheme( QLatin1String( "http" ) );
     cgiURL_.setHost( hostName );
     cgiURL_.setPort( port );
     cgiURL_.setPath( QLatin1String( "/~cddb/cddb.cgi" ) );
@@ -77,17 +78,16 @@ namespace KCDDB
     void
   HTTPLookup::makeURL( const QString & cmd )
   {
-    // The whole query has to constructed each time as the
-    // CDDB CGI script expects the parameters in strict order
-
-    cgiURL_.setQuery( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
-
     QString hello = QString::fromLatin1("%1 %2 %3 %4")
         .arg(user_, localHostName_, clientName(), clientVersion());
 
-    cgiURL_.addQueryItem( QLatin1String( "cmd" ), cmd );
-    cgiURL_.addQueryItem( QLatin1String( "hello" ), hello );
-    cgiURL_.addQueryItem( QLatin1String( "proto" ), QLatin1String( "6" ) );
+    // The whole query has to constructed each time as the
+    // CDDB CGI script expects the parameters in strict order
+    QUrlQuery query;
+    query.addQueryItem( QLatin1String( "cmd" ), cmd );
+    query.addQueryItem( QLatin1String( "hello" ), hello );
+    query.addQueryItem( QLatin1String( "proto" ), QLatin1String( "6" ) );
+    cgiURL_.setQuery( query );
   }
 
     void

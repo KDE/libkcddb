@@ -20,15 +20,15 @@
 
 #include "httpsubmit.h"
 
+#include <KIO/Job>
 #include <QtCore/QDebug>
-#include <kio/job.h>
 
 namespace KCDDB
 {
   HTTPSubmit::HTTPSubmit(const QString& from, const QString& hostname, uint port)
     : Submit(), from_(from)
   {
-    url_.setProtocol( QLatin1String( "http" ));
+    url_.setScheme( QLatin1String( "http" ));
     url_.setHost(hostname);
     url_.setPort(port);
     url_.setPath(QLatin1String( "/~cddb/submit.cgi" ));
