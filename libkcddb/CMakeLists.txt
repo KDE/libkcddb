@@ -4,8 +4,6 @@ if(MUSICBRAINZ5_FOUND)
        musicbrainz/musicbrainzlookup.cpp
        musicbrainz/asyncmusicbrainzlookup.cpp)
 
-    include_directories(${MUSICBRAINZ5_INCLUDE_DIR})
-
     if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC" OR (WIN32 AND "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel"))
         set(enable_exceptions -EHsc)
     elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
@@ -60,8 +58,11 @@ target_link_libraries(kcddb
         KF5::Codecs
         KF5::I18n
         KF5::KIOCore
-        Qt5::Network
-        ${MUSICBRAINZ5_LIBRARIES})
+        Qt5::Network)
+
+if(MUSICBRAINZ5_FOUND)
+    target_link_libraries(kcddb PRIVATE musicbrainz)
+endif()
 
 generate_export_header(kcddb)
 
