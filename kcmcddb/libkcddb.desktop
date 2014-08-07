@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=kcmshell4 libkcddb
+Exec=kcmshell5 libkcddb
 Icon=media-optical-audio
 Type=Service
 ServiceTypes=KCModule
