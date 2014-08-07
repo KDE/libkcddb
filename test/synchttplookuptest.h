@@ -20,7 +20,7 @@
 #ifndef SYNCHTTPLOOKUPTEST_H
 #define SYNCHTTPLOOKUPTEST_H
 
-#include <QObject>
+#include <QtCore/QObject>
 
 class SyncHTTPLookupTest : public QObject
 {

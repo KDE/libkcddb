@@ -21,10 +21,10 @@
 #ifndef KCDDB_CLIENT_H
 #define KCDDB_CLIENT_H
 
-#include "kcddbconfig.h"
 #include "cdinfo.h"
-#include <QtCore/QObject>
 #include "kcddb.h"
+#include "kcddbconfig.h"
+#include <QtCore/QObject>
 
 namespace KCDDB
 {

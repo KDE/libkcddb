@@ -21,9 +21,7 @@
 #include "asynchttplookup.h"
 #include "logging.h"
 
-#include <qstringlist.h>
-
-#include <kio/job.h>
+#include <KIO/Job>
 
 namespace KCDDB
 {

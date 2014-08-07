@@ -17,15 +17,8 @@
   Boston, MA 02110-1301, USA.
 */
 
-
 #include "musicbrainzlookup.h"
 
-#include <QtCore/QDebug>
-#include <kcodecs.h>
-#include <KI18n/KLocalizedString>
-#include <qcryptographichash.h>
-#include <cstdio>
-#include <cstring>
 #include <musicbrainz5/Query.h>
 #include <musicbrainz5/Medium.h>
 #include <musicbrainz5/Release.h>
@@ -38,6 +31,15 @@
 #include <musicbrainz5/Artist.h>
 #include <musicbrainz5/NameCredit.h>
 #include <musicbrainz5/SecondaryType.h>
+
+#include <KCodecs/KCodecs>
+#include <KI18n/KLocalizedString>
+
+#include <QtCore/QCryptographicHash>
+#include <QtCore/QDebug>
+
+#include <cstdio>
+#include <cstring>
 
 namespace KCDDB
 {

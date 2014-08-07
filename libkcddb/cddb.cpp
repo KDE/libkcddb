@@ -23,11 +23,11 @@
 
 #include "categories.h"
 
-#include <qstringlist.h>
+#include <KCoreAddons/KStringHandler>
+#include <KI18n/KLocalizedString>
 
 #include <QtCore/QDebug>
-#include <kstringhandler.h>
-#include <KI18n/KLocalizedString>
+#include <QtCore/QStringList>
 
 namespace KCDDB
 {

@@ -20,7 +20,7 @@
 #ifndef SYNCCDDBLOOKUPTEST_H
 #define SYNCCDDBLOOKUPTEST_H
 
-#include <QObject>
+#include <QtCore/QObject>
 
 class SyncCDDBLookupTest : public QObject
 {

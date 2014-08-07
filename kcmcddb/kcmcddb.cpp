@@ -25,14 +25,14 @@
 #include "libkcddb/cache.h"
 #include "libkcddb/submit.h"
 
+#include <KCoreAddons/KPluginFactory>
+#include <KI18n/KLocalizedString>
+#include <KWidgetsAddons/KMessageBox>
+
 #include <QtCore/QDebug>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QVBoxLayout>
-
-#include <KI18n/KLocalizedString>
-#include <KCoreAddons/KPluginFactory>
-#include <kmessagebox.h>
 
 K_PLUGIN_FACTORY(KCDDBFactory, registerPlugin<CDDBModule>();)
 K_EXPORT_PLUGIN(KCDDBFactory( "kcmcddb" ))

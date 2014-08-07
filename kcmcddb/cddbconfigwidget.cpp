@@ -25,11 +25,12 @@
 #include "libkcddb/sites.h"
 #include "libkcddb/lookup.h"
 
-#include <qlist.h>
 #include <KI18n/KLocalizedString>
-#include <kmessagebox.h>
-#include <keditlistwidget.h>
-#include <kurlrequester.h>
+#include <KIOWidgets/KUrlRequester>
+#include <KWidgetsAddons/KMessageBox>
+#include <KWidgetsAddons/KEditListWidget>
+
+#include <QtCore/QList>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QInputDialog>
 

@@ -20,7 +20,7 @@
 #ifndef KCMCDDB_H
 #define KCMCDDB_H
 
-#include <kcmodule.h>
+#include <KConfigWidgets/KCModule>
 #include "libkcddb/kcddbconfig.h"
 
 class CDDBConfigWidget;

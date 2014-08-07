@@ -19,9 +19,9 @@
 
 #include "cdinfoencodingwidget.h"
 
-#include <QtCore/QTextCodec>
 #include <KCodecs/KCharsets>
 #include <KI18n/KLocalizedString>
+#include <QtCore/QTextCodec>
 
 namespace KCDDB
 {

@@ -22,8 +22,8 @@
 #include "httplookup.h"
 
 #include <KIO/Job>
-#include <QtCore/QUrlQuery>
 #include <QtCore/QDebug>
+#include <QtCore/QUrlQuery>
 
 namespace KCDDB
 {

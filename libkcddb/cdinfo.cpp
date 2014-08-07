@@ -26,8 +26,8 @@
 #include "cddb.h"
 #include "logging.h"
 
+#include <KCoreAddons/KStringHandler>
 #include <QtCore/QDebug>
-#include <kstringhandler.h>
 
 #include <QMap>
 

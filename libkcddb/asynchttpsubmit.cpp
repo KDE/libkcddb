@@ -19,7 +19,7 @@
 
 #include "asynchttpsubmit.h"
 
-#include <kio/job.h>
+#include <KIO/Job>
 #include <QtCore/QDebug>
 
 namespace KCDDB

@@ -22,8 +22,7 @@
 
 #include "cdinfo.h"
 
-
-#include <kio/job.h>
+#include <KIO/Job>
 
 namespace KCDDB
 {

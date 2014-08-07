@@ -21,7 +21,7 @@
 #define TEST_H
 
 #include <QEventLoop>
-#include <QObject>
+#include <QtCore/QObject>
 #include <libkcddb/client.h>
 #include <libkcddb/kcddb.h>
 

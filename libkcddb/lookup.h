@@ -22,11 +22,12 @@
 #ifndef KCDDB_LOOKUP_H
 #define KCDDB_LOOKUP_H
 
+#include <libkcddb/cddb.h>
+#include <libkcddb/cdinfo.h>
+
 #include <QtCore/QList>
 #include <QtCore/QObject>
 #include <QtCore/QPair>
-#include <libkcddb/cddb.h>
-#include <libkcddb/cdinfo.h>
 
 namespace KCDDB
 {
