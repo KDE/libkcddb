@@ -81,7 +81,7 @@ class CDInfoDialog::Private
       d->ui->m_trackList->setModel(m_trackModel);
 
       // We want control over the visibility of this column. See artistChanged().
-//      d->ui->m_trackList->setColumnWidthMode(Private::TRACK_ARTIST, Q3ListView::Manual);
+      d->ui->m_trackList->header()->setSectionResizeMode(Private::TRACK_ARTIST, QHeaderView::Interactive);
 
       // TODO: ensure we get our translations
       // KGlobal::locale()->insertCatalog( QLatin1String( "libkcddb" ));
@@ -105,23 +105,21 @@ class CDInfoDialog::Private
   {
       delete d->ui;
       delete d;
-
   }
 
   void CDInfoDialog::slotNextTrack()
   {
-/*      QTreeWidgetItem *item = d->ui->m_trackList->itemBelow(d->ui->m_trackList->currentItem());
-      if (item)
+      QModelIndex index = d->ui->m_trackList->indexBelow(d->ui->m_trackList->currentIndex());
+      if (index.isValid())
       {
-
-          d->ui->m_trackList->setCurrentItem(item);*/
-//          d->ui->m_trackList->ensureItemVisible(item);
-//       }
+          d->ui->m_trackList->setCurrentIndex(index);
+          d->ui->m_trackList->scrollTo(index, QTreeView::EnsureVisible);
+      }
   }
 
   void CDInfoDialog::slotTrackDoubleClicked(const QModelIndex &index)
   {
-//       d->ui->m_trackList->editItem(item);
+      d->ui->m_trackList->edit(index);
   }
 
   void CDInfoDialog::setInfo( const KCDDB::CDInfo &info, const KCDDB::TrackOffsetList &trackStartFrames )
