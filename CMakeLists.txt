@@ -10,11 +10,14 @@ include(KDECompilerSettings)
 include(KDECMakeSettings)
 include(FeatureSummary)
 include(GenerateExportHeader)
+include(ECMSetupVersion)
 
 find_package(Qt5 REQUIRED COMPONENTS Network Widgets Test)
 find_package(KF5 REQUIRED COMPONENTS Config DocTools Codecs I18n KIO WidgetsAddons)
 
-include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
+ecm_setup_version(${KF5_VERSION}
+    VARIABLE_PREFIX KCDDB
+    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/LibkcddbConfigVersion.cmake")
 
 find_package(MusicBrainz5)
 set_package_properties(MusicBrainz5 PROPERTIES
@@ -31,9 +34,13 @@ endif()
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-musicbrainz.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-musicbrainz.h )
 
+include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
+
 add_subdirectory( test )
 add_subdirectory( kcmcddb )
 add_subdirectory( libkcddb )
+
+feature_summary(WHAT PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 # Figure out the relative path from the installed Config.cmake file to the install prefix (which may be at
 # runtime different from the chosen CMAKE_INSTALL_PREFIX if under Windows the package was installed anywhere)
@@ -41,5 +48,8 @@ add_subdirectory( libkcddb )
 file(RELATIVE_PATH relInstallDir ${CMAKE_INSTALL_PREFIX}/${LIB_INSTALL_DIR}/cmake/libkcddb ${CMAKE_INSTALL_PREFIX})
 
 configure_file(LibkcddbConfig.cmake.in ${CMAKE_BINARY_DIR}/LibkcddbConfig.cmake @ONLY)
-install(FILES ${CMAKE_BINARY_DIR}/LibkcddbConfig.cmake DESTINATION ${LIB_INSTALL_DIR}/cmake/libkcddb)
+install(FILES
+    ${CMAKE_BINARY_DIR}/LibkcddbConfig.cmake
+    ${CMAKE_BINARY_DIR}/LibkcddbConfigVersion.cmake
+    DESTINATION ${LIB_INSTALL_DIR}/cmake/libkcddb)
 install(EXPORT LibkcddbTargets DESTINATION ${LIB_INSTALL_DIR}/cmake/libkcddb/ FILE LibkcddbTargets.cmake NAMESPACE KDE::Libkcddb::)

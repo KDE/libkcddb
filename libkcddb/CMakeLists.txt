@@ -66,7 +66,7 @@ endif()
 
 generate_export_header(kcddb)
 
-set_target_properties(kcddb PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
+set_target_properties(kcddb PROPERTIES VERSION ${KCDDB_VERSION} SOVERSION ${KCDDB_SOVERSION})
 
 install(TARGETS kcddb EXPORT LibkcddbTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
 
