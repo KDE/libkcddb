@@ -17,11 +17,11 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <qtest_kde.h>
 #include "libkcddb/client.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
 #include "utf8test.h"
+#include <QtTest/QTest>
 
 void Utf8Test::testLookup()
 {
@@ -82,4 +82,4 @@ void Utf8Test::testLookup()
   QVERIFY(hasRunTest);
 }
 
-QTEST_KDEMAIN(Utf8Test, NoGUI)
+QTEST_GUILESS_MAIN(Utf8Test)

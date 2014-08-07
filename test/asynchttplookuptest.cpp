@@ -18,10 +18,10 @@
 */
 
 
-#include <qtest_kde.h>
 #include "asynchttplookuptest.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
+#include <QtTest/QTest>
 
 void AsyncHTTPLookupTest::testLookup()
 {
@@ -115,4 +115,4 @@ AsyncHTTPLookupTest::slotFinished(Result r)
   m_eventLoop.quit();
 }
 
-QTEST_KDEMAIN(AsyncHTTPLookupTest, NoGUI)
+QTEST_GUILESS_MAIN(AsyncHTTPLookupTest)

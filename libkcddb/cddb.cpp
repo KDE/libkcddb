@@ -27,7 +27,7 @@
 
 #include <QtCore/QDebug>
 #include <kstringhandler.h>
-#include <klocale.h>
+#include <KI18n/KLocalizedString>
 
 namespace KCDDB
 {

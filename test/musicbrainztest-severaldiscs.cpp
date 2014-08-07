@@ -17,13 +17,12 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <qtest_kde.h>
 #include "musicbrainztest-severaldiscs.h"
 #include "libkcddb/client.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
 #include "config-musicbrainz.h"
-
+#include <QtTest/QTest>
 
 void MusicBrainzTestSeveralDiscs::testLookup()
 {
@@ -136,4 +135,4 @@ void MusicBrainzTestSeveralDiscs::testLookup()
   }
 }
 
-QTEST_KDEMAIN(MusicBrainzTestSeveralDiscs, NoGUI)
+QTEST_GUILESS_MAIN(MusicBrainzTestSeveralDiscs)

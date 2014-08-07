@@ -22,14 +22,11 @@
 
 #include "config-musicbrainz.h"
 
-#include <kdemacros.h> // KDE_NO_DEPRECATED
-
 #include "libkcddb/sites.h"
 #include "libkcddb/lookup.h"
 
 #include <qlist.h>
-#include <kapplication.h>
-#include <klocale.h>
+#include <KI18n/KLocalizedString>
 #include <kmessagebox.h>
 #include <keditlistwidget.h>
 #include <kurlrequester.h>

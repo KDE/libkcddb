@@ -22,7 +22,7 @@
 #ifndef KCDDB_CDDBP_LOOKUP_H
 #define KCDDB_CDDBP_LOOKUP_H
 
-#include <qtcpsocket.h>
+#include <QtNetwork/QTcpSocket>
 
 #include "lookup.h"
 

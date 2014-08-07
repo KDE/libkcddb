@@ -8,7 +8,7 @@
 
 #include "genres.h"
 
-#include <klocale.h>
+#include <KI18n/KLocalizedString>
 
 class KCDDB::Genres::Private
 {

@@ -17,10 +17,10 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <qtest_kde.h>
 #include "asynccddblookuptest.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
+#include <QtTest/QTest>
 
 void AsyncCDDBLookupTest::testLookup()
 {
@@ -114,4 +114,4 @@ AsyncCDDBLookupTest::slotFinished(Result r)
   m_eventLoop.quit();
 }
 
-QTEST_KDEMAIN(AsyncCDDBLookupTest, NoGUI)
+QTEST_GUILESS_MAIN(AsyncCDDBLookupTest)

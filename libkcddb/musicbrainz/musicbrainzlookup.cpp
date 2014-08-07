@@ -22,7 +22,7 @@
 
 #include <QtCore/QDebug>
 #include <kcodecs.h>
-#include <klocale.h>
+#include <KI18n/KLocalizedString>
 #include <qcryptographichash.h>
 #include <cstdio>
 #include <cstring>
@@ -62,7 +62,7 @@ namespace KCDDB
     // Code adapted from libmusicbrainz/examples/cdlookup.cc
 
     try {
-      MusicBrainz5::CMetadata Metadata=Query.Query("discid",discId.toAscii().constData());
+      MusicBrainz5::CMetadata Metadata=Query.Query("discid",discId.toLatin1().constData());
 
       if (Metadata.Disc() && Metadata.Disc()->ReleaseList())
       {
@@ -90,7 +90,7 @@ namespace KCDDB
             //However, these releases will include information for all media in the release
             //So we need to filter out the only the media we want.
 
-            MusicBrainz5::CMediumList MediaList=FullRelease->MediaMatchingDiscID(discId.toAscii().constData());
+            MusicBrainz5::CMediumList MediaList=FullRelease->MediaMatchingDiscID(discId.toLatin1().constData());
 
             if (MediaList.NumItems() > 0)
             {

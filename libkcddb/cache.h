@@ -27,7 +27,6 @@
 
 #include "kcddb.h"
 #include "cdinfo.h"
-#include <kdemacros.h>
 
 namespace KCDDB
 {

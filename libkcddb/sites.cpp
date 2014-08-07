@@ -20,7 +20,6 @@
 #include "sites.h"
 
 #include <KIO/Job>
-#include <KIO/NetAccess>
 #include <QtCore/QDebug>
 #include <QtCore/QRegExp>
 #include <QtCore/QTextStream>
@@ -54,9 +53,10 @@ namespace KCDDB
 
     QList<Mirror> result;
 
-    KIO::Job* job = KIO::get( url, KIO::NoReload, KIO::HideProgressInfo );
+    KIO::TransferJob* job = KIO::get( url, KIO::NoReload, KIO::HideProgressInfo );
     QByteArray data;
-    if( KIO::NetAccess::synchronousRun( job, 0, &data ) )
+    QObject::connect( job, &KIO::TransferJob::data, [&data](KIO::Job *, const QByteArray &d){ data += d; } );
+    if( job->exec() )
     {
       result = readData( data );
     }

@@ -17,13 +17,12 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <qtest_kde.h>
 #include "musicbrainztest-fulldate.h"
 #include "libkcddb/client.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
 #include "config-musicbrainz.h"
-
+#include <QtTest/QTest>
 
 void MusicBrainzTestFullDate::testLookup()
 {
@@ -152,4 +151,4 @@ void MusicBrainzTestFullDate::testLookup()
   }
 }
 
-QTEST_KDEMAIN(MusicBrainzTestFullDate, NoGUI)
+QTEST_GUILESS_MAIN(MusicBrainzTestFullDate)

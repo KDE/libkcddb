@@ -22,7 +22,6 @@
 #include "logging.h"
 
 #include <qstringlist.h>
-#include <qapplication.h>
 
 #include <kio/job.h>
 

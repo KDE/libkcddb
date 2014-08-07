@@ -97,7 +97,7 @@
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="KComboBox" name="m_category">
+      <widget class="QComboBox" name="m_category">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -144,7 +144,7 @@
       </widget>
      </item>
      <item row="4" column="3">
-      <widget class="KComboBox" name="m_genre">
+      <widget class="QComboBox" name="m_genre">
        <property name="toolTip">
         <string>Avoid custom values, as they will be written to CDDB as-is.</string>
        </property>
@@ -243,13 +243,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
-  </customwidget>
- </customwidgets>
  <tabstops>
   <tabstop>m_artist</tabstop>
   <tabstop>m_title</tabstop>

@@ -31,8 +31,6 @@
 #include "musicbrainz/musicbrainzlookup.h"
 #endif
 
-#include <kstandarddirs.h>
-
 #include <QFile>
 #include <QDir>
 #include <QTextStream>

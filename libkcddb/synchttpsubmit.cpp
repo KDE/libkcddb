@@ -19,8 +19,7 @@
 
 #include "synchttpsubmit.h"
 
-#include <kio/netaccess.h>
-#include <kio/job.h>
+#include <KIO/Job>
 
 namespace KCDDB
 {
@@ -37,9 +36,7 @@ namespace KCDDB
 
   Result SyncHTTPSubmit::runJob(KIO::Job* job)
   {
-    bool success = KIO::NetAccess::synchronousRun(job, 0);
-
-    if (success)
+    if (job->exec())
       return Success;
     else
       return UnknownError;

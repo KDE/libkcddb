@@ -11,8 +11,8 @@ include(KDECMakeSettings)
 include(FeatureSummary)
 include(GenerateExportHeader)
 
-find_package(Qt5 REQUIRED COMPONENTS Test)
-find_package(KF5 REQUIRED COMPONENTS Config DocTools KDELibs4Support Codecs KIO)
+find_package(Qt5 REQUIRED COMPONENTS Network Widgets Test)
+find_package(KF5 REQUIRED COMPONENTS Config DocTools Codecs I18n KIO WidgetsAddons)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
 
@@ -25,16 +25,8 @@ set_package_properties(MusicBrainz5 PROPERTIES
 
 if(MUSICBRAINZ5_FOUND)
     set(HAVE_MUSICBRAINZ5 1)
-    include_directories(${MUSICBRAINZ5_INCLUDE_DIR})
-
-    set(libmusicbrainz_SRCS ${libmusicbrainz_SRCS}
-       musicbrainz/musicbrainzlookup.cpp
-       musicbrainz/asyncmusicbrainzlookup.cpp)
-
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_ENABLE_EXCEPTIONS}")
 else()
     set(HAVE_MUSICBRAINZ5 0)
-    set(libmusicbrainz_SRCS)
 endif()
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-musicbrainz.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-musicbrainz.h )

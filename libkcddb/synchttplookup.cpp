@@ -21,11 +21,7 @@
 #include "synchttplookup.h"
 #include "logging.h"
 
-#include <qstringlist.h>
-#include <qapplication.h>
-
-#include <kio/job.h>
-#include <kio/netaccess.h>
+#include <KIO/Job>
 
 namespace KCDDB
 {
@@ -116,7 +112,9 @@ namespace KCDDB
     if ( 0 == job )
       return ServerError;
 
-    if (!KIO::NetAccess::synchronousRun(job, 0, &data_))
+    QObject::connect( job, &KIO::TransferJob::data, [&](KIO::Job *, const QByteArray &data){ data_ += data; } );
+
+    if (!job->exec())
       return ServerError;
 
     jobFinished();

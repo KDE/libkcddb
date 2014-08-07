@@ -88,4 +88,4 @@ void CDInfoTest::testLongLines()
     }
 }
 
-QTEST_MAIN(CDInfoTest)
+QTEST_GUILESS_MAIN(CDInfoTest)

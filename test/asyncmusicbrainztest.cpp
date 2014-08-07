@@ -18,11 +18,11 @@
 */
 
 
-#include <qtest_kde.h>
 #include "asyncmusicbrainztest.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
 #include "config-musicbrainz.h"
+#include <QtTest/QTest>
 
 void AsyncMusicBrainzTest::testLookup()
 {
@@ -153,4 +153,4 @@ AsyncMusicBrainzTest::slotFinished(Result r)
   m_eventLoop.quit();
 }
 
-QTEST_KDEMAIN(AsyncMusicBrainzTest, NoGUI)
+QTEST_GUILESS_MAIN(AsyncMusicBrainzTest)
