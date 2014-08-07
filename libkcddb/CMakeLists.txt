@@ -71,6 +71,7 @@ set_target_properties(kcddb PROPERTIES VERSION ${KCDDB_VERSION} SOVERSION ${KCDD
 install(TARGETS kcddb EXPORT LibkcddbTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
+   categories.h
    cdinfo.h
    cdinfodialog.h
    client.h
