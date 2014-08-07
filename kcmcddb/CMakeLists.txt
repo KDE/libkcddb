@@ -16,7 +16,7 @@ target_link_libraries(kcm_cddb PRIVATE
     KF5::KIOCore
     KF5::KIOWidgets
     KF5::WidgetsAddons
-    kcddb)
+    kcddbwidgets)
 
 install(TARGETS kcm_cddb DESTINATION ${PLUGIN_INSTALL_DIR})
 

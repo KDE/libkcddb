@@ -15,8 +15,6 @@ if(MUSICBRAINZ5_FOUND)
     set_source_files_properties(${musicbrainz_sources} PROPERTIES COMPILE_FLAGS ${enable_exceptions})
 endif()
 
-qt5_wrap_ui(ui_sources cdinfodialog.ui cdinfoencodingwidget.ui)
-
 kconfig_add_kcfg_files(kcfg_sources configbase.kcfgc)
 
 add_library(kcddb SHARED
@@ -43,17 +41,13 @@ add_library(kcddb SHARED
     synchttpsubmit.cpp
     categories.cpp
     genres.cpp
-    cdinfodialog.cpp
-    cdinfoencodingwidget.cpp
     logging.cpp
     ${musicbrainz_sources}
-    ${ui_sources}
     ${kcfg_sources})
 
 target_link_libraries(kcddb
     PUBLIC
         KF5::ConfigGui
-        Qt5::Widgets
     PRIVATE
         KF5::Codecs
         KF5::I18n
@@ -64,11 +58,26 @@ if(MUSICBRAINZ5_FOUND)
     target_link_libraries(kcddb PRIVATE musicbrainz)
 endif()
 
+qt5_wrap_ui(ui_sources cdinfodialog.ui cdinfoencodingwidget.ui)
+
+add_library(kcddbwidgets SHARED
+    cdinfodialog.cpp
+    cdinfoencodingwidget.cpp
+    ${ui_sources})
+
+target_link_libraries(kcddbwidgets
+    PUBLIC
+        kcddb
+        Qt5::Widgets
+    PRIVATE
+        KF5::Codecs
+        KF5::I18n)
+
 generate_export_header(kcddb)
 
-set_target_properties(kcddb PROPERTIES VERSION ${KCDDB_VERSION} SOVERSION ${KCDDB_SOVERSION})
+set_target_properties(kcddb kcddbwidgets PROPERTIES VERSION ${KCDDB_VERSION} SOVERSION ${KCDDB_SOVERSION})
 
-install(TARGETS kcddb EXPORT LibkcddbTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kcddb kcddbwidgets EXPORT LibkcddbTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
    categories.h
