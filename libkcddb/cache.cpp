@@ -112,28 +112,34 @@ namespace KCDDB
       newInfo.set(QLatin1String( "discid" ), id);
     }
 
-    cacheDir = c.cacheLocations().first() + cacheDir;
+    const QStringList cacheLocations = c.cacheLocations();
 
-    QDir dir;
+    if (!cacheLocations.isEmpty()) {
+      cacheDir = cacheLocations.first() + cacheDir;
 
-    if (!dir.exists(cacheDir))
-    {
-      if (!dir.mkpath(cacheDir))
+      QDir dir;
+
+      if (!dir.exists(cacheDir))
       {
-        kWarning(60010) << "Couldn't create cache directory " << cacheDir;
-        return;
+        if (!dir.mkpath(cacheDir))
+        {
+          kWarning(60010) << "Couldn't create cache directory " << cacheDir;
+          return;
+        }
       }
-    }
 
-    kDebug(60010) << "Storing " << cacheFile << " in CDDB cache";
+      kDebug(60010) << "Storing " << cacheFile << " in CDDB cache";
 
-    QFile f(cacheDir + QLatin1Char( '/' ) + cacheFile);
-    if ( f.open(QIODevice::WriteOnly) )
-    {
-      QTextStream ts(&f);
-      ts.setCodec("UTF-8");
-      ts << newInfo.toString();
-      f.close();
+      QFile f(cacheDir + QLatin1Char( '/' ) + cacheFile);
+      if ( f.open(QIODevice::WriteOnly) )
+      {
+        QTextStream ts(&f);
+        ts.setCodec("UTF-8");
+        ts << newInfo.toString();
+        f.close();
+      }
+    } else {
+      kDebug(60010) << "There's no cache dir defined, not storing it";
     }
   }
 }
