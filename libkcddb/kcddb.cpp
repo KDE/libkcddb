@@ -19,7 +19,7 @@
 
 #include "kcddb.h"
 
-#include <KI18n/KLocalizedString>
+#include "kcddbi18n.h"
 
 namespace KCDDB
 {

@@ -19,6 +19,8 @@
 
 #include "musicbrainzlookup.h"
 
+#include "kcddbi18n.h"
+
 #include <musicbrainz5/Query.h>
 #include <musicbrainz5/Medium.h>
 #include <musicbrainz5/Release.h>
@@ -33,7 +35,6 @@
 #include <musicbrainz5/SecondaryType.h>
 
 #include <KCodecs/KCodecs>
-#include <KI18n/KLocalizedString>
 
 #include <QtCore/QCryptographicHash>
 #include <QtCore/QDebug>

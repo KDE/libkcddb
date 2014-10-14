@@ -21,10 +21,10 @@
 #include "cdinfodialog.h"
 
 #include "cdinfoencodingwidget.h"
+#include "kcddbi18n.h"
 #include "ui_cdinfodialog.h"
 
 #include <KCodecs/KCharsets>
-#include <KI18n/KLocalizedString>
 
 #include <QtCore/QDebug>
 #include <QtCore/QStringList>
@@ -83,9 +83,6 @@ class CDInfoDialog::Private
       // We want control over the visibility of this column. See artistChanged().
       d->ui->m_trackList->header()->setSectionResizeMode(Private::TRACK_ARTIST, QHeaderView::Interactive);
 
-      // TODO: ensure we get our translations
-      // KGlobal::locale()->insertCatalog( QLatin1String( "libkcddb" ));
-      qWarning() << "KGlobal::locale()->insertCatalog( QLatin1String( \"libkcddb\" )) needs to be ported to KF5.  See the Ki18n programmers guide.";
       connect( d->ui->m_trackList, SIGNAL(activated(QModelIndex)), this, SLOT(slotTrackSelected(QModelIndex)) );
       connect( d->ui->m_trackList, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotTrackDoubleClicked(QModelIndex)) );
       connect( d->ui->m_artist, SIGNAL(textChanged(QString)), this, SLOT(artistChanged(QString)) );

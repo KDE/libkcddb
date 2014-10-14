@@ -58,7 +58,7 @@ if(MUSICBRAINZ5_FOUND)
     target_link_libraries(kcddb PRIVATE musicbrainz)
 endif()
 
-qt5_wrap_ui(ui_sources cdinfodialog.ui cdinfoencodingwidget.ui)
+ki18n_wrap_ui(ui_sources cdinfodialog.ui cdinfoencodingwidget.ui)
 
 add_library(kcddbwidgets SHARED
     cdinfodialog.cpp

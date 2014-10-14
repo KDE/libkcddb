@@ -19,6 +19,7 @@
 */
 
 #include "kcmcddb.h"
+#include "kcmcddbi18n.h"
 #include "cddbconfigwidget.h"
 
 #include "libkcddb/lookup.h"
@@ -26,7 +27,6 @@
 #include "libkcddb/submit.h"
 
 #include <KCoreAddons/KPluginFactory>
-#include <KI18n/KLocalizedString>
 #include <KWidgetsAddons/KMessageBox>
 
 #include <QtCore/QDebug>
@@ -41,9 +41,6 @@ K_EXPORT_PLUGIN(KCDDBFactory( "kcmcddb" ))
 CDDBModule::CDDBModule(QWidget *parent, const QVariantList &args)
   : KCModule(parent, args)
 {
-  // TODO: ensure we get our translations
-  // KGlobal::locale()->insertCatalog( QLatin1String( "libkcddb" ));
-  qWarning() << "KGlobal::locale()->insertCatalog( QLatin1String( \"libkcddb\" )) needs to be ported to KF5.  See the Ki18n programmers guide.";
   setButtons(Default | Apply | Help);
 
   widget_ = new CDDBConfigWidget(this);

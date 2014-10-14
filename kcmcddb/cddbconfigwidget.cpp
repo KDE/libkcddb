@@ -19,13 +19,13 @@
 */
 
 #include "cddbconfigwidget.h"
+#include "kcmcddbi18n.h"
 
 #include "config-musicbrainz.h"
 
 #include "libkcddb/sites.h"
 #include "libkcddb/lookup.h"
 
-#include <KI18n/KLocalizedString>
 #include <KIOWidgets/KUrlRequester>
 #include <KWidgetsAddons/KMessageBox>
 #include <KWidgetsAddons/KEditListWidget>

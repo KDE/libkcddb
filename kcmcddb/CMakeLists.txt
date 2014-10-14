@@ -1,7 +1,7 @@
 
 add_subdirectory ( doc )
 
-qt5_wrap_ui(ui_sources cddbconfigwidget.ui)
+ki18n_wrap_ui(ui_sources cddbconfigwidget.ui)
 
 add_library(kcm_cddb MODULE
     cddbconfigwidget.cpp

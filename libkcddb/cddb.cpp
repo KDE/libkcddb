@@ -22,9 +22,9 @@
 #include "cddb.h"
 
 #include "categories.h"
+#include "kcddbi18n.h"
 
 #include <KCoreAddons/KStringHandler>
-#include <KI18n/KLocalizedString>
 
 #include <QtCore/QDebug>
 #include <QtCore/QStringList>
