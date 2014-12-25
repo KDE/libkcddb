@@ -54,7 +54,6 @@ Name[sr@latin]=Dobavljanje iz CDDB‑a
 Name[sv]=Hämta från CDDB
 Name[tr]=CDDB Erişimi
 Name[uk]=Звантаження з CDDB
-Name[x-test]=xxCDDB Retrievalxx
 Name[zh_CN]=CDDB 获取
 Name[zh_TW]=CDDB 取得資訊
 
@@ -104,7 +103,6 @@ GenericName[sv]=CDDB-inställning
 GenericName[tr]=CDDB Yapılandırması
 GenericName[ug]=CDDB سەپلىمىسى
 GenericName[uk]=Налаштування CDDB
-GenericName[x-test]=xxCDDB Configurationxx
 GenericName[zh_CN]=CDDB 配置
 GenericName[zh_TW]=CDDB 設定
 
@@ -152,7 +150,6 @@ Comment[sr@latin]=Podesite dobavljanje iz CDDB‑a
 Comment[sv]=Anpassa hämtning från CDDB
 Comment[tr]=CDDB Erişimini Yapılandır
 Comment[uk]=Налаштування звантаження з CDDB
-Comment[x-test]=xxConfigure the CDDB Retrievalxx
 Comment[zh_CN]=配置 CDDB 获取
 Comment[zh_TW]=CDDB 取得資訊設定
 
@@ -197,7 +194,6 @@ Keywords[sv]=cddb;
 Keywords[tr]=cddb;
 Keywords[ug]=cddb;
 Keywords[uk]=cddb;
-Keywords[x-test]=xxcddb;xx
 Keywords[zh_CN]=cddb;
 Keywords[zh_TW]=cddb;
 
