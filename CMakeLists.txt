@@ -12,7 +12,7 @@ include(FeatureSummary)
 include(GenerateExportHeader)
 include(ECMSetupVersion)
 
-find_package(Qt5 REQUIRED COMPONENTS Network Widgets Test)
+find_package(Qt5 REQUIRED COMPONENTS Network Widgets)
 find_package(KF5 REQUIRED COMPONENTS Config DocTools Codecs I18n KIO WidgetsAddons)
 
 ecm_setup_version(${KF5_VERSION}
@@ -36,9 +36,13 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-musicbrainz.h.cmake ${CMAKE_CU
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
 
-add_subdirectory( test )
 add_subdirectory( kcmcddb )
 add_subdirectory( libkcddb )
+
+if(BUILD_TESTING)
+    find_package(Qt5Test REQUIRED)
+    add_subdirectory( test )
+endif()
 
 feature_summary(WHAT PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
