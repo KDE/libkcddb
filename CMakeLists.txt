@@ -13,7 +13,7 @@ macro_log_feature(MUSICBRAINZ5_FOUND "MusicBrainz5" "A library that provides acc
 
 if(MUSICBRAINZ5_FOUND)
     set(HAVE_MUSICBRAINZ5 1)
-    include_directories(${MUSICBRAINZ5_INCLUDE_DIR})
+    include_directories(${MUSICBRAINZ5_INCLUDE_DIRS})
 
     set(libmusicbrainz_SRCS ${libmusicbrainz_SRCS}
        musicbrainz/musicbrainzlookup.cpp
