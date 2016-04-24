@@ -2,7 +2,8 @@
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
   Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
-
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
+  
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation; either version 2 of the License, or
@@ -30,9 +31,9 @@
 #include <QVBoxLayout>
 
 #include <kconfig.h>
-#include <klocale.h>
-#include <kglobal.h>
-#include <kgenericfactory.h>
+#include <KLocalizedString>
+#include <QtGlobal>
+#include <kpluginfactory.h>
 #include <kmessagebox.h>
 #include <kconfigdialogmanager.h>
 
@@ -40,16 +41,16 @@ K_PLUGIN_FACTORY(KCDDBFactory, registerPlugin<CDDBModule>();)
 K_EXPORT_PLUGIN(KCDDBFactory( "kcmcddb" ))
 
 
-CDDBModule::CDDBModule(QWidget *parent, const QVariantList &)
-  : KCModule(KCDDBFactory::componentData(), parent)
+CDDBModule::CDDBModule(QWidget *parent, const QVariantList &args)
+  : KCModule(parent, args)
 {
-  KGlobal::locale()->insertCatalog( QLatin1String( "libkcddb" ));
+
   setButtons(Default | Apply | Help);
 
   widget_ = new CDDBConfigWidget(this);
 
   KCDDB::Config* cfg = new KCDDB::Config();
-  cfg->readConfig();
+  cfg->load();
 
   addConfig(cfg, widget_);
 
@@ -76,7 +77,7 @@ CDDBModule::checkSettings() const
 {
   KCDDB::Config config;
 
-  config.readConfig();
+  config.load();
 
   if (config.smtpHostname().isEmpty() || config.emailAddress().isEmpty()
       || !config.emailAddress().contains(QLatin1String( "@" )) ||
@@ -91,7 +92,7 @@ CDDBModule::checkSettings() const
                                     "and try again."), i18n("Incorrect Email Settings"));
       config.setFreedbSubmitTransport(KCDDB::Submit::HTTP);
 
-      config.writeConfig();
+      config.save();
     }
   }
 }
@@ -118,7 +119,7 @@ CDDBModule::load()
   KCModule::load();
 
   KCDDB::Config config;
-  config.readConfig();
+  config.load();
   updateWidgetsFromConfig(config);
 }
 

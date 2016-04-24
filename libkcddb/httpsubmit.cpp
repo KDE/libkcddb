@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
   Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -20,7 +21,7 @@
 
 #include "httpsubmit.h"
 
-#include <kdebug.h>
+#include <QDebug>
 #include <kio/job.h>
 
 namespace KCDDB
@@ -28,7 +29,7 @@ namespace KCDDB
   HTTPSubmit::HTTPSubmit(const QString& from, const QString& hostname, uint port)
     : Submit(), from_(from)
   {
-    url_.setProtocol( QLatin1String( "http" ));
+    url_.setScheme( QLatin1String( "http" ));
     url_.setHost(hostname);
     url_.setPort(port);
     url_.setPath(QLatin1String( "/~cddb/submit.cgi" ));

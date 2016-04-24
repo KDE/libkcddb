@@ -3,6 +3,7 @@
   Copyright (C) 2002-2005 Benjamin Meyer <ben-devel@meyerhome.net>
   Copyright (C) 2002-2004 Nadeem Hasan <nhasan@nadmm.com>
   Copyright (C) 2006 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -25,7 +26,7 @@
 #include "client.h"
 #include "cddb.h"
 
-#include <kdebug.h>
+#include <QDebug>
 #include <kstringhandler.h>
 
 #include <QMap>
@@ -119,13 +120,13 @@ namespace KCDDB
         void
       set(const QString& type, const QVariant &d)
       {
-        //kDebug() << "set: " << type << ", " << d.toString();
+        //qDebug() << "set: " << type << ", " << d.toString();
         if(type.contains(QRegExp( QLatin1String( "^T.*_.*$" )) )){
-          kDebug(60010) << "Error: custom cdinfo::set data can not start with T and contain a _";
+          qDebug() << "Error: custom cdinfo::set data can not start with T and contain a _";
           return;
         }
         if(type.toUpper() == QLatin1String( "DTITLE" )){
-          kDebug(60010) << "Error: type: DTITLE is reserved and can not be set.";
+          qDebug() << "Error: type: DTITLE is reserved and can not be set.";
           return;
         }
 
@@ -227,7 +228,7 @@ namespace KCDDB
     bool ok;
     int track = get(QLatin1String( "tracknumber" )).toInt(&ok);
     if(!ok)
-      kDebug(60010) << "Warning toString() on a track that doesn't have track number assigned.";
+      qDebug() << "Warning toString() on a track that doesn't have track number assigned.";
     QMap<QString, QVariant>::const_iterator i = d->data.constBegin();
     while (i != d->data.constEnd()) {
         if(i.key() != QLatin1String( "COMMENT" ) && i.key() != QLatin1String( "TITLE" ) && i.key() != QLatin1String( "ARTIST" ) && i.key() != QLatin1String( "TRACKNUMBER" )) {
@@ -412,7 +413,7 @@ namespace KCDDB
     if ( get(Genre).toString().isEmpty() )
       set(Genre, QLatin1String( "Unknown" ));
 
-    kDebug(60010) << "Loaded CDInfo for " << get(QLatin1String( "discid" )).toString();
+    qDebug() << "Loaded CDInfo for " << get(QLatin1String( "discid" )).toString();
 
     return true;
   }
@@ -572,7 +573,7 @@ namespace KCDDB
       return d->trackInfoList[trackNumber];
     else
     {
-      kWarning() << "Couldn't find track " << trackNumber;
+      qWarning() << "Couldn't find track " << trackNumber;
       return TrackInfo();
     }
   }

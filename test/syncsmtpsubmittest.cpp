@@ -1,5 +1,6 @@
 /*
   Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -17,9 +18,9 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <kdebug.h>
-#include <kapplication.h>
-#include <kcmdlineargs.h>
+#include <qdebug.h>
+#include <qapplication.h>
+#include <QCommandLineParser>
 
 #include "libkcddb/client.h"
 #include "libkcddb/kcddbconfig.h"
@@ -28,9 +29,9 @@
   int
 main(int argc, char ** argv)
 {
-  KCmdLineArgs::init(argc, argv, "libkcddb_test", 0, KLocalizedString(), "");
-
-  KApplication app(false /* No styles */);
+  QApplication app(argc,argv);
+  QCommandLineParser parser;
+  parser.process(app); 
 
   using namespace KCDDB;
 
@@ -69,6 +70,6 @@ main(int argc, char ** argv)
 
   Result r = c.submit(cdInfo, list);
 
-  kDebug() << "Result: " << resultToString(r);
+  qDebug() << "Result: " << resultToString(r);
 }
 

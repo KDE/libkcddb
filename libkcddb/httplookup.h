@@ -2,6 +2,7 @@
   Copyright (C) 2002 Rik Hemsley ( rikkus ) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
   Copyright (C) 2002 Nadeem Hasan <nhasan@kde.org>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -22,7 +23,7 @@
 #ifndef KCDDB_HTTP_LOOKUP_H
 #define KCDDB_HTTP_LOOKUP_H
 
-#include <kurl.h>
+#include <QUrl>
 
 #include "lookup.h"
 
@@ -69,7 +70,7 @@ namespace KCDDB
     protected:
 
       bool block_;
-      KUrl cgiURL_;
+      QUrl cgiURL_;
       QByteArray data_;
       State state_;
       Result result_;

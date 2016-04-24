@@ -47,7 +47,7 @@
        </widget>
       </item>
       <item>
-       <widget class="KListWidget" name="songsBox">
+       <widget class="QListWidget" name="songsBox">
         <property name="minimumSize">
          <size>
           <width>300</width>
@@ -63,9 +63,8 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KListWidget</class>
-   <extends>QListWidget</extends>
-   <header>klistwidget.h</header>
+   <class>QListWidget</class>
+   <header>qlistwidget.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

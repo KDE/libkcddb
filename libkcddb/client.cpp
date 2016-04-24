@@ -2,6 +2,7 @@
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002-2005 Benjamin C. Meyer <ben at meyerhome dot net>
   Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -38,7 +39,7 @@
 #include "musicbrainz/asyncmusicbrainzlookup.h"
 #endif
 
-#include <kdebug.h>
+#include <QDebug>
 
 namespace KCDDB
 {
@@ -71,7 +72,7 @@ namespace KCDDB
   Client::Client()
     : d(new Private)
   {
-    d->config.readConfig();
+    d->config.load();
   }
 
   Client::~Client()
@@ -111,7 +112,7 @@ namespace KCDDB
 
     if ( trackOffsetList.count() <= 1 )
     {
-      kDebug(60010) << "Lookup called with empty offset list";
+      qDebug() << "Lookup called with empty offset list";
       return NoRecordFound;
     }
 
@@ -119,7 +120,7 @@ namespace KCDDB
     {
       d->cdInfoList = Cache::lookup( trackOffsetList, config() );
 
-      kDebug(60010) << "Found " << d->cdInfoList.count() << " hit(s)";
+      qDebug() << "Found " << d->cdInfoList.count() << " hit(s)";
 
       if ( !d->cdInfoList.isEmpty() )
       {
@@ -321,7 +322,7 @@ namespace KCDDB
         break;
       }
       default:
-        kDebug(60010) << "Unsupported transport: ";
+        qDebug() << "Unsupported transport: ";
 //          << CDDB::transportToString(d->config.submitTransport()) << endl;
         return UnknownError;
         break;

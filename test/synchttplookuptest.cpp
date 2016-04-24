@@ -1,5 +1,6 @@
 /*
   Copyright (C) 2006 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -17,7 +18,7 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <qtest_kde.h>
+#include <QtTest/QtTest>
 #include "libkcddb/client.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
@@ -91,6 +92,6 @@ void SyncHTTPLookupTest::testLookup()
   QVERIFY(hasRunTest);
 }
 
-QTEST_KDEMAIN(SyncHTTPLookupTest, NoGUI)
+QTEST_MAIN(SyncHTTPLookupTest)
 
 #include "synchttplookuptest.moc"

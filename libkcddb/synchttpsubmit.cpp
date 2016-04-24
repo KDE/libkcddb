@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
-
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
+  
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
   License as published by the Free Software Foundation; either
@@ -19,7 +20,6 @@
 
 #include "synchttpsubmit.h"
 
-#include <kio/netaccess.h>
 #include <kio/job.h>
 
 namespace KCDDB
@@ -37,9 +37,7 @@ namespace KCDDB
 
   Result SyncHTTPSubmit::runJob(KIO::Job* job)
   {
-    bool success = KIO::NetAccess::synchronousRun(job, 0);
-
-    if (success)
+    if (job->exec())
       return Success;
     else
       return UnknownError;

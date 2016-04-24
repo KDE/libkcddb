@@ -2,6 +2,7 @@
   Copyright ( C ) 2002 Rik Hemsley (  rikkus ) <rik@kde.org>
   Copyright ( C ) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
   Copyright ( C ) 2002 Nadeem Hasan <nhasan@kde.org>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -22,7 +23,8 @@
 #include "httplookup.h"
 
 #include <kio/job.h>
-#include <kdebug.h>
+#include <QDebug>
+#include <QUrlQuery>
 
 namespace KCDDB
 {
@@ -66,7 +68,7 @@ namespace KCDDB
     void
   HTTPLookup::initURL( const QString & hostName, uint port )
   {
-    cgiURL_.setProtocol( QLatin1String( "http" ) );
+    cgiURL_.setScheme( QLatin1String( "http" ) );
     cgiURL_.setHost( hostName );
     cgiURL_.setPort( port );
     cgiURL_.setPath( QLatin1String( "/~cddb/cddb.cgi" ) );
@@ -84,10 +86,10 @@ namespace KCDDB
 
     QString hello = QString::fromLatin1("%1 %2 %3 %4")
         .arg(user_, localHostName_, clientName(), clientVersion());
-
-    cgiURL_.addQueryItem( QLatin1String( "cmd" ), cmd );
-    cgiURL_.addQueryItem( QLatin1String( "hello" ), hello );
-    cgiURL_.addQueryItem( QLatin1String( "proto" ), QLatin1String( "6" ) );
+    QUrlQuery url(cgiURL_);
+    url.addQueryItem( QLatin1String( "cmd" ), cmd );
+    url.addQueryItem( QLatin1String( "hello" ), hello );
+    url.addQueryItem( QLatin1String( "proto" ), QLatin1String( "6" ) );
   }
 
     void

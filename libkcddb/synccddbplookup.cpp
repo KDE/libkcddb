@@ -2,6 +2,7 @@
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
   Copyright (C) 2005 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -22,8 +23,8 @@
 #include "synccddbplookup.h"
 
 #include <qstringlist.h>
-#include <kdebug.h>
-#include <ksocketfactory.h>
+#include <QDebug>
+#include <QStringList>
 
 namespace KCDDB
 {
@@ -46,13 +47,13 @@ namespace KCDDB
   )
   {
     trackOffsetList_ = trackOffsetList;
-
-    socket_ = KSocketFactory::synchronousConnectToHost(QLatin1String( "cddbp" ), hostName, port);
-
-    if ( !socket_->isValid() )
+    socket_ = new QTcpSocket;
+    socket_->connectToHost(hostName, port);
+    
+    if ( !socket_->waitForConnected(30000) )
     {
-      kDebug(60010) << "Couldn't connect to " << socket_->peerName() << ":" << socket_->peerPort();
-      kDebug(60010) << "Socket error: " << socket_->errorString();
+      qDebug() << "Couldn't connect to " << socket_->peerName() << ":" << socket_->peerPort();
+      qDebug() << "Socket error: " << socket_->errorString();
 
       if ( socket_->error() == QAbstractSocket::HostNotFoundError )
         return HostNotFound;
@@ -77,7 +78,7 @@ namespace KCDDB
     if (matchList_.isEmpty())
       return NoRecordFound;
 
-    kDebug(60010) << matchList_.count() << " matches found.";
+    qDebug() << matchList_.count() << " matches found.";
 
     // For each match, read the cd info from the server and save it to
     // cdInfoList.
@@ -186,7 +187,7 @@ namespace KCDDB
   {
     if ( !isConnected() )
     {
-      kDebug(60010) << "socket status: " << socket_->state();
+      qDebug() << "socket status: " << socket_->state();
       return QString();
     }
 

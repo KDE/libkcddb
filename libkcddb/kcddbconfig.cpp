@@ -3,6 +3,7 @@
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
   Copyright (C) 2002 Nadeem Hasan <nhasan@kde.org>
   Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -37,11 +38,11 @@ namespace KCDDB
     KEMailSettings kes;
     kes.setProfile( kes.defaultProfileName() );
 
-    static_cast<KConfigSkeleton::ItemString *>(findItem(QLatin1String( "emailAddress" )))
+    static_cast<KCoreConfigSkeleton::ItemString *>(findItem(QLatin1String( "emailAddress" )))
       ->setDefaultValue(kes.getSetting( KEMailSettings::EmailAddress ));
-    static_cast<KConfigSkeleton::ItemString *>(findItem(QLatin1String( "replyTo" )))
+    static_cast<KCoreConfigSkeleton::ItemString *>(findItem(QLatin1String( "replyTo" )))
       ->setDefaultValue(kes.getSetting( KEMailSettings::ReplyToAddress ));
-    static_cast<KConfigSkeleton::ItemString *>(findItem(QLatin1String( "smtpHostname" )))
+    static_cast<KCoreConfigSkeleton::ItemString *>(findItem(QLatin1String( "smtpHostname" )))
       ->setDefaultValue(kes.getSetting( KEMailSettings::OutServer ));
   }
 
@@ -49,7 +50,7 @@ namespace KCDDB
   {
     loadEmailSettings();
 
-    readConfig();
+    load();
   }
 }
 

@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002-2005 Benjamin C. Meyer <ben at meyerhome dot net>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -23,9 +24,9 @@
 
 #include "kcddbconfig.h"
 #include "cdinfo.h"
-#include <QtCore/QObject>
+#include <QObject>
 #include "kcddb.h"
-#include <kdemacros.h>
+#include <QtGlobal>
 
 namespace KCDDB
 {

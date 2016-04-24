@@ -3,6 +3,7 @@
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
   Copyright (C) 2002 Nadeem Hasan <nhasan@kde.org>
   Copyright (C) 2007 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -30,8 +31,8 @@
 #include "musicbrainz/musicbrainzlookup.h"
 #endif
 
-#include <kdebug.h>
-#include <kstandarddirs.h>
+#include <QLoggingCategory>
+#include <QStandardPaths>
 
 #include <QFile>
 #include <QDir>
@@ -44,7 +45,7 @@ namespace KCDDB
   {
     QString cddbId = CDDB::trackOffsetListToId(offsetList);
 
-    kDebug(60010) << "Looking up " << cddbId << " in CDDB cache";
+    qDebug() << "Looking up " << cddbId << " in CDDB cache";
 
     CDInfoList infoList;
 
@@ -104,7 +105,7 @@ namespace KCDDB
     else
     {
       if (source != QLatin1String( "user" ))
-        kWarning(60010) << "Unknown source " << source << " for CDInfo";
+        qWarning() << "Unknown source " << source << " for CDInfo";
 
       cacheDir = QLatin1String( "/user/" );
       QString id = CDDB::trackOffsetListToId(offsetList);
@@ -123,12 +124,12 @@ namespace KCDDB
       {
         if (!dir.mkpath(cacheDir))
         {
-          kWarning(60010) << "Couldn't create cache directory " << cacheDir;
+          qWarning() << "Couldn't create cache directory " << cacheDir;
           return;
         }
       }
 
-      kDebug(60010) << "Storing " << cacheFile << " in CDDB cache";
+      qDebug() << "Storing " << cacheFile << " in CDDB cache";
 
       QFile f(cacheDir + QLatin1Char( '/' ) + cacheFile);
       if ( f.open(QIODevice::WriteOnly) )
@@ -139,7 +140,7 @@ namespace KCDDB
         f.close();
       }
     } else {
-      kDebug(60010) << "There's no cache dir defined, not storing it";
+      qDebug() << "There's no cache dir defined, not storing it";
     }
   }
 }

@@ -1,6 +1,7 @@
 /*
   Copyright (c) 2005 Shaheedur R. Haque <srhaque@iee.org>
   Copyright (C) 2005 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -26,10 +27,13 @@
 #include <QTextCodec>
 #include <QStringList>
 #include <QStandardItemModel>
-
-#include <kdebug.h>
-#include <kglobal.h>
-#include <kcharsets.h>
+#include <QTime>
+#include <QDebug>
+#include <KSharedConfig>
+#include <KLocalizedString>
+#include <KCodecs/KCharsets>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
 
 using KCDDB::TrackInfo;
 
@@ -59,12 +63,12 @@ class CDInfoDialog::Private
   QLatin1String CDInfoDialog::Private::SEPARATOR = QLatin1String( " / " );
 
   CDInfoDialog::CDInfoDialog(QWidget* parent)
-    : KDialog(parent),
+    : QDialog(parent),
       d(new Private)
   {
       QWidget* w = new QWidget(this);
       d->ui->setupUi(w);
-      setMainWidget(w);
+      //setWidget(w);
 
       d->info.set(QLatin1String( "source" ), QLatin1String( "user" ));
 
@@ -80,7 +84,6 @@ class CDInfoDialog::Private
 //      d->ui->m_trackList->setColumnWidthMode(Private::TRACK_ARTIST, Q3ListView::Manual);
 
       // ensure we get our translations
-      KGlobal::locale()->insertCatalog( QLatin1String( "libkcddb" ));
       connect( d->ui->m_trackList, SIGNAL(activated(QModelIndex)), this, SLOT(slotTrackSelected(QModelIndex)) );
       connect( d->ui->m_trackList, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotTrackDoubleClicked(QModelIndex)) );
       connect( d->ui->m_artist, SIGNAL(textChanged(QString)), this, SLOT(artistChanged(QString)) );
@@ -149,10 +152,10 @@ class CDInfoDialog::Private
           QList<QStandardItem *> trackItems = QList<QStandardItem *>();
           TrackInfo ti(info.track(i));
           QStandardItem *trackNumberItem = new QStandardItem(QString().sprintf("%02d", i + 1));
-          trackNumberItem->setEditable(FALSE);
+          trackNumberItem->setEditable(false);
           trackItems << trackNumberItem;
           QStandardItem *trackLengthItem = new QStandardItem(framesTime(trackStartFrames[i + 1] - trackStartFrames[i]));
-          trackLengthItem->setEditable(FALSE);
+          trackLengthItem->setEditable(false);
           trackItems << trackLengthItem;
           QStandardItem *trackTitleItem = new QStandardItem(ti.get(Title).toString());
           trackItems << trackTitleItem;
@@ -263,9 +266,15 @@ class CDInfoDialog::Private
 
   void CDInfoDialog::slotChangeEncoding()
   {
-      KDialog* dialog = new KDialog(this);
-      dialog->setCaption(i18n("Change Encoding"));
-      dialog->setButtons( KDialog::Ok | KDialog::Cancel);
+      QDialog* dialog = new QDialog(this);
+      dialog->setWindowTitle(i18n("Change Encoding"));
+      QVBoxLayout *mainLayout = new QVBoxLayout;
+      dialog->setLayout(mainLayout);
+      QDialogButtonBox *buttonBox = new QDialogButtonBox(this);
+      buttonBox->button(QDialogButtonBox::Ok)->setIcon(QApplication::style()->standardIcon(QStyle::SP_DialogOkButton));
+      buttonBox->button(QDialogButtonBox::Cancel)->setIcon(QApplication::style()->standardIcon(QStyle::SP_DialogCancelButton));
+      connect(buttonBox, SIGNAL(accepted()), dialog, SLOT(accept()));
+      connect(buttonBox, SIGNAL(rejected()), dialog, SLOT(rejected()));
       dialog->setModal( true );
 
 
@@ -280,12 +289,12 @@ class CDInfoDialog::Private
 
       KCDDB::CDInfoEncodingWidget* encWidget = new KCDDB::CDInfoEncodingWidget(
           dialog, d->ui->m_artist->text(),d->ui->m_title->text(), songTitles);
-
-      dialog->setMainWidget(encWidget);
+      
+      mainLayout->addWidget(encWidget);
 
       if (dialog->exec())
       {
-        KCharsets* charsets = KGlobal::charsets();
+        KCharsets* charsets = KCharsets::charsets();
         QTextCodec* codec = charsets->codecForName(charsets->encodingForName(encWidget->selectedEncoding()));
 
         d->ui->m_artist->setText(codec->toUnicode(d->ui->m_artist->text().toLatin1()));

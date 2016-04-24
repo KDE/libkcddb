@@ -1,5 +1,6 @@
 /*
   Copyright (C) 2006 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -18,7 +19,8 @@
 */
 
 
-#include <qtest_kde.h>
+#include <QtTest/QtTest>
+#include <QDebug>
 #include "asynchttplookuptest.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
@@ -96,17 +98,17 @@ void AsyncHTTPLookupTest::testLookup()
 AsyncHTTPLookupTest::slotFinished(Result r)
 {
   m_result = r;
-  kDebug() << "AsyncHTTPLookupTest::slotFinished: Got " << KCDDB::resultToString(r);
+  qDebug() << "AsyncHTTPLookupTest::slotFinished: Got " << KCDDB::resultToString(r);
 
   CDInfoList l = client_->lookupResponse();
 
-  kDebug() << "AsyncHTTPLookupTest::slotFinished: Item count: " <<  l.count();
+  qDebug() << "AsyncHTTPLookupTest::slotFinished: Item count: " <<  l.count();
 
   foreach(const CDInfo &i, l)
   {
     if (i.get("discid") == "a1107d0a" && i.get(Category) == "jazz")
     {
-      kDebug() << "Found the CD";
+      qDebug() << "Found the CD";
       m_info = i;
       break;
     }
@@ -115,6 +117,6 @@ AsyncHTTPLookupTest::slotFinished(Result r)
   m_eventLoop.quit();
 }
 
-QTEST_KDEMAIN(AsyncHTTPLookupTest, NoGUI)
+QTEST_MAIN(AsyncHTTPLookupTest)
 
 #include "asynchttplookuptest.moc"

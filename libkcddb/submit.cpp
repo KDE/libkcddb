@@ -2,6 +2,7 @@
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
   Copyright (C) 2003-2005 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -21,7 +22,7 @@
 
 #include "submit.h"
 
-#include <kdebug.h>
+#include <QDebug>
 
 namespace KCDDB
 {
@@ -82,7 +83,7 @@ namespace KCDDB
 
     diskData_ += cdInfo.toString(true);
 
-    kDebug(60010) << "diskData_ == " << diskData_;
+    qDebug() << "diskData_ == " << diskData_;
   }
 
   bool Submit::validCategory( const QString& c )

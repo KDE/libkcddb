@@ -82,7 +82,7 @@
              </widget>
             </item>
             <item>
-             <widget class="KIntSpinBox" name="kcfg_port">
+             <widget class="QSpinBox" name="kcfg_port">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -132,7 +132,7 @@
              </widget>
             </item>
             <item>
-             <widget class="KPushButton" name="mirrorListButton">
+             <widget class="QPushButton" name="mirrorListButton">
               <property name="text">
                <string>Show &amp;Mirror List</string>
               </property>
@@ -193,7 +193,7 @@
           <item row="1" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout">
             <item>
-             <widget class="KLineEdit" name="kcfg_httpSubmitServer">
+             <widget class="QLineEdit" name="kcfg_httpSubmitServer">
              </widget>
             </item>
             <item>
@@ -210,7 +210,7 @@
              </widget>
             </item>
             <item>
-             <widget class="KIntSpinBox" name="kcfg_httpSubmitPort"/>
+             <widget class="QSpinBox" name="kcfg_httpSubmitPort"/>
             </item>
            </layout>
           </item>
@@ -243,7 +243,7 @@
              </widget>
             </item>
             <item>
-             <widget class="KIntSpinBox" name="kcfg_smtpPort">
+             <widget class="QSpinBox" name="kcfg_smtpPort">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -318,21 +318,18 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
+   <class>QSpinBox</class>
+   <header>qspinbox.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>KLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
+   <class>QLineEdit</class>
+   <header>qlineedit.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
+   <class>QPushButton</class>
+   <header>qpushbutton.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

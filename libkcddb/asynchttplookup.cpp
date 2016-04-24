@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -23,7 +24,7 @@
 #include <qstringlist.h>
 #include <qapplication.h>
 
-#include <kdebug.h>
+#include <QDebug>
 #include <kio/job.h>
 
 namespace KCDDB
@@ -74,7 +75,7 @@ namespace KCDDB
     void
   AsyncHTTPLookup::slotQueryReady()
   {
-    kDebug(60010) << "Matches Found: " <<  matchList_.count();
+    qDebug() << "Matches Found: " <<  matchList_.count();
 
     if ( Success != result_ )
     {
@@ -130,13 +131,17 @@ namespace KCDDB
     Result
   AsyncHTTPLookup::fetchURL()
   {
-    kDebug(60010) << "About to fetch: " << cgiURL_.url();
+    qDebug() << "About to fetch: " << cgiURL_.url();
 
-    KIO::TransferJob* job = KIO::get( cgiURL_, KIO::NoReload, KIO::HideProgressInfo );
+    //KIO::TransferJob* job = KIO::get( cgiURL_, KIO::NoReload, KIO::HideProgressInfo );
+    KIO::Job *job = KIO::get( cgiURL_, KIO::NoReload, KIO::HideProgressInfo ) ;
 
     if ( 0 == job )
       return ServerError;
 
+    if(!job->exec())
+      return ServerError;
+    
     connect( job, SIGNAL(data(KIO::Job*,QByteArray)),
           SLOT(slotData(KIO::Job*,QByteArray)) );
     connect( job, SIGNAL(result(KJob*)),

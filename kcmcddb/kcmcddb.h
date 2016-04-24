@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -20,7 +21,7 @@
 #ifndef KCMCDDB_H
 #define KCMCDDB_H
 
-#include <kcmodule.h>
+#include <KConfigWidgets/kcmodule.h>
 #include "libkcddb/kcddbconfig.h"
 
 class CDDBConfigWidget;
@@ -32,7 +33,7 @@ class CDDBModule : public KCModule
 
   public:
 
-    CDDBModule(QWidget * parent, const QVariantList &);
+    CDDBModule(QWidget * parent, const QVariantList &args);
 
   public slots:
 
