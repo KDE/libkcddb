@@ -2,6 +2,7 @@
   Copyright ( C ) 2002 Rik Hemsley (  rikkus ) <rik@kde.org>
   Copyright ( C ) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
   Copyright ( C ) 2002 Nadeem Hasan <nhasan@kde.org>
+  Copyright ( C ) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -21,7 +22,7 @@
 
 #include "cddbplookup.h"
 
-#include <kdebug.h>
+#include <QDebug>
 
 #include <qbytearray.h>
 
@@ -90,7 +91,7 @@ namespace KCDDB
     void
   CDDBPLookup::close()
   {
-    kDebug(60010) << "Disconnect from server...";
+    qDebug() << "Disconnect from server...";
     if ( isConnected() )
     {
       socket_->close();
@@ -104,16 +105,16 @@ namespace KCDDB
 
     if ( 200 == serverStatus )
     {
-      kDebug(60010) << "Server response: read-only";
+      qDebug() << "Server response: read-only";
       readOnly_ = true;
     }
     else if ( 201 == serverStatus )
     {
-      kDebug(60010) << "Server response: read-write";
+      qDebug() << "Server response: read-write";
     }
     else
     {
-      kDebug(60010) << "Server response: bugger off";
+      qDebug() << "Server response: bugger off";
       return false;
     }
 
@@ -127,11 +128,11 @@ namespace KCDDB
 
     if ( ( 200 != serverStatus ) && ( 402 != serverStatus ) )
     {
-      kDebug(60010) << "Handshake was too tight. Letting go.";
+      qDebug() << "Handshake was too tight. Letting go.";
       return false;
     }
 
-    kDebug(60010) << "Handshake was warm and firm";
+    qDebug() << "Handshake was warm and firm";
 
     return true;
   }
@@ -142,11 +143,11 @@ namespace KCDDB
   {
     if ( !isConnected() )
     {
-      kDebug(60010) << "socket status: " << socket_->state();
+      qDebug() << "socket status: " << socket_->state();
       return -1;
     }
 
-    kDebug(60010) << "WRITE: [" << line << "]";
+    qDebug() << "WRITE: [" << line << "]";
     QByteArray buf(line.toUtf8());
     buf.append( '\n' );
 

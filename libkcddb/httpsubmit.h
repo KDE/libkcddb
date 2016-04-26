@@ -2,6 +2,7 @@
 #define HTTPSUBMIT_H
 /*
   Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -20,7 +21,7 @@
 */
 
 #include "submit.h"
-#include <kurl.h>
+#include <QUrl>
 
 namespace KCDDB
 {
@@ -33,7 +34,7 @@ namespace KCDDB
     protected:
       virtual KIO::Job* createJob(const CDInfo& cdInfo);
 
-      KUrl url_;
+      QUrl url_;
       QString from_;
   } ;
 }

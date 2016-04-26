@@ -2,6 +2,7 @@
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
   CopyRight (C) 2002 Nadeem Hasan <nhasan@kde.org>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -22,9 +23,9 @@
 #ifndef KCDDB_LOOKUP_H
 #define KCDDB_LOOKUP_H
 
-#include <QtCore/QList>
-#include <QtCore/QObject>
-#include <QtCore/QPair>
+#include <QList>
+#include <QObject>
+#include <QPair>
 #include <libkcddb/cddb.h>
 #include <libkcddb/cdinfo.h>
 

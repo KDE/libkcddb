@@ -1,5 +1,6 @@
 /*
   Copyright (C) 2005 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -20,9 +21,9 @@
 #include "cdinfoencodingwidget.h"
 
 #include <qtextcodec.h>
-#include <klocale.h>
-#include <kglobal.h>
-#include <kcharsets.h>
+#include <KLocalizedString>
+#include <QtGlobal>
+#include <KCodecs/kcharsets.h>
 
 namespace KCDDB
 {
@@ -33,7 +34,7 @@ namespace KCDDB
   {
     setupUi(this);
 
-    encodingCombo->addItems(KGlobal::charsets()->descriptiveEncodingNames());
+    encodingCombo->addItems(KCharsets::charsets()->descriptiveEncodingNames());
 
     slotEncodingChanged(encodingCombo->currentText());
 
@@ -48,7 +49,7 @@ namespace KCDDB
 
   void CDInfoEncodingWidget::slotEncodingChanged(const QString& encoding)
   {
-    KCharsets* charsets = KGlobal::charsets();
+    KCharsets* charsets = KCharsets::charsets();
 
     QTextCodec* codec = charsets->codecForName(charsets->encodingForName(encoding));
 

@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -23,9 +24,9 @@
 #include <qstringlist.h>
 #include <qapplication.h>
 
-#include <kdebug.h>
+#include <QDebug>
 #include <kio/job.h>
-#include <kio/netaccess.h>
+#include <KIO/CopyJob>
 
 namespace KCDDB
 {
@@ -57,7 +58,7 @@ namespace KCDDB
     if ( Success != result_ )
       return result_;
 
-    kDebug(60010) << matchList_.count() << " matches found.";
+    qDebug() << matchList_.count() << " matches found.";
 
     if (matchList_.isEmpty())
       return NoRecordFound;
@@ -87,7 +88,7 @@ namespace KCDDB
     if ( Success != result_ )
       return result_;
 
-    kDebug(60010) << "runQuery() Result: " << resultToString(result_);
+    qDebug() << "runQuery() Result: " << resultToString(result_);
 
     return result_;
   }
@@ -109,14 +110,14 @@ namespace KCDDB
     Result
   SyncHTTPLookup::fetchURL()
   {
-    kDebug(60010) << "About to fetch: " << cgiURL_.url();
+    qDebug() << "About to fetch: " << cgiURL_.url();
 
-    KIO::TransferJob* job = KIO::get( cgiURL_, KIO::NoReload, KIO::HideProgressInfo );
+    KIO::Job *job = KIO::get( cgiURL_, KIO::NoReload, KIO::HideProgressInfo ) ;
 
     if ( 0 == job )
       return ServerError;
 
-    if (!KIO::NetAccess::synchronousRun(job, 0, &data_))
+    if(!job->exec())
       return ServerError;
 
     jobFinished();

@@ -1,5 +1,6 @@
 /*
   Copyright (C) 2003-2004 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -21,7 +22,6 @@
 
 #include "cdinfo.h"
 
-#include <kio/netaccess.h>
 #include <kio/job.h>
 
 namespace KCDDB
@@ -40,7 +40,8 @@ namespace KCDDB
 
   Result SyncSMTPSubmit::runJob(KIO::Job* job)
   {
-    if ( KIO::NetAccess::synchronousRun(job, 0) )
+    
+    if ( job != 0 )
       return Success;
 
     return UnknownError;

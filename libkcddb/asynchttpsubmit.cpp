@@ -1,5 +1,6 @@
 /*
   Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -20,7 +21,7 @@
 #include "asynchttpsubmit.h"
 
 #include <kio/job.h>
-#include <kdebug.h>
+#include <QDebug>
 
 namespace KCDDB
 {
@@ -44,7 +45,7 @@ namespace KCDDB
 
   void AsyncHTTPSubmit::slotFinished(KJob* job)
   {
-    kDebug() << "Finished";
+    qDebug() << "Finished";
 
     if ( job->error()==0 )
       emit finished( Success );

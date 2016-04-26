@@ -1,5 +1,6 @@
 /*
   Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -19,7 +20,7 @@
 
 #include "smtpsubmit.h"
 
-#include <kdebug.h>
+#include <QDebug>
 #include <kio/job.h>
 
 namespace KCDDB
@@ -28,11 +29,11 @@ namespace KCDDB
         const QString& from, const QString& to)
     : Submit(), from_(from), to_(to)
   {
-    url_.setProtocol(QLatin1String( "smtp" ));
+    url_.setScheme(QLatin1String( "smtp" ));
     url_.setHost(hostname);
     url_.setPort(port);
     if (!username.isEmpty())
-      url_.setUser(username);
+      url_.setUserName(username);
     url_.setPath(QLatin1String( "/send" ));
   }
 
@@ -46,7 +47,7 @@ namespace KCDDB
       url_.setQuery(QString::fromLatin1("to=%1&subject=cddb %2 %3&from=%4")
       .arg(to_, cdInfo.get(Category).toString(),
         cdInfo.get(QLatin1String( "discid" )).toString(), from_));
-    kDebug(60010) << "Url is: " << url_.prettyUrl();
+    qDebug() << "Url is: " << url_.path();
 
     return KIO::storedPut(diskData_.toUtf8().data(), url_, -1, KIO::HideProgressInfo);
   }

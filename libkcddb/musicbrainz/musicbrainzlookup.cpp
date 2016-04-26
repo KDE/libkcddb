@@ -1,5 +1,6 @@
 /*
   Copyright (C) 2005-2007 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -20,9 +21,9 @@
 
 #include "musicbrainzlookup.h"
 
-#include <kdebug.h>
-#include <kcodecs.h>
-#include <klocale.h>
+#include <QDebug>
+#include <KCodecs/KCodecs>
+#include <KLocalizedString>
 #include <qcryptographichash.h>
 #include <cstdio>
 #include <cstring>
@@ -55,19 +56,19 @@ namespace KCDDB
   {
     QString discId = calculateDiscId(trackOffsetList);
 
-    kDebug() << "Should lookup " << discId;
+    qDebug() << "Should lookup " << discId;
 
     MusicBrainz5::CQuery Query("libkcddb-0.5");
 
     // Code adapted from libmusicbrainz/examples/cdlookup.cc
 
     try {
-      MusicBrainz5::CMetadata Metadata=Query.Query("discid",discId.toAscii().constData());
+      MusicBrainz5::CMetadata Metadata=Query.Query("discid",discId.toLatin1().constData());
 
       if (Metadata.Disc() && Metadata.Disc()->ReleaseList())
       {
         MusicBrainz5::CReleaseList *ReleaseList=Metadata.Disc()->ReleaseList();
-        kDebug() << "Found " << ReleaseList->NumItems() << " release(s)";
+        qDebug() << "Found " << ReleaseList->NumItems() << " release(s)";
 
         int relnr=1;
 
@@ -90,22 +91,22 @@ namespace KCDDB
             //However, these releases will include information for all media in the release
             //So we need to filter out the only the media we want.
 
-            MusicBrainz5::CMediumList MediaList=FullRelease->MediaMatchingDiscID(discId.toAscii().constData());
+            MusicBrainz5::CMediumList MediaList=FullRelease->MediaMatchingDiscID(discId.toLatin1().constData());
 
             if (MediaList.NumItems() > 0)
             {
               /*if (FullRelease->ReleaseGroup())
-                kDebug() << "Release group title: " << FullRelease->ReleaseGroup()->Title();
+                qDebug() << "Release group title: " << FullRelease->ReleaseGroup()->Title();
               else
-                kDebug() << "No release group for this release";*/
+                qDebug() << "No release group for this release";*/
 
-              kDebug() << "Found " << MediaList.NumItems() << " media item(s)";
+              qDebug() << "Found " << MediaList.NumItems() << " media item(s)";
 
               for (int i=0; i < MediaList.NumItems(); i++)
               {
                 MusicBrainz5::CMedium* Medium= MediaList.Item(i);
 
-                /*kDebug() << "Found media: '" << Medium.Title() << "', position " << Medium.Position();*/
+                /*qDebug() << "Found media: '" << Medium.Title() << "', position " << Medium.Position();*/
 
                 CDInfo info;
                 info.set(QLatin1String( "source" ), QLatin1String( "musicbrainz" ));
@@ -176,71 +177,71 @@ namespace KCDDB
 
     catch (MusicBrainz5::CConnectionError& Error)
     {
-      kDebug() << "Connection Exception: '" << Error.what() << "'";
-      kDebug() << "LastResult: " << Query.LastResult();
-      kDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
-      kDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
+      qDebug() << "Connection Exception: '" << Error.what() << "'";
+      qDebug() << "LastResult: " << Query.LastResult();
+      qDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
+      qDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
 
       return ServerError;
     }
 
     catch (MusicBrainz5::CTimeoutError& Error)
     {
-      kDebug() << "Timeout Exception: '" << Error.what() << "'";
-      kDebug() << "LastResult: " << Query.LastResult();
-      kDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
-      kDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
+      qDebug() << "Timeout Exception: '" << Error.what() << "'";
+      qDebug() << "LastResult: " << Query.LastResult();
+      qDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
+      qDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
 
       return ServerError;
     }
 
     catch (MusicBrainz5::CAuthenticationError& Error)
     {
-      kDebug() << "Authentication Exception: '" << Error.what() << "'";
-      kDebug() << "LastResult: " << Query.LastResult();
-      kDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
-      kDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
+      qDebug() << "Authentication Exception: '" << Error.what() << "'";
+      qDebug() << "LastResult: " << Query.LastResult();
+      qDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
+      qDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
 
       return ServerError;
     }
 
     catch (MusicBrainz5::CFetchError& Error)
     {
-      kDebug() << "Fetch Exception: '" << Error.what() << "'";
-      kDebug() << "LastResult: " << Query.LastResult();
-      kDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
-      kDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
+      qDebug() << "Fetch Exception: '" << Error.what() << "'";
+      qDebug() << "LastResult: " << Query.LastResult();
+      qDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
+      qDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
 
       return ServerError;
     }
 
     catch (MusicBrainz5::CRequestError& Error)
     {
-      kDebug() << "Request Exception: '" << Error.what() << "'";
-      kDebug() << "LastResult: " << Query.LastResult();
-      kDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
-      kDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
+      qDebug() << "Request Exception: '" << Error.what() << "'";
+      qDebug() << "LastResult: " << Query.LastResult();
+      qDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
+      qDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
 
       return ServerError;
     }
 
     catch (MusicBrainz5::CResourceNotFoundError& Error)
     {
-      kDebug() << "ResourceNotFound Exception: '" << Error.what() << "'";
-      kDebug() << "LastResult: " << Query.LastResult();
-      kDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
-      kDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
+      qDebug() << "ResourceNotFound Exception: '" << Error.what() << "'";
+      qDebug() << "LastResult: " << Query.LastResult();
+      qDebug() << "LastHTTPCode: " << Query.LastHTTPCode();
+      qDebug() << "LastErrorMessage: " << QString::fromUtf8(Query.LastErrorMessage().c_str());
 
       return ServerError;
     }
 
     if (cdInfoList_.isEmpty())
     {
-        kDebug() << "No record found";
+        qDebug() << "No record found";
         return NoRecordFound;
     }
 
-    kDebug() << "Query succeeded :-)";
+    qDebug() << "Query succeeded :-)";
 
     return Success;
   }
@@ -302,7 +303,7 @@ namespace KCDDB
       dir.setNameFilters(QStringList(discid+QLatin1String( "*" )));
 
       QStringList files = dir.entryList();
-      kDebug() << "Cache files found: " << files.count();
+      qDebug() << "Cache files found: " << files.count();
       for (QStringList::iterator it = files.begin(); it != files.end(); ++it)
       {
         QFile f( dir.filePath(*it) );
@@ -320,7 +321,7 @@ namespace KCDDB
           infoList.append( info );
         }
         else
-          kDebug() << "Could not read file: " << f.fileName();
+          qDebug() << "Could not read file: " << f.fileName();
       }
     }
 
@@ -329,7 +330,6 @@ namespace KCDDB
 
   QString MusicBrainzLookup::artistFromCreditList(MusicBrainz5::CArtistCredit * artistCredit )
   {
-    kDebug() << k_funcinfo;
     QString artistName;
 
     MusicBrainz5::CNameCreditList *ArtistList=artistCredit->NameCreditList();
@@ -349,7 +349,7 @@ namespace KCDDB
         artistName += QString::fromUtf8(Name->JoinPhrase().c_str());
       }
 
-      kDebug() << "Artist:" << artistName;
+      qDebug() << "Artist:" << artistName;
 
     }
 

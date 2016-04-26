@@ -1,5 +1,6 @@
 /*
   Copyright ( C ) 2004 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -19,11 +20,11 @@
 
 #include "sites.h"
 
-#include <kurl.h>
-#include <kio/netaccess.h>
+#include <QUrl>
+#include <QUrlQuery>
 #include <kio/job.h>
 #include <QTextStream>
-#include <kdebug.h>
+#include <QDebug>
 #include <QRegExp>
 
 namespace KCDDB
@@ -36,8 +37,8 @@ namespace KCDDB
     QList<Mirror>
   Sites::siteList()
   {
-    KUrl url;
-    url.setProtocol( QLatin1String( "http" ) );
+    QUrl url;
+    url.setScheme( QLatin1String( "http" ) );
     url.setHost( QLatin1String( "freedb.freedb.org" ) );
     url.setPort( 80 );
     url.setPath( QLatin1String( "/~cddb/cddb.cgi" ) );
@@ -46,16 +47,17 @@ namespace KCDDB
 
     QString hello = QString::fromLatin1("%1 %2 %3 %4")
         .arg(QLatin1String( "libkcddb-user" ), QLatin1String( "localHost" ), CDDB::clientName(), CDDB::clientVersion());
-
-    url.addQueryItem( QLatin1String( "cmd" ), QLatin1String( "sites" ) );
-    url.addQueryItem( QLatin1String( "hello" ), hello );
-    url.addQueryItem( QLatin1String( "proto" ), QLatin1String( "5" ) );
+    
+    QUrlQuery query(url);
+    query.addQueryItem( QLatin1String( "cmd" ), QLatin1String( "sites" ) );
+    query.addQueryItem( QLatin1String( "hello" ), hello );
+    query.addQueryItem( QLatin1String( "proto" ), QLatin1String( "5" ) );
 
     QList<Mirror> result;
 
     KIO::Job* job = KIO::get( url, KIO::NoReload, KIO::HideProgressInfo );
     QByteArray data;
-    if( KIO::NetAccess::synchronousRun( job, 0, &data ) )
+    if( job->exec() )
     {
       result = readData( data );
     }
@@ -103,7 +105,7 @@ namespace KCDDB
       m.port = rexp.cap(3).toUInt();
 
       if (m.transport == Lookup::HTTP && rexp.cap(4) != QLatin1String( "/~cddb/cddb.cgi" ))
-        kWarning() << "Non default urls are not supported for http";
+        qWarning() << "Non default urls are not supported for http";
 
       m.description = rexp.cap(5);
     }

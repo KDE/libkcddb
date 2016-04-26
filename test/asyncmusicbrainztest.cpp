@@ -1,5 +1,6 @@
 /*
   Copyright (C) 2006 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -18,7 +19,8 @@
 */
 
 
-#include <qtest_kde.h>
+#include <QtTest/QtTest>
+#include <QDebug>
 #include "asyncmusicbrainztest.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
@@ -141,11 +143,11 @@ void AsyncMusicBrainzTest::testLookup()
 AsyncMusicBrainzTest::slotFinished(Result r)
 {
   m_result = r;
-  kDebug() << ": Got " << KCDDB::resultToString(r);
+  qDebug() << ": Got " << KCDDB::resultToString(r);
 
   CDInfoList l = client_->lookupResponse();
 
-  kDebug() << ": Item count: " <<  l.count();
+  qDebug() << ": Item count: " <<  l.count();
 
   QVERIFY(l.count() > 0);
   m_info = l.first();
@@ -153,6 +155,6 @@ AsyncMusicBrainzTest::slotFinished(Result r)
   m_eventLoop.quit();
 }
 
-QTEST_KDEMAIN(AsyncMusicBrainzTest, NoGUI)
+QTEST_MAIN(AsyncMusicBrainzTest)
 
 #include "asyncmusicbrainztest.moc"

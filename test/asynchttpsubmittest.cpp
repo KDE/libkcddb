@@ -1,5 +1,6 @@
 /*
   Copyright (C) 2006 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -17,9 +18,9 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <kdebug.h>
-#include <kapplication.h>
-#include <kcmdlineargs.h>
+#include <qdebug.h>
+#include <qapplication.h>
+#include <QCommandLineParser>
 
 #include "asynchttpsubmittest.h"
 #include "libkcddb/submit.h"
@@ -68,16 +69,16 @@ AsyncHTTPSubmitTest::AsyncHTTPSubmitTest()
   void
 AsyncHTTPSubmitTest::slotFinished(Result r)
 {
-  kDebug() << "AsyncHTTPSubmitTest::slotFinished: Got " << KCDDB::resultToString(r);
+  qDebug() << "AsyncHTTPSubmitTest::slotFinished: Got " << KCDDB::resultToString(r);
 
-  kapp->quit();
+  qApp->quit();
 }
 
 int main(int argc, char ** argv)
 {
-  KCmdLineArgs::init(argc, argv, "libkcddb_test", 0, KLocalizedString(), "");
-
-  KApplication app(false);
+  QApplication app(argc,argv);
+  QCommandLineParser parser;
+  parser.process(app); 
 
   new AsyncHTTPSubmitTest;
 

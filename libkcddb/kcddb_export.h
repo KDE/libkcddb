@@ -1,5 +1,6 @@
 /*  This file is part of the KDE project
     Copyright (C) 2007 David Faure <faure@kde.org>
+    Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Library General Public
@@ -20,21 +21,17 @@
 #ifndef KCDDB_EXPORT_H
 #define KCDDB_EXPORT_H
 
-/* needed for KDE_EXPORT and KDE_IMPORT macros */
-#include <kdemacros.h>
+/* needed for Q_DECL_EXPORT and Q_DECL_IMPORT macros */
+#include <QtGlobal>
 
 #ifndef KCDDB_EXPORT
 # if defined(MAKE_KCDDB_LIB)
    /* We are building this library */ 
-#  define KCDDB_EXPORT KDE_EXPORT
+#  define KCDDB_EXPORT Q_DECL_EXPORT
 # else
    /* We are using this library */ 
-#  define KCDDB_EXPORT KDE_IMPORT
+#  define KCDDB_EXPORT Q_DECL_IMPORT
 # endif
 #endif
-
-# ifndef KCDDB_EXPORT_DEPRECATED
-#  define KCDDB_EXPORT_DEPRECATED KDE_DEPRECATED KCDDB_EXPORT
-# endif
 
 #endif

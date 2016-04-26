@@ -2,6 +2,7 @@
   Copyright (C) 2002 Rik Hemsley (rikkus) <rik@kde.org>
   Copyright (C) 2002 Benjamin Meyer <ben-devel@meyerhome.net>
   Copyright (C) 2005 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -21,8 +22,7 @@
 
 #include "asynccddbplookup.h"
 
-#include <kdebug.h>
-#include <ksocketfactory.h>
+#include <QDebug>
 
 namespace KCDDB
 {
@@ -45,7 +45,8 @@ namespace KCDDB
     const TrackOffsetList & trackOffsetList
   )
   {
-    socket_ = KSocketFactory::connectToHost(QLatin1String( "cddbp" ), hostname, port);
+    socket_ = new QTcpSocket;
+    socket_->connectToHost(hostname, port);
 
     connect (socket_, SIGNAL(error(QAbstractSocket::SocketError)), SLOT(slotGotError(QAbstractSocket::SocketError)));
 
@@ -77,14 +78,14 @@ namespace KCDDB
     void
   AsyncCDDBPLookup::slotConnectionSuccess()
   {
-    kDebug(60010) << "Connection successful";
+    qDebug() << "Connection successful";
     state_ = WaitingForGreeting;
   }
 
     void
   AsyncCDDBPLookup::slotReadyRead()
   {
-    kDebug(60010) << "Ready to read. State: " << stateToString();
+    qDebug() << "Ready to read. State: " << stateToString();
 
     while ( Idle != state_ && isConnected() && socket_->canReadLine() )
       read();

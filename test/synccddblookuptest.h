@@ -1,6 +1,7 @@
 /*
   Copyright (C) 2005 Richard Lärkäng <nouseforaname@home.se>
-
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
+  
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
   License as published by the Free Software Foundation; either

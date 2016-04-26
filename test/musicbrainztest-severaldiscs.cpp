@@ -1,5 +1,6 @@
 /*
   Copyright (C) 2006 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -17,7 +18,8 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <qtest_kde.h>
+#include <QtTest/QtTest>
+#include <QDebug>
 #include "musicbrainztest-severaldiscs.h"
 #include "libkcddb/client.h"
 #include "libkcddb/cache.h"
@@ -67,11 +69,11 @@ void MusicBrainzTestSeveralDiscs::testLookup()
 
   QVERIFY(r == Success);
 
-  kDebug() << "Client::lookup gave : " << resultToString(r);
+  qDebug() << "Client::lookup gave : " << resultToString(r);
 
   CDInfoList response = c.lookupResponse();
 
-  kDebug() << "Client::lookup returned : " << response.count() << " entries"
+  qDebug() << "Client::lookup returned : " << response.count() << " entries"
     << endl;
 
   QVERIFY(response.count() > 0);
@@ -136,6 +138,6 @@ void MusicBrainzTestSeveralDiscs::testLookup()
   }
 }
 
-QTEST_KDEMAIN(MusicBrainzTestSeveralDiscs, NoGUI)
+QTEST_MAIN(MusicBrainzTestSeveralDiscs)
 
 #include "musicbrainztest-severaldiscs.moc"

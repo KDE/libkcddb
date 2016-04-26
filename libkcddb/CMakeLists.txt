@@ -1,3 +1,4 @@
+cmake_policy(SET CMP0028 NEW)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
@@ -31,13 +32,14 @@ set(kcddb_LIB_SRCS ${libmusicbrainz_SRCS}
    cdinfoencodingwidget.cpp )
 
 
-kde4_add_ui_files(kcddb_LIB_SRCS cdinfodialog.ui cdinfoencodingwidget.ui )
+qt5_wrap_ui(kcddb_LIB_SRCS cdinfodialog.ui cdinfoencodingwidget.ui )
 
-kde4_add_kcfg_files(kcddb_LIB_SRCS configbase.kcfgc )
+kconfig_add_kcfg_files(kcddb_LIB_SRCS configbase.kcfgc )
 
-kde4_add_library(kcddb SHARED ${kcddb_LIB_SRCS})
+add_library(kcddb SHARED ${kcddb_LIB_SRCS})
 
-target_link_libraries(kcddb ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS})
+target_link_libraries(kcddb KF5::WidgetsAddons KF5::KIOCore KF5::I18n 
+		      Qt5::Network KF5::ConfigCore KF5::ConfigGui Qt5::Widgets KF5::Codecs)
 if(MUSICBRAINZ5_FOUND)
     target_link_libraries(kcddb ${MUSICBRAINZ5_LIBRARIES})
 endif(MUSICBRAINZ5_FOUND)

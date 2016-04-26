@@ -1,4 +1,5 @@
 // Copyright (C) 2005 by Shaheed Haque (srhaque@iee.org). All rights reserved.
+// Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -8,7 +9,7 @@
 
 #include "categories.h"
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 KCDDB::Categories::Categories()
 {

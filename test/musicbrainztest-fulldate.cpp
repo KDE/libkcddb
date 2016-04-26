@@ -1,5 +1,6 @@
 /*
   Copyright (C) 2006 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2016 Angelo Scarnà <angelo.scarna@codelinsoft.it>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -17,7 +18,8 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <qtest_kde.h>
+#include <QtTest/QtTest>
+#include <QDebug>
 #include "musicbrainztest-fulldate.h"
 #include "libkcddb/client.h"
 #include "libkcddb/cache.h"
@@ -77,11 +79,11 @@ void MusicBrainzTestFullDate::testLookup()
 
   QVERIFY(r == Success);
 
-  kDebug() << "Client::lookup gave : " << resultToString(r);
+  qDebug() << "Client::lookup gave : " << resultToString(r);
 
   CDInfoList response = c.lookupResponse();
 
-  kDebug() << "Client::lookup returned : " << response.count() << " entries"
+  qDebug() << "Client::lookup returned : " << response.count() << " entries"
     << endl;
 
   QVERIFY(response.count() > 0);
@@ -152,6 +154,6 @@ void MusicBrainzTestFullDate::testLookup()
   }
 }
 
-QTEST_KDEMAIN(MusicBrainzTestFullDate, NoGUI)
+QTEST_MAIN(MusicBrainzTestFullDate)
 
 #include "musicbrainztest-fulldate.moc"
