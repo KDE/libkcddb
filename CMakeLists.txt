@@ -50,12 +50,11 @@ include(CheckFunctionExists)
 include(KDEInstallDirs) 
 include(KDECMakeSettings) 
 include(KDECompilerSettings) 
-include(MacroLogFeature)
 include_directories(${KDE5_INCLUDES})
 include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
 
 find_package(MusicBrainz5)
-macro_log_feature(MUSICBRAINZ5_FOUND "MusicBrainz5" "A library that provides access to metadata lookup on the MusicBrainz server" "http://www.musicbrainz.org" FALSE "" "Music metadata lookup for KDE multimedia applications through libkcddb. You need version 5.x of libmusicbrainz")
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 if(MUSICBRAINZ5_FOUND)
     set(HAVE_MUSICBRAINZ5 1)
