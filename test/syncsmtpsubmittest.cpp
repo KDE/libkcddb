@@ -17,9 +17,8 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <kdebug.h>
-#include <kapplication.h>
-#include <kcmdlineargs.h>
+#include <QtCore/QDebug>
+#include <QtCore/QCoreApplication>
 
 #include "libkcddb/client.h"
 #include "libkcddb/kcddbconfig.h"
@@ -28,9 +27,8 @@
   int
 main(int argc, char ** argv)
 {
-  KCmdLineArgs::init(argc, argv, "libkcddb_test", 0, KLocalizedString(), "");
-
-  KApplication app(false /* No styles */);
+  QCoreApplication app(argc, argv);
+  app.setApplicationName("libkcddb_test");
 
   using namespace KCDDB;
 
@@ -69,6 +67,6 @@ main(int argc, char ** argv)
 
   Result r = c.submit(cdInfo, list);
 
-  kDebug() << "Result: " << resultToString(r);
+  qDebug() << "Result: " << resultToString(r);
 }
 

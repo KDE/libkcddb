@@ -17,15 +17,14 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <kdebug.h>
-#include <kapplication.h>
-#include <kcmdlineargs.h>
+#include <QtCore/QDebug>
+#include <QtCore/QCoreApplication>
 
 #include "asyncsmtpsubmittest.h"
 #include "libkcddb/submit.h"
 
-AsyncSMTPSubmitTest::AsyncSMTPSubmitTest()
-  : QObject()
+AsyncSMTPSubmitTest::AsyncSMTPSubmitTest(QCoreApplication& app)
+  : app_(app)
 {
   using namespace KCDDB;
 
@@ -69,20 +68,17 @@ AsyncSMTPSubmitTest::AsyncSMTPSubmitTest()
   void
 AsyncSMTPSubmitTest::slotFinished(Result r)
 {
-  kDebug() << "AsyncSMTPSubmitTest::slotFinished: Got " << KCDDB::resultToString(r);
+  qDebug() << "AsyncSMTPSubmitTest::slotFinished: Got " << KCDDB::resultToString(r);
 
-  kapp->quit();
+  app_.quit();
 }
 
 int main(int argc, char ** argv)
 {
-  KCmdLineArgs::init(argc, argv, "libkcddb_test", 0, KLocalizedString(), "");
+  QCoreApplication app(argc, argv);
+  app.setApplicationName("libkcddb_test");
 
-  KApplication app(false);
-
-  new AsyncSMTPSubmitTest;
+  new AsyncSMTPSubmitTest(app);
 
   return app.exec();
 }
-
-#include "asyncsmtpsubmittest.moc"

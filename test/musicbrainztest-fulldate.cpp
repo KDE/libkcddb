@@ -17,13 +17,12 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <qtest_kde.h>
 #include "musicbrainztest-fulldate.h"
 #include "libkcddb/client.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
 #include "config-musicbrainz.h"
-
+#include <QtTest/QTest>
 
 void MusicBrainzTestFullDate::testLookup()
 {
@@ -77,11 +76,11 @@ void MusicBrainzTestFullDate::testLookup()
 
   QVERIFY(r == Success);
 
-  kDebug() << "Client::lookup gave : " << resultToString(r);
+  qDebug() << "Client::lookup gave : " << resultToString(r);
 
   CDInfoList response = c.lookupResponse();
 
-  kDebug() << "Client::lookup returned : " << response.count() << " entries"
+  qDebug() << "Client::lookup returned : " << response.count() << " entries"
     << endl;
 
   QVERIFY(response.count() > 0);
@@ -152,6 +151,4 @@ void MusicBrainzTestFullDate::testLookup()
   }
 }
 
-QTEST_KDEMAIN(MusicBrainzTestFullDate, NoGUI)
-
-#include "musicbrainztest-fulldate.moc"
+QTEST_GUILESS_MAIN(MusicBrainzTestFullDate)

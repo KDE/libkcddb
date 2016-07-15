@@ -20,8 +20,7 @@
 */
 
 #include "submit.h"
-
-#include <kdebug.h>
+#include "logging.h"
 
 namespace KCDDB
 {
@@ -82,7 +81,7 @@ namespace KCDDB
 
     diskData_ += cdInfo.toString(true);
 
-    kDebug(60010) << "diskData_ == " << diskData_;
+	qCDebug(LIBKCDDB) << "diskData_ == " << diskData_;
   }
 
   bool Submit::validCategory( const QString& c )

@@ -8,7 +8,7 @@
 
 #include "genres.h"
 
-#include <klocale.h>
+#include "kcddbi18n.h"
 
 class KCDDB::Genres::Private
 {

@@ -19,12 +19,12 @@
 
 #include "sites.h"
 
-#include <kurl.h>
-#include <kio/netaccess.h>
-#include <kio/job.h>
-#include <QTextStream>
-#include <kdebug.h>
-#include <QRegExp>
+#include <KIO/Job>
+#include <QtCore/QDebug>
+#include <QtCore/QRegExp>
+#include <QtCore/QTextStream>
+#include <QtCore/QUrl>
+#include <QtCore/QUrlQuery>
 
 namespace KCDDB
 {
@@ -36,26 +36,27 @@ namespace KCDDB
     QList<Mirror>
   Sites::siteList()
   {
-    KUrl url;
-    url.setProtocol( QLatin1String( "http" ) );
+    QUrl url;
+    url.setScheme( QLatin1String( "http" ) );
     url.setHost( QLatin1String( "freedb.freedb.org" ) );
     url.setPort( 80 );
     url.setPath( QLatin1String( "/~cddb/cddb.cgi" ) );
 
-    url.setQuery( QString::null );	//krazy:exclude=nullstrassign for old broken gcc
-
     QString hello = QString::fromLatin1("%1 %2 %3 %4")
         .arg(QLatin1String( "libkcddb-user" ), QLatin1String( "localHost" ), CDDB::clientName(), CDDB::clientVersion());
 
-    url.addQueryItem( QLatin1String( "cmd" ), QLatin1String( "sites" ) );
-    url.addQueryItem( QLatin1String( "hello" ), hello );
-    url.addQueryItem( QLatin1String( "proto" ), QLatin1String( "5" ) );
+    QUrlQuery query;
+    query.addQueryItem( QLatin1String( "cmd" ), QLatin1String( "sites" ) );
+    query.addQueryItem( QLatin1String( "hello" ), hello );
+    query.addQueryItem( QLatin1String( "proto" ), QLatin1String( "5" ) );
+    url.setQuery( query );
 
     QList<Mirror> result;
 
-    KIO::Job* job = KIO::get( url, KIO::NoReload, KIO::HideProgressInfo );
+    KIO::TransferJob* job = KIO::get( url, KIO::NoReload, KIO::HideProgressInfo );
     QByteArray data;
-    if( KIO::NetAccess::synchronousRun( job, 0, &data ) )
+    QObject::connect( job, &KIO::TransferJob::data, [&data](KIO::Job *, const QByteArray &d){ data += d; } );
+    if( job->exec() )
     {
       result = readData( data );
     }
@@ -103,7 +104,7 @@ namespace KCDDB
       m.port = rexp.cap(3).toUInt();
 
       if (m.transport == Lookup::HTTP && rexp.cap(4) != QLatin1String( "/~cddb/cddb.cgi" ))
-        kWarning() << "Non default urls are not supported for http";
+        qWarning() << "Non default urls are not supported for http";
 
       m.description = rexp.cap(5);
     }

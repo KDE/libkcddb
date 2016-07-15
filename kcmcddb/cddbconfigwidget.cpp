@@ -19,27 +19,20 @@
 */
 
 #include "cddbconfigwidget.h"
+#include "kcmcddbi18n.h"
 
 #include "config-musicbrainz.h"
-
-#include <kdemacros.h> // KDE_NO_DEPRECATED
 
 #include "libkcddb/sites.h"
 #include "libkcddb/lookup.h"
 
-#include <qlist.h>
-#include <kfiledialog.h>
-#include <kapplication.h>
-#include <klocale.h>
-#include <kinputdialog.h>
-#include <kmessagebox.h>
-#ifndef KDE_NO_DEPRECATED
-#include <keditlistbox.h>
-#else
-#include <keditlistwidget.h>
-#endif
-#include <kurlrequester.h>
-#include <QCheckBox>
+#include <KIOWidgets/KUrlRequester>
+#include <KWidgetsAddons/KMessageBox>
+#include <KWidgetsAddons/KEditListWidget>
+
+#include <QtCore/QList>
+#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QInputDialog>
 
 CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
   : QWidget(parent)
@@ -60,11 +53,7 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
   QVBoxLayout* gbLayout = new QVBoxLayout(groupBox);
   gbLayout->setMargin(0);
 
-#ifndef KDE_NO_DEPRECATED
-  KEditListBox* editListWidget = new KEditListBox(groupBox);
-#else
   KEditListWidget* editListWidget = new KEditListWidget(groupBox);
-#endif
   editListWidget->setCustomEditor(urlReq->customEditor());
   editListWidget->setObjectName(QString::fromLatin1("kcfg_cacheLocations"));
   gbLayout->addWidget(editListWidget);
@@ -99,13 +88,13 @@ void CDDBConfigWidget::showMirrorList()
       return;
     }
 
-    QStringList result = KInputDialog::getItemList(i18n("Select mirror"),
+    QString result = QInputDialog::getItem(this, i18n("Select mirror"),
       i18n("Select one of these mirrors"), keys.keys(),
-      QStringList(), false, &ok, this);
+      0, false, &ok);
 
-    if (ok && result.count() == 1)
+    if (ok)
     {
-      KCDDB::Mirror m = keys[*(result.begin())];
+      KCDDB::Mirror m = keys[result];
 
       kcfg_FreedbLookupTransport->setCurrentIndex(m.transport == KCDDB::Lookup::CDDBP ? 0 : 1);
       kcfg_hostname->setText(m.address);
@@ -131,5 +120,3 @@ void CDDBConfigWidget::needAuthenticationChanged(bool needsAuth)
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1
-
-#include "cddbconfigwidget.moc"

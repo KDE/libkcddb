@@ -19,13 +19,9 @@
 */
 
 #include "synchttplookup.h"
+#include "logging.h"
 
-#include <qstringlist.h>
-#include <qapplication.h>
-
-#include <kdebug.h>
-#include <kio/job.h>
-#include <kio/netaccess.h>
+#include <KIO/Job>
 
 namespace KCDDB
 {
@@ -57,7 +53,7 @@ namespace KCDDB
     if ( Success != result_ )
       return result_;
 
-    kDebug(60010) << matchList_.count() << " matches found.";
+	qCDebug(LIBKCDDB) << matchList_.count() << " matches found.";
 
     if (matchList_.isEmpty())
       return NoRecordFound;
@@ -87,7 +83,7 @@ namespace KCDDB
     if ( Success != result_ )
       return result_;
 
-    kDebug(60010) << "runQuery() Result: " << resultToString(result_);
+	qCDebug(LIBKCDDB) << "runQuery() Result: " << resultToString(result_);
 
     return result_;
   }
@@ -109,14 +105,16 @@ namespace KCDDB
     Result
   SyncHTTPLookup::fetchURL()
   {
-    kDebug(60010) << "About to fetch: " << cgiURL_.url();
+	qCDebug(LIBKCDDB) << "About to fetch: " << cgiURL_.url();
 
     KIO::TransferJob* job = KIO::get( cgiURL_, KIO::NoReload, KIO::HideProgressInfo );
 
     if ( 0 == job )
       return ServerError;
 
-    if (!KIO::NetAccess::synchronousRun(job, 0, &data_))
+    QObject::connect( job, &KIO::TransferJob::data, [&](KIO::Job *, const QByteArray &data){ data_ += data; } );
+
+    if (!job->exec())
       return ServerError;
 
     jobFinished();

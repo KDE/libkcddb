@@ -1,7 +1,5 @@
-#ifndef SMTPSUBMIT_H
-#define SMTPSUBMIT_H
 /*
-  Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2003-2004 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -19,25 +17,6 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include "submit.h"
-#include <QtCore/QUrl>
+#include "logging.h"
 
-namespace KCDDB
-{
-  class SMTPSubmit : public Submit
-  {
-    public:
-      SMTPSubmit(const QString& hostname, uint port, const QString& username, const QString& from, const QString& to);
-      virtual ~SMTPSubmit();
-
-    protected:
-      virtual void makeDiskData( const CDInfo&, const TrackOffsetList& );
-
-      virtual KIO::Job* createJob(const CDInfo& cdInfo);
-
-      QUrl url_;
-      QString from_, to_;
-  } ;
-}
-
-#endif // SMTPSUBMIT_H
+Q_LOGGING_CATEGORY(LIBKCDDB, "libkcddb")

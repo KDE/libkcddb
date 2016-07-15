@@ -22,12 +22,12 @@
 #include "cddb.h"
 
 #include "categories.h"
+#include "kcddbi18n.h"
 
-#include <qstringlist.h>
+#include <KCoreAddons/KStringHandler>
 
-#include <kdebug.h>
-#include <kstringhandler.h>
-#include <klocale.h>
+#include <QtCore/QDebug>
+#include <QtCore/QStringList>
 
 namespace KCDDB
 {

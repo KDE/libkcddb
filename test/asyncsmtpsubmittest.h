@@ -20,17 +20,19 @@
 #ifndef TEST_H
 #define TEST_H
 
-#include <QObject>
+#include <QtCore/QObject>
 #include <libkcddb/client.h>
 
 using namespace KCDDB;
+
+class QCoreApplication;
 
 class AsyncSMTPSubmitTest : public QObject
 {
   Q_OBJECT
 
   public:
-    AsyncSMTPSubmitTest();
+    AsyncSMTPSubmitTest(QCoreApplication& app);
 
   public slots:
 
@@ -38,6 +40,7 @@ class AsyncSMTPSubmitTest : public QObject
 
   private:
 
+    QCoreApplication& app_;
     KCDDB::Client * client_;
 };
 

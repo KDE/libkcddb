@@ -8,21 +8,26 @@
 #ifndef KCDDB_CATEGORIES_H
 #define KCDDB_CATEGORIES_H
 
-#include <QString>
-#include <qstringlist.h>
+#include <libkcddb/kcddb_export.h>
+#include <QtCore/QString>
+#include <QtCore/QStringList>
 
 namespace KCDDB
 {
    /**
     * Category values defined by CDDB.
     */
-    class Categories
+    class KCDDB_EXPORT Categories
     {
     public:
         Categories();
+        Categories(const Categories&);
+        ~Categories();
 
-        const QStringList &cddbList() const { return m_cddb; }
-        const QStringList &i18nList() const { return m_i18n; }
+        Categories& operator=(const Categories&);
+
+        const QStringList &cddbList() const;
+        const QStringList &i18nList() const;
         
         /**
          * Lookup the CDDB category, and return the i18n'd version.
@@ -34,8 +39,8 @@ namespace KCDDB
          */
         const QString i18n2cddb(const QString &category) const;
     private:
-        QStringList m_cddb;
-        QStringList m_i18n;
+        class Private;
+        Private * const d;
     };
 }
 

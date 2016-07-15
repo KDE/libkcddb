@@ -21,9 +21,8 @@
 
 #include "musicbrainzlookup.h"
 
+#include <QtCore/QDebug>
 #include <QtCore/QThread>
-
-#include <kdebug.h>
 
 namespace KCDDB
 {
@@ -68,7 +67,7 @@ namespace KCDDB
 
   void AsyncMusicBrainzLookup::lookupFinished()
   {
-    kDebug() ;
+    qDebug() ;
 
     cdInfoList_ = m_lookupThread->m_lookupResponse;
 
@@ -77,5 +76,3 @@ namespace KCDDB
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1
-
-#include "asyncmusicbrainzlookup.moc"

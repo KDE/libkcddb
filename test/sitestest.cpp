@@ -17,32 +17,30 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <kdebug.h>
-#include <kapplication.h>
-#include <kcmdlineargs.h>
+#include <QtCore/QDebug>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QList>
 
 #include "libkcddb/sites.h"
-#include <qlist.h>
 
   int
 main(int argc, char ** argv)
 {
-  KCmdLineArgs::init(argc, argv, "libkcddb_test", 0, KLocalizedString(), "");
-
-  KApplication app(true);
+  QCoreApplication app(argc, argv);
+  app.setApplicationName("libkcddb_test");
 
   using namespace KCDDB;
 
   Sites s;
 
-  kDebug() << "Sites: ";
+  qDebug() << "Sites: ";
 
   QList<Mirror> sites = s.siteList();
   for (QList<Mirror>::Iterator it = sites.begin(); it != sites.end(); ++it)
     if ((*it).transport == Lookup::CDDBP)
-      kDebug() << (*it).address << " CDDBP " << (*it).port << " " << (*it).description;
+      qDebug() << (*it).address << " CDDBP " << (*it).port << " " << (*it).description;
     else
-      kDebug() << (*it).address << " HTTP " << (*it).port << " " << (*it).description;
+      qDebug() << (*it).address << " HTTP " << (*it).port << " " << (*it).description;
 
   return 0;
 }

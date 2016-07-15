@@ -1,27 +1,23 @@
 
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../libkcddb ${CMAKE_CURRENT_BINARY_DIR}/../libkcddb  )
-
 add_subdirectory ( doc )
 
-########### next target ###############
+ki18n_wrap_ui(ui_sources cddbconfigwidget.ui)
 
-set(kcm_cddb_PART_SRCS cddbconfigwidget.cpp kcmcddb.cpp )
-SET_SOURCE_FILES_PROPERTIES(cddbconfigwidget.cpp PROPERTIES OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/ui_cddbconfigwidget.h)
+add_library(kcm_cddb MODULE
+    cddbconfigwidget.cpp
+    kcmcddb.cpp
+    ${ui_sources})
 
+set_source_files_properties(cddbconfigwidget.cpp PROPERTIES OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/ui_cddbconfigwidget.h)
 
-kde4_add_ui_files(kcm_cddb_PART_SRCS cddbconfigwidget.ui )
+target_link_libraries(kcm_cddb PRIVATE
+    KF5::ConfigWidgets
+    KF5::I18n
+    KF5::KIOCore
+    KF5::KIOWidgets
+    KF5::WidgetsAddons
+    kcddbwidgets)
 
-kde4_add_plugin(kcm_cddb ${kcm_cddb_PART_SRCS})
+install(TARGETS kcm_cddb DESTINATION ${PLUGIN_INSTALL_DIR})
 
-
-
-target_link_libraries(kcm_cddb  ${KDE4_KIO_LIBS} kcddb)
-
-install(TARGETS kcm_cddb  DESTINATION ${PLUGIN_INSTALL_DIR} )
-
-
-########### install files ###############
-
-install( FILES libkcddb.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
-
-
+install(FILES libkcddb.desktop  DESTINATION  ${SERVICES_INSTALL_DIR})

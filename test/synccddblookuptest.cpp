@@ -17,11 +17,11 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <qtest_kde.h>
 #include "libkcddb/client.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
 #include "synccddblookuptest.h"
+#include <QtTest/QTest>
 
 void SyncCDDBLookupTest::testLookup()
 {
@@ -91,6 +91,4 @@ void SyncCDDBLookupTest::testLookup()
   QVERIFY(hasRunTest);
 }
 
-QTEST_KDEMAIN(SyncCDDBLookupTest, NoGUI)
-
-#include "synccddblookuptest.moc"
+QTEST_GUILESS_MAIN(SyncCDDBLookupTest)

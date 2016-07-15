@@ -1,5 +1,5 @@
-#ifndef SMTPSUBMIT_H
-#define SMTPSUBMIT_H
+#ifndef LOGGING_H
+#define LOGGING_H
 /*
   Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
 
@@ -19,25 +19,8 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include "submit.h"
-#include <QtCore/QUrl>
+#include <QtCore/QLoggingCategory>
 
-namespace KCDDB
-{
-  class SMTPSubmit : public Submit
-  {
-    public:
-      SMTPSubmit(const QString& hostname, uint port, const QString& username, const QString& from, const QString& to);
-      virtual ~SMTPSubmit();
+Q_DECLARE_LOGGING_CATEGORY(LIBKCDDB)
 
-    protected:
-      virtual void makeDiskData( const CDInfo&, const TrackOffsetList& );
-
-      virtual KIO::Job* createJob(const CDInfo& cdInfo);
-
-      QUrl url_;
-      QString from_, to_;
-  } ;
-}
-
-#endif // SMTPSUBMIT_H
+#endif // LOGGING_H

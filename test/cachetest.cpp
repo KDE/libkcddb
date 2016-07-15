@@ -20,10 +20,10 @@
 #include "cachetest.h"
 #include "libkcddb/cache.h"
 
-#include <qtest_kde.h>
 #include "libkcddb/cdinfo.h"
 #include "libkcddb/client.h"
 #include "config-musicbrainz.h"
+#include <QtTest/QTest>
 
 using namespace KCDDB;
 
@@ -129,6 +129,4 @@ void CacheTest::testMusicbrainz()
 #endif
 }
 
-QTEST_KDEMAIN(CacheTest, NoGUI)
-
-#include "cachetest.moc"
+QTEST_GUILESS_MAIN(CacheTest)

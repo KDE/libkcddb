@@ -31,14 +31,13 @@
 #include "asynchttpsubmit.h"
 #include "cache.h"
 #include "lookup.h"
+#include "logging.h"
 
 #include "config-musicbrainz.h"
 #ifdef HAVE_MUSICBRAINZ5
 #include "musicbrainz/musicbrainzlookup.h"
 #include "musicbrainz/asyncmusicbrainzlookup.h"
 #endif
-
-#include <kdebug.h>
 
 namespace KCDDB
 {
@@ -71,7 +70,7 @@ namespace KCDDB
   Client::Client()
     : d(new Private)
   {
-    d->config.readConfig();
+    d->config.load();
   }
 
   Client::~Client()
@@ -111,7 +110,7 @@ namespace KCDDB
 
     if ( trackOffsetList.count() <= 1 )
     {
-      kDebug(60010) << "Lookup called with empty offset list";
+	  qCDebug(LIBKCDDB) << "Lookup called with empty offset list";
       return NoRecordFound;
     }
 
@@ -119,7 +118,7 @@ namespace KCDDB
     {
       d->cdInfoList = Cache::lookup( trackOffsetList, config() );
 
-      kDebug(60010) << "Found " << d->cdInfoList.count() << " hit(s)";
+	  qCDebug(LIBKCDDB) << "Found " << d->cdInfoList.count() << " hit(s)";
 
       if ( !d->cdInfoList.isEmpty() )
       {
@@ -321,7 +320,7 @@ namespace KCDDB
         break;
       }
       default:
-        kDebug(60010) << "Unsupported transport: ";
+		qCDebug(LIBKCDDB) << "Unsupported transport: ";
 //          << CDDB::transportToString(d->config.submitTransport()) << endl;
         return UnknownError;
         break;
@@ -369,8 +368,5 @@ namespace KCDDB
     Cache::store(offsetList, cdInfo, config());
   }
 }
-
-#include "client.moc"
-
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

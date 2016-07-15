@@ -19,12 +19,9 @@
 */
 
 #include "asynchttplookup.h"
+#include "logging.h"
 
-#include <qstringlist.h>
-#include <qapplication.h>
-
-#include <kdebug.h>
-#include <kio/job.h>
+#include <KIO/Job>
 
 namespace KCDDB
 {
@@ -74,7 +71,7 @@ namespace KCDDB
     void
   AsyncHTTPLookup::slotQueryReady()
   {
-    kDebug(60010) << "Matches Found: " <<  matchList_.count();
+	qCDebug(LIBKCDDB) << "Matches Found: " <<  matchList_.count();
 
     if ( Success != result_ )
     {
@@ -130,7 +127,7 @@ namespace KCDDB
     Result
   AsyncHTTPLookup::fetchURL()
   {
-    kDebug(60010) << "About to fetch: " << cgiURL_.url();
+	qCDebug(LIBKCDDB) << "About to fetch: " << cgiURL_.url();
 
     KIO::TransferJob* job = KIO::get( cgiURL_, KIO::NoReload, KIO::HideProgressInfo );
 
@@ -146,7 +143,5 @@ namespace KCDDB
   }
 
 }
-
-#include "asynchttplookup.moc"
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

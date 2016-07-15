@@ -20,7 +20,7 @@
 #ifndef UTF8TEST_H
 #define UTF8TEST_H
 
-#include <QObject>
+#include <QtCore/QObject>
 
 class Utf8Test : public QObject
 {

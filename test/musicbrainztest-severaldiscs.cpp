@@ -17,13 +17,12 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <qtest_kde.h>
 #include "musicbrainztest-severaldiscs.h"
 #include "libkcddb/client.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
 #include "config-musicbrainz.h"
-
+#include <QtTest/QTest>
 
 void MusicBrainzTestSeveralDiscs::testLookup()
 {
@@ -67,11 +66,11 @@ void MusicBrainzTestSeveralDiscs::testLookup()
 
   QVERIFY(r == Success);
 
-  kDebug() << "Client::lookup gave : " << resultToString(r);
+  qDebug() << "Client::lookup gave : " << resultToString(r);
 
   CDInfoList response = c.lookupResponse();
 
-  kDebug() << "Client::lookup returned : " << response.count() << " entries"
+  qDebug() << "Client::lookup returned : " << response.count() << " entries"
     << endl;
 
   QVERIFY(response.count() > 0);
@@ -136,6 +135,4 @@ void MusicBrainzTestSeveralDiscs::testLookup()
   }
 }
 
-QTEST_KDEMAIN(MusicBrainzTestSeveralDiscs, NoGUI)
-
-#include "musicbrainztest-severaldiscs.moc"
+QTEST_GUILESS_MAIN(MusicBrainzTestSeveralDiscs)

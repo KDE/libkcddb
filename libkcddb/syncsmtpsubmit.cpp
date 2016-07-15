@@ -21,8 +21,7 @@
 
 #include "cdinfo.h"
 
-#include <kio/netaccess.h>
-#include <kio/job.h>
+#include <KIO/Job>
 
 namespace KCDDB
 {
@@ -40,7 +39,7 @@ namespace KCDDB
 
   Result SyncSMTPSubmit::runJob(KIO::Job* job)
   {
-    if ( KIO::NetAccess::synchronousRun(job, 0) )
+    if ( job->exec() )
       return Success;
 
     return UnknownError;

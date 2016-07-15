@@ -8,28 +8,63 @@
 
 #include "categories.h"
 
-#include <klocale.h>
+#include "kcddbi18n.h"
+
+class KCDDB::Categories::Private
+{
+public:
+  QStringList cddb;
+  QStringList i18n;
+};
 
 KCDDB::Categories::Categories()
+  : d(new Private)
 {
     // These are only 11 Category values defined by CDDB. See
     //
     // http://www.freedb.org/modules.php?name=Sections&sop=viewarticle&artid=26
     //
-    m_cddb << QLatin1String( "blues" ) << QLatin1String( "classical" ) << QLatin1String( "country" ) <<
+    d->cddb << QLatin1String( "blues" ) << QLatin1String( "classical" ) << QLatin1String( "country" ) <<
         QLatin1String( "data" ) << QLatin1String( "folk" ) << QLatin1String( "jazz" ) << QLatin1String( "misc" ) <<
         QLatin1String( "newage" ) << QLatin1String( "reggae" ) << QLatin1String( "rock" ) << QLatin1String( "soundtrack" );
-    m_i18n << i18n("Blues") << i18n("Classical") << i18nc("music genre", "Country") <<
+    d->i18n << i18n("Blues") << i18n("Classical") << i18nc("music genre", "Country") <<
             i18n("Data") << i18n("Folk") << i18n("Jazz") << i18n("Miscellaneous") <<
             i18n("New Age") << i18n("Reggae") << i18n("Rock") << i18n("Soundtrack");
 }
 
+KCDDB::Categories::~Categories()
+{
+    delete d;
+}
+
+KCDDB::Categories::Categories(const Categories& other)
+    :d(new Private)
+{
+    *d = *other.d;
+}
+
+KCDDB::Categories& KCDDB::Categories::operator=(const Categories& other)
+{
+    *d = *other.d;
+    return *this;
+}
+
+const QStringList &KCDDB::Categories::cddbList() const
+{
+    return d->cddb;
+}
+
+const QStringList &KCDDB::Categories::i18nList() const
+{
+    return d->i18n;
+}
+
 const QString KCDDB::Categories::cddb2i18n(const QString &category) const
 {
-    int index = m_cddb.indexOf(category.trimmed());
+    int index = d->cddb.indexOf(category.trimmed());
     if (index != -1)
     {
-        return m_i18n[index];
+        return d->i18n[index];
     }
     else
     {
@@ -39,10 +74,10 @@ const QString KCDDB::Categories::cddb2i18n(const QString &category) const
 
 const QString KCDDB::Categories::i18n2cddb(const QString &category) const
 {
-    int index = m_i18n.indexOf(category.trimmed());
+    int index = d->i18n.indexOf(category.trimmed());
     if (index != -1)
     {
-        return m_cddb[index];
+        return d->cddb[index];
     }
     else
     {

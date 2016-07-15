@@ -19,37 +19,34 @@
 */
 
 #include "kcmcddb.h"
+#include "kcmcddbi18n.h"
 #include "cddbconfigwidget.h"
 
 #include "libkcddb/lookup.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/submit.h"
 
-#include <QCheckBox>
-#include <qradiobutton.h>
-#include <QVBoxLayout>
+#include <KCoreAddons/KPluginFactory>
+#include <KWidgetsAddons/KMessageBox>
 
-#include <kconfig.h>
-#include <klocale.h>
-#include <kglobal.h>
-#include <kgenericfactory.h>
-#include <kmessagebox.h>
-#include <kconfigdialogmanager.h>
+#include <QtCore/QDebug>
+#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QRadioButton>
+#include <QtWidgets/QVBoxLayout>
 
 K_PLUGIN_FACTORY(KCDDBFactory, registerPlugin<CDDBModule>();)
 K_EXPORT_PLUGIN(KCDDBFactory( "kcmcddb" ))
 
 
-CDDBModule::CDDBModule(QWidget *parent, const QVariantList &)
-  : KCModule(KCDDBFactory::componentData(), parent)
+CDDBModule::CDDBModule(QWidget *parent, const QVariantList &args)
+  : KCModule(parent, args)
 {
-  KGlobal::locale()->insertCatalog( QLatin1String( "libkcddb" ));
   setButtons(Default | Apply | Help);
 
   widget_ = new CDDBConfigWidget(this);
 
   KCDDB::Config* cfg = new KCDDB::Config();
-  cfg->readConfig();
+  cfg->load();
 
   addConfig(cfg, widget_);
 
@@ -76,7 +73,7 @@ CDDBModule::checkSettings() const
 {
   KCDDB::Config config;
 
-  config.readConfig();
+  config.load();
 
   if (config.smtpHostname().isEmpty() || config.emailAddress().isEmpty()
       || !config.emailAddress().contains(QLatin1String( "@" )) ||
@@ -91,7 +88,7 @@ CDDBModule::checkSettings() const
                                     "and try again."), i18n("Incorrect Email Settings"));
       config.setFreedbSubmitTransport(KCDDB::Submit::HTTP);
 
-      config.writeConfig();
+      config.save();
     }
   }
 }
@@ -118,7 +115,7 @@ CDDBModule::load()
   KCModule::load();
 
   KCDDB::Config config;
-  config.readConfig();
+  config.load();
   updateWidgetsFromConfig(config);
 }
 

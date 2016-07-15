@@ -20,7 +20,7 @@
 #ifndef KCMCDDB_H
 #define KCMCDDB_H
 
-#include <kcmodule.h>
+#include <KConfigWidgets/KCModule>
 #include "libkcddb/kcddbconfig.h"
 
 class CDDBConfigWidget;
@@ -32,7 +32,7 @@ class CDDBModule : public KCModule
 
   public:
 
-    CDDBModule(QWidget * parent, const QVariantList &);
+	CDDBModule(QWidget * parent, const QVariantList & args);
 
   public slots:
 

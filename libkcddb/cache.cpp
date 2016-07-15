@@ -24,18 +24,16 @@
 
 #include "kcddbconfig.h"
 #include "cddb.h"
+#include "logging.h"
 
 #include "config-musicbrainz.h"
 #ifdef HAVE_MUSICBRAINZ5
 #include "musicbrainz/musicbrainzlookup.h"
 #endif
 
-#include <kdebug.h>
-#include <kstandarddirs.h>
-
-#include <QFile>
-#include <QDir>
-#include <QTextStream>
+#include <QtCore/QFile>
+#include <QtCore/QDir>
+#include <QtCore/QTextStream>
 
 namespace KCDDB
 {
@@ -44,7 +42,7 @@ namespace KCDDB
   {
     QString cddbId = CDDB::trackOffsetListToId(offsetList);
 
-    kDebug(60010) << "Looking up " << cddbId << " in CDDB cache";
+	qCDebug(LIBKCDDB) << "Looking up " << cddbId << " in CDDB cache";
 
     CDInfoList infoList;
 
@@ -104,7 +102,7 @@ namespace KCDDB
     else
     {
       if (source != QLatin1String( "user" ))
-        kWarning(60010) << "Unknown source " << source << " for CDInfo";
+		qCWarning(LIBKCDDB) << "Unknown source " << source << " for CDInfo";
 
       cacheDir = QLatin1String( "/user/" );
       QString id = CDDB::trackOffsetListToId(offsetList);
@@ -123,12 +121,12 @@ namespace KCDDB
       {
         if (!dir.mkpath(cacheDir))
         {
-          kWarning(60010) << "Couldn't create cache directory " << cacheDir;
+		      qCWarning(LIBKCDDB) << "Couldn't create cache directory " << cacheDir;
           return;
         }
       }
 
-      kDebug(60010) << "Storing " << cacheFile << " in CDDB cache";
+	    qCDebug(LIBKCDDB) << "Storing " << cacheFile << " in CDDB cache";
 
       QFile f(cacheDir + QLatin1Char( '/' ) + cacheFile);
       if ( f.open(QIODevice::WriteOnly) )
@@ -139,7 +137,7 @@ namespace KCDDB
         f.close();
       }
     } else {
-      kDebug(60010) << "There's no cache dir defined, not storing it";
+      qDebug() << "There's no cache dir defined, not storing it";
     }
   }
 }

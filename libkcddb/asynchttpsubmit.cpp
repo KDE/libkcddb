@@ -19,8 +19,8 @@
 
 #include "asynchttpsubmit.h"
 
-#include <kio/job.h>
-#include <kdebug.h>
+#include <KIO/Job>
+#include <QtCore/QDebug>
 
 namespace KCDDB
 {
@@ -44,7 +44,7 @@ namespace KCDDB
 
   void AsyncHTTPSubmit::slotFinished(KJob* job)
   {
-    kDebug() << "Finished";
+    qDebug() << "Finished";
 
     if ( job->error()==0 )
       emit finished( Success );
@@ -53,4 +53,3 @@ namespace KCDDB
   }
 }
 
-#include "asynchttpsubmit.moc"

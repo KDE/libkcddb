@@ -19,10 +19,10 @@
 
 #include "cdinfoencodingwidget.h"
 
-#include <qtextcodec.h>
-#include <klocale.h>
-#include <kglobal.h>
-#include <kcharsets.h>
+#include "kcddbi18n.h"
+
+#include <KCodecs/KCharsets>
+#include <QtCore/QTextCodec>
 
 namespace KCDDB
 {
@@ -33,7 +33,7 @@ namespace KCDDB
   {
     setupUi(this);
 
-    encodingCombo->addItems(KGlobal::charsets()->descriptiveEncodingNames());
+    encodingCombo->addItems(KCharsets::charsets()->descriptiveEncodingNames());
 
     slotEncodingChanged(encodingCombo->currentText());
 
@@ -48,7 +48,7 @@ namespace KCDDB
 
   void CDInfoEncodingWidget::slotEncodingChanged(const QString& encoding)
   {
-    KCharsets* charsets = KGlobal::charsets();
+    KCharsets* charsets = KCharsets::charsets();
 
     QTextCodec* codec = charsets->codecForName(charsets->encodingForName(encoding));
 
@@ -67,4 +67,3 @@ namespace KCDDB
   }
 }
 
-#include "cdinfoencodingwidget.moc"

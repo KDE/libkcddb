@@ -17,11 +17,11 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <qtest_kde.h>
 #include "libkcddb/client.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
 #include "synchttplookuptest.h"
+#include <QtTest/QTest>
 
 void SyncHTTPLookupTest::testLookup()
 {
@@ -91,6 +91,4 @@ void SyncHTTPLookupTest::testLookup()
   QVERIFY(hasRunTest);
 }
 
-QTEST_KDEMAIN(SyncHTTPLookupTest, NoGUI)
-
-#include "synchttplookuptest.moc"
+QTEST_GUILESS_MAIN(SyncHTTPLookupTest)

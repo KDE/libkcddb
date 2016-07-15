@@ -20,10 +20,9 @@
 */
 
 #include "synccddbplookup.h"
+#include "logging.h"
 
-#include <qstringlist.h>
-#include <kdebug.h>
-#include <ksocketfactory.h>
+#include <QtCore/QStringList>
 
 namespace KCDDB
 {
@@ -47,12 +46,13 @@ namespace KCDDB
   {
     trackOffsetList_ = trackOffsetList;
 
-    socket_ = KSocketFactory::synchronousConnectToHost(QLatin1String( "cddbp" ), hostName, port);
+    socket_ = new QTcpSocket;
+    socket_->connectToHost(hostName, port);
 
-    if ( !socket_->isValid() )
+    if ( !socket_->waitForConnected(30000) )
     {
-      kDebug(60010) << "Couldn't connect to " << socket_->peerName() << ":" << socket_->peerPort();
-      kDebug(60010) << "Socket error: " << socket_->errorString();
+      qCDebug(LIBKCDDB) << "Couldn't connect to " << socket_->peerName() << ":" << socket_->peerPort();
+      qCDebug(LIBKCDDB) << "Socket error: " << socket_->errorString();
 
       if ( socket_->error() == QAbstractSocket::HostNotFoundError )
         return HostNotFound;
@@ -77,7 +77,7 @@ namespace KCDDB
     if (matchList_.isEmpty())
       return NoRecordFound;
 
-    kDebug(60010) << matchList_.count() << " matches found.";
+	qCDebug(LIBKCDDB) << matchList_.count() << " matches found.";
 
     // For each match, read the cd info from the server and save it to
     // cdInfoList.
@@ -186,7 +186,7 @@ namespace KCDDB
   {
     if ( !isConnected() )
     {
-      kDebug(60010) << "socket status: " << socket_->state();
+	  qCDebug(LIBKCDDB) << "socket status: " << socket_->state();
       return QString();
     }
 

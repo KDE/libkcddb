@@ -22,11 +22,12 @@
 #ifndef KCDDB_CDDB_H
 #define KCDDB_CDDB_H
 
-#include <QtCore/QString>
-#include <QtCore/QList>
 #include <libkcddb/kcddb.h>
 #include <libkcddb/cdinfo.h>
 #include <libkcddb/kcddbconfig.h>
+
+#include <QtCore/QList>
+#include <QtCore/QString>
 
 namespace KCDDB
 {
