@@ -74,25 +74,25 @@ void MusicBrainzTest::testLookup()
   CDInfo i(response.first());
   QCOMPARE(i.numberOfTracks(),14);
 
-  QCOMPARE(i.get(Artist).toString(),QString("The Liptones"));
-  QCOMPARE(i.get(Title).toString(),QString("The Latest News"));
+  QCOMPARE(i.get(Artist).toString(),QString::fromUtf8("The Liptones"));
+  QCOMPARE(i.get(Title).toString(),QString::fromUtf8("The Latest News"));
   // genre not really supported for musicbrainz
   QCOMPARE(i.get(Genre).toString(),QString());
   QCOMPARE(i.get(Year).toInt(),2002);
-  QCOMPARE(i.track(0).get(Title).toString(),QString("Jungle Heat"));
-  QCOMPARE(i.track(1).get(Title).toString(),QString("It's All I Hear You Say"));
-  QCOMPARE(i.track(2).get(Title).toString(),QString("Girl for Tonight"));
-  QCOMPARE(i.track(3).get(Title).toString(),QString("Shoot Em Down"));
-  QCOMPARE(i.track(4).get(Title).toString(),QString("Beautiful Day"));
-  QCOMPARE(i.track(5).get(Title).toString(),QString("Paranoia"));
-  QCOMPARE(i.track(6).get(Title).toString(),QString("My Way"));
-  QCOMPARE(i.track(7).get(Title).toString(),QString("Dressed in Pink"));
-  QCOMPARE(i.track(8).get(Title).toString(),QString("No Way Out"));
-  QCOMPARE(i.track(9).get(Title).toString(),QString("Strange Kind of Justice"));
-  QCOMPARE(i.track(10).get(Title).toString(),QString("Waiting Til Midnight"));
-  QCOMPARE(i.track(11).get(Title).toString(),QString("Liptones"));
-  QCOMPARE(i.track(12).get(Title).toString(),QString("Out With the Boys"));
-  QCOMPARE(i.track(13).get(Title).toString(),QString("Free Like a Bird"));
+  QCOMPARE(i.track(0).get(Title).toString(),QString::fromUtf8("Jungle Heat"));
+  QCOMPARE(i.track(1).get(Title).toString(),QString::fromUtf8("It's All I Hear You Say"));
+  QCOMPARE(i.track(2).get(Title).toString(),QString::fromUtf8("Girl for Tonight"));
+  QCOMPARE(i.track(3).get(Title).toString(),QString::fromUtf8("Shoot Em Down"));
+  QCOMPARE(i.track(4).get(Title).toString(),QString::fromUtf8("Beautiful Day"));
+  QCOMPARE(i.track(5).get(Title).toString(),QString::fromUtf8("Paranoia"));
+  QCOMPARE(i.track(6).get(Title).toString(),QString::fromUtf8("My Way"));
+  QCOMPARE(i.track(7).get(Title).toString(),QString::fromUtf8("Dressed in Pink"));
+  QCOMPARE(i.track(8).get(Title).toString(),QString::fromUtf8("No Way Out"));
+  QCOMPARE(i.track(9).get(Title).toString(),QString::fromUtf8("Strange Kind of Justice"));
+  QCOMPARE(i.track(10).get(Title).toString(),QString::fromUtf8("Waiting Til Midnight"));
+  QCOMPARE(i.track(11).get(Title).toString(),QString::fromUtf8("Liptones"));
+  QCOMPARE(i.track(12).get(Title).toString(),QString::fromUtf8("Out With the Boys"));
+  QCOMPARE(i.track(13).get(Title).toString(),QString::fromUtf8("Free Like a Bird"));
   // comments not supported in a simple way
   for (int j=0; j < 14; j++)
     QCOMPARE(i.track(j).get(Comment).toString(),QString());

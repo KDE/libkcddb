@@ -41,11 +41,11 @@ namespace KCDDB
 
       CDInfoList lookupResponse() const;
 
-    signals:
+    Q_SIGNALS:
 
       void finished( KCDDB::Result );
 
-    protected slots:
+    protected Q_SLOTS:
       void slotQueryReady();
       void requestCDInfoForMatch();
 

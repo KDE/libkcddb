@@ -23,7 +23,7 @@
 #include <QtCore/QList>
 #include <QtCore/QString>
 
-#include <libkcddb/kcddb_export.h>
+#include <kcddb_export.h>
 
 namespace KCDDB
 {

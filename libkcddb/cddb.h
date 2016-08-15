@@ -22,9 +22,9 @@
 #ifndef KCDDB_CDDB_H
 #define KCDDB_CDDB_H
 
-#include <libkcddb/kcddb.h>
-#include <libkcddb/cdinfo.h>
-#include <libkcddb/kcddbconfig.h>
+#include <kcddb.h>
+#include <cdinfo.h>
+#include <kcddbconfig.h>
 
 #include <QtCore/QList>
 #include <QtCore/QString>

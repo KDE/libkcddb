@@ -34,7 +34,7 @@ namespace KCDDB
 
         QString selectedEncoding();
 
-    private slots:
+    private Q_SLOTS:
         void slotEncodingChanged(const QString &);
         
     private:

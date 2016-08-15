@@ -351,7 +351,7 @@ namespace KCDDB
         checkTrack( trackNumber );
 
         QString extt = track(trackNumber).get(Comment).toString();
-        track(trackNumber).set(Comment, extt+value );
+        track(trackNumber).set(Comment, QVariant(extt + value));
       }
       else if ( key.startsWith(QLatin1String( "T" )) )
       {

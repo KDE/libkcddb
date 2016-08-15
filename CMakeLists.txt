@@ -2,22 +2,34 @@ project(libkcddb)
 
 cmake_minimum_required(VERSION 2.8.12)
 
-find_package(ECM REQUIRED NO_MODULE)
+# ECM setup
+include(FeatureSummary)
+find_package(ECM 5.24.0  NO_MODULE)
+set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://projects.kde.org/projects/kdesupport/extra-cmake-modules")
+feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 set(CMAKE_MODULE_PATH "${ECM_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 include(KDEInstallDirs)
-include(KDECompilerSettings)
+include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
-include(FeatureSummary)
 include(GenerateExportHeader)
 include(ECMSetupVersion)
+include(ECMPackageConfigHelpers)
+include(ECMGenerateHeaders)
 
-find_package(Qt5 REQUIRED COMPONENTS Network Widgets)
-find_package(KF5 REQUIRED COMPONENTS Config DocTools Codecs I18n KIO WidgetsAddons)
+set(PROJECT_VERSION "16.08.0")
+set(KF5_DEP_VERSION "5.24.0") # handled by release scripts
+set(REQUIRED_QT_VERSION 5.4.0)
 
-ecm_setup_version(${KF5_VERSION}
+find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Network Widgets)
+find_package(KF5 ${KF5_DEP_VERSION} REQUIRED COMPONENTS Config DocTools Codecs I18n KIO WidgetsAddons)
+
+ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX KCDDB
-    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/LibkcddbConfigVersion.cmake")
+    VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kcddb_version.h"
+    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5CddbConfigVersion.cmake"
+    SOVERSION 16
+)
 
 find_package(MusicBrainz5)
 set_package_properties(MusicBrainz5 PROPERTIES
@@ -36,24 +48,40 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-musicbrainz.h.cmake ${CMAKE_CU
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
 
-add_subdirectory( kcmcddb )
-add_subdirectory( libkcddb )
+add_subdirectory(kcmcddb)
+add_subdirectory(libkcddb)
 
 if(BUILD_TESTING)
     find_package(Qt5Test REQUIRED)
-    add_subdirectory( test )
+    add_subdirectory(tests)
 endif()
 
 feature_summary(WHAT PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
-# Figure out the relative path from the installed Config.cmake file to the install prefix (which may be at
-# runtime different from the chosen CMAKE_INSTALL_PREFIX if under Windows the package was installed anywhere)
-# This relative path will be configured into LibkcddbConfig.cmake
-file(RELATIVE_PATH relInstallDir ${CMAKE_INSTALL_PREFIX}/${LIB_INSTALL_DIR}/cmake/libkcddb ${CMAKE_INSTALL_PREFIX})
+set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5Cddb")
+ecm_configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/KF5CddbConfig.cmake.in"
+                              "${CMAKE_CURRENT_BINARY_DIR}/KF5CddbConfig.cmake"
+                              INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
+)
 
-configure_file(LibkcddbConfig.cmake.in ${CMAKE_BINARY_DIR}/LibkcddbConfig.cmake @ONLY)
 install(FILES
-    ${CMAKE_BINARY_DIR}/LibkcddbConfig.cmake
-    ${CMAKE_BINARY_DIR}/LibkcddbConfigVersion.cmake
-    DESTINATION ${LIB_INSTALL_DIR}/cmake/libkcddb)
-install(EXPORT LibkcddbTargets DESTINATION ${LIB_INSTALL_DIR}/cmake/libkcddb/ FILE LibkcddbTargets.cmake NAMESPACE KDE::Libkcddb::)
+    "${CMAKE_CURRENT_BINARY_DIR}/KF5CddbConfig.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/KF5CddbConfigVersion.cmake"
+    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+    COMPONENT Devel
+)
+
+install(EXPORT
+    KF5CddbTargets
+    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+    FILE KF5CddbTargets.cmake
+    NAMESPACE KF5::
+    COMPONENT Devel
+)
+
+install(FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/kcddb_version.h"
+    DESTINATION "${KF5_INCLUDE_INSTALL_DIR}"
+    COMPONENT Devel
+)
+

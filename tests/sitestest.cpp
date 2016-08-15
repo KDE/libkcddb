@@ -27,7 +27,7 @@
 main(int argc, char ** argv)
 {
   QCoreApplication app(argc, argv);
-  app.setApplicationName("libkcddb_test");
+  app.setApplicationName(QString::fromUtf8("libkcddb_test"));
 
   using namespace KCDDB;
 

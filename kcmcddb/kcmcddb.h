@@ -34,7 +34,7 @@ class CDDBModule : public KCModule
 
 	CDDBModule(QWidget * parent, const QVariantList & args);
 
-  public slots:
+  public Q_SLOTS:
 
     void defaults();
     void save();

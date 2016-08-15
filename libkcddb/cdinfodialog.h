@@ -20,9 +20,9 @@
 #ifndef KCDDB_CDINFODIALOG_H
 #define KCDDB_CDINFODIALOG_H
 
-#include <libkcddb/kcddb_export.h>
-#include <libkcddb/cdinfo.h>
-#include <libkcddb/kcddb.h>
+#include <kcddb_export.h>
+#include <cdinfo.h>
+#include <kcddb.h>
 
 #include <QtWidgets/QDialog>
 

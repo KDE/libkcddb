@@ -72,7 +72,7 @@ void AsyncMusicBrainzTest::testLookup()
   // See http://musicbrainz.org/release/dbb3e39a-4bea-4e32-a546-456654f30ca6.html for changes
   QCOMPARE(m_info.numberOfTracks(),17);
 
-  QCOMPARE(m_info.get(Artist).toString(),QString("Various Artists"));
+  QCOMPARE(m_info.get(Artist).toString(),QString::fromUtf8("Various Artists"));
   QCOMPARE(m_info.get(Title).toString(),QString::fromUtf8("Definitivt 50 spänn 10"));
   // genre not really supported for musicbrainz
   QCOMPARE(m_info.get(Genre).toString(),QString());

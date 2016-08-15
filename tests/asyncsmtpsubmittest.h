@@ -20,26 +20,28 @@
 #ifndef TEST_H
 #define TEST_H
 
-#include <QEventLoop>
 #include <QtCore/QObject>
-#include <libkcddb/client.h>
-#include <libkcddb/kcddb.h>
+#include <KCddb/Client>
 
 using namespace KCDDB;
 
-class AsyncCDDBLookupTest : public QObject
+class QCoreApplication;
+
+class AsyncSMTPSubmitTest : public QObject
 {
   Q_OBJECT
-  private slots:
-    void testLookup();
+
+  public:
+    AsyncSMTPSubmitTest(QCoreApplication& app);
+
+  public Q_SLOTS:
+
     void slotFinished(KCDDB::Result);
 
   private:
 
-    QEventLoop m_eventLoop;
+    QCoreApplication& app_;
     KCDDB::Client * client_;
-    CDInfo m_info;
-    Result m_result;
 };
 
 #endif

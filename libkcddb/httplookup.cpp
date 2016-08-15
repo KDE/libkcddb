@@ -93,7 +93,7 @@ namespace KCDDB
     void
   HTTPLookup::jobFinished()
   {
-    QStringList lineList = QString::fromUtf8(data_, data_.size()).split( QLatin1String( "\n" ), QString::SkipEmptyParts );
+    QStringList lineList = QString::fromUtf8(data_).split( QLatin1String( "\n" ), QString::SkipEmptyParts );
     QStringList::ConstIterator it = lineList.constBegin();
 
     switch ( state_ )
@@ -158,7 +158,7 @@ namespace KCDDB
         {
           CDInfo info;
 
-          if ( info.load( QString::fromUtf8(data_,data_.size()) ) )
+          if ( info.load( QString::fromUtf8(data_) ) )
           {
             info.set( QLatin1String( "category" ), category_ );
             info.set( QLatin1String( "discid" ), discid_ );

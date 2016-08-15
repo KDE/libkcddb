@@ -89,43 +89,43 @@ void MusicBrainzTestFullDate::testLookup()
   CDInfo i(response.first());
   QCOMPARE(i.numberOfTracks(),30);
 
-  QCOMPARE(i.get(Artist).toString(),QString("Troublemakers"));
-  QCOMPARE(i.get(Title).toString(),QString("30"));
+  QCOMPARE(i.get(Artist).toString(),QString::fromUtf8("Troublemakers"));
+  QCOMPARE(i.get(Title).toString(),QString::fromUtf8("30"));
   // genre not really supported for musicbrainz
   QCOMPARE(i.get(Genre).toString(),QString());
   QCOMPARE(i.get(Year).toInt(),2011);
-  QCOMPARE(i.track(0).get(Title).toString(),QString("30"));
+  QCOMPARE(i.track(0).get(Title).toString(),QString::fromUtf8("30"));
   QCOMPARE(i.track(1).get(Title).toString(),QString::fromUtf8("Staden Göteborg"));
   QCOMPARE(i.track(2).get(Title).toString(),QString::fromUtf8("Lilla Blå"));
-  QCOMPARE(i.track(3).get(Title).toString(),QString("Kleptoman"));
+  QCOMPARE(i.track(3).get(Title).toString(),QString::fromUtf8("Kleptoman"));
   QCOMPARE(i.track(4).get(Title).toString(),QString::fromUtf8("Grogg å parabol"));
-  QCOMPARE(i.track(5).get(Title).toString(),QString("Majorna brinner"));
+  QCOMPARE(i.track(5).get(Title).toString(),QString::fromUtf8("Majorna brinner"));
   QCOMPARE(i.track(6).get(Title).toString(),QString::fromUtf8("Utan hjärta stannar Sverige"));
-  QCOMPARE(i.track(7).get(Title).toString(),QString("Dom e efter mig"));
-  QCOMPARE(i.track(8).get(Title).toString(),QString("Mammas flickor"));
-  QCOMPARE(i.track(9).get(Title).toString(),QString("Handgranat"));
-  QCOMPARE(i.track(10).get(Title).toString(),QString("Stenar o blod"));
-  QCOMPARE(i.track(11).get(Title).toString(),QString("Enkel Berlin"));
-  QCOMPARE(i.track(12).get(Title).toString(),QString("Dom ljuger"));
-  QCOMPARE(i.track(13).get(Title).toString(),QString("Jobba"));
+  QCOMPARE(i.track(7).get(Title).toString(),QString::fromUtf8("Dom e efter mig"));
+  QCOMPARE(i.track(8).get(Title).toString(),QString::fromUtf8("Mammas flickor"));
+  QCOMPARE(i.track(9).get(Title).toString(),QString::fromUtf8("Handgranat"));
+  QCOMPARE(i.track(10).get(Title).toString(),QString::fromUtf8("Stenar o blod"));
+  QCOMPARE(i.track(11).get(Title).toString(),QString::fromUtf8("Enkel Berlin"));
+  QCOMPARE(i.track(12).get(Title).toString(),QString::fromUtf8("Dom ljuger"));
+  QCOMPARE(i.track(13).get(Title).toString(),QString::fromUtf8("Jobba"));
   QCOMPARE(i.track(14).get(Title).toString(),QString::fromUtf8("Varför lyser inga stjärnor"));
-  QCOMPARE(i.track(15).get(Title).toString(),QString("Partytrash"));
+  QCOMPARE(i.track(15).get(Title).toString(),QString::fromUtf8("Partytrash"));
   QCOMPARE(i.track(16).get(Title).toString(),QString::fromUtf8("Förstod ingenting"));
   QCOMPARE(i.track(17).get(Title).toString(),QString::fromUtf8("Bara om min älskade väntar"));
-  QCOMPARE(i.track(18).get(Title).toString(),QString("Lillebror"));
-  QCOMPARE(i.track(19).get(Title).toString(),QString("Skandaler"));
+  QCOMPARE(i.track(18).get(Title).toString(),QString::fromUtf8("Lillebror"));
+  QCOMPARE(i.track(19).get(Title).toString(),QString::fromUtf8("Skandaler"));
   QCOMPARE(i.track(20).get(Title).toString(),QString::fromUtf8("Hjältarna skålar i blod"));
-  QCOMPARE(i.track(21).get(Title).toString(),QString("Bomber o granater"));
+  QCOMPARE(i.track(21).get(Title).toString(),QString::fromUtf8("Bomber o granater"));
   QCOMPARE(i.track(22).get(Title).toString(),QString::fromUtf8("Vill du bli miljonär"));
   QCOMPARE(i.track(23).get(Title).toString(),QString::fromUtf8("Stjärnorna kvittar det lika"));
-  QCOMPARE(i.track(24).get(Title).toString(),QString("Naken"));
+  QCOMPARE(i.track(24).get(Title).toString(),QString::fromUtf8("Naken"));
   QCOMPARE(i.track(25).get(Title).toString(),QString::fromUtf8("Månen lyser klar"));
-  QCOMPARE(i.track(26).get(Title).toString(),QString("Vild o vacker"));
-  QCOMPARE(i.track(27).get(Title).toString(),QString("Jag fryser"));
-  QCOMPARE(i.track(28).get(Title).toString(),QString("Ein zwei polizei"));
+  QCOMPARE(i.track(26).get(Title).toString(),QString::fromUtf8("Vild o vacker"));
+  QCOMPARE(i.track(27).get(Title).toString(),QString::fromUtf8("Jag fryser"));
+  QCOMPARE(i.track(28).get(Title).toString(),QString::fromUtf8("Ein zwei polizei"));
   QCOMPARE(i.track(29).get(Title).toString(),QString::fromUtf8("Jävla idiot"));
   for (int j=0; j < 30; j++)
-    QCOMPARE(i.track(j).get(Artist).toString(),QString("Troublemakers"));
+    QCOMPARE(i.track(j).get(Artist).toString(),QString::fromUtf8("Troublemakers"));
   // comments not supported in a simple way
   for (int j=0; j < 19; j++)
     QCOMPARE(i.track(j).get(Comment).toString(),QString());

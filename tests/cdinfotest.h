@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2006 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2005 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -17,16 +17,16 @@
   Boston, MA 02110-1301, USA.
 */
 
-#ifndef MUSICBRAINZTEST_H
-#define MUSICBRAINZTEST_H
+#ifndef CDINFOTEST_H
+#define CDINFOTEST_H
 
 #include <QtCore/QObject>
 
-class MusicBrainzTest : public QObject
+class CDInfoTest : public QObject
 {
-  Q_OBJECT
-  private slots:
-    void testLookup();
+    Q_OBJECT
+private Q_SLOTS:
+    void testLongLines();
 };
 
 #endif

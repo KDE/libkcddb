@@ -38,9 +38,9 @@ namespace KCDDB
                       const QString& from, const QString& to);
       virtual ~AsyncSMTPSubmit();
 
-    signals:
+    Q_SIGNALS:
       void finished( KCDDB::Result );
-    protected slots:
+    protected Q_SLOTS:
       void slotDone( KJob * );
     protected:
       virtual Result runJob(KIO::Job* job);

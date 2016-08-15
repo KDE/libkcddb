@@ -60,7 +60,7 @@ namespace KCDDB
       Result sendQuery();
       Result sendRead( const CDDBMatch & );
 
-    signals:
+    Q_SIGNALS:
 
       void queryReady();
       void readReady();

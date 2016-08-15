@@ -90,6 +90,15 @@ class CDInfoDialog::Private
       connect( d->ui->m_multiple, SIGNAL(toggled(bool)), this, SLOT(slotMultipleArtists(bool)) );
 
       connect(d->ui->m_changeEncoding,SIGNAL(clicked()),SLOT(slotChangeEncoding()));
+
+      QHBoxLayout *hbox = new QHBoxLayout;
+      layout->addLayout(hbox);
+      QPushButton *ok = new QPushButton(i18n("Ok"));
+      connect(ok, SIGNAL(clicked()), SLOT(accept()));
+      QPushButton *cancel = new QPushButton(i18n("Cancel"));
+      connect(cancel, SIGNAL(clicked()), SLOT(close()));
+      hbox->addWidget(ok);
+      hbox->addWidget(cancel);
   }
 
   void CDInfoDialog::slotTrackSelected( const QModelIndex &index )
@@ -252,7 +261,7 @@ class CDInfoDialog::Private
               if (!artist.isEmpty()) {
                   m_trackModel->setData(m_trackModel->index(t, Private::TRACK_ARTIST), QString());
                   QString title = m_trackModel->index(t, Private::TRACK_TITLE).data().toString();
-                  m_trackModel->setData(m_trackModel->index(t, Private::TRACK_TITLE), artist + Private::SEPARATOR + title);
+                  m_trackModel->setData(m_trackModel->index(t, Private::TRACK_TITLE), QVariant(artist + Private::SEPARATOR + title));
               }
       }
       d->ui->m_trackList->hideColumn(Private::TRACK_ARTIST);

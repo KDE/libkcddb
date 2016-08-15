@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2006 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -17,16 +17,29 @@
   Boston, MA 02110-1301, USA.
 */
 
-#ifndef MUSICBRAINZTESTFULLDATE_H
-#define MUSICBRAINZTESTFULLDATE_H
+#ifndef TEST_H
+#define TEST_H
 
+#include <QEventLoop>
 #include <QtCore/QObject>
+#include <KCddb/Client>
+#include <KCddb/Kcddb>
 
-class MusicBrainzTestFullDate : public QObject
+using namespace KCDDB;
+
+class AsyncCDDBLookupTest : public QObject
 {
   Q_OBJECT
-  private slots:
+  private Q_SLOTS:
     void testLookup();
+    void slotFinished(KCDDB::Result);
+
+  private:
+
+    QEventLoop m_eventLoop;
+    KCDDB::Client * client_;
+    CDInfo m_info;
+    Result m_result;
 };
 
 #endif

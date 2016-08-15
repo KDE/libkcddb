@@ -30,7 +30,7 @@ class CDDBConfigWidget : public QWidget, public Ui::CDDBConfigWidgetBase
 
     CDDBConfigWidget(QWidget * parent = 0);
 
-  protected slots:
+  protected Q_SLOTS:
 
     virtual void showMirrorList();
 

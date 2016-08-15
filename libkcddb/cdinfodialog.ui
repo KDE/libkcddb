@@ -254,10 +254,10 @@
   <tabstop>m_playOrder</tabstop>
  </tabstops>
  <includes>
-  <include location="local">libkcddb/cdinfo.h</include>
-  <include location="local">libkcddb/kcddb.h</include>
-  <include location="local">libkcddb/categories.h</include>
-  <include location="local">libkcddb/genres.h</include>
+  <include location="local">cdinfo.h</include>
+  <include location="local">kcddb.h</include>
+  <include location="local">categories.h</include>
+  <include location="local">genres.h</include>
  </includes>
  <resources/>
  <connections/>

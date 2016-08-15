@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2003 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2006 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -17,31 +17,16 @@
   Boston, MA 02110-1301, USA.
 */
 
-#ifndef TEST_H
-#define TEST_H
+#ifndef MUSICBRAINZTEST_H
+#define MUSICBRAINZTEST_H
 
 #include <QtCore/QObject>
-#include <libkcddb/client.h>
 
-using namespace KCDDB;
-
-class QCoreApplication;
-
-class AsyncSMTPSubmitTest : public QObject
+class MusicBrainzTest : public QObject
 {
   Q_OBJECT
-
-  public:
-    AsyncSMTPSubmitTest(QCoreApplication& app);
-
-  public slots:
-
-    void slotFinished(KCDDB::Result);
-
-  private:
-
-    QCoreApplication& app_;
-    KCDDB::Client * client_;
+  private Q_SLOTS:
+    void testLookup();
 };
 
 #endif

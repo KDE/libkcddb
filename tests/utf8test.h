@@ -17,15 +17,15 @@
   Boston, MA 02110-1301, USA.
 */
 
-#ifndef MUSICBRAINZTESTSEVERALDISCS_H
-#define MUSICBRAINZTESTSEVERALDISCS_H
+#ifndef UTF8TEST_H
+#define UTF8TEST_H
 
 #include <QtCore/QObject>
 
-class MusicBrainzTestSeveralDiscs : public QObject
+class Utf8Test : public QObject
 {
-  Q_OBJECT
-  private slots:
+    Q_OBJECT
+  private Q_SLOTS:
     void testLookup();
 };
 

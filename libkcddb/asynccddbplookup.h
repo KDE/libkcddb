@@ -51,12 +51,12 @@ namespace KCDDB
 
       Result lookup( const QString &, uint, const TrackOffsetList & );
 
-    signals:
+    Q_SIGNALS:
 
       void finished( KCDDB::Result );
       void quit( Result );
 
-    protected slots:
+    protected Q_SLOTS:
 
       void slotGotError(QAbstractSocket::SocketError error);
       void slotConnectionSuccess();

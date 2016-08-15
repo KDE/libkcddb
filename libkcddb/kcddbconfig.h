@@ -23,7 +23,7 @@
 #ifndef KCDDB_CONFIG_H
 #define KCDDB_CONFIG_H
 
-#include <libkcddb/kcddb_export.h>
+#include <kcddb_export.h>
 #include "configbase.h"
 
 namespace KCDDB

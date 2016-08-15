@@ -55,6 +55,7 @@ namespace KCDDB
       {
         delete cdInfoLookup;
         delete cdInfoSubmit;
+        qDeleteAll(pendingLookups);
       }
 
       Lookup * cdInfoLookup;
@@ -134,6 +135,8 @@ namespace KCDDB
     // just in case we have an info lookup hanging around, prevent mem leakage
     delete d->cdInfoLookup;
     d->cdInfoLookup = 0;
+    qDeleteAll(d->pendingLookups);
+    d->pendingLookups.clear();
 
     if ( blockingMode() )
     {

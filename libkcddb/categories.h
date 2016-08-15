@@ -8,7 +8,7 @@
 #ifndef KCDDB_CATEGORIES_H
 #define KCDDB_CATEGORIES_H
 
-#include <libkcddb/kcddb_export.h>
+#include <kcddb_export.h>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
 

@@ -17,15 +17,15 @@
   Boston, MA 02110-1301, USA.
 */
 
-#ifndef UTF8TEST_H
-#define UTF8TEST_H
+#ifndef SYNCHTTPLOOKUPTEST_H
+#define SYNCHTTPLOOKUPTEST_H
 
 #include <QtCore/QObject>
 
-class Utf8Test : public QObject
+class SyncHTTPLookupTest : public QObject
 {
     Q_OBJECT
-  private slots:
+  private Q_SLOTS:
     void testLookup();
 };
 

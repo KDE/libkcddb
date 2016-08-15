@@ -32,11 +32,11 @@ namespace KCDDB
       AsyncHTTPSubmit(const QString& from, const QString& hostname, uint port);
       virtual ~AsyncHTTPSubmit();
 
-    signals:
+    Q_SIGNALS:
       void finished( KCDDB::Result );
     protected:
       virtual Result runJob(KIO::Job* job);
-    private slots:
+    private Q_SLOTS:
       void slotFinished(KJob*);
   } ;
 }

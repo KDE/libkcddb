@@ -118,7 +118,7 @@ namespace KCDDB
                 if (relnr == 1)
                   info.set(QLatin1String( "discid" ), discId);
                 else
-                  info.set(QLatin1String( "discid" ), discId+QLatin1String( "-" )+QString::number(relnr));
+                  info.set(QLatin1String( "discid" ), QVariant(discId+QLatin1String( "-" )+QString::number(relnr)));
 
                 QString title = QString::fromUtf8(FullRelease->Title().c_str());
 
@@ -129,7 +129,7 @@ namespace KCDDB
                 info.set(Artist, artistFromCreditList(FullRelease->ArtistCredit()));
 
                 QString date = QString::fromUtf8(FullRelease->Date().c_str());
-                QRegExp yearRe("^(\\d{4,4})(-\\d{1,2}-\\d{1,2})?$");
+                QRegExp yearRe(QString::fromUtf8("^(\\d{4,4})(-\\d{1,2}-\\d{1,2})?$"));
                 int year = 0;
                 if (yearRe.indexIn(date) > -1)
                 {

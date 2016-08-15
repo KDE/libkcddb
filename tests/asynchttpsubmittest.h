@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2006 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2004 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -17,16 +17,31 @@
   Boston, MA 02110-1301, USA.
 */
 
-#ifndef SYNCHTTPLOOKUPTEST_H
-#define SYNCHTTPLOOKUPTEST_H
+#ifndef TEST_H
+#define TEST_H
 
 #include <QtCore/QObject>
+#include <KCddb/Client>
 
-class SyncHTTPLookupTest : public QObject
+using namespace KCDDB;
+
+class QCoreApplication;
+
+class AsyncHTTPSubmitTest : public QObject
 {
-    Q_OBJECT
-  private slots:
-    void testLookup();
+  Q_OBJECT
+
+  public:
+    AsyncHTTPSubmitTest(QCoreApplication& app);
+
+  public Q_SLOTS:
+
+    void slotFinished(KCDDB::Result);
+
+  private:
+
+    QCoreApplication& app_;
+    KCDDB::Client * client_;
 };
 
 #endif

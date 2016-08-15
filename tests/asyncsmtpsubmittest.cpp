@@ -30,7 +30,7 @@ AsyncSMTPSubmitTest::AsyncSMTPSubmitTest(QCoreApplication& app)
 
   client_ = new Client;
   client_->config().setFreedbSubmitTransport(Submit::SMTP);
-  client_->config().setSubmitAddress("test-submit@freedb.org");
+  client_->config().setSubmitAddress(QString::fromUtf8("test-submit@freedb.org"));
   client_->setBlockingMode( false );
 
   TrackOffsetList list;
@@ -45,20 +45,20 @@ AsyncSMTPSubmitTest::AsyncSMTPSubmitTest(QCoreApplication& app)
 
   CDInfo cdInfo;
 
-  cdInfo.set("discid", "3606ed05");
-  cdInfo.set("revision", 4);
-  cdInfo.set("title", "Bamse och Bronto");
-  cdInfo.set("artist", "Musiksage");
-  cdInfo.set("year", 2001);
-  cdInfo.set("category", "misc");
-  cdInfo.set("genre", "Barnsaga");
-  cdInfo.set("extd", QString::fromUtf8("Berättare: Olof Thunberg"));
+  cdInfo.set(QString::fromUtf8("discid"), QString::fromUtf8("3606ed05"));
+  cdInfo.set(QString::fromUtf8("revision"), 4);
+  cdInfo.set(QString::fromUtf8("title"), QString::fromUtf8("Bamse och Bronto"));
+  cdInfo.set(QString::fromUtf8("artist"), QString::fromUtf8("Musiksage"));
+  cdInfo.set(QString::fromUtf8("year"), 2001);
+  cdInfo.set(QString::fromUtf8("category"), QString::fromUtf8("misc"));
+  cdInfo.set(QString::fromUtf8("genre"), QString::fromUtf8("Barnsaga"));
+  cdInfo.set(QString::fromUtf8("extd"), QString::fromUtf8("Berättare: Olof Thunberg"));
 
-  cdInfo.track(0).set("title", "Bamses signaturmelodi");
-  cdInfo.track(1).set("title","*");
-  cdInfo.track(2).set("title", "Brummavisan");
-  cdInfo.track(3).set("title", "*");
-  cdInfo.track(4).set("title", QString::fromUtf8("Jätteödlan Bronto"));
+  cdInfo.track(0).set(QString::fromUtf8("title"), QString::fromUtf8("Bamses signaturmelodi"));
+  cdInfo.track(1).set(QString::fromUtf8("title"),QString::fromUtf8("*"));
+  cdInfo.track(2).set(QString::fromUtf8("title"), QString::fromUtf8("Brummavisan"));
+  cdInfo.track(3).set(QString::fromUtf8("title"), QString::fromUtf8("*"));
+  cdInfo.track(4).set(QString::fromUtf8("title"), QString::fromUtf8("Jätteödlan Bronto"));
 
   connect(client_,SIGNAL(finished(KCDDB::Result)),SLOT(slotFinished(KCDDB::Result)));
 
@@ -76,7 +76,7 @@ AsyncSMTPSubmitTest::slotFinished(Result r)
 int main(int argc, char ** argv)
 {
   QCoreApplication app(argc, argv);
-  app.setApplicationName("libkcddb_test");
+  app.setApplicationName(QString::fromUtf8("libkcddb_test"));
 
   new AsyncSMTPSubmitTest(app);
 

@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2004 Richard Lärkäng <nouseforaname@home.se>
+  Copyright (C) 2007 Richard Lärkäng <nouseforaname@home.se>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
@@ -17,31 +17,34 @@
   Boston, MA 02110-1301, USA.
 */
 
-#ifndef TEST_H
-#define TEST_H
+#ifndef CACHETEST_H
+#define CACHETEST_H
+
+#include "libkcddb/cdinfo.h"
+#include "libkcddb/kcddb.h"
+
+namespace KCDDB
+{
+  class Client;
+}
 
 #include <QtCore/QObject>
-#include <libkcddb/client.h>
 
-using namespace KCDDB;
-
-class QCoreApplication;
-
-class AsyncHTTPSubmitTest : public QObject
+class CacheTest : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
+private Q_SLOTS:
+    void initTestCase();
+    void cleanupTestCase();
+    void testFreedb();
+    void testUser();
+    void testMusicbrainz();
+private:
+    bool verify(const QString& source, const QString& discid, const KCDDB::CDInfo& info);
 
-  public:
-    AsyncHTTPSubmitTest(QCoreApplication& app);
-
-  public slots:
-
-    void slotFinished(KCDDB::Result);
-
-  private:
-
-    QCoreApplication& app_;
-    KCDDB::Client * client_;
+    KCDDB::Client* m_client;
+    KCDDB::CDInfo m_info;
+    KCDDB::TrackOffsetList m_list;
 };
 
 #endif

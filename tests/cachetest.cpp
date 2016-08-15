@@ -30,7 +30,7 @@ using namespace KCDDB;
 void CacheTest::initTestCase()
 {
   m_client = new Client;
-  m_client->config().setCacheLocations(QStringList(QDir::homePath()+"/.cddbTest/"));
+  m_client->config().setCacheLocations(QStringList(QDir::homePath()+QString::fromUtf8("/.cddbTest/")));
 
   // a1107d0a
   m_list
@@ -58,7 +58,7 @@ void CacheTest::initTestCase()
 
 void CacheTest::cleanupTestCase()
 {
-  QDir().rmdir(QDir::homePath()+"/.cddbTest/");
+  QDir().rmdir(QDir::homePath()+QString::fromUtf8("/.cddbTest/"));
 }
 
 bool CacheTest::verify(const QString& source, const QString& discid, const CDInfo& info)
@@ -68,7 +68,7 @@ bool CacheTest::verify(const QString& source, const QString& discid, const CDInf
   CDInfoList results = Cache::lookup(m_list, m_client->config());
   foreach(const CDInfo &newInfo, results)
   {
-    if (newInfo.get("source") == source && newInfo.get("discid").toString() == discid)
+    if (newInfo.get(QString::fromUtf8("source")) == source && newInfo.get(QString::fromUtf8("discid")).toString() == discid)
     {
       if (newInfo.get(Artist) != m_info.get(Artist))
         continue;
@@ -94,38 +94,38 @@ bool CacheTest::verify(const QString& source, const QString& discid, const CDInf
 void CacheTest::testFreedb()
 {
   CDInfo testInfo = m_info;
-  testInfo.set("source", "freedb");
-  testInfo.set("discid", "a1107d0a");
-  testInfo.set("category", "misc");
+  testInfo.set(QString::fromUtf8("source"), QString::fromUtf8("freedb"));
+  testInfo.set(QString::fromUtf8("discid"), QString::fromUtf8("a1107d0a"));
+  testInfo.set(QString::fromUtf8("category"), QString::fromUtf8("misc"));
 
-  QVERIFY(verify("freedb", "a1107d0a", testInfo));
+  QVERIFY(verify(QString::fromUtf8("freedb"), QString::fromUtf8("a1107d0a"), testInfo));
 
-  QFile::remove(QDir::homePath()+"/.cddbTest/misc/a1107d0a");
-  QDir().rmdir(QDir::homePath()+"/.cddbTest/misc/");
+  QFile::remove(QDir::homePath()+QString::fromUtf8("/.cddbTest/misc/a1107d0a"));
+  QDir().rmdir(QDir::homePath()+QString::fromUtf8("/.cddbTest/misc/"));
 }
 
 void CacheTest::testUser()
 {
   CDInfo testInfo = m_info;
-  testInfo.set("source", "user");
+  testInfo.set(QString::fromUtf8("source"), QString::fromUtf8("user"));
 
-  QVERIFY(verify("user", "a1107d0a", testInfo));
+  QVERIFY(verify(QString::fromUtf8("user"), QString::fromUtf8("a1107d0a"), testInfo));
 
-  QFile::remove(QDir::homePath()+"/.cddbTest/user/a1107d0a");
-  QDir().rmdir(QDir::homePath()+"/.cddbTest/user/");
+  QFile::remove(QDir::homePath()+QString::fromUtf8("/.cddbTest/user/a1107d0a"));
+  QDir().rmdir(QDir::homePath()+QString::fromUtf8("/.cddbTest/user/"));
 }
 
 void CacheTest::testMusicbrainz()
 {
 #ifdef HAVE_MUSICBRAINZ5
   CDInfo testInfo = m_info;
-  testInfo.set("source", "musicbrainz");
-  testInfo.set("discid", "wdABQ7s86gS7eVmS74CCQ6KwPUI-");
+  testInfo.set(QString::fromUtf8("source"), QString::fromUtf8("musicbrainz"));
+  testInfo.set(QString::fromUtf8("discid"), QString::fromUtf8("wdABQ7s86gS7eVmS74CCQ6KwPUI-"));
 
-  QVERIFY(verify("musicbrainz", "wdABQ7s86gS7eVmS74CCQ6KwPUI-", testInfo));
+  QVERIFY(verify(QString::fromUtf8("musicbrainz"), QString::fromUtf8("wdABQ7s86gS7eVmS74CCQ6KwPUI-"), testInfo));
 
-  QFile::remove(QDir::homePath()+"/.cddbTest/musicbrainz/wdABQ7s86gS7eVmS74CCQ6KwPUI-");
-  QDir().rmdir(QDir::homePath()+"/.cddbTest/musicbrainz/");
+  QFile::remove(QDir::homePath()+QString::fromUtf8("/.cddbTest/musicbrainz/wdABQ7s86gS7eVmS74CCQ6KwPUI-"));
+  QDir().rmdir(QDir::homePath()+QString::fromUtf8("/.cddbTest/musicbrainz/"));
 #endif
 }
 

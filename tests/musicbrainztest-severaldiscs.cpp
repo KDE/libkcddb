@@ -79,37 +79,37 @@ void MusicBrainzTestSeveralDiscs::testLookup()
   CDInfo i(response.first());
   QCOMPARE(i.numberOfTracks(),20);
 
-  QCOMPARE(i.get(Artist).toString(),QString("Billy Bragg"));
-  QCOMPARE(i.get(Title).toString(),QString("Must I Paint You a Picture? The Essential Billy Bragg (disc 2)"));
+  QCOMPARE(i.get(Artist).toString(),QString::fromUtf8("Billy Bragg"));
+  QCOMPARE(i.get(Title).toString(),QString::fromUtf8("Must I Paint You a Picture? The Essential Billy Bragg (disc 2)"));
   // genre not really supported for musicbrainz
   QCOMPARE(i.get(Genre).toString(),QString());
   QCOMPARE(i.get(Year).toInt(),2003);
-  QCOMPARE(i.track(0).get(Title).toString(),QString("Sexuality"));
-  QCOMPARE(i.track(1).get(Title).toString(),QString("Cindy of 1000 Lives"));
-  QCOMPARE(i.track(2).get(Title).toString(),QString("Moving the Goalposts"));
-  QCOMPARE(i.track(3).get(Title).toString(),QString("Tank Park Salute"));
-  QCOMPARE(i.track(4).get(Title).toString(),QString("You Woke Up My Neighbourhood"));
-  QCOMPARE(i.track(5).get(Title).toString(),QString("Accident Waiting to Happen (Red Stars version)"));
-  QCOMPARE(i.track(6).get(Title).toString(),QString("Sulk"));
-  QCOMPARE(i.track(7).get(Title).toString(),QString("Upfield"));
-  QCOMPARE(i.track(8).get(Title).toString(),QString("The Fourteenth of February"));
-  QCOMPARE(i.track(9).get(Title).toString(),QString("Brickbat"));
-  QCOMPARE(i.track(10).get(Title).toString(),QString("The Space Race Is Over"));
-  QCOMPARE(i.track(11).get(Title).toString(),QString("The Boy Done Good"));
-  QCOMPARE(i.track(12).get(Title).toString(),QString("Ingrid Bergman"));
-  QCOMPARE(i.track(13).get(Title).toString(),QString("Way Over Yonder in the Minor Key"));
-  QCOMPARE(i.track(14).get(Title).toString(),QString("My Flying Saucer"));
-  QCOMPARE(i.track(15).get(Title).toString(),QString("All You Fascists Bound to Lose (Blokes version)"));
-  QCOMPARE(i.track(16).get(Title).toString(),QString("NPWA"));
-  QCOMPARE(i.track(17).get(Title).toString(),QString("St. Monday"));
-  QCOMPARE(i.track(18).get(Title).toString(),QString("Somedays I See the Point"));
-  QCOMPARE(i.track(19).get(Title).toString(),QString("Take Down the Union Jack (Band version)"));
+  QCOMPARE(i.track(0).get(Title).toString(),QString::fromUtf8("Sexuality"));
+  QCOMPARE(i.track(1).get(Title).toString(),QString::fromUtf8("Cindy of 1000 Lives"));
+  QCOMPARE(i.track(2).get(Title).toString(),QString::fromUtf8("Moving the Goalposts"));
+  QCOMPARE(i.track(3).get(Title).toString(),QString::fromUtf8("Tank Park Salute"));
+  QCOMPARE(i.track(4).get(Title).toString(),QString::fromUtf8("You Woke Up My Neighbourhood"));
+  QCOMPARE(i.track(5).get(Title).toString(),QString::fromUtf8("Accident Waiting to Happen (Red Stars version)"));
+  QCOMPARE(i.track(6).get(Title).toString(),QString::fromUtf8("Sulk"));
+  QCOMPARE(i.track(7).get(Title).toString(),QString::fromUtf8("Upfield"));
+  QCOMPARE(i.track(8).get(Title).toString(),QString::fromUtf8("The Fourteenth of February"));
+  QCOMPARE(i.track(9).get(Title).toString(),QString::fromUtf8("Brickbat"));
+  QCOMPARE(i.track(10).get(Title).toString(),QString::fromUtf8("The Space Race Is Over"));
+  QCOMPARE(i.track(11).get(Title).toString(),QString::fromUtf8("The Boy Done Good"));
+  QCOMPARE(i.track(12).get(Title).toString(),QString::fromUtf8("Ingrid Bergman"));
+  QCOMPARE(i.track(13).get(Title).toString(),QString::fromUtf8("Way Over Yonder in the Minor Key"));
+  QCOMPARE(i.track(14).get(Title).toString(),QString::fromUtf8("My Flying Saucer"));
+  QCOMPARE(i.track(15).get(Title).toString(),QString::fromUtf8("All You Fascists Bound to Lose (Blokes version)"));
+  QCOMPARE(i.track(16).get(Title).toString(),QString::fromUtf8("NPWA"));
+  QCOMPARE(i.track(17).get(Title).toString(),QString::fromUtf8("St. Monday"));
+  QCOMPARE(i.track(18).get(Title).toString(),QString::fromUtf8("Somedays I See the Point"));
+  QCOMPARE(i.track(19).get(Title).toString(),QString::fromUtf8("Take Down the Union Jack (Band version)"));
   for (int j=0; j < 12; j++)
-    QCOMPARE(i.track(j).get(Artist).toString(),QString("Billy Bragg"));
+    QCOMPARE(i.track(j).get(Artist).toString(),QString::fromUtf8("Billy Bragg"));
   for (int j=12; j < 15; j++)
-    QCOMPARE(i.track(j).get(Artist).toString(),QString("Billy Bragg & Wilco"));
+    QCOMPARE(i.track(j).get(Artist).toString(),QString::fromUtf8("Billy Bragg & Wilco"));
   for (int j=15; j < 20; j++)
-    QCOMPARE(i.track(j).get(Artist).toString(),QString("Billy Bragg and The Blokes"));
+    QCOMPARE(i.track(j).get(Artist).toString(),QString::fromUtf8("Billy Bragg and The Blokes"));
   // comments not supported in a simple way
   for (int j=0; j < 19; j++)
     QCOMPARE(i.track(j).get(Comment).toString(),QString());

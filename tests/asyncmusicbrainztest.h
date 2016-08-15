@@ -22,15 +22,15 @@
 
 #include <QEventLoop>
 #include <QtCore/QObject>
-#include <libkcddb/client.h>
-#include <libkcddb/kcddb.h>
+#include <KCddb/Client>
+#include <KCddb/Kcddb>
 
 using namespace KCDDB;
 
 class AsyncMusicBrainzTest : public QObject
 {
   Q_OBJECT
-  private slots:
+  private Q_SLOTS:
     void testLookup();
     void slotFinished(KCDDB::Result);
 

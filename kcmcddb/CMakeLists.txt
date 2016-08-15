@@ -1,5 +1,4 @@
-
-add_subdirectory ( doc )
+add_subdirectory(doc)
 
 ki18n_wrap_ui(ui_sources cddbconfigwidget.ui)
 
@@ -16,7 +15,8 @@ target_link_libraries(kcm_cddb PRIVATE
     KF5::KIOCore
     KF5::KIOWidgets
     KF5::WidgetsAddons
-    kcddbwidgets)
+    KF5::Cddb
+)
 
 install(TARGETS kcm_cddb DESTINATION ${PLUGIN_INSTALL_DIR})
 
