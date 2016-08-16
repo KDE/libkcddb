@@ -21,7 +21,7 @@
 #define TEST_H
 
 #include <QtCore/QObject>
-#include <KCddb/Client>
+#include "libkcddb/client.h"
 
 using namespace KCDDB;
 

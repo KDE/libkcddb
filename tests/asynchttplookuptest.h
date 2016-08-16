@@ -22,8 +22,8 @@
 
 #include <QEventLoop>
 #include <QtCore/QObject>
-#include <KCddb/Client>
-#include <KCddb/Kcddb>
+#include "libkcddb/client.h"
+#include "libkcddb/kcddb.h"
 
 using namespace KCDDB;
 

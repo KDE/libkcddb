@@ -51,6 +51,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
 add_subdirectory(kcmcddb)
 add_subdirectory(libkcddb)
 
+option(BUILD_TESTING "Build test" OFF)
 if(BUILD_TESTING)
     find_package(Qt5Test REQUIRED)
     add_subdirectory(tests)
