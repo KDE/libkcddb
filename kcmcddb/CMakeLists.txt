@@ -1,3 +1,5 @@
+add_definitions(-DTRANSLATION_DOMAIN="libkcddb")
+
 add_subdirectory(doc)
 
 ki18n_wrap_ui(ui_sources cddbconfigwidget.ui)
