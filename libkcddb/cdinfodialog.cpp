@@ -32,6 +32,7 @@
 #include <QtCore/QTime>
 #include <QtGui/QStandardItemModel>
 #include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QDialogButtonBox>
 
 using KCDDB::TrackInfo;
 
@@ -91,14 +92,10 @@ class CDInfoDialog::Private
 
       connect(d->ui->m_changeEncoding,SIGNAL(clicked()),SLOT(slotChangeEncoding()));
 
-      QHBoxLayout *hbox = new QHBoxLayout;
-      layout->addLayout(hbox);
-      QPushButton *ok = new QPushButton(i18n("Ok"));
-      connect(ok, SIGNAL(clicked()), SLOT(accept()));
-      QPushButton *cancel = new QPushButton(i18n("Cancel"));
-      connect(cancel, SIGNAL(clicked()), SLOT(close()));
-      hbox->addWidget(ok);
-      hbox->addWidget(cancel);
+      QDialogButtonBox *bbox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+      layout->addWidget(bbox);
+      connect(bbox->button(QDialogButtonBox::Ok), SIGNAL(clicked()), SLOT(accept()));
+      connect(bbox->button(QDialogButtonBox::Cancel), SIGNAL(clicked()), SLOT(close()));
   }
 
   void CDInfoDialog::slotTrackSelected( const QModelIndex &index )
