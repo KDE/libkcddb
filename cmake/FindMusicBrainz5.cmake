@@ -16,7 +16,10 @@ endif()
 
 find_path(MUSICBRAINZ5_INCLUDE_DIR musicbrainz5/Disc.h)
 
-find_library(MUSICBRAINZ5_LIBRARIES NAMES musicbrainz5)
+find_library(MUSICBRAINZ5_LIBRARIES NAMES musicbrainz5cc)
+if (NOT MUSICBRAINZ5_LIBRARIES)
+    find_library(MUSICBRAINZ5_LIBRARIES NAMES musicbrainz5)
+endif()
 
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(MusicBrainz5 DEFAULT_MSG MUSICBRAINZ5_INCLUDE_DIR MUSICBRAINZ5_LIBRARIES)

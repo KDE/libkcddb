@@ -58,7 +58,7 @@ target_link_libraries(KF5Cddb
         Qt5::Network)
 
 if(MUSICBRAINZ5_FOUND)
-    target_link_libraries(KF5Cddb PRIVATE musicbrainz5cc)
+    target_link_libraries(KF5Cddb PRIVATE musicbrainz)
 endif()
 
 ki18n_wrap_ui(ui_sources cdinfodialog.ui cdinfoencodingwidget.ui)
