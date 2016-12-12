@@ -23,11 +23,11 @@ set(REQUIRED_QT_VERSION 5.4.0)
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Network Widgets)
 find_package(KF5 ${KF5_DEP_VERSION} REQUIRED COMPONENTS Config DocTools Codecs I18n KIO WidgetsAddons)
 
-ecm_setup_version(${PROJECT_VERSION}
+ecm_setup_version("5.0.0"
     VARIABLE_PREFIX KCDDB
     VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kcddb_version.h"
     PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5CddbConfigVersion.cmake"
-    SOVERSION 16
+    SOVERSION 5
 )
 
 find_package(MusicBrainz5)
