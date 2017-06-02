@@ -43,7 +43,7 @@ namespace KCDDB
     protected Q_SLOTS:
       void slotDone( KJob * );
     protected:
-      virtual Result runJob(KIO::Job* job);
+      Result runJob(KIO::Job* job) Q_DECL_OVERRIDE;
   } ;
 }
 

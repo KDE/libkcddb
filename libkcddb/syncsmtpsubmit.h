@@ -30,7 +30,7 @@ namespace KCDDB
                      const QString& from, const QString& to);
       virtual ~SyncSMTPSubmit();
     protected:
-      virtual Result runJob(KIO::Job* job);
+      Result runJob(KIO::Job* job) Q_DECL_OVERRIDE;
   } ;
 }
 

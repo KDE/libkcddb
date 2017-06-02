@@ -36,9 +36,9 @@ class CDDBModule : public KCModule
 
   public Q_SLOTS:
 
-    void defaults();
-    void save();
-    void load();
+    void defaults() Q_DECL_OVERRIDE;
+    void save() Q_DECL_OVERRIDE;
+    void load() Q_DECL_OVERRIDE;
 
   protected:
 

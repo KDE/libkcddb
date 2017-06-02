@@ -32,13 +32,13 @@ namespace KCDDB
       SyncHTTPLookup();
       virtual ~SyncHTTPLookup();
 
-      Result lookup( const QString &, uint, const TrackOffsetList & );
+      Result lookup( const QString &, uint, const TrackOffsetList & ) Q_DECL_OVERRIDE;
 
       CDInfoList lookupResponse() const;
 
     protected:
 
-      virtual Result fetchURL();
+      Result fetchURL() Q_DECL_OVERRIDE;
 
       Result runQuery();
       Result matchToCDInfo( const CDDBMatch & );

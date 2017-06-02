@@ -37,7 +37,7 @@ namespace KCDDB
       AsyncHTTPLookup();
       virtual ~AsyncHTTPLookup();
 
-      Result lookup( const QString &, uint, const TrackOffsetList & );
+      Result lookup( const QString &, uint, const TrackOffsetList & ) Q_DECL_OVERRIDE;
 
       CDInfoList lookupResponse() const;
 
@@ -53,7 +53,7 @@ namespace KCDDB
       void slotResult( KJob * );
 
     protected:
-      virtual Result fetchURL();
+      Result fetchURL() Q_DECL_OVERRIDE;
 
       Result runQuery();
   };

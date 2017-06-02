@@ -31,7 +31,7 @@ namespace KCDDB
       virtual ~HTTPSubmit();
 
     protected:
-      virtual KIO::Job* createJob(const CDInfo& cdInfo);
+      KIO::Job* createJob(const CDInfo& cdInfo) Q_DECL_OVERRIDE;
 
       QUrl url_;
       QString from_;
