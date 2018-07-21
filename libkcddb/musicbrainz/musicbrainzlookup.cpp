@@ -157,7 +157,7 @@ namespace KCDDB
                     // where the title on the credits of track 18 are
                     // "Bara om min älskade väntar", but the recording
                     // has title "Men bara om min älskade"
-                    if(Recording && Track->ArtistCredit() == 0)
+                    if(Recording && Track->ArtistCredit() == nullptr)
                       track.set(Artist, artistFromCreditList(Recording->ArtistCredit()));
                     else
                       track.set(Artist, artistFromCreditList(Track->ArtistCredit()));

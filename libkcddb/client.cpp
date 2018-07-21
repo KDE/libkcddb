@@ -46,8 +46,8 @@ namespace KCDDB
     public:
 
       Private()
-        : cdInfoLookup(0),
-          cdInfoSubmit(0),
+        : cdInfoLookup(nullptr),
+          cdInfoSubmit(nullptr),
           block( true )
       {}
 
@@ -134,7 +134,7 @@ namespace KCDDB
 
     // just in case we have an info lookup hanging around, prevent mem leakage
     delete d->cdInfoLookup;
-    d->cdInfoLookup = 0;
+    d->cdInfoLookup = nullptr;
     qDeleteAll(d->pendingLookups);
     d->pendingLookups.clear();
 
@@ -157,7 +157,7 @@ namespace KCDDB
         }
 
         delete d->cdInfoLookup;
-        d->cdInfoLookup = 0L;
+        d->cdInfoLookup = nullptr;
       }
 #endif
 
@@ -181,7 +181,7 @@ namespace KCDDB
         }
 
         delete d->cdInfoLookup;
-        d->cdInfoLookup = 0L;
+        d->cdInfoLookup = nullptr;
       }
 
       return r;
@@ -239,7 +239,7 @@ namespace KCDDB
     if ( d->cdInfoLookup ) // in case someone called lookup() while finished() was being processed, and deleted cdInfoLookup.
     {
       d->cdInfoLookup->deleteLater();
-      d->cdInfoLookup = 0L;
+      d->cdInfoLookup = nullptr;
     }
 
     if ( Success == r )
@@ -260,7 +260,7 @@ namespace KCDDB
     emit finished( r );
 
     d->cdInfoSubmit->deleteLater();
-    d->cdInfoSubmit=0L;
+    d->cdInfoSubmit=nullptr;
   }
 
     Result
@@ -334,7 +334,7 @@ namespace KCDDB
     if ( blockingMode() )
     {
       delete d->cdInfoSubmit;
-      d->cdInfoSubmit = 0L;
+      d->cdInfoSubmit = nullptr;
     }
 
     return r;
@@ -353,7 +353,7 @@ namespace KCDDB
       if ( Success != r )
       {
         delete d->cdInfoLookup;
-        d->cdInfoLookup = 0L;
+        d->cdInfoLookup = nullptr;
       }
 
       return r;

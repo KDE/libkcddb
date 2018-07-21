@@ -28,7 +28,7 @@ namespace KCDDB
 {
   CDDBPLookup::CDDBPLookup()
     : Lookup()
-    , socket_(0)
+    , socket_(nullptr)
   {
 
   }

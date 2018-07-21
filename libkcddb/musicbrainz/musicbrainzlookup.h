@@ -42,7 +42,7 @@ namespace KCDDB
       virtual ~MusicBrainzLookup();
 
       // FIXME Only freedb lookup needs the first two arguments (host/port)
-      virtual Result lookup( const QString &, uint, const TrackOffsetList & );
+      Result lookup( const QString &, uint, const TrackOffsetList & ) override;
 
       static CDInfoList cacheFiles(const TrackOffsetList &, const Config& );
 

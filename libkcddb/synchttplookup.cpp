@@ -109,7 +109,7 @@ namespace KCDDB
 
     KIO::TransferJob* job = KIO::get( cgiURL_, KIO::NoReload, KIO::HideProgressInfo );
 
-    if ( 0 == job )
+    if ( nullptr == job )
       return ServerError;
 
     QObject::connect( job, &KIO::TransferJob::data, [&](KIO::Job *, const QByteArray &data){ data_ += data; } );

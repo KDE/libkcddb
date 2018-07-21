@@ -28,7 +28,7 @@ class CDDBConfigWidget : public QWidget, public Ui::CDDBConfigWidgetBase
 
   public:
 
-    CDDBConfigWidget(QWidget * parent = 0);
+    CDDBConfigWidget(QWidget * parent = nullptr);
 
   protected Q_SLOTS:
 

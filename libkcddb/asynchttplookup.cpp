@@ -131,7 +131,7 @@ namespace KCDDB
 
     KIO::TransferJob* job = KIO::get( cgiURL_, KIO::NoReload, KIO::HideProgressInfo );
 
-    if ( 0 == job )
+    if ( nullptr == job )
       return ServerError;
 
     connect( job, SIGNAL(data(KIO::Job*,QByteArray)),

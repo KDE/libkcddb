@@ -36,7 +36,7 @@ namespace KCDDB
       AsyncMusicBrainzLookup();
       virtual ~AsyncMusicBrainzLookup();
 
-      Result lookup( const QString &, uint, const TrackOffsetList & );
+      Result lookup( const QString &, uint, const TrackOffsetList & ) override;
 
       CDInfoList lookupResponse() const;
 

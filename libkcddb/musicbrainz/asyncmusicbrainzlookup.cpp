@@ -29,7 +29,7 @@ namespace KCDDB
   class LookupThread : public QThread
   {
   public:
-    void run()
+    void run() override
     {
       MusicBrainzLookup lookup;
 
