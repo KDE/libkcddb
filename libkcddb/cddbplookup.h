@@ -24,7 +24,7 @@
 
 #include "lookup.h"
 
-#include <QtNetwork/QTcpSocket>
+#include <QTcpSocket>
 
 namespace KCDDB
 {

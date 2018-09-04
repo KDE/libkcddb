@@ -25,9 +25,9 @@
 #include <cddb.h>
 #include <cdinfo.h>
 
-#include <QtCore/QList>
-#include <QtCore/QObject>
-#include <QtCore/QPair>
+#include <QList>
+#include <QObject>
+#include <QPair>
 
 namespace KCDDB
 {

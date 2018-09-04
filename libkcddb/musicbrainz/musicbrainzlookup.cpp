@@ -36,8 +36,8 @@
 
 #include <KCodecs/KCodecs>
 
-#include <QtCore/QCryptographicHash>
-#include <QtCore/QDebug>
+#include <QCryptographicHash>
+#include <QDebug>
 
 #include <cstdio>
 #include <cstring>
@@ -153,7 +153,7 @@ namespace KCDDB
 
                     // Prefer title and artist from the track credits, but
                     // it appears to be empty if same as in Recording
-                    // Noticable in the musicbrainztest-fulldate test,
+                    // Noticeable in the musicbrainztest-fulldate test,
                     // where the title on the credits of track 18 are
                     // "Bara om min älskade väntar", but the recording
                     // has title "Men bara om min älskade"

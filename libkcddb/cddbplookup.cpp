@@ -22,7 +22,7 @@
 #include "cddbplookup.h"
 #include "logging.h"
 
-#include <QtCore/QByteArray>
+#include <QByteArray>
 
 namespace KCDDB
 {

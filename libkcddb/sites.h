@@ -23,7 +23,7 @@
 #include <cddb.h>
 #include <lookup.h>
 #include <kcddb_export.h>
-#include <QtCore/QList>
+#include <QList>
 
 namespace KCDDB
 {

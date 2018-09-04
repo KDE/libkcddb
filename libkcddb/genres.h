@@ -9,7 +9,7 @@
 #define KCDDB_GENRES_H
 
 #include <kcddb_export.h>
-#include <QtCore/QStringList>
+#include <QStringList>
 
 namespace KCDDB
 {

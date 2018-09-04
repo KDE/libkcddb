@@ -29,10 +29,10 @@
 #include <KCoreAddons/KPluginFactory>
 #include <KWidgetsAddons/KMessageBox>
 
-#include <QtCore/QDebug>
-#include <QtWidgets/QCheckBox>
-#include <QtWidgets/QRadioButton>
-#include <QtWidgets/QVBoxLayout>
+#include <QDebug>
+#include <QCheckBox>
+#include <QRadioButton>
+#include <QVBoxLayout>
 
 K_PLUGIN_FACTORY(KCDDBFactory, registerPlugin<CDDBModule>();)
 K_EXPORT_PLUGIN(KCDDBFactory( "kcmcddb" ))

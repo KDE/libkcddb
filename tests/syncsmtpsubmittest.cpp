@@ -17,8 +17,8 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <QtCore/QDebug>
-#include <QtCore/QCoreApplication>
+#include <QDebug>
+#include <QCoreApplication>
 
 #include "libkcddb/client.h"
 #include "libkcddb/kcddbconfig.h"

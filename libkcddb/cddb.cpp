@@ -26,8 +26,8 @@
 
 #include <KCoreAddons/KStringHandler>
 
-#include <QtCore/QDebug>
-#include <QtCore/QStringList>
+#include <QDebug>
+#include <QStringList>
 
 namespace KCDDB
 {

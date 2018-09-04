@@ -20,7 +20,7 @@
 #ifndef CDINFOTEST_H
 #define CDINFOTEST_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 class CDInfoTest : public QObject
 {

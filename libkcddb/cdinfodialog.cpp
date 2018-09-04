@@ -26,13 +26,13 @@
 
 #include <KCodecs/KCharsets>
 
-#include <QtCore/QDebug>
-#include <QtCore/QStringList>
-#include <QtCore/QTextCodec>
-#include <QtCore/QTime>
-#include <QtGui/QStandardItemModel>
-#include <QtWidgets/QVBoxLayout>
-#include <QtWidgets/QDialogButtonBox>
+#include <QDebug>
+#include <QStringList>
+#include <QTextCodec>
+#include <QTime>
+#include <QStandardItemModel>
+#include <QVBoxLayout>
+#include <QDialogButtonBox>
 
 using KCDDB::TrackInfo;
 
@@ -151,7 +151,7 @@ class CDInfoDialog::Private
       QStringList labels;
       labels << i18n("Track") << i18n("Length") << i18n("Title") << i18n("Artist") << i18n("Comment");
       m_trackModel->setHorizontalHeaderLabels(labels);
-      for (unsigned i = 0; i < tracks; i++) {
+      for (unsigned i = 0; i < tracks; ++i) {
           QList<QStandardItem *> trackItems = QList<QStandardItem *>();
           TrackInfo ti(info.track(i));
           QStandardItem *trackNumberItem = new QStandardItem(QString().sprintf("%02d", i + 1));

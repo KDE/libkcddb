@@ -22,7 +22,7 @@
 #include "kcddbi18n.h"
 
 #include <KCodecs/KCharsets>
-#include <QtCore/QTextCodec>
+#include <QTextCodec>
 
 namespace KCDDB
 {

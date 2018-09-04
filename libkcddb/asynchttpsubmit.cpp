@@ -20,7 +20,7 @@
 #include "asynchttpsubmit.h"
 
 #include <KIO/Job>
-#include <QtCore/QDebug>
+#include <QDebug>
 
 namespace KCDDB
 {

@@ -20,7 +20,7 @@
 #ifndef MUSICBRAINZTESTSEVERALDISCS_H
 #define MUSICBRAINZTESTSEVERALDISCS_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 class MusicBrainzTestSeveralDiscs : public QObject
 {

@@ -20,7 +20,7 @@
 #ifndef TEST_H
 #define TEST_H
 
-#include <QtCore/QObject>
+#include <QObject>
 #include "libkcddb/client.h"
 
 using namespace KCDDB;

@@ -26,8 +26,8 @@
 #include <cdinfo.h>
 #include <kcddbconfig.h>
 
-#include <QtCore/QList>
-#include <QtCore/QString>
+#include <QList>
+#include <QString>
 
 namespace KCDDB
 {

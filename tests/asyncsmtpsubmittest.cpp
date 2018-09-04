@@ -17,10 +17,10 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <QtCore/QDebug>
-#include <QtCore/QCoreApplication>
-
 #include "asyncsmtpsubmittest.h"
+#include <QDebug>
+#include <QCoreApplication>
+
 #include "libkcddb/submit.h"
 
 AsyncSMTPSubmitTest::AsyncSMTPSubmitTest(QCoreApplication& app)

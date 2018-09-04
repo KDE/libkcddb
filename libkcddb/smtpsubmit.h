@@ -20,7 +20,7 @@
 */
 
 #include "submit.h"
-#include <QtCore/QUrl>
+#include <QUrl>
 
 namespace KCDDB
 {

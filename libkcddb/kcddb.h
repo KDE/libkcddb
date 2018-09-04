@@ -20,8 +20,8 @@
 #ifndef KCDDB_H
 #define KCDDB_H
 
-#include <QtCore/QList>
-#include <QtCore/QString>
+#include <QList>
+#include <QString>
 
 #include <kcddb_export.h>
 

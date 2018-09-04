@@ -23,7 +23,7 @@
 #include "libkcddb/cdinfo.h"
 #include "libkcddb/client.h"
 #include "config-musicbrainz.h"
-#include <QtTest/QTest>
+#include <QTest>
 
 using namespace KCDDB;
 

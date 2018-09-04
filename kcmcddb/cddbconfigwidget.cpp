@@ -30,9 +30,9 @@
 #include <KWidgetsAddons/KMessageBox>
 #include <KWidgetsAddons/KEditListWidget>
 
-#include <QtCore/QList>
-#include <QtWidgets/QCheckBox>
-#include <QtWidgets/QInputDialog>
+#include <QList>
+#include <QCheckBox>
+#include <QInputDialog>
 
 CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
   : QWidget(parent)

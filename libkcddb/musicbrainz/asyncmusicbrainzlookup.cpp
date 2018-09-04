@@ -21,8 +21,8 @@
 
 #include "musicbrainzlookup.h"
 
-#include <QtCore/QDebug>
-#include <QtCore/QThread>
+#include <QDebug>
+#include <QThread>
 
 namespace KCDDB
 {

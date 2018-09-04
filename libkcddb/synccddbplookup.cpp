@@ -22,7 +22,7 @@
 #include "synccddbplookup.h"
 #include "logging.h"
 
-#include <QtCore/QStringList>
+#include <QStringList>
 
 namespace KCDDB
 {

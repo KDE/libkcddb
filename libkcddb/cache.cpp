@@ -31,9 +31,9 @@
 #include "musicbrainz/musicbrainzlookup.h"
 #endif
 
-#include <QtCore/QFile>
-#include <QtCore/QDir>
-#include <QtCore/QTextStream>
+#include <QFile>
+#include <QDir>
+#include <QTextStream>
 
 namespace KCDDB
 {

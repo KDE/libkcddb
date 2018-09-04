@@ -17,11 +17,11 @@
   Boston, MA 02110-1301, USA.
 */
 
+#include "utf8test.h"
 #include "libkcddb/client.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
-#include "utf8test.h"
-#include <QtTest/QTest>
+#include <QTest>
 
 void Utf8Test::testLookup()
 {

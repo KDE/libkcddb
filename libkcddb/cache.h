@@ -25,7 +25,7 @@
 #include "kcddb.h"
 #include "cdinfo.h"
 
-#include <QtCore/QString>
+#include <QString>
 
 namespace KCDDB
 {

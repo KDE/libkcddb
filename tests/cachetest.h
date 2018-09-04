@@ -28,7 +28,7 @@ namespace KCDDB
   class Client;
 }
 
-#include <QtCore/QObject>
+#include <QObject>
 
 class CacheTest : public QObject
 {

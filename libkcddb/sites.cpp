@@ -20,11 +20,11 @@
 #include "sites.h"
 
 #include <KIO/Job>
-#include <QtCore/QDebug>
-#include <QtCore/QRegExp>
-#include <QtCore/QTextStream>
-#include <QtCore/QUrl>
-#include <QtCore/QUrlQuery>
+#include <QDebug>
+#include <QRegExp>
+#include <QTextStream>
+#include <QUrl>
+#include <QUrlQuery>
 
 namespace KCDDB
 {

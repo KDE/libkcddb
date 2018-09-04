@@ -24,7 +24,7 @@
 #include <cdinfo.h>
 #include <kcddb.h>
 
-#include <QtWidgets/QDialog>
+#include <QDialog>
 
 class QStandardItemModel;
 class QModelIndex;

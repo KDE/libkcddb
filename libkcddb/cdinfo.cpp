@@ -27,7 +27,7 @@
 #include "logging.h"
 
 #include <KCoreAddons/KStringHandler>
-#include <QtCore/QDebug>
+#include <QDebug>
 
 #include <QMap>
 

@@ -22,7 +22,7 @@
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
 #include "config-musicbrainz.h"
-#include <QtTest/QTest>
+#include <QTest>
 
 void MusicBrainzTestFullDate::testLookup()
 {

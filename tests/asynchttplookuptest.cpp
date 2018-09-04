@@ -21,7 +21,7 @@
 #include "asynchttplookuptest.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
-#include <QtTest/QTest>
+#include <QTest>
 
 void AsyncHTTPLookupTest::testLookup()
 {

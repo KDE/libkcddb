@@ -24,7 +24,7 @@
 #include "cdinfo.h"
 #include "kcddb.h"
 #include "kcddbconfig.h"
-#include <QtCore/QObject>
+#include <QObject>
 
 namespace KCDDB
 {

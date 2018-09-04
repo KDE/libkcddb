@@ -9,8 +9,8 @@
 #define KCDDB_CATEGORIES_H
 
 #include <kcddb_export.h>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
+#include <QString>
+#include <QStringList>
 
 namespace KCDDB
 {

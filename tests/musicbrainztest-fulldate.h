@@ -20,7 +20,7 @@
 #ifndef MUSICBRAINZTESTFULLDATE_H
 #define MUSICBRAINZTESTFULLDATE_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 class MusicBrainzTestFullDate : public QObject
 {

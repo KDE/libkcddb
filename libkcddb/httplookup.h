@@ -23,7 +23,7 @@
 #define KCDDB_HTTP_LOOKUP_H
 
 #include "lookup.h"
-#include <QtCore/QUrl>
+#include <QUrl>
 
 namespace KIO
 {

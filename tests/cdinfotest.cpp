@@ -17,10 +17,10 @@
   Boston, MA 02110-1301, USA.
 */
 
-#include <QtTest/QtTest>
-#include <QtCore/QCoreApplication>
-#include "libkcddb/cdinfo.h"
 #include "cdinfotest.h"
+#include <QTest>
+#include <QCoreApplication>
+#include "libkcddb/cdinfo.h"
 
 using namespace KCDDB;
 

@@ -17,11 +17,11 @@
   Boston, MA 02110-1301, USA.
 */
 
+#include "synchttplookuptest.h"
 #include "libkcddb/client.h"
 #include "libkcddb/cache.h"
 #include "libkcddb/lookup.h"
-#include "synchttplookuptest.h"
-#include <QtTest/QTest>
+#include <QTest>
 
 void SyncHTTPLookupTest::testLookup()
 {

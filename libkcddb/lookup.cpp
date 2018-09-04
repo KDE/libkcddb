@@ -21,7 +21,7 @@
 
 #include "lookup.h"
 
-#include <QtCore/QDebug>
+#include <QDebug>
 
 namespace KCDDB
 {
