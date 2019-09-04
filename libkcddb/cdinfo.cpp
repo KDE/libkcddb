@@ -438,7 +438,7 @@ namespace KCDDB
     QString artist = get(Artist).toString();
     s += d->createLine(QLatin1String( "DTITLE" ), artist + QLatin1String( " / " ) + get(Title).toString() );
     int year = get(Year).toInt();
-    s += QLatin1String( "DYEAR=" ) + (0 == year ? QString::null : QString::number(year)) + QLatin1Char( '\n' );	//krazy:exclude=nullstrassign for old broken gcc
+    s += QLatin1String( "DYEAR=" ) + (0 == year ? QString() : QString::number(year)) + QLatin1Char( '\n' );	//krazy:exclude=nullstrassign for old broken gcc
     if (get(Genre) == QLatin1String( "Unknown" ))
       s += d->createLine(QLatin1String( "DGENRE" ), QString());
     else

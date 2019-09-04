@@ -35,8 +35,6 @@
 #include <QVBoxLayout>
 
 K_PLUGIN_FACTORY(KCDDBFactory, registerPlugin<CDDBModule>();)
-K_EXPORT_PLUGIN(KCDDBFactory( "kcmcddb" ))
-
 
 CDDBModule::CDDBModule(QWidget *parent, const QVariantList &args)
   : KCModule(parent, args)
