@@ -51,7 +51,7 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
   QGroupBox* groupBox = new QGroupBox(cacheLocationsParent);
   groupBox->setTitle(i18n("Cache Locations"));
   QVBoxLayout* gbLayout = new QVBoxLayout(groupBox);
-  gbLayout->setMargin(0);
+  gbLayout->setContentsMargins(0, 0, 0, 0);
 
   KEditListWidget* editListWidget = new KEditListWidget(groupBox);
   editListWidget->setCustomEditor(urlReq->customEditor());
@@ -59,7 +59,7 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
   gbLayout->addWidget(editListWidget);
 
   QHBoxLayout *layout = new QHBoxLayout(cacheLocationsParent);
-  layout->setMargin(0);
+  layout->setContentsMargins(0, 0, 0, 0);
   layout->addWidget(groupBox);
 
   connect(needsAuthenticationBox,SIGNAL(toggled(bool)),SLOT(needAuthenticationChanged(bool)));

@@ -154,7 +154,7 @@ class CDInfoDialog::Private
       for (unsigned i = 0; i < tracks; ++i) {
           QList<QStandardItem *> trackItems = QList<QStandardItem *>();
           TrackInfo ti(info.track(i));
-          QStandardItem *trackNumberItem = new QStandardItem(QString().sprintf("%02d", i + 1));
+          QStandardItem *trackNumberItem = new QStandardItem(QString::asprintf("%02d", i + 1));
 		  trackNumberItem->setEditable(false);
           trackItems << trackNumberItem;
           QStandardItem *trackLengthItem = new QStandardItem(framesTime(trackStartFrames[i + 1] - trackStartFrames[i]));
