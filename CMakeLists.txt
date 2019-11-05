@@ -1,6 +1,6 @@
+cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
 project(libkcddb)
 
-cmake_minimum_required(VERSION 2.8.12)
 
 # ECM setup
 include(FeatureSummary)
