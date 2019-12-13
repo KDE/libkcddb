@@ -30,7 +30,7 @@ namespace KCDDB
       virtual ~SyncHTTPSubmit();
 
     protected:
-      Result runJob(KIO::Job* job) Q_DECL_OVERRIDE;
+      Result runJob(KIO::Job* job) override;
   } ;
 }
 

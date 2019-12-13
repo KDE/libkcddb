@@ -49,7 +49,7 @@ namespace KCDDB
 
       virtual ~AsyncCDDBPLookup();
 
-      Result lookup( const QString &, uint, const TrackOffsetList & ) Q_DECL_OVERRIDE;
+      Result lookup( const QString &, uint, const TrackOffsetList & ) override;
 
     Q_SIGNALS:
 

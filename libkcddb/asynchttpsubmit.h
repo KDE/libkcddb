@@ -35,7 +35,7 @@ namespace KCDDB
     Q_SIGNALS:
       void finished( KCDDB::Result );
     protected:
-      Result runJob(KIO::Job* job) Q_DECL_OVERRIDE;
+      Result runJob(KIO::Job* job) override;
     private Q_SLOTS:
       void slotFinished(KJob*);
   } ;

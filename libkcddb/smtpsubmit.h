@@ -31,9 +31,9 @@ namespace KCDDB
       virtual ~SMTPSubmit();
 
     protected:
-      void makeDiskData( const CDInfo&, const TrackOffsetList& ) Q_DECL_OVERRIDE;
+      void makeDiskData( const CDInfo&, const TrackOffsetList& ) override;
 
-      KIO::Job* createJob(const CDInfo& cdInfo) Q_DECL_OVERRIDE;
+      KIO::Job* createJob(const CDInfo& cdInfo) override;
 
       QUrl url_;
       QString from_, to_;
