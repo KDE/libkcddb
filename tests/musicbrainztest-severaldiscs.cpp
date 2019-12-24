@@ -102,7 +102,7 @@ void MusicBrainzTestSeveralDiscs::testLookup()
   QCOMPARE(i.track(15).get(Title).toString(),QString::fromUtf8("All You Fascists Bound to Lose (Blokes version)"));
   QCOMPARE(i.track(16).get(Title).toString(),QString::fromUtf8("NPWA"));
   QCOMPARE(i.track(17).get(Title).toString(),QString::fromUtf8("St. Monday"));
-  QCOMPARE(i.track(18).get(Title).toString(),QString::fromUtf8("Some Days I See the Point"));
+  QCOMPARE(i.track(18).get(Title).toString(),QString::fromUtf8("Somedays I See the Point"));
   QCOMPARE(i.track(19).get(Title).toString(),QString::fromUtf8("Take Down the Union Jack (Band version)"));
   for (int j=0; j < 12; j++)
     QCOMPARE(i.track(j).get(Artist).toString(),QString::fromUtf8("Billy Bragg"));
