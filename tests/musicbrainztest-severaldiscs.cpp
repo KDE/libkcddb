@@ -70,8 +70,7 @@ void MusicBrainzTestSeveralDiscs::testLookup()
 
   CDInfoList response = c.lookupResponse();
 
-  qDebug() << "Client::lookup returned : " << response.count() << " entries"
-    << endl;
+  qDebug() << "Client::lookup returned : " << response.count() << " entries";
 
   QVERIFY(response.count() > 0);
 
