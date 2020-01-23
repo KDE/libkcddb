@@ -69,7 +69,7 @@ void MusicBrainzTest::testLookup()
 
   QVERIFY(response.count() > 0);
 
-  // See http://musicbrainz.org/release/68ec4a09-576c-472e-9103-aed99b6a3ffc for changes
+  // See https://musicbrainz.org/release/68ec4a09-576c-472e-9103-aed99b6a3ffc for changes
   CDInfo i(response.first());
   QCOMPARE(i.numberOfTracks(),14);
 

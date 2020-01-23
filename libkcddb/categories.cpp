@@ -22,7 +22,7 @@ KCDDB::Categories::Categories()
 {
     // These are only 11 Category values defined by CDDB. See
     //
-    // http://www.freedb.org/modules.php?name=Sections&sop=viewarticle&artid=26
+    // http://www.freedb.org/en/faq.3.html#26
     //
     d->cddb << QLatin1String( "blues" ) << QLatin1String( "classical" ) << QLatin1String( "country" ) <<
         QLatin1String( "data" ) << QLatin1String( "folk" ) << QLatin1String( "jazz" ) << QLatin1String( "misc" ) <<

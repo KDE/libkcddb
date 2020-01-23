@@ -33,7 +33,7 @@ ecm_setup_version("5.0.0"
 find_package(MusicBrainz5)
 set_package_properties(MusicBrainz5 PROPERTIES
    DESCRIPTION "Music metadata lookup for KDE multimedia applications through libkcddb. You need version 5.x of libmusicbrainz"
-   URL "http://www.musicbrainz.org"
+   URL "https://www.musicbrainz.org"
    TYPE OPTIONAL
    PURPOSE "A library that provides access to metadata lookup on the MusicBrainz server")
 

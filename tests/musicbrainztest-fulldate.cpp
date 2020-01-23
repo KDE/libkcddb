@@ -84,7 +84,7 @@ void MusicBrainzTestFullDate::testLookup()
 
   QVERIFY(response.count() > 0);
 
-  // See http://musicbrainz.org/release/04319e80-0948-4e89-8180-7cf6f17fc77a for changes
+  // See https://musicbrainz.org/release/04319e80-0948-4e89-8180-7cf6f17fc77a for changes
   CDInfo i(response.first());
   QCOMPARE(i.numberOfTracks(),30);
 

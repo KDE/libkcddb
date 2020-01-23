@@ -74,7 +74,7 @@ void MusicBrainzTestSeveralDiscs::testLookup()
 
   QVERIFY(response.count() > 0);
 
-  // See http://musicbrainz.org/release/4e0655b5-22fc-496e-9c14-2ee1a6027b45 for changes (disc 2)
+  // See https://musicbrainz.org/release/4e0655b5-22fc-496e-9c14-2ee1a6027b45 for changes (disc 2)
   CDInfo i(response.first());
   QCOMPARE(i.numberOfTracks(),20);
 
