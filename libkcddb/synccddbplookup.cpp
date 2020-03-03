@@ -53,11 +53,7 @@ namespace KCDDB
     {
       qCDebug(LIBKCDDB) << "Couldn't connect to " << socket_->peerName() << ":" << socket_->peerPort();
       qCDebug(LIBKCDDB) << "Socket error: " << socket_->errorString();
-#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
       const auto socketError = socket_->error();
-#else
-      const auto socketError = socket_->socketError();
-#endif
       if ( socketError == QAbstractSocket::HostNotFoundError )
         return HostNotFound;
       else if ( socketError == QAbstractSocket::SocketTimeoutError )
