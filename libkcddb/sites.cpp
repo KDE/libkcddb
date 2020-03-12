@@ -38,7 +38,7 @@ namespace KCDDB
   {
     QUrl url;
     url.setScheme( QLatin1String( "http" ) );
-    url.setHost( QLatin1String( "freedb.freedb.org" ) );
+    url.setHost( QLatin1String( "gnudb.gnudb.org" ) );
     url.setPort( 80 );
     url.setPath( QLatin1String( "/~cddb/cddb.cgi" ) );
 

@@ -7,7 +7,7 @@
   <kcfgfile name="kcmcddbrc"/>
   <group name="Lookup">
     <entry name="hostname" type="String">
-      <default>freedb.freedb.org</default>
+      <default>gnudb.gnudb.org</default>
     </entry>
     <entry name="port" type="Int">
       <default>80</default>
@@ -43,7 +43,7 @@
     <entry name="emailAddress" type="String">
     </entry>
     <entry name="httpSubmitServer" type="String">
-      <default>freedb.freedb.org</default>
+      <default>gnudb.gnudb.org</default>
     </entry>
     <entry name="httpSubmitPort" type="Int">
       <default>80</default>
@@ -61,7 +61,7 @@
     <entry name="smtpHostname" type="String">
     </entry>
     <entry name="submitAddress" type="String">
-      <default>freedb-submit@freedb.org</default>
+      <default>gnudb-submit@gnudb.org</default>
     </entry>
   </group>
 </kcfg>

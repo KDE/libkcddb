@@ -264,8 +264,8 @@ additional information you provide may be added to the existing entry.</para>
 categories are installed in <filename class="directory">$HOME/.cddb</filename>. You can create as
 many category subfolders as you like. However, when uploading, only the
 official <acronym>CDDB</acronym> categories are displayed. The default upload
-address is <email>freedb-submit@freedb.org</email>. For more information about
-<abbrev>freedb</abbrev> visit the <abbrev>freedb</abbrev> homepage.</para>
+address is <email>gnudb-submit@gnudb.org</email>. For more information about
+<abbrev>gnudb</abbrev> visit the <abbrev>gnudb</abbrev> homepage.</para>
 
 <para>The local <acronym>CDDB</acronym> entry for a particular &CD; is stored in
 the file <filename><replaceable>category name</replaceable>/<replaceable>disc

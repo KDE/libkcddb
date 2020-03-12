@@ -28,7 +28,7 @@ void AsyncHTTPLookupTest::testLookup()
   using namespace KCDDB;
 
   client_ = new Client;
-  client_->config().setHostname(QString::fromUtf8("freedb.freedb.org"));
+  client_->config().setHostname(QString::fromUtf8("gnudb.gnudb.org"));
   client_->config().setPort(80);
   client_->config().setCacheLookupEnabled(false);
   client_->config().setFreedbLookupEnabled(true);
@@ -63,8 +63,8 @@ void AsyncHTTPLookupTest::testLookup()
   QVERIFY(m_result == Success);
 
   // If revision doesn't match, test probably needs to be updated
-  // See: http://www.freedb.org/freedb/jazz/a1107d0a for updated data
-  QCOMPARE(m_info.get(QString::fromUtf8("revision")).toInt(), 8);
+  // See: http://www.gnudb.org/gnudb/jazz/a1107d0a for updated data
+  QCOMPARE(m_info.get(QString::fromUtf8("revision")).toInt(), 7);
 
   QCOMPARE(m_info.get(Artist).toString(),QString::fromUtf8("Kruder & Dorfmeister"));
   QCOMPARE(m_info.get(Title).toString(),QString::fromUtf8("The K&D Sessions (Part One)"));

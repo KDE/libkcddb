@@ -64,7 +64,7 @@
                <string>Name of CDDB server which will be used to look up CD information.</string>
               </property>
               <property name="text">
-               <string>freedb.freedb.org</string>
+               <string>gnudb.gnudb.org</string>
               </property>
              </widget>
             </item>

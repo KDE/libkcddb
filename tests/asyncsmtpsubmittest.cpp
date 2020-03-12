@@ -30,7 +30,7 @@ AsyncSMTPSubmitTest::AsyncSMTPSubmitTest(QCoreApplication& app)
 
   client_ = new Client;
   client_->config().setFreedbSubmitTransport(Submit::SMTP);
-  client_->config().setSubmitAddress(QString::fromUtf8("test-submit@freedb.org"));
+  client_->config().setSubmitAddress(QString::fromUtf8("test-submit@gnudb.org"));
   client_->setBlockingMode( false );
 
   TrackOffsetList list;

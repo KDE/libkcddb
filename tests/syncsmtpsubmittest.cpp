@@ -61,7 +61,7 @@ main(int argc, char ** argv)
 
   Client c;
   c.config().setFreedbSubmitTransport(Submit::SMTP);
-  c.config().setSubmitAddress(QString::fromUtf8("test-submit@freedb.org"));
+  c.config().setSubmitAddress(QString::fromUtf8("test-submit@gnudb.org"));
 
   c.setBlockingMode( true );
 

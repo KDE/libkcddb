@@ -28,7 +28,7 @@ void SyncCDDBLookupTest::testLookup()
   using namespace KCDDB;
 
   Client c;
-  c.config().setHostname(QString::fromUtf8("freedb.freedb.org"));
+  c.config().setHostname(QString::fromUtf8("gnudb.gnudb.org"));
   c.config().setPort(8880);
   c.config().setCacheLookupEnabled(false);
   c.config().setFreedbLookupEnabled(true);
@@ -62,7 +62,7 @@ void SyncCDDBLookupTest::testLookup()
     if (i.get(QString::fromUtf8("discid")) == QString::fromUtf8("3e0c3a05") && i.get(Category) == QString::fromUtf8("misc"))
     {
       // If revision doesn't match, test probably needs to be updated
-      // See: http://www.freedb.org/freedb/misc/3e0c3a05 for updated data
+      // See: http://www.gnudb.org/gnudb/misc/3e0c3a05 for updated data
       QCOMPARE(i.get(QString::fromUtf8("revision")).toInt(), 17);
 
       QCOMPARE(i.get(Artist).toString(),QString::fromUtf8("Pink Floyd"));
