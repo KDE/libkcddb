@@ -38,7 +38,7 @@ void AsyncMusicBrainzTest::testLookup()
   client_->config().setMusicBrainzLookupEnabled(true);
   client_->setBlockingMode( false );
 
-  connect(client_,SIGNAL(finished(KCDDB::Result)),SLOT(slotFinished(KCDDB::Result)));
+  connect(client_,&KCDDB::Client::finished,this, &AsyncMusicBrainzTest::slotFinished);
 
   TrackOffsetList list;
 

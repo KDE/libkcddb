@@ -58,7 +58,7 @@ namespace KCDDB
   {
     m_lookupThread = new LookupThread();
     m_lookupThread->m_offsetList = trackOffsetList;
-    connect(m_lookupThread, SIGNAL(finished()), SLOT(lookupFinished()));
+    connect(m_lookupThread, &QThread::finished, this, &AsyncMusicBrainzLookup::lookupFinished);
 
     m_lookupThread->start();
 

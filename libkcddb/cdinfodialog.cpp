@@ -84,18 +84,18 @@ class CDInfoDialog::Private
       // We want control over the visibility of this column. See artistChanged().
       d->ui->m_trackList->header()->setSectionResizeMode(Private::TRACK_ARTIST, QHeaderView::Interactive);
 
-      connect( d->ui->m_trackList, SIGNAL(activated(QModelIndex)), this, SLOT(slotTrackSelected(QModelIndex)) );
-      connect( d->ui->m_trackList, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotTrackDoubleClicked(QModelIndex)) );
-      connect( d->ui->m_artist, SIGNAL(textChanged(QString)), this, SLOT(artistChanged(QString)) );
+      connect( d->ui->m_trackList, &QAbstractItemView::activated, this, &CDInfoDialog::slotTrackSelected );
+      connect( d->ui->m_trackList, &QAbstractItemView::doubleClicked, this, &CDInfoDialog::slotTrackDoubleClicked );
+      connect( d->ui->m_artist, &QLineEdit::textChanged, this, &CDInfoDialog::artistChanged );
       connect( d->ui->m_genre, SIGNAL(textChanged(QString)), this, SLOT(genreChanged(QString)) );
-      connect( d->ui->m_multiple, SIGNAL(toggled(bool)), this, SLOT(slotMultipleArtists(bool)) );
+      connect( d->ui->m_multiple, &QAbstractButton::toggled, this, &CDInfoDialog::slotMultipleArtists );
 
-      connect(d->ui->m_changeEncoding,SIGNAL(clicked()),SLOT(slotChangeEncoding()));
+      connect(d->ui->m_changeEncoding,&QAbstractButton::clicked,this, &CDInfoDialog::slotChangeEncoding);
 
       QDialogButtonBox *bbox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
       layout->addWidget(bbox);
-      connect(bbox->button(QDialogButtonBox::Ok), SIGNAL(clicked()), SLOT(accept()));
-      connect(bbox->button(QDialogButtonBox::Cancel), SIGNAL(clicked()), SLOT(close()));
+      connect(bbox->button(QDialogButtonBox::Ok), &QAbstractButton::clicked, this, &QDialog::accept);
+      connect(bbox->button(QDialogButtonBox::Cancel), &QAbstractButton::clicked, this, &QWidget::close);
   }
 
   void CDInfoDialog::slotTrackSelected( const QModelIndex &index )

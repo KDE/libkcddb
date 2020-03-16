@@ -48,10 +48,10 @@ namespace KCDDB
 
     connect (socket_, SIGNAL(error(QAbstractSocket::SocketError)), SLOT(slotGotError(QAbstractSocket::SocketError)));
 
-    connect (socket_, SIGNAL(connected()),
-      SLOT(slotConnectionSuccess()) );
+    connect (socket_, &QAbstractSocket::connected,
+      this, &AsyncCDDBPLookup::slotConnectionSuccess );
 
-    connect (socket_, SIGNAL(readyRead()), SLOT(slotReadyRead()) );
+    connect (socket_, &QIODevice::readyRead, this, &AsyncCDDBPLookup::slotReadyRead );
 
     trackOffsetList_ = trackOffsetList;
 

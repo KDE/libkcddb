@@ -40,8 +40,8 @@ namespace KCDDB
 
   Result AsyncSMTPSubmit::runJob(KIO::Job* job)
   {
-    connect( job, SIGNAL(result(KJob*)),
-               this, SLOT(slotDone(KJob*)) );
+    connect( job, &KJob::result,
+               this, &AsyncSMTPSubmit::slotDone );
 
     return Success;
   }

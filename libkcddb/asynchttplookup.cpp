@@ -46,8 +46,8 @@ namespace KCDDB
   {
     trackOffsetList_ = trackOffsetList;
 
-    connect( this, SIGNAL(queryReady()), SLOT(slotQueryReady()) );
-    connect( this, SIGNAL(readReady()), SLOT(requestCDInfoForMatch()) );
+    connect( this, &HTTPLookup::queryReady, this, &AsyncHTTPLookup::slotQueryReady );
+    connect( this, &HTTPLookup::readReady, this, &AsyncHTTPLookup::requestCDInfoForMatch );
 
     initURL( hostName, port );
 
@@ -134,10 +134,10 @@ namespace KCDDB
     if ( nullptr == job )
       return ServerError;
 
-    connect( job, SIGNAL(data(KIO::Job*,QByteArray)),
-          SLOT(slotData(KIO::Job*,QByteArray)) );
-    connect( job, SIGNAL(result(KJob*)),
-          SLOT(slotResult(KJob*)) );
+    connect( job, &KIO::TransferJob::data,
+          this, &AsyncHTTPLookup::slotData );
+    connect( job, &KJob::result,
+          this, &AsyncHTTPLookup::slotResult );
 
     return Success;
   }

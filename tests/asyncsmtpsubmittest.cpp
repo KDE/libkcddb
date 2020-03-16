@@ -60,7 +60,7 @@ AsyncSMTPSubmitTest::AsyncSMTPSubmitTest(QCoreApplication& app)
   cdInfo.track(3).set(QString::fromUtf8("title"), QString::fromUtf8("*"));
   cdInfo.track(4).set(QString::fromUtf8("title"), QString::fromUtf8("Jätteödlan Bronto"));
 
-  connect(client_,SIGNAL(finished(KCDDB::Result)),SLOT(slotFinished(KCDDB::Result)));
+  connect(client_,&KCDDB::Client::finished,this, &AsyncSMTPSubmitTest::slotFinished);
 
   client_->submit(cdInfo, list);
 }

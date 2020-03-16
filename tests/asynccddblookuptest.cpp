@@ -35,7 +35,7 @@ void AsyncCDDBLookupTest::testLookup()
   client_->config().setFreedbLookupTransport(Lookup::CDDBP);
   client_->setBlockingMode( false );
 
-  connect(client_,SIGNAL(finished(KCDDB::Result)),SLOT(slotFinished(KCDDB::Result)));
+  connect(client_,&KCDDB::Client::finished,this, &AsyncCDDBLookupTest::slotFinished);
 
   TrackOffsetList list;
 

@@ -193,8 +193,8 @@ namespace KCDDB
       {
         AsyncMusicBrainzLookup* lookup = new AsyncMusicBrainzLookup();
 
-        connect( lookup, SIGNAL(finished(KCDDB::Result)),
-                 SLOT(slotFinished(KCDDB::Result)) );
+        connect( lookup, &AsyncMusicBrainzLookup::finished,
+                 this, &Client::slotFinished );
         d->pendingLookups.append( lookup );
       }
 #endif
@@ -207,16 +207,16 @@ namespace KCDDB
         {
           AsyncCDDBPLookup* lookup = new AsyncCDDBPLookup();
 
-          connect( lookup, SIGNAL(finished(KCDDB::Result)),
-                   SLOT(slotFinished(KCDDB::Result)) );
+          connect( lookup, &AsyncCDDBPLookup::finished,
+                   this, &Client::slotFinished );
           d->pendingLookups.append( lookup );
         }
         else
         {
           AsyncHTTPLookup* lookup = new AsyncHTTPLookup();
 
-          connect( lookup, SIGNAL(finished(KCDDB::Result)),
-                   SLOT(slotFinished(KCDDB::Result)) );
+          connect( lookup, &AsyncHTTPLookup::finished,
+                   this, &Client::slotFinished );
           d->pendingLookups.append( lookup );
         }
       }
@@ -299,8 +299,8 @@ namespace KCDDB
         {
           d->cdInfoSubmit = new AsyncHTTPSubmit(from, hostname, port);
           connect( static_cast<AsyncHTTPSubmit *>( d->cdInfoSubmit ),
-                  SIGNAL(finished(KCDDB::Result)),
-                  SLOT(slotSubmitFinished(KCDDB::Result)) );
+                  &AsyncHTTPSubmit::finished,
+                  this, &Client::slotSubmitFinished );
         }
 
         break;
@@ -317,8 +317,8 @@ namespace KCDDB
         {
           d->cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
           connect( static_cast<AsyncSMTPSubmit *>( d->cdInfoSubmit ),
-                  SIGNAL(finished(KCDDB::Result)),
-                  SLOT(slotSubmitFinished(KCDDB::Result)) );
+                  &AsyncSMTPSubmit::finished,
+                  this, &Client::slotSubmitFinished );
         }
         break;
       }
