@@ -61,24 +61,8 @@ if(MUSICBRAINZ5_FOUND)
     target_link_libraries(KF5Cddb PRIVATE musicbrainz)
 endif()
 
-ki18n_wrap_ui(ui_sources cdinfodialog.ui cdinfoencodingwidget.ui)
-
-add_library(KF5CddbWidgets SHARED
-    cdinfodialog.cpp
-    cdinfoencodingwidget.cpp
-    ${ui_sources})
-
-target_link_libraries(KF5CddbWidgets
-    PUBLIC
-        KF5::Cddb
-        Qt5::Widgets
-    PRIVATE
-        KF5::Codecs
-        KF5::I18n)
-
 generate_export_header(KF5Cddb BASE_NAME KCddb)
 add_library(KF5::Cddb ALIAS KF5Cddb)
-add_library(KF5::CddbWidgets ALIAS KF5CddbWidgets)
 target_include_directories(KF5Cddb PUBLIC "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KCddb>")
 
 set_target_properties(KF5Cddb PROPERTIES VERSION ${KCDDB_VERSION_STRING} 
@@ -86,16 +70,10 @@ set_target_properties(KF5Cddb PROPERTIES VERSION ${KCDDB_VERSION_STRING}
     EXPORT_NAME Cddb
 )
 
-set_target_properties(KF5CddbWidgets PROPERTIES VERSION ${KCDDB_VERSION_STRING}
-    SOVERSION ${KCDDB_SOVERSION}
-    EXPORT_NAME CddbWidgets
-)
-
 ecm_generate_headers(KCddb_HEADERS
     HEADER_NAMES
     Categories
     Cdinfo
-    CdinfoDialog
     Client
     Genres
     KcddbConfig
@@ -105,7 +83,6 @@ ecm_generate_headers(KCddb_HEADERS
 )
 
 install(TARGETS KF5Cddb EXPORT KF5CddbTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
-install(TARGETS KF5CddbWidgets EXPORT KF5CddbTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/kcddb_export.h
