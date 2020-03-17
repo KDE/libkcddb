@@ -63,7 +63,7 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
   layout->addWidget(groupBox);
 
   connect(needsAuthenticationBox,&QAbstractButton::toggled,this, &CDDBConfigWidget::needAuthenticationChanged);
-  connect(kcfg_FreedbLookupTransport,&QComboBox::activated,this, &CDDBConfigWidget::protocolChanged);
+  connect(kcfg_FreedbLookupTransport,QOverload<int>::of(&QComboBox::activated),this, &CDDBConfigWidget::protocolChanged);
   connect(kcfg_FreedbLookupEnabled,&QAbstractButton::toggled,freedbServerBox,&QWidget::setEnabled);
   connect(mirrorListButton,&QAbstractButton::clicked,this, &CDDBConfigWidget::showMirrorList);
 }
