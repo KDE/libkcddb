@@ -1,0 +1,17 @@
+fancyname: KCDDB
+description: KDE CDDB library
+type: functional
+public_lib: true
+platforms:
+    - name: Linux
+    - name: FreeBSD
+    - name: Windows
+    #- name: MacOSX
+    #- name: Android
+public_source_dirs:
+    - libkcddb
+release: true
+libraries:
+    - cmake: "KF5::Cddb"
+      qmake: KCddb
+cmakename: KF5Cddb
