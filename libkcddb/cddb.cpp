@@ -104,14 +104,15 @@ namespace KCDDB
   CDDB::statusCode( const QString & line )
   {
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    QStringList tokenList = line.split(QLatin1Char( ' ' ), QString::SkipEmptyParts );
+    const QStringList tokenList = line.split(QLatin1Char( ' ' ), QString::SkipEmptyParts );
 #else
-    QStringList tokenList = line.split(QLatin1Char( ' ' ), Qt::SkipEmptyParts );
+    const QStringList tokenList = line.split(QLatin1Char( ' ' ), Qt::SkipEmptyParts );
 #endif
 
-    uint serverStatus = tokenList[ 0 ].toUInt();
+    if (tokenList.isEmpty())
+        return 410;
 
-    return serverStatus;
+    return tokenList[ 0 ].toUInt();
   }
 
     CDInfoList
