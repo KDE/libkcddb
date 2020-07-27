@@ -63,7 +63,7 @@ void AsyncCDDBLookupTest::testLookup()
 
   // If revision doesn't match, test probably needs to be updated
   // See: http://www.gnudb.org/gnudb/jazz/a1107d0a for updated data
-  QCOMPARE(m_info.get(QString::fromUtf8("revision")).toInt(), 7);
+  QCOMPARE(m_info.get(QString::fromUtf8("revision")).toInt(), 8);
 
   QCOMPARE(m_info.get(Artist).toString(),QString::fromUtf8("Kruder & Dorfmeister"));
   QCOMPARE(m_info.get(Title).toString(),QString::fromUtf8("The K&D Sessions (Part One)"));
