@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
 
-project(libkcddb)
+project(libkcddb VERSION "5.0.0")
 
 set(QT_MIN_VERSION 5.12.0)
 set(KF_MIN_VERSION 5.68.0)
@@ -19,12 +19,10 @@ include(ECMSetupVersion)
 include(CMakePackageConfigHelpers)
 include(ECMGenerateHeaders)
 
-set(PROJECT_VERSION "16.08.0")
-
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Network Widgets)
 find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS Config DocTools I18n KIO WidgetsAddons)
 
-ecm_setup_version("5.0.0"
+ecm_setup_version(${libkcddb_VERSION}
     VARIABLE_PREFIX KCDDB
     VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kcddb_version.h"
     PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5CddbConfigVersion.cmake"
