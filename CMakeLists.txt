@@ -1,11 +1,13 @@
 cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
+
 project(libkcddb)
 
+set(QT_MIN_VERSION 5.12.0)
+set(KF_MIN_VERSION 5.68.0)
 
 # ECM setup
 include(FeatureSummary)
-set(KF5_DEP_VERSION "5.24.0") # handled by release scripts
-find_package(ECM ${KF5_DEP_VERSION}  NO_MODULE)
+find_package(ECM ${KF_MIN_VERSION}  NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
 set(CMAKE_MODULE_PATH "${ECM_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
@@ -18,10 +20,9 @@ include(CMakePackageConfigHelpers)
 include(ECMGenerateHeaders)
 
 set(PROJECT_VERSION "16.08.0")
-set(REQUIRED_QT_VERSION 5.4.0)
 
-find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Network Widgets)
-find_package(KF5 ${KF5_DEP_VERSION} REQUIRED COMPONENTS Config DocTools Codecs I18n KIO WidgetsAddons)
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Network Widgets)
+find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS Config DocTools Codecs I18n KIO WidgetsAddons)
 
 ecm_setup_version("5.0.0"
     VARIABLE_PREFIX KCDDB
