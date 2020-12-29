@@ -9,7 +9,7 @@
 
 #include <kcddbconfig.h>
 
-#include <KConfigCore/KEMailSettings>
+#include <KEMailSettings>
 
 namespace KCDDB
 {

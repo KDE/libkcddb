@@ -8,7 +8,7 @@
 #ifndef KCMCDDB_H
 #define KCMCDDB_H
 
-#include <KConfigWidgets/KCModule>
+#include <KCModule>
 #include "libkcddb/kcddbconfig.h"
 
 class CDDBConfigWidget;

@@ -1,6 +1,6 @@
 #ifndef KCMCDDBI18N_H
 #define KCMCDDBI18N_H
 
-#include <KI18n/KLocalizedString>
+#include <KLocalizedString>
 
 #endif // KCMCDDBI18N_H

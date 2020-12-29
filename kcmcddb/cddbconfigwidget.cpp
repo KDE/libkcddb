@@ -14,9 +14,9 @@
 #include "libkcddb/sites.h"
 #include "libkcddb/lookup.h"
 
-#include <KIOWidgets/KUrlRequester>
-#include <KWidgetsAddons/KMessageBox>
-#include <KWidgetsAddons/KEditListWidget>
+#include <KUrlRequester>
+#include <KMessageBox>
+#include <KEditListWidget>
 
 #include <QList>
 #include <QCheckBox>

@@ -14,8 +14,8 @@
 #include "libkcddb/cache.h"
 #include "libkcddb/submit.h"
 
-#include <KCoreAddons/KPluginFactory>
-#include <KWidgetsAddons/KMessageBox>
+#include <KPluginFactory>
+#include <KMessageBox>
 
 #include <QDebug>
 #include <QCheckBox>

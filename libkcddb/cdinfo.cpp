@@ -13,7 +13,7 @@
 #include "cddb.h"
 #include "logging.h"
 
-#include <KCoreAddons/KStringHandler>
+#include <KStringHandler>
 #include <QDebug>
 
 #include <QMap>

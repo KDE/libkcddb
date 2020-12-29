@@ -21,8 +21,6 @@
 #include <musicbrainz5/NameCredit.h>
 #include <musicbrainz5/SecondaryType.h>
 
-#include <KCodecs/KCodecs>
-
 #include <QCryptographicHash>
 #include <QDebug>
 

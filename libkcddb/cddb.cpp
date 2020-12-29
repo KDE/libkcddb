@@ -11,7 +11,7 @@
 #include "categories.h"
 #include "kcddbi18n.h"
 
-#include <KCoreAddons/KStringHandler>
+#include <KStringHandler>
 
 #include <QDebug>
 #include <QStringList>
