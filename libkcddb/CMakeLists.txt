@@ -1,7 +1,5 @@
 add_definitions(-DTRANSLATION_DOMAIN="libkcddb")
 
-include_directories(${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${QT_INCLUDES})
-
 if(MUSICBRAINZ5_FOUND)
     set(musicbrainz_sources
        musicbrainz/musicbrainzlookup.cpp

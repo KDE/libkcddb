@@ -3,6 +3,9 @@ function(add_unit_tests)
         add_executable(${test} ${test}.cpp)
         add_test( ${test} ${test} )
         target_link_libraries(${test} Qt5::Test KF5::Cddb)
+        target_include_directories(${test}
+            PRIVATE ${CMAKE_SOURCE_DIR} # for libkcddb/ prefixed includes of library headers
+        )
     endforeach()
 endfunction()
 

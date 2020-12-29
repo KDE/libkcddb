@@ -19,6 +19,9 @@ target_link_libraries(kcm_cddb PRIVATE
     KF5::WidgetsAddons
     KF5::Cddb
 )
+target_include_directories(kcm_cddb
+    PRIVATE ${CMAKE_SOURCE_DIR} # for libkcddb/ prefixed includes of library headers
+)
 
 install(TARGETS kcm_cddb DESTINATION ${PLUGIN_INSTALL_DIR})
 

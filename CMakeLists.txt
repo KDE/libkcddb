@@ -44,7 +44,7 @@ else()
 endif()
 
 configure_file(config-musicbrainz.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-musicbrainz.h )
-include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(kcmcddb)
 add_subdirectory(libkcddb)
