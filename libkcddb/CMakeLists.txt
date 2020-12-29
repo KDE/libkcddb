@@ -20,6 +20,14 @@ endif()
 
 kconfig_add_kcfg_files(kcfg_sources configbase.kcfgc)
 
+ecm_qt_declare_logging_category(log_sources
+    HEADER logging.h
+    IDENTIFIER LIBKCDDB
+    CATEGORY_NAME "libkcddb"
+    DESCRIPTION "libkcddb"
+    EXPORT KCDDB
+)
+
 add_library(KF5Cddb SHARED
     cache.cpp
     cdinfo.cpp
@@ -44,8 +52,8 @@ add_library(KF5Cddb SHARED
     synchttpsubmit.cpp
     categories.cpp
     genres.cpp
-    logging.cpp
     ${musicbrainz_sources}
+    ${log_sources}
     ${kcfg_sources})
 
 target_link_libraries(KF5Cddb
@@ -95,3 +103,9 @@ ecm_generate_pri_file(BASE_NAME KCddb LIB_NAME KF5Cddb DEPS "Qt5Widgets" FILENAM
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
 
 install(FILES libkcddb5.kcfg DESTINATION ${KCFG_INSTALL_DIR})
+
+ecm_qt_install_logging_categories(
+    EXPORT KCDDB
+    FILE libkcddb.categories
+    DESTINATION "${KDE_INSTALL_LOGGINGCATEGORIESDIR}"
+)
