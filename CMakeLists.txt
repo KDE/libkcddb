@@ -14,7 +14,7 @@ include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(GenerateExportHeader)
 include(ECMSetupVersion)
-include(ECMPackageConfigHelpers)
+include(CMakePackageConfigHelpers)
 include(ECMGenerateHeaders)
 
 set(PROJECT_VERSION "16.08.0")
@@ -58,7 +58,7 @@ endif()
 feature_summary(WHAT PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5Cddb")
-ecm_configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/KF5CddbConfig.cmake.in"
+configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/KF5CddbConfig.cmake.in"
                               "${CMAKE_CURRENT_BINARY_DIR}/KF5CddbConfig.cmake"
                               INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
 )
