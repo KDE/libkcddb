@@ -52,7 +52,6 @@ target_link_libraries(KF5Cddb
     PUBLIC
         KF5::ConfigGui
     PRIVATE
-        KF5::Codecs
         KF5::I18n
         KF5::KIOCore
         Qt5::Network)

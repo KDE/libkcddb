@@ -22,7 +22,7 @@ include(ECMGenerateHeaders)
 set(PROJECT_VERSION "16.08.0")
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Network Widgets)
-find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS Config DocTools Codecs I18n KIO WidgetsAddons)
+find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS Config DocTools I18n KIO WidgetsAddons)
 
 ecm_setup_version("5.0.0"
     VARIABLE_PREFIX KCDDB
