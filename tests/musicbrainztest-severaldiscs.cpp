@@ -11,6 +11,12 @@
 #include "config-musicbrainz.h"
 #include <QTest>
 
+static void setEnvironment()
+{
+    qputenv("LANG", "C.UTF-8");
+    qputenv("LANGUAGE", "C.UTF-8");
+}
+
 void MusicBrainzTestSeveralDiscs::testLookup()
 {
   using namespace KCDDB;
@@ -120,5 +126,7 @@ void MusicBrainzTestSeveralDiscs::testLookup()
     QCOMPARE(i.track(j).get(Comment).toString(),cacheInfo.track(j).get(Comment).toString());
   }
 }
+
+Q_COREAPP_STARTUP_FUNCTION(setEnvironment)
 
 QTEST_GUILESS_MAIN(MusicBrainzTestSeveralDiscs)
