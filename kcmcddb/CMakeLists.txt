@@ -23,6 +23,6 @@ target_include_directories(kcm_cddb
     PRIVATE ${CMAKE_SOURCE_DIR} # for libkcddb/ prefixed includes of library headers
 )
 
-install(TARGETS kcm_cddb DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kcm_cddb DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(FILES libkcddb.desktop  DESTINATION  ${SERVICES_INSTALL_DIR})
+install(FILES libkcddb.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR})

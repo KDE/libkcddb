@@ -54,7 +54,7 @@ if(BUILD_TESTING)
     add_subdirectory(tests)
 endif()
 
-set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5Cddb")
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Cddb")
 configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/KF5CddbConfig.cmake.in"
                               "${CMAKE_CURRENT_BINARY_DIR}/KF5CddbConfig.cmake"
                               INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
@@ -77,7 +77,7 @@ install(EXPORT
 
 install(FILES
     "${CMAKE_CURRENT_BINARY_DIR}/kcddb_version.h"
-    DESTINATION "${KF5_INCLUDE_INSTALL_DIR}"
+    DESTINATION "${KDE_INSTALL_INCLUDEDIR_KF5}"
     COMPONENT Devel
 )
 
