@@ -70,7 +70,8 @@ generate_export_header(KF5Cddb BASE_NAME KCddb)
 add_library(KF5::Cddb ALIAS KF5Cddb)
 target_include_directories(KF5Cddb PUBLIC "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KCddb>")
 
-set_target_properties(KF5Cddb PROPERTIES VERSION ${KCDDB_VERSION_STRING} 
+set_target_properties(KF5Cddb PROPERTIES
+    VERSION ${KCDDB_VERSION}
     SOVERSION ${KCDDB_SOVERSION}
     EXPORT_NAME Cddb
 )
