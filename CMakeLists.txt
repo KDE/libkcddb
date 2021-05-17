@@ -1,9 +1,9 @@
-cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
 project(libkcddb VERSION "5.0.0")
 
-set(QT_MIN_VERSION 5.12.0)
-set(KF_MIN_VERSION 5.68.0)
+set(QT_MIN_VERSION 5.15.0)
+set(KF_MIN_VERSION 5.80.0)
 
 # ECM setup
 include(FeatureSummary)
@@ -14,6 +14,7 @@ set(CMAKE_MODULE_PATH "${ECM_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
+
 include(GenerateExportHeader)
 include(ECMSetupVersion)
 include(ECMQtDeclareLoggingCategory)
