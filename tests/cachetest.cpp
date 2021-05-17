@@ -52,9 +52,8 @@ bool CacheTest::verify(const QString& source, const QString& discid, const CDInf
 {
   Cache::store(m_list, info, m_client->config());
 
-  CDInfoList results = Cache::lookup(m_list, m_client->config());
-  foreach(const CDInfo &newInfo, results)
-  {
+  const CDInfoList results = Cache::lookup(m_list, m_client->config());
+  for (const CDInfo &newInfo : results) {
     if (newInfo.get(QString::fromUtf8("source")) == source && newInfo.get(QString::fromUtf8("discid")).toString() == discid)
     {
       if (newInfo.get(Artist) != m_info.get(Artist))

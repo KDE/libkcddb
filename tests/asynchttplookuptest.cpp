@@ -85,12 +85,11 @@ AsyncHTTPLookupTest::slotFinished(Result r)
   m_result = r;
   qDebug() << "AsyncHTTPLookupTest::slotFinished: Got " << KCDDB::resultToString(r);
 
-  CDInfoList l = client_->lookupResponse();
+  const CDInfoList l = client_->lookupResponse();
 
   qDebug() << "AsyncHTTPLookupTest::slotFinished: Item count: " <<  l.count();
 
-  foreach(const CDInfo &i, l)
-  {
+  for(const CDInfo &i : l) {
     if (i.get(QString::fromUtf8("discid")) == QVariant(QString::fromUtf8("a1107d0a")) && i.get(Category) == QVariant(QString::fromUtf8("jazz")))
     {
       qDebug() << "Found the CD";

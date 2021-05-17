@@ -44,8 +44,7 @@ namespace KCDDB
     void
   Cache::store(const TrackOffsetList& offsetList, const CDInfoList& list, const Config& c)
   {
-    foreach( const CDInfo &info, list )
-    {
+    for (const CDInfo &info : list) {
       store(offsetList, info, c);
     }
   }
@@ -58,11 +57,10 @@ namespace KCDDB
     // Some entries from freedb could contain several discids separated
     // by a ','. Store for each discid, but replace the discid line
     // so it doesn't happen again.
-    QStringList discids = discid.split(QLatin1Char( ',' ));
+    const QStringList discids = discid.split(QLatin1Char( ',' ));
     if (discids.count() > 2)
     {
-      foreach(const QString &newid, discids)
-      {
+      for (const QString &newid : discids) {
         CDInfo newInfo = info;
         newInfo.set(QLatin1String( "discid" ), newid);
         store(offsetList, newInfo, c);
