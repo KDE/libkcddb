@@ -62,7 +62,7 @@ namespace KCDDB
 
     if ( Success != result_ )
     {
-      emit finished( result_ );
+      Q_EMIT finished( result_ );
       return;
     }
 
@@ -75,7 +75,7 @@ namespace KCDDB
     if ( matchList_.isEmpty() )
     {
       result_ = cdInfoList_.isEmpty()? NoRecordFound : Success;
-      emit finished( result_ );
+      Q_EMIT finished( result_ );
       return;
     }
 
@@ -87,7 +87,7 @@ namespace KCDDB
     result_ = sendRead( match );
 
     if ( Success != result_ )
-      emit finished( result_ );
+      Q_EMIT finished( result_ );
   }
 
     void
@@ -104,7 +104,7 @@ namespace KCDDB
     {
       result_ = ServerError;
       if ( !block_ )
-        emit queryReady();
+        Q_EMIT queryReady();
       return;
     }
 

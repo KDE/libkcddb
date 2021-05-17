@@ -111,7 +111,7 @@ namespace KCDDB
       if ( !d->cdInfoList.isEmpty() )
       {
         if ( !blockingMode() )
-          emit finished( Success );
+          Q_EMIT finished( Success );
 
         return Success;
       }
@@ -231,7 +231,7 @@ namespace KCDDB
 
     if ( Success == r )
     {
-      emit finished( r );
+      Q_EMIT finished( r );
       qDeleteAll( d->pendingLookups );
       d->pendingLookups.clear();
     }
@@ -244,7 +244,7 @@ namespace KCDDB
     void
   Client::slotSubmitFinished( Result r )
   {
-    emit finished( r );
+    Q_EMIT finished( r );
 
     d->cdInfoSubmit->deleteLater();
     d->cdInfoSubmit=nullptr;
@@ -347,7 +347,7 @@ namespace KCDDB
     }
     else
     {
-      emit finished( NoRecordFound );
+      Q_EMIT finished( NoRecordFound );
       return NoRecordFound;
     }
   }

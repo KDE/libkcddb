@@ -37,9 +37,9 @@ namespace KCDDB
   {
 	  qCDebug(LIBKCDDB) ;
       if ( job->error()==0 )
-        emit finished( Success );
+        Q_EMIT finished( Success );
       else
-        emit finished( UnknownError );
+        Q_EMIT finished( UnknownError );
   }
 }
 

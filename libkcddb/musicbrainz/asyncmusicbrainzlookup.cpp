@@ -58,7 +58,7 @@ namespace KCDDB
 
     cdInfoList_ = m_lookupThread->m_lookupResponse;
 
-    emit finished(m_lookupThread->m_result);
+    Q_EMIT finished(m_lookupThread->m_result);
   }
 }
 

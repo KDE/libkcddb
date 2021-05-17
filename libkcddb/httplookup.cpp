@@ -102,7 +102,7 @@ namespace KCDDB
             case Success:
 
               if ( !block_ )
-                emit queryReady();
+                Q_EMIT queryReady();
               break;
 
             case MultipleRecordFound:
@@ -117,7 +117,7 @@ namespace KCDDB
                   result_ = Success;
 
                   if ( !block_ )
-                    emit queryReady();
+                    Q_EMIT queryReady();
                   break;
                 }
 
@@ -130,7 +130,7 @@ namespace KCDDB
             case ServerError:
             case NoRecordFound:
               if ( !block_ )
-                emit queryReady();
+                Q_EMIT queryReady();
 
               return;
               break;
@@ -158,7 +158,7 @@ namespace KCDDB
           }
 
           if ( !block_ )
-            emit readReady();
+            Q_EMIT readReady();
         }
 
         return;

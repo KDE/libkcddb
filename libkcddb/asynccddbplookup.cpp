@@ -53,11 +53,11 @@ namespace KCDDB
     state_ = Idle;
 
     if ( error == QAbstractSocket::HostNotFoundError )
-      emit finished( HostNotFound );
+      Q_EMIT finished( HostNotFound );
     else if ( error == QAbstractSocket::SocketTimeoutError )
-      emit finished( NoResponse );
+      Q_EMIT finished( NoResponse );
     else
-      emit finished( UnknownError );
+      Q_EMIT finished( UnknownError );
   }
 
     void
@@ -189,7 +189,7 @@ namespace KCDDB
 
         close();
 
-        emit finished( result_ );
+        Q_EMIT finished( result_ );
 
         break;
 
