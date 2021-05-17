@@ -24,13 +24,6 @@ include(ECMGenerateHeaders)
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Network Widgets)
 find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS Config DocTools I18n KIO WidgetsAddons)
 
-ecm_setup_version(${libkcddb_VERSION}
-    VARIABLE_PREFIX KCDDB
-    VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kcddb_version.h"
-    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5CddbConfigVersion.cmake"
-    SOVERSION 5
-)
-
 find_package(MusicBrainz5)
 set_package_properties(MusicBrainz5 PROPERTIES
    DESCRIPTION "Music metadata lookup for KDE multimedia applications through libkcddb. You need version 5.x of libmusicbrainz"
@@ -65,32 +58,5 @@ if(BUILD_TESTING)
     find_package(Qt5Test REQUIRED)
     add_subdirectory(tests)
 endif()
-
-set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Cddb")
-configure_package_config_file("${CMAKE_CURRENT_SOURCE_DIR}/KF5CddbConfig.cmake.in"
-                              "${CMAKE_CURRENT_BINARY_DIR}/KF5CddbConfig.cmake"
-                              INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
-)
-
-install(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/KF5CddbConfig.cmake"
-    "${CMAKE_CURRENT_BINARY_DIR}/KF5CddbConfigVersion.cmake"
-    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-    COMPONENT Devel
-)
-
-install(EXPORT
-    KF5CddbTargets
-    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-    FILE KF5CddbTargets.cmake
-    NAMESPACE KF5::
-    COMPONENT Devel
-)
-
-install(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/kcddb_version.h"
-    DESTINATION "${KDE_INSTALL_INCLUDEDIR_KF5}"
-    COMPONENT Devel
-)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

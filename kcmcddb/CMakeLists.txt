@@ -2,12 +2,14 @@ add_definitions(-DTRANSLATION_DOMAIN="libkcddb")
 
 add_subdirectory(doc)
 
-ki18n_wrap_ui(ui_sources cddbconfigwidget.ui)
+add_library(kcm_cddb MODULE)
 
-add_library(kcm_cddb MODULE
+ki18n_wrap_ui(kcm_cddb cddbconfigwidget.ui)
+
+target_sources(kcm_cddb PRIVATE
     cddbconfigwidget.cpp
     kcmcddb.cpp
-    ${ui_sources})
+)
 
 set_source_files_properties(cddbconfigwidget.cpp PROPERTIES OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/ui_cddbconfigwidget.h)
 
