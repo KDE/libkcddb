@@ -122,10 +122,24 @@ void AsyncMusicBrainzTest::testLookup()
     QCOMPARE(m_info.track(j).get(Title).toString(),cacheInfo.track(j).get(Title).toString());
     QCOMPARE(m_info.track(j).get(Comment).toString(),cacheInfo.track(j).get(Comment).toString());
   }
+
+  // Try to provoke crashes (see bug 336678):
+  client_->config().setCacheLookupEnabled(false);
+  client_->config().setFreedbLookupEnabled(false);
+  client_->config().setMusicBrainzLookupEnabled(true);
+  client_->setBlockingMode( false );
+
+  qDebug() << "Trying to crash AsyncMusicBrainzLookup by starting multiple lookups";
+  client_->lookup(list);
+  client_->lookup(list);
+  m_eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
+
+  qDebug() << "Trying to crash AsyncMusicBrainzLookup by deleting object while lookup is still in progress";
+  client_->lookup(list);
+  delete client_;
 }
 
-  void
-AsyncMusicBrainzTest::slotFinished(Result r)
+void AsyncMusicBrainzTest::slotFinished(Result r)
 {
   m_result = r;
   qDebug() << ": Got " << KCDDB::resultToString(r);
