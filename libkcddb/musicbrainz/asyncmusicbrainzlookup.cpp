@@ -37,7 +37,7 @@ namespace KCDDB
 
   Q_SIGNALS:
     void lookupFinished( KCDDB::Result, KCDDB::CDInfoList );
-  } ;
+  };
 
   AsyncMusicBrainzLookup::AsyncMusicBrainzLookup()
   {
@@ -68,7 +68,7 @@ namespace KCDDB
 
   void AsyncMusicBrainzLookup::processLookupResult( KCDDB::Result result, KCDDB::CDInfoList lookupResponse )
   {
-    qDebug() ;
+    qDebug();
 
     cdInfoList_ = lookupResponse;
 

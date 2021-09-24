@@ -19,7 +19,6 @@ namespace KCDDB
     Q_OBJECT
 
     public:
-
       AsyncMusicBrainzLookup();
       virtual ~AsyncMusicBrainzLookup();
 
@@ -28,7 +27,6 @@ namespace KCDDB
       CDInfoList lookupResponse() const;
 
     Q_SIGNALS:
-
       void finished( KCDDB::Result );
 
     protected Q_SLOTS:
