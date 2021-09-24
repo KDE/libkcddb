@@ -32,10 +32,7 @@ namespace KCDDB
       void finished( KCDDB::Result );
 
     protected Q_SLOTS:
-      void lookupFinished( );
-
-    private:
-      LookupThread* m_lookupThread;
+      void processLookupResult( KCDDB::Result result, KCDDB::CDInfoList lookupResponse );
   };
 }
 

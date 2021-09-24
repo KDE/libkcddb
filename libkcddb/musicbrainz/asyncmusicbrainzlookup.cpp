@@ -15,51 +15,67 @@ namespace KCDDB
 {
   class LookupThread : public QThread
   {
+
+  Q_OBJECT
+
   public:
     void run() override
     {
+      Result result;
+      CDInfoList lookupResponse;
       MusicBrainzLookup lookup;
 
-      m_result = lookup.lookup(QString(), 0, m_offsetList);
+      result = lookup.lookup(QString(), 0, m_offsetList);
 
-      if (m_result == Success)
-        m_lookupResponse = lookup.lookupResponse();
+      if (result == Success)
+        lookupResponse = lookup.lookupResponse();
+
+      Q_EMIT lookupFinished(result, lookupResponse);
     }
 
     TrackOffsetList m_offsetList;
-    Result m_result;
-    CDInfoList m_lookupResponse;
+
+  Q_SIGNALS:
+    void lookupFinished( KCDDB::Result, KCDDB::CDInfoList );
   } ;
 
   AsyncMusicBrainzLookup::AsyncMusicBrainzLookup()
   {
-
+    // Register custom data types for the signal-slot connection with the lookup thread:
+    qRegisterMetaType<KCDDB::Result>("KCDDB::Result");
+    qRegisterMetaType<KCDDB::CDInfoList>("KCDDB::CDInfoList");
   }
 
   AsyncMusicBrainzLookup::~AsyncMusicBrainzLookup()
   {
-    delete m_lookupThread;
+
   }
 
   Result AsyncMusicBrainzLookup::lookup( const QString &, uint, const TrackOffsetList & trackOffsetList )
   {
-    m_lookupThread = new LookupThread();
-    m_lookupThread->m_offsetList = trackOffsetList;
-    connect(m_lookupThread, &QThread::finished, this, &AsyncMusicBrainzLookup::lookupFinished);
+    LookupThread* lookupThread = new LookupThread();
+    lookupThread->m_offsetList = trackOffsetList;
+    connect(lookupThread, &LookupThread::lookupFinished, this, &AsyncMusicBrainzLookup::processLookupResult); // queued connection
 
-    m_lookupThread->start();
+    // Make the thread object "self-destructive"; allows us to keep the destructor non-blocking
+    connect(lookupThread, &LookupThread::finished, lookupThread, &LookupThread::deleteLater);
+    // NOTE: the memory automatically gets cleared after the thread has finished
+
+    lookupThread->start();
 
     return Success;
   }
 
-  void AsyncMusicBrainzLookup::lookupFinished()
+  void AsyncMusicBrainzLookup::processLookupResult( KCDDB::Result result, KCDDB::CDInfoList lookupResponse )
   {
     qDebug() ;
 
-    cdInfoList_ = m_lookupThread->m_lookupResponse;
+    cdInfoList_ = lookupResponse;
 
-    Q_EMIT finished(m_lookupThread->m_result);
+    Q_EMIT finished(result);
   }
 }
+
+#include "asyncmusicbrainzlookup.moc"
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1
