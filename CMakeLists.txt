@@ -49,6 +49,10 @@ add_definitions(
     -DQT_STRICT_ITERATORS
 )
 
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
+add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055800)
+
+
 configure_file(config-musicbrainz.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-musicbrainz.h )
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
