@@ -17,6 +17,7 @@
 #include <QDebug>
 
 #include <QMap>
+#include <QRegExp>
 
 namespace KCDDB
 {
