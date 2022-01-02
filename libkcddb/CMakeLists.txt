@@ -1,6 +1,6 @@
 add_definitions(-DTRANSLATION_DOMAIN="libkcddb")
 
-set(KCDDB_INSTALL_INCLUDEDIR "${KDE_INSTALL_INCLUDEDIR_KF5}/KCddb")
+set(KCDDB_INSTALL_INCLUDEDIR "${KDE_INSTALL_INCLUDEDIR_KF}/KCddb")
 set(KCDDB_CMAKECONFIG_NAME "KF5Cddb")
 
 ecm_setup_version(${libkcddb_VERSION}
@@ -72,7 +72,7 @@ target_link_libraries(KCddb
     PRIVATE
         KF5::I18n
         KF5::KIOCore
-        Qt5::Network
+        Qt${QT_MAJOR_VERSION}::Network
 )
 
 if(MUSICBRAINZ5_FOUND)
@@ -115,7 +115,7 @@ install(FILES
 
 install(FILES
     "${CMAKE_CURRENT_BINARY_DIR}/kcddb_version.h"
-    DESTINATION "${KDE_INSTALL_INCLUDEDIR_KF5}"
+    DESTINATION "${KDE_INSTALL_INCLUDEDIR_KF}"
     COMPONENT Devel
 )
 

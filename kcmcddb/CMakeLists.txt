@@ -27,4 +27,4 @@ target_include_directories(kcm_cddb
 
 install(TARGETS kcm_cddb DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
-install(FILES libkcddb.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR})
+install(FILES libkcddb.desktop  DESTINATION  ${KDE_INSTALL_KSERVICESDIR})

@@ -21,7 +21,7 @@ include(ECMQtDeclareLoggingCategory)
 include(CMakePackageConfigHelpers)
 include(ECMGenerateHeaders)
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Network Widgets)
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Network Widgets)
 find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS Config DocTools I18n KIO WidgetsAddons)
 
 find_package(MusicBrainz5)
@@ -55,7 +55,7 @@ add_subdirectory(kcmcddb)
 add_subdirectory(libkcddb)
 
 if(BUILD_TESTING)
-    find_package(Qt5Test REQUIRED)
+    find_package(Qt${QT_MAJOR_VERSION}Test REQUIRED)
     add_subdirectory(tests)
 endif()
 
