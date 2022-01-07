@@ -152,7 +152,7 @@ include(ECMGeneratePriFile)
 ecm_generate_pri_file(
     BASE_NAME KCddb
     LIB_NAME KF5Cddb
-    DEPS "Qt5Widgets"
+    DEPS "KConfigGui"
     FILENAME_VAR PRI_FILENAME
     INCLUDE_INSTALL_DIR ${KCDDB_INSTALL_INCLUDEDIR}
 )
