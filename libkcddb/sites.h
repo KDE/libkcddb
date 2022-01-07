@@ -7,9 +7,9 @@
 #ifndef KCDDB_SITES_H
 #define KCDDB_SITES_H
 
-#include <cddb.h>
-#include <lookup.h>
-#include <kcddb_export.h>
+#include "cddb.h"
+#include "lookup.h"
+#include "kcddb_export.h"
 #include <QList>
 
 namespace KCDDB

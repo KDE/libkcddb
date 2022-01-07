@@ -9,8 +9,8 @@
 #ifndef KCDDB_LOOKUP_H
 #define KCDDB_LOOKUP_H
 
-#include <cddb.h>
-#include <cdinfo.h>
+#include "cddb.h"
+#include "cdinfo.h"
 
 #include <QList>
 #include <QObject>

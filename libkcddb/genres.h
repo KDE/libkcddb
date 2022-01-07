@@ -7,7 +7,7 @@
 #ifndef KCDDB_GENRES_H
 #define KCDDB_GENRES_H
 
-#include <kcddb_export.h>
+#include "kcddb_export.h"
 #include <QStringList>
 
 namespace KCDDB

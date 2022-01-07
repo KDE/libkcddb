@@ -10,7 +10,7 @@
 #include <QList>
 #include <QString>
 
-#include <kcddb_export.h>
+#include "kcddb_export.h"
 
 namespace KCDDB
 {

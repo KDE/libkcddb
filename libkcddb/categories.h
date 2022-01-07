@@ -7,7 +7,7 @@
 #ifndef KCDDB_CATEGORIES_H
 #define KCDDB_CATEGORIES_H
 
-#include <kcddb_export.h>
+#include "kcddb_export.h"
 #include <QString>
 #include <QStringList>
 

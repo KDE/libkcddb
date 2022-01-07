@@ -9,7 +9,7 @@
 #ifndef KCDDB_CDINFO_H
 #define KCDDB_CDINFO_H
 
-#include <kcddb_export.h>
+#include "kcddb_export.h"
 #include <QStringList>
 #include <QVariant>
 

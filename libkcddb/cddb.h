@@ -9,9 +9,9 @@
 #ifndef KCDDB_CDDB_H
 #define KCDDB_CDDB_H
 
-#include <kcddb.h>
-#include <cdinfo.h>
-#include <kcddbconfig.h>
+#include "kcddb.h"
+#include "cdinfo.h"
+#include "kcddbconfig.h"
 
 #include <QList>
 #include <QString>
