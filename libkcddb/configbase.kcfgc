@@ -1,6 +1,6 @@
 ClassName=ConfigBase
 File=libkcddb5.kcfg
 Mutators=true
-IncludeFiles="kcddb_export.h"
+IncludeFiles=\"kcddb_export.h\"
 Visibility=KCDDB_EXPORT
 MemberVariables=dpointer

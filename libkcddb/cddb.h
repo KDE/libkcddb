@@ -11,7 +11,7 @@
 
 #include "kcddb.h"
 #include "cdinfo.h"
-#include "kcddbconfig.h"
+#include "config.h"
 
 #include <QList>
 #include <QString>

@@ -10,7 +10,8 @@
 
 #include "cdinfo.h"
 #include "kcddb.h"
-#include "kcddbconfig.h"
+#include "config.h"
+
 #include <QObject>
 
 namespace KCDDB

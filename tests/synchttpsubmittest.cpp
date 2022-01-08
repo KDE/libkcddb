@@ -8,7 +8,7 @@
 #include <QCoreApplication>
 
 #include "libkcddb/client.h"
-#include "libkcddb/kcddbconfig.h"
+#include "libkcddb/config.h"
 #include "libkcddb/submit.h"
 
   int

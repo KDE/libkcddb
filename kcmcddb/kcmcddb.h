@@ -9,7 +9,7 @@
 #define KCMCDDB_H
 
 #include <KCModule>
-#include "libkcddb/kcddbconfig.h"
+#include "libkcddb/config.h"
 
 class CDDBConfigWidget;
 

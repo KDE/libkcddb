@@ -1,0 +1,10 @@
+#include <kcddb/kcddb_export.h>
+
+#if KCDDB_ENABLE_DEPRECATED_SINCE(5, 1)
+#   include <kcddb/@NEWHEADER_NAME@>
+#   if KCDDB_DEPRECATED_WARNINGS_SINCE >= 0x050100
+#       pragma message("Deprecated header. Since 5.1, use #include <@NEW_INCLUDE@> instead")
+#   endif
+#else
+#   error "Include of deprecated header is disabled"
+#endif

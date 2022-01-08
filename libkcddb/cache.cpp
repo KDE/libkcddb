@@ -9,7 +9,7 @@
 
 #include "cache.h"
 
-#include "kcddbconfig.h"
+#include "config.h"
 #include "cddb.h"
 #include "logging.h"
 

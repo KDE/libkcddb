@@ -7,7 +7,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "kcddbconfig.h"
+#include "config.h"
 
 #include <KEMailSettings>
 

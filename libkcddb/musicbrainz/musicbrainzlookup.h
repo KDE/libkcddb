@@ -10,7 +10,7 @@
 #include "../lookup.h"
 #include "../cdinfo.h"
 #include "../kcddb.h"
-#include "../kcddbconfig.h"
+#include "../config.h"
 
 namespace MusicBrainz5
 {

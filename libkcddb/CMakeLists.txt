@@ -1,6 +1,6 @@
 add_definitions(-DTRANSLATION_DOMAIN="libkcddb")
 
-set(KCDDB_INSTALL_INCLUDEDIR "${KDE_INSTALL_INCLUDEDIR_KF}/KCddb")
+set(KCDDB_INSTALL_INCLUDEDIR "${KDE_INSTALL_INCLUDEDIR}/KCddb5")
 set(KCDDB_CMAKECONFIG_NAME "KF5Cddb")
 
 ecm_setup_version(${libkcddb_VERSION}
@@ -42,7 +42,7 @@ ecm_qt_declare_logging_category(KCddb
 target_sources(KCddb PRIVATE
     cache.cpp
     cdinfo.cpp
-    kcddbconfig.cpp
+    config.cpp
     client.cpp
     kcddb.cpp
     cddb.cpp
@@ -79,7 +79,14 @@ if(MUSICBRAINZ5_FOUND)
     target_link_libraries(KCddb PRIVATE musicbrainz)
 endif()
 
-generate_export_header(KCddb BASE_NAME KCddb)
+ecm_generate_export_header(KCddb
+    BASE_NAME KCddb
+    VERSION ${KCDDB_VERSION}
+    DEPRECATED_BASE_VERSION 5.0.0
+    DEPRECATION_VERSIONS 5.1
+    EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
+)
+
 target_include_directories(KCddb
     PUBLIC
         "$<INSTALL_INTERFACE:${KCDDB_INSTALL_INCLUDEDIR}>"
@@ -92,14 +99,15 @@ set_target_properties(KCddb PROPERTIES
     EXPORT_NAME Cddb
 )
 
-ecm_generate_headers(KCddb_HEADERS
+ecm_generate_headers(KCddb_CamelCase_HEADERS
     HEADER_NAMES
         Categories
-        Cdinfo
+        CDInfo
         Client
         Genres
-        KcddbConfig
-        Kcddb
+        Config
+        KCDDB
+    PREFIX KCDDB
     REQUIRED_HEADERS KCddb_HEADERS
 )
 
@@ -109,7 +117,13 @@ install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/kcddb_export.h
     ${CMAKE_CURRENT_BINARY_DIR}/configbase.h
     ${KCddb_HEADERS}
-    DESTINATION ${KCDDB_INSTALL_INCLUDEDIR}
+    DESTINATION ${KCDDB_INSTALL_INCLUDEDIR}/kcddb # C++ namespace prefix
+    COMPONENT Devel
+)
+
+install(FILES
+    ${KCddb_CamelCase_HEADERS}
+    DESTINATION ${KCDDB_INSTALL_INCLUDEDIR}/KCDDB # C++ namespace prefix
     COMPONENT Devel
 )
 
@@ -118,6 +132,47 @@ install(FILES
     DESTINATION "${KDE_INSTALL_INCLUDEDIR_KF}"
     COMPONENT Devel
 )
+
+# provide compat headers for old broken include path prefix KCddb/
+if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
+   EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.1.0)
+    function(generate_compat_headers)
+        foreach(_classnameentry ${ARGV})
+            string(REPLACE "," ";" _classnames ${_classnameentry})
+            list(GET _classnames 0 classname)
+            list(GET _classnames -1 newclassname) # last is either second or the only one
+
+            string(TOLOWER ${classname} classname_lc)
+            string(TOLOWER ${newclassname} newclassname_lc)
+            set(NEWHEADER_NAME "${newclassname_lc}.h")
+            # normal header
+            set(compat_header "${CMAKE_CURRENT_BINARY_DIR}/compat/${classname_lc}.h")
+            set(NEW_INCLUDE "kcddb/${NEWHEADER_NAME}")
+            configure_file(compatheader.h.in ${compat_header} @ONLY)
+            install(FILES ${compat_header}
+                DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KCddb
+                COMPONENT Devel
+            )
+            # CamelCase header
+            set(compat_header "${CMAKE_CURRENT_BINARY_DIR}/compat/${classname}")
+            set(NEW_INCLUDE "KCDDB/${newclassname}")
+            configure_file(compatheader.h.in ${compat_header} @ONLY)
+            install(FILES ${compat_header}
+                DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KCddb
+                COMPONENT Devel
+            )
+        endforeach()
+    endfunction()
+
+    generate_compat_headers(
+        Categories
+        Cdinfo,CDInfo
+        Client
+        Genres
+        KcddbConfig,Config
+        Kcddb,KCDDB
+    )
+endif()
 
 install(FILES libkcddb5.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 
