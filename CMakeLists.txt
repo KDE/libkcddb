@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 project(libkcddb VERSION "5.1.0")
 
 set(QT_MIN_VERSION 5.15.0)
-set(KF_MIN_VERSION 5.89.0)
+set(KF_MIN_VERSION 5.90.0)
 
 # ECM setup
 include(FeatureSummary)
