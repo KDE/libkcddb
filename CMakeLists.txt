@@ -25,7 +25,9 @@ set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprec
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Network Widgets)
 find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS Config DocTools I18n KIO WidgetsAddons)
-
+if (QT_MAJOR_VERSION STREQUAL 6)
+    find_package(Qt6 REQUIRED COMPONENTS Core5Compat)
+endif()
 find_package(MusicBrainz5)
 set_package_properties(MusicBrainz5 PROPERTIES
    DESCRIPTION "Music metadata lookup for KDE multimedia applications through libkcddb. You need version 5.x of libmusicbrainz"
