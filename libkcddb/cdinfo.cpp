@@ -18,6 +18,7 @@
 
 #include <QMap>
 #include <QRegExp>
+#include <QRegularExpression>
 
 namespace KCDDB
 {
@@ -109,7 +110,7 @@ namespace KCDDB
       set(const QString& type, const QVariant &d)
       {
         //qDebug() << "set: " << type << ", " << d.toString();
-        if(type.contains(QRegExp( QLatin1String( "^T.*_.*$" )) )){
+        if(type.contains(QRegularExpression( QLatin1String( "^T.*_.*$" )) )){
 		  qCDebug(LIBKCDDB) << "Error: custom cdinfo::set data can not start with T and contain a _";
           return;
         }
@@ -351,7 +352,7 @@ namespace KCDDB
         uint trackNumber = key.mid( key.indexOf(QLatin1Char( '_' ))+1 ).toUInt();
         checkTrack( trackNumber );
 
-        QRegExp data(QString::fromLatin1("^T.*_%1$").arg(trackNumber));
+        QRegularExpression data(QString::fromLatin1("^T.*_%1$").arg(trackNumber));
         if  ( key.contains( data ) )
         {
           QString k = key.mid(1, key.indexOf(QLatin1Char( '_' ))-1);
