@@ -293,7 +293,7 @@ namespace KCDDB
     while ( it != lineList.end() )
     {
       QString line(*it);
-      line.replace(eol,QLatin1String( "" ));
+      line.remove(eol);
       ++it;
 
       if (rev.indexIn(line) != -1)
