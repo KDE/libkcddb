@@ -38,7 +38,7 @@ void CacheTest::initTestCase()
 
   for (int i=0; i<10; i++)
   {
-    m_info.track(i).set(Title, QString().leftJustified(30*(i+1), 'a'+i));
+    m_info.track(i).set(Title, QString().leftJustified(30*(i+1), QChar('a'+i)));
   }
 
 }

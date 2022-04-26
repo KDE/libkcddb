@@ -289,7 +289,7 @@ namespace KCDDB
     QStringList::ConstIterator it = lineList.begin();
 
     QRegExp rev(QLatin1String( "# Revision: (\\d+)" ));
-    QRegExp eol(QLatin1String( "[\r\n]" ));
+    const static QRegularExpression eol(QLatin1String( "[\r\n]" ));
 
     while ( it != lineList.end() )
     {
