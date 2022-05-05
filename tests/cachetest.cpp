@@ -7,7 +7,6 @@
 #include "cachetest.h"
 #include "libkcddb/cache.h"
 
-#include "libkcddb/cdinfo.h"
 #include "libkcddb/client.h"
 #include "config-musicbrainz.h"
 #include <QTest>
