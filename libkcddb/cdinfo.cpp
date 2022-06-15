@@ -271,11 +271,7 @@ namespace KCDDB
     bool
   CDInfo::load(const QString & string)
   {
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    return load(string.split(QLatin1Char( '\n' ),QString::SkipEmptyParts));
-#else
     return load(string.split(QLatin1Char( '\n' ),Qt::SkipEmptyParts));
-#endif
   }
 
     bool

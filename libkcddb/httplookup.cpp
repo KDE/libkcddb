@@ -80,11 +80,7 @@ namespace KCDDB
     void
   HTTPLookup::jobFinished()
   {
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    QStringList lineList = QString::fromUtf8(data_).split( QLatin1String( "\n" ), QString::SkipEmptyParts );
-#else
     QStringList lineList = QString::fromUtf8(data_).split( QLatin1String( "\n" ), Qt::SkipEmptyParts );
-#endif
     QStringList::ConstIterator it = lineList.constBegin();
 
     switch ( state_ )
