@@ -8,7 +8,6 @@
 
 #include "lookup.h"
 
-#include <QDebug>
 
 namespace KCDDB
 {

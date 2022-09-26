@@ -8,7 +8,6 @@
 #include "httpsubmit.h"
 
 #include <KIO/Job>
-#include <QDebug>
 
 namespace KCDDB
 {

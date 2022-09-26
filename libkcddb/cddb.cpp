@@ -11,9 +11,7 @@
 #include "categories.h"
 #include "kcddbi18n.h"
 
-#include <KStringHandler>
 
-#include <QDebug>
 #include <QStringList>
 
 namespace KCDDB

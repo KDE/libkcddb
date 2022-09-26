@@ -6,7 +6,6 @@
 
 #include "cdinfotest.h"
 #include <QTest>
-#include <QCoreApplication>
 #include "libkcddb/cdinfo.h"
 
 using namespace KCDDB;

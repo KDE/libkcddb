@@ -13,7 +13,6 @@
 #include "cdinfo.h"
 #include "config.h"
 
-#include <QList>
 #include <QString>
 
 namespace KCDDB

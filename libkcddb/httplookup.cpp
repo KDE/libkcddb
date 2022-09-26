@@ -8,8 +8,6 @@
 
 #include "httplookup.h"
 
-#include <KIO/Job>
-#include <QDebug>
 #include <QUrlQuery>
 
 namespace KCDDB

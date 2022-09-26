@@ -17,9 +17,7 @@
 #include <KPluginFactory>
 #include <KMessageBox>
 
-#include <QDebug>
 #include <QCheckBox>
-#include <QRadioButton>
 #include <QVBoxLayout>
 
 K_PLUGIN_FACTORY(KCDDBFactory, registerPlugin<CDDBModule>();)
