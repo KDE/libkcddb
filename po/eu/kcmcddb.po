@@ -1,0 +1,224 @@
+# Translation of kcmcddb.po to Euskara/Basque (eu).
+# Copyright (C) 2003, 2004, 2005, 2009 Free Software Foundation, Inc.
+# Copyright (C) 2010-2020, This file is copyright:
+# This file is distributed under the same license as the libkcddb package.
+# KDE euskaratzeko proiektuko arduraduna <xalba@euskalnet.net>.
+#
+# Translators:
+# Marcos  <marcos@euskalgnu.org>, 2003, 2004, 2005.
+# Julen Landa Alustiza <julen@mundurat.net>, 2009.
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2009.
+# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2019, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: libkcddb\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"PO-Revision-Date: 2020-03-19 13:31+0100\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 19.12.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cddbconfigwidget.cpp:40
+#, kde-format
+msgid "Cache Locations"
+msgstr "Cache kokalekuak"
+
+#: cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could not fetch mirror list."
+msgstr "Ezin izan da ispilu zerrenda eskuratu"
+
+#: cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could Not Fetch"
+msgstr "Ezin izan da eskuratu"
+
+#: cddbconfigwidget.cpp:79
+#, kde-format
+msgid "Select mirror"
+msgstr "Hautatu ispilua"
+
+#: cddbconfigwidget.cpp:80
+#, kde-format
+msgid "Select one of these mirrors"
+msgstr "Hautatu ispilu hauetako bat"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
+#: cddbconfigwidget.cpp:97 cddbconfigwidget.ui:129 cddbconfigwidget.ui:179
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:99 cddbconfigwidget.ui:124
+#, kde-format
+msgid "CDDB"
+msgstr "CDDB"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
+#: cddbconfigwidget.ui:7
+#, kde-format
+msgid "CDDB Settings"
+msgstr "CDDB-ren ezarpenak"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
+#: cddbconfigwidget.ui:20
+#, kde-format
+msgid "&Lookup"
+msgstr "&Bilaketa"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
+#: cddbconfigwidget.ui:26
+#, kde-format
+msgid "Enable MusicBrainz lookup"
+msgstr "Gaitu MusicBrainz begiratzea"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
+#: cddbconfigwidget.ui:33
+#, kde-format
+msgid "Enable freedb lookup"
+msgstr "Gaitu freedb begiratzea"
+
+#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
+#: cddbconfigwidget.ui:40
+#, kde-format
+msgid "Freedb Server"
+msgstr "Freedb zerbitzaria"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
+#: cddbconfigwidget.ui:46
+#, kde-format
+msgid "Freedb server:"
+msgstr "Freedb zerbitzaria:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:64
+#, kde-format
+msgid "Name of CDDB server which will be used to look up CD information."
+msgstr "CD informazioa bilatzeko erabiliko den CDDB zerbitzariaren izena."
+
+#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:67
+#, kde-format
+msgid "gnudb.gnudb.org"
+msgstr "gnudb.gnudb.org"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: cddbconfigwidget.ui:80 cddbconfigwidget.ui:208 cddbconfigwidget.ui:241
+#, kde-format
+msgid "Port:"
+msgstr "Ataka:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
+#: cddbconfigwidget.ui:93
+#, kde-format
+msgid "Port to connect to on CDDB server."
+msgstr "CDDB zerbitzariarekin konektatzeko ataka."
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
+#: cddbconfigwidget.ui:108
+#, kde-format
+msgid "&Transport:"
+msgstr "&Garraioa:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.ui:120
+#, kde-format
+msgid "Type of lookup which should be tried at the CDDB server."
+msgstr "CDDB zerbitzarian erabiliko den bilaketa mota."
+
+#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
+#: cddbconfigwidget.ui:137
+#, kde-format
+msgid "Show &Mirror List"
+msgstr "Erakutsi &ispiluen zerrenda"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
+#: cddbconfigwidget.ui:153
+#, kde-format
+msgid "&Submit"
+msgstr "&Bidali"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: cddbconfigwidget.ui:161
+#, kde-format
+msgid "Email address:"
+msgstr "Posta elektronikoa:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
+#: cddbconfigwidget.ui:173
+#, kde-format
+msgid "Submit Method"
+msgstr "Bidalketa metodoa"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: cddbconfigwidget.ui:189
+#, kde-format
+msgid "Server:"
+msgstr "Zerbitzaria:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
+#: cddbconfigwidget.ui:220
+#, kde-format
+msgid "SMTP (Email)"
+msgstr "SMTP (posta elektronikoa)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
+#: cddbconfigwidget.ui:266
+#, kde-format
+msgid "Server needs authentication"
+msgstr "Zerbitzariak autentifikazioa behar du"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
+#: cddbconfigwidget.ui:286
+#, kde-format
+msgid "Reply-To:"
+msgstr "Erantzun-honi:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: cddbconfigwidget.ui:299
+#, kde-format
+msgid "SMTP server:"
+msgstr "SMTP zerbitzaria:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: cddbconfigwidget.ui:306
+#, kde-format
+msgid "Username:"
+msgstr "Erabiltzaile-izena:"
+
+#: kcmcddb.cpp:41
+#, kde-format
+msgid ""
+"CDDB is used to get information like artist, title and song-names in CD's"
+msgstr ""
+"CDDB erabiliko da artista, izenburua eta abestien izenak bezalako "
+"informazioa eskuratzeko."
+
+#: kcmcddb.cpp:69
+#, kde-format
+msgid ""
+"freedb has been set to use HTTP for submissions because the email details "
+"you have entered are incomplete. Please review your email settings and try "
+"again."
+msgstr ""
+"freedb-rentzat HTTP ezarri da bidalketetarako, helb. elektronikoaren "
+"informazio guztia sartu ez duzulako. Gainbegiratu itzazu posta "
+"elektronikoaren ezarpenak eta saia zaitez berriro."
+
+#: kcmcddb.cpp:72
+#, kde-format
+msgid "Incorrect Email Settings"
+msgstr "Posta elektronikoaren ezarpenak ez dira zuzenak"
+
+#~ msgid "freedb.freedb.org"
+#~ msgstr "freedb.freedb.org"

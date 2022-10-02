@@ -1,0 +1,1021 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the libkcddb package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: libkcddb\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"PO-Revision-Date: 2022-09-27 05:29+0200\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#: kcmcddb/cddbconfigwidget.cpp:40
+#, kde-format
+msgid "Cache Locations"
+msgstr "ქეშის მდებარეობები"
+
+#: kcmcddb/cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could not fetch mirror list."
+msgstr "სარკეების სიის გამოთხოვის შეცდომა."
+
+#: kcmcddb/cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could Not Fetch"
+msgstr "გამოთხოვის შეცდომა"
+
+#: kcmcddb/cddbconfigwidget.cpp:79
+#, kde-format
+msgid "Select mirror"
+msgstr "აირჩიეთ სარკე"
+
+#: kcmcddb/cddbconfigwidget.cpp:80
+#, kde-format
+msgid "Select one of these mirrors"
+msgstr "აირჩიეთ ერთ-ერთი სარკე"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
+#: kcmcddb/cddbconfigwidget.cpp:97 kcmcddb/cddbconfigwidget.ui:129
+#: kcmcddb/cddbconfigwidget.ui:179
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: kcmcddb/cddbconfigwidget.cpp:99 kcmcddb/cddbconfigwidget.ui:124
+#, kde-format
+msgid "CDDB"
+msgstr "CDDB"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
+#: kcmcddb/cddbconfigwidget.ui:7
+#, kde-format
+msgid "CDDB Settings"
+msgstr "CDDB-ის მორგება"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
+#: kcmcddb/cddbconfigwidget.ui:20
+#, kde-format
+msgid "&Lookup"
+msgstr "&მოძებნა"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
+#: kcmcddb/cddbconfigwidget.ui:26
+#, kde-format
+msgid "Enable MusicBrainz lookup"
+msgstr "MusicBrainz -ით ძებნის ჩართვა"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
+#: kcmcddb/cddbconfigwidget.ui:33
+#, kde-format
+msgid "Enable freedb lookup"
+msgstr "FreeDB-ით ძებნის ჩართვა"
+
+#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
+#: kcmcddb/cddbconfigwidget.ui:40
+#, kde-format
+msgid "Freedb Server"
+msgstr "Freedb -ის სერვერი"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
+#: kcmcddb/cddbconfigwidget.ui:46
+#, kde-format
+msgid "Freedb server:"
+msgstr "Freedb -ის სერვერი:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
+#: kcmcddb/cddbconfigwidget.ui:64
+#, kde-format
+msgid "Name of CDDB server which will be used to look up CD information."
+msgstr ""
+"CDDB სერვერის მისამართი, რომელიც CD-ის ინფორმაციის მოსაძებნად გამოიყენება."
+
+#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
+#: kcmcddb/cddbconfigwidget.ui:67
+#, kde-format
+msgid "gnudb.gnudb.org"
+msgstr "gnudb.gnudb.org"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: kcmcddb/cddbconfigwidget.ui:80 kcmcddb/cddbconfigwidget.ui:208
+#: kcmcddb/cddbconfigwidget.ui:241
+#, kde-format
+msgid "Port:"
+msgstr "პორტი:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
+#: kcmcddb/cddbconfigwidget.ui:93
+#, kde-format
+msgid "Port to connect to on CDDB server."
+msgstr "CDDB სერვერთან მისაერთებელი პორტი."
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
+#: kcmcddb/cddbconfigwidget.ui:108
+#, kde-format
+msgid "&Transport:"
+msgstr "&ტრანსპორტი:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
+#: kcmcddb/cddbconfigwidget.ui:120
+#, kde-format
+msgid "Type of lookup which should be tried at the CDDB server."
+msgstr "CDDB სერვერზე ძებნის მეთოდები."
+
+#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
+#: kcmcddb/cddbconfigwidget.ui:137
+#, kde-format
+msgid "Show &Mirror List"
+msgstr "&სარკეების სიის ჩვენება"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
+#: kcmcddb/cddbconfigwidget.ui:153
+#, kde-format
+msgid "&Submit"
+msgstr "&გადაცემა"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: kcmcddb/cddbconfigwidget.ui:161
+#, kde-format
+msgid "Email address:"
+msgstr "ელფოსტის მისამართი:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
+#: kcmcddb/cddbconfigwidget.ui:173
+#, kde-format
+msgid "Submit Method"
+msgstr "გადაცემის მეთოდი"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: kcmcddb/cddbconfigwidget.ui:189
+#, kde-format
+msgid "Server:"
+msgstr "სერვერი:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
+#: kcmcddb/cddbconfigwidget.ui:220
+#, kde-format
+msgid "SMTP (Email)"
+msgstr "SMTP (ელფოსტა)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
+#: kcmcddb/cddbconfigwidget.ui:266
+#, kde-format
+msgid "Server needs authentication"
+msgstr "სერვერს ავთენტიკაცია ესაჭიროება"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
+#: kcmcddb/cddbconfigwidget.ui:286
+#, kde-format
+msgid "Reply-To:"
+msgstr "უპასუხეთ:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: kcmcddb/cddbconfigwidget.ui:299
+#, kde-format
+msgid "SMTP server:"
+msgstr "SMTP სერვერი:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: kcmcddb/cddbconfigwidget.ui:306
+#, kde-format
+msgid "Username:"
+msgstr "მომხმარებელი:"
+
+#: kcmcddb/kcmcddb.cpp:41
+#, kde-format
+msgid ""
+"CDDB is used to get information like artist, title and song-names in CD's"
+msgstr ""
+"CDDB გამოიყენება CD-ების შესახებ ისეთი ინფორმაციის მისაღებად, როგორიცაა "
+"შემსრულებელი, სათაური და ა.შ"
+
+#: kcmcddb/kcmcddb.cpp:69
+#, kde-format
+msgid ""
+"freedb has been set to use HTTP for submissions because the email details "
+"you have entered are incomplete. Please review your email settings and try "
+"again."
+msgstr ""
+
+#: kcmcddb/kcmcddb.cpp:72
+#, kde-format
+msgid "Incorrect Email Settings"
+msgstr "ელფოსტის არასწორი პარამეტრები"
+
+#: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
+#, kde-format
+msgid "Blues"
+msgstr "ბლუზი"
+
+#: libkcddb/categories.cpp:28 libkcddb/genres.cpp:71
+#, kde-format
+msgid "Classical"
+msgstr "კლასიკა"
+
+#: libkcddb/categories.cpp:28 libkcddb/genres.cpp:73
+#, kde-format
+msgctxt "music genre"
+msgid "Country"
+msgstr "ქვეყანა"
+
+#: libkcddb/categories.cpp:29
+#, kde-format
+msgid "Data"
+msgstr "მონაცემები"
+
+#: libkcddb/categories.cpp:29 libkcddb/genres.cpp:78
+#, kde-format
+msgid "Folk"
+msgstr "ფოლკი"
+
+#: libkcddb/categories.cpp:29 libkcddb/genres.cpp:84
+#, kde-format
+msgid "Jazz"
+msgstr "ჯაზი"
+
+#: libkcddb/categories.cpp:29
+#, kde-format
+msgid "Miscellaneous"
+msgstr "სხვადასხვა"
+
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:86
+#, kde-format
+msgid "New Age"
+msgstr "ნიუ ეიჯი"
+
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:92
+#, kde-format
+msgid "Reggae"
+msgstr "რეგა"
+
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:93
+#, kde-format
+msgid "Rock"
+msgstr "როკი"
+
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:96
+#, kde-format
+msgid "Soundtrack"
+msgstr "საუნდტრეკი"
+
+#: libkcddb/genres.cpp:64
+#, kde-format
+msgid "Unknown"
+msgstr "უცნობი"
+
+#: libkcddb/genres.cpp:64
+#, kde-format
+msgid "A Cappella"
+msgstr "კაპელა"
+
+#: libkcddb/genres.cpp:64
+#, kde-format
+msgid "Acid Jazz"
+msgstr "ესიდ ჯაზი"
+
+#: libkcddb/genres.cpp:65
+#, kde-format
+msgid "Acid Punk"
+msgstr "ესიდ პანკი"
+
+#: libkcddb/genres.cpp:65
+#, kde-format
+msgid "Acid"
+msgstr "ესიდი"
+
+#: libkcddb/genres.cpp:65
+#, kde-format
+msgid "Acoustic"
+msgstr "აკუსტიკური"
+
+#: libkcddb/genres.cpp:65
+#, kde-format
+msgid "Alternative"
+msgstr "სხვები"
+
+#: libkcddb/genres.cpp:66
+#, kde-format
+msgid "Alt. Rock"
+msgstr "ალტ.როკი"
+
+#: libkcddb/genres.cpp:66
+#, kde-format
+msgid "Ambient"
+msgstr "ემბიენთი"
+
+#: libkcddb/genres.cpp:66
+#, kde-format
+msgid "Anime"
+msgstr "ანიმე"
+
+#: libkcddb/genres.cpp:66
+#, kde-format
+msgid "Avantgarde"
+msgstr "ავანგარდი"
+
+#: libkcddb/genres.cpp:67
+#, kde-format
+msgid "Ballad"
+msgstr "ბალადა"
+
+#: libkcddb/genres.cpp:67
+#, kde-format
+msgid "Bass"
+msgstr "ბასი"
+
+#: libkcddb/genres.cpp:67
+#, kde-format
+msgid "Beat"
+msgstr "დასარტყამი"
+
+#: libkcddb/genres.cpp:67
+#, kde-format
+msgid "Bebop"
+msgstr "ბებო"
+
+#: libkcddb/genres.cpp:68
+#, kde-format
+msgid "Big Band"
+msgstr "დიდი ბენდი"
+
+#: libkcddb/genres.cpp:68
+#, kde-format
+msgid "Black Metal"
+msgstr "ბლექ მეტალი"
+
+#: libkcddb/genres.cpp:68
+#, kde-format
+msgid "Bluegrass"
+msgstr "ბლუგრასი"
+
+#: libkcddb/genres.cpp:69
+#, kde-format
+msgid "Booty Bass"
+msgstr "ბუთი პასი"
+
+#: libkcddb/genres.cpp:69
+#, kde-format
+msgid "BritPop"
+msgstr "ბრიტპოპი"
+
+#: libkcddb/genres.cpp:69
+#, kde-format
+msgid "Cabaret"
+msgstr "კაბარე"
+
+#: libkcddb/genres.cpp:69
+#, kde-format
+msgid "Celtic"
+msgstr "კელტური"
+
+#: libkcddb/genres.cpp:70
+#, kde-format
+msgid "Chamber Music"
+msgstr "ჩეიმბერ მიუზიქი"
+
+#: libkcddb/genres.cpp:70
+#, kde-format
+msgid "Chanson"
+msgstr "შანსონი"
+
+#: libkcddb/genres.cpp:70
+#, kde-format
+msgid "Chorus"
+msgstr "ქორი"
+
+#: libkcddb/genres.cpp:70
+#, kde-format
+msgid "Christian Gangsta Rap"
+msgstr "ქრისტიანული განგსტა რეპო"
+
+#: libkcddb/genres.cpp:71
+#, kde-format
+msgid "Christian Rap"
+msgstr "ქრისტიანული რეპო"
+
+#: libkcddb/genres.cpp:71
+#, kde-format
+msgid "Christian Rock"
+msgstr "ქრისტიანული როკი"
+
+#: libkcddb/genres.cpp:71
+#, kde-format
+msgid "Classic Rock"
+msgstr "კლასტიკური როკი"
+
+#: libkcddb/genres.cpp:72
+#, kde-format
+msgid "Club-house"
+msgstr "კლაბ-ჰაუსი"
+
+#: libkcddb/genres.cpp:72
+#, kde-format
+msgid "Club"
+msgstr "კლუბი"
+
+#: libkcddb/genres.cpp:72
+#, kde-format
+msgid "Comedy"
+msgstr "კომედია"
+
+#: libkcddb/genres.cpp:72
+#, kde-format
+msgid "Contemporary Christian"
+msgstr "თანამედროვე ქრისიანული"
+
+#: libkcddb/genres.cpp:73
+#, kde-format
+msgid "Crossover"
+msgstr "კროსოვერი"
+
+#: libkcddb/genres.cpp:73
+#, kde-format
+msgid "Cult"
+msgstr "კულტი"
+
+#: libkcddb/genres.cpp:73
+#, kde-format
+msgid "Dance Hall"
+msgstr "დენსჰოლი"
+
+#: libkcddb/genres.cpp:74
+#, kde-format
+msgid "Dance"
+msgstr "საცეკვაო"
+
+#: libkcddb/genres.cpp:74
+#, kde-format
+msgid "Darkwave"
+msgstr "დარკვეივი"
+
+#: libkcddb/genres.cpp:74
+#, kde-format
+msgid "Death Metal"
+msgstr "დეს მეტალი"
+
+#: libkcddb/genres.cpp:74
+#, kde-format
+msgid "Disco"
+msgstr "დისკო"
+
+#: libkcddb/genres.cpp:75
+#, kde-format
+msgid "Dream"
+msgstr "დრიმი"
+
+#: libkcddb/genres.cpp:75
+#, kde-format
+msgid "Drum & Bass"
+msgstr "დრამნბასი"
+
+#: libkcddb/genres.cpp:75
+#, kde-format
+msgid "Drum Solo"
+msgstr "დრამ სოლო"
+
+#: libkcddb/genres.cpp:75
+#, kde-format
+msgid "Duet"
+msgstr "დუეტი"
+
+#: libkcddb/genres.cpp:76
+#, kde-format
+msgid "Easy Listening"
+msgstr "ადვილად მოსასმენი"
+
+#: libkcddb/genres.cpp:76
+#, kde-format
+msgid "Electronic"
+msgstr "ელექტრონული"
+
+#: libkcddb/genres.cpp:76
+#, kde-format
+msgid "Ethnic"
+msgstr "ეთნიკური"
+
+#: libkcddb/genres.cpp:76
+#, kde-format
+msgid "Eurodance"
+msgstr "ევროდენსი"
+
+#: libkcddb/genres.cpp:77
+#, kde-format
+msgid "Euro-House"
+msgstr "ევროჰაუსი"
+
+#: libkcddb/genres.cpp:77
+#, kde-format
+msgid "Euro-Techno"
+msgstr "ევროტექნო"
+
+#: libkcddb/genres.cpp:77
+#, kde-format
+msgid "Fast-Fusion"
+msgstr "ფასტ-ფიუჟენი"
+
+#: libkcddb/genres.cpp:77
+#, kde-format
+msgid "Folklore"
+msgstr "ფოლკლორი"
+
+#: libkcddb/genres.cpp:78
+#, kde-format
+msgid "Folk/Rock"
+msgstr "ფოლკი/როკი"
+
+#: libkcddb/genres.cpp:78
+#, kde-format
+msgid "Freestyle"
+msgstr "ფრისტაილი"
+
+#: libkcddb/genres.cpp:78
+#, kde-format
+msgid "Funk"
+msgstr "ფანკი"
+
+#: libkcddb/genres.cpp:79
+#, kde-format
+msgid "Fusion"
+msgstr "ფიუჟენი"
+
+#: libkcddb/genres.cpp:79
+#, kde-format
+msgid "Game"
+msgstr "თამაში"
+
+#: libkcddb/genres.cpp:79
+#, kde-format
+msgid "Gangsta Rap"
+msgstr "განგსტა რეპი"
+
+#: libkcddb/genres.cpp:79
+#, kde-format
+msgid "Goa"
+msgstr "გოა"
+
+#: libkcddb/genres.cpp:80
+#, kde-format
+msgid "Gospel"
+msgstr "გოსპელი"
+
+#: libkcddb/genres.cpp:80
+#, kde-format
+msgid "Gothic Rock"
+msgstr "გოთიკური როკი"
+
+#: libkcddb/genres.cpp:80
+#, kde-format
+msgid "Gothic"
+msgstr "გოთური"
+
+#: libkcddb/genres.cpp:80
+#, kde-format
+msgid "Grunge"
+msgstr "გრანჟი"
+
+#: libkcddb/genres.cpp:81
+#, kde-format
+msgid "Hardcore"
+msgstr "ჰარდკორი"
+
+#: libkcddb/genres.cpp:81
+#, kde-format
+msgid "Hard Rock"
+msgstr "ჰარდროკი"
+
+#: libkcddb/genres.cpp:81
+#, kde-format
+msgid "Heavy Metal"
+msgstr "ჰევი მეტალი"
+
+#: libkcddb/genres.cpp:81
+#, kde-format
+msgid "Hip-Hop"
+msgstr "ჰიპჰოპი"
+
+#: libkcddb/genres.cpp:82
+#, kde-format
+msgid "House"
+msgstr "ჰაუსი"
+
+#: libkcddb/genres.cpp:82
+#, kde-format
+msgid "Humor"
+msgstr "იუმორი"
+
+#: libkcddb/genres.cpp:82
+#, kde-format
+msgid "Indie"
+msgstr "ინდი"
+
+#: libkcddb/genres.cpp:82
+#, kde-format
+msgid "Industrial"
+msgstr "ინდასტრიალი"
+
+#: libkcddb/genres.cpp:83
+#, kde-format
+msgid "Instrumental Pop"
+msgstr "ინსტრუმენტული პოპი"
+
+#: libkcddb/genres.cpp:83
+#, kde-format
+msgid "Instrumental Rock"
+msgstr "ინსტრუმენტული როკი"
+
+#: libkcddb/genres.cpp:83
+#, kde-format
+msgid "Instrumental"
+msgstr "ინსტრუმენტული"
+
+#: libkcddb/genres.cpp:83
+#, kde-format
+msgid "Jazz+Funk"
+msgstr "ჯაზი+ფანკი"
+
+#: libkcddb/genres.cpp:84
+#, kde-format
+msgid "JPop"
+msgstr "ჯპოპი"
+
+#: libkcddb/genres.cpp:84
+#, kde-format
+msgid "Jungle"
+msgstr "ჯუნგლი"
+
+#: libkcddb/genres.cpp:84
+#, kde-format
+msgid "Latin"
+msgstr "ლათინური"
+
+#: libkcddb/genres.cpp:84
+#, kde-format
+msgid "Lo-Fi"
+msgstr ""
+
+#: libkcddb/genres.cpp:85
+#, kde-format
+msgid "Meditative"
+msgstr "მედიტაციური"
+
+#: libkcddb/genres.cpp:85
+#, kde-format
+msgid "Merengue"
+msgstr ""
+
+#: libkcddb/genres.cpp:85
+#, kde-format
+msgid "Metal"
+msgstr "ლითონი"
+
+#: libkcddb/genres.cpp:85
+#, kde-format
+msgid "Musical"
+msgstr "მუსიკალური"
+
+#: libkcddb/genres.cpp:86
+#, kde-format
+msgid "National Folk"
+msgstr "ნაციონალური ფოლკი"
+
+#: libkcddb/genres.cpp:86
+#, kde-format
+msgid "Native American"
+msgstr "ადგილობრივი ამერიკული"
+
+#: libkcddb/genres.cpp:86
+#, kde-format
+msgid "Negerpunk"
+msgstr "ნეგერპანკი"
+
+#: libkcddb/genres.cpp:87
+#, kde-format
+msgid "New Wave"
+msgstr "ნიუ ვეივი"
+
+#: libkcddb/genres.cpp:87
+#, kde-format
+msgid "Noise"
+msgstr "ხმაური"
+
+#: libkcddb/genres.cpp:87
+#, kde-format
+msgid "Oldies"
+msgstr "ძველები"
+
+#: libkcddb/genres.cpp:87
+#, kde-format
+msgid "Opera"
+msgstr "Opera"
+
+#: libkcddb/genres.cpp:88
+#, kde-format
+msgid "Other"
+msgstr "სხვა"
+
+#: libkcddb/genres.cpp:88
+#, kde-format
+msgid "Polka"
+msgstr "პოლკა"
+
+#: libkcddb/genres.cpp:88
+#, kde-format
+msgid "Polsk Punk"
+msgstr "პოლსკ-პანკი"
+
+#: libkcddb/genres.cpp:88
+#, kde-format
+msgid "Pop-Funk"
+msgstr "პოპ-ფანკი"
+
+#: libkcddb/genres.cpp:89
+#, kde-format
+msgid "Pop/Funk"
+msgstr "პოპი/ფანკი"
+
+#: libkcddb/genres.cpp:89
+#, kde-format
+msgid "Pop"
+msgstr "პოპი"
+
+#: libkcddb/genres.cpp:89
+#, kde-format
+msgid "Porn Groove"
+msgstr "პორნ გრუვი"
+
+#: libkcddb/genres.cpp:89
+#, kde-format
+msgid "Power Ballad"
+msgstr "პაუერ ბალადა"
+
+#: libkcddb/genres.cpp:90
+#, kde-format
+msgid "Pranks"
+msgstr "პრანკები"
+
+#: libkcddb/genres.cpp:90
+#, kde-format
+msgid "Primus"
+msgstr "პრიმუსი"
+
+#: libkcddb/genres.cpp:90
+#, kde-format
+msgid "Progressive Rock"
+msgstr "პროგრესივ როკი"
+
+#: libkcddb/genres.cpp:90
+#, kde-format
+msgid "Psychedelic Rock"
+msgstr "ფსიქოდელიური როკი"
+
+#: libkcddb/genres.cpp:91
+#, kde-format
+msgid "Psychedelic"
+msgstr "ფსიქოდელია"
+
+#: libkcddb/genres.cpp:91
+#, kde-format
+msgid "Punk Rock"
+msgstr "პანკი როკი"
+
+#: libkcddb/genres.cpp:91
+#, kde-format
+msgid "Punk"
+msgstr "პანკი"
+
+#: libkcddb/genres.cpp:91
+#, kde-format
+msgid "R&B"
+msgstr "R&B"
+
+#: libkcddb/genres.cpp:92
+#, kde-format
+msgid "Rap"
+msgstr "რეპი"
+
+#: libkcddb/genres.cpp:92
+#, kde-format
+msgid "Rave"
+msgstr "რეივი"
+
+#: libkcddb/genres.cpp:92
+#, kde-format
+msgid "Retro"
+msgstr "რეტრო"
+
+#: libkcddb/genres.cpp:93
+#, kde-format
+msgid "Revival"
+msgstr "რევაივალი"
+
+#: libkcddb/genres.cpp:93
+#, kde-format
+msgid "Rhythmic Soul"
+msgstr "რითმული სოული"
+
+#: libkcddb/genres.cpp:93
+#, kde-format
+msgid "Rock & Roll"
+msgstr "როკნროლი"
+
+#: libkcddb/genres.cpp:94
+#, kde-format
+msgid "Salsa"
+msgstr "სალსა"
+
+#: libkcddb/genres.cpp:94
+#, kde-format
+msgid "Samba"
+msgstr "Samba"
+
+#: libkcddb/genres.cpp:94
+#, kde-format
+msgid "Satire"
+msgstr "სატირა"
+
+#: libkcddb/genres.cpp:94
+#, kde-format
+msgid "Showtunes"
+msgstr "შოუტუნსი"
+
+#: libkcddb/genres.cpp:95
+#, kde-format
+msgid "Ska"
+msgstr "სკა"
+
+#: libkcddb/genres.cpp:95
+#, kde-format
+msgid "Slow Jam"
+msgstr "ნელი ჯემი"
+
+#: libkcddb/genres.cpp:95
+#, kde-format
+msgid "Slow Rock"
+msgstr "ნელი როკი"
+
+#: libkcddb/genres.cpp:95
+#, kde-format
+msgid "Sonata"
+msgstr "სოტანა"
+
+#: libkcddb/genres.cpp:96
+#, kde-format
+msgid "Soul"
+msgstr "სოული"
+
+#: libkcddb/genres.cpp:96
+#, kde-format
+msgid "Sound Clip"
+msgstr "ხმის კლიპი"
+
+#: libkcddb/genres.cpp:96
+#, kde-format
+msgid "Southern Rock"
+msgstr "სამხრეთული როკი"
+
+#: libkcddb/genres.cpp:97
+#, kde-format
+msgid "Space"
+msgstr "გამოტოვება"
+
+#: libkcddb/genres.cpp:97
+#, kde-format
+msgid "Speech"
+msgstr "საუბარი"
+
+#: libkcddb/genres.cpp:97
+#, kde-format
+msgid "Swing"
+msgstr "სვინგი"
+
+#: libkcddb/genres.cpp:97
+#, kde-format
+msgid "Symphonic Rock"
+msgstr "სიმფონიური როკი"
+
+#: libkcddb/genres.cpp:98
+#, kde-format
+msgid "Symphony"
+msgstr "სიმფონია"
+
+#: libkcddb/genres.cpp:98
+#, kde-format
+msgid "Synthpop"
+msgstr "სინთპოპი"
+
+#: libkcddb/genres.cpp:98
+#, kde-format
+msgid "Tango"
+msgstr "ტანგო"
+
+#: libkcddb/genres.cpp:98
+#, kde-format
+msgid "Techno-Industrial"
+msgstr "ტექნო-ინდასტრიალი"
+
+#: libkcddb/genres.cpp:99
+#, kde-format
+msgid "Techno"
+msgstr "რექნო"
+
+#: libkcddb/genres.cpp:99
+#, kde-format
+msgid "Terror"
+msgstr "ტერორი"
+
+#: libkcddb/genres.cpp:99
+#, kde-format
+msgid "Thrash Metal"
+msgstr "თრეშ-მეტალი"
+
+#: libkcddb/genres.cpp:99
+#, kde-format
+msgid "Top 40"
+msgstr "ტოპ 40"
+
+#: libkcddb/genres.cpp:100
+#, kde-format
+msgid "Trailer"
+msgstr "ტრეილერი"
+
+#: libkcddb/genres.cpp:100
+#, kde-format
+msgid "Trance"
+msgstr "ტრანსი"
+
+#: libkcddb/genres.cpp:100
+#, kde-format
+msgid "Tribal"
+msgstr "ტრიბალი"
+
+#: libkcddb/genres.cpp:100
+#, kde-format
+msgid "Trip-Hop"
+msgstr "ტრიპ-ჰოპი"
+
+#: libkcddb/genres.cpp:101
+#, kde-format
+msgid "Vocal"
+msgstr "ვოკალი"
+
+#: libkcddb/kcddb.cpp:19
+#, kde-format
+msgid "Success"
+msgstr "წარმატება"
+
+#: libkcddb/kcddb.cpp:23
+#, kde-format
+msgid "Server error"
+msgstr "სერვერის შეცდომა"
+
+#: libkcddb/kcddb.cpp:27
+#, kde-format
+msgid "Host not found"
+msgstr "ჰოსტი ნაპოვნი არაა"
+
+#: libkcddb/kcddb.cpp:31
+#, kde-format
+msgid "No response"
+msgstr "პასუხის გარეშე"
+
+#: libkcddb/kcddb.cpp:35
+#, kde-format
+msgid "No record found"
+msgstr "ჩანაწერი ვერ ვიპოვე"
+
+#: libkcddb/kcddb.cpp:39
+#, kde-format
+msgid "Multiple records found"
+msgstr "ნაპოვნია ერთზე მეტი ჩანაწერი"
+
+#: libkcddb/kcddb.cpp:43
+#, kde-format
+msgid "Cannot save"
+msgstr "შენახვა შეუძლებელია"
+
+#: libkcddb/kcddb.cpp:47
+#, kde-format
+msgid "Invalid category"
+msgstr "არასწორი კატეგორია"
+
+#: libkcddb/kcddb.cpp:51
+#, kde-format
+msgid "Unknown error"
+msgstr "უცნობი შეცდომა"
+
+#: libkcddb/musicbrainz/musicbrainzlookup.cpp:112
+#, kde-format
+msgid "%1 (disc %2)"
+msgstr "%1 (დისკი %2)"

@@ -1,0 +1,1103 @@
+# translation of libkcddb.po to Hindi
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Ravishankar Shrivastava <raviratlami@yahoo.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: libkcddb\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"PO-Revision-Date: 2007-12-31 13:17+0530\n"
+"Last-Translator: Ravishankar Shrivastava <raviratlami@yahoo.com>\n"
+"Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
+"Language: hne\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: kcmcddb/cddbconfigwidget.cpp:40
+#, kde-format
+msgid "Cache Locations"
+msgstr ""
+
+#: kcmcddb/cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could not fetch mirror list."
+msgstr ""
+
+#: kcmcddb/cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could Not Fetch"
+msgstr ""
+
+#: kcmcddb/cddbconfigwidget.cpp:79
+#, fuzzy, kde-format
+#| msgid "Server error"
+msgid "Select mirror"
+msgstr "सर्वर गलती"
+
+#: kcmcddb/cddbconfigwidget.cpp:80
+#, kde-format
+msgid "Select one of these mirrors"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
+#: kcmcddb/cddbconfigwidget.cpp:97 kcmcddb/cddbconfigwidget.ui:129
+#: kcmcddb/cddbconfigwidget.ui:179
+#, kde-format
+msgid "HTTP"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: kcmcddb/cddbconfigwidget.cpp:99 kcmcddb/cddbconfigwidget.ui:124
+#, kde-format
+msgid "CDDB"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
+#: kcmcddb/cddbconfigwidget.ui:7
+#, kde-format
+msgid "CDDB Settings"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
+#: kcmcddb/cddbconfigwidget.ui:20
+#, kde-format
+msgid "&Lookup"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
+#: kcmcddb/cddbconfigwidget.ui:26
+#, kde-format
+msgid "Enable MusicBrainz lookup"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
+#: kcmcddb/cddbconfigwidget.ui:33
+#, kde-format
+msgid "Enable freedb lookup"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
+#: kcmcddb/cddbconfigwidget.ui:40
+#, fuzzy, kde-format
+#| msgid "Server error"
+msgid "Freedb Server"
+msgstr "सर्वर गलती"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
+#: kcmcddb/cddbconfigwidget.ui:46
+#, kde-format
+msgid "Freedb server:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
+#: kcmcddb/cddbconfigwidget.ui:64
+#, kde-format
+msgid "Name of CDDB server which will be used to look up CD information."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
+#: kcmcddb/cddbconfigwidget.ui:67
+#, kde-format
+msgid "gnudb.gnudb.org"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: kcmcddb/cddbconfigwidget.ui:80 kcmcddb/cddbconfigwidget.ui:208
+#: kcmcddb/cddbconfigwidget.ui:241
+#, kde-format
+msgid "Port:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
+#: kcmcddb/cddbconfigwidget.ui:93
+#, kde-format
+msgid "Port to connect to on CDDB server."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
+#: kcmcddb/cddbconfigwidget.ui:108
+#, kde-format
+msgid "&Transport:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
+#: kcmcddb/cddbconfigwidget.ui:120
+#, kde-format
+msgid "Type of lookup which should be tried at the CDDB server."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
+#: kcmcddb/cddbconfigwidget.ui:137
+#, kde-format
+msgid "Show &Mirror List"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
+#: kcmcddb/cddbconfigwidget.ui:153
+#, kde-format
+msgid "&Submit"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: kcmcddb/cddbconfigwidget.ui:161
+#, kde-format
+msgid "Email address:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
+#: kcmcddb/cddbconfigwidget.ui:173
+#, kde-format
+msgid "Submit Method"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: kcmcddb/cddbconfigwidget.ui:189
+#, fuzzy, kde-format
+#| msgid "Server error"
+msgid "Server:"
+msgstr "सर्वर गलती"
+
+#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
+#: kcmcddb/cddbconfigwidget.ui:220
+#, kde-format
+msgid "SMTP (Email)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
+#: kcmcddb/cddbconfigwidget.ui:266
+#, kde-format
+msgid "Server needs authentication"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
+#: kcmcddb/cddbconfigwidget.ui:286
+#, kde-format
+msgid "Reply-To:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: kcmcddb/cddbconfigwidget.ui:299
+#, fuzzy, kde-format
+#| msgid "Server error"
+msgid "SMTP server:"
+msgstr "सर्वर गलती"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: kcmcddb/cddbconfigwidget.ui:306
+#, kde-format
+msgid "Username:"
+msgstr ""
+
+#: kcmcddb/kcmcddb.cpp:41
+#, kde-format
+msgid ""
+"CDDB is used to get information like artist, title and song-names in CD's"
+msgstr ""
+
+#: kcmcddb/kcmcddb.cpp:69
+#, kde-format
+msgid ""
+"freedb has been set to use HTTP for submissions because the email details "
+"you have entered are incomplete. Please review your email settings and try "
+"again."
+msgstr ""
+
+#: kcmcddb/kcmcddb.cpp:72
+#, kde-format
+msgid "Incorrect Email Settings"
+msgstr ""
+
+#: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
+#, kde-format
+msgid "Blues"
+msgstr "ब्लूज"
+
+#: libkcddb/categories.cpp:28 libkcddb/genres.cpp:71
+#, kde-format
+msgid "Classical"
+msgstr "सास्त्रीय"
+
+#: libkcddb/categories.cpp:28 libkcddb/genres.cpp:73
+#, kde-format
+msgctxt "music genre"
+msgid "Country"
+msgstr "देस"
+
+#: libkcddb/categories.cpp:29
+#, kde-format
+msgid "Data"
+msgstr "डाटा"
+
+#: libkcddb/categories.cpp:29 libkcddb/genres.cpp:78
+#, kde-format
+msgid "Folk"
+msgstr "फाक"
+
+#: libkcddb/categories.cpp:29 libkcddb/genres.cpp:84
+#, kde-format
+msgid "Jazz"
+msgstr "जैज"
+
+#: libkcddb/categories.cpp:29
+#, kde-format
+msgid "Miscellaneous"
+msgstr "विविध"
+
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:86
+#, kde-format
+msgid "New Age"
+msgstr "न्यू-एज"
+
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:92
+#, kde-format
+msgid "Reggae"
+msgstr "रेग्गे"
+
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:93
+#, kde-format
+msgid "Rock"
+msgstr "राक"
+
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:96
+#, kde-format
+msgid "Soundtrack"
+msgstr "साउन्ड-ट्रैक"
+
+#: libkcddb/genres.cpp:64
+#, kde-format
+msgid "Unknown"
+msgstr "अग्यात"
+
+#: libkcddb/genres.cpp:64
+#, kde-format
+msgid "A Cappella"
+msgstr "ए कप्पेल्ला"
+
+#: libkcddb/genres.cpp:64
+#, kde-format
+msgid "Acid Jazz"
+msgstr "एसिड जैज"
+
+#: libkcddb/genres.cpp:65
+#, kde-format
+msgid "Acid Punk"
+msgstr "एसिड पंक"
+
+#: libkcddb/genres.cpp:65
+#, kde-format
+msgid "Acid"
+msgstr "एसिड"
+
+#: libkcddb/genres.cpp:65
+#, kde-format
+msgid "Acoustic"
+msgstr "अवाजक"
+
+#: libkcddb/genres.cpp:65
+#, kde-format
+msgid "Alternative"
+msgstr "वैकल्पिक"
+
+#: libkcddb/genres.cpp:66
+#, kde-format
+msgid "Alt. Rock"
+msgstr "आल्ट. राक"
+
+#: libkcddb/genres.cpp:66
+#, kde-format
+msgid "Ambient"
+msgstr "एम्बियंट"
+
+#: libkcddb/genres.cpp:66
+#, kde-format
+msgid "Anime"
+msgstr "एनीम"
+
+#: libkcddb/genres.cpp:66
+#, kde-format
+msgid "Avantgarde"
+msgstr "एवांतगर्दे"
+
+#: libkcddb/genres.cpp:67
+#, kde-format
+msgid "Ballad"
+msgstr "बालाड"
+
+#: libkcddb/genres.cpp:67
+#, kde-format
+msgid "Bass"
+msgstr "बास"
+
+#: libkcddb/genres.cpp:67
+#, kde-format
+msgid "Beat"
+msgstr "बीट"
+
+#: libkcddb/genres.cpp:67
+#, kde-format
+msgid "Bebop"
+msgstr "बेबाप"
+
+#: libkcddb/genres.cpp:68
+#, kde-format
+msgid "Big Band"
+msgstr "बिग बैन्ड"
+
+#: libkcddb/genres.cpp:68
+#, kde-format
+msgid "Black Metal"
+msgstr "ब्लेक मेटल"
+
+#: libkcddb/genres.cpp:68
+#, kde-format
+msgid "Bluegrass"
+msgstr "ब्लूग्रास"
+
+#: libkcddb/genres.cpp:69
+#, kde-format
+msgid "Booty Bass"
+msgstr "बूटी बास"
+
+#: libkcddb/genres.cpp:69
+#, kde-format
+msgid "BritPop"
+msgstr "ब्रिट-पाप"
+
+#: libkcddb/genres.cpp:69
+#, kde-format
+msgid "Cabaret"
+msgstr "कैबरे"
+
+#: libkcddb/genres.cpp:69
+#, kde-format
+msgid "Celtic"
+msgstr "सेल्टिक"
+
+#: libkcddb/genres.cpp:70
+#, kde-format
+msgid "Chamber Music"
+msgstr "चेम्बर संगीत"
+
+#: libkcddb/genres.cpp:70
+#, kde-format
+msgid "Chanson"
+msgstr "चैनसन"
+
+#: libkcddb/genres.cpp:70
+#, kde-format
+msgid "Chorus"
+msgstr "कोरस"
+
+#: libkcddb/genres.cpp:70
+#, kde-format
+msgid "Christian Gangsta Rap"
+msgstr "क्रिस्चियन गैगस्ता रैप"
+
+#: libkcddb/genres.cpp:71
+#, kde-format
+msgid "Christian Rap"
+msgstr "क्रिस्चियन रैप"
+
+#: libkcddb/genres.cpp:71
+#, kde-format
+msgid "Christian Rock"
+msgstr "क्रिस्चियन राक"
+
+#: libkcddb/genres.cpp:71
+#, kde-format
+msgid "Classic Rock"
+msgstr "सास्त्रीय राक"
+
+#: libkcddb/genres.cpp:72
+#, kde-format
+msgid "Club-house"
+msgstr "क्लब-हाउस"
+
+#: libkcddb/genres.cpp:72
+#, kde-format
+msgid "Club"
+msgstr "क्लब"
+
+#: libkcddb/genres.cpp:72
+#, kde-format
+msgid "Comedy"
+msgstr "कामेडी"
+
+#: libkcddb/genres.cpp:72
+#, kde-format
+msgid "Contemporary Christian"
+msgstr "समकालीन क्रिस्चियन"
+
+#: libkcddb/genres.cpp:73
+#, kde-format
+msgid "Crossover"
+msgstr "क्रासओवर"
+
+#: libkcddb/genres.cpp:73
+#, kde-format
+msgid "Cult"
+msgstr "कल्ट"
+
+#: libkcddb/genres.cpp:73
+#, kde-format
+msgid "Dance Hall"
+msgstr "डांस हाल"
+
+#: libkcddb/genres.cpp:74
+#, kde-format
+msgid "Dance"
+msgstr "डांस"
+
+#: libkcddb/genres.cpp:74
+#, kde-format
+msgid "Darkwave"
+msgstr "डार्कवेव"
+
+#: libkcddb/genres.cpp:74
+#, kde-format
+msgid "Death Metal"
+msgstr "डेथ मेटल"
+
+#: libkcddb/genres.cpp:74
+#, kde-format
+msgid "Disco"
+msgstr "डिस्को"
+
+#: libkcddb/genres.cpp:75
+#, kde-format
+msgid "Dream"
+msgstr "ड्रीम"
+
+#: libkcddb/genres.cpp:75
+#, kde-format
+msgid "Drum & Bass"
+msgstr "ड्रम अउ बास"
+
+#: libkcddb/genres.cpp:75
+#, kde-format
+msgid "Drum Solo"
+msgstr "ड्रम सोलो"
+
+#: libkcddb/genres.cpp:75
+#, kde-format
+msgid "Duet"
+msgstr "युगल गीत"
+
+#: libkcddb/genres.cpp:76
+#, kde-format
+msgid "Easy Listening"
+msgstr "आसान संगीत"
+
+#: libkcddb/genres.cpp:76
+#, kde-format
+msgid "Electronic"
+msgstr "इलेक्ट्रानिक"
+
+#: libkcddb/genres.cpp:76
+#, kde-format
+msgid "Ethnic"
+msgstr "एथनिक"
+
+#: libkcddb/genres.cpp:76
+#, kde-format
+msgid "Eurodance"
+msgstr "यूरोडान्स"
+
+#: libkcddb/genres.cpp:77
+#, kde-format
+msgid "Euro-House"
+msgstr "यूरो-हाउस"
+
+#: libkcddb/genres.cpp:77
+#, kde-format
+msgid "Euro-Techno"
+msgstr "यूरो-टेक्नो"
+
+#: libkcddb/genres.cpp:77
+#, kde-format
+msgid "Fast-Fusion"
+msgstr "फास्ट-फ्यूजन"
+
+#: libkcddb/genres.cpp:77
+#, kde-format
+msgid "Folklore"
+msgstr "फाकलोर"
+
+#: libkcddb/genres.cpp:78
+#, kde-format
+msgid "Folk/Rock"
+msgstr "फाक/ राक"
+
+#: libkcddb/genres.cpp:78
+#, kde-format
+msgid "Freestyle"
+msgstr "फ्रीस्टाइल"
+
+#: libkcddb/genres.cpp:78
+#, kde-format
+msgid "Funk"
+msgstr "फंक"
+
+#: libkcddb/genres.cpp:79
+#, kde-format
+msgid "Fusion"
+msgstr "फ्यूजन"
+
+#: libkcddb/genres.cpp:79
+#, kde-format
+msgid "Game"
+msgstr "खेल"
+
+#: libkcddb/genres.cpp:79
+#, kde-format
+msgid "Gangsta Rap"
+msgstr "गैगस्ता रैप"
+
+#: libkcddb/genres.cpp:79
+#, kde-format
+msgid "Goa"
+msgstr "गोवा"
+
+#: libkcddb/genres.cpp:80
+#, kde-format
+msgid "Gospel"
+msgstr "गास्पेल"
+
+#: libkcddb/genres.cpp:80
+#, kde-format
+msgid "Gothic Rock"
+msgstr "गोथिक राक"
+
+#: libkcddb/genres.cpp:80
+#, kde-format
+msgid "Gothic"
+msgstr "गोथिक"
+
+#: libkcddb/genres.cpp:80
+#, kde-format
+msgid "Grunge"
+msgstr "ग्रंग"
+
+#: libkcddb/genres.cpp:81
+#, kde-format
+msgid "Hardcore"
+msgstr "हार्डकोर"
+
+#: libkcddb/genres.cpp:81
+#, kde-format
+msgid "Hard Rock"
+msgstr "हार्ड राक"
+
+#: libkcddb/genres.cpp:81
+#, kde-format
+msgid "Heavy Metal"
+msgstr "हेवी मेटल"
+
+#: libkcddb/genres.cpp:81
+#, kde-format
+msgid "Hip-Hop"
+msgstr "हिप-हाप"
+
+#: libkcddb/genres.cpp:82
+#, kde-format
+msgid "House"
+msgstr "घर"
+
+#: libkcddb/genres.cpp:82
+#, kde-format
+msgid "Humor"
+msgstr "ह्यूमर"
+
+#: libkcddb/genres.cpp:82
+#, kde-format
+msgid "Indie"
+msgstr "इंडी"
+
+#: libkcddb/genres.cpp:82
+#, kde-format
+msgid "Industrial"
+msgstr "इंडस्ट्रीयल"
+
+#: libkcddb/genres.cpp:83
+#, kde-format
+msgid "Instrumental Pop"
+msgstr "इंस्ट्रूमेंटल पाप"
+
+#: libkcddb/genres.cpp:83
+#, kde-format
+msgid "Instrumental Rock"
+msgstr "इंस्ट्रूमेंटल राक"
+
+#: libkcddb/genres.cpp:83
+#, kde-format
+msgid "Instrumental"
+msgstr "इंस्ट्रूमेंटल"
+
+#: libkcddb/genres.cpp:83
+#, kde-format
+msgid "Jazz+Funk"
+msgstr "जैज+फंक"
+
+#: libkcddb/genres.cpp:84
+#, kde-format
+msgid "JPop"
+msgstr "जे-पाप"
+
+#: libkcddb/genres.cpp:84
+#, kde-format
+msgid "Jungle"
+msgstr "जंगल"
+
+#: libkcddb/genres.cpp:84
+#, kde-format
+msgid "Latin"
+msgstr "लातिन"
+
+#: libkcddb/genres.cpp:84
+#, kde-format
+msgid "Lo-Fi"
+msgstr "लो-फाई"
+
+#: libkcddb/genres.cpp:85
+#, kde-format
+msgid "Meditative"
+msgstr "मेडिएटिव"
+
+#: libkcddb/genres.cpp:85
+#, kde-format
+msgid "Merengue"
+msgstr "मेरेंग्यू"
+
+#: libkcddb/genres.cpp:85
+#, kde-format
+msgid "Metal"
+msgstr "मेटल"
+
+#: libkcddb/genres.cpp:85
+#, kde-format
+msgid "Musical"
+msgstr "संगीतमय"
+
+#: libkcddb/genres.cpp:86
+#, kde-format
+msgid "National Folk"
+msgstr "रास्ट्रीय लोक संगीत"
+
+#: libkcddb/genres.cpp:86
+#, kde-format
+msgid "Native American"
+msgstr "नेटिव अमेरिकी"
+
+#: libkcddb/genres.cpp:86
+#, kde-format
+msgid "Negerpunk"
+msgstr "नेगर-पंक"
+
+#: libkcddb/genres.cpp:87
+#, kde-format
+msgid "New Wave"
+msgstr "न्यू वेव"
+
+#: libkcddb/genres.cpp:87
+#, kde-format
+msgid "Noise"
+msgstr "नाइज"
+
+#: libkcddb/genres.cpp:87
+#, kde-format
+msgid "Oldies"
+msgstr "ओल्डीज"
+
+#: libkcddb/genres.cpp:87
+#, kde-format
+msgid "Opera"
+msgstr "ओपेरा"
+
+#: libkcddb/genres.cpp:88
+#, kde-format
+msgid "Other"
+msgstr "अन्य"
+
+#: libkcddb/genres.cpp:88
+#, kde-format
+msgid "Polka"
+msgstr "पोल्का"
+
+#: libkcddb/genres.cpp:88
+#, kde-format
+msgid "Polsk Punk"
+msgstr "पाल्स्क पंक"
+
+#: libkcddb/genres.cpp:88
+#, kde-format
+msgid "Pop-Funk"
+msgstr "पाप-फंक"
+
+#: libkcddb/genres.cpp:89
+#, kde-format
+msgid "Pop/Funk"
+msgstr "पाप/फंक"
+
+#: libkcddb/genres.cpp:89
+#, kde-format
+msgid "Pop"
+msgstr "पाप"
+
+#: libkcddb/genres.cpp:89
+#, kde-format
+msgid "Porn Groove"
+msgstr "पार्न ग्रूव"
+
+#: libkcddb/genres.cpp:89
+#, kde-format
+msgid "Power Ballad"
+msgstr "पावर बालाड"
+
+#: libkcddb/genres.cpp:90
+#, kde-format
+msgid "Pranks"
+msgstr "प्रैंक्स"
+
+#: libkcddb/genres.cpp:90
+#, kde-format
+msgid "Primus"
+msgstr "प्राइमस"
+
+#: libkcddb/genres.cpp:90
+#, kde-format
+msgid "Progressive Rock"
+msgstr "प्रगतिसील राक"
+
+#: libkcddb/genres.cpp:90
+#, kde-format
+msgid "Psychedelic Rock"
+msgstr "साइकेडेलिक राक"
+
+#: libkcddb/genres.cpp:91
+#, kde-format
+msgid "Psychedelic"
+msgstr "साइकेडेलिक"
+
+#: libkcddb/genres.cpp:91
+#, kde-format
+msgid "Punk Rock"
+msgstr "पंक राक"
+
+#: libkcddb/genres.cpp:91
+#, kde-format
+msgid "Punk"
+msgstr "पंक"
+
+#: libkcddb/genres.cpp:91
+#, kde-format
+msgid "R&B"
+msgstr "R&B"
+
+#: libkcddb/genres.cpp:92
+#, kde-format
+msgid "Rap"
+msgstr "रैप"
+
+#: libkcddb/genres.cpp:92
+#, kde-format
+msgid "Rave"
+msgstr "रैव"
+
+#: libkcddb/genres.cpp:92
+#, kde-format
+msgid "Retro"
+msgstr "रीट्रो"
+
+#: libkcddb/genres.cpp:93
+#, kde-format
+msgid "Revival"
+msgstr "रिवाइवल"
+
+#: libkcddb/genres.cpp:93
+#, kde-format
+msgid "Rhythmic Soul"
+msgstr "रिदमिक साल"
+
+#: libkcddb/genres.cpp:93
+#, kde-format
+msgid "Rock & Roll"
+msgstr "राक अउ रोल"
+
+#: libkcddb/genres.cpp:94
+#, kde-format
+msgid "Salsa"
+msgstr "साल्सा"
+
+#: libkcddb/genres.cpp:94
+#, kde-format
+msgid "Samba"
+msgstr "साम्बा"
+
+#: libkcddb/genres.cpp:94
+#, kde-format
+msgid "Satire"
+msgstr "सेटायर"
+
+#: libkcddb/genres.cpp:94
+#, kde-format
+msgid "Showtunes"
+msgstr "सो-ट्यून्स"
+
+#: libkcddb/genres.cpp:95
+#, kde-format
+msgid "Ska"
+msgstr "स्का"
+
+#: libkcddb/genres.cpp:95
+#, kde-format
+msgid "Slow Jam"
+msgstr "स्लो जैम"
+
+#: libkcddb/genres.cpp:95
+#, kde-format
+msgid "Slow Rock"
+msgstr "स्लो राक"
+
+#: libkcddb/genres.cpp:95
+#, kde-format
+msgid "Sonata"
+msgstr "सोनाटा"
+
+#: libkcddb/genres.cpp:96
+#, kde-format
+msgid "Soul"
+msgstr "साल"
+
+#: libkcddb/genres.cpp:96
+#, kde-format
+msgid "Sound Clip"
+msgstr "अवाज क्लिप"
+
+#: libkcddb/genres.cpp:96
+#, kde-format
+msgid "Southern Rock"
+msgstr "सदर्न राक"
+
+#: libkcddb/genres.cpp:97
+#, kde-format
+msgid "Space"
+msgstr "खाली जगह"
+
+#: libkcddb/genres.cpp:97
+#, kde-format
+msgid "Speech"
+msgstr "स्पीच"
+
+#: libkcddb/genres.cpp:97
+#, kde-format
+msgid "Swing"
+msgstr "स्विंग"
+
+#: libkcddb/genres.cpp:97
+#, kde-format
+msgid "Symphonic Rock"
+msgstr "सिम्फनी राक"
+
+#: libkcddb/genres.cpp:98
+#, kde-format
+msgid "Symphony"
+msgstr "सिम्फनी"
+
+#: libkcddb/genres.cpp:98
+#, kde-format
+msgid "Synthpop"
+msgstr "सिंथ-पाप"
+
+#: libkcddb/genres.cpp:98
+#, kde-format
+msgid "Tango"
+msgstr "टैंगो"
+
+#: libkcddb/genres.cpp:98
+#, kde-format
+msgid "Techno-Industrial"
+msgstr "टेक्नो-इंडस्ट्रियल"
+
+#: libkcddb/genres.cpp:99
+#, kde-format
+msgid "Techno"
+msgstr "टेक्नो"
+
+#: libkcddb/genres.cpp:99
+#, kde-format
+msgid "Terror"
+msgstr "टेरर"
+
+#: libkcddb/genres.cpp:99
+#, kde-format
+msgid "Thrash Metal"
+msgstr "थ्रेस मेटल"
+
+#: libkcddb/genres.cpp:99
+#, kde-format
+msgid "Top 40"
+msgstr "टाप 40"
+
+#: libkcddb/genres.cpp:100
+#, kde-format
+msgid "Trailer"
+msgstr "ट्रेलर"
+
+#: libkcddb/genres.cpp:100
+#, kde-format
+msgid "Trance"
+msgstr "ट्रैंस"
+
+#: libkcddb/genres.cpp:100
+#, kde-format
+msgid "Tribal"
+msgstr "आदिवासी"
+
+#: libkcddb/genres.cpp:100
+#, kde-format
+msgid "Trip-Hop"
+msgstr "ट्रिप-हाप"
+
+#: libkcddb/genres.cpp:101
+#, kde-format
+msgid "Vocal"
+msgstr "वोकल"
+
+#: libkcddb/kcddb.cpp:19
+#, kde-format
+msgid "Success"
+msgstr "सफलता"
+
+#: libkcddb/kcddb.cpp:23
+#, kde-format
+msgid "Server error"
+msgstr "सर्वर गलती"
+
+#: libkcddb/kcddb.cpp:27
+#, kde-format
+msgid "Host not found"
+msgstr "होस्ट नइ मिलिस"
+
+#: libkcddb/kcddb.cpp:31
+#, kde-format
+msgid "No response"
+msgstr "कोई प्रतिकिरिया नइ"
+
+#: libkcddb/kcddb.cpp:35
+#, kde-format
+msgid "No record found"
+msgstr "कोई रेकार्ड नइ मिलिस."
+
+#: libkcddb/kcddb.cpp:39
+#, kde-format
+msgid "Multiple records found"
+msgstr "बहुत से रेकार्ड मिले"
+
+#: libkcddb/kcddb.cpp:43
+#, kde-format
+msgid "Cannot save"
+msgstr "सहेज नइ सकिस"
+
+#: libkcddb/kcddb.cpp:47
+#, kde-format
+msgid "Invalid category"
+msgstr "अवैध वर्ग"
+
+#: libkcddb/kcddb.cpp:51
+#, kde-format
+msgid "Unknown error"
+msgstr "अग्यात गलती"
+
+#: libkcddb/musicbrainz/musicbrainzlookup.cpp:112
+#, kde-format
+msgid "%1 (disc %2)"
+msgstr ""
+
+#~ msgid "Track"
+#~ msgstr "ट्रैक"
+
+#~ msgid "Length"
+#~ msgstr "लंबाई"
+
+#~ msgid "Title"
+#~ msgstr "सीर्सक"
+
+#~ msgid "Artist"
+#~ msgstr "कलाकार"
+
+#~ msgid "Comment"
+#~ msgstr "टिप्पनी"
+
+#~ msgid "Change Encoding"
+#~ msgstr "एनकोडिंग बदलव"
+
+#~ msgid "Revision:"
+#~ msgstr "संसोधन:"
+
+#~ msgid "Use the name of the artist if there is no title."
+#~ msgstr "यदि कोनो सीर्सक नइ हे तहां कलाकार के नाम परयोग करव."
+
+#~ msgid "&Category:"
+#~ msgstr "वर्ग: (&C)"
+
+#~ msgid "&Artist:"
+#~ msgstr "कलाकारः (&A)"
+
+#~ msgid "&Year:"
+#~ msgstr "सालः (&Y)"
+
+#~ msgid "&Genre:"
+#~ msgstr "घरानाः (&G)"
+
+#~ msgid "Disc Id values must be unique within a category."
+#~ msgstr "डिस्क आईडी मूल्य ल वर्ग के भीतर विसिस्ट होाना चाही."
+
+#~ msgid "&Multiple artists"
+#~ msgstr "विविध कलाकार (&M)"
+
+#~ msgid "Comment:"
+#~ msgstr "टिप्पनीः"
+
+#~ msgid "&Title:"
+#~ msgstr "सीर्सकः (&T)"
+
+#~ msgid "Avoid custom values, as they will be written to CDDB as-is."
+#~ msgstr "मनमाफिक मूल्य मन ल नकारें, काबर कि ओ मन सीडीडीबी मं जइसन हेवैसे लिखे जाथें ."
+
+#~ msgid "Disc Id:"
+#~ msgstr "डिस्क आईडी:"
+
+#~ msgid "Length:"
+#~ msgstr "लंबाईः "
+
+#~ msgid "For a CD-Extra, set title to \"Data\"."
+#~ msgstr "सीडी-एक्स्ट्रा बर, सीर्सक ल \"डाटा\" के रुप मं सेट करव."
+
+#~ msgid "Change Encoding..."
+#~ msgstr "एनकोडिंग बदलव..."
+
+#~ msgid "Playing order:"
+#~ msgstr "बजाय के अनुक्रमः"
+
+#~ msgctxt "artist - cdtitle"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgid "Preview"
+#~ msgstr "प्रिव्यू"
+
+#~ msgid "Encoding"
+#~ msgstr "एनकोडिंग"
+
+#, fuzzy
+#~| msgid "Dance"
+#~ msgid "Cancel"
+#~ msgstr "डांस"

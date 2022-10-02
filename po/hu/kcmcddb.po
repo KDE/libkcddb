@@ -1,0 +1,216 @@
+#
+# Tamas Szanto <tszanto@interware.hu>, 2003.
+# Kristóf Kiszel <kiszel.kristof@gmail.com>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: KDE 4.3\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"PO-Revision-Date: 2020-11-25 22:01+0100\n"
+"Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 21.03.70\n"
+
+#: cddbconfigwidget.cpp:40
+#, kde-format
+msgid "Cache Locations"
+msgstr "Másodlagos helyek (cache)"
+
+#: cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could not fetch mirror list."
+msgstr "Nem sikerült letölteni a tükrök listáját."
+
+#: cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could Not Fetch"
+msgstr "Nem sikerült a letöltés"
+
+#: cddbconfigwidget.cpp:79
+#, kde-format
+msgid "Select mirror"
+msgstr "Tükör kiválasztása"
+
+#: cddbconfigwidget.cpp:80
+#, kde-format
+msgid "Select one of these mirrors"
+msgstr "Válasszon egyet a tükrök közül"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
+#: cddbconfigwidget.cpp:97 cddbconfigwidget.ui:129 cddbconfigwidget.ui:179
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:99 cddbconfigwidget.ui:124
+#, kde-format
+msgid "CDDB"
+msgstr "CDDB"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
+#: cddbconfigwidget.ui:7
+#, kde-format
+msgid "CDDB Settings"
+msgstr "CDDB-beállítások"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
+#: cddbconfigwidget.ui:20
+#, kde-format
+msgid "&Lookup"
+msgstr "Lekér&dezés"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
+#: cddbconfigwidget.ui:26
+#, kde-format
+msgid "Enable MusicBrainz lookup"
+msgstr "Keresés a MusicBrainzen"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
+#: cddbconfigwidget.ui:33
+#, kde-format
+msgid "Enable freedb lookup"
+msgstr "Keresés a Freedb-n"
+
+#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
+#: cddbconfigwidget.ui:40
+#, kde-format
+msgid "Freedb Server"
+msgstr "Freedb-kiszolgáló"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
+#: cddbconfigwidget.ui:46
+#, kde-format
+msgid "Freedb server:"
+msgstr "Freedb-kiszolgáló:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:64
+#, kde-format
+msgid "Name of CDDB server which will be used to look up CD information."
+msgstr "A CD-adatok lekérdezéséhez használt CDDB-kiszolgáló neve."
+
+#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:67
+#, kde-format
+msgid "gnudb.gnudb.org"
+msgstr "gnudb.gnudb.org"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: cddbconfigwidget.ui:80 cddbconfigwidget.ui:208 cddbconfigwidget.ui:241
+#, kde-format
+msgid "Port:"
+msgstr "Port:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
+#: cddbconfigwidget.ui:93
+#, kde-format
+msgid "Port to connect to on CDDB server."
+msgstr "A CDDB-kiszolgáló portszáma."
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
+#: cddbconfigwidget.ui:108
+#, kde-format
+msgid "&Transport:"
+msgstr "&Transzport:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.ui:120
+#, kde-format
+msgid "Type of lookup which should be tried at the CDDB server."
+msgstr "A CDDB-kiszolgálón végrehajtandó lekérdezés típusa."
+
+#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
+#: cddbconfigwidget.ui:137
+#, kde-format
+msgid "Show &Mirror List"
+msgstr "A tükrök listájának meg&jelenítése"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
+#: cddbconfigwidget.ui:153
+#, kde-format
+msgid "&Submit"
+msgstr "El&küldés"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: cddbconfigwidget.ui:161
+#, kde-format
+msgid "Email address:"
+msgstr "E-mail cím:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
+#: cddbconfigwidget.ui:173
+#, kde-format
+msgid "Submit Method"
+msgstr "Elküldési mód"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: cddbconfigwidget.ui:189
+#, kde-format
+msgid "Server:"
+msgstr "Kiszolgáló:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
+#: cddbconfigwidget.ui:220
+#, kde-format
+msgid "SMTP (Email)"
+msgstr "SMTP (e-mail)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
+#: cddbconfigwidget.ui:266
+#, kde-format
+msgid "Server needs authentication"
+msgstr "A kiszolgáló felhasználóazonosítást igényel"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
+#: cddbconfigwidget.ui:286
+#, kde-format
+msgid "Reply-To:"
+msgstr "Válaszcím:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: cddbconfigwidget.ui:299
+#, kde-format
+msgid "SMTP server:"
+msgstr "SMTP-kiszolgáló:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: cddbconfigwidget.ui:306
+#, kde-format
+msgid "Username:"
+msgstr "Felhasználónév:"
+
+#: kcmcddb.cpp:41
+#, kde-format
+msgid ""
+"CDDB is used to get information like artist, title and song-names in CD's"
+msgstr ""
+"A CDDB segítségével lekérdezhetők a CD-lemezen levő számok előadójának neve, "
+"a számok és az album címei stb."
+
+#: kcmcddb.cpp:69
+#, kde-format
+msgid ""
+"freedb has been set to use HTTP for submissions because the email details "
+"you have entered are incomplete. Please review your email settings and try "
+"again."
+msgstr ""
+"A freedb-s beküldés át lett váltva HTTP-módba, mert a levélküldéshez "
+"szükséges adatok hiányosak. Ellenőrizze az e-mail-beállításokat és "
+"próbálkozzon újból."
+
+#: kcmcddb.cpp:72
+#, kde-format
+msgid "Incorrect Email Settings"
+msgstr "Érvénytelen e-mail-beállítás"
+
+#~ msgid "freedb.freedb.org"
+#~ msgstr "freedb.freedb.org"

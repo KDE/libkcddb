@@ -1,0 +1,464 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kscd;">
+  <!ENTITY package "kdemultimedia">
+  <!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<article id="kcmcddb" lang="&language;">
+
+<articleinfo>
+<title
+>Recuperació CDDB</title>
+
+<authorgroup>
+
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> <affiliation
+><address
+>&Mike.McBride.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Jonathan</firstname
+> <surname
+>Singer</surname
+> <affiliation
+><address
+>&Jonathan.Singer.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>David</firstname
+> <surname
+>White</surname
+> <affiliation
+><address
+><email
+>a9403784@unet.univie.ac.at</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="developer"
+><firstname
+>Bernd</firstname
+> <othername
+>Johannes</othername
+> <surname
+>Wuebben</surname
+> <affiliation
+><address
+>&Bernd.Johannes.Wuebben.mail;</address
+></affiliation>
+<contrib
+>Desenvolupador</contrib>
+</othercredit>
+
+<othercredit role="developer"
+><firstname
+>Dirk</firstname
+> <surname
+>Forsterling</surname
+> <affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>Desenvolupador</contrib>
+</othercredit>
+
+<othercredit role="developer"
+><firstname
+>Dirk</firstname
+> <surname
+>Foersterling</surname
+> <affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>Desenvolupador</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+><address
+>&Lauri.Watts.mail;</address
+></affiliation>
+<contrib
+>Revisor</contrib>
+</othercredit>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year
+><year
+>2004</year>
+<holder
+>J Singer</holder>
+
+</copyright>
+<copyright>
+
+<year
+>2005-2006</year>
+<holder
+>&Mike.McBride;</holder>
+</copyright>
+
+<date
+>5 de desembre de 2013</date>
+<releaseinfo
+>&kde; 4.12</releaseinfo>
+
+</articleinfo>
+
+<sect1 id="cddb-page">
+<title
+>Recuperació CDDB</title>
+<para
+>El mòdul <guilabel
+>Recuperació CDDB</guilabel
+> està dividit en les pestanyes <guilabel
+>Cerca</guilabel
+> i <guilabel
+>Envia</guilabel
+>.</para>
+
+<sect2 id="lookup-tab">
+<title
+>La pestanya Cerca</title>
+<screenshot>
+<screeninfo
+>La pestanya <guilabel
+>Cerca</guilabel
+></screeninfo>
+<mediaobject>
+<imageobject
+> <imagedata fileref="kscd14.png" format="PNG"/> </imageobject>
+<textobject
+><phrase
+>La pestanya <guilabel
+>Cerca</guilabel
+></phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>La pestanya <guilabel
+>Cerca</guilabel
+> configura les funcions <acronym
+>CDDB</acronym
+> del &kde;.</para>
+
+<para
+>Podeu seleccionar les opcions <guilabel
+>Habilita la cerca a MusicBrainz</guilabel
+> o <guilabel
+>Habilita la cerca a freedb</guilabel
+>.</para>
+
+<para
+>La secció <guilabel
+>Servidor freedb</guilabel
+> determina quin lloc de rèplica CDDB utilitzarà el &kde; per obtenir informació de l'àlbum. Podeu introduir un nom de servidor, número de port i protocol utilitzant les quadres de text i llistes desplegables o podeu fer clic al botó <guibutton
+>Mostra la llista de rèpliques</guibutton
+>. En fer clic en aquest botó, s'obrirà una nova finestra amb una llista de rèpliques CDDB i les seves ubicacions. Només haureu de seleccionar el servidor que voleu de la llista i fer clic a <guibutton
+>D'acord</guibutton
+>.</para>
+
+<para
+>La secció anomenada <guilabel
+>Ubicacions de la memòria cau</guilabel
+> us permet determinar si la informació de CDDB es desa a l'ordinador. Per afegir una carpeta, introduïu la ubicació d'aquesta en el quadre de text a la part superior de la secció i feu clic a <guibutton
+>Afegeix</guibutton
+>. També podeu seleccionar una carpeta fent clic en la carpeta blava a la dreta del quadre de text. Per eliminar una carpeta, feu clic al nom d'aquesta amb el &BER; i feu clic a <guibutton
+>Elimina</guibutton
+>. En podeu canviar l'ordre de cerca fent clic al nom de la carpeta i en els botons <guibutton
+>Mou amunt</guibutton
+> i <guibutton
+>Mou avall</guibutton
+>.</para>
+
+<para
+>El botó <guibutton
+>Ajuda</guibutton
+> obre la pàgina d'ajuda d'aquest contingut. El botó <guibutton
+>Omissió</guibutton
+> restableix els valors predeterminats de totes les entrades en aquest diàleg; <guibutton
+>D'acord</guibutton
+> desa la configuració actual i surt; <guibutton
+>Aplica</guibutton
+> desa la configuració actual sense sortir.</para>
+
+</sect2>
+
+<sect2 id="submit-tab">
+<title
+>La pestanya Envia</title>
+
+<screenshot>
+<screeninfo
+>La pestanya Envia</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="kscd16.png" format="PNG"/></imageobject>
+</mediaobject>
+</screenshot>
+
+<para
+>La pestanya <guilabel
+>Envia</guilabel
+> configura la connexió al servidor de correu per enviar noves entrades a <acronym
+>CDDB</acronym
+>. Això és pràctic si no teniu el vostre sistema configurat com servidor. </para>
+
+<para
+>Si teniu intenció d'enviar una entrada a CDDB, introduïu la vostra adreça de correu electrònic en el primer quadre de text. A continuació haureu de decidir entre enviar-la per &HTTP; o per correu electrònic (mitjançant &SMTP;). </para>
+
+<tip
+><para
+>És més simple enviar-les per &HTTP;. Alguns tallafocs bloquegen aquest trànsit. Si el vostre tallafoc impedeix l'enviament mitjançant &HTTP;, podeu utilitzar &SMTP;.</para
+></tip>
+
+<para
+>En primer lloc, seleccioneu <guilabel
+>&HTTP;</guilabel
+> o <guilabel
+>SMTP (correu electrònic)</guilabel
+> per a determinar quin protocol utilitzar.</para>
+
+<sect3 id="http-options">
+<title
+>Utilitzar &HTTP; per enviar informació CDDB</title>
+<para
+>Podeu introduir un nom de servidor o un número de port en el quadre de text. Si voleu enviar aquesta informació als servidors internacionals, no necessitareu canviar res.</para>
+</sect3>
+
+<sect3 id="smtp-options">
+<title
+>Utilitzar &SMTP; (correu electrònic) per enviar informació CDDB</title>
+
+<para
+>Per a preparar l'enviament d'informació utilitzant el correu electrònic, introduïu la vostra adreça de correu electrònic en el quadre de text anomenat <guilabel
+>Respondre a:</guilabel
+>, el vostre servidor de correu electrònic en el quadre anomenat <guilabel
+>Servidor SMTP:</guilabel
+> i seleccioneu el número de port en el botó de selecció de valors anomenat <guilabel
+>Port:</guilabel
+>.</para>
+<para
+>Si necessiteu utilitzar una contrasenya per enviar correus electrònics utilitzant el servidor de correu electrònic, marqueu la casella de selecció anomenada <guilabel
+>El servidor requereix autenticació</guilabel
+> i introduïu el vostre nom d'usuari en el quadre de text anomenat <guilabel
+>Usuari</guilabel
+>.</para>
+
+</sect3>
+</sect2>
+</sect1>
+
+<!-- follwing chapters need proofreading -->
+<sect1 id="cddb-editor">
+<title
+>L'editor de la base de dades de CD</title>
+
+<screenshot>
+<screeninfo
+>L'editor de la base de dades de &CD;</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="kscd13.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>L'editor de la base de dades de &CD;</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>L'editor de la base de dades de &CD; us permet modificar, descarregar, desar, anotar i enviar entrades de tipus <link linkend="cddb-support"
+><acronym
+>CDDB</acronym
+> (Compact Disc Data Base)</link
+>.</para>
+
+<para
+>Si existeix una entrada en l'arbre local de la <acronym
+>CDDB</acronym
+> (vegeu la <link linkend="cddb-page"
+>subsecció sobre CDDB</link
+> en el capítol Configuració) per al &CD; que es troba a la unitat de &CD-ROM;, o si el disc s'ha trobat a la freedb, veureu el nom de l'artista i el títol del &CD; en els camps <guilabel
+>Artista:</guilabel
+> i <guilabel
+>Títol</guilabel
+>, i una llista de les pistes amb els títols de les cançons en la casella de selecció <guilabel
+>Pistes</guilabel
+>. En cas contrari, veureu una llista de les pistes i la durada sense els títols.</para>
+
+<para
+>Podeu realitzar una anotació per al disc sencer amb el camp <guilabel
+>Comentari</guilabel
+> sota el camp <guilabel
+>Títol</guilabel
+>, o per a la pista seleccionada en la casella de selecció <guilabel
+>Pistes</guilabel
+> amb el botó adjunt <guibutton
+>Comentari</guibutton
+>. Si seleccioneu una pista en la casella de selecció <guilabel
+>Pistes</guilabel
+>, el títol, si existeix, apareixerà en el camp <guilabel
+>Títol</guilabel
+> situat a sota. En el camp podeu escriure un títol per a la cançó, o editar l'entrada segons el que vulgueu. Premeu la tecla <keycap
+>Retorn</keycap
+> en el vostre teclat i el text apareixerà en la línia adequada de la casella de selecció.</para>
+
+<para
+>Una vegada indicat el títol a totes les pistes i omplerts els camps <guilabel
+>Artista</guilabel
+> i <guilabel
+>Títol</guilabel
+>, podeu prémer el botó <guibutton
+>Envia</guibutton
+> per enviar les vostres per correu electrònic a la freedb.</para>
+
+<para
+>Se us demanarà que seleccioneu una categoria per a l'enviament. La secció <guilabel
+>ID del disc</guilabel
+> mostra el codi <acronym
+>ID</acronym
+> de 32 bits utilitzat per freedb per identificar un disc compacte. Per sobre del codi d'identificació es troba la categoria de l'entrada <guilabel
+>freedb</guilabel
+>. Aquestes categories es corresponen amb l'arbre de les subcarpetes de la carpeta seleccionada a la <guilabel
+>Carpeta base freedb:</guilabel
+> a la <link linkend="cddb-page"
+>pàgina de <guilabel
+>CDDB</guilabel
+></link
+> de la finestra de configuració.</para>
+
+<para
+>La <guilabel
+>Durada:</guilabel
+> mostra el temps de reproducció total del &CD;.</para>
+
+<para
+>Premeu el botó <guibutton
+>Obtén informació</guibutton
+> per a descarregar les dades de la <acronym
+>CDDB</acronym
+>. Premeu el botó <guibutton
+>D'acord</guibutton
+> per a desar localment els canvis. El botó <guibutton
+>Cancel·la</guibutton
+> tanca l'editor de la base de dades de &CD; sense desar els canvis.</para>
+
+</sect1>
+
+<sect1 id="cddb-support">
+<title
+>Suport de <acronym
+>CDDB</acronym
+></title>
+
+<para
+>freedb és una base de dades de xarxa distribuïda accessible a través d'Internet que conté informació sobre la majoria dels &CD; d'àudio en circulació. Si teniu accés a Internet, probablement mai heu introduït manualment la informació de les pistes dels vostres &CD; si ho teniu correctament configurat. Veure la secció <link linkend="cddb-page"
+>La pàgina CDDB</link
+> per obtenir instruccions detallades sobre com configurar aquest servei, i la secció <link linkend="cddb-editor"
+>L'editor de la base de dades de &CD;</link
+> per obtenir instruccions sobre com editar les entrades <acronym
+>CDDB</acronym
+>.</para>
+
+<para
+>La utilització de la <acronym
+>CDDB</acronym
+> és gratuïta. S'anima als usuaris a què enviïn noves entrades a la base de dades.</para>
+
+<para
+>Quan prepareu entrades per a la <acronym
+>CDDB</acronym
+>, si us plau, tingueu en consideració els següents punts:</para>
+
+<itemizedlist>
+<listitem
+><para
+>Utilitzeu caràcters llatins «estàndard». Alguns caràcters especials estan suportats, però no s'acceptaran les entrades que els utilitzin, per exemple, caràcters de l'alfabet grec o ciríl·lic.</para
+></listitem>
+<listitem
+><para
+>Utilitzeu un únic caràcter <keysym
+>/</keysym
+> en el camp <guilabel
+>Artista / Títol del disc</guilabel
+> en l'editor de la base de dades de &CD;.</para>
+
+<para
+>En el cas dels &CD; de música clàssica, és una pràctica comuna posar el nom del compositor en la secció Artista (abans de la barra) i el nom de l'intèrpret en la secció Títol (després de la barra).</para
+></listitem
+> 
+<listitem
+><para
+>Si envieu una entrada que ja existeix a la base de dades, qualsevol informació extra que introduïu pot ser afegida a la ja existent.</para>
+</listitem>
+</itemizedlist>
+
+<para
+>Per omissió, les categories <acronym
+>CDDB</acronym
+> estàndards estan instal·lades en <filename class="directory"
+>$HOME/.cddb</filename
+>. Podeu crear subcarpetes de categoria com vulgueu. Tanmateix, en pujar, només es mostraran les categories <acronym
+>CDDB</acronym
+> oficials. El valor per omissió és l'adreça de publicació (<email
+>gnudb-submit@gnudb.org</email
+>). Per a més informació sobre <abbrev
+>gnudb</abbrev
+> visiteu la pàgina web de <abbrev
+>gnudb</abbrev
+>.</para>
+
+<para
+>L'entrada <acronym
+>CDDB</acronym
+> local per a un &CD; en particular es desa en el fitxer <filename
+><replaceable
+>nom categoria</replaceable
+>/<replaceable
+>ID del disc</replaceable
+></filename
+> a la carpeta base <acronym
+>CDDB</acronym
+>. Aquests fitxers es poden editar amb qualsevol editor de text.</para>
+</sect1>
+
+</article>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->

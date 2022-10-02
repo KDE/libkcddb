@@ -1,0 +1,478 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kscd;">
+  <!ENTITY package "kdemultimedia">
+  <!ENTITY % Swedish "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<article id="kcmcddb" lang="&language;">
+
+<articleinfo>
+<title
+>Hämta från CDDB</title>
+
+<authorgroup>
+
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> <affiliation
+><address
+>&Mike.McBride.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Jonathan</firstname
+> <surname
+>Singer</surname
+> <affiliation
+><address
+>&Jonathan.Singer.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>David</firstname
+> <surname
+>White</surname
+> <affiliation
+><address
+><email
+>a9403784@unet.univie.ac.at</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="developer"
+><firstname
+>Bernd</firstname
+> <othername
+>Johannes</othername
+> <surname
+>Wuebben</surname
+> <affiliation
+><address
+>&Bernd.Johannes.Wuebben.mail;</address
+></affiliation>
+<contrib
+>Utvecklare</contrib>
+</othercredit>
+
+<othercredit role="developer"
+><firstname
+>Dirk</firstname
+> <surname
+>Forsterling</surname
+> <affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>Utvecklare</contrib>
+</othercredit>
+
+<othercredit role="developer"
+><firstname
+>Dirk</firstname
+> <surname
+>Foersterling</surname
+> <affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>Utvecklare</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+><address
+>&Lauri.Watts.mail;</address
+></affiliation>
+<contrib
+>Granskare</contrib>
+</othercredit>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year
+><year
+>2004</year>
+<holder
+>J Singer</holder>
+
+</copyright>
+<copyright>
+
+<year
+>2005-2006</year>
+<holder
+>&Mike.McBride;</holder>
+</copyright>
+
+<date
+>2013-12-05</date>
+<releaseinfo
+>&kde; 4.12</releaseinfo>
+
+</articleinfo>
+
+<sect1 id="cddb-page">
+<title
+>Hämta från CDDB</title>
+<para
+>Modulen <guilabel
+>Hämta från CDDB</guilabel
+> är uppdelad i flikarna <guilabel
+>Slå upp</guilabel
+> och <guilabel
+>Skicka in</guilabel
+>.</para>
+
+<sect2 id="lookup-tab">
+<title
+>Fliken Slå upp</title>
+<screenshot>
+<screeninfo
+>Fliken <guilabel
+>Slå upp</guilabel
+></screeninfo>
+<mediaobject>
+<imageobject
+> <imagedata fileref="kscd14.png" format="PNG"/> </imageobject>
+<textobject
+><phrase
+>Fliken <guilabel
+>Slå upp</guilabel
+></phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Fliken <guilabel
+>Slå upp</guilabel
+> anpassar <acronym
+>CDDB</acronym
+>-funktionen i &kde;.</para>
+
+<para
+>Du kan välja alternativet <guilabel
+>Aktivera uppslagning med MusicBrainz</guilabel
+> (normalvärdet).</para>
+
+<para
+>Rutan <guilabel
+>Freedb-server</guilabel
+> avgör vilken CDDB-spegelplats som används av &kde; för att hämta albuminformation. Du kan skriva in ett servernamn, portnummer och protokoll med textrutorna och kombinationsrutorna, eller klicka på knappen <guibutton
+>Visa lista över spegelplatser</guibutton
+>. Att klicka på knappen visar ett nytt fönster med en lista över CDDB-spegelplatser och deras plats. Välj helt enkelt servern du vill ha i listan, och klicka på <guibutton
+>Ok</guibutton
+>.</para>
+
+<para
+>Rutan som heter <guilabel
+>Cacheplatser</guilabel
+> låter dig bestämma var CDDB-information sparas på datorn. För att lägga till en katalog, skriv in katalogens plats i textrutan längst upp och klicka på <guibutton
+>Lägg till</guibutton
+>. Du kan också välja en katalog genom att klicka på den blåa filkatalogen till höger om textrutan. För att ta bort en katalog, klicka en gång på katalognamnet med vänster musknapp och klicka på <guibutton
+>Ta bort</guibutton
+>. Du kan ändra ordningen som katalogerna söks igenom genom att klicka på katalognamnet och klicka på knapparna <guibutton
+>Flytta upp</guibutton
+> och <guibutton
+>Flytta ner</guibutton
+>.</para>
+
+<para
+>Knappen <guibutton
+>Hjälp</guibutton
+> öppnar innehållsförteckningen för den här handboken. Knappen <guibutton
+>Förval</guibutton
+> återställer förvalda värden för alla alternativ i dialogrutan. <guibutton
+>Ok</guibutton
+> sparar nuvarande inställningar och avslutar. <guibutton
+>Verkställ</guibutton
+> sparar nuvarande inställningar utan att avsluta.</para>
+
+</sect2>
+
+<sect2 id="submit-tab">
+<title
+>Fliken Skicka in</title>
+
+<screenshot>
+<screeninfo
+>Fliken Skicka in</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="kscd16.png" format="PNG"/></imageobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Fliken <guilabel
+>Skicka in</guilabel
+> ställer in anslutningen till en e-postserver eller en webbläsare för att skicka in nya <acronym
+>CDDB</acronym
+>-poster. Det är användbart om du inte har ditt eget system inställt som server. </para>
+
+<para
+>Om du planerar att skicka in CDDB-information, skriv in din e-postadress i den första textrutan, och bestäm därefter om du vill skicka in med &HTTP; eller skicka in informationen som e-post (via &SMTP;). </para>
+
+<tip
+><para
+>Det är enklare att skicka in ny information genom att använda &HTTP;. Vissa brandväggar blockerar denna trafik. Om din brandvägg förhindrar dig från att skicka in ny information genom att använda &HTTP;, kan du använda &SMTP;.</para
+></tip>
+
+<para
+>Välj först antingen <guilabel
+>&HTTP;</guilabel
+> eller <guilabel
+>SMTP (e-post)</guilabel
+> för att avgöra vilket protokoll som ska användas.</para>
+
+<sect3 id="http-options">
+<title
+>Använda &HTTP; för att skicka CDDB-information</title>
+<para
+>Du kan skriva in ett servernamn eller portnummer i textrutorna som tillhandahålls. Om du vill skicka informationen till de internationella servrarna behöver du inte ändra någonting.</para>
+</sect3>
+
+<sect3 id="smtp-options">
+<title
+>Använda &SMTP; (e-post) för att skicka CDDB-information</title>
+
+<para
+>För att förbereda dig för att skicka in information via e-post, skriv in din e-postadress i textrutan som heter <guilabel
+>Svara till:</guilabel
+>, din e-postserver i textrutan som heter <guilabel
+>SMTP-server:</guilabel
+> och välj portnumret i nummerrutan som heter <guilabel
+>Port:</guilabel
+>.</para>
+<para
+>Om du måste använda ett lösenord för att skicka e-post med e-postservern, markera kryssrutan som heter <guilabel
+>Servern kräver behörighetskontroll</guilabel
+> och skriv in ditt användarnamn i textrutan som heter <guilabel
+>Användarnamn</guilabel
+>.</para>
+
+</sect3>
+</sect2>
+</sect1>
+
+<!-- follwing chapters need proofreading -->
+<sect1 id="cddb-editor">
+<title
+>Cd-databaseditorn</title>
+
+<screenshot>
+<screeninfo
+>Cd-databaseditorn</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="kscd13.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Cd-databaseditorn</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Cd-databaseditorn låter dig ändra, ladda ner, spara, lägga till anteckningar och ladda upp <link linkend="cddb-support"
+><acronym
+>CDDB</acronym
+>-poster</link
+> (Compact Disc databas).</para>
+
+<para
+>Om det finns en post i ditt lokala <acronym
+>CDDB</acronym
+>-träd (se <link linkend="cddb-page"
+>CDDB delavsnitten</link
+> i kapitlet om anpassning) för cd:n i cd-romenheten, eller om skivan hittades i freedb, visas namnet och titeln på cd:n i fälten <guilabel
+>Artist</guilabel
+> och <guilabel
+>Titel</guilabel
+> och en spårlista med sångtitlar i kombinationsrutan <interface
+>Spår</interface
+>. Annars ser du en lista på spår och speltider utan titlar.</para>
+
+<para
+>Du kan lägga till en anteckning för hela skivan i fältet <guilabel
+>Anmärkning</guilabel
+> under fältet <guilabel
+>Titel</guilabel
+>, eller för ett markerat spår i rutan <guilabel
+>Spår</guilabel
+> med knappen <guibutton
+>Anmärkning</guibutton
+> intill. Om du markerar ett spår i rutan <guilabel
+>Spår</guilabel
+>, visas titeln, om den finns, i fältet <guilabel
+>Titel</guilabel
+> nedanför. Du kan skriva in en titel för spåret i rutan, eller redigera titeln så att du blir nöjd. Tryck på returtangenten på tangentbordet, så dyker texten upp på rätt rad i kombinationsrutan.</para>
+
+<para
+>När alla spår väl har fått titlar och <guilabel
+>Artist</guilabel
+> och <guilabel
+>Titel</guilabel
+> har fyllts i, kan du trycka på knappen <guibutton
+>Överför</guibutton
+> för att skicka ditt bidrag till freedb med e-post.</para>
+
+<para
+>Du blir tillfrågad om att välja en kategori för bidraget. <guilabel
+>Disk-id</guilabel
+> sektionen visar den 32-bitars <acronym
+>ID</acronym
+>-kod som freedb använder för att identifiera en cd. Ovanför <acronym
+>ID</acronym
+>-koden finns <guilabel
+>freedb</guilabel
+>-postens kategori. Kategorierna motsvarar underkatalogträdet för katalogen som väljs i <guilabel
+>Baskatalog för freedb:</guilabel
+> på <link linkend="cddb-page"
+><guilabel
+>sidan CDDB</guilabel
+></link
+> i inställningsfönstret.</para>
+
+<para
+><guilabel
+>Längd:</guilabel
+> visar den totala speltiden för cd:n.</para>
+
+<para
+>Tryck på knappen <guibutton
+>Hämta information</guibutton
+> för att ladda ner <acronym
+>CDDB</acronym
+>-data. Tryck på knappen <guibutton
+>Ok</guibutton
+> för att spara ändringarna lokalt. Knappen <guibutton
+>Stäng</guibutton
+> kan användas för att avsluta cd-databaseditorn utan att spara.</para>
+
+</sect1>
+
+<sect1 id="cddb-support">
+<title
+><acronym
+>CDDB</acronym
+>-stöd</title>
+
+<para
+>Freedb är en distribuerad nätverksdatabas, tillgänglig via Internet, som innehåller information om de flesta ljud-cd som finns i cirkulation. Om du har tillgång till Internet, behöver du förmodligen aldrig skriva in spårinformation manuellt för dina skivor, om du har ställt in funktionen riktigt. Se avsnittet <link linkend="cddb-page"
+>CDDB-sidan</link
+> för detaljerade instruktioner om hur tjänsten ska ställas in, och avsnittet <link linkend="cddb-editor"
+>Cd-databaseditor</link
+> för instruktion om hur man redigerar <acronym
+>CDDB</acronym
+>-poster.</para>
+
+<para
+>Användning av <acronym
+>CDDB</acronym
+> är gratis. Bidrag från användare uppmuntras.</para>
+
+<para
+>När du förbereder poster för <acronym
+>CDDB</acronym
+>, ha då följande i åtanke:</para>
+
+<itemizedlist>
+<listitem
+><para
+>Använd <quote
+>vanliga</quote
+> tecken från latinska alfabetet i posterna. Vissa specialtecken stöds, men tecken från kyrilliska eller grekiska alfabetet accepteras till exempel inte.</para
+></listitem>
+<listitem
+><para
+>Använd bara ett <keysym
+>/</keysym
+> tecken i fältet <guilabel
+>Skivartist / Titel</guilabel
+> i cd-databaseditorn.</para>
+
+<para
+>För klassiska skivor är det allmänt accepterat att ange kompositörens namn i artistdelen (innan snedstrecket) och artistens namn i titeldelen (efter snedstrecket).</para
+></listitem
+> 
+<listitem
+><para
+>Om du skickar in en post som redan finns i databasen, kan eventuell ytterligare information som du anger läggas till i den befintliga posten.</para>
+</listitem>
+</itemizedlist>
+
+<para
+>Normalt installeras <acronym
+>CDDB</acronym
+>-standardkategorier i <filename class="directory"
+>$HOME/.cddb</filename
+>. Du kan skapa så många kategoriunderkataloger som du vill. När du laddar upp visas dock bara de officiella <acronym
+>CDDB</acronym
+>-kategorierna. Den förvalda uppladdningsadressen är <email
+>gnudb-submit@gnudb.org</email
+>. För mer information om <abbrev
+>gnudb</abbrev
+>, besök hemsidan för <abbrev
+>gnudb</abbrev
+>.</para>
+
+<para
+>Den lokala <acronym
+>CDDB</acronym
+>-posten för en viss cd, lagras i filen <filename
+><replaceable
+>kategorinamn</replaceable
+>/<replaceable
+>disk-id</replaceable
+></filename
+> under baskatalogen för <acronym
+>CDDB</acronym
+>. De här filerna kan redigeras med vilken texteditor som helst.</para>
+</sect1>
+
+</article>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->

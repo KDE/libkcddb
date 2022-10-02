@@ -1,0 +1,1109 @@
+# translation of libkcddb.po to Khmer
+# Khoem Sokhem <khoemsokhem@khmeros.info>, 2005, 2006, 2007, 2008, 2012.
+# Auk Piseth <piseth_dv@khmeros.info>, 2007, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: libkcddb\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"PO-Revision-Date: 2012-06-20 15:16+0700\n"
+"Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
+"Language-Team: Khmer\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: kcmcddb/cddbconfigwidget.cpp:40
+#, kde-format
+msgid "Cache Locations"
+msgstr "ទីតាំង​ឃ្លាំង​សម្ងាត់"
+
+#: kcmcddb/cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could not fetch mirror list."
+msgstr "មិន​អាច​ទៅ​យក​បញ្ជី​កញ្ចក់​បាន​ទេ"
+
+#: kcmcddb/cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could Not Fetch"
+msgstr "មិន​អាច​ទៅ​យក​បាន​ទេ"
+
+#: kcmcddb/cddbconfigwidget.cpp:79
+#, kde-format
+msgid "Select mirror"
+msgstr "ជ្រើស​កញ្ចក់"
+
+#: kcmcddb/cddbconfigwidget.cpp:80
+#, kde-format
+msgid "Select one of these mirrors"
+msgstr "ជ្រើស​កញ្ចក់​មួយ​ក្នុង​ចំណោមកញ្ចក់​ទាំង​នេះ"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
+#: kcmcddb/cddbconfigwidget.cpp:97 kcmcddb/cddbconfigwidget.ui:129
+#: kcmcddb/cddbconfigwidget.ui:179
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: kcmcddb/cddbconfigwidget.cpp:99 kcmcddb/cddbconfigwidget.ui:124
+#, kde-format
+msgid "CDDB"
+msgstr "CDDB"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
+#: kcmcddb/cddbconfigwidget.ui:7
+#, kde-format
+msgid "CDDB Settings"
+msgstr "កា​រកំណត់ CDDB"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
+#: kcmcddb/cddbconfigwidget.ui:20
+#, kde-format
+msgid "&Lookup"
+msgstr "រកមើល"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
+#: kcmcddb/cddbconfigwidget.ui:26
+#, kde-format
+msgid "Enable MusicBrainz lookup"
+msgstr "បើក​ការ​រក​មើល MusicBrainz"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
+#: kcmcddb/cddbconfigwidget.ui:33
+#, kde-format
+msgid "Enable freedb lookup"
+msgstr "បើក​ការ​រក​មើល​ freedb"
+
+#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
+#: kcmcddb/cddbconfigwidget.ui:40
+#, kde-format
+msgid "Freedb Server"
+msgstr "ម៉ាស៊ីន​បម្រើ Freedb"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
+#: kcmcddb/cddbconfigwidget.ui:46
+#, kde-format
+msgid "Freedb server:"
+msgstr "ម៉ាស៊ីនបម្រើ Freedb ៖"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
+#: kcmcddb/cddbconfigwidget.ui:64
+#, kde-format
+msgid "Name of CDDB server which will be used to look up CD information."
+msgstr "ឈ្មោះ​ម៉ាស៊ីន​បម្រើ CDDB ដែល​នឹង​ត្រូវ​បាន​ប្រើ ដើម្បី​រក​មើល​ព័ត៌មាន​ស៊ីឌី"
+
+#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
+#: kcmcddb/cddbconfigwidget.ui:67
+#, kde-format
+msgid "gnudb.gnudb.org"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: kcmcddb/cddbconfigwidget.ui:80 kcmcddb/cddbconfigwidget.ui:208
+#: kcmcddb/cddbconfigwidget.ui:241
+#, kde-format
+msgid "Port:"
+msgstr "ច្រក ៖"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
+#: kcmcddb/cddbconfigwidget.ui:93
+#, kde-format
+msgid "Port to connect to on CDDB server."
+msgstr "ច្រក​ត្រូវ​តភ្ជាប់​ទៅ​ម៉ាស៊ីន​បម្រើ CDDB ។"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
+#: kcmcddb/cddbconfigwidget.ui:108
+#, kde-format
+msgid "&Transport:"
+msgstr "ដឹកជញ្ជូន ៖"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
+#: kcmcddb/cddbconfigwidget.ui:120
+#, kde-format
+msgid "Type of lookup which should be tried at the CDDB server."
+msgstr "ប្រភេទ​រក​មើល ដែល​គួរ​ត្រូវ​បាន​ព្យាយាម​នៅ​ម៉ាស៊ីន​បម្រើ CDDB"
+
+#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
+#: kcmcddb/cddbconfigwidget.ui:137
+#, kde-format
+msgid "Show &Mirror List"
+msgstr "បង្ហាញ​បញ្ជី​កញ្ចក់"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
+#: kcmcddb/cddbconfigwidget.ui:153
+#, kde-format
+msgid "&Submit"
+msgstr "ដាក់​ស្នើ"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: kcmcddb/cddbconfigwidget.ui:161
+#, kde-format
+msgid "Email address:"
+msgstr "អាសយដ្ឋាន​អ៊ីមែល"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
+#: kcmcddb/cddbconfigwidget.ui:173
+#, kde-format
+msgid "Submit Method"
+msgstr "ដាក់​ស្នើ​វិធីសាស្ត្រ"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: kcmcddb/cddbconfigwidget.ui:189
+#, kde-format
+msgid "Server:"
+msgstr "ុស​ម៉ាស៊ីន​បម្ ៖រើ"
+
+#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
+#: kcmcddb/cddbconfigwidget.ui:220
+#, kde-format
+msgid "SMTP (Email)"
+msgstr "SMTP (អ៊ីមែល)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
+#: kcmcddb/cddbconfigwidget.ui:266
+#, kde-format
+msgid "Server needs authentication"
+msgstr "ម៉ាស៊ីន​បម្រើ​ត្រូវការ​ផ្ទៀងផ្ទាត់"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
+#: kcmcddb/cddbconfigwidget.ui:286
+#, kde-format
+msgid "Reply-To:"
+msgstr "ឆ្លើយ​តប​ចំពោះ ៖"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: kcmcddb/cddbconfigwidget.ui:299
+#, kde-format
+msgid "SMTP server:"
+msgstr "ម៉ាស៊ីន​បម្រើ SMTP ៖"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: kcmcddb/cddbconfigwidget.ui:306
+#, kde-format
+msgid "Username:"
+msgstr "ឈ្មោះ​អ្នក​ប្រើ ៖"
+
+#: kcmcddb/kcmcddb.cpp:41
+#, kde-format
+msgid ""
+"CDDB is used to get information like artist, title and song-names in CD's"
+msgstr "CDDB ត្រូវ​បាន​ប្រើ​ ដើម្បី​យក​ព័ត៌មាន​ដូច​ជា​ សិល្បករ ចំណង​ជើង និង​ឈ្មោះ​បទ​ចម្រៀង​នៅ​ក្នុង​ស៊ីឌី"
+
+#: kcmcddb/kcmcddb.cpp:69
+#, kde-format
+msgid ""
+"freedb has been set to use HTTP for submissions because the email details "
+"you have entered are incomplete. Please review your email settings and try "
+"again."
+msgstr ""
+"freedb ត្រូវ​បានកំណត់ ដើម្បី​ប្រើ HTTP សម្រាប់​ដាក់​ស្នើ ពីព្រោះ​សេចក្ដី​លម្អិត​អ៊ីមែល​ដែល​អ្នក​បាន​បញ្ចូល​មិន​"
+"ពេញលេញ​ទេ ។ សូម​ពិនិត្យ​មើល​ការ​កំណត់​អ៊ីមែល​របស់​អ្នក ហើយ​ព្យាយាម​ម្ដ​ងទៀត ។"
+
+#: kcmcddb/kcmcddb.cpp:72
+#, kde-format
+msgid "Incorrect Email Settings"
+msgstr "ការ​កំណត់​អ៊ីមែល​មិន​ត្រឹមត្រូវ"
+
+#: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
+#, kde-format
+msgid "Blues"
+msgstr "ប៊្លូ"
+
+#: libkcddb/categories.cpp:28 libkcddb/genres.cpp:71
+#, kde-format
+msgid "Classical"
+msgstr "បុរាណ"
+
+#: libkcddb/categories.cpp:28 libkcddb/genres.cpp:73
+#, kde-format
+msgctxt "music genre"
+msgid "Country"
+msgstr "ប្រទេស"
+
+#: libkcddb/categories.cpp:29
+#, kde-format
+msgid "Data"
+msgstr "ទិន្នន័យ"
+
+#: libkcddb/categories.cpp:29 libkcddb/genres.cpp:78
+#, kde-format
+msgid "Folk"
+msgstr "ប្រជាប្រិយ"
+
+#: libkcddb/categories.cpp:29 libkcddb/genres.cpp:84
+#, kde-format
+msgid "Jazz"
+msgstr "ហ្សាស"
+
+#: libkcddb/categories.cpp:29
+#, kde-format
+msgid "Miscellaneous"
+msgstr "ផ្សេងៗ"
+
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:86
+#, kde-format
+msgid "New Age"
+msgstr "សម័យថ្មី"
+
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:92
+#, kde-format
+msgid "Reggae"
+msgstr "រ៉េហ្កាអេ"
+
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:93
+#, kde-format
+msgid "Rock"
+msgstr "រ៉ុក"
+
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:96
+#, kde-format
+msgid "Soundtrack"
+msgstr "បទចម្រៀង"
+
+#: libkcddb/genres.cpp:64
+#, kde-format
+msgid "Unknown"
+msgstr "មិន​ស្គាល់"
+
+#: libkcddb/genres.cpp:64
+#, kde-format
+msgid "A Cappella"
+msgstr "អាកាប៉េឡា"
+
+#: libkcddb/genres.cpp:64
+#, kde-format
+msgid "Acid Jazz"
+msgstr "ហ្សាសជូរចត់"
+
+#: libkcddb/genres.cpp:65
+#, kde-format
+msgid "Acid Punk"
+msgstr "ពាលបែបជូរចត់"
+
+#: libkcddb/genres.cpp:65
+#, kde-format
+msgid "Acid"
+msgstr "ជូរចត់"
+
+#: libkcddb/genres.cpp:65
+#, kde-format
+msgid "Acoustic"
+msgstr "សូរសំឡេង"
+
+#: libkcddb/genres.cpp:65
+#, kde-format
+msgid "Alternative"
+msgstr "ឆ្លាស់គ្នា"
+
+#: libkcddb/genres.cpp:66
+#, kde-format
+msgid "Alt. Rock"
+msgstr "រ៉ុកឆ្លាស់គ្នា"
+
+#: libkcddb/genres.cpp:66
+#, kde-format
+msgid "Ambient"
+msgstr "ព័ទ្ធជុំវិញ"
+
+#: libkcddb/genres.cpp:66
+#, kde-format
+msgid "Anime"
+msgstr "អានីម"
+
+#: libkcddb/genres.cpp:66
+#, kde-format
+msgid "Avantgarde"
+msgstr "អាវ៉ង់ហ្កាដេ"
+
+#: libkcddb/genres.cpp:67
+#, kde-format
+msgid "Ballad"
+msgstr "កាព្យ"
+
+#: libkcddb/genres.cpp:67
+#, kde-format
+msgid "Bass"
+msgstr "បាស"
+
+#: libkcddb/genres.cpp:67
+#, kde-format
+msgid "Beat"
+msgstr "សង្វាក់ភ្លេង"
+
+#: libkcddb/genres.cpp:67
+#, kde-format
+msgid "Bebop"
+msgstr "បេបូ"
+
+#: libkcddb/genres.cpp:68
+#, kde-format
+msgid "Big Band"
+msgstr "ក្រុមភ្លេងធំ"
+
+#: libkcddb/genres.cpp:68
+#, kde-format
+msgid "Black Metal"
+msgstr "មេតាល់ខ្មៅ"
+
+#: libkcddb/genres.cpp:68
+#, kde-format
+msgid "Bluegrass"
+msgstr "ភ្លេងប្រជាប្រិយ"
+
+#: libkcddb/genres.cpp:69
+#, kde-format
+msgid "Booty Bass"
+msgstr "ប៊ូទីបាស"
+
+#: libkcddb/genres.cpp:69
+#, kde-format
+msgid "BritPop"
+msgstr "ប្រ៊ីតផប់"
+
+#: libkcddb/genres.cpp:69
+#, kde-format
+msgid "Cabaret"
+msgstr "រង្គសាល"
+
+#: libkcddb/genres.cpp:69
+#, kde-format
+msgid "Celtic"
+msgstr "សែលទិក"
+
+#: libkcddb/genres.cpp:70
+#, kde-format
+msgid "Chamber Music"
+msgstr "តន្ត្រីជាក្រុម"
+
+#: libkcddb/genres.cpp:70
+#, kde-format
+msgid "Chanson"
+msgstr "ចម្រៀង"
+
+#: libkcddb/genres.cpp:70
+#, kde-format
+msgid "Chorus"
+msgstr "ច្រៀងជាក្រុម"
+
+#: libkcddb/genres.cpp:70
+#, kde-format
+msgid "Christian Gangsta Rap"
+msgstr "រ៉េបបែបគ្រីស្ទៀនហ្កាំងស្តា"
+
+#: libkcddb/genres.cpp:71
+#, kde-format
+msgid "Christian Rap"
+msgstr "រ៉េបបែបគ្រីស្ទៀន"
+
+#: libkcddb/genres.cpp:71
+#, kde-format
+msgid "Christian Rock"
+msgstr "រ៉ុកបែបគ្រីស្ទៀន"
+
+#: libkcddb/genres.cpp:71
+#, kde-format
+msgid "Classic Rock"
+msgstr "រ៉ុកបែបបុរាណ"
+
+#: libkcddb/genres.cpp:72
+#, kde-format
+msgid "Club-house"
+msgstr "អាគារក្លឹប"
+
+#: libkcddb/genres.cpp:72
+#, kde-format
+msgid "Club"
+msgstr "ក្លឹប"
+
+#: libkcddb/genres.cpp:72
+#, kde-format
+msgid "Comedy"
+msgstr "កំប្លែង"
+
+#: libkcddb/genres.cpp:72
+#, kde-format
+msgid "Contemporary Christian"
+msgstr "គ្រីស្ទៀនតាមជំនាន់"
+
+#: libkcddb/genres.cpp:73
+#, kde-format
+msgid "Crossover"
+msgstr "ប្ដូរ"
+
+#: libkcddb/genres.cpp:73
+#, kde-format
+msgid "Cult"
+msgstr "សាសនានិយម"
+
+#: libkcddb/genres.cpp:73
+#, kde-format
+msgid "Dance Hall"
+msgstr "សាល​របាំ"
+
+#: libkcddb/genres.cpp:74
+#, kde-format
+msgid "Dance"
+msgstr "ញាក់"
+
+#: libkcddb/genres.cpp:74
+#, kde-format
+msgid "Darkwave"
+msgstr "រលកខ្មៅ"
+
+#: libkcddb/genres.cpp:74
+#, kde-format
+msgid "Death Metal"
+msgstr "មេតាល់អវសាន"
+
+#: libkcddb/genres.cpp:74
+#, kde-format
+msgid "Disco"
+msgstr "ឌីស្កូ"
+
+#: libkcddb/genres.cpp:75
+#, kde-format
+msgid "Dream"
+msgstr "រវើរវាយ"
+
+#: libkcddb/genres.cpp:75
+#, kde-format
+msgid "Drum & Bass"
+msgstr "ស្គរ និង បាស"
+
+#: libkcddb/genres.cpp:75
+#, kde-format
+msgid "Drum Solo"
+msgstr "ស្គរ សូឡូ"
+
+#: libkcddb/genres.cpp:75
+#, kde-format
+msgid "Duet"
+msgstr "ឆ្លើយឆ្លង"
+
+#: libkcddb/genres.cpp:76
+#, kde-format
+msgid "Easy Listening"
+msgstr "ស្រួល​ស្ដាប់"
+
+#: libkcddb/genres.cpp:76
+#, kde-format
+msgid "Electronic"
+msgstr "អេឡិចត្រូនិក"
+
+#: libkcddb/genres.cpp:76
+#, kde-format
+msgid "Ethnic"
+msgstr "ថ្លៃថ្នូរ"
+
+#: libkcddb/genres.cpp:76
+#, kde-format
+msgid "Eurodance"
+msgstr "របាំ​អឺរ៉ូ"
+
+#: libkcddb/genres.cpp:77
+#, kde-format
+msgid "Euro-House"
+msgstr "អាគារអឺរ៉ូ"
+
+#: libkcddb/genres.cpp:77
+#, kde-format
+msgid "Euro-Techno"
+msgstr "តិចណូអឺរ៉ូ"
+
+#: libkcddb/genres.cpp:77
+#, kde-format
+msgid "Fast-Fusion"
+msgstr "លាយញាប់"
+
+#: libkcddb/genres.cpp:77
+#, kde-format
+msgid "Folklore"
+msgstr "ប្រពៃណី"
+
+#: libkcddb/genres.cpp:78
+#, kde-format
+msgid "Folk/Rock"
+msgstr "ប្រជាប្រិយ/រ៉ុក"
+
+#: libkcddb/genres.cpp:78
+#, kde-format
+msgid "Freestyle"
+msgstr "របៀបសេរី"
+
+#: libkcddb/genres.cpp:78
+#, kde-format
+msgid "Funk"
+msgstr "គួរឲ្យខ្លាច"
+
+#: libkcddb/genres.cpp:79
+#, kde-format
+msgid "Fusion"
+msgstr "លាយ"
+
+#: libkcddb/genres.cpp:79
+#, kde-format
+msgid "Game"
+msgstr "កំសាន្ត"
+
+#: libkcddb/genres.cpp:79
+#, kde-format
+msgid "Gangsta Rap"
+msgstr "រ៉េបហ្កាំងស្តា"
+
+#: libkcddb/genres.cpp:79
+#, kde-format
+msgid "Goa"
+msgstr "ហ្គោអា"
+
+#: libkcddb/genres.cpp:80
+#, kde-format
+msgid "Gospel"
+msgstr "សេចក្ដីពិត"
+
+#: libkcddb/genres.cpp:80
+#, kde-format
+msgid "Gothic Rock"
+msgstr "រ៉ុកហ្គោធិក"
+
+#: libkcddb/genres.cpp:80
+#, kde-format
+msgid "Gothic"
+msgstr "ហ្គោធិក"
+
+#: libkcddb/genres.cpp:80
+#, kde-format
+msgid "Grunge"
+msgstr "ហ្ក្រាំង"
+
+#: libkcddb/genres.cpp:81
+#, kde-format
+msgid "Hardcore"
+msgstr "ហាដ​ខរ"
+
+#: libkcddb/genres.cpp:81
+#, kde-format
+msgid "Hard Rock"
+msgstr "រ៉ុកកន្ទ្រាក់អារម្មណ៍"
+
+#: libkcddb/genres.cpp:81
+#, kde-format
+msgid "Heavy Metal"
+msgstr "មេតាល់តាន់"
+
+#: libkcddb/genres.cpp:81
+#, kde-format
+msgid "Hip-Hop"
+msgstr "ហ៊ីប ហប់"
+
+#: libkcddb/genres.cpp:82
+#, kde-format
+msgid "House"
+msgstr "អាគារ"
+
+#: libkcddb/genres.cpp:82
+#, kde-format
+msgid "Humor"
+msgstr "កំប្លែងស្ងួត"
+
+#: libkcddb/genres.cpp:82
+#, kde-format
+msgid "Indie"
+msgstr "អ៊ីនឌី"
+
+#: libkcddb/genres.cpp:82
+#, kde-format
+msgid "Industrial"
+msgstr "វិជ្ជាជីវៈ"
+
+#: libkcddb/genres.cpp:83
+#, kde-format
+msgid "Instrumental Pop"
+msgstr "ពេញនិយមលេងដោយឧបករណ៍ភ្លេង"
+
+#: libkcddb/genres.cpp:83
+#, kde-format
+msgid "Instrumental Rock"
+msgstr "រ៉ុកលេងដោយឧបករណ៍ភ្លេង"
+
+#: libkcddb/genres.cpp:83
+#, kde-format
+msgid "Instrumental"
+msgstr "ឧបករណ៍ភ្លេង"
+
+#: libkcddb/genres.cpp:83
+#, kde-format
+msgid "Jazz+Funk"
+msgstr "ហ្សាស+គួរឲ្យខ្លាច"
+
+#: libkcddb/genres.cpp:84
+#, kde-format
+msgid "JPop"
+msgstr "ចេផប់"
+
+#: libkcddb/genres.cpp:84
+#, kde-format
+msgid "Jungle"
+msgstr "ដើរព្រៃ"
+
+#: libkcddb/genres.cpp:84
+#, kde-format
+msgid "Latin"
+msgstr "ឡាទីន"
+
+#: libkcddb/genres.cpp:84
+#, kde-format
+msgid "Lo-Fi"
+msgstr "ឡូហ្វ៊ី"
+
+#: libkcddb/genres.cpp:85
+#, kde-format
+msgid "Meditative"
+msgstr "សញ្ជប់សញ្ជឹង"
+
+#: libkcddb/genres.cpp:85
+#, kde-format
+msgid "Merengue"
+msgstr "មីរិនហ្គេ"
+
+#: libkcddb/genres.cpp:85
+#, kde-format
+msgid "Metal"
+msgstr "មេតាល់"
+
+#: libkcddb/genres.cpp:85
+#, kde-format
+msgid "Musical"
+msgstr "តន្ត្រី"
+
+#: libkcddb/genres.cpp:86
+#, kde-format
+msgid "National Folk"
+msgstr "ប្រជាប្រិយបែបជាតិ"
+
+#: libkcddb/genres.cpp:86
+#, kde-format
+msgid "Native American"
+msgstr "អាមេរិក​ដើម"
+
+#: libkcddb/genres.cpp:86
+#, kde-format
+msgid "Negerpunk"
+msgstr "ណេហ្គេផាំង"
+
+#: libkcddb/genres.cpp:87
+#, kde-format
+msgid "New Wave"
+msgstr "រលក​ថ្មី"
+
+#: libkcddb/genres.cpp:87
+#, kde-format
+msgid "Noise"
+msgstr "អឺងកង"
+
+#: libkcddb/genres.cpp:87
+#, kde-format
+msgid "Oldies"
+msgstr "ចាស់ៗ"
+
+#: libkcddb/genres.cpp:87
+#, kde-format
+msgid "Opera"
+msgstr "ល្ខោន"
+
+#: libkcddb/genres.cpp:88
+#, kde-format
+msgid "Other"
+msgstr "ផ្សេងៗ"
+
+#: libkcddb/genres.cpp:88
+#, kde-format
+msgid "Polka"
+msgstr "របាំប៉ុលកា"
+
+#: libkcddb/genres.cpp:88
+#, kde-format
+msgid "Polsk Punk"
+msgstr "ផូលផាំង"
+
+#: libkcddb/genres.cpp:88
+#, kde-format
+msgid "Pop-Funk"
+msgstr "គួរឲ្យខ្លាច បែបពេញនិយម"
+
+#: libkcddb/genres.cpp:89
+#, kde-format
+msgid "Pop/Funk"
+msgstr "គួរឲ្យខ្លាច/បែបពេញនិយម"
+
+#: libkcddb/genres.cpp:89
+#, kde-format
+msgid "Pop"
+msgstr "ពេញនិយម"
+
+#: libkcddb/genres.cpp:89
+#, kde-format
+msgid "Porn Groove"
+msgstr "សប្បាយៗ"
+
+#: libkcddb/genres.cpp:89
+#, kde-format
+msgid "Power Ballad"
+msgstr "កាព្យដ៏អស្ចារ្យ"
+
+#: libkcddb/genres.cpp:90
+#, kde-format
+msgid "Pranks"
+msgstr "រប៉ិលរប៉ូច"
+
+#: libkcddb/genres.cpp:90
+#, kde-format
+msgid "Primus"
+msgstr "វិសេសវិសាល"
+
+#: libkcddb/genres.cpp:90
+#, kde-format
+msgid "Progressive Rock"
+msgstr "រ៉ុកទាន់សម័យ"
+
+#: libkcddb/genres.cpp:90
+#, kde-format
+msgid "Psychedelic Rock"
+msgstr "រ៉ុករវើរវាយ"
+
+#: libkcddb/genres.cpp:91
+#, kde-format
+msgid "Psychedelic"
+msgstr "រវើរវាយ"
+
+#: libkcddb/genres.cpp:91
+#, kde-format
+msgid "Punk Rock"
+msgstr "រ៉ុកបែបពាល"
+
+#: libkcddb/genres.cpp:91
+#, kde-format
+msgid "Punk"
+msgstr "ពាល"
+
+#: libkcddb/genres.cpp:91
+#, kde-format
+msgid "R&B"
+msgstr "អ អែន ប៊ី"
+
+#: libkcddb/genres.cpp:92
+#, kde-format
+msgid "Rap"
+msgstr "រ៉េប"
+
+#: libkcddb/genres.cpp:92
+#, kde-format
+msgid "Rave"
+msgstr "ឡូឡា"
+
+#: libkcddb/genres.cpp:92
+#, kde-format
+msgid "Retro"
+msgstr "ថយក្រោយ"
+
+#: libkcddb/genres.cpp:93
+#, kde-format
+msgid "Revival"
+msgstr "រើបឡើង"
+
+#: libkcddb/genres.cpp:93
+#, kde-format
+msgid "Rhythmic Soul"
+msgstr "ចង្វាក់ហ្ស៊ូល"
+
+#: libkcddb/genres.cpp:93
+#, kde-format
+msgid "Rock & Roll"
+msgstr "រ៉ុក អែន រ៉ូល"
+
+#: libkcddb/genres.cpp:94
+#, kde-format
+msgid "Salsa"
+msgstr "របាំអាមេរិកឡាទីន (សាលសា)"
+
+#: libkcddb/genres.cpp:94
+#, kde-format
+msgid "Samba"
+msgstr "របាំប្រេស៊ីល (សាំបា)"
+
+#: libkcddb/genres.cpp:94
+#, kde-format
+msgid "Satire"
+msgstr "តេះដៀល"
+
+#: libkcddb/genres.cpp:94
+#, kde-format
+msgid "Showtunes"
+msgstr "ភ្លេងល្ខោន"
+
+#: libkcddb/genres.cpp:95
+#, kde-format
+msgid "Ska"
+msgstr "ស្កា"
+
+#: libkcddb/genres.cpp:95
+#, kde-format
+msgid "Slow Jam"
+msgstr "ចង្វាក់រង្វើល"
+
+#: libkcddb/genres.cpp:95
+#, kde-format
+msgid "Slow Rock"
+msgstr "រ៉ុករង្វើល"
+
+#: libkcddb/genres.cpp:95
+#, kde-format
+msgid "Sonata"
+msgstr "សូណាតា"
+
+#: libkcddb/genres.cpp:96
+#, kde-format
+msgid "Soul"
+msgstr "ហ្ស៊ូល"
+
+#: libkcddb/genres.cpp:96
+#, kde-format
+msgid "Sound Clip"
+msgstr "ឈុត​សំឡេង"
+
+#: libkcddb/genres.cpp:96
+#, kde-format
+msgid "Southern Rock"
+msgstr "រ៉ុកភាគខាងត្បូង"
+
+#: libkcddb/genres.cpp:97
+#, kde-format
+msgid "Space"
+msgstr "អវកាស"
+
+#: libkcddb/genres.cpp:97
+#, kde-format
+msgid "Speech"
+msgstr "សំដី"
+
+#: libkcddb/genres.cpp:97
+#, kde-format
+msgid "Swing"
+msgstr "យោលចុះឡើង"
+
+#: libkcddb/genres.cpp:97
+#, kde-format
+msgid "Symphonic Rock"
+msgstr "រ៉ុកបែបមហោរី"
+
+#: libkcddb/genres.cpp:98
+#, kde-format
+msgid "Symphony"
+msgstr "មហោរី"
+
+#: libkcddb/genres.cpp:98
+#, kde-format
+msgid "Synthpop"
+msgstr "ស៊ីនផប់"
+
+#: libkcddb/genres.cpp:98
+#, kde-format
+msgid "Tango"
+msgstr "តង់ហ្គោ"
+
+#: libkcddb/genres.cpp:98
+#, kde-format
+msgid "Techno-Industrial"
+msgstr "តិចណូ វិជ្ជាជីវៈ"
+
+#: libkcddb/genres.cpp:99
+#, kde-format
+msgid "Techno"
+msgstr "តិចណូ"
+
+#: libkcddb/genres.cpp:99
+#, kde-format
+msgid "Terror"
+msgstr "តក់ស្លុត"
+
+#: libkcddb/genres.cpp:99
+#, kde-format
+msgid "Thrash Metal"
+msgstr "មេតាល់បក់បោក"
+
+#: libkcddb/genres.cpp:99
+#, kde-format
+msgid "Top 40"
+msgstr "៤០ លើគេ"
+
+#: libkcddb/genres.cpp:100
+#, kde-format
+msgid "Trailer"
+msgstr "អូសសណ្ដោង"
+
+#: libkcddb/genres.cpp:100
+#, kde-format
+msgid "Trance"
+msgstr "អណ្ដែតអណ្ដូង"
+
+#: libkcddb/genres.cpp:100
+#, kde-format
+msgid "Tribal"
+msgstr "កុលសម្ព័ន្ធ"
+
+#: libkcddb/genres.cpp:100
+#, kde-format
+msgid "Trip-Hop"
+msgstr "ទ្រីប-ហប់"
+
+#: libkcddb/genres.cpp:101
+#, kde-format
+msgid "Vocal"
+msgstr "សំឡេង"
+
+#: libkcddb/kcddb.cpp:19
+#, kde-format
+msgid "Success"
+msgstr "ជោគជ័យ"
+
+#: libkcddb/kcddb.cpp:23
+#, kde-format
+msgid "Server error"
+msgstr "កំហុស​ម៉ាស៊ីន​បម្រើ"
+
+#: libkcddb/kcddb.cpp:27
+#, kde-format
+msgid "Host not found"
+msgstr "រក​មិន​ឃើញ​ម៉ាស៊ីន"
+
+#: libkcddb/kcddb.cpp:31
+#, kde-format
+msgid "No response"
+msgstr "គ្មាន​ការ​ឆ្លើយ​តប"
+
+#: libkcddb/kcddb.cpp:35
+#, kde-format
+msgid "No record found"
+msgstr "រក​មិន​ឃើញ​កំណត់ត្រា"
+
+#: libkcddb/kcddb.cpp:39
+#, kde-format
+msgid "Multiple records found"
+msgstr "បាន​រកឃើញ​កំណត់ត្រា​ច្រើន"
+
+#: libkcddb/kcddb.cpp:43
+#, kde-format
+msgid "Cannot save"
+msgstr "មិន​អាច​រក្សាទុក"
+
+#: libkcddb/kcddb.cpp:47
+#, kde-format
+msgid "Invalid category"
+msgstr "ប្រភេទ​​មិន​ត្រឹមត្រូវ"
+
+#: libkcddb/kcddb.cpp:51
+#, kde-format
+msgid "Unknown error"
+msgstr "មិន​ស្គាល់​កំហុស"
+
+#: libkcddb/musicbrainz/musicbrainzlookup.cpp:112
+#, kde-format
+msgid "%1 (disc %2)"
+msgstr "%1 (ថាស %2)"
+
+#~ msgid "Track"
+#~ msgstr "បទ"
+
+#~ msgid "Length"
+#~ msgstr "ប្រវែង"
+
+#~ msgid "Title"
+#~ msgstr "ចំណងជើង"
+
+#~ msgid "Artist"
+#~ msgstr "សិល្បករ"
+
+#~ msgid "Comment"
+#~ msgstr "សេចក្តី​អធិប្បាយ"
+
+#~ msgid "Change Encoding"
+#~ msgstr "ប្ដូរ​សំណុំ​តួអក្សរ"
+
+#~ msgid "Revision:"
+#~ msgstr "ការ​ពិនិត្យ​ឡើង​វិញ ៖"
+
+#~ msgid "Use the name of the artist if there is no title."
+#~ msgstr "សូម​ប្រើ​ឈ្មោះ​របស់​សិល្បករ បើ​មិន​មាន​ចំណងជើង ។"
+
+#~ msgid "&Category:"
+#~ msgstr "ប្រភេទ ៖"
+
+#~ msgid ""
+#~ "Write names as \"first last\", not \"last, first\". Omit any leading \"The"
+#~ "\".  Use \"Various\" for compilations."
+#~ msgstr ""
+#~ "សូម​សរសេរ​ឈ្មោះ​ជា​ទម្រង់ \"នាមខ្លួន នាមត្រកូល\" មិន​មែន \"នាមត្រកូល នាមខ្លួន\" ទេ ។ សូម​កុំ​ដាក់ "
+#~ "\"The\" នៅ​ខាង​មុខ ។ អ្នក​អាច​ប្រើ \"ផ្សេងៗ\" ដើម្បី​ចងក្រង ។"
+
+#~ msgid "&Artist:"
+#~ msgstr "សិល្បករ ៖"
+
+#~ msgid "&Year:"
+#~ msgstr "ឆ្នាំ ៖"
+
+#~ msgid "&Genre:"
+#~ msgstr "ចង្វាក់ ៖"
+
+#~ msgid "Disc Id values must be unique within a category."
+#~ msgstr "តម្លៃ​លេខ​សម្គាល់​ថាស ត្រូវ​តែ​មាន​តែ​មួយ​នៅ​ក្នុង​ប្រភេទ​មួយ ។"
+
+#~ msgid "&Multiple artists"
+#~ msgstr "សិល្បករ​ច្រើន"
+
+#~ msgid "Comment:"
+#~ msgstr "សេចក្ដី​អធិប្បាយ ៖"
+
+#~ msgid "&Title:"
+#~ msgstr "ចំណងជើង ៖"
+
+#~ msgid "Avoid custom values, as they will be written to CDDB as-is."
+#~ msgstr "សូម​ចៀសវាង​កុំ​ប្រើ​តម្លៃ​ផ្ទាល់ខ្លួន ព្រោះ​ពួកវា​នឹង​ត្រូវ​បាន​សរសេរ​ទៅ CDDB ទាំងអញ្ចឹង​តែ​ម្ដង ។"
+
+#~ msgid "Disc Id:"
+#~ msgstr "លេខ​សម្គាល់​ថាស ៖"
+
+#~ msgid "Length:"
+#~ msgstr "ប្រវែង ៖"
+
+#~ msgid "For a CD-Extra, set title to \"Data\"."
+#~ msgstr "សម្រាប់​ស៊ីឌី​បន្ថែម ត្រូវ​កំណត់​ចំណង​ជើង​ទៅ \"ទិន្នន័យ\" ។"
+
+#~ msgid "Change Encoding..."
+#~ msgstr "ប្ដូរ​សំណុំ​តួអក្សរ..."
+
+#~ msgid "Playing order:"
+#~ msgstr "លំដាប់​ចាក់ ៖"
+
+#~ msgctxt "artist - cdtitle"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgid "Preview"
+#~ msgstr "មើល​ជា​មុន"
+
+#~ msgid "Encoding"
+#~ msgstr "សំណុំ​តួអក្សរ"
+
+#~ msgid "freedb.freedb.org"
+#~ msgstr "freedb.freedb.org"
+
+#, fuzzy
+#~| msgid "Dance"
+#~ msgid "Cancel"
+#~ msgstr "ញាក់"

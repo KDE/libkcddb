@@ -1,0 +1,1125 @@
+# Translation of libkcddb.po to Euskara/Basque (eu).
+# Copyright (C) 2003, 2004, 2005, 2009 Free Software Foundation, Inc.
+# Copyright (C) 2010-2020, This file is copyright:
+# This file is distributed under the same license as the libkcddb package.
+# KDE euskaratzeko proiektuaren arduraduna <xalba@euskalnet.net>.
+#
+# Translators:
+# Marcos  <marcos@euskalgnu.org>, 2003, 2004, 2005.
+# Ion Gaztañaga <ion_g_m@hotmail.com>, 2005.
+# Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
+# Julen Landa Alustiza <julen@mundurat.net>, 2009.
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2009.
+# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2019, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: libkcddb\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"PO-Revision-Date: 2020-03-19 13:33+0100\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 19.12.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: kcmcddb/cddbconfigwidget.cpp:40
+#, kde-format
+msgid "Cache Locations"
+msgstr "Cachearen kokalekuak"
+
+#: kcmcddb/cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could not fetch mirror list."
+msgstr "Ezin izan da ispilu zerrenda ekarri."
+
+#: kcmcddb/cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could Not Fetch"
+msgstr "Ezin ekarri"
+
+#: kcmcddb/cddbconfigwidget.cpp:79
+#, kde-format
+msgid "Select mirror"
+msgstr "Hautatu ispilua"
+
+#: kcmcddb/cddbconfigwidget.cpp:80
+#, kde-format
+msgid "Select one of these mirrors"
+msgstr "Hautatu ispilu hauetako bat"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
+#: kcmcddb/cddbconfigwidget.cpp:97 kcmcddb/cddbconfigwidget.ui:129
+#: kcmcddb/cddbconfigwidget.ui:179
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: kcmcddb/cddbconfigwidget.cpp:99 kcmcddb/cddbconfigwidget.ui:124
+#, kde-format
+msgid "CDDB"
+msgstr "CDDB"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
+#: kcmcddb/cddbconfigwidget.ui:7
+#, kde-format
+msgid "CDDB Settings"
+msgstr "CDDB-ren ezarpenak"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
+#: kcmcddb/cddbconfigwidget.ui:20
+#, kde-format
+msgid "&Lookup"
+msgstr "Bi&latzea"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
+#: kcmcddb/cddbconfigwidget.ui:26
+#, kde-format
+msgid "Enable MusicBrainz lookup"
+msgstr "Gaitu «MusicBrainz»en bilatzea"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
+#: kcmcddb/cddbconfigwidget.ui:33
+#, kde-format
+msgid "Enable freedb lookup"
+msgstr "Gaitu «freedb»en bilatzea"
+
+#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
+#: kcmcddb/cddbconfigwidget.ui:40
+#, kde-format
+msgid "Freedb Server"
+msgstr "Freedb zerbitzaria"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
+#: kcmcddb/cddbconfigwidget.ui:46
+#, kde-format
+msgid "Freedb server:"
+msgstr "Freedb zerbitzaria:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
+#: kcmcddb/cddbconfigwidget.ui:64
+#, kde-format
+msgid "Name of CDDB server which will be used to look up CD information."
+msgstr "CD-en gaineko informazioa bilatzeko erabiliko den CDDB zerbitzaria."
+
+#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
+#: kcmcddb/cddbconfigwidget.ui:67
+#, kde-format
+msgid "gnudb.gnudb.org"
+msgstr "gnudb.gnudb.org"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: kcmcddb/cddbconfigwidget.ui:80 kcmcddb/cddbconfigwidget.ui:208
+#: kcmcddb/cddbconfigwidget.ui:241
+#, kde-format
+msgid "Port:"
+msgstr "Ataka:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
+#: kcmcddb/cddbconfigwidget.ui:93
+#, kde-format
+msgid "Port to connect to on CDDB server."
+msgstr "CDDB zerbitzariarekin konektatzeko ataka."
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
+#: kcmcddb/cddbconfigwidget.ui:108
+#, kde-format
+msgid "&Transport:"
+msgstr "&Garraioa:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
+#: kcmcddb/cddbconfigwidget.ui:120
+#, kde-format
+msgid "Type of lookup which should be tried at the CDDB server."
+msgstr "CDDB zerbitzarian saiatu beharreko bilaketa mota."
+
+#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
+#: kcmcddb/cddbconfigwidget.ui:137
+#, kde-format
+msgid "Show &Mirror List"
+msgstr "Erakutsi &ispiluen zerrenda"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
+#: kcmcddb/cddbconfigwidget.ui:153
+#, kde-format
+msgid "&Submit"
+msgstr "&Bidali"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: kcmcddb/cddbconfigwidget.ui:161
+#, kde-format
+msgid "Email address:"
+msgstr "E-posta helbidea:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
+#: kcmcddb/cddbconfigwidget.ui:173
+#, kde-format
+msgid "Submit Method"
+msgstr "Bidalketa metodoa"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: kcmcddb/cddbconfigwidget.ui:189
+#, kde-format
+msgid "Server:"
+msgstr "Zerbitzaria:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
+#: kcmcddb/cddbconfigwidget.ui:220
+#, kde-format
+msgid "SMTP (Email)"
+msgstr "SMTP (e-posta)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
+#: kcmcddb/cddbconfigwidget.ui:266
+#, kde-format
+msgid "Server needs authentication"
+msgstr "Zerbitzariak autentifikazioa behar du"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
+#: kcmcddb/cddbconfigwidget.ui:286
+#, kde-format
+msgid "Reply-To:"
+msgstr "Erantzun-honi:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: kcmcddb/cddbconfigwidget.ui:299
+#, kde-format
+msgid "SMTP server:"
+msgstr "SMTP zerbitzaria:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: kcmcddb/cddbconfigwidget.ui:306
+#, kde-format
+msgid "Username:"
+msgstr "Erabiltzaile-izena:"
+
+#: kcmcddb/kcmcddb.cpp:41
+#, kde-format
+msgid ""
+"CDDB is used to get information like artist, title and song-names in CD's"
+msgstr ""
+"CDDB erabiliko da artista, izenburua eta abestien izenak bezalako "
+"informazioa lortzeko."
+
+#: kcmcddb/kcmcddb.cpp:69
+#, kde-format
+msgid ""
+"freedb has been set to use HTTP for submissions because the email details "
+"you have entered are incomplete. Please review your email settings and try "
+"again."
+msgstr ""
+"freedb bidalketetarako HTTP erabiltzeko ezarri da, sartu dituzun e-postarako "
+"zehaztapenak osatu gabe daudelako. Berrikusi zure e-posta ezarpenak eta saia "
+"zaitez berriz."
+
+#: kcmcddb/kcmcddb.cpp:72
+#, kde-format
+msgid "Incorrect Email Settings"
+msgstr "E-posta ezarpen akastunak"
+
+#: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
+#, kde-format
+msgid "Blues"
+msgstr "Blues-a"
+
+#: libkcddb/categories.cpp:28 libkcddb/genres.cpp:71
+#, kde-format
+msgid "Classical"
+msgstr "Klasikoa"
+
+#: libkcddb/categories.cpp:28 libkcddb/genres.cpp:73
+#, kde-format
+msgctxt "music genre"
+msgid "Country"
+msgstr "Country-a"
+
+#: libkcddb/categories.cpp:29
+#, kde-format
+msgid "Data"
+msgstr "Datuak"
+
+#: libkcddb/categories.cpp:29 libkcddb/genres.cpp:78
+#, kde-format
+msgid "Folk"
+msgstr "Folk-a"
+
+#: libkcddb/categories.cpp:29 libkcddb/genres.cpp:84
+#, kde-format
+msgid "Jazz"
+msgstr "Jazz-a"
+
+#: libkcddb/categories.cpp:29
+#, kde-format
+msgid "Miscellaneous"
+msgstr "Bestelakoa"
+
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:86
+#, kde-format
+msgid "New Age"
+msgstr "New Age-a"
+
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:92
+#, kde-format
+msgid "Reggae"
+msgstr "Reggae-a"
+
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:93
+#, kde-format
+msgid "Rock"
+msgstr "Rock-a"
+
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:96
+#, kde-format
+msgid "Soundtrack"
+msgstr "Soinu-banda"
+
+#: libkcddb/genres.cpp:64
+#, kde-format
+msgid "Unknown"
+msgstr "Ezezaguna"
+
+#: libkcddb/genres.cpp:64
+#, kde-format
+msgid "A Cappella"
+msgstr "A Cappella"
+
+#: libkcddb/genres.cpp:64
+#, kde-format
+msgid "Acid Jazz"
+msgstr "Jazz azidoa"
+
+#: libkcddb/genres.cpp:65
+#, kde-format
+msgid "Acid Punk"
+msgstr "Punk azidoa"
+
+#: libkcddb/genres.cpp:65
+#, kde-format
+msgid "Acid"
+msgstr "Acid"
+
+#: libkcddb/genres.cpp:65
+#, kde-format
+msgid "Acoustic"
+msgstr "Akustikoa"
+
+#: libkcddb/genres.cpp:65
+#, kde-format
+msgid "Alternative"
+msgstr "Alternatiboa"
+
+#: libkcddb/genres.cpp:66
+#, kde-format
+msgid "Alt. Rock"
+msgstr "Rock alternatiboa"
+
+#: libkcddb/genres.cpp:66
+#, kde-format
+msgid "Ambient"
+msgstr "Giroko musika"
+
+#: libkcddb/genres.cpp:66
+#, kde-format
+msgid "Anime"
+msgstr "Anime"
+
+#: libkcddb/genres.cpp:66
+#, kde-format
+msgid "Avantgarde"
+msgstr "Abangoardia"
+
+#: libkcddb/genres.cpp:67
+#, kde-format
+msgid "Ballad"
+msgstr "Baladak"
+
+#: libkcddb/genres.cpp:67
+#, kde-format
+msgid "Bass"
+msgstr "Bass-a"
+
+#: libkcddb/genres.cpp:67
+#, kde-format
+msgid "Beat"
+msgstr "Beat-a"
+
+#: libkcddb/genres.cpp:67
+#, kde-format
+msgid "Bebop"
+msgstr "Bebop-a"
+
+#: libkcddb/genres.cpp:68
+#, kde-format
+msgid "Big Band"
+msgstr "Big Band-a"
+
+#: libkcddb/genres.cpp:68
+#, kde-format
+msgid "Black Metal"
+msgstr "Metal beltza"
+
+#: libkcddb/genres.cpp:68
+#, kde-format
+msgid "Bluegrass"
+msgstr "Bluegrass-a"
+
+#: libkcddb/genres.cpp:69
+#, kde-format
+msgid "Booty Bass"
+msgstr "Booty Bass-a"
+
+#: libkcddb/genres.cpp:69
+#, kde-format
+msgid "BritPop"
+msgstr "Britainiako pop-a"
+
+#: libkcddb/genres.cpp:69
+#, kde-format
+msgid "Cabaret"
+msgstr "Kabareta"
+
+#: libkcddb/genres.cpp:69
+#, kde-format
+msgid "Celtic"
+msgstr "Zeltiarra"
+
+#: libkcddb/genres.cpp:70
+#, kde-format
+msgid "Chamber Music"
+msgstr "Ganbarako musika"
+
+#: libkcddb/genres.cpp:70
+#, kde-format
+msgid "Chanson"
+msgstr "Chanson-a"
+
+#: libkcddb/genres.cpp:70
+#, kde-format
+msgid "Chorus"
+msgstr "Abesbatzak"
+
+#: libkcddb/genres.cpp:70
+#, kde-format
+msgid "Christian Gangsta Rap"
+msgstr "Gangsta Rap kristaua"
+
+#: libkcddb/genres.cpp:71
+#, kde-format
+msgid "Christian Rap"
+msgstr "Rap kristaua"
+
+#: libkcddb/genres.cpp:71
+#, kde-format
+msgid "Christian Rock"
+msgstr "Rock kristaua"
+
+#: libkcddb/genres.cpp:71
+#, kde-format
+msgid "Classic Rock"
+msgstr "Rock klasikoa"
+
+#: libkcddb/genres.cpp:72
+#, kde-format
+msgid "Club-house"
+msgstr "Klubeko House-a"
+
+#: libkcddb/genres.cpp:72
+#, kde-format
+msgid "Club"
+msgstr "Club-a"
+
+#: libkcddb/genres.cpp:72
+#, kde-format
+msgid "Comedy"
+msgstr "Komedia"
+
+#: libkcddb/genres.cpp:72
+#, kde-format
+msgid "Contemporary Christian"
+msgstr "Kristau garaikidea"
+
+#: libkcddb/genres.cpp:73
+#, kde-format
+msgid "Crossover"
+msgstr "Crossover-a"
+
+#: libkcddb/genres.cpp:73
+#, kde-format
+msgid "Cult"
+msgstr "Kultua"
+
+#: libkcddb/genres.cpp:73
+#, kde-format
+msgid "Dance Hall"
+msgstr "Dance Hall-a"
+
+#: libkcddb/genres.cpp:74
+#, kde-format
+msgid "Dance"
+msgstr "Dance-a"
+
+#: libkcddb/genres.cpp:74
+#, kde-format
+msgid "Darkwave"
+msgstr "Darkwave-a"
+
+#: libkcddb/genres.cpp:74
+#, kde-format
+msgid "Death Metal"
+msgstr "Death Metal-a"
+
+#: libkcddb/genres.cpp:74
+#, kde-format
+msgid "Disco"
+msgstr "Disko-musika"
+
+#: libkcddb/genres.cpp:75
+#, kde-format
+msgid "Dream"
+msgstr "Dream-a"
+
+#: libkcddb/genres.cpp:75
+#, kde-format
+msgid "Drum & Bass"
+msgstr "Drum & Bass"
+
+#: libkcddb/genres.cpp:75
+#, kde-format
+msgid "Drum Solo"
+msgstr "Bateria bakarlaria"
+
+#: libkcddb/genres.cpp:75
+#, kde-format
+msgid "Duet"
+msgstr "Duoa"
+
+#: libkcddb/genres.cpp:76
+#, kde-format
+msgid "Easy Listening"
+msgstr "Entzuteko erraza"
+
+#: libkcddb/genres.cpp:76
+#, kde-format
+msgid "Electronic"
+msgstr "Elektronikoa"
+
+#: libkcddb/genres.cpp:76
+#, kde-format
+msgid "Ethnic"
+msgstr "Etnikoa"
+
+#: libkcddb/genres.cpp:76
+#, kde-format
+msgid "Eurodance"
+msgstr "Eurodance-a"
+
+#: libkcddb/genres.cpp:77
+#, kde-format
+msgid "Euro-House"
+msgstr "Euro House-a"
+
+#: libkcddb/genres.cpp:77
+#, kde-format
+msgid "Euro-Techno"
+msgstr "Euro-Techno-a"
+
+#: libkcddb/genres.cpp:77
+#, kde-format
+msgid "Fast-Fusion"
+msgstr "Fast-Fusion-a"
+
+#: libkcddb/genres.cpp:77
+#, kde-format
+msgid "Folklore"
+msgstr "Folklorea"
+
+#: libkcddb/genres.cpp:78
+#, kde-format
+msgid "Folk/Rock"
+msgstr "Folk/Rock-a"
+
+#: libkcddb/genres.cpp:78
+#, kde-format
+msgid "Freestyle"
+msgstr "Estilo librea"
+
+#: libkcddb/genres.cpp:78
+#, kde-format
+msgid "Funk"
+msgstr "Funk-a"
+
+#: libkcddb/genres.cpp:79
+#, kde-format
+msgid "Fusion"
+msgstr "Fusion-a"
+
+#: libkcddb/genres.cpp:79
+#, kde-format
+msgid "Game"
+msgstr "Game-a"
+
+#: libkcddb/genres.cpp:79
+#, kde-format
+msgid "Gangsta Rap"
+msgstr "Gangsta Rap-a"
+
+#: libkcddb/genres.cpp:79
+#, kde-format
+msgid "Goa"
+msgstr "Goa"
+
+#: libkcddb/genres.cpp:80
+#, kde-format
+msgid "Gospel"
+msgstr "Gospel-a"
+
+#: libkcddb/genres.cpp:80
+#, kde-format
+msgid "Gothic Rock"
+msgstr "Rock gotikoa"
+
+#: libkcddb/genres.cpp:80
+#, kde-format
+msgid "Gothic"
+msgstr "Gotikoa"
+
+#: libkcddb/genres.cpp:80
+#, kde-format
+msgid "Grunge"
+msgstr "Grunge-a"
+
+#: libkcddb/genres.cpp:81
+#, kde-format
+msgid "Hardcore"
+msgstr "Hardcore-a"
+
+#: libkcddb/genres.cpp:81
+#, kde-format
+msgid "Hard Rock"
+msgstr "Rock gogorra"
+
+#: libkcddb/genres.cpp:81
+#, kde-format
+msgid "Heavy Metal"
+msgstr "Heavy Metal-a"
+
+#: libkcddb/genres.cpp:81
+#, kde-format
+msgid "Hip-Hop"
+msgstr "Hip-Hop-a"
+
+#: libkcddb/genres.cpp:82
+#, kde-format
+msgid "House"
+msgstr "House-a"
+
+#: libkcddb/genres.cpp:82
+#, kde-format
+msgid "Humor"
+msgstr "Humorea"
+
+#: libkcddb/genres.cpp:82
+#, kde-format
+msgid "Indie"
+msgstr "Indie-a"
+
+#: libkcddb/genres.cpp:82
+#, kde-format
+msgid "Industrial"
+msgstr "Industriala"
+
+#: libkcddb/genres.cpp:83
+#, kde-format
+msgid "Instrumental Pop"
+msgstr "Pop instrumentala"
+
+#: libkcddb/genres.cpp:83
+#, kde-format
+msgid "Instrumental Rock"
+msgstr "Rock instrumentala"
+
+#: libkcddb/genres.cpp:83
+#, kde-format
+msgid "Instrumental"
+msgstr "Instrumentala"
+
+#: libkcddb/genres.cpp:83
+#, kde-format
+msgid "Jazz+Funk"
+msgstr "Jazz+Funk-a"
+
+#: libkcddb/genres.cpp:84
+#, kde-format
+msgid "JPop"
+msgstr "JPop-a"
+
+#: libkcddb/genres.cpp:84
+#, kde-format
+msgid "Jungle"
+msgstr "Jungle-a"
+
+#: libkcddb/genres.cpp:84
+#, kde-format
+msgid "Latin"
+msgstr "Latinoa"
+
+#: libkcddb/genres.cpp:84
+#, kde-format
+msgid "Lo-Fi"
+msgstr "Lo-Fi-a"
+
+#: libkcddb/genres.cpp:85
+#, kde-format
+msgid "Meditative"
+msgstr "Meditatiboa"
+
+#: libkcddb/genres.cpp:85
+#, kde-format
+msgid "Merengue"
+msgstr "Merengea"
+
+#: libkcddb/genres.cpp:85
+#, kde-format
+msgid "Metal"
+msgstr "Metal-a"
+
+#: libkcddb/genres.cpp:85
+#, kde-format
+msgid "Musical"
+msgstr "Musikala"
+
+#: libkcddb/genres.cpp:86
+#, kde-format
+msgid "National Folk"
+msgstr "Folk nazionala"
+
+#: libkcddb/genres.cpp:86
+#, kde-format
+msgid "Native American"
+msgstr "Indioa"
+
+#: libkcddb/genres.cpp:86
+#, kde-format
+msgid "Negerpunk"
+msgstr "Negerpunk-a"
+
+#: libkcddb/genres.cpp:87
+#, kde-format
+msgid "New Wave"
+msgstr "New Wave-a"
+
+#: libkcddb/genres.cpp:87
+#, kde-format
+msgid "Noise"
+msgstr "Noise-a"
+
+#: libkcddb/genres.cpp:87
+#, kde-format
+msgid "Oldies"
+msgstr "Aspaldikoak"
+
+#: libkcddb/genres.cpp:87
+#, kde-format
+msgid "Opera"
+msgstr "Opera"
+
+#: libkcddb/genres.cpp:88
+#, kde-format
+msgid "Other"
+msgstr "Bestelakoak"
+
+#: libkcddb/genres.cpp:88
+#, kde-format
+msgid "Polka"
+msgstr "Polka"
+
+#: libkcddb/genres.cpp:88
+#, kde-format
+msgid "Polsk Punk"
+msgstr "Polsk Punk-a"
+
+#: libkcddb/genres.cpp:88
+#, kde-format
+msgid "Pop-Funk"
+msgstr "Pop-Funk-a"
+
+#: libkcddb/genres.cpp:89
+#, kde-format
+msgid "Pop/Funk"
+msgstr "Pop-/Funk-a"
+
+#: libkcddb/genres.cpp:89
+#, kde-format
+msgid "Pop"
+msgstr "Pop musika"
+
+#: libkcddb/genres.cpp:89
+#, kde-format
+msgid "Porn Groove"
+msgstr "Groove pornoa"
+
+#: libkcddb/genres.cpp:89
+#, kde-format
+msgid "Power Ballad"
+msgstr "Power baladak"
+
+#: libkcddb/genres.cpp:90
+#, kde-format
+msgid "Pranks"
+msgstr "Pranks-a"
+
+#: libkcddb/genres.cpp:90
+#, kde-format
+msgid "Primus"
+msgstr "Primus-a"
+
+#: libkcddb/genres.cpp:90
+#, kde-format
+msgid "Progressive Rock"
+msgstr "Rock progresiboa"
+
+#: libkcddb/genres.cpp:90
+#, kde-format
+msgid "Psychedelic Rock"
+msgstr "Rock psikodelikoa"
+
+#: libkcddb/genres.cpp:91
+#, kde-format
+msgid "Psychedelic"
+msgstr "Psikodelikoa"
+
+#: libkcddb/genres.cpp:91
+#, kde-format
+msgid "Punk Rock"
+msgstr "Punk Rock-a"
+
+#: libkcddb/genres.cpp:91
+#, kde-format
+msgid "Punk"
+msgstr "Punk-a"
+
+#: libkcddb/genres.cpp:91
+#, kde-format
+msgid "R&B"
+msgstr "R&B"
+
+#: libkcddb/genres.cpp:92
+#, kde-format
+msgid "Rap"
+msgstr "Rap-a"
+
+#: libkcddb/genres.cpp:92
+#, kde-format
+msgid "Rave"
+msgstr "Rave-a"
+
+#: libkcddb/genres.cpp:92
+#, kde-format
+msgid "Retro"
+msgstr "Retro-a"
+
+#: libkcddb/genres.cpp:93
+#, kde-format
+msgid "Revival"
+msgstr "Revival-a"
+
+#: libkcddb/genres.cpp:93
+#, kde-format
+msgid "Rhythmic Soul"
+msgstr "Soul erritmikoa"
+
+#: libkcddb/genres.cpp:93
+#, kde-format
+msgid "Rock & Roll"
+msgstr "Rock & Roll-a"
+
+#: libkcddb/genres.cpp:94
+#, kde-format
+msgid "Salsa"
+msgstr "Salsa"
+
+#: libkcddb/genres.cpp:94
+#, kde-format
+msgid "Samba"
+msgstr "Samba"
+
+#: libkcddb/genres.cpp:94
+#, kde-format
+msgid "Satire"
+msgstr "Satira"
+
+#: libkcddb/genres.cpp:94
+#, kde-format
+msgid "Showtunes"
+msgstr "Telebistako abestiak"
+
+#: libkcddb/genres.cpp:95
+#, kde-format
+msgid "Ska"
+msgstr "Ska"
+
+#: libkcddb/genres.cpp:95
+#, kde-format
+msgid "Slow Jam"
+msgstr "Jam motela"
+
+#: libkcddb/genres.cpp:95
+#, kde-format
+msgid "Slow Rock"
+msgstr "Rock motela"
+
+#: libkcddb/genres.cpp:95
+#, kde-format
+msgid "Sonata"
+msgstr "Sonata"
+
+#: libkcddb/genres.cpp:96
+#, kde-format
+msgid "Soul"
+msgstr "Soul-a"
+
+#: libkcddb/genres.cpp:96
+#, kde-format
+msgid "Sound Clip"
+msgstr "Soinu-klipa"
+
+#: libkcddb/genres.cpp:96
+#, kde-format
+msgid "Southern Rock"
+msgstr "Hegoaldeko rocka"
+
+#: libkcddb/genres.cpp:97
+#, kde-format
+msgid "Space"
+msgstr "Space-a"
+
+#: libkcddb/genres.cpp:97
+#, kde-format
+msgid "Speech"
+msgstr "Hitzaldia"
+
+#: libkcddb/genres.cpp:97
+#, kde-format
+msgid "Swing"
+msgstr "Swing-a"
+
+#: libkcddb/genres.cpp:97
+#, kde-format
+msgid "Symphonic Rock"
+msgstr "Rock sinfonikoa"
+
+#: libkcddb/genres.cpp:98
+#, kde-format
+msgid "Symphony"
+msgstr "Sinfonia"
+
+#: libkcddb/genres.cpp:98
+#, kde-format
+msgid "Synthpop"
+msgstr "Synthpop"
+
+#: libkcddb/genres.cpp:98
+#, kde-format
+msgid "Tango"
+msgstr "Tangoa"
+
+#: libkcddb/genres.cpp:98
+#, kde-format
+msgid "Techno-Industrial"
+msgstr "Tekno industriala"
+
+#: libkcddb/genres.cpp:99
+#, kde-format
+msgid "Techno"
+msgstr "Teknoa"
+
+#: libkcddb/genres.cpp:99
+#, kde-format
+msgid "Terror"
+msgstr "Beldurrezkoa"
+
+#: libkcddb/genres.cpp:99
+#, kde-format
+msgid "Thrash Metal"
+msgstr "Thrash Metal-a"
+
+#: libkcddb/genres.cpp:99
+#, kde-format
+msgid "Top 40"
+msgstr "40 onenak"
+
+#: libkcddb/genres.cpp:100
+#, kde-format
+msgid "Trailer"
+msgstr "Aurrerakina"
+
+#: libkcddb/genres.cpp:100
+#, kde-format
+msgid "Trance"
+msgstr "Trance-a"
+
+#: libkcddb/genres.cpp:100
+#, kde-format
+msgid "Tribal"
+msgstr "Tribala"
+
+#: libkcddb/genres.cpp:100
+#, kde-format
+msgid "Trip-Hop"
+msgstr "Trip-Hop-a"
+
+#: libkcddb/genres.cpp:101
+#, kde-format
+msgid "Vocal"
+msgstr "Ahotsezkoa"
+
+#: libkcddb/kcddb.cpp:19
+#, kde-format
+msgid "Success"
+msgstr "Arrakasta"
+
+#: libkcddb/kcddb.cpp:23
+#, kde-format
+msgid "Server error"
+msgstr "Errorea zerbitzarian"
+
+#: libkcddb/kcddb.cpp:27
+#, kde-format
+msgid "Host not found"
+msgstr "Ostalaria ez da aurkitu"
+
+#: libkcddb/kcddb.cpp:31
+#, kde-format
+msgid "No response"
+msgstr "Erantzunik ez"
+
+#: libkcddb/kcddb.cpp:35
+#, kde-format
+msgid "No record found"
+msgstr "Ez da erregistrorik aurkitu"
+
+#: libkcddb/kcddb.cpp:39
+#, kde-format
+msgid "Multiple records found"
+msgstr "Erregistro anitz aurkitu dira"
+
+#: libkcddb/kcddb.cpp:43
+#, kde-format
+msgid "Cannot save"
+msgstr "Ezin da gorde"
+
+#: libkcddb/kcddb.cpp:47
+#, kde-format
+msgid "Invalid category"
+msgstr "Kategoria ez da baliozkoa"
+
+#: libkcddb/kcddb.cpp:51
+#, kde-format
+msgid "Unknown error"
+msgstr "Errore ezezaguna"
+
+#: libkcddb/musicbrainz/musicbrainzlookup.cpp:112
+#, kde-format
+msgid "%1 (disc %2)"
+msgstr "%1 (diskoa %2)"
+
+#~ msgid "Track"
+#~ msgstr "Pista"
+
+#~ msgid "Length"
+#~ msgstr "Iraupena"
+
+#~ msgid "Title"
+#~ msgstr "Izenburua"
+
+#~ msgid "Artist"
+#~ msgstr "Artista"
+
+#~ msgid "Comment"
+#~ msgstr "Iruzkina"
+
+#~ msgid "Change Encoding"
+#~ msgstr "Aldatu kodeketa"
+
+#~ msgid "Revision:"
+#~ msgstr "Berrikuspena:"
+
+#~ msgid "Use the name of the artist if there is no title."
+#~ msgstr "Erabili artistaren izena izenbururik ez badago."
+
+#~ msgid "&Category:"
+#~ msgstr "&Kategoria:"
+
+#~ msgid ""
+#~ "Write names as \"first last\", not \"last, first\". Omit any leading \"The"
+#~ "\".  Use \"Various\" for compilations."
+#~ msgstr ""
+#~ "Idatzi izenak \"izena abizena\" moduan, \"abizena, izena\" moduaren "
+#~ "ordez. Ez idatzi \"The\" hasieran. Erabili \"Hainbat\" bildumetan."
+
+#~ msgid "&Artist:"
+#~ msgstr "&Artista:"
+
+#~ msgid "&Year:"
+#~ msgstr "&Urtea:"
+
+#~ msgid "&Genre:"
+#~ msgstr "&Generoa:"
+
+#~ msgid "Disc Id values must be unique within a category."
+#~ msgstr ""
+#~ "Diskoaren ID balioak bakarrik izan behar dira kategorian baten barnean"
+
+#~ msgid "&Multiple artists"
+#~ msgstr "&Artista anitzak"
+
+#~ msgid "Comment:"
+#~ msgstr "Iruzkina:"
+
+#~ msgid "&Title:"
+#~ msgstr "&Izenburua:"
+
+#~ msgid "Avoid custom values, as they will be written to CDDB as-is."
+#~ msgstr ""
+#~ "Ez ezarri balio pertsonalizaturi, CDDB sartzen diren bezala idatziko ditu "
+#~ "eta."
+
+#~ msgid "Disc Id:"
+#~ msgstr "Diskoaren IDa:"
+
+#~ msgid "Length:"
+#~ msgstr "Iraupena:"
+
+#~ msgid "For a CD-Extra, set title to \"Data\"."
+#~ msgstr "CD-Extra bat bada, ezarri \"Data\" izenburuari"
+
+#~ msgid "Change Encoding..."
+#~ msgstr "Aldatu kodeketa..."
+
+#~ msgid "Playing order:"
+#~ msgstr "Erreprodukzio ordena:"
+
+#~ msgctxt "artist - cdtitle"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgid "Preview"
+#~ msgstr "Aurrebista"
+
+#~ msgid "Encoding"
+#~ msgstr "Kodeketa:"
+
+#~ msgid "freedb.freedb.org"
+#~ msgstr "freedb.freedb.org"
+
+#, fuzzy
+#~| msgid "Dance"
+#~ msgid "Cancel"
+#~ msgstr "Dance-a"

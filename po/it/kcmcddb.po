@@ -1,0 +1,224 @@
+# translation of kcmcddb.po to Italian
+# Copyright (C) 2003, 2004, 2005, 2007 Free Software Foundation, Inc.
+# Daniele Medri <madrid@linuxmeeting.net>, 2003.
+# Giuseppe Ravasio <gravasio@bglug.it>, 2004.
+# ./SuperbepS <superbeps@bglug.it>, 2005.
+# Giuseppe Ravasio <gravasio@kng.it>, 2007, 2009.
+# Luigi Toscano <luigi.toscano@tiscali.it>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kcmcddb\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"PO-Revision-Date: 2020-03-16 00:25+0100\n"
+"Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
+"Language-Team: Italian <kde-i18n-it@kde.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 19.12.0\n"
+
+#: cddbconfigwidget.cpp:40
+#, kde-format
+msgid "Cache Locations"
+msgstr "Indirizzi della cache"
+
+#: cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could not fetch mirror list."
+msgstr "Impossibile scaricare l'elenco dei mirror."
+
+#: cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could Not Fetch"
+msgstr "Impossibile scaricare"
+
+#: cddbconfigwidget.cpp:79
+#, kde-format
+msgid "Select mirror"
+msgstr "Seleziona un mirror"
+
+#: cddbconfigwidget.cpp:80
+#, kde-format
+msgid "Select one of these mirrors"
+msgstr "Seleziona uno di questi mirror"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
+#: cddbconfigwidget.cpp:97 cddbconfigwidget.ui:129 cddbconfigwidget.ui:179
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:99 cddbconfigwidget.ui:124
+#, kde-format
+msgid "CDDB"
+msgstr "CDDB"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
+#: cddbconfigwidget.ui:7
+#, kde-format
+msgid "CDDB Settings"
+msgstr "Impostazioni CDDB"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
+#: cddbconfigwidget.ui:20
+#, kde-format
+msgid "&Lookup"
+msgstr "&Ricerca"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
+#: cddbconfigwidget.ui:26
+#, kde-format
+msgid "Enable MusicBrainz lookup"
+msgstr "Attiva la ricerca MusicBrainz"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
+#: cddbconfigwidget.ui:33
+#, kde-format
+msgid "Enable freedb lookup"
+msgstr "Attiva la ricerca freedb"
+
+#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
+#: cddbconfigwidget.ui:40
+#, kde-format
+msgid "Freedb Server"
+msgstr "Server freedb"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
+#: cddbconfigwidget.ui:46
+#, kde-format
+msgid "Freedb server:"
+msgstr "Server freedb:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:64
+#, kde-format
+msgid "Name of CDDB server which will be used to look up CD information."
+msgstr "Nome del server CDDB da usare per ottenere informazioni sul CD."
+
+#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:67
+#, kde-format
+msgid "gnudb.gnudb.org"
+msgstr "gnudb.gnudb.org"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: cddbconfigwidget.ui:80 cddbconfigwidget.ui:208 cddbconfigwidget.ui:241
+#, kde-format
+msgid "Port:"
+msgstr "Porta:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
+#: cddbconfigwidget.ui:93
+#, kde-format
+msgid "Port to connect to on CDDB server."
+msgstr "Porta di connessione del server CDDB."
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
+#: cddbconfigwidget.ui:108
+#, kde-format
+msgid "&Transport:"
+msgstr "&Trasporto:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.ui:120
+#, kde-format
+msgid "Type of lookup which should be tried at the CDDB server."
+msgstr "Tipo di ricerca da provare ad effettuare sul server CDDB."
+
+#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
+#: cddbconfigwidget.ui:137
+#, kde-format
+msgid "Show &Mirror List"
+msgstr "&Mostra l'elenco dei mirror"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
+#: cddbconfigwidget.ui:153
+#, kde-format
+msgid "&Submit"
+msgstr "&Invio"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: cddbconfigwidget.ui:161
+#, kde-format
+msgid "Email address:"
+msgstr "Indirizzo di posta elettronica:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
+#: cddbconfigwidget.ui:173
+#, kde-format
+msgid "Submit Method"
+msgstr "Metodo di invio"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: cddbconfigwidget.ui:189
+#, kde-format
+msgid "Server:"
+msgstr "Server:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
+#: cddbconfigwidget.ui:220
+#, kde-format
+msgid "SMTP (Email)"
+msgstr "SMTP (Email)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
+#: cddbconfigwidget.ui:266
+#, kde-format
+msgid "Server needs authentication"
+msgstr "Il server richiede autenticazione"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
+#: cddbconfigwidget.ui:286
+#, kde-format
+msgid "Reply-To:"
+msgstr "Rispondi a:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: cddbconfigwidget.ui:299
+#, kde-format
+msgid "SMTP server:"
+msgstr "Server SMTP:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: cddbconfigwidget.ui:306
+#, kde-format
+msgid "Username:"
+msgstr "Nome utente:"
+
+#: kcmcddb.cpp:41
+#, kde-format
+msgid ""
+"CDDB is used to get information like artist, title and song-names in CD's"
+msgstr ""
+"CDDB è utilizzato per prelevare informazioni come artista, titolo e nomi "
+"canzoni nel CD"
+
+#: kcmcddb.cpp:69
+#, kde-format
+msgid ""
+"freedb has been set to use HTTP for submissions because the email details "
+"you have entered are incomplete. Please review your email settings and try "
+"again."
+msgstr ""
+"Freedb è stato configurato per usare HTTP per gli invii perché i dettagli "
+"relativi alla posta elettronica sono incompleti. Controlla le impostazioni "
+"della posta e riprova."
+
+#: kcmcddb.cpp:72
+#, kde-format
+msgid "Incorrect Email Settings"
+msgstr "Impostazioni della posta elettronica errate"
+
+#~ msgid "freedb.freedb.org"
+#~ msgstr "freedb.freedb.org"
+
+#~ msgid "&Port:"
+#~ msgstr "&Porta:"

@@ -1,0 +1,478 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kscd;">
+  <!ENTITY package "kdemultimedia">
+  <!ENTITY % Ukrainian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<article id="kcmcddb" lang="&language;">
+
+<articleinfo>
+<title
+>Отримання CDDB</title>
+
+<authorgroup>
+
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> <affiliation
+><address
+>&Mike.McBride.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Jonathan</firstname
+> <surname
+>Singer</surname
+> <affiliation
+><address
+>&Jonathan.Singer.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>David</firstname
+> <surname
+>White</surname
+> <affiliation
+><address
+><email
+>a9403784@unet.univie.ac.at</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="developer"
+><firstname
+>Bernd</firstname
+> <othername
+>Johannes</othername
+> <surname
+>Wuebben</surname
+> <affiliation
+><address
+>&Bernd.Johannes.Wuebben.mail;</address
+></affiliation>
+<contrib
+>Розробник</contrib>
+</othercredit>
+
+<othercredit role="developer"
+><firstname
+>Dirk</firstname
+> <surname
+>Forsterling</surname
+> <affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>Розробник</contrib>
+</othercredit>
+
+<othercredit role="developer"
+><firstname
+>Dirk</firstname
+> <surname
+>Foersterling</surname
+> <affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>Розробник</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+><address
+>&Lauri.Watts.mail;</address
+></affiliation>
+<contrib
+>Рецензент</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year
+><year
+>2004</year>
+<holder
+>J Singer</holder>
+
+</copyright>
+<copyright>
+
+<year
+>2005-2006</year>
+<holder
+>&Mike.McBride;</holder>
+</copyright>
+
+<date
+>5 грудня 2013 року</date>
+<releaseinfo
+>&kde; 4.12</releaseinfo>
+
+</articleinfo>
+
+<sect1 id="cddb-page">
+<title
+>Отримання CDDB</title>
+<para
+>Модуль <guilabel
+>Отримання CDDB</guilabel
+> поділено між вкладками <guilabel
+>Пошук</guilabel
+> і <guilabel
+>Надсилання</guilabel
+>.</para>
+
+<sect2 id="lookup-tab">
+<title
+>Вкладка «Пошук»</title>
+<screenshot>
+<screeninfo
+>Вкладка <guilabel
+>Пошук</guilabel
+></screeninfo>
+<mediaobject>
+<imageobject
+> <imagedata fileref="kscd14.png" format="PNG"/> </imageobject>
+<textobject
+><phrase
+>Вкладка <guilabel
+>Пошук</guilabel
+></phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>На вкладці <guilabel
+>Пошук</guilabel
+> можна налаштувати функціональні можливості <acronym
+>CDDB</acronym
+> програми &kde;.</para>
+
+<para
+>Ви можете обрати пункт <guilabel
+>Увімкнути пошук у MusicBrainz</guilabel
+> або пункт <guilabel
+>Увімкнути пошук у freedb</guilabel
+>.</para>
+
+<para
+>У розділі <guilabel
+>Сервер Freedb</guilabel
+> визначає дзеркало CDDB, яке буде використано &kde; для отримання інформації щодо альбому. Ви можете ввести назву сервера, номер порту і протокол за допомогою полів для введення тексту і спадних списків, або можете натиснути кнопку <guibutton
+>Показати список дзеркал</guibutton
+>. Натискання останньої кнопки призведе до відкриття нового вікна зі списком дзеркал CDDB і їх адресами. Вам просто слід обрати потрібний сервер зі списку і натиснути кнопку <guibutton
+>Гаразд</guibutton
+>.</para>
+
+<para
+>У розділі з міткою <guilabel
+>Адреси кешу</guilabel
+> ви можете визначити місце, де зберігатиметься інформація CDDB на вашому комп’ютері. Щоб додати теку, введіть адресу теки у поле для введення тексту вгорі розділу, а потім натиснути кнопку <guibutton
+>Додати</guibutton
+>. Ви також можете вибрати теку, якщо натиснете блакитну позначку теки праворуч від поля для введення тексту. Щоб вилучити теку, наведіть вказівник миші на позначку з назвою теки і клацніть лівою кнопкою миші, а потім натисніть кнопку <guibutton
+>Вилучити</guibutton
+>. Ви можете змінити порядок, у якому буде виконуватися пошуку у теках, якщо наведете вказівник миші на позначку з назвою теки і клацнете лівою кнопкою миші, а потім натиснете кнопки <guibutton
+>Пересунути вгору</guibutton
+> або <guibutton
+>Пересунути вниз</guibutton
+>.</para>
+
+<para
+>Кнопка <guibutton
+>Довідка</guibutton
+> відкриває сторінку з вмістом довідника. Кнопка <guibutton
+>Типові значення</guibutton
+> відновлює типові значення всіх записів цього діалогового вікна; кнопка <guibutton
+>Гаразд</guibutton
+> зберігає поточні параметри і закриває вікно; кнопка <guibutton
+>Застосувати</guibutton
+> зберігає поточні параметри без закриття вікна налаштування.</para>
+
+</sect2>
+
+<sect2 id="submit-tab">
+<title
+>Вкладка «Надсилання»</title>
+
+<screenshot>
+<screeninfo
+>Вкладка «Надсилання»</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="kscd16.png" format="PNG"/></imageobject>
+</mediaobject>
+</screenshot>
+
+<para
+>За допомогою вкладки <guilabel
+>Надсилання</guilabel
+> можна встановити параметри з’єднання з поштовим сервером або сервером тенет, куди буде надіслано нові записи <acronym
+>CDDB</acronym
+>. Це корисно, якщо ви не налаштували власну систему як сервер. </para>
+
+<para
+>Якщо ви плануєте надсилати записи до CDDB, введіть вашу адресу електронної пошти у перше поле для введення тексту, а потім вирішіть, у який спосіб ви надсилатимете інформацію: за допомогою &HTTP; або будете надсилати записи у вигляді електронних листів (за допомогою &SMTP;). </para>
+
+<tip
+><para
+>Простіше надсилати нові записи за допомогою &HTTP;. Але деякі з брандмауерів блокують такий вид пересилань. Якщо ваш брандмауер забороняє надсилання нових записів за допомогою &HTTP;, ви можете скористатися &SMTP;.</para
+></tip>
+
+<para
+>Спочатку виберіть один з протоколів: <guilabel
+>&HTTP;</guilabel
+> або <guilabel
+>SMTP</guilabel
+>, для використання.</para>
+
+<sect3 id="http-options">
+<title
+>Використання &HTTP; для надсилання інформації до CDDB</title>
+<para
+>У поля для введення тексту ви можете ввести назву сервера і номер порту. Якщо ви бажаєте надсилати цю інформацію на міжнародні сервери, вам не слід нічого змінювати.</para>
+</sect3>
+
+<sect3 id="smtp-options">
+<title
+>Використання &SMTP; (електронної пошти) для надсилання інформації до CDDB</title>
+
+<para
+>Щоб підготувати програму до надсилання інформації за допомогою електронної пошти, введіть вашу адресу електронної пошту у поле для введення тексту з міткою <guilabel
+>Відповідати:</guilabel
+>, ваш сервер електронної пошти у поле для введення тексту з міткою <guilabel
+>Сервер SMTP:</guilabel
+>, а номер порту можна ввести у поле лічильника з міткою <guilabel
+>Порт:</guilabel
+>.</para>
+<para
+>Якщо для надсилання електронних листів за допомогою цього поштового сервера вам слід вказати пароль, залиште позначку у полі з міткою <guilabel
+>Сервер вимагає автентифікації</guilabel
+> і введіть вашого користувача у поле для введення тексту з міткою <guilabel
+>Користувач</guilabel
+>.</para>
+
+</sect3>
+</sect2>
+</sect1>
+
+<!-- follwing chapters need proofreading -->
+<sect1 id="cddb-editor">
+<title
+>Редактор бази даних КД</title>
+
+<screenshot>
+<screeninfo
+>Редактор бази даних КД</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="kscd13.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Редактор бази даних КД</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Редактор бази даних КД надає вам змогу змінювати, отримувати, зберігати, анотувати та вивантажувати записи <link linkend="cddb-support"
+><acronym
+>CDDB</acronym
+> (Compact Disc Data Base або бази даних компакт дисків)</link
+>.</para>
+
+<para
+>Якщо для компакт-диска у вашому пристрої для зчитування компакт-дисків є запис у дереві вашої локальної <acronym
+>CDDB</acronym
+> (див. <link linkend="cddb-page"
+>підрозділ CDDB</link
+> у главі про налаштування) або якщо цей диск можна знайти у freedb, ви побачите назву виконавця і назву компакт-диска у полях <guilabel
+>Виконавець:</guilabel
+> і <guilabel
+>Заголовок</guilabel
+>, а також список доріжок з назвами пісень на панелі вибору <interface
+>Доріжок</interface
+>. У іншому випадку ви побачите список доріжок і час їх відтворення без заголовків.</para>
+
+<para
+>Ви можете вказати анотацію для всього диска за допомогою поля <guilabel
+>Коментар</guilabel
+> під полем <guilabel
+>Заголовок</guilabel
+>, або анотувати окрему доріжку на панелі вибору <guilabel
+>Доріжок</guilabel
+> за допомогою відповідної кнопки <guibutton
+>Коментар</guibutton
+>. Якщо ви оберете доріжку на панелі вибору <guilabel
+>Доріжок</guilabel
+>, її назва, якщо така назва відома програмі, з’явиться у полі <guilabel
+>Заголовок</guilabel
+>, розташованому нижче. Ви можете ввести заголовок доріжки у полу або змінити запис, відповідно до ваших потреб. Після натискання клавіші <keycap
+>Enter</keycap
+> текст з’явиться у відповідному рядку панелі вибору.</para>
+
+<para
+>Після того, як ви вкажете назви всіх доріжок, а також заповните поля <guilabel
+>Виконавець:</guilabel
+> та <guilabel
+>Заголовок</guilabel
+>, ви можете натиснути клавішу <guibutton
+>Вивантажити</guibutton
+>, щоб надіслати цю інформацію електронною поштою до freedb.</para>
+
+<para
+>Програма запитає вас про категорію надісланої інформації. У розділі <guilabel
+>ІД диска</guilabel
+> буде показано 32-бітовий код ідентифікатора, який freedb використовуватиме для визначення диска. Над кодом ідентифікатора розташовано поле категорії запису <guilabel
+>freedb</guilabel
+>. Ці категорії відповідають підтеками дерева, які обрано у розділі <guilabel
+>Базова тека freedb:</guilabel
+> на <link linkend="cddb-page"
+>сторінці <guilabel
+>CDDB</guilabel
+></link
+> вікна налаштувань.</para>
+
+<para
+>У області показу <guilabel
+>Тривалість:</guilabel
+> відображено загальний час відтворення компакт-диска.</para>
+
+<para
+>Щоб отримати дані <acronym
+>CDDB</acronym
+>, натисніть кнопку <guibutton
+>Отримати інформацію</guibutton
+>. Після цього натисніть кнопку <guibutton
+>Гаразд</guibutton
+>, щоб зберегти зміни локально. Кнопка <guibutton
+>Скасувати</guibutton
+> закриє вікно редактора бази даних компакт-дисків без збереження інформації.</para>
+
+</sect1>
+
+<sect1 id="cddb-support">
+<title
+>Підтримка <acronym
+>CDDB</acronym
+></title>
+
+<para
+>freedb — це розподілена мережева база даних, доступ до якої можна отримати за допомогою мережі Інтернет. У цій базі даних міститься інформація щодо більшості компакт-дисків, які знаходяться у обігу. Якщо у вашого комп’ютера є доступ до мережі Інтернет, вам, швидше за все, ніколи не доведеться вводити інформацію про доріжки вашого компакт-диска вручну, вам достатньо лише правильно все налаштувати. Прочитайте розділ <link linkend="cddb-page"
+>Сторінка CDDB</link
+>, щоб дістати докладні інструкції щодо налаштування цієї служби, і розділ, присвячений <link linkend="cddb-editor"
+>Редактору бази даних КД</link
+>, щоб дізнатися про те, як змінювати записи <acronym
+>CDDB</acronym
+>.</para>
+
+<para
+>Користування <acronym
+>CDDB</acronym
+> є безкоштовним. Внески від користувачів приймаються з вдячністю.</para>
+
+<para
+>Під час підготовки записів для <acronym
+>CDDB</acronym
+>, будь ласка, пам’ятайте про такі речі:</para>
+
+<itemizedlist>
+<listitem
+><para
+>Для записів слід використовувати лише <quote
+>стандартні</quote
+> символи латиниці. У бази даних є підтримка деяких спеціальних символів, але, наприклад, внески записів з символами кирилиці або грецької абетки не є прийнятними.</para
+></listitem>
+<listitem
+><para
+>Використовуйте лише один символ <keysym
+>/</keysym
+> у полі <guilabel
+>Виконавець диска / Заголовок</guilabel
+> редактора бази даних КД.</para>
+
+<para
+>Звичайною практикою для класичний компакт-дисків є додавання імені композитора до розділу «Виконавець» (перед похилою рискою), а також імені особи, що виконує твір, у розділ «Заголовок» (після похилої риски).</para
+></listitem
+> 
+<listitem
+><para
+>Якщо ви надсилаєте запис, який уже існує у базі даних, будь-яку додаткову інформацію, яку ви надасте, може бути додано до існуючого запису.</para>
+</listitem>
+</itemizedlist>
+
+<para
+>Типово, основні категорії <acronym
+>CDDB</acronym
+> буде встановлено до теки <filename class="directory"
+>$HOME/share/apps/kscd/cddb</filename
+>. Ви можете створюватися будь-яку кількість підтеку у головній категорії. Але під час вивантаження буде показано лише офіційні категорії <acronym
+>CDDB</acronym
+>. Типовою адресою для вивантаження є <email
+>gnudb-submit@gnudb.org</email
+>. Щоб дізнатися більше про <abbrev
+>gnudb</abbrev
+>, відвідайте домашню сторінку <abbrev
+>gnudb</abbrev
+>.</para>
+
+<para
+>Локальний запис <acronym
+>CDDB</acronym
+> окремого компакт-диска зберігається у файлі <filename
+><replaceable
+>назва категорії</replaceable
+>/<replaceable
+>ідентифікатор диска</replaceable
+></filename
+> у основній теці <acronym
+>CDDB</acronym
+>. Файли таких записів можна змінювати у будь-якому текстовому редакторі.</para>
+</sect1>
+
+</article>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->

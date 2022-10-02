@@ -1,0 +1,252 @@
+# translation of kcmcddb.po to Nepali
+# shyam krishna ball <shyamkrishna_bal@yahoo.com>, 2006.
+# Mahesh Subedi <submanesh@gmail.com>, 2007.
+# Nabin Gautam <nabin@mpp.org.np>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: kcmcddb\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"PO-Revision-Date: 2007-08-20 12:37+0545\n"
+"Last-Translator: Nabin Gautam <nabin@mpp.org.np>\n"
+"Language-Team: Nepali <info@mpp.org.np>\n"
+"Language: ne\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n !=1\n"
+"\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: cddbconfigwidget.cpp:40
+#, kde-format
+msgid "Cache Locations"
+msgstr "क्यास स्थान"
+
+#: cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could not fetch mirror list."
+msgstr "मिरर सूची तान्न सकेन ।"
+
+#: cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could Not Fetch"
+msgstr "तान्न सकेन"
+
+#: cddbconfigwidget.cpp:79
+#, kde-format
+msgid "Select mirror"
+msgstr "मिरर चयन गर्नुहोस्"
+
+#: cddbconfigwidget.cpp:80
+#, kde-format
+msgid "Select one of these mirrors"
+msgstr "यी मिरर मध्ये एउटा रोज्नुहोस्"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
+#: cddbconfigwidget.cpp:97 cddbconfigwidget.ui:129 cddbconfigwidget.ui:179
+#, kde-format
+msgid "HTTP"
+msgstr "एचटीटीपी"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:99 cddbconfigwidget.ui:124
+#, kde-format
+msgid "CDDB"
+msgstr "सीडीडीबी"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
+#: cddbconfigwidget.ui:7
+#, kde-format
+msgid "CDDB Settings"
+msgstr "सीडीडीबी सेटिङ"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
+#: cddbconfigwidget.ui:20
+#, kde-format
+msgid "&Lookup"
+msgstr "हेराइ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
+#: cddbconfigwidget.ui:26
+#, kde-format
+msgid "Enable MusicBrainz lookup"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
+#: cddbconfigwidget.ui:33
+#, kde-format
+msgid "Enable freedb lookup"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
+#: cddbconfigwidget.ui:40
+#, fuzzy, kde-format
+#| msgid "SMTP server:"
+msgid "Freedb Server"
+msgstr "एसएमटीपी सर्भर:"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
+#: cddbconfigwidget.ui:46
+#, fuzzy, kde-format
+#| msgid "SMTP server:"
+msgid "Freedb server:"
+msgstr "एसएमटीपी सर्भर:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:64
+#, kde-format
+msgid "Name of CDDB server which will be used to look up CD information."
+msgstr "सीडी जानकारी हेर्न प्रयोग गरिने सीडीडीबी सर्भरको नाम"
+
+#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:67
+#, kde-format
+msgid "gnudb.gnudb.org"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: cddbconfigwidget.ui:80 cddbconfigwidget.ui:208 cddbconfigwidget.ui:241
+#, kde-format
+msgid "Port:"
+msgstr "पोर्ट:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
+#: cddbconfigwidget.ui:93
+#, kde-format
+msgid "Port to connect to on CDDB server."
+msgstr "सीडीडीबी सर्भरमा जडान गर्न पोर्ट गर्नुहोस् ।"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
+#: cddbconfigwidget.ui:108
+#, kde-format
+msgid "&Transport:"
+msgstr "पारवाहन:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.ui:120
+#, kde-format
+msgid "Type of lookup which should be tried at the CDDB server."
+msgstr "सीडीडीबी सर्भरमा प्रयास गरिने हेराइको प्रकार ।"
+
+#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
+#: cddbconfigwidget.ui:137
+#, kde-format
+msgid "Show &Mirror List"
+msgstr "मिरर सूची देखाउनुहोस्"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
+#: cddbconfigwidget.ui:153
+#, kde-format
+msgid "&Submit"
+msgstr "पेश गर्नुहोस्"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: cddbconfigwidget.ui:161
+#, kde-format
+msgid "Email address:"
+msgstr "इमेल ठेगाना:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
+#: cddbconfigwidget.ui:173
+#, kde-format
+msgid "Submit Method"
+msgstr "विधि पेश गर्नुहोस्"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: cddbconfigwidget.ui:189
+#, kde-format
+msgid "Server:"
+msgstr "सर्भर:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
+#: cddbconfigwidget.ui:220
+#, kde-format
+msgid "SMTP (Email)"
+msgstr "एसएमटीपी (इमेल)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
+#: cddbconfigwidget.ui:266
+#, kde-format
+msgid "Server needs authentication"
+msgstr "सर्भरलाई प्रमाणीकरणको आवश्यक पर्दछ"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
+#: cddbconfigwidget.ui:286
+#, kde-format
+msgid "Reply-To:"
+msgstr "यसलाई जवाफ दिनुहोस्:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: cddbconfigwidget.ui:299
+#, kde-format
+msgid "SMTP server:"
+msgstr "एसएमटीपी सर्भर:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: cddbconfigwidget.ui:306
+#, kde-format
+msgid "Username:"
+msgstr "प्रयोगकर्ता नाम:"
+
+#: kcmcddb.cpp:41
+#, kde-format
+msgid ""
+"CDDB is used to get information like artist, title and song-names in CD's"
+msgstr "सीडीडीबी सीडीमा सूचना प्राप्त गर्न प्रयोग गरिन्छ जस्तै कलाकार, शीर्षक र गीत-नाम"
+
+#: kcmcddb.cpp:69
+#, kde-format
+msgid ""
+"freedb has been set to use HTTP for submissions because the email details "
+"you have entered are incomplete. Please review your email settings and try "
+"again."
+msgstr ""
+"फ्रि डी बी दाखिलाका लागि एचटीटीपी प्रयोग गर्न सेट गरियो किनभने तपाईँले प्रविष्ट "
+"गर्नुभएको इमेल विवरण अपूर्ण छ । कृपया तपाईँको इमेल सेटिङ पूर्वावलोकन गर्नुहोस् र फेरि प्रयास "
+"गर्नुहोस् ।"
+
+#: kcmcddb.cpp:72
+#, kde-format
+msgid "Incorrect Email Settings"
+msgstr "अशुद्ध इमेल सेटिङ"
+
+#~ msgid "freedb.freedb.org"
+#~ msgstr "freedb.freedb.org"
+
+#~ msgid "&Port:"
+#~ msgstr "पोर्ट:"
+
+#~ msgid "Mode"
+#~ msgstr "मोड"
+
+#~ msgid "Only check in the local cache for CD information."
+#~ msgstr "सीडी जानकारीका लागि स्थानीय क्यास मात्र जाँच गर्नुहोस् ।"
+
+#~ msgid "&Cache only"
+#~ msgstr "क्यास मात्र"
+
+#~ msgid ""
+#~ "Check for locally cached CD information before trying to look up at "
+#~ "remote CDDB server."
+#~ msgstr ""
+#~ "टाढाको सीडीडीबी सर्भरमा हेर्ने प्रयास गर्नु अघि स्थानीय रूपमा क्यास गरिएको सीडी "
+#~ "जानकारीका लागि जाँच्नुहोस् ।"
+
+#~ msgid "Cache &and remote"
+#~ msgstr "क्यास र टाढा"
+
+#~ msgid "Only try to look up at remote CDDB server."
+#~ msgstr "टाढाको सीडीडीबी सर्भरमा मात्र हेर्ने प्रयास गर्नुहोस् ।"
+
+#~ msgid "&Remote only"
+#~ msgstr "टाढाको मात्र"
+
+#~ msgid "CDDB Server"
+#~ msgstr "सीडीडीबी सर्भर"
+
+#~ msgid "CDD&B server:"
+#~ msgstr "सीडीडीबी सर्भर:"

@@ -1,0 +1,310 @@
+# Chinese (Hong Kong) Translation of kcmcddb
+# Copyright (C) 2002 Free Software Foundation, Inc.
+# tonniewalker <tonniewalker@hotmail.com>, 2002.
+# Walter Cheuk <wwycheuk@netvigator.com>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kcmcddb\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"PO-Revision-Date: 2006-01-13 18:03+0800\n"
+"Last-Translator: Walter Cheuk <wwycheuk@netvigator.com>\n"
+"Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
+"Language: zh_HK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: cddbconfigwidget.cpp:40
+#, kde-format
+msgid "Cache Locations"
+msgstr "快取位置"
+
+#: cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could not fetch mirror list."
+msgstr "無法取得鏡站清單。"
+
+#: cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could Not Fetch"
+msgstr "無法取得"
+
+#: cddbconfigwidget.cpp:79
+#, kde-format
+msgid "Select mirror"
+msgstr "選擇鏡站"
+
+#: cddbconfigwidget.cpp:80
+#, kde-format
+msgid "Select one of these mirrors"
+msgstr "選擇這些鏡站的其中一個"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
+#: cddbconfigwidget.cpp:97 cddbconfigwidget.ui:129 cddbconfigwidget.ui:179
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:99 cddbconfigwidget.ui:124
+#, kde-format
+msgid "CDDB"
+msgstr "CDDB"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
+#: cddbconfigwidget.ui:7
+#, kde-format
+msgid "CDDB Settings"
+msgstr "CDDB 設置"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
+#: cddbconfigwidget.ui:20
+#, kde-format
+msgid "&Lookup"
+msgstr "查詢(&L)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
+#: cddbconfigwidget.ui:26
+#, kde-format
+msgid "Enable MusicBrainz lookup"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
+#: cddbconfigwidget.ui:33
+#, kde-format
+msgid "Enable freedb lookup"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
+#: cddbconfigwidget.ui:40
+#, fuzzy, kde-format
+#| msgid "SMTP server:"
+msgid "Freedb Server"
+msgstr "SMTP 伺服器:"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
+#: cddbconfigwidget.ui:46
+#, fuzzy, kde-format
+#| msgid "SMTP server:"
+msgid "Freedb server:"
+msgstr "SMTP 伺服器:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:64
+#, kde-format
+msgid "Name of CDDB server which will be used to look up CD information."
+msgstr "將用來查詢 CD 資訊的 CDDB 伺服器名稱。"
+
+#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:67
+#, kde-format
+msgid "gnudb.gnudb.org"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: cddbconfigwidget.ui:80 cddbconfigwidget.ui:208 cddbconfigwidget.ui:241
+#, kde-format
+msgid "Port:"
+msgstr "連接埠:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
+#: cddbconfigwidget.ui:93
+#, kde-format
+msgid "Port to connect to on CDDB server."
+msgstr "在 CDDB 伺服器上要連接的連接埠。"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
+#: cddbconfigwidget.ui:108
+#, kde-format
+msgid "&Transport:"
+msgstr "傳輸(&T):"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.ui:120
+#, kde-format
+msgid "Type of lookup which should be tried at the CDDB server."
+msgstr "應在 CDDB 伺服器嘗試的查詢類型。"
+
+#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
+#: cddbconfigwidget.ui:137
+#, kde-format
+msgid "Show &Mirror List"
+msgstr "顯示鏡站清單(&M)"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
+#: cddbconfigwidget.ui:153
+#, kde-format
+msgid "&Submit"
+msgstr "提交(&S)"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: cddbconfigwidget.ui:161
+#, kde-format
+msgid "Email address:"
+msgstr "電子郵件地址:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
+#: cddbconfigwidget.ui:173
+#, kde-format
+msgid "Submit Method"
+msgstr "提交方法"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: cddbconfigwidget.ui:189
+#, kde-format
+msgid "Server:"
+msgstr "伺服器:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
+#: cddbconfigwidget.ui:220
+#, kde-format
+msgid "SMTP (Email)"
+msgstr "SMTP (電郵)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
+#: cddbconfigwidget.ui:266
+#, kde-format
+msgid "Server needs authentication"
+msgstr "伺服器需要認證"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
+#: cddbconfigwidget.ui:286
+#, kde-format
+msgid "Reply-To:"
+msgstr "回覆至:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: cddbconfigwidget.ui:299
+#, kde-format
+msgid "SMTP server:"
+msgstr "SMTP 伺服器:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: cddbconfigwidget.ui:306
+#, kde-format
+msgid "Username:"
+msgstr "用戶名稱:"
+
+#: kcmcddb.cpp:41
+#, kde-format
+msgid ""
+"CDDB is used to get information like artist, title and song-names in CD's"
+msgstr "CDDB 用來取得 CD 中諸如藝人、標題及歌曲名稱等資訊。"
+
+#: kcmcddb.cpp:69
+#, kde-format
+msgid ""
+"freedb has been set to use HTTP for submissions because the email details "
+"you have entered are incomplete. Please review your email settings and try "
+"again."
+msgstr ""
+"因為你輸入的電郵細節不完整， freedb 已設定為使用 HTTP 來提交資料。請重新檢視"
+"你的電郵設置然後重試。"
+
+#: kcmcddb.cpp:72
+#, kde-format
+msgid "Incorrect Email Settings"
+msgstr "不正確的電郵設置"
+
+#~ msgid "freedb.freedb.org"
+#~ msgstr "freedb.freedb.org"
+
+#~ msgid "&Port:"
+#~ msgstr "連接埠(&P):"
+
+#~ msgid "Mode"
+#~ msgstr "模式"
+
+#~ msgid "Only check in the local cache for CD information."
+#~ msgstr "只檢查本機快取中的 CD 資訊。"
+
+#~ msgid "&Cache only"
+#~ msgstr "只檢查快取(&C)"
+
+#~ msgid ""
+#~ "Check for locally cached CD information before trying to look up at "
+#~ "remote CDDB server."
+#~ msgstr "在試著查詢遠端 CDDB 伺服器前，先檢查儲存在本機快取的 CD 資訊。"
+
+#~ msgid "Cache &and remote"
+#~ msgstr "快取及遠端(&A)"
+
+#~ msgid "Only try to look up at remote CDDB server."
+#~ msgstr "只嘗試查詢遠端 CDDB 伺服器。"
+
+#~ msgid "&Remote only"
+#~ msgstr "只查詢遠端資訊(&R)"
+
+#~ msgid "CDDB Server"
+#~ msgstr "CDDB 伺服器"
+
+#~ msgid "CDD&B server:"
+#~ msgstr "CDD&B 伺服器:"
+
+#, fuzzy
+#~ msgid "Enable submission via email"
+#~ msgstr "能夠送出意見(&E)"
+
+#, fuzzy
+#~ msgid "SMTP Server"
+#~ msgstr "SMTP 伺服器：(&S)"
+
+#, fuzzy
+#~ msgid "Host:"
+#~ msgstr "埠："
+
+#, fuzzy
+#~ msgid "<h1>TODO: write this help</h1>"
+#~ msgstr "<h1>被寫入</h1>"
+
+#~ msgid "Use local cache &before CDDB server"
+#~ msgstr "在使用 CDDB 伺服器前，使用當地的快取(&B)"
+
+#~ msgid "Submissions"
+#~ msgstr "意見"
+
+#~ msgid ""
+#~ "Allow submission of CD info to a CDDB server. Enabling this makes you a "
+#~ "good netizen."
+#~ msgstr ""
+#~ "允許送出 CD 資訊意見給 CDDB 伺服器。致能這個選項可以讓您成為一位好的網路公"
+#~ "民。"
+
+#~ msgid "freedb-submit@freedb.org"
+#~ msgstr "freedb-submit@freedb.org"
+
+#~ msgid "Email address which will be used for SMTP CD info submissions."
+#~ msgstr "用在 SMTP CD 資訊意見的電子郵件位址。"
+
+#~ msgid "HTTP Transport"
+#~ msgstr "HTTP 傳輸"
+
+#~ msgid "&HTTP Proxy:"
+#~ msgstr "HTTP 代理伺服器(&H)"
+
+#~ msgid "http://"
+#~ msgstr "http://"
+
+#~ msgid "Name of HTTP proxy server."
+#~ msgstr "HTTP 代理伺服器的名稱。"
+
+#~ msgid "Port to connect to on HTTP proxy server."
+#~ msgstr "連結 HTTP 代理伺服器的埠。"
+
+#~ msgid "Use HTTP pro&xy"
+#~ msgstr "使用 HTTP 代理(&X)"
+
+#~ msgid "Possibly needed if you are behind a firewall."
+#~ msgstr "如果您位於防火牆後方，可能需要。"
+
+#~ msgid "Port to connect to on SMTP server."
+#~ msgstr "連結 SMTP 伺服器的埠。"
+
+#~ msgid "SMTP server which submissions will be sent to."
+#~ msgstr "送達意見的 SMTP 伺服器。"

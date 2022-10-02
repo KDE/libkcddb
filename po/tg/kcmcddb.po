@@ -1,0 +1,296 @@
+# translation of kcmcddb.po to Tajik
+# translation of kcmcddb.po to Тоҷикӣ
+# Copyright (C) 2004 Free Software Foundation, Inc.
+# 2004, infoDev, a World Bank organization
+# 2004, Khujand Computer Technologies, Inc.
+# 2004, KCT1, NGO
+# Roger Kovacs <rkovacs@khujand.org>, 2004
+# Dilshod Marupov <dma165@hotmail.com>, 2004
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kcmcddb\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"PO-Revision-Date: 2004-06-08 15:14+0000\n"
+"Last-Translator: Abrorova\n"
+"Language-Team:  <tajik>\n"
+"Language: tg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: cddbconfigwidget.cpp:40
+#, fuzzy, kde-format
+msgid "Cache Locations"
+msgstr "Танҳо &ниҳонӣ"
+
+#: cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could not fetch mirror list."
+msgstr ""
+
+#: cddbconfigwidget.cpp:75
+#, kde-format
+msgid "Could Not Fetch"
+msgstr ""
+
+#: cddbconfigwidget.cpp:79
+#, kde-format
+msgid "Select mirror"
+msgstr ""
+
+#: cddbconfigwidget.cpp:80
+#, kde-format
+msgid "Select one of these mirrors"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
+#: cddbconfigwidget.cpp:97 cddbconfigwidget.ui:129 cddbconfigwidget.ui:179
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:99 cddbconfigwidget.ui:124
+#, kde-format
+msgid "CDDB"
+msgstr "CDDB"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
+#: cddbconfigwidget.ui:7
+#, kde-format
+msgid "CDDB Settings"
+msgstr "Гузоришҳои CDDB"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
+#: cddbconfigwidget.ui:20
+#, kde-format
+msgid "&Lookup"
+msgstr "&Азназаргузаронӣ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
+#: cddbconfigwidget.ui:26
+#, kde-format
+msgid "Enable MusicBrainz lookup"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
+#: cddbconfigwidget.ui:33
+#, kde-format
+msgid "Enable freedb lookup"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
+#: cddbconfigwidget.ui:40
+#, fuzzy, kde-format
+msgid "Freedb Server"
+msgstr "SMTP Хидматрасон"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
+#: cddbconfigwidget.ui:46
+#, fuzzy, kde-format
+msgid "Freedb server:"
+msgstr "SMTP Хидматрасон"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:64
+#, kde-format
+msgid "Name of CDDB server which will be used to look up CD information."
+msgstr ""
+"Номи CDDB хидматрасон, ки барои ҷустуҷӯи ахборот оиди Диски Фишурда истифода "
+"мешавад."
+
+#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:67
+#, kde-format
+msgid "gnudb.gnudb.org"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: cddbconfigwidget.ui:80 cddbconfigwidget.ui:208 cddbconfigwidget.ui:241
+#, kde-format
+msgid "Port:"
+msgstr "Даргоҳ:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
+#: cddbconfigwidget.ui:93
+#, kde-format
+msgid "Port to connect to on CDDB server."
+msgstr "Даргоҳ барои пайвастшавӣ бо CDDB хидматрасон."
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
+#: cddbconfigwidget.ui:108
+#, kde-format
+msgid "&Transport:"
+msgstr "&Интиқол:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.ui:120
+#, kde-format
+msgid "Type of lookup which should be tried at the CDDB server."
+msgstr "Навъи дастрасӣ ба CDDB хидматрасон."
+
+#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
+#: cddbconfigwidget.ui:137
+#, kde-format
+msgid "Show &Mirror List"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
+#: cddbconfigwidget.ui:153
+#, kde-format
+msgid "&Submit"
+msgstr "&Фиристодан"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: cddbconfigwidget.ui:161
+#, kde-format
+msgid "Email address:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
+#: cddbconfigwidget.ui:173
+#, fuzzy, kde-format
+msgid "Submit Method"
+msgstr "&Фиристодан"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: cddbconfigwidget.ui:189
+#, fuzzy, kde-format
+msgid "Server:"
+msgstr "SMTP Хидматрасон"
+
+#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
+#: cddbconfigwidget.ui:220
+#, kde-format
+msgid "SMTP (Email)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
+#: cddbconfigwidget.ui:266
+#, kde-format
+msgid "Server needs authentication"
+msgstr "Ба хидматрасон аслшиносӣ лозим аст"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
+#: cddbconfigwidget.ui:286
+#, kde-format
+msgid "Reply-To:"
+msgstr "Ҷавоб гардонидан ба:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: cddbconfigwidget.ui:299
+#, fuzzy, kde-format
+msgid "SMTP server:"
+msgstr "SMTP Хидматрасон"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: cddbconfigwidget.ui:306
+#, fuzzy, kde-format
+msgid "Username:"
+msgstr "Номи корванд:"
+
+#: kcmcddb.cpp:41
+#, kde-format
+msgid ""
+"CDDB is used to get information like artist, title and song-names in CD's"
+msgstr ""
+"CDDB барои гирифтани ахборот ба монанди сароянда, унвон ва номҳои сурудҳо "
+"истифода мешавад"
+
+#: kcmcddb.cpp:69
+#, fuzzy, kde-format
+msgid ""
+"freedb has been set to use HTTP for submissions because the email details "
+"you have entered are incomplete. Please review your email settings and try "
+"again."
+msgstr ""
+"фиристодани додаҳо оиди диски фишурда ба воситаи SMTP хомӯш\n"
+"шудааст аз сабаби он, ки ҷузъҳои пости электроние, ки\n"
+"шумо ворид намудаед, нопурраанд. Марҳамат карда гузоришҳои пости\n"
+"электронии худро аз назар гузаронед ва бори дигар кӯшиш кунед."
+
+#: kcmcddb.cpp:72
+#, fuzzy, kde-format
+msgid "Incorrect Email Settings"
+msgstr "Суроғаҳои пости электронии зеринро истифода баред"
+
+#~ msgid "freedb.freedb.org"
+#~ msgstr "freedb.freedb.org"
+
+#~ msgid "&Port:"
+#~ msgstr "&Даргоҳ:"
+
+#~ msgid "Mode"
+#~ msgstr "Усул"
+
+#~ msgid "Only check in the local cache for CD information."
+#~ msgstr "Ахборот оиди Диски Фишурдаро танҳо дар ниҳонии маҳаллӣ санҷед."
+
+#~ msgid "&Cache only"
+#~ msgstr "Танҳо &ниҳонӣ"
+
+#~ msgid ""
+#~ "Check for locally cached CD information before trying to look up at "
+#~ "remote CDDB server."
+#~ msgstr ""
+#~ "Пеш аз азназаргузаронии CDDB хидматрасон, ахборотро оиди Диски Фишурда "
+#~ "дар ниҳонии маҳаллӣ, санҷед."
+
+#~ msgid "Cache &and remote"
+#~ msgstr "Ниҳон &ва дурдаст"
+
+#~ msgid "Only try to look up at remote CDDB server."
+#~ msgstr "Танҳо кӯшиши азназаргузарониро CDDB хидматрасони дурдаст кунед."
+
+#~ msgid "&Remote only"
+#~ msgstr "Танҳо &дурдаст"
+
+#~ msgid "CDDB Server"
+#~ msgstr "CDDB Хидматрасон"
+
+#~ msgid "CDD&B server:"
+#~ msgstr "CDD&B хидматрасон:"
+
+#~ msgid "Freedb Submissions Disabled"
+#~ msgstr "Фиристодани Додаҳо оиди Диски Фишурда Хомӯш шудааст"
+
+#, fuzzy
+#~ msgid "Enable submission via email"
+#~ msgstr "Фиристодани ахборотро ба воситаи SMTP даргиронед"
+
+#~ msgid "Open the email address control panel"
+#~ msgstr "Панели идоракунии суроғаҳои пости электрониро кушоед"
+
+#~ msgid "From:"
+#~ msgstr "Аз:"
+
+#~ msgid "SMTP Server"
+#~ msgstr "SMTP Хидматрасон"
+
+#~ msgid "Use email addresses from control center"
+#~ msgstr "Суроғаҳои пости электрониро аз маркази идора истифода баред"
+
+#~ msgid "Cache Folders"
+#~ msgstr "Феҳристҳои Ниҳонӣ"
+
+#~ msgid "A&dd..."
+#~ msgstr "&Иловакунӣ..."
+
+#~ msgid "R&emove"
+#~ msgstr "&Хориҷ кардан"
+
+#~ msgid "&Up"
+#~ msgstr "&Ба боло"
+
+#~ msgid "Do&wn"
+#~ msgstr "&Ба поён"
+
+#~ msgid "Host:"
+#~ msgstr "Соҳиб:"

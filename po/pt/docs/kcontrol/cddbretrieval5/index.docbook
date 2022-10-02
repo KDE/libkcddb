@@ -1,0 +1,480 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kscd;">
+  <!ENTITY package "kdemultimedia">
+  <!ENTITY % Portuguese "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<article id="kcmcddb" lang="&language;">
+
+<articleinfo>
+<title
+>Obtenção do CDDB</title>
+
+<authorgroup>
+
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> <affiliation
+><address
+>&Mike.McBride.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Jonathan</firstname
+> <surname
+>Singer</surname
+> <affiliation
+><address
+>&Jonathan.Singer.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>David</firstname
+> <surname
+>White</surname
+> <affiliation
+><address
+><email
+>a9403784@unet.univie.ac.at</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="developer"
+><firstname
+>Bernd</firstname
+> <othername
+>Johannes</othername
+> <surname
+>Wuebben</surname
+> <affiliation
+><address
+>&Bernd.Johannes.Wuebben.mail;</address
+></affiliation>
+<contrib
+>Desenvolvimento</contrib>
+</othercredit>
+
+<othercredit role="developer"
+><firstname
+>Dirk</firstname
+> <surname
+>Forsterling</surname
+> <affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>Desenvolvimento</contrib>
+</othercredit>
+
+<othercredit role="developer"
+><firstname
+>Dirk</firstname
+> <surname
+>Foersterling</surname
+> <affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>Desenvolvimento</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+><address
+>&Lauri.Watts.mail;</address
+></affiliation>
+<contrib
+>Revisão</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year
+><year
+>2004</year>
+<holder
+>J Singer</holder>
+
+</copyright>
+<copyright>
+
+<year
+>2005-2006</year>
+<holder
+>&Mike.McBride;</holder>
+</copyright>
+
+<date
+>2013-12-05</date>
+<releaseinfo
+>&kde; 4.12</releaseinfo>
+
+</articleinfo>
+
+<sect1 id="cddb-page">
+<title
+>Obtenção do CDDB</title>
+<para
+>A página de <guilabel
+>Consulta da CDDB</guilabel
+> está dividida nas páginas <guilabel
+>Pesquisar</guilabel
+> e <guilabel
+>Enviar</guilabel
+>.</para>
+
+<sect2 id="lookup-tab">
+<title
+>A Página de Pesquisa</title>
+<screenshot>
+<screeninfo
+>A página <guilabel
+>Procurar</guilabel
+></screeninfo>
+<mediaobject>
+<imageobject
+> <imagedata fileref="kscd14.png" format="PNG"/> </imageobject>
+<textobject
+><phrase
+>A página <guilabel
+>Procurar</guilabel
+></phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>A página <guilabel
+>Procurar</guilabel
+> configura as funções do <acronym
+>CDDB</acronym
+> no &kde;.</para>
+
+<para
+>Poderá seleccionar as opções <guilabel
+>Activar a pesquisa no MusicBrainz</guilabel
+> ou <guilabel
+>Activar a pesquisa no Freedb</guilabel
+> (por omissão).</para>
+
+<para
+>A secção do <guilabel
+>Servidor de Freedb</guilabel
+> indica qual a réplica do sítio de CDDB que será usada pelo &kde; para obter as informações do álbum. Poderá então indicar um nome de servidor, um número de porto e um protocolo, usando os campos de texto e as listas, ou carregar ainda no botão <guibutton
+>Mostrar a Lista de Réplicas</guibutton
+>. Se carregar neste botão, irá abrir uma janela nova com uma lista de servidores de CDDB e as suas localizações. Basta seleccionar o servidor que deseja na lista e carregar em <guibutton
+>OK</guibutton
+>.</para>
+
+<para
+>A secção chamada <guilabel
+>Localizações da 'Cache'</guilabel
+> permite-lhe determinar onde o &kde; grava a informação de CDDB no seu computador. Para adicionar uma pasta, indique a localização da pasta no campo de texto no topo da secção e carregue em <guibutton
+>Adicionar</guibutton
+>. Poderá também seleccionar uma pasta, carregando no ícone da pasta azul à direita do campo de texto. Para remover uma pasta, carregue no nome da pasta uma vez com o &LMB; e carregue em <guibutton
+>Remover</guibutton
+>. Poderá alterar a ordem pela qual as pastas são pesquisadas, carregando no nome da pasta e depois nos botões <guibutton
+>Subir</guibutton
+> e <guibutton
+>Descer</guibutton
+>.</para>
+
+<para
+>O botão <guibutton
+>Ajuda</guibutton
+> abre esta página do conteúdo da ajuda. O botão <guibutton
+>Predefinições</guibutton
+> repõe os valores por omissão de todos os itens desta janela. O botão <guibutton
+>OK</guibutton
+> grava as opções actuais e sai; o <guibutton
+>Aplicar</guibutton
+> grava as opções actuais sem sair.</para>
+
+</sect2>
+
+<sect2 id="submit-tab">
+<title
+>A Página de Envio</title>
+
+<screenshot>
+<screeninfo
+>A página para Enviar</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="kscd16.png" format="PNG"/></imageobject>
+</mediaobject>
+</screenshot>
+
+<para
+>A página <guilabel
+>Enviar</guilabel
+> configura a ligação a um servidor de e-mail para enviar os novos registos de <acronym
+>CDDB</acronym
+>. Isto é útil se você não tiver o seu próprio sistema como um servidor. </para>
+
+<para
+>Se planear enviar um item de CDDB, indique o seu endereço de e-mail no primeiro campo de texto; depois é preciso decidir primeiro se deseja enviar via &HTTP; ou por e-mail (via &SMTP;). </para>
+
+<tip
+><para
+>É mais simples enviar os itens novos por &HTTP;. Algumas 'firewalls' bloqueiam este tráfego. Se a sua 'firewall' o impedir de enviar itens novos por &HTTP;, poderá usar o &SMTP;.</para
+></tip>
+
+<para
+>Tanto pode seleccionar primeiro o <guilabel
+>&HTTP;</guilabel
+> ou o <guilabel
+>SMTP (E-mail)</guilabel
+> para determinar o protocolo a usar.</para>
+
+<sect3 id="http-options">
+<title
+>Usar o &HTTP; para enviar as informações de CDDB</title>
+<para
+>Poderá indicar um nome de servidor ou um número de porto nos campos de texto. Se quiser enviar esta informação para os servidores internacionais, não precisa de alterar nada.</para>
+</sect3>
+
+<sect3 id="smtp-options">
+<title
+>Usar o &SMTP; (E-mail) para enviar as informações de CDDB</title>
+
+<para
+>Para preparar o envio de informações por e-mail, indique o seu endereço de e-mail no campo de texto <guilabel
+>Endereço de resposta:</guilabel
+>, o seu servidor de e-mail no campo de texto <guilabel
+>Servidor de SMTP:</guilabel
+> e seleccione o número do porto na lista <guilabel
+>Porto:</guilabel
+>.</para>
+<para
+>Se precisar de usar uma senha para enviar um e-mail para o servidor, assinale a opção <guilabel
+>O servidor necessita de autenticação</guilabel
+> e indique o seu utilizador no campo de texto <guilabel
+>Utilizador</guilabel
+>.</para>
+
+</sect3>
+</sect2>
+</sect1>
+
+<!-- follwing chapters need proofreading -->
+<sect1 id="cddb-editor">
+<title
+>O Editor da Base de Dados dos &CD;s</title>
+
+<screenshot>
+<screeninfo
+>O Editor da Base de Dados dos &CD;s</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="kscd13.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>O Editor da Base de Dados dos &CD;s</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>O Editor de Bases de Dados de &CD;s permite-lhe modificar, obter, gravar, anotar e enviar registos de <link linkend="cddb-support"
+><acronym
+>CDDB</acronym
+> (Compact Disc Data Base - Base de Dados de CDs)</link
+>.</para>
+
+<para
+>Se existir um registo na sua árvore de <acronym
+>CDDB</acronym
+> local (veja a secção de <link linkend="cddb-page"
+>CDDB</link
+> no capítulo de Configuração) do &CD; na sua unidade de &CD-ROM;, ou se o disco foi encontrado no 'freedb', você irá ver o nome do artista  e o título do &CD; nos campos <guilabel
+>Artista:</guilabel
+> e <guilabel
+>Título</guilabel
+> e uma lista com os títulos na área de selecção das <interface
+>Faixas</interface
+>. Caso contrário, você irá ver uma lista com as faixas e tempos de execução, mas sem títulos.</para>
+
+<para
+>Você poderá fazer uma anotação do disco inteiro com o botão <guibutton
+>Comentário</guibutton
+> por baixo do campo <guilabel
+>Título</guilabel
+> ou para uma faixa seleccionada na lista <guilabel
+>Faixas</guilabel
+> com o botão <guibutton
+>Comentário</guibutton
+> adjacente. Se você seleccionar uma faixa na lista <guilabel
+>Faixas</guilabel
+>, o título, se estiver presente, irá aparecer no campo <guilabel
+>Título</guilabel
+> em baixo. Você poderá escrever um título para a faixa nesse campo ou editar o registo de acordo com as suas necessidades. Carregue na tecla <keycap
+>Return</keycap
+> do seu teclado e o texto irá aparecer na linha adequada da lista.</para>
+
+<para
+>Logo que todas as faixas tenham títulos e os campos <guilabel
+>Artista:</guilabel
+> e <guilabel
+>Título</guilabel
+> tenham sido preenchidos, você poderá carregar no botão <guibutton
+>Enviar</guibutton
+> para submeter os resultados por e-mail para o 'freedb'.</para>
+
+<para
+>Ser-lhe-á pedido para seleccionar uma categoria para o envio. O <guilabel
+>ID do Disco</guilabel
+> mostra o <acronym
+>ID</acronym
+> de 32 bits usado pelo 'freedb' para identificar um disco compacto. Por cima do código identificador está a categoria do registo do <guilabel
+>freedb</guilabel
+>. Estas categorias correspondem à árvore de subpastas da pasta escolhida na <guilabel
+>Pasta Base do 'freedb':</guilabel
+> na página do <link linkend="cddb-page"
+><guilabel
+>freedb</guilabel
+></link
+> da janela de configuração.</para>
+
+<para
+>O campo <guilabel
+>Duração:</guilabel
+> mostra o tempo total de reprodução do &CD;.</para>
+
+<para
+>Carregue no botão <guibutton
+>Obter a Informação</guibutton
+> para obter os dados do <acronym
+>CDDB</acronym
+>. Carregue no botão <guibutton
+>OK</guibutton
+> para gravar localmente as suas alterações. O botão <guibutton
+>Cancelar</guibutton
+> fecha o Editor de Bases de Dados do &CD; sem gravar.</para>
+
+</sect1>
+
+<sect1 id="cddb-support">
+<title
+>Suporte de <acronym
+>CDDB</acronym
+></title>
+
+<para
+>O 'freedb' é uma base de dados distribuída na rede que está acessível na Internet e que contém informações sobre a maioria dos &CD;s de áudio em circulação. Se você tiver um acesso à Internet, você poderá nunca ter de introduzir manualmente a informação das faixas para os seus &CD;s se tiver isto configurado convenientemente. Veja a subsecção da <link linkend="cddb-page"
+>página do 'freedb'</link
+> para obter informações mais detalhadas sobre como configurar este serviço, e a secção do <link linkend="cddb-editor"
+>Editor de Bases de Dados de &CD;s</link
+> para mais instruções sobre como editar os registos do <acronym
+>CDDB</acronym
+>.</para>
+
+<para
+>A utilização do <acronym
+>CDDB</acronym
+> é livre. São encorajados os envios por parte dos utilizadores.</para>
+
+<para
+>Ao preparar os registos para o <acronym
+>CDDB</acronym
+>, tenha em mente os seguintes pontos:</para>
+
+<itemizedlist>
+<listitem
+><para
+>Use caracteres 'latin' <quote
+>padrão</quote
+> nos registos. Alguns caracteres especiais são suportados, mas os envios em Cirílico ou Grego, por exemplo, não poderão ser aceites.</para
+></listitem>
+<listitem
+><para
+>Use só um carácter <keysym
+>/</keysym
+> no campo <guilabel
+>Artista do Disco / Título</guilabel
+> no Editor de Bases de Dados do &CD;.</para>
+
+<para
+>Para os &CD;s clássicos, é uma prática normal colocar o nome do compositor na secção do Artista (antes da barra) e o nome do cantor na secção Título (depois da barra).</para
+></listitem
+> 
+<listitem
+><para
+>Se enviar um registo que já exista na base de dados, todas as informações adicionais que enviar poderão ser adicionadas ao registo existente.</para>
+</listitem>
+</itemizedlist>
+
+<para
+>Por omissão, as categorias-padrão do <acronym
+>CDDB</acronym
+> são instaladas em <filename class="directory"
+>$HOME/.cddb</filename
+>. Você poderá criar tantas subpastas de categorias quantas desejar. Contudo, ao enviar, só as categorias oficiais do <acronym
+>CDDB</acronym
+> serão apresentadas. O endereço de envio por omissão é o <email
+>freedb-submit@freedb.org</email
+>. Para mais informações sobre o <abbrev
+>freedb</abbrev
+> visite a página pessoal do <abbrev
+>freedb</abbrev
+>.</para>
+
+<para
+>O registo de <acronym
+>CDDB</acronym
+> local para um dado &CD; é armazenado no ficheiro <filename
+><replaceable
+>nome da categoria</replaceable
+>/<replaceable
+>ID do disco</replaceable
+></filename
+> na Pasta de Base do <acronym
+>CDDB</acronym
+>. Estes ficheiros poderão ser editados com qualquer editor de texto.</para>
+</sect1>
+
+</article>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->

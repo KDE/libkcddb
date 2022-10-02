@@ -1,0 +1,453 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname-n '<application>КсЦД</application>'>
+  <!ENTITY kappname-g '<application>КсЦД‑а</application>'>
+  <!ENTITY kappname-d '<application>КсЦД‑у</application>'>
+  <!ENTITY kappname-a '<application>КсЦД</application>'>
+  <!ENTITY kappname-i '<application>КсЦД‑ом</application>'>
+  <!ENTITY kappname-l '<application>КсЦД‑у</application>'>
+  <!ENTITY package "kdemultimedia">
+  <!ENTITY % Serbian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<article id="kcmcddb" lang="&language;">
+
+<articleinfo>
+<title
+>Добављање из ЦДДБ‑а</title>
+
+<authorgroup>
+
+<author
+><firstname
+>Мајк</firstname
+> <surname
+>Мекбрајд</surname
+> <affiliation
+><address
+>&Mike.McBride.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Џонатан</firstname
+> <surname
+>Сингер</surname
+> <affiliation
+><address
+>&Jonathan.Singer.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Дејвид</firstname
+> <surname
+>Вајт</surname
+> <affiliation
+><address
+><email
+>a9403784@unet.univie.ac.at</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="developer"
+><firstname
+>Бернд</firstname
+> <othername
+>Јоханес</othername
+> <surname
+>Вибен</surname
+> <affiliation
+><address
+>&Bernd.Johannes.Wuebben.mail;</address
+></affiliation>
+<contrib
+>програмер</contrib>
+</othercredit>
+
+<othercredit role="developer"
+><firstname
+>Дирк</firstname
+> <surname
+>Ферстерлинг</surname
+> <affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>програмер</contrib>
+</othercredit>
+
+<othercredit role="developer"
+><firstname
+>Дирк</firstname
+> <surname
+>Ферстерлинг</surname
+> <affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>програмер</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Лори</firstname
+> <surname
+>Вотс</surname
+> <affiliation
+><address
+>&Lauri.Watts.mail;</address
+></affiliation>
+<contrib
+>прегледач</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Драган</firstname
+><surname
+>Пантелић</surname
+><affiliation
+><address
+><email
+>falcon-10@gmx.de</email
+></address
+></affiliation
+><contrib
+>превод</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year
+><year
+>2004</year>
+<holder
+>Џонатан Сингер</holder>
+
+</copyright>
+<copyright>
+
+<year
+>2005-2006</year>
+<holder
+>Мајк Мекбрајд</holder>
+</copyright>
+
+<date
+>5. 12. 2013.</date>
+<releaseinfo
+>КДЕ 4.12</releaseinfo>
+
+</articleinfo>
+
+<sect1 id="cddb-page">
+<title
+>Добављање из ЦДДБ‑а</title>
+<para
+>Модул <guilabel
+>Добављање из ЦДДБ‑а</guilabel
+> подељен је на језичке <guilabel
+>Потрага</guilabel
+> и <guilabel
+>Предај</guilabel
+>.</para>
+
+<sect2 id="lookup-tab">
+<title
+>Језичак <guilabel
+>Потрага</guilabel
+></title>
+<screenshot>
+<screeninfo
+>Језичак <guilabel
+>Потрага</guilabel
+></screeninfo>
+<mediaobject>
+<imageobject
+> <imagedata fileref="kscd14.png" format="PNG"/> </imageobject>
+<textobject
+><phrase
+>Језичак <guilabel
+>Потрага</guilabel
+></phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Под језичком <guilabel
+>Потрага</guilabel
+> подешавају се ЦДДБ функције у КДЕ‑у.</para>
+
+<para
+>Можете изабрати опције <guilabel
+>Тражи на Мјузикбрејнзу</guilabel
+> или <guilabel
+>Тражи на ФриДБ‑у</guilabel
+>.</para>
+
+<para
+>Секција <guilabel
+>Сервер ФриДБ‑а</guilabel
+> одређује који огледалски сајт ЦДДБ‑а КДЕ користи за добављање података о албуму. Име сервера, број порта и протокол можете унети кроз текстуална поља и падајуће спискове, или кликнути на дугме <guibutton
+>Прикажи списак огледала</guibutton
+>. Оно отвара нови прозор са списком огледала ЦДДБ‑а и њиховим локацијама; изаберите жељени сервер и кликните на <guibutton
+>У реду</guibutton
+>.</para>
+
+<para
+>У секцији <guilabel
+>Локације кеша</guilabel
+> можете одредити где се на рачунару уписују ЦДДБ подаци. Да додате фасциклу, унесите њену локацију у поље при врху и кликните на <guibutton
+>Додај</guibutton
+>. Фасциклу можете одабрати и кликом на иконицу фасцикле десно од поља. Да обришете фасциклу, кликните левим једанпут на њено име, па на <guibutton
+>Уклони</guibutton
+>. Редослед тражења по фасциклама можете изменити кликом на име фасцикле, па на <guibutton
+>Помери нагоре</guibutton
+> и <guibutton
+>Помери надоле</guibutton
+>.</para>
+
+<para
+>Дугме <guibutton
+>Помоћ</guibutton
+> отвара ову страницу помоћи. Дугме <guibutton
+>Подразумевано</guibutton
+> враћа подразумеване вредности свих уноса у овом дијалогу; <guibutton
+>У реду</guibutton
+> уписује текуће поставке и напушта дијалог; <guibutton
+>Примени</guibutton
+> уписује текуће поставке без напуштања.</para>
+
+</sect2>
+
+<sect2 id="submit-tab">
+<title
+>Језичак <guilabel
+>Предај</guilabel
+>.</title>
+
+<screenshot>
+<screeninfo
+>Језичак <guilabel
+>Предај</guilabel
+>.</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="kscd16.png" format="PNG"/></imageobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Под језичком <guilabel
+>Предај</guilabel
+> поставља се веза ка поштанском или веб серверу за предавање нових ЦДДБ уноса. Ово је корисно ако ваш рачунар сам није подешен као сервер. </para>
+
+<para
+>Ако планирате предавање ЦДДБ уноса, унесите своју адресу е‑поште у прво поље, а затим одлучите да ли ћете предавати преко ХТТП‑а или е‑поштом (преко СМТП‑а). </para>
+
+<tip
+><para
+>Једноставније је предавати уносе преко ХТТП‑а, али неки заштитни зидови блокирају овај саобраћај. Ако вас заштитни зид спречи да предајете преко ХТТП‑а, можете се пребацити на СМТП.</para
+></tip>
+
+<para
+>Прво изаберите или <guilabel
+>ХТТП</guilabel
+> или <guilabel
+>СМТП (е‑пошта)</guilabel
+>, да одредите који протокол ће се користити.</para>
+
+<sect3 id="http-options">
+<title
+>Коришћење ХТТП‑а за слање ЦДДБ података</title>
+<para
+>Можете унети име сервера или број порта у дата поља. Ако податке желите да шаљете међународним серверима, не треба ништа да мењате.</para>
+</sect3>
+
+<sect3 id="smtp-options">
+<title
+>Коришћење СМТП‑а (е‑поште) за слање ЦДДБ података</title>
+
+<para
+>За припрему предаје података е‑поштом, унесите своју адресу е‑поште у поље <guilabel
+>Одговор‑на:</guilabel
+>, сервер е‑поште у поље <guilabel
+>СМТП сервер:</guilabel
+> и број порта сервера у бројчаник <guilabel
+>Порт:</guilabel
+>.</para>
+<para
+>Ако вам сервер за слање е‑поште тражи лозинку, попуните кућицу <guilabel
+>Сервер захтева аутентификацију</guilabel
+> и унесите своје корисничко име у поље <guilabel
+>Корисничко име:</guilabel
+>.</para>
+
+</sect3>
+</sect2>
+</sect1>
+
+<!-- follwing chapters need proofreading -->
+<sect1 id="cddb-editor">
+<title
+>Уређивач базе ЦД‑ова</title>
+
+<screenshot>
+<screeninfo
+>Уређивач базе ЦД‑ова.</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="kscd13.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>Уређивач базе ЦД‑ова.</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Уређивач базе ЦД‑ова омогућава вам да мењате, преузимате, уписујете, тумачите и отпремате <link linkend="cddb-support"
+>ЦДДБ</link
+> уносе.</para>
+
+<para
+>Ако за ЦД тренутно у ЦД‑РОМ јединици постоји унос у вашем локалном ЦДДБ стаблу (погледајте <link linkend="cddb-page"
+>секцију о ЦДДБ‑у</link
+> у поглављу о подешавању), или ако се диск могао пронаћи у ФриДБ‑у, видећете име извођача и наслов ЦД‑а у пољима <guilabel
+>Извођач:</guilabel
+> и <guilabel
+>наслов</guilabel
+>, и листу нумера са насловима песама. Иначе, видећете листу нумера и времена пуштања без наслова.</para>
+
+<para
+>Тумачење за цео диск можете додати у пољу <guilabel
+>коментар</guilabel
+> под пољем <guilabel
+>наслов</guilabel
+>, а за изабрану нумеру из листе преко суседног дугмета <guibutton
+>коментар</guibutton
+>. Ако изаберете нумеру из листе, у пољу <guilabel
+>наслов</guilabel
+> испод појавиће се њен наслов, ако је познат. У том пољу можете унети наслов нумере, или уредити постојећи по жељи. Притисните тастер <keycap
+>Enter</keycap
+> и текст ће се појавити у одговарајућем реду у на списку.</para>
+
+<para
+>Кад су свим нумерама додељени наслови и испуњена поља <guilabel
+>Извођач:</guilabel
+> и <guilabel
+>наслов</guilabel
+>, можете кликнути на дугме <guibutton
+>Отпреми податке</guibutton
+> да обавите предају е‑поштом на ФриДБ.</para>
+
+<para
+>Тражиће вам се да изаберете категорију за предају. Поље <guilabel
+>ИД диска:</guilabel
+> приказује 32‑битни ко̂д који ФриДБ користи за идентификацију ЦД‑а. Изнад ИД‑а стоји категорија уноса. Категорије одговарају стаблу потфасцикли фасцикле изабране у <guilabel
+>Основна фасцикла ФриДБ‑а:</guilabel
+> на <link linkend="cddb-page"
+>страници <guilabel
+>ЦДДБ</guilabel
+></link
+> дијалога за подешавање.</para>
+
+<para
+><guilabel
+>Трајање:</guilabel
+> приказује укупно време пуштања ЦД‑а.</para>
+
+<para
+>Кликните на дугме <guibutton
+>Преузми податке</guibutton
+> да преузмете ЦДДБ податке. Дугметом <guibutton
+>У реду</guibutton
+> локално уписујете своје измене. Дугме <guibutton
+>Одустани</guibutton
+> затвара уређивач базе ЦД‑ова без уписивања.</para>
+
+</sect1>
+
+<sect1 id="cddb-support">
+<title
+>Подршка за ЦДДБ</title>
+
+<para
+>ФриДБ је дистрибуирана мрежна база података доступна преко Интернета, која садржи податке о већини аудио ЦД‑ова у оптицају. Ако имате приступ Интернету и ово исправно подесите, врло ретко ћете морати да ручно уносите податке за своје ЦД‑ове. Погледајте секцију <link linkend="cddb-page"
+>о страници ЦДДБ‑а</link
+> за детаљно упутство како подесити овај сервис, и секцију <link linkend="cddb-editor"
+>о уређивачу базе ЦД‑ова</link
+> за упутства о начину уређивања ЦДДБ уноса̂.</para>
+
+<para
+>ЦДДБ се може бесплатно користити, и корисници се охрабрују да предају нове уносе.</para>
+
+<para
+>Кад припремате уносе за ЦДДБ, имајте на уму следеће:</para>
+
+<itemizedlist>
+<listitem
+><para
+>За уносе користите „стандардне“ латиничке знакове. Подржана су нека додатна латиничка слова, али се предаје ћириличним или грчким писмом, на пример, не могу прихватити.</para
+></listitem>
+<listitem
+><para
+>Користите само један знак <literal
+>/</literal
+> у пољу <guilabel
+>Извођач / наслов диска</guilabel
+> у уређивачу базе ЦД‑ова.</para>
+
+<para
+>За класичне ЦД‑ове, устаљена је пракса да име композитора се стави у секцију извођача (пре <literal
+>/</literal
+>) а име извођача у секцију наслова (иза <literal
+>/</literal
+>).</para
+></listitem
+> 
+<listitem
+><para
+>Ако пошаљете унос који већ постоји у бази, сви нови подаци које сте обезбедили могу бити додати том постојећем уносу.</para>
+</listitem>
+</itemizedlist>
+
+<para
+>Стандардне ЦДДБ категорије подразумевано се инсталирају у <filename class="directory"
+>$HOME/.cddb</filename
+>. Можете направити колико хоћете потфасцикли категорија. Међутим, када отпремате, приказују се само званичне ЦДДБ категорије. Подразумевана адреса отпремања је <email
+>freedb-submit@freedb.org</email
+>. За више података о ФриДБ‑у посетите његову домаћу страницу.</para>
+
+<para
+>Локални ЦДДБ унос одређеног ЦД‑а чува се у фајлу <filename
+><replaceable
+>ime-kategorije</replaceable
+><replaceable
+>ID-diska</replaceable
+></filename
+> под основном фасциклом ЦДДБ‑а. Ови фајлови се могу уређивати било којим уређивачем текста.</para>
+</sect1>
+
+</article>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->

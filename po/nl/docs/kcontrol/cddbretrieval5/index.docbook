@@ -1,0 +1,468 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kscd;">
+  <!ENTITY package "kdemultimedia">
+  <!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<article id="kcmcddb" lang="&language;">
+
+<articleinfo>
+<title
+>CDDB-informatie</title>
+
+<authorgroup>
+
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> <affiliation
+><address
+>&Mike.McBride.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Jonathan</firstname
+> <surname
+>Singer</surname
+> <affiliation
+><address
+>&Jonathan.Singer.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>David</firstname
+> <surname
+>White</surname
+> <affiliation
+><address
+><email
+>a9403784@unet.univie.ac.at</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="developer"
+><firstname
+>Bernd</firstname
+> <othername
+>Johannes</othername
+> <surname
+>Wuebben</surname
+> <affiliation
+><address
+>&Bernd.Johannes.Wuebben.mail;</address
+></affiliation>
+<contrib
+>Ontwikkelaar</contrib>
+</othercredit>
+
+<othercredit role="developer"
+><firstname
+>Dirk</firstname
+> <surname
+>Forsterling</surname
+> <affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>Ontwikkelaar</contrib>
+</othercredit>
+
+<othercredit role="developer"
+><firstname
+>Dirk</firstname
+> <surname
+>Foersterling</surname
+> <affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>Ontwikkelaar</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+><address
+>&Lauri.Watts.mail;</address
+></affiliation>
+<contrib
+>Nalezer</contrib>
+</othercredit>
+&Freek.de.Kruijf; 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year
+><year
+>2004</year>
+<holder
+>J Singer</holder>
+
+</copyright>
+<copyright>
+
+<year
+>2005-2006</year>
+<holder
+>&Mike.McBride;</holder>
+</copyright>
+
+<date
+>2013-12-05</date>
+<releaseinfo
+>&kde; 4.12</releaseinfo>
+
+</articleinfo>
+
+<sect1 id="cddb-page">
+<title
+>CDDB-informatie</title>
+<para
+>De module <guilabel
+>CDDB-informatie</guilabel
+> is opgedeeld in de tabbladen<guilabel
+>Opzoeken</guilabel
+> en <guilabel
+>Indienen</guilabel
+>.</para>
+
+<sect2 id="lookup-tab">
+<title
+>Het tabblad Opzoeken</title>
+<screenshot>
+<screeninfo
+>Het tabblad <guilabel
+>Opzoeken</guilabel
+></screeninfo>
+<mediaobject>
+<imageobject
+> <imagedata fileref="kscd14.png" format="PNG"/> </imageobject>
+<textobject
+><phrase
+>Het tabblad <guilabel
+>Opzoeken</guilabel
+></phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Het tabblad <guilabel
+>Opzoeken</guilabel
+> stelt de <acronym
+>CDDB</acronym
+>-functies van &kde; in.</para>
+
+<para
+>U kunt de opties <guilabel
+>MusicBrainz opzoeken inschakelen</guilabel
+> of <guilabel
+>Freedb opzoeken inschakelen</guilabel
+> selecteren.</para>
+
+<para
+>De <guilabel
+>Freedb-server</guilabel
+>-sectie bepaalt welke CDDB-mirrorsite door &kde; wordt gebruikt om albuminformatie te verkrijgen. U kunt een servernaam, poortnummer en protocol invoeren met de tekstvakken en afrolvakken of u kunt klikken op de knop <guibutton
+>Mirrorlijst tonen</guibutton
+>. Op deze knop drukken zal een nieuw venster met een lijst met CDDB-mirrors en hun locaties. Selecteer eenvoudig de server die u wilt uit de lijst en klik op <guibutton
+>OK</guibutton
+>.</para>
+
+<para
+>De sectie gelabeld <guilabel
+>Cache-locaties</guilabel
+> laat u bepalen waar de CDDB-information wordt opgeslagen op uw computer. Om een map toe te voegen, voer de locatie van de map in in het tekstvak bovenaan de sectie en klik op <guibutton
+>Toevoegen</guibutton
+>. U kunt ook een map kiezen door te klikken op de blauwe bestandsmap rechts van het tekstvak. Om een map te verwijderen, klik op één keer op de mapnaam met de &LMB; en klik op <guibutton
+>Verwijderen</guibutton
+>. U kunt de volgorde van de mappen bij het zoeken wijzigen door te klikken op de mapnaam en te klikken op de knoppen <guibutton
+>Omhoog verplaatsen</guibutton
+> en <guibutton
+>Omlaag verplaatsen</guibutton
+>.</para>
+
+<para
+>De knop <guibutton
+>Help</guibutton
+> opent deze pagina met inhoud voor hulp. De knop <guibutton
+>Standaarden</guibutton
+> herstelt de standaard waarden van alle items in deze dialoog; <guibutton
+>OK</guibutton
+> slaat de huidige instellingen op en sluit af; <guibutton
+>Toepassen</guibutton
+> slaat de huidige instellingen op zonder afsluiten.</para>
+
+</sect2>
+
+<sect2 id="submit-tab">
+<title
+>Het tabblad Indienen</title>
+
+<screenshot>
+<screeninfo
+>Het tabblad Indienen</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="kscd16.png" format="PNG"/></imageobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Het tabblad <guilabel
+>Indienen</guilabel
+> stelt de verbinding in naar een e-mailserver of een webserver om nieuwe <acronym
+>CDDB</acronym
+>-items in te dienen. Dit is handig als u uw eigen systeem niet als een server hebt geconfigureerd. </para>
+
+<para
+>Als u van plan bent om een CDDB-item in te dienen, voer dan uw e-mailadres in in het eerste tekstvak, daarna moet u kiezen tussen indienen via &HTTP; of indienen als een e-mail (via &SMTP;). </para>
+
+<tip
+><para
+>Het is eenvoudiger om nieuw items met &HTTP; in te dienen. Sommige firewalls blokkeren dit verkeer. Als uw firewall u blokkeert om nieuwe items met &HTTP; in te dienen, dan kunt u &SMTP; gebruiken.</para
+></tip>
+
+<para
+>Selecteer eerst ofwel <guilabel
+>&HTTP;</guilabel
+> of <guilabel
+>SMTP (E-mail)</guilabel
+> om te bepalen welk protocol te gebruiken.</para>
+
+<sect3 id="http-options">
+<title
+>&HTTP; gebruiken om CDDB-informatie te verzenden</title>
+<para
+>U kunt een servernaam of poortnummer invoeren in de getoonde tekstvakken. Als u deze informatie naar de internationale servers wilt sturen, dan hoeft u niets te wijzigen.</para>
+</sect3>
+
+<sect3 id="smtp-options">
+<title
+>&SMTP; (E-mail) gebruiken om CDDB-informatie te verzenden</title>
+
+<para
+>Ter voorbereiding voor het indienen van informatie via e-mail, voert u uw e-mailadres in in het tekstvak met label <guilabel
+>Reply-To:</guilabel
+>, uw e-mailserver in het tekstvak met label <guilabel
+>SMTP-server:</guilabel
+> en selecteer het poortnummer in het spinvak met label <guilabel
+>Poort:</guilabel
+>.</para>
+<para
+>Als u een wachtwoord moet gebruiken bij het verzenden van e-mail naar de e-mailserver, markeer dan het vakje met de label <guilabel
+>Server vereist authenticatie</guilabel
+> en voer uw gebruikernaam in in het tekstvak met label <guilabel
+>Gebruikernaam</guilabel
+>.</para>
+
+</sect3>
+</sect2>
+</sect1>
+
+<!-- follwing chapters need proofreading -->
+<sect1 id="cddb-editor">
+<title
+>De bewerker van de cd-database</title>
+
+<screenshot>
+<screeninfo
+>De bewerker van de &CD;-database</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="kscd13.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>De bewerker van de &CD;-database</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>De bewerker van de cd-database laat u <link linkend="cddb-support"
+><acronym
+>CDDB</acronym
+>-items (Compact Disc Data Base)</link
+> wijzigen, downloaden, annoteren en uploaden.</para>
+
+<para
+>Als er een item in uw lokale <acronym
+>CDDB</acronym
+>-boom is (zie de <link linkend="cddb-page"
+>CDDB subsectie</link
+> in het hoofdstuk Configuratie) voor de &CD; in uw &CD-ROM;-apparaat of als de schijf gevonden werd in de freedb, dan ziet u de naam van de artiest en de titel van de &CD; in de velden <guilabel
+>Artiest:</guilabel
+> en <guilabel
+>Titel</guilabel
+> en een lijst tracks met song-titels in het keuzevak <interface
+>Tracks</interface
+>. Anders ziet u een lijst met tracks en afspeeltijden zonder titels.</para>
+
+<para
+>U kunt een annotatie maken voor de gehele disc met het veld <guilabel
+>Commentaar</guilabel
+> onder het veld <guilabel
+>Titel</guilabel
+> of voor een geselecteerde track in het keuzevak <guilabel
+>Tracks</guilabel
+> met de naastliggende knop <guibutton
+>Commentaar</guibutton
+>. Als u een track selecteert in het keuzevak <guilabel
+>Tracks</guilabel
+>, dan zal de titel, indien aanwezig, verschijnen in het veld <guilabel
+>Titel</guilabel
+> er onder. U kunt een titel voor de track typen in het vak of het item om aan uw behoeften te voldoen. Druk op de toets <keycap
+>Return</keycap
+> op uw toetsenbord en de tekst zal verschijnen in de juiste regel in het keuzevak.</para>
+
+<para
+>Nadat aan alle tracks titels zijn gegeven en de velden <guilabel
+>Artiest:</guilabel
+> en <guilabel
+>Titel</guilabel
+> zijn ingevuld, kunt u op de knop <guibutton
+>Uploaden</guibutton
+> drukken om bijdrage per e-mail naar freedb te sturen.</para>
+
+<para
+>U zal worden gevraagd om een categorie voor de indiening te selecteren. De secite <guilabel
+>Schijf-id</guilabel
+> toont de 32-bits <acronym
+>ID</acronym
+>-code die door freedb wordt gebruikt om een compact-disc te identificeren. Naast de <acronym
+>ID</acronym
+>-code is de categorie van het <guilabel
+>freedb</guilabel
+>-item van belang. Deze categorieën komen overeen met de submapboomstructuur van de map die is gekozen in de <guilabel
+>freedb basismap:</guilabel
+> in de pagina <link linkend="cddb-page"
+><guilabel
+>CDDB</guilabel
+> page</link
+> van het instellingenvenster.</para>
+
+<para
+>De <guilabel
+>Lengte:</guilabel
+> toont de totale afspeeltijd van de &CD;.</para>
+
+<para
+>Druk op de knop <guibutton
+>Info ophalen</guibutton
+> om <acronym
+>CDDB</acronym
+>-gegevens op te halen. Druk op de knop <guibutton
+>OK</guibutton
+> om uw wijzigingen lokaal op te slaan. De knop <guibutton
+>Annuleren</guibutton
+> sluit de bewerker van de &CD;-database zonder opslaan.</para>
+
+</sect1>
+
+<sect1 id="cddb-support">
+<title
+><acronym
+>CDDB</acronym
+>-ondersteuning</title>
+
+<para
+>freedb is een gedistribueerde netwerkdatabase die over het internet toegankelijk is en die informatie bevat over de meeste audio-&CD;'s. Als u internettoegang hebt, dan zult u waarschijnlijk nooit, als u dit juist hebt ingesteld, handmatig track-informatie voor uw &CD;'s behoeven in te voeren. Zie de sectie <link linkend="cddb-page"
+>De CDDB-pagina</link
+> voor gedetailleerde instructies over hoe deze service in te stellen en de sectie <link linkend="cddb-editor"
+>&CD;-databasebewerker</link
+> voor instructies over hoe <acronym
+>CDDB</acronym
+>-items te bewerken.</para>
+
+<para
+>Gebruik van <acronym
+>CDDB</acronym
+> is vrij. Bijdragen van gebruikers worden aangemoedigd.</para>
+
+<para
+>Bij het voorbereiden van items voor de <acronym
+>CDDB</acronym
+>, let dan op de volgende punten:</para>
+
+<itemizedlist>
+<listitem
+><para
+>Gebruik <quote
+>standaard</quote
+> latijnse tekens in de items. Enkele speciale tekens worden ondersteund, maar cyrillische of bijdragen in het Griekse alfabet bijvoorbeeld, kunnen niet worden geaccepteerd.</para
+></listitem>
+<listitem
+><para
+>Gebruik alleen één <keysym
+>/</keysym
+>-teken in het veld <guilabel
+>Disc Artiest / Titel</guilabel
+> in de &CD;-databasebewerker.</para>
+
+<para
+>Voor klassieke &CD;'s is het standaard om de naam van de componist in de sectie voor de Artiest (voor de slash) en de naam van de uitvoerder in de sectie Titel (na de slash).</para
+></listitem
+> 
+<listitem
+><para
+>Als u een item verzend die reeds in de database aanwezig is, dan kan enige extra informatie die u levert toegevoegd worden aan het bestaande item.</para>
+</listitem>
+</itemizedlist>
+
+<para
+>Standaard worden de standaard <acronym
+>CDDB</acronym
+>-categorieën geïnstalleerd in <filename class="directory"
+>$HOME/.cddb</filename
+>. U kunt zoveel submappen voor categorieën aanmaken als u wilt. Bij uploaden zullen alleen de officiële <acronym
+>CDDB</acronym
+>-categorieën worden getoond. Het standaard uploadadres is <email
+>gnudb-submit@gnudb.org</email
+>. Voor meer informatie over <abbrev
+>gnudb</abbrev
+> bezoek de homepagina van <abbrev
+>gnudb</abbrev
+>.</para>
+
+<para
+>Het lokale <acronym
+>CDDB</acronym
+>-item voor een bepaalde &CD; wordt opgeslagen in het bestand <filename
+><replaceable
+>categorienaam</replaceable
+>/<replaceable
+>disc-id</replaceable
+></filename
+> onder de <acronym
+>CDDB</acronym
+>-basismap. Deze bestanden kunnen bewerkt worden met elke tekstbewerker.</para>
+</sect1>
+
+</article>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
