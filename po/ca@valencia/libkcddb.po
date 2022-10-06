@@ -254,7 +254,7 @@ msgstr "Jazz"
 #: libkcddb/categories.cpp:29
 #, kde-format
 msgid "Miscellaneous"
-msgstr "Miscelànea"
+msgstr "Miscel·lània"
 
 #: libkcddb/categories.cpp:30 libkcddb/genres.cpp:86
 #, kde-format
