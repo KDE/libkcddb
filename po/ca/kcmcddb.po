@@ -217,6 +217,3 @@ msgstr ""
 #, kde-format
 msgid "Incorrect Email Settings"
 msgstr "Paràmetres incorrectes de l'adreça de correu"
-
-#~ msgid "freedb.freedb.org"
-#~ msgstr "freedb.freedb.org"
