@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-27 00:44+0000\n"
-"PO-Revision-Date: 2022-09-27 05:29+0200\n"
+"PO-Revision-Date: 2022-11-16 08:26+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #: kcmcddb/cddbconfigwidget.cpp:40
 #, kde-format
@@ -208,6 +208,9 @@ msgid ""
 "you have entered are incomplete. Please review your email settings and try "
 "again."
 msgstr ""
+"freedb მორგებულია გადაცემებისთვის HTTP-ის გამოსაყენებლად, რადგან მითითებული "
+"ელფოსტის დეტალები არასწორია. გადახედეთ ელფოსტის პარამეტრებს და თავიდან "
+"სცადეთ."
 
 #: kcmcddb/kcmcddb.cpp:72
 #, kde-format
@@ -663,7 +666,7 @@ msgstr "ლათინური"
 #: libkcddb/genres.cpp:84
 #, kde-format
 msgid "Lo-Fi"
-msgstr ""
+msgstr "ლოუფაი"
 
 #: libkcddb/genres.cpp:85
 #, kde-format
@@ -673,7 +676,7 @@ msgstr "მედიტაციური"
 #: libkcddb/genres.cpp:85
 #, kde-format
 msgid "Merengue"
-msgstr ""
+msgstr "მერენგა"
 
 #: libkcddb/genres.cpp:85
 #, kde-format
