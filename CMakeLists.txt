@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 project(libkcddb VERSION "5.1.0")
 
 set(QT_MIN_VERSION 5.15.2)
-set(KF_MIN_VERSION 5.90.0)
+set(KF_MIN_VERSION 5.92.0)
 
 # ECM setup
 include(FeatureSummary)
@@ -20,6 +20,7 @@ include(ECMSetupVersion)
 include(ECMQtDeclareLoggingCategory)
 include(CMakePackageConfigHelpers)
 include(ECMGenerateHeaders)
+include(ECMDeprecationSettings)
 
 set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
 
@@ -41,11 +42,9 @@ else()
     set(HAVE_MUSICBRAINZ5 0)
 endif()
 
-add_definitions(
-    -DQT_DISABLE_DEPRECATED_BEFORE=0x050f00
-    -DQT_DEPRECATED_WARNINGS_SINCE=0x060000
-    -DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055800
-    -DKF_DEPRECATED_WARNINGS_SINCE=0x060000
+ecm_set_disabled_deprecation_versions(
+    QT 5.15.2
+    KF 5.101
 )
 
 configure_file(config-musicbrainz.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-musicbrainz.h )
