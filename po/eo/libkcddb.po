@@ -1,13 +1,16 @@
-# Translation of libkcddb into esperanto.
+# Translation of libkcddb.pot into esperanto.
+# Copyright (C) 2009 Free Software Foundation, Inc.
+# This file is distributed under the same license as the libkcddb package.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-27 00:44+0000\n"
-"PO-Revision-Date: 2009-11-15 12:06+0100\n"
-"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-01-08 12:30+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -19,27 +22,27 @@ msgstr ""
 #: kcmcddb/cddbconfigwidget.cpp:40
 #, kde-format
 msgid "Cache Locations"
-msgstr ""
+msgstr "Kaŝmemoraj Lokoj"
 
 #: kcmcddb/cddbconfigwidget.cpp:75
 #, kde-format
 msgid "Could not fetch mirror list."
-msgstr ""
+msgstr "Ne eblis venigi spegulliston."
 
 #: kcmcddb/cddbconfigwidget.cpp:75
 #, kde-format
 msgid "Could Not Fetch"
-msgstr ""
+msgstr "Ne Eblis Venigi"
 
 #: kcmcddb/cddbconfigwidget.cpp:79
 #, kde-format
 msgid "Select mirror"
-msgstr ""
+msgstr "Elekti spegulilon"
 
 #: kcmcddb/cddbconfigwidget.cpp:80
 #, kde-format
 msgid "Select one of these mirrors"
-msgstr ""
+msgstr "Elekti unu el tiuj speguliloj"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
 #. i18n: ectx: property (text), widget (QRadioButton, httpButton)
@@ -47,7 +50,7 @@ msgstr ""
 #: kcmcddb/cddbconfigwidget.ui:179
 #, kde-format
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
 #: kcmcddb/cddbconfigwidget.cpp:99 kcmcddb/cddbconfigwidget.ui:124
@@ -65,7 +68,7 @@ msgstr ""
 #: kcmcddb/cddbconfigwidget.ui:20
 #, kde-format
 msgid "&Lookup"
-msgstr ""
+msgstr "S&erĉi"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
 #: kcmcddb/cddbconfigwidget.ui:26
@@ -122,7 +125,7 @@ msgstr ""
 #: kcmcddb/cddbconfigwidget.ui:108
 #, kde-format
 msgid "&Transport:"
-msgstr ""
+msgstr "&Transporto:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
 #: kcmcddb/cddbconfigwidget.ui:120
@@ -134,13 +137,13 @@ msgstr ""
 #: kcmcddb/cddbconfigwidget.ui:137
 #, kde-format
 msgid "Show &Mirror List"
-msgstr ""
+msgstr "&Montri Spegulliston"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
 #: kcmcddb/cddbconfigwidget.ui:153
 #, kde-format
 msgid "&Submit"
-msgstr ""
+msgstr "&Enmeti"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: kcmcddb/cddbconfigwidget.ui:161
@@ -152,7 +155,7 @@ msgstr "Retpoŝta adreso:"
 #: kcmcddb/cddbconfigwidget.ui:173
 #, kde-format
 msgid "Submit Method"
-msgstr ""
+msgstr "Enmeta Metodo"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: kcmcddb/cddbconfigwidget.ui:189
@@ -261,11 +264,9 @@ msgid "Rock"
 msgstr "Rock"
 
 #: libkcddb/categories.cpp:30 libkcddb/genres.cpp:96
-#, fuzzy, kde-format
-#| msgid "%n track"
-#| msgid_plural "%n tracks"
+#, kde-format
 msgid "Soundtrack"
-msgstr "%n trako"
+msgstr "Sontrako"
 
 #: libkcddb/genres.cpp:64
 #, kde-format
@@ -275,57 +276,57 @@ msgstr "Nekonata"
 #: libkcddb/genres.cpp:64
 #, kde-format
 msgid "A Cappella"
-msgstr ""
+msgstr "Nurvoĉa"
 
 #: libkcddb/genres.cpp:64
 #, kde-format
 msgid "Acid Jazz"
-msgstr ""
+msgstr "Acida Ĵazo"
 
 #: libkcddb/genres.cpp:65
 #, kde-format
 msgid "Acid Punk"
-msgstr ""
+msgstr "Acida Punko"
 
 #: libkcddb/genres.cpp:65
 #, kde-format
 msgid "Acid"
-msgstr "Acid"
+msgstr "Acida"
 
 #: libkcddb/genres.cpp:65
 #, kde-format
 msgid "Acoustic"
-msgstr ""
+msgstr "Akustika"
 
 #: libkcddb/genres.cpp:65
 #, kde-format
 msgid "Alternative"
-msgstr "Alternative"
+msgstr "Alternativa"
 
 #: libkcddb/genres.cpp:66
 #, kde-format
 msgid "Alt. Rock"
-msgstr ""
+msgstr "Alt. Roko"
 
 #: libkcddb/genres.cpp:66
 #, kde-format
 msgid "Ambient"
-msgstr ""
+msgstr "Ĉirkaŭa"
 
 #: libkcddb/genres.cpp:66
 #, kde-format
 msgid "Anime"
-msgstr "Anime"
+msgstr "Animea"
 
 #: libkcddb/genres.cpp:66
 #, kde-format
 msgid "Avantgarde"
-msgstr "Avantgarde"
+msgstr "Avangarda"
 
 #: libkcddb/genres.cpp:67
 #, kde-format
 msgid "Ballad"
-msgstr ""
+msgstr "Balado"
 
 #: libkcddb/genres.cpp:67
 #, kde-format
@@ -778,9 +779,9 @@ msgid "Psychedelic Rock"
 msgstr ""
 
 #: libkcddb/genres.cpp:91
-#, fuzzy, kde-format
+#, kde-format
 msgid "Psychedelic"
-msgstr "Ciklaj koloroj"
+msgstr "Psikedela"
 
 #: libkcddb/genres.cpp:91
 #, kde-format
@@ -1016,67 +1017,3 @@ msgstr "Nekonata eraro"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr ""
-
-#~ msgid "Track"
-#~ msgstr "Trako"
-
-#~ msgid "Length"
-#~ msgstr "Longo"
-
-#~ msgid "Title"
-#~ msgstr "Titolo"
-
-#~ msgid "Artist"
-#~ msgstr "Artisto"
-
-#~ msgid "Comment"
-#~ msgstr "Komento"
-
-#~ msgid "Change Encoding"
-#~ msgstr "Ŝanĝi &signokodon"
-
-#~ msgid "&Category:"
-#~ msgstr "&Kategorio:"
-
-#~ msgid "&Artist:"
-#~ msgstr "&Artisto:"
-
-#~ msgid "&Year:"
-#~ msgstr "&Jaro:"
-
-#~ msgid "&Genre:"
-#~ msgstr "&Ĝenro:"
-
-#~ msgid "Comment:"
-#~ msgstr "Komento:"
-
-#~ msgid "&Title:"
-#~ msgstr "&Titolo:"
-
-#, fuzzy
-#~| msgid "Disco"
-#~ msgid "Disc Id:"
-#~ msgstr "Disco"
-
-#~ msgid "Length:"
-#~ msgstr "Longo:"
-
-#, fuzzy
-#~| msgid "Change Encoding"
-#~ msgid "Change Encoding..."
-#~ msgstr "Ŝanĝi &signokodon"
-
-#~ msgctxt "artist - cdtitle"
-#~ msgid "%1 - %2"
-#~ msgstr "%1 - %2"
-
-#~ msgid "Preview"
-#~ msgstr "Antaŭrigardo"
-
-#~ msgid "Encoding"
-#~ msgstr "Kodoprezento"
-
-#, fuzzy
-#~| msgid "Dance"
-#~ msgid "Cancel"
-#~ msgstr "Dance"
