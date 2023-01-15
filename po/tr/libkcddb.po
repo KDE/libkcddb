@@ -7,13 +7,13 @@
 # Görkem Çetin <gorkem@kde.org>, 2003.
 # H. İbrahim Güngör <ibrahim@pardus.org.tr>, 2010.
 # obsoleteman <tulliana@gmail.com>, 2007,2009,2012.
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-27 00:44+0000\n"
-"PO-Revision-Date: 2022-04-26 11:03+0300\n"
+"PO-Revision-Date: 2023-01-14 22:25+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: kcmcddb/cddbconfigwidget.cpp:40
 #, kde-format
@@ -244,7 +244,7 @@ msgstr "Veri"
 #: libkcddb/categories.cpp:29 libkcddb/genres.cpp:78
 #, kde-format
 msgid "Folk"
-msgstr "Folk"
+msgstr "Halk"
 
 #: libkcddb/categories.cpp:29 libkcddb/genres.cpp:84
 #, kde-format
@@ -259,7 +259,7 @@ msgstr "Çeşitli"
 #: libkcddb/categories.cpp:30 libkcddb/genres.cpp:86
 #, kde-format
 msgid "New Age"
-msgstr "New Age"
+msgstr "Yeni Çağ"
 
 #: libkcddb/categories.cpp:30 libkcddb/genres.cpp:92
 #, kde-format
@@ -274,7 +274,7 @@ msgstr "Rock"
 #: libkcddb/categories.cpp:30 libkcddb/genres.cpp:96
 #, kde-format
 msgid "Soundtrack"
-msgstr "Soundtrack"
+msgstr "Film/Dizi Müziği"
 
 #: libkcddb/genres.cpp:64
 #, kde-format
@@ -284,32 +284,32 @@ msgstr "Bilinmeyen"
 #: libkcddb/genres.cpp:64
 #, kde-format
 msgid "A Cappella"
-msgstr "A Cappella"
+msgstr "Akapella"
 
 #: libkcddb/genres.cpp:64
 #, kde-format
 msgid "Acid Jazz"
-msgstr "Acid Jazz"
+msgstr "Asit Caz"
 
 #: libkcddb/genres.cpp:65
 #, kde-format
 msgid "Acid Punk"
-msgstr "Acid Punk"
+msgstr "Asit Punk"
 
 #: libkcddb/genres.cpp:65
 #, kde-format
 msgid "Acid"
-msgstr "Acid"
+msgstr "Asit"
 
 #: libkcddb/genres.cpp:65
 #, kde-format
 msgid "Acoustic"
-msgstr "Acoustic"
+msgstr "Akustik"
 
 #: libkcddb/genres.cpp:65
 #, kde-format
 msgid "Alternative"
-msgstr "Alternative"
+msgstr "Alternatif"
 
 #: libkcddb/genres.cpp:66
 #, kde-format
@@ -319,7 +319,7 @@ msgstr "Alt. Rock"
 #: libkcddb/genres.cpp:66
 #, kde-format
 msgid "Ambient"
-msgstr "Ambient"
+msgstr "Ortam"
 
 #: libkcddb/genres.cpp:66
 #, kde-format
@@ -334,12 +334,12 @@ msgstr "Avantgarde"
 #: libkcddb/genres.cpp:67
 #, kde-format
 msgid "Ballad"
-msgstr "Ballad"
+msgstr "Balad"
 
 #: libkcddb/genres.cpp:67
 #, kde-format
 msgid "Bass"
-msgstr "Bass"
+msgstr "Bas"
 
 #: libkcddb/genres.cpp:67
 #, kde-format
@@ -359,7 +359,7 @@ msgstr "Big Band"
 #: libkcddb/genres.cpp:68
 #, kde-format
 msgid "Black Metal"
-msgstr "Black Metal"
+msgstr "Kara Metal"
 
 #: libkcddb/genres.cpp:68
 #, kde-format
@@ -374,22 +374,22 @@ msgstr "Booty Bass"
 #: libkcddb/genres.cpp:69
 #, kde-format
 msgid "BritPop"
-msgstr "BritPop"
+msgstr "Britanya Pop'u"
 
 #: libkcddb/genres.cpp:69
 #, kde-format
 msgid "Cabaret"
-msgstr "Cabaret"
+msgstr "Kabare"
 
 #: libkcddb/genres.cpp:69
 #, kde-format
 msgid "Celtic"
-msgstr "Celtic"
+msgstr "Kelt"
 
 #: libkcddb/genres.cpp:70
 #, kde-format
 msgid "Chamber Music"
-msgstr "Chamber Music"
+msgstr "Oda Müziği"
 
 #: libkcddb/genres.cpp:70
 #, kde-format
@@ -399,47 +399,47 @@ msgstr "Chanson"
 #: libkcddb/genres.cpp:70
 #, kde-format
 msgid "Chorus"
-msgstr "Chorus"
+msgstr "Nakarat"
 
 #: libkcddb/genres.cpp:70
 #, kde-format
 msgid "Christian Gangsta Rap"
-msgstr "Christian Gangsta Rap"
+msgstr "Hristiyan Gangsta Rap"
 
 #: libkcddb/genres.cpp:71
 #, kde-format
 msgid "Christian Rap"
-msgstr "Christian Rap"
+msgstr "Hristiyan Rap"
 
 #: libkcddb/genres.cpp:71
 #, kde-format
 msgid "Christian Rock"
-msgstr "Christian Rock"
+msgstr "Hristiyan Rock"
 
 #: libkcddb/genres.cpp:71
 #, kde-format
 msgid "Classic Rock"
-msgstr "Classic Rock"
+msgstr "Klasik Rock"
 
 #: libkcddb/genres.cpp:72
 #, kde-format
 msgid "Club-house"
-msgstr "Club-house"
+msgstr "Kulüp House"
 
 #: libkcddb/genres.cpp:72
 #, kde-format
 msgid "Club"
-msgstr "Club"
+msgstr "Kulüp"
 
 #: libkcddb/genres.cpp:72
 #, kde-format
 msgid "Comedy"
-msgstr "Comedy"
+msgstr "Komedi"
 
 #: libkcddb/genres.cpp:72
 #, kde-format
 msgid "Contemporary Christian"
-msgstr "Contemporary Christian"
+msgstr "Çağdaş Hristiyan"
 
 #: libkcddb/genres.cpp:73
 #, kde-format
@@ -449,102 +449,102 @@ msgstr "Crossover"
 #: libkcddb/genres.cpp:73
 #, kde-format
 msgid "Cult"
-msgstr "Cult"
+msgstr "Kült"
 
 #: libkcddb/genres.cpp:73
 #, kde-format
 msgid "Dance Hall"
-msgstr "Dance Hall"
+msgstr "Dans Pisti"
 
 #: libkcddb/genres.cpp:74
 #, kde-format
 msgid "Dance"
-msgstr "Dance"
+msgstr "Dans"
 
 #: libkcddb/genres.cpp:74
 #, kde-format
 msgid "Darkwave"
-msgstr "Darkwave"
+msgstr "Karanlık Dalga"
 
 #: libkcddb/genres.cpp:74
 #, kde-format
 msgid "Death Metal"
-msgstr "Death Metal"
+msgstr "Ölüm Metal"
 
 #: libkcddb/genres.cpp:74
 #, kde-format
 msgid "Disco"
-msgstr "Disco"
+msgstr "Disko"
 
 #: libkcddb/genres.cpp:75
 #, kde-format
 msgid "Dream"
-msgstr "Dream"
+msgstr "Düş"
 
 #: libkcddb/genres.cpp:75
 #, kde-format
 msgid "Drum & Bass"
-msgstr "Drum & Bass"
+msgstr "Davul ve Bas"
 
 #: libkcddb/genres.cpp:75
 #, kde-format
 msgid "Drum Solo"
-msgstr "Drum Solo"
+msgstr "Davul Solo"
 
 #: libkcddb/genres.cpp:75
 #, kde-format
 msgid "Duet"
-msgstr "Duet"
+msgstr "Düet"
 
 #: libkcddb/genres.cpp:76
 #, kde-format
 msgid "Easy Listening"
-msgstr "Easy Listening"
+msgstr "Kolay Dinlenen"
 
 #: libkcddb/genres.cpp:76
 #, kde-format
 msgid "Electronic"
-msgstr "Electronic"
+msgstr "Elektronik"
 
 #: libkcddb/genres.cpp:76
 #, kde-format
 msgid "Ethnic"
-msgstr "Ethnic"
+msgstr "Etnik"
 
 #: libkcddb/genres.cpp:76
 #, kde-format
 msgid "Eurodance"
-msgstr "Eurodance"
+msgstr "Avrupa Dansı"
 
 #: libkcddb/genres.cpp:77
 #, kde-format
 msgid "Euro-House"
-msgstr "Euro-House"
+msgstr "Avrupa House"
 
 #: libkcddb/genres.cpp:77
 #, kde-format
 msgid "Euro-Techno"
-msgstr "Euro-Techno"
+msgstr "Avrupa Tekno"
 
 #: libkcddb/genres.cpp:77
 #, kde-format
 msgid "Fast-Fusion"
-msgstr "Fast-Fusion"
+msgstr "Hızlı Füzyon"
 
 #: libkcddb/genres.cpp:77
 #, kde-format
 msgid "Folklore"
-msgstr "Folklore"
+msgstr "Folklor"
 
 #: libkcddb/genres.cpp:78
 #, kde-format
 msgid "Folk/Rock"
-msgstr "Folk/Rock"
+msgstr "Folk Rock"
 
 #: libkcddb/genres.cpp:78
 #, kde-format
 msgid "Freestyle"
-msgstr "Freestyle"
+msgstr "Serbest Tarz"
 
 #: libkcddb/genres.cpp:78
 #, kde-format
@@ -554,12 +554,12 @@ msgstr "Funk"
 #: libkcddb/genres.cpp:79
 #, kde-format
 msgid "Fusion"
-msgstr "Fusion"
+msgstr "Füzyon"
 
 #: libkcddb/genres.cpp:79
 #, kde-format
 msgid "Game"
-msgstr "Game"
+msgstr "Oyun"
 
 #: libkcddb/genres.cpp:79
 #, kde-format
@@ -574,17 +574,17 @@ msgstr "Goa"
 #: libkcddb/genres.cpp:80
 #, kde-format
 msgid "Gospel"
-msgstr "Gospel"
+msgstr "Kilise Müziği"
 
 #: libkcddb/genres.cpp:80
 #, kde-format
 msgid "Gothic Rock"
-msgstr "Gothic Rock"
+msgstr "Gotik Rock"
 
 #: libkcddb/genres.cpp:80
 #, kde-format
 msgid "Gothic"
-msgstr "Gothic"
+msgstr "Gotik"
 
 #: libkcddb/genres.cpp:80
 #, kde-format
@@ -599,12 +599,12 @@ msgstr "Hardcore"
 #: libkcddb/genres.cpp:81
 #, kde-format
 msgid "Hard Rock"
-msgstr "Hard Rock"
+msgstr "Sert Rock"
 
 #: libkcddb/genres.cpp:81
 #, kde-format
 msgid "Heavy Metal"
-msgstr "Heavy Metal"
+msgstr "Ağır Metal"
 
 #: libkcddb/genres.cpp:81
 #, kde-format
@@ -629,22 +629,22 @@ msgstr "Indie"
 #: libkcddb/genres.cpp:82
 #, kde-format
 msgid "Industrial"
-msgstr "Industrial"
+msgstr "Endüstriyel"
 
 #: libkcddb/genres.cpp:83
 #, kde-format
 msgid "Instrumental Pop"
-msgstr "Instrumental Pop"
+msgstr "Enstrümantal Pop"
 
 #: libkcddb/genres.cpp:83
 #, kde-format
 msgid "Instrumental Rock"
-msgstr "Instrumental Rock"
+msgstr "Enstrümantal Rock"
 
 #: libkcddb/genres.cpp:83
 #, kde-format
 msgid "Instrumental"
-msgstr "Instrumental"
+msgstr "Enstrümantal"
 
 #: libkcddb/genres.cpp:83
 #, kde-format
@@ -689,17 +689,17 @@ msgstr "Metal"
 #: libkcddb/genres.cpp:85
 #, kde-format
 msgid "Musical"
-msgstr "Musical"
+msgstr "Müzikal"
 
 #: libkcddb/genres.cpp:86
 #, kde-format
 msgid "National Folk"
-msgstr "National Folk"
+msgstr "Ulusal Halk Müziği"
 
 #: libkcddb/genres.cpp:86
 #, kde-format
 msgid "Native American"
-msgstr "Native American"
+msgstr "Yerel Amerikan"
 
 #: libkcddb/genres.cpp:86
 #, kde-format
@@ -709,17 +709,17 @@ msgstr "Negerpunk"
 #: libkcddb/genres.cpp:87
 #, kde-format
 msgid "New Wave"
-msgstr "New Wave"
+msgstr "Yeni Dalga"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
 msgid "Noise"
-msgstr "Noise"
+msgstr "Gürültü"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
 msgid "Oldies"
-msgstr "Oldies"
+msgstr "Eskiler"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -769,7 +769,7 @@ msgstr "Power Ballad"
 #: libkcddb/genres.cpp:90
 #, kde-format
 msgid "Pranks"
-msgstr "Pranks"
+msgstr "Şakalar"
 
 #: libkcddb/genres.cpp:90
 #, kde-format
@@ -779,17 +779,17 @@ msgstr "Primus"
 #: libkcddb/genres.cpp:90
 #, kde-format
 msgid "Progressive Rock"
-msgstr "Progressive Rock"
+msgstr "İlerlemeci Rock"
 
 #: libkcddb/genres.cpp:90
 #, kde-format
 msgid "Psychedelic Rock"
-msgstr "Psychedelic Rock"
+msgstr "Saykodelik Rock"
 
 #: libkcddb/genres.cpp:91
 #, kde-format
 msgid "Psychedelic"
-msgstr "Psychedelic"
+msgstr "Saykodelik"
 
 #: libkcddb/genres.cpp:91
 #, kde-format
@@ -849,7 +849,7 @@ msgstr "Samba"
 #: libkcddb/genres.cpp:94
 #, kde-format
 msgid "Satire"
-msgstr "Satire"
+msgstr "Hiciv"
 
 #: libkcddb/genres.cpp:94
 #, kde-format
@@ -864,12 +864,12 @@ msgstr "Ska"
 #: libkcddb/genres.cpp:95
 #, kde-format
 msgid "Slow Jam"
-msgstr "Slow Jam"
+msgstr "Yavaş Doğaçlama"
 
 #: libkcddb/genres.cpp:95
 #, kde-format
 msgid "Slow Rock"
-msgstr "Slow Rock"
+msgstr "Yavaş Rock"
 
 #: libkcddb/genres.cpp:95
 #, kde-format
@@ -884,22 +884,22 @@ msgstr "Soul"
 #: libkcddb/genres.cpp:96
 #, kde-format
 msgid "Sound Clip"
-msgstr "Sound Clip"
+msgstr "Ses Klibi"
 
 #: libkcddb/genres.cpp:96
 #, kde-format
 msgid "Southern Rock"
-msgstr "Southern Rock"
+msgstr "Güney Rock'ı"
 
 #: libkcddb/genres.cpp:97
 #, kde-format
 msgid "Space"
-msgstr "Space"
+msgstr "Uzay"
 
 #: libkcddb/genres.cpp:97
 #, kde-format
 msgid "Speech"
-msgstr "Speech"
+msgstr "Konuşma"
 
 #: libkcddb/genres.cpp:97
 #, kde-format
@@ -909,12 +909,12 @@ msgstr "Swing"
 #: libkcddb/genres.cpp:97
 #, kde-format
 msgid "Symphonic Rock"
-msgstr "Symphonic Rock"
+msgstr "Senfonik Rock"
 
 #: libkcddb/genres.cpp:98
 #, kde-format
 msgid "Symphony"
-msgstr "Symphony"
+msgstr "Senfoni"
 
 #: libkcddb/genres.cpp:98
 #, kde-format
@@ -929,37 +929,37 @@ msgstr "Tango"
 #: libkcddb/genres.cpp:98
 #, kde-format
 msgid "Techno-Industrial"
-msgstr "Techno-Industrial"
+msgstr "Endüstriyel Tekno"
 
 #: libkcddb/genres.cpp:99
 #, kde-format
 msgid "Techno"
-msgstr "Techno"
+msgstr "Tekno"
 
 #: libkcddb/genres.cpp:99
 #, kde-format
 msgid "Terror"
-msgstr "Terror"
+msgstr "Terör"
 
 #: libkcddb/genres.cpp:99
 #, kde-format
 msgid "Thrash Metal"
-msgstr "Thrash Metal"
+msgstr "Dalgalı Metal"
 
 #: libkcddb/genres.cpp:99
 #, kde-format
 msgid "Top 40"
-msgstr "Top 40"
+msgstr "En İyi 40"
 
 #: libkcddb/genres.cpp:100
 #, kde-format
 msgid "Trailer"
-msgstr "Trailer"
+msgstr "Fragman"
 
 #: libkcddb/genres.cpp:100
 #, kde-format
 msgid "Trance"
-msgstr "Trance"
+msgstr "Trans"
 
 #: libkcddb/genres.cpp:100
 #, kde-format
@@ -974,7 +974,7 @@ msgstr "Trip-Hop"
 #: libkcddb/genres.cpp:101
 #, kde-format
 msgid "Vocal"
-msgstr "Vocal"
+msgstr "Vokal"
 
 #: libkcddb/kcddb.cpp:19
 #, kde-format
