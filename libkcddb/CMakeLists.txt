@@ -16,7 +16,7 @@ add_library(KF5::Cddb ALIAS KCddb)
 if(MUSICBRAINZ5_FOUND)
     set(musicbrainz_sources
        musicbrainz/musicbrainzlookup.cpp
-       musicbrainz/asyncmusicbrainzlookup.cpp)
+       musicbrainz/asyncmusicbrainzlookup.cpp musicbrainz/asyncmusicbrainzlookup.h)
 
     if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC" OR (WIN32 AND "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel"))
         set(enable_exceptions -EHsc)
@@ -40,29 +40,29 @@ ecm_qt_declare_logging_category(KCddb
 )
 
 target_sources(KCddb PRIVATE
-    cache.cpp
-    cdinfo.cpp
-    config.cpp
-    client.cpp
-    kcddb.cpp
+    cache.cpp cache.h
+    cdinfo.cpp cdinfo.h
+    config.cpp config.h
+    client.cpp client.h
+    kcddb.cpp kcddb.h
     cddb.cpp
     lookup.cpp
-    cddbplookup.cpp
-    synccddbplookup.cpp
-    asynccddbplookup.cpp
-    httplookup.cpp
+    cddbplookup.cpp cddbplookup.h
+    synccddbplookup.cpp synccddbplookup.h
+    asynccddbplookup.cpp asynccddbplookup.h
+    httplookup.cpp httplookup.h
     synchttplookup.cpp
-    asynchttplookup.cpp
-    smtpsubmit.cpp
-    asyncsmtpsubmit.cpp
-    syncsmtpsubmit.cpp
+    asynchttplookup.cpp asynchttplookup.h
+    smtpsubmit.cpp smtpsubmit.h
+    asyncsmtpsubmit.cpp asyncsmtpsubmit.h
+    syncsmtpsubmit.cpp syncsmtpsubmit.h
     submit.cpp
-    sites.cpp
+    sites.cpp sites.h
     httpsubmit.cpp
-    asynchttpsubmit.cpp
+    asynchttpsubmit.cpp asynchttpsubmit.h
     synchttpsubmit.cpp
-    categories.cpp
-    genres.cpp
+    categories.cpp categories.h
+    genres.cpp genres.h
     ${musicbrainz_sources}
 )
 

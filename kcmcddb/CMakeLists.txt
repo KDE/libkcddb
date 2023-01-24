@@ -8,7 +8,7 @@ ki18n_wrap_ui(kcm_cddb cddbconfigwidget.ui)
 
 target_sources(kcm_cddb PRIVATE
     cddbconfigwidget.cpp
-    kcmcddb.cpp
+    kcmcddb.cpp kcmcddb.h
 )
 
 set_source_files_properties(cddbconfigwidget.cpp PROPERTIES OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/ui_cddbconfigwidget.h)
