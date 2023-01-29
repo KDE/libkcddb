@@ -10,20 +10,21 @@
 # xavier <xavier.besnard@neuf.fr>, 2013.
 # Simon Depiets <sdepiets@gmail.com>, 2020.
 #
+# Xavier BESNARD <xavier.besnard]neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-27 00:44+0000\n"
-"PO-Revision-Date: 2020-03-22 19:09+0800\n"
-"Last-Translator: Simon Depiets <sdepiets@gmail.com>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2023-01-27 19:25+0100\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 20.07.70\n"
+"X-Generator: Lokalize 22.12.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -88,7 +89,7 @@ msgstr "Activer les recherches « MusicBrainz »"
 #: cddbconfigwidget.ui:33
 #, kde-format
 msgid "Enable freedb lookup"
-msgstr "Activer les recherches « freedb »"
+msgstr "Activer les recherches avec Freedb"
 
 #. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
 #: cddbconfigwidget.ui:40
@@ -100,7 +101,7 @@ msgstr "Serveur « Freedb »"
 #: cddbconfigwidget.ui:46
 #, kde-format
 msgid "Freedb server:"
-msgstr "Serveur « freedb » :"
+msgstr "Serveur de Freedb :"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
 #: cddbconfigwidget.ui:64
@@ -216,7 +217,7 @@ msgid ""
 "you have entered are incomplete. Please review your email settings and try "
 "again."
 msgstr ""
-"Les demandes à « freedb » utilisent le protocole HTTP car les informations "
+"Les demandes à Freedb utilisent le protocole « HTTP » car les informations "
 "concernant votre adresse de courrier électronique sont incomplètes. Veuillez "
 "les vérifier et essayer à nouveau."
 
