@@ -14,11 +14,11 @@ target_sources(kcm_cddb PRIVATE
 set_source_files_properties(cddbconfigwidget.cpp PROPERTIES OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/ui_cddbconfigwidget.h)
 
 target_link_libraries(kcm_cddb PRIVATE
-    KF5::ConfigWidgets
-    KF5::I18n
-    KF5::KIOCore
-    KF5::KIOWidgets
-    KF5::WidgetsAddons
+    KF${KF_MAJOR_VERSION}::ConfigWidgets
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::KIOCore
+    KF${KF_MAJOR_VERSION}::KIOWidgets
+    KF${KF_MAJOR_VERSION}::WidgetsAddons
     KF5::Cddb
 )
 target_include_directories(kcm_cddb

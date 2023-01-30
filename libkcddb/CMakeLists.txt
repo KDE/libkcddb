@@ -68,10 +68,10 @@ target_sources(KCddb PRIVATE
 
 target_link_libraries(KCddb
     PUBLIC
-        KF5::ConfigGui
+        KF${KF_MAJOR_VERSION}::ConfigGui
     PRIVATE
-        KF5::I18n
-        KF5::KIOCore
+        KF${KF_MAJOR_VERSION}::I18n
+        KF${KF_MAJOR_VERSION}::KIOCore
         Qt${QT_MAJOR_VERSION}::Network
 )
 
