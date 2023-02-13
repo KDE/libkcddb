@@ -20,7 +20,7 @@
 #include <QCheckBox>
 #include <QVBoxLayout>
 
-K_PLUGIN_FACTORY(KCDDBFactory, registerPlugin<CDDBModule>();)
+K_PLUGIN_CLASS_WITH_JSON(CDDBModule, "kcm_cddb.json")
 
 CDDBModule::CDDBModule(QWidget *parent, const QVariantList &args)
   : KCModule(parent, args)

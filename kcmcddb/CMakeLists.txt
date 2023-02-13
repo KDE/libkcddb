@@ -2,7 +2,8 @@ add_definitions(-DTRANSLATION_DOMAIN="libkcddb")
 
 add_subdirectory(doc)
 
-add_library(kcm_cddb MODULE)
+kcoreaddons_add_plugin(kcm_cddb INSTALL_NAMESPACE "plasma/kcms/systemsettings_qwidgets")
+kcmutils_generate_desktop_file(kcm_cddb)
 
 ki18n_wrap_ui(kcm_cddb cddbconfigwidget.ui)
 
@@ -24,7 +25,3 @@ target_link_libraries(kcm_cddb PRIVATE
 target_include_directories(kcm_cddb
     PRIVATE ${CMAKE_SOURCE_DIR} # for libkcddb/ prefixed includes of library headers
 )
-
-install(TARGETS kcm_cddb DESTINATION ${KDE_INSTALL_PLUGINDIR})
-
-install(FILES libkcddb.desktop  DESTINATION  ${KDE_INSTALL_KSERVICESDIR})
