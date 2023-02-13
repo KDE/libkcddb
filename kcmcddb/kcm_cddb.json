@@ -53,6 +53,7 @@
     "GenericName[zh_CN]": "CDDB 配置",
     "GenericName[zh_TW]": "CDDB 設定",
     "KPlugin": {
+        "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=libkcddb",
         "Description": "Configure the CDDB Retrieval",
         "Description[ar]": "اضبط جلب CDDB",
         "Description[bg]": "Настройки на изтегляне на данни от CDDB",
