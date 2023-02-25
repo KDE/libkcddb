@@ -297,26 +297,26 @@
 <!-- follwing chapters need proofreading -->
 <sect1 id="cddb-editor">
 <title
->O Editor da Base de Dados dos &CD;s</title>
+>O editor do banco de dados dos &CD;s</title>
 
 <screenshot>
 <screeninfo
->O Editor da Base de Dados dos &CD;s</screeninfo>
+>O editor do banco de dados dos &CD;s</screeninfo>
 <mediaobject>
 <imageobject
 ><imagedata fileref="kscd13.png" format="PNG"/></imageobject>
 <textobject
 ><phrase
->O Editor da Base de Dados dos &CD;s</phrase
+>O editor do banco de dados dos &CD;s</phrase
 ></textobject>
 </mediaobject>
 </screenshot>
 
 <para
->O Editor de Bases de Dados de &CD;s permite-lhe modificar, baixar, salvar, anotar e enviar registros de <link linkend="cddb-support"
+>O editor de banco de dados de &CD;s permite-lhe modificar, baixar, salvar, anotar e enviar registros de <link linkend="cddb-support"
 ><acronym
 >CDDB</acronym
-> (Compact Disc Data Base - Base de Dados de CDs)</link
+> (Compact Disc Data Base - banco de dados de CDs)</link
 >.</para>
 
 <para
@@ -396,7 +396,7 @@
 ></title>
 
 <para
->O 'freedb' é uma base de dados distribuída na rede que está acessível na Internet e que contém informações sobre a maioria dos &CD;s de áudio em circulação. Se você tiver um acesso à Internet, você poderá nunca ter que inserir manualmente a informação das faixas para os seus &CD;s se tiver isto configurado adequada. Veja a subseção da <link linkend="cddb-page"
+>O 'freedb' é um banco de dados distribuída na rede que está acessível na Internet e que contém informações sobre a maioria dos &CD;s de áudio em circulação. Se você tiver um acesso à Internet, você poderá nunca ter que inserir manualmente a informação das faixas para os seus &CD;s se tiver isto configurado adequada. Veja a subseção da <link linkend="cddb-page"
 >página do CDDB</link
 > para informações mais detalhadas sobre como configurar este serviço, e a seção do <link linkend="cddb-editor"
 >Editor do banco de dados de &CD;s</link
@@ -435,7 +435,7 @@
 > 
 <listitem
 ><para
->Se enviar um registro que já exista na base de dados, todas as informações adicionais que enviar poderão ser adicionadas ao registro existente.</para>
+>Se enviar um registro que já exista no banco de dados, todas as informações adicionais que enviar poderão ser adicionadas ao registro existente.</para>
 </listitem>
 </itemizedlist>
 
@@ -447,11 +447,11 @@
 >. Você pode criar tantas subpastas de categorias quantas desejar. Contudo, ao enviar, só as categorias oficiais do <acronym
 >CDDB</acronym
 > serão apresentadas. O endereço de envio padrão é o <email
->freedb-submit@freedb.org</email
+>gnudb-submit@gnudb.org</email
 >. Para mais informações sobre o <abbrev
->freedb</abbrev
+>gnudb</abbrev
 > visite a página do <abbrev
->freedb</abbrev
+>gnudb</abbrev
 >.</para>
 
 <para
