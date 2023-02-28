@@ -2,11 +2,13 @@
     "KPlugin": {
         "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=libkcddb",
         "Description": "Configure the CDDB Retrieval",
+        "Description[ar]": "اضبط جلب CDDB",
         "Description[bg]": "Настройки на изтегляне на данни от CDDB",
         "Description[ca@valencia]": "Configura la recuperació CDDB",
         "Description[ca]": "Configura la recuperació CDDB",
         "Description[cs]": "Nastavení stahování z CDDB",
         "Description[en_GB]": "Configure the CDDB Retrieval",
+        "Description[es]": "Configurar la recuperación de CDDB",
         "Description[eu]": "Konfiguratu CDDB berreskuratzea",
         "Description[fr]": "Configurer la recherche « CDDB »",
         "Description[ia]": "Configura le Recuperation de CDDB",
