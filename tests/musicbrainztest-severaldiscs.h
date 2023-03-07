@@ -12,6 +12,8 @@
 class MusicBrainzTestSeveralDiscs : public QObject
 {
   Q_OBJECT
+  public:
+    static void initMain();
   private Q_SLOTS:
     void testLookup();
 };
