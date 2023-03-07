@@ -1,7 +1,11 @@
 add_definitions(-DTRANSLATION_DOMAIN="libkcddb")
 
 set(KCDDB_INSTALL_INCLUDEDIR "${KDE_INSTALL_INCLUDEDIR}/KCddb${QT_MAJOR_VERSION}")
-set(KCDDB_CMAKECONFIG_NAME "KF5Cddb")
+if (KF_MAJOR_VERSION STREQUAL "5")
+    set(KCDDB_CMAKECONFIG_NAME "KF5Cddb")
+else()
+    set(KCDDB_CMAKECONFIG_NAME "KCddb6")
+endif()
 
 ecm_setup_version(${libkcddb_VERSION}
     VARIABLE_PREFIX KCDDB
@@ -11,7 +15,11 @@ ecm_setup_version(${libkcddb_VERSION}
 )
 
 add_library(KCddb SHARED)
-add_library(KF5::Cddb ALIAS KCddb)
+if (KF_MAJOR_VERSION STREQUAL "5")
+    add_library(KF5::Cddb ALIAS KCddb)
+else()
+    add_library(KCddb6 ALIAS KCddb)
+endif()
 
 if(MUSICBRAINZ5_FOUND)
     set(musicbrainz_sources
@@ -96,12 +104,22 @@ target_include_directories(KCddb
         "$<INSTALL_INTERFACE:${KCDDB_INSTALL_INCLUDEDIR}>"
 )
 
-set_target_properties(KCddb PROPERTIES
-    VERSION ${KCDDB_VERSION}
-    SOVERSION ${KCDDB_SOVERSION}
-    OUTPUT_NAME KF5Cddb
-    EXPORT_NAME Cddb
-)
+
+if (KF_MAJOR_VERSION STREQUAL "5")
+    set_target_properties(KCddb PROPERTIES
+        VERSION ${KCDDB_VERSION}
+        SOVERSION ${KCDDB_SOVERSION}
+        OUTPUT_NAME KF${KF_MAJOR_VERSION}Cddb
+        EXPORT_NAME Cddb
+    )
+else()
+    set_target_properties(KCddb PROPERTIES
+        VERSION ${KCDDB_VERSION}
+        SOVERSION ${KCDDB_SOVERSION}
+        OUTPUT_NAME KCddb6
+        EXPORT_NAME Cddb6
+    )
+endif()
 
 ecm_generate_headers(KCddb_CamelCase_HEADERS
     HEADER_NAMES
@@ -137,6 +155,11 @@ install(FILES
     COMPONENT Devel
 )
 
+if (KF_MAJOR_VERSION STREQUAL "5")
+    set(KCDDB_INCLUDE_DESTINATION "${KDE_INSTALL_INCLUDEDIR_KF}/KCddb")
+else()
+    set(KCDDB_INCLUDE_DESTINATION "${KDE_INSTALL_INCLUDEDIR}/KCddb6")
+endif()
 # provide compat headers for old broken include path prefix KCddb/
 if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
    EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 5.1.0)
@@ -154,7 +177,7 @@ if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
             set(NEW_INCLUDE "kcddb/${NEWHEADER_NAME}")
             configure_file(compatheader.h.in ${compat_header} @ONLY)
             install(FILES ${compat_header}
-                DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KCddb
+                DESTINATION ${KCDDB_INCLUDE_DESTINATION}
                 COMPONENT Devel
             )
             # CamelCase header
@@ -162,7 +185,7 @@ if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND
             set(NEW_INCLUDE "KCDDB/${newclassname}")
             configure_file(compatheader.h.in ${compat_header} @ONLY)
             install(FILES ${compat_header}
-                DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KCddb
+                DESTINATION ${KCDDB_INCLUDE_DESTINATION}
                 COMPONENT Devel
             )
         endforeach()
@@ -203,14 +226,18 @@ install(FILES
 install(EXPORT KCddbTargets
     DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
     FILE ${KCDDB_CMAKECONFIG_NAME}Targets.cmake
-    NAMESPACE KF5::
     COMPONENT Devel
 )
 
 include(ECMGeneratePriFile)
+if (KF_MAJOR_VERSION STREQUAL "5")
+    set(KCDDB_LIB_NAME KF${KF_MAJOR_VERSION}Cddb)
+else()
+    set(KCDDB_LIB_NAME libKCddb6)
+endif()
 ecm_generate_pri_file(
     BASE_NAME KCddb
-    LIB_NAME KF5Cddb
+    LIB_NAME ${KCDDB_LIB_NAME}
     DEPS "KConfigGui"
     FILENAME_VAR PRI_FILENAME
     INCLUDE_INSTALL_DIR ${KCDDB_INSTALL_INCLUDEDIR}
