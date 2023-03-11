@@ -133,7 +133,11 @@ ecm_generate_headers(KCddb_CamelCase_HEADERS
     REQUIRED_HEADERS KCddb_HEADERS
 )
 
-install(TARGETS KCddb EXPORT KCddbTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+if (KF_MAJOR_VERSION STREQUAL "6")
+    install(TARGETS KCddb EXPORT KCddbTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+else()
+    install(TARGETS KCddb EXPORT KCddbTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+endif()
 
 install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/kcddb_export.h
