@@ -117,7 +117,7 @@ else()
         VERSION ${KCDDB_VERSION}
         SOVERSION ${KCDDB_SOVERSION}
         OUTPUT_NAME KCddb6
-        EXPORT_NAME Cddb6
+        EXPORT_NAME KCddb6
     )
 endif()
 
