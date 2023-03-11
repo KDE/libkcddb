@@ -227,11 +227,20 @@ install(FILES
     COMPONENT Devel
 )
 
-install(EXPORT KCddbTargets
-    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-    FILE ${KCDDB_CMAKECONFIG_NAME}Targets.cmake
-    COMPONENT Devel
-)
+if (KF_MAJOR_VERSION STREQUAL "6")
+    install(EXPORT KCddbTargets
+        DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+        FILE ${KCDDB_CMAKECONFIG_NAME}Targets.cmake
+        COMPONENT Devel
+    )
+else()
+    install(EXPORT KCddbTargets
+        DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+        FILE ${KCDDB_CMAKECONFIG_NAME}Targets.cmake
+        NAMESPACE KF5::
+        COMPONENT Devel
+    )
+endif()
 
 include(ECMGeneratePriFile)
 if (KF_MAJOR_VERSION STREQUAL "5")
