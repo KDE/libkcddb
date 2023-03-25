@@ -12,6 +12,7 @@
 #include "libkcddb/config.h"
 
 class CDDBConfigWidget;
+class KPluginMetaData;
 
 
 class CDDBModule : public KCModule
@@ -20,7 +21,11 @@ class CDDBModule : public KCModule
 
   public:
 
-	CDDBModule(QWidget * parent, const QVariantList & args);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    CDDBModule(QWidget * parent, const QVariantList & args);
+#else
+    CDDBModule(QObject * parent, const KPluginMetaData &metaData, const QVariantList & args);
+#endif
 
   public Q_SLOTS:
 
