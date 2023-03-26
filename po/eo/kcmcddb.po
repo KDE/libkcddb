@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-27 00:44+0000\n"
-"PO-Revision-Date: 2009-11-15 12:06+0100\n"
-"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-03-25 16:19+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -80,17 +80,15 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
 #: cddbconfigwidget.ui:40
-#, fuzzy, kde-format
-#| msgid "Server:"
+#, kde-format
 msgid "Freedb Server"
-msgstr "Servilo:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel7)
 #: cddbconfigwidget.ui:46
-#, fuzzy, kde-format
-#| msgid "Server:"
+#, kde-format
 msgid "Freedb server:"
-msgstr "Servilo:"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
 #: cddbconfigwidget.ui:64
@@ -180,10 +178,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
 #: cddbconfigwidget.ui:299
-#, fuzzy, kde-format
-#| msgid "Server:"
+#, kde-format
 msgid "SMTP server:"
-msgstr "Servilo:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: cddbconfigwidget.ui:306
@@ -209,6 +206,3 @@ msgstr ""
 #, kde-format
 msgid "Incorrect Email Settings"
 msgstr ""
-
-#~ msgid "freedb.freedb.org"
-#~ msgstr "freedb.freedb.org"
