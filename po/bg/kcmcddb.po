@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"POT-Creation-Date: 2023-03-28 00:47+0000\n"
 "PO-Revision-Date: 2022-05-21 20:03+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -191,7 +191,7 @@ msgstr "SMTP сървър:"
 msgid "Username:"
 msgstr "Потребител:"
 
-#: kcmcddb.cpp:41
+#: kcmcddb.cpp:55
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
@@ -201,7 +201,7 @@ msgstr ""
 "данни в Интернет. Може да търсите информация за заглавието на песента, за "
 "автора, албума и дори текста."
 
-#: kcmcddb.cpp:69
+#: kcmcddb.cpp:84
 #, kde-format
 msgid ""
 "freedb has been set to use HTTP for submissions because the email details "
@@ -214,7 +214,7 @@ msgstr ""
 "са непълни. Моля, прегледайте настройките\n"
 "на е-пощата и опитайте отново."
 
-#: kcmcddb.cpp:72
+#: kcmcddb.cpp:87
 #, kde-format
 msgid "Incorrect Email Settings"
 msgstr "Невалидни данни за е-поща"

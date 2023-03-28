@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"POT-Creation-Date: 2023-03-28 00:47+0000\n"
 "PO-Revision-Date: 2010-06-27 09:51+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -191,7 +191,7 @@ msgstr "SMTP сервері:"
 msgid "Username:"
 msgstr "Пайдаланушы:"
 
-#: kcmcddb.cpp:41
+#: kcmcddb.cpp:55
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
@@ -199,7 +199,7 @@ msgstr ""
 "CDDB қоры CD дискілердегі орындаушы, атауы, әндер туралы мәліметті табу үшін "
 "пайдаланылады"
 
-#: kcmcddb.cpp:69
+#: kcmcddb.cpp:84
 #, kde-format
 msgid ""
 "freedb has been set to use HTTP for submissions because the email details "
@@ -209,7 +209,7 @@ msgstr ""
 "freedb HTTP протоколын қолданады, өйткені эл.пошта мәліметіңіз толық "
 "келтірілмеген. Эл.поштаңызды толық келтіріп әрекетті қайталап көріңіз."
 
-#: kcmcddb.cpp:72
+#: kcmcddb.cpp:87
 #, kde-format
 msgid "Incorrect Email Settings"
 msgstr "Эл.пошта параметрлері дұрыс емес"

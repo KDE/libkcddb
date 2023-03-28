@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"POT-Creation-Date: 2023-03-28 00:47+0000\n"
 "PO-Revision-Date: 2020-03-13 10:24+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
@@ -197,7 +197,7 @@ msgstr "SMTP-server:"
 msgid "Username:"
 msgstr "Gebruikersnaam:"
 
-#: kcmcddb.cpp:41
+#: kcmcddb.cpp:55
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
@@ -205,7 +205,7 @@ msgstr ""
 "CDDB wordt gebruikt om informatie zoals artiest, titel en naam van het "
 "nummer op cd's op te halen."
 
-#: kcmcddb.cpp:69
+#: kcmcddb.cpp:84
 #, kde-format
 msgid ""
 "freedb has been set to use HTTP for submissions because the email details "
@@ -216,7 +216,7 @@ msgstr ""
 "opgegeven onvolledig zijn. Controleer uw e-mailinstellingen en probeer het "
 "opnieuw."
 
-#: kcmcddb.cpp:72
+#: kcmcddb.cpp:87
 #, kde-format
 msgid "Incorrect Email Settings"
 msgstr "Onjuiste e-mailinstellingen"

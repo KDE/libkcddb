@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"POT-Creation-Date: 2023-03-28 00:47+0000\n"
 "PO-Revision-Date: 2021-09-03 20:51+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -194,7 +194,7 @@ msgstr "Servidor SMTP:"
 msgid "Username:"
 msgstr "Nom d'usuari:"
 
-#: kcmcddb.cpp:41
+#: kcmcddb.cpp:55
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
@@ -202,7 +202,7 @@ msgstr ""
 "CDDB s'utilitza per a aconseguir la informació com l'artista, títol i noms "
 "de les cançons dels CD"
 
-#: kcmcddb.cpp:69
+#: kcmcddb.cpp:84
 #, kde-format
 msgid ""
 "freedb has been set to use HTTP for submissions because the email details "
@@ -213,7 +213,7 @@ msgstr ""
 "correu electrònic que heu introduït estan incomplets. Reviseu la "
 "configuració del correu i torneu-ho a intentar."
 
-#: kcmcddb.cpp:72
+#: kcmcddb.cpp:87
 #, kde-format
 msgid "Incorrect Email Settings"
 msgstr "Paràmetres incorrectes de l'adreça de correu"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"POT-Creation-Date: 2023-03-28 00:47+0000\n"
 "PO-Revision-Date: 2013-09-08 07:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -190,7 +190,7 @@ msgstr "SMTP مۇلازىمېتىرى:"
 msgid "Username:"
 msgstr "ئىشلەتكۈچى ئاتى:"
 
-#: kcmcddb.cpp:41
+#: kcmcddb.cpp:55
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
@@ -198,7 +198,7 @@ msgstr ""
 "CDDB بولسا CD دىكى سەنئەتكار، ماۋزۇ ۋە ناخشا ئاتىغا ئوخشاش ئۇچۇرلارغا "
 "ئېرىشىش ئۈچۈن ئىشلىتىلىدۇ"
 
-#: kcmcddb.cpp:69
+#: kcmcddb.cpp:84
 #, kde-format
 msgid ""
 "freedb has been set to use HTTP for submissions because the email details "
@@ -209,7 +209,7 @@ msgstr ""
 "ئادرېس تەپسىلاتى تولۇق ئەمەس. ئېلخەت تەڭشىكىڭىزنى قايتا تەكشۈرۈپ ئاندىن "
 "قايتا سىناڭ."
 
-#: kcmcddb.cpp:72
+#: kcmcddb.cpp:87
 #, kde-format
 msgid "Incorrect Email Settings"
 msgstr "ئېلخەت تەڭشىكى خاتا"

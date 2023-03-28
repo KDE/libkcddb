@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"POT-Creation-Date: 2023-03-28 00:47+0000\n"
 "PO-Revision-Date: 2011-05-11 16:14+0800\n"
 "Last-Translator: Sharuzzaman Ahmat Raslan <sharuzzaman@gmail.com>\n"
 "Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
@@ -191,7 +191,7 @@ msgstr "Pelayan SMTP:"
 msgid "Username:"
 msgstr "Nama pengguna"
 
-#: kcmcddb.cpp:41
+#: kcmcddb.cpp:55
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
@@ -199,7 +199,7 @@ msgstr ""
 "CDDB digunakan untuk mendapatkan maklumat seperti artis, judul dan nama lagu "
 "dalam CD"
 
-#: kcmcddb.cpp:69
+#: kcmcddb.cpp:84
 #, kde-format
 msgid ""
 "freedb has been set to use HTTP for submissions because the email details "
@@ -210,7 +210,7 @@ msgstr ""
 "mel yang anda masukkan tidak lengkap. Semak semula seting e-mel anda dan "
 "cuba sekali lagi."
 
-#: kcmcddb.cpp:72
+#: kcmcddb.cpp:87
 #, kde-format
 msgid "Incorrect Email Settings"
 msgstr "Seting E-mel Tidak Betul"

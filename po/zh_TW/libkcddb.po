@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"POT-Creation-Date: 2023-03-28 00:47+0000\n"
 "PO-Revision-Date: 2020-03-13 22:34+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -194,13 +194,13 @@ msgstr "SMTP 伺服器："
 msgid "Username:"
 msgstr "使用者名稱："
 
-#: kcmcddb/kcmcddb.cpp:41
+#: kcmcddb/kcmcddb.cpp:55
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
 msgstr "CDDB 是用於取得光碟中的一些資訊，如演唱者、標題、歌名等。"
 
-#: kcmcddb/kcmcddb.cpp:69
+#: kcmcddb/kcmcddb.cpp:84
 #, kde-format
 msgid ""
 "freedb has been set to use HTTP for submissions because the email details "
@@ -210,7 +210,7 @@ msgstr ""
 "因為您所輸入的電子郵件詳情不完整，因此freedb 已設定使用 HTTP。請檢查您的電子"
 "郵件設定然後再試一次。"
 
-#: kcmcddb/kcmcddb.cpp:72
+#: kcmcddb/kcmcddb.cpp:87
 #, kde-format
 msgid "Incorrect Email Settings"
 msgstr "錯誤的電子郵件設定"

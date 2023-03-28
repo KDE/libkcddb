@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:44+0000\n"
-"PO-Revision-Date: 2023-03-26 02:18\n"
+"POT-Creation-Date: 2023-03-28 00:47+0000\n"
+"PO-Revision-Date: 2023-03-27 11:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -189,13 +189,13 @@ msgstr "SMTP 服务器："
 msgid "Username:"
 msgstr "用户名："
 
-#: kcmcddb.cpp:41
+#: kcmcddb.cpp:55
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
 msgstr "CDDB 用于获取 CD 中的艺人、标题及歌名等信息"
 
-#: kcmcddb.cpp:69
+#: kcmcddb.cpp:84
 #, kde-format
 msgid ""
 "freedb has been set to use HTTP for submissions because the email details "
@@ -205,7 +205,7 @@ msgstr ""
 "freedb 已设置为使用 HTTP 提交，原因是您输入的电子邮件细节不完整。请复查您的电"
 "子邮件设置并重试。"
 
-#: kcmcddb.cpp:72
+#: kcmcddb.cpp:87
 #, kde-format
 msgid "Incorrect Email Settings"
 msgstr "电子邮件设置不正确"

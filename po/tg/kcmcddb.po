@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"POT-Creation-Date: 2023-03-28 00:47+0000\n"
 "PO-Revision-Date: 2004-06-08 15:14+0000\n"
 "Last-Translator: Abrorova\n"
 "Language-Team:  <tajik>\n"
@@ -196,7 +196,7 @@ msgstr "SMTP Хидматрасон"
 msgid "Username:"
 msgstr "Номи корванд:"
 
-#: kcmcddb.cpp:41
+#: kcmcddb.cpp:55
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
@@ -204,7 +204,7 @@ msgstr ""
 "CDDB барои гирифтани ахборот ба монанди сароянда, унвон ва номҳои сурудҳо "
 "истифода мешавад"
 
-#: kcmcddb.cpp:69
+#: kcmcddb.cpp:84
 #, fuzzy, kde-format
 msgid ""
 "freedb has been set to use HTTP for submissions because the email details "
@@ -216,7 +216,7 @@ msgstr ""
 "шумо ворид намудаед, нопурраанд. Марҳамат карда гузоришҳои пости\n"
 "электронии худро аз назар гузаронед ва бори дигар кӯшиш кунед."
 
-#: kcmcddb.cpp:72
+#: kcmcddb.cpp:87
 #, fuzzy, kde-format
 msgid "Incorrect Email Settings"
 msgstr "Суроғаҳои пости электронии зеринро истифода баред"

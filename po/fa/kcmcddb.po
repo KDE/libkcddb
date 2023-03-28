@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"POT-Creation-Date: 2023-03-28 00:47+0000\n"
 "PO-Revision-Date: 2007-07-24 15:57+0330\n"
 "Last-Translator: Nazanin Kazemi <kazemi@itland.ir>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -190,7 +190,7 @@ msgstr "کارساز SMTP:"
 msgid "Username:"
 msgstr "نام کاربر:"
 
-#: kcmcddb.cpp:41
+#: kcmcddb.cpp:55
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
@@ -198,7 +198,7 @@ msgstr ""
 "CDDB برای دریافت اطلاعات مانند هنرمند، عنوان و نام ترانه‌های موجود در دیسک "
 "فشرده استفاده می‌شود"
 
-#: kcmcddb.cpp:69
+#: kcmcddb.cpp:84
 #, kde-format
 msgid ""
 "freedb has been set to use HTTP for submissions because the email details "
@@ -209,7 +209,7 @@ msgstr ""
 "که وارد کرده‌اید ناقص است. لطفاً، تنظیمات رایانامه خود را مرور کرده و دوباره "
 "امتحان کنید."
 
-#: kcmcddb.cpp:72
+#: kcmcddb.cpp:87
 #, kde-format
 msgid "Incorrect Email Settings"
 msgstr "تنظیمات نادرست رایانامه"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"POT-Creation-Date: 2023-03-28 00:47+0000\n"
 "PO-Revision-Date: 2022-11-16 08:25+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -191,7 +191,7 @@ msgstr "SMTP სერვერი:"
 msgid "Username:"
 msgstr "მომხმარებელი:"
 
-#: kcmcddb.cpp:41
+#: kcmcddb.cpp:55
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
@@ -199,7 +199,7 @@ msgstr ""
 "CDDB გამოიყენება CD-ების შესახებ ისეთი ინფორმაციის მისაღებად, როგორიცაა "
 "შემსრულებელი, სათაური და ა.შ"
 
-#: kcmcddb.cpp:69
+#: kcmcddb.cpp:84
 #, kde-format
 msgid ""
 "freedb has been set to use HTTP for submissions because the email details "
@@ -210,7 +210,7 @@ msgstr ""
 "ელფოსტის დეტალები არასწორია. გადახედეთ ელფოსტის პარამეტრებს და თავიდან "
 "სცადეთ."
 
-#: kcmcddb.cpp:72
+#: kcmcddb.cpp:87
 #, kde-format
 msgid "Incorrect Email Settings"
 msgstr "ელფოსტის არასწორი პარამეტრები"

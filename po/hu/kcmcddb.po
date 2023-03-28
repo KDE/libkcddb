@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"POT-Creation-Date: 2023-03-28 00:47+0000\n"
 "PO-Revision-Date: 2020-11-25 22:01+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -188,7 +188,7 @@ msgstr "SMTP-kiszolgáló:"
 msgid "Username:"
 msgstr "Felhasználónév:"
 
-#: kcmcddb.cpp:41
+#: kcmcddb.cpp:55
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
@@ -196,7 +196,7 @@ msgstr ""
 "A CDDB segítségével lekérdezhetők a CD-lemezen levő számok előadójának neve, "
 "a számok és az album címei stb."
 
-#: kcmcddb.cpp:69
+#: kcmcddb.cpp:84
 #, kde-format
 msgid ""
 "freedb has been set to use HTTP for submissions because the email details "
@@ -207,7 +207,7 @@ msgstr ""
 "szükséges adatok hiányosak. Ellenőrizze az e-mail-beállításokat és "
 "próbálkozzon újból."
 
-#: kcmcddb.cpp:72
+#: kcmcddb.cpp:87
 #, kde-format
 msgid "Incorrect Email Settings"
 msgstr "Érvénytelen e-mail-beállítás"

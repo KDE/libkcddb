@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"POT-Creation-Date: 2023-03-28 00:47+0000\n"
 "PO-Revision-Date: 2013-02-28 12:49+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -191,13 +191,13 @@ msgstr "SMTP सर्व्हर :"
 msgid "Username:"
 msgstr "वापरकर्ता नाव :"
 
-#: kcmcddb/kcmcddb.cpp:41
+#: kcmcddb/kcmcddb.cpp:55
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
 msgstr "सीडीतील कलाकार, शिर्षक व गाण्याचे नाव इ. माहिती घेण्याकरिता CDDB वापरले जाते"
 
-#: kcmcddb/kcmcddb.cpp:69
+#: kcmcddb/kcmcddb.cpp:84
 #, kde-format
 msgid ""
 "freedb has been set to use HTTP for submissions because the email details "
@@ -207,7 +207,7 @@ msgstr ""
 "freedb सादर करण्याकरिता HTTP वापरत आहे कारण तुम्ही दिलेला इमेल तपशील अपूर्ण आहे. कृपया "
 "तुमची इमेल संयोजना तपासा व पुन्हा प्रयत्न करा."
 
-#: kcmcddb/kcmcddb.cpp:72
+#: kcmcddb/kcmcddb.cpp:87
 #, kde-format
 msgid "Incorrect Email Settings"
 msgstr "चूकीची इमेल संयोजना"
