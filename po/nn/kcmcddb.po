@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:44+0000\n"
+"POT-Creation-Date: 2023-03-28 00:47+0000\n"
 "PO-Revision-Date: 2020-11-13 22:52+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -194,7 +194,7 @@ msgstr "SMTP-tenar:"
 msgid "Username:"
 msgstr "Brukarnamn:"
 
-#: kcmcddb.cpp:41
+#: kcmcddb.cpp:55
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
@@ -202,7 +202,7 @@ msgstr ""
 "CDDB vert brukt til å henta informasjon om artist, tittel og songnamn på CD-"
 "plater"
 
-#: kcmcddb.cpp:69
+#: kcmcddb.cpp:84
 #, kde-format
 msgid ""
 "freedb has been set to use HTTP for submissions because the email details "
@@ -213,7 +213,7 @@ msgstr ""
 "postinformasjonen ikkje er komplett. Sjå over e-postinnstillingane og prøv "
 "på nytt."
 
-#: kcmcddb.cpp:72
+#: kcmcddb.cpp:87
 #, kde-format
 msgid "Incorrect Email Settings"
 msgstr "Feil e-postinnstillingar"
