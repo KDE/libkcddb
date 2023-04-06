@@ -21,6 +21,23 @@ else()
     add_library(KCddb6 ALIAS KCddb)
 endif()
 
+if (KF_MAJOR_VERSION STREQUAL "5")
+    set_target_properties(KCddb PROPERTIES
+        VERSION     ${KCDDB_VERSION}
+        SOVERSION   ${KCDDB_SOVERSION}
+        OUTPUT_NAME KF${KF_MAJOR_VERSION}Cddb
+        EXPORT_NAME Cddb
+    )
+else()
+    set_target_properties(KCddb PROPERTIES
+        VERSION     ${KCDDB_VERSION}
+        SOVERSION   ${KCDDB_SOVERSION}
+        OUTPUT_NAME KCddb6
+        EXPORT_NAME KCddb6
+    )
+endif()
+
+
 if(MUSICBRAINZ5_FOUND)
     set(musicbrainz_sources
        musicbrainz/musicbrainzlookup.cpp
@@ -103,23 +120,6 @@ target_include_directories(KCddb
     PUBLIC
         "$<INSTALL_INTERFACE:${KCDDB_INSTALL_INCLUDEDIR}>"
 )
-
-
-if (KF_MAJOR_VERSION STREQUAL "5")
-    set_target_properties(KCddb PROPERTIES
-        VERSION ${KCDDB_VERSION}
-        SOVERSION ${KCDDB_SOVERSION}
-        OUTPUT_NAME KF${KF_MAJOR_VERSION}Cddb
-        EXPORT_NAME Cddb
-    )
-else()
-    set_target_properties(KCddb PROPERTIES
-        VERSION ${KCDDB_VERSION}
-        SOVERSION ${KCDDB_SOVERSION}
-        OUTPUT_NAME KCddb6
-        EXPORT_NAME KCddb6
-    )
-endif()
 
 ecm_generate_headers(KCddb_CamelCase_HEADERS
     HEADER_NAMES
