@@ -26,10 +26,6 @@ namespace KCDDB
 
     static_cast<KConfigSkeleton::ItemString *>(findItem(QLatin1String( "emailAddress" )))
       ->setDefaultValue(kes.getSetting( KEMailSettings::EmailAddress ));
-    static_cast<KConfigSkeleton::ItemString *>(findItem(QLatin1String( "replyTo" )))
-      ->setDefaultValue(kes.getSetting( KEMailSettings::ReplyToAddress ));
-    static_cast<KConfigSkeleton::ItemString *>(findItem(QLatin1String( "smtpHostname" )))
-      ->setDefaultValue(kes.getSetting( KEMailSettings::OutServer ));
   }
 
   void Config::reparse()

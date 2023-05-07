@@ -47,7 +47,6 @@ main(int argc, char ** argv)
   cdInfo.track(4).set(QString::fromUtf8("title"), QString::fromUtf8("Jätteödlan Bronto"));
 
   Client c;
-  c.config().setFreedbSubmitTransport(Submit::HTTP);
   c.setBlockingMode( true );
 
   Result r = c.submit(cdInfo, list);

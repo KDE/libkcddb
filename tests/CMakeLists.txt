@@ -21,8 +21,6 @@ add_unit_tests(
     cachetest
     musicbrainztest-severaldiscs
     musicbrainztest-fulldate
-    syncsmtpsubmittest
-    asyncsmtpsubmittest
     asynchttpsubmittest
     synchttpsubmittest
     sitestest)

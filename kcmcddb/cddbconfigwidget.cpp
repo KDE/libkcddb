@@ -50,7 +50,6 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
   layout->setContentsMargins(0, 0, 0, 0);
   layout->addWidget(groupBox);
 
-  connect(needsAuthenticationBox,&QAbstractButton::toggled,this, &CDDBConfigWidget::needAuthenticationChanged);
   connect(kcfg_FreedbLookupTransport,QOverload<int>::of(&QComboBox::activated),this, &CDDBConfigWidget::protocolChanged);
   connect(kcfg_FreedbLookupEnabled,&QAbstractButton::toggled,freedbServerBox,&QWidget::setEnabled);
   connect(mirrorListButton,&QAbstractButton::clicked,this, &CDDBConfigWidget::showMirrorList);
@@ -98,13 +97,6 @@ void CDDBConfigWidget::protocolChanged()
       kcfg_port->setValue(80);
     else if (kcfg_FreedbLookupTransport->currentText() == i18n("CDDB") && kcfg_port->value() == 80)
       kcfg_port->setValue(8880);
-}
-
-void CDDBConfigWidget::needAuthenticationChanged(bool needsAuth)
-{
-    kcfg_smtpUsername->setEnabled(needsAuth);
-    if (!needsAuth)
-      kcfg_smtpUsername->clear();
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

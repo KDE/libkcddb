@@ -23,8 +23,6 @@ class CDDBConfigWidget : public QWidget, public Ui::CDDBConfigWidgetBase
     virtual void showMirrorList();
 
     virtual void protocolChanged();
-
-    virtual void needAuthenticationChanged(bool);
 };
 
 #endif // CDDB_CONFIG_WIDGET_H

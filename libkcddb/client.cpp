@@ -8,17 +8,15 @@
 
 #include "client.h"
 
-#include "synccddbplookup.h"
 #include "asynccddbplookup.h"
-#include "synchttplookup.h"
 #include "asynchttplookup.h"
-#include "syncsmtpsubmit.h"
-#include "asyncsmtpsubmit.h"
-#include "synchttpsubmit.h"
 #include "asynchttpsubmit.h"
 #include "cache.h"
-#include "lookup.h"
 #include "logging.h"
+#include "lookup.h"
+#include "synccddbplookup.h"
+#include "synchttplookup.h"
+#include "synchttpsubmit.h"
 
 #include "config-musicbrainz.h"
 #ifdef HAVE_MUSICBRAINZ5
@@ -273,47 +271,17 @@ namespace KCDDB
 
     QString from = d->config.emailAddress();
 
-    switch (d->config.freedbSubmitTransport())
+    QString hostname = d->config.httpSubmitServer();
+    uint port = d->config.httpSubmitPort();
+
+    if ( blockingMode() )
+      d->cdInfoSubmit = new SyncHTTPSubmit(from, hostname, port);
+    else
     {
-      case Submit::HTTP:
-      {
-        QString hostname = d->config.httpSubmitServer();
-        uint port = d->config.httpSubmitPort();
-
-        if ( blockingMode() )
-          d->cdInfoSubmit = new SyncHTTPSubmit(from, hostname, port);
-        else
-        {
-          d->cdInfoSubmit = new AsyncHTTPSubmit(from, hostname, port);
-          connect( static_cast<AsyncHTTPSubmit *>( d->cdInfoSubmit ),
-                  &AsyncHTTPSubmit::finished,
-                  this, &Client::slotSubmitFinished );
-        }
-
-        break;
-      }
-      case Submit::SMTP:
-      {
-        QString hostname = d->config.smtpHostname();
-        uint port = d->config.smtpPort();
-        QString username = d->config.smtpUsername();
-
-        if ( blockingMode() )
-          d->cdInfoSubmit = new SyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
-        else
-        {
-          d->cdInfoSubmit = new AsyncSMTPSubmit( hostname, port, username, from, d->config.submitAddress() );
-          connect( static_cast<AsyncSMTPSubmit *>( d->cdInfoSubmit ),
-                  &AsyncSMTPSubmit::finished,
-                  this, &Client::slotSubmitFinished );
-        }
-        break;
-      }
-      default:
-		qCDebug(LIBKCDDB) << "Unsupported transport: ";
-//          << CDDB::transportToString(d->config.submitTransport()) << endl;
-        return UnknownError;
-        break;
+      d->cdInfoSubmit = new AsyncHTTPSubmit(from, hostname, port);
+      connect( static_cast<AsyncHTTPSubmit *>( d->cdInfoSubmit ),
+              &AsyncHTTPSubmit::finished,
+              this, &Client::slotSubmitFinished );
     }
 
     Result r = d->cdInfoSubmit->submit( cdInfo, offsetList );

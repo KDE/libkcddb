@@ -7,13 +7,13 @@
    <string>CDDB Settings</string>
   </property>
   <layout class="QVBoxLayout">
-   <property name="margin">
+   <property name="margin" stdset="0">
     <number>0</number>
    </property>
    <item>
     <widget class="QTabWidget" name="tabWidget2">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tabLookup">
       <attribute name="title">
@@ -168,33 +168,22 @@
         </layout>
        </item>
        <item>
-        <widget class="QGroupBox" name="kcfg_FreedbSubmitTransport">
+        <widget class="QGroupBox">
          <property name="title">
           <string>Submit Method</string>
          </property>
          <layout class="QFormLayout" name="formLayout_2">
-          <item row="0" column="0" colspan="2">
-           <widget class="QRadioButton" name="httpButton">
-            <property name="text">
-             <string>HTTP</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
+          <item row="0" column="0">
            <widget class="QLabel" name="textLabel2">
             <property name="text">
              <string>Server:</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="1">
+          <item row="0" column="1">
            <layout class="QHBoxLayout" name="horizontalLayout">
             <item>
-             <widget class="QLineEdit" name="kcfg_httpSubmitServer">
-             </widget>
+             <widget class="QLineEdit" name="kcfg_httpSubmitServer"/>
             </item>
             <item>
              <widget class="QLabel" name="textLabel3_2">
@@ -213,99 +202,6 @@
              <widget class="QSpinBox" name="kcfg_httpSubmitPort"/>
             </item>
            </layout>
-          </item>
-          <item row="2" column="0" colspan="2">
-           <widget class="QRadioButton" name="smtpButton">
-            <property name="text">
-             <string>SMTP (Email)</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="QLineEdit" name="kcfg_replyTo"/>
-          </item>
-          <item row="6" column="1">
-           <layout class="QHBoxLayout" name="horizontalLayout_2">
-            <item>
-             <widget class="QLineEdit" name="kcfg_smtpHostname"/>
-            </item>
-            <item>
-             <widget class="QLabel" name="textLabel3">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string>Port:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QSpinBox" name="kcfg_smtpPort">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="maximum">
-               <number>65535</number>
-              </property>
-              <property name="value">
-               <number>25</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="7" column="0" colspan="2">
-           <widget class="QCheckBox" name="needsAuthenticationBox">
-            <property name="text">
-             <string>Server needs authentication</string>
-            </property>
-           </widget>
-          </item>
-          <item row="9" column="1">
-           <widget class="QLineEdit" name="kcfg_smtpUsername">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="textLabel9_2">
-            <property name="text">
-             <string>Reply-To:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="0">
-           <widget class="QLabel" name="textLabel2_2">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>SMTP server:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="9" column="0">
-           <widget class="QLabel" name="textLabel4">
-            <property name="text">
-             <string>Username:</string>
-            </property>
-           </widget>
           </item>
          </layout>
         </widget>

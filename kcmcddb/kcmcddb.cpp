@@ -64,7 +64,6 @@ CDDBModule::defaults()
   KCModule::defaults();
 
   KCDDB::Config config;
-  updateWidgetsFromConfig( config );
 }
 
   void
@@ -73,31 +72,6 @@ CDDBModule::checkSettings() const
   KCDDB::Config config;
 
   config.load();
-
-  if (config.smtpHostname().isEmpty() || config.emailAddress().isEmpty()
-      || !config.emailAddress().contains(QLatin1String( "@" )) ||
-      (!config.replyTo().isEmpty() && !config.replyTo().contains(QLatin1String( "@" ))))
-
-  {
-    if (config.freedbSubmitTransport() == KCDDB::Submit::SMTP)
-    {
-      KMessageBox::error(widget_, i18n("freedb has been set to use HTTP for submissions "
-                                    "because the email details you have entered are "
-                                    "incomplete. Please review your email settings "
-                                    "and try again."), i18n("Incorrect Email Settings"));
-      config.setFreedbSubmitTransport(KCDDB::Submit::HTTP);
-
-      config.save();
-    }
-  }
-}
-
-  void
-CDDBModule::updateWidgetsFromConfig(const KCDDB::Config & config)
-{
-  bool smtpUserIsEmpty = config.smtpUsername().isEmpty();
-  widget_->needsAuthenticationBox->setChecked(!smtpUserIsEmpty);
-  widget_->kcfg_smtpUsername->setEnabled(!smtpUserIsEmpty);
 }
 
   void
@@ -115,7 +89,6 @@ CDDBModule::load()
 
   KCDDB::Config config;
   config.load();
-  updateWidgetsFromConfig(config);
 }
 
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

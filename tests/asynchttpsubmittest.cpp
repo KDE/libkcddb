@@ -16,7 +16,6 @@ AsyncHTTPSubmitTest::AsyncHTTPSubmitTest(QCoreApplication& app)
   using namespace KCDDB;
 
   client_ = new Client;
-  client_->config().setFreedbSubmitTransport(Submit::HTTP);
   client_->setBlockingMode( false );
 
   TrackOffsetList list;

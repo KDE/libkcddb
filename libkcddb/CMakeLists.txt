@@ -78,9 +78,6 @@ target_sources(KCddb PRIVATE
     httplookup.cpp httplookup.h
     synchttplookup.cpp
     asynchttplookup.cpp asynchttplookup.h
-    smtpsubmit.cpp smtpsubmit.h
-    asyncsmtpsubmit.cpp asyncsmtpsubmit.h
-    syncsmtpsubmit.cpp syncsmtpsubmit.h
     submit.cpp
     sites.cpp sites.h
     httpsubmit.cpp

@@ -34,9 +34,7 @@ class CDDBModule : public KCModule
     void load() override;
 
   protected:
-
-    void            checkSettings() const;
-    void            updateWidgetsFromConfig(const KCDDB::Config &);
+    void checkSettings() const;
 
   private:
 

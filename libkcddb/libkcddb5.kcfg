@@ -33,13 +33,6 @@
     </entry>
   </group>
   <group name="Submit">
-    <entry name="FreedbSubmitTransport" type="Enum">
-      <choices>
-        <choice name="HTTP"></choice>
-        <choice name="SMTP"></choice>
-      </choices>
-      <default>HTTP</default>
-    </entry>
     <entry name="emailAddress" type="String">
     </entry>
     <entry name="httpSubmitServer" type="String">
@@ -47,21 +40,6 @@
     </entry>
     <entry name="httpSubmitPort" type="Int">
       <default>80</default>
-    </entry>
-    <entry name="smtpPort" type="Int">
-      <default>25</default>
-    </entry>
-    <entry name="smtpUsername" type="String">
-    </entry>
-    <entry name="useGlobalEmail" type="Bool">
-      <default>true</default>
-    </entry>
-    <entry name="replyTo" type="String">
-    </entry>
-    <entry name="smtpHostname" type="String">
-    </entry>
-    <entry name="submitAddress" type="String">
-      <default>gnudb-submit@gnudb.org</default>
     </entry>
   </group>
 </kcfg>
