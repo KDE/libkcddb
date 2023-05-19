@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 00:47+0000\n"
+"POT-Creation-Date: 2023-05-19 00:45+0000\n"
 "PO-Revision-Date: 2023-04-29 08:34\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -22,35 +22,34 @@ msgstr ""
 msgid "Cache Locations"
 msgstr "缓存位置"
 
-#: cddbconfigwidget.cpp:75
+#: cddbconfigwidget.cpp:74
 #, kde-format
 msgid "Could not fetch mirror list."
 msgstr "无法获取镜像列表。"
 
-#: cddbconfigwidget.cpp:75
+#: cddbconfigwidget.cpp:74
 #, kde-format
 msgid "Could Not Fetch"
 msgstr "无法获取"
 
-#: cddbconfigwidget.cpp:79
+#: cddbconfigwidget.cpp:78
 #, kde-format
 msgid "Select mirror"
 msgstr "选择镜像"
 
-#: cddbconfigwidget.cpp:80
+#: cddbconfigwidget.cpp:79
 #, kde-format
 msgid "Select one of these mirrors"
 msgstr "选择下列镜像之一"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
-#: cddbconfigwidget.cpp:97 cddbconfigwidget.ui:129 cddbconfigwidget.ui:179
+#: cddbconfigwidget.cpp:96 cddbconfigwidget.ui:129
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: cddbconfigwidget.cpp:99 cddbconfigwidget.ui:124
+#: cddbconfigwidget.cpp:98 cddbconfigwidget.ui:124
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
@@ -105,8 +104,7 @@ msgstr "gnudb.gnudb.org"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: cddbconfigwidget.ui:80 cddbconfigwidget.ui:208 cddbconfigwidget.ui:241
+#: cddbconfigwidget.ui:80 cddbconfigwidget.ui:197
 #, kde-format
 msgid "Port:"
 msgstr "端口："
@@ -147,47 +145,17 @@ msgstr "提交(&S)"
 msgid "Email address:"
 msgstr "电子邮件地址："
 
-#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
+#. i18n: ectx: property (title), widget (QGroupBox)
 #: cddbconfigwidget.ui:173
 #, kde-format
 msgid "Submit Method"
 msgstr "提交方式"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: cddbconfigwidget.ui:189
+#: cddbconfigwidget.ui:179
 #, kde-format
 msgid "Server:"
 msgstr "服务器："
-
-#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
-#: cddbconfigwidget.ui:220
-#, kde-format
-msgid "SMTP (Email)"
-msgstr "SMTP (电子邮件)"
-
-#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
-#: cddbconfigwidget.ui:266
-#, kde-format
-msgid "Server needs authentication"
-msgstr "服务器需要身份验证"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
-#: cddbconfigwidget.ui:286
-#, kde-format
-msgid "Reply-To:"
-msgstr "回复到："
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: cddbconfigwidget.ui:299
-#, kde-format
-msgid "SMTP server:"
-msgstr "SMTP 服务器："
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: cddbconfigwidget.ui:306
-#, kde-format
-msgid "Username:"
-msgstr "用户名："
 
 #: kcmcddb.cpp:55
 #, kde-format
@@ -195,17 +163,28 @@ msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
 msgstr "CDDB 用于获取 CD 中的艺人、标题及歌名等信息"
 
-#: kcmcddb.cpp:84
-#, kde-format
-msgid ""
-"freedb has been set to use HTTP for submissions because the email details "
-"you have entered are incomplete. Please review your email settings and try "
-"again."
-msgstr ""
-"freedb 已设置为使用 HTTP 提交，原因是您输入的电子邮件细节不完整。请复查您的电"
-"子邮件设置并重试。"
+#~ msgid "SMTP (Email)"
+#~ msgstr "SMTP (电子邮件)"
 
-#: kcmcddb.cpp:87
-#, kde-format
-msgid "Incorrect Email Settings"
-msgstr "电子邮件设置不正确"
+#~ msgid "Server needs authentication"
+#~ msgstr "服务器需要身份验证"
+
+#~ msgid "Reply-To:"
+#~ msgstr "回复到："
+
+#~ msgid "SMTP server:"
+#~ msgstr "SMTP 服务器："
+
+#~ msgid "Username:"
+#~ msgstr "用户名："
+
+#~ msgid ""
+#~ "freedb has been set to use HTTP for submissions because the email details "
+#~ "you have entered are incomplete. Please review your email settings and "
+#~ "try again."
+#~ msgstr ""
+#~ "freedb 已设置为使用 HTTP 提交，原因是您输入的电子邮件细节不完整。请复查您"
+#~ "的电子邮件设置并重试。"
+
+#~ msgid "Incorrect Email Settings"
+#~ msgstr "电子邮件设置不正确"

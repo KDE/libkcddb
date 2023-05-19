@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 00:47+0000\n"
+"POT-Creation-Date: 2023-05-19 00:45+0000\n"
 "PO-Revision-Date: 2020-05-03 13:36+0200\n"
 "Last-Translator: Paolo Zamponi <zapaolo@email.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -27,36 +27,34 @@ msgstr ""
 msgid "Cache Locations"
 msgstr "Indirizzi della cache"
 
-#: kcmcddb/cddbconfigwidget.cpp:75
+#: kcmcddb/cddbconfigwidget.cpp:74
 #, kde-format
 msgid "Could not fetch mirror list."
 msgstr "Impossibile scaricare l'elenco dei mirror."
 
-#: kcmcddb/cddbconfigwidget.cpp:75
+#: kcmcddb/cddbconfigwidget.cpp:74
 #, kde-format
 msgid "Could Not Fetch"
 msgstr "Impossibile scaricare"
 
-#: kcmcddb/cddbconfigwidget.cpp:79
+#: kcmcddb/cddbconfigwidget.cpp:78
 #, kde-format
 msgid "Select mirror"
 msgstr "Seleziona un mirror"
 
-#: kcmcddb/cddbconfigwidget.cpp:80
+#: kcmcddb/cddbconfigwidget.cpp:79
 #, kde-format
 msgid "Select one of these mirrors"
 msgstr "Seleziona uno di questi mirror"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
-#: kcmcddb/cddbconfigwidget.cpp:97 kcmcddb/cddbconfigwidget.ui:129
-#: kcmcddb/cddbconfigwidget.ui:179
+#: kcmcddb/cddbconfigwidget.cpp:96 kcmcddb/cddbconfigwidget.ui:129
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: kcmcddb/cddbconfigwidget.cpp:99 kcmcddb/cddbconfigwidget.ui:124
+#: kcmcddb/cddbconfigwidget.cpp:98 kcmcddb/cddbconfigwidget.ui:124
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
@@ -111,9 +109,7 @@ msgstr "gnudb.gnudb.org"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: kcmcddb/cddbconfigwidget.ui:80 kcmcddb/cddbconfigwidget.ui:208
-#: kcmcddb/cddbconfigwidget.ui:241
+#: kcmcddb/cddbconfigwidget.ui:80 kcmcddb/cddbconfigwidget.ui:197
 #, kde-format
 msgid "Port:"
 msgstr "Porta:"
@@ -154,47 +150,17 @@ msgstr "&Invio"
 msgid "Email address:"
 msgstr "Indirizzo di posta elettronica:"
 
-#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
+#. i18n: ectx: property (title), widget (QGroupBox)
 #: kcmcddb/cddbconfigwidget.ui:173
 #, kde-format
 msgid "Submit Method"
 msgstr "Metodo di invio"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: kcmcddb/cddbconfigwidget.ui:189
+#: kcmcddb/cddbconfigwidget.ui:179
 #, kde-format
 msgid "Server:"
 msgstr "Server:"
-
-#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
-#: kcmcddb/cddbconfigwidget.ui:220
-#, kde-format
-msgid "SMTP (Email)"
-msgstr "SMTP (Email)"
-
-#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
-#: kcmcddb/cddbconfigwidget.ui:266
-#, kde-format
-msgid "Server needs authentication"
-msgstr "Il server richiede autenticazione"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
-#: kcmcddb/cddbconfigwidget.ui:286
-#, kde-format
-msgid "Reply-To:"
-msgstr "Rispondi a:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: kcmcddb/cddbconfigwidget.ui:299
-#, kde-format
-msgid "SMTP server:"
-msgstr "Server SMTP:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: kcmcddb/cddbconfigwidget.ui:306
-#, kde-format
-msgid "Username:"
-msgstr "Nome utente:"
 
 #: kcmcddb/kcmcddb.cpp:55
 #, kde-format
@@ -203,22 +169,6 @@ msgid ""
 msgstr ""
 "CDDB è utilizzato per prelevare informazioni come artista, titolo e nomi "
 "canzoni nel CD"
-
-#: kcmcddb/kcmcddb.cpp:84
-#, kde-format
-msgid ""
-"freedb has been set to use HTTP for submissions because the email details "
-"you have entered are incomplete. Please review your email settings and try "
-"again."
-msgstr ""
-"Freedb è stato configurato per usare HTTP per gli invii perché i dettagli "
-"relativi alla posta elettronica sono incompleti. Controlla le impostazioni "
-"della posta e riprova."
-
-#: kcmcddb/kcmcddb.cpp:87
-#, kde-format
-msgid "Incorrect Email Settings"
-msgstr "Impostazioni della posta elettronica errate"
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
@@ -1025,6 +975,33 @@ msgstr "Errore sconosciuto"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (disco %2)"
+
+#~ msgid "SMTP (Email)"
+#~ msgstr "SMTP (Email)"
+
+#~ msgid "Server needs authentication"
+#~ msgstr "Il server richiede autenticazione"
+
+#~ msgid "Reply-To:"
+#~ msgstr "Rispondi a:"
+
+#~ msgid "SMTP server:"
+#~ msgstr "Server SMTP:"
+
+#~ msgid "Username:"
+#~ msgstr "Nome utente:"
+
+#~ msgid ""
+#~ "freedb has been set to use HTTP for submissions because the email details "
+#~ "you have entered are incomplete. Please review your email settings and "
+#~ "try again."
+#~ msgstr ""
+#~ "Freedb è stato configurato per usare HTTP per gli invii perché i dettagli "
+#~ "relativi alla posta elettronica sono incompleti. Controlla le "
+#~ "impostazioni della posta e riprova."
+
+#~ msgid "Incorrect Email Settings"
+#~ msgstr "Impostazioni della posta elettronica errate"
 
 #~ msgid "Track"
 #~ msgstr "Traccia"

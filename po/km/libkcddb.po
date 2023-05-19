@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 00:47+0000\n"
+"POT-Creation-Date: 2023-05-19 00:45+0000\n"
 "PO-Revision-Date: 2012-06-20 15:16+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -21,36 +21,34 @@ msgstr ""
 msgid "Cache Locations"
 msgstr "ទីតាំង​ឃ្លាំង​សម្ងាត់"
 
-#: kcmcddb/cddbconfigwidget.cpp:75
+#: kcmcddb/cddbconfigwidget.cpp:74
 #, kde-format
 msgid "Could not fetch mirror list."
 msgstr "មិន​អាច​ទៅ​យក​បញ្ជី​កញ្ចក់​បាន​ទេ"
 
-#: kcmcddb/cddbconfigwidget.cpp:75
+#: kcmcddb/cddbconfigwidget.cpp:74
 #, kde-format
 msgid "Could Not Fetch"
 msgstr "មិន​អាច​ទៅ​យក​បាន​ទេ"
 
-#: kcmcddb/cddbconfigwidget.cpp:79
+#: kcmcddb/cddbconfigwidget.cpp:78
 #, kde-format
 msgid "Select mirror"
 msgstr "ជ្រើស​កញ្ចក់"
 
-#: kcmcddb/cddbconfigwidget.cpp:80
+#: kcmcddb/cddbconfigwidget.cpp:79
 #, kde-format
 msgid "Select one of these mirrors"
 msgstr "ជ្រើស​កញ្ចក់​មួយ​ក្នុង​ចំណោមកញ្ចក់​ទាំង​នេះ"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
-#: kcmcddb/cddbconfigwidget.cpp:97 kcmcddb/cddbconfigwidget.ui:129
-#: kcmcddb/cddbconfigwidget.ui:179
+#: kcmcddb/cddbconfigwidget.cpp:96 kcmcddb/cddbconfigwidget.ui:129
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: kcmcddb/cddbconfigwidget.cpp:99 kcmcddb/cddbconfigwidget.ui:124
+#: kcmcddb/cddbconfigwidget.cpp:98 kcmcddb/cddbconfigwidget.ui:124
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
@@ -105,9 +103,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: kcmcddb/cddbconfigwidget.ui:80 kcmcddb/cddbconfigwidget.ui:208
-#: kcmcddb/cddbconfigwidget.ui:241
+#: kcmcddb/cddbconfigwidget.ui:80 kcmcddb/cddbconfigwidget.ui:197
 #, kde-format
 msgid "Port:"
 msgstr "ច្រក ៖"
@@ -148,68 +144,23 @@ msgstr "ដាក់​ស្នើ"
 msgid "Email address:"
 msgstr "អាសយដ្ឋាន​អ៊ីមែល"
 
-#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
+#. i18n: ectx: property (title), widget (QGroupBox)
 #: kcmcddb/cddbconfigwidget.ui:173
 #, kde-format
 msgid "Submit Method"
 msgstr "ដាក់​ស្នើ​វិធីសាស្ត្រ"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: kcmcddb/cddbconfigwidget.ui:189
+#: kcmcddb/cddbconfigwidget.ui:179
 #, kde-format
 msgid "Server:"
 msgstr "ុស​ម៉ាស៊ីន​បម្ ៖រើ"
-
-#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
-#: kcmcddb/cddbconfigwidget.ui:220
-#, kde-format
-msgid "SMTP (Email)"
-msgstr "SMTP (អ៊ីមែល)"
-
-#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
-#: kcmcddb/cddbconfigwidget.ui:266
-#, kde-format
-msgid "Server needs authentication"
-msgstr "ម៉ាស៊ីន​បម្រើ​ត្រូវការ​ផ្ទៀងផ្ទាត់"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
-#: kcmcddb/cddbconfigwidget.ui:286
-#, kde-format
-msgid "Reply-To:"
-msgstr "ឆ្លើយ​តប​ចំពោះ ៖"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: kcmcddb/cddbconfigwidget.ui:299
-#, kde-format
-msgid "SMTP server:"
-msgstr "ម៉ាស៊ីន​បម្រើ SMTP ៖"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: kcmcddb/cddbconfigwidget.ui:306
-#, kde-format
-msgid "Username:"
-msgstr "ឈ្មោះ​អ្នក​ប្រើ ៖"
 
 #: kcmcddb/kcmcddb.cpp:55
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
 msgstr "CDDB ត្រូវ​បាន​ប្រើ​ ដើម្បី​យក​ព័ត៌មាន​ដូច​ជា​ សិល្បករ ចំណង​ជើង និង​ឈ្មោះ​បទ​ចម្រៀង​នៅ​ក្នុង​ស៊ីឌី"
-
-#: kcmcddb/kcmcddb.cpp:84
-#, kde-format
-msgid ""
-"freedb has been set to use HTTP for submissions because the email details "
-"you have entered are incomplete. Please review your email settings and try "
-"again."
-msgstr ""
-"freedb ត្រូវ​បានកំណត់ ដើម្បី​ប្រើ HTTP សម្រាប់​ដាក់​ស្នើ ពីព្រោះ​សេចក្ដី​លម្អិត​អ៊ីមែល​ដែល​អ្នក​បាន​បញ្ចូល​មិន​"
-"ពេញលេញ​ទេ ។ សូម​ពិនិត្យ​មើល​ការ​កំណត់​អ៊ីមែល​របស់​អ្នក ហើយ​ព្យាយាម​ម្ដ​ងទៀត ។"
-
-#: kcmcddb/kcmcddb.cpp:87
-#, kde-format
-msgid "Incorrect Email Settings"
-msgstr "ការ​កំណត់​អ៊ីមែល​មិន​ត្រឹមត្រូវ"
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
@@ -1016,6 +967,32 @@ msgstr "មិន​ស្គាល់​កំហុស"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (ថាស %2)"
+
+#~ msgid "SMTP (Email)"
+#~ msgstr "SMTP (អ៊ីមែល)"
+
+#~ msgid "Server needs authentication"
+#~ msgstr "ម៉ាស៊ីន​បម្រើ​ត្រូវការ​ផ្ទៀងផ្ទាត់"
+
+#~ msgid "Reply-To:"
+#~ msgstr "ឆ្លើយ​តប​ចំពោះ ៖"
+
+#~ msgid "SMTP server:"
+#~ msgstr "ម៉ាស៊ីន​បម្រើ SMTP ៖"
+
+#~ msgid "Username:"
+#~ msgstr "ឈ្មោះ​អ្នក​ប្រើ ៖"
+
+#~ msgid ""
+#~ "freedb has been set to use HTTP for submissions because the email details "
+#~ "you have entered are incomplete. Please review your email settings and "
+#~ "try again."
+#~ msgstr ""
+#~ "freedb ត្រូវ​បានកំណត់ ដើម្បី​ប្រើ HTTP សម្រាប់​ដាក់​ស្នើ ពីព្រោះ​សេចក្ដី​លម្អិត​អ៊ីមែល​ដែល​អ្នក​បាន​បញ្ចូល​"
+#~ "មិន​ពេញលេញ​ទេ ។ សូម​ពិនិត្យ​មើល​ការ​កំណត់​អ៊ីមែល​របស់​អ្នក ហើយ​ព្យាយាម​ម្ដ​ងទៀត ។"
+
+#~ msgid "Incorrect Email Settings"
+#~ msgstr "ការ​កំណត់​អ៊ីមែល​មិន​ត្រឹមត្រូវ"
 
 #~ msgid "Track"
 #~ msgstr "បទ"

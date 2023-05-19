@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia/libkcddb.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 00:47+0000\n"
+"POT-Creation-Date: 2023-05-19 00:45+0000\n"
 "PO-Revision-Date: 2004-12-03 14:52-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -22,36 +22,34 @@ msgstr ""
 msgid "Cache Locations"
 msgstr "Suímh Taisce"
 
-#: kcmcddb/cddbconfigwidget.cpp:75
+#: kcmcddb/cddbconfigwidget.cpp:74
 #, kde-format
 msgid "Could not fetch mirror list."
 msgstr "Níorbh fhéidir liosta na suíomh scáthánaithe a fháil."
 
-#: kcmcddb/cddbconfigwidget.cpp:75
+#: kcmcddb/cddbconfigwidget.cpp:74
 #, kde-format
 msgid "Could Not Fetch"
 msgstr "Níorbh Fhéidir Fáil"
 
-#: kcmcddb/cddbconfigwidget.cpp:79
+#: kcmcddb/cddbconfigwidget.cpp:78
 #, kde-format
 msgid "Select mirror"
 msgstr "Roghnaigh suíomh scáthánaithe"
 
-#: kcmcddb/cddbconfigwidget.cpp:80
+#: kcmcddb/cddbconfigwidget.cpp:79
 #, kde-format
 msgid "Select one of these mirrors"
 msgstr "Roghnaigh ceann de na suímh scáthánaithe seo"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
-#: kcmcddb/cddbconfigwidget.cpp:97 kcmcddb/cddbconfigwidget.ui:129
-#: kcmcddb/cddbconfigwidget.ui:179
+#: kcmcddb/cddbconfigwidget.cpp:96 kcmcddb/cddbconfigwidget.ui:129
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: kcmcddb/cddbconfigwidget.cpp:99 kcmcddb/cddbconfigwidget.ui:124
+#: kcmcddb/cddbconfigwidget.cpp:98 kcmcddb/cddbconfigwidget.ui:124
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
@@ -107,9 +105,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: kcmcddb/cddbconfigwidget.ui:80 kcmcddb/cddbconfigwidget.ui:208
-#: kcmcddb/cddbconfigwidget.ui:241
+#: kcmcddb/cddbconfigwidget.ui:80 kcmcddb/cddbconfigwidget.ui:197
 #, kde-format
 msgid "Port:"
 msgstr "Port:"
@@ -150,47 +146,17 @@ msgstr "&Cuir Isteach"
 msgid "Email address:"
 msgstr "Seoladh Ríomhphoist:"
 
-#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
+#. i18n: ectx: property (title), widget (QGroupBox)
 #: kcmcddb/cddbconfigwidget.ui:173
 #, kde-format
 msgid "Submit Method"
 msgstr "Modh Curtha Isteach"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: kcmcddb/cddbconfigwidget.ui:189
+#: kcmcddb/cddbconfigwidget.ui:179
 #, kde-format
 msgid "Server:"
 msgstr "Freastalaí:"
-
-#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
-#: kcmcddb/cddbconfigwidget.ui:220
-#, kde-format
-msgid "SMTP (Email)"
-msgstr "SMTP (Ríomhphost)"
-
-#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
-#: kcmcddb/cddbconfigwidget.ui:266
-#, kde-format
-msgid "Server needs authentication"
-msgstr "Fíordheimhniú de dhíth ar an bhfreastalaí"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
-#: kcmcddb/cddbconfigwidget.ui:286
-#, kde-format
-msgid "Reply-To:"
-msgstr "Reply-To:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: kcmcddb/cddbconfigwidget.ui:299
-#, kde-format
-msgid "SMTP server:"
-msgstr "Freastalaí SMTP:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: kcmcddb/cddbconfigwidget.ui:306
-#, kde-format
-msgid "Username:"
-msgstr "Ainm úsáideora:"
 
 #: kcmcddb/kcmcddb.cpp:55
 #, kde-format
@@ -199,22 +165,6 @@ msgid ""
 msgstr ""
 "Úsáidtear CDDB chun eolas a fháil, mar shampla an t-ealaíontóir, teideal "
 "agus ainmneacha na n-amhrán ar dhlúthdhiosca"
-
-#: kcmcddb/kcmcddb.cpp:84
-#, kde-format
-msgid ""
-"freedb has been set to use HTTP for submissions because the email details "
-"you have entered are incomplete. Please review your email settings and try "
-"again."
-msgstr ""
-"Is féidir iontrálacha nua a chur faoi bhráid freedb trí HTTP amháin toisc "
-"nár sholáthair tú faisnéis iomlán ríomhphoist. Athscrúdaigh do chuid "
-"socruithe ríomhphoist agus bain triail eile as."
-
-#: kcmcddb/kcmcddb.cpp:87
-#, kde-format
-msgid "Incorrect Email Settings"
-msgstr "Drochshocruithe Ríomhphoist"
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
@@ -1021,6 +971,33 @@ msgstr "Earráid anaithnid"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (diosca %2)"
+
+#~ msgid "SMTP (Email)"
+#~ msgstr "SMTP (Ríomhphost)"
+
+#~ msgid "Server needs authentication"
+#~ msgstr "Fíordheimhniú de dhíth ar an bhfreastalaí"
+
+#~ msgid "Reply-To:"
+#~ msgstr "Reply-To:"
+
+#~ msgid "SMTP server:"
+#~ msgstr "Freastalaí SMTP:"
+
+#~ msgid "Username:"
+#~ msgstr "Ainm úsáideora:"
+
+#~ msgid ""
+#~ "freedb has been set to use HTTP for submissions because the email details "
+#~ "you have entered are incomplete. Please review your email settings and "
+#~ "try again."
+#~ msgstr ""
+#~ "Is féidir iontrálacha nua a chur faoi bhráid freedb trí HTTP amháin toisc "
+#~ "nár sholáthair tú faisnéis iomlán ríomhphoist. Athscrúdaigh do chuid "
+#~ "socruithe ríomhphoist agus bain triail eile as."
+
+#~ msgid "Incorrect Email Settings"
+#~ msgstr "Drochshocruithe Ríomhphoist"
 
 #~ msgid "Track"
 #~ msgstr "Amhrán"

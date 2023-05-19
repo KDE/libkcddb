@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 00:47+0000\n"
+"POT-Creation-Date: 2023-05-19 00:45+0000\n"
 "PO-Revision-Date: 2020-11-25 22:01+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -21,36 +21,34 @@ msgstr ""
 msgid "Cache Locations"
 msgstr "Gyorsítótárhelyek"
 
-#: kcmcddb/cddbconfigwidget.cpp:75
+#: kcmcddb/cddbconfigwidget.cpp:74
 #, kde-format
 msgid "Could not fetch mirror list."
 msgstr "Nem sikerült letölteni a tükörszerverek listáját."
 
-#: kcmcddb/cddbconfigwidget.cpp:75
+#: kcmcddb/cddbconfigwidget.cpp:74
 #, kde-format
 msgid "Could Not Fetch"
 msgstr "Nem sikerült letölteni"
 
-#: kcmcddb/cddbconfigwidget.cpp:79
+#: kcmcddb/cddbconfigwidget.cpp:78
 #, kde-format
 msgid "Select mirror"
 msgstr "Válasszon tükörszervert"
 
-#: kcmcddb/cddbconfigwidget.cpp:80
+#: kcmcddb/cddbconfigwidget.cpp:79
 #, kde-format
 msgid "Select one of these mirrors"
 msgstr "Válassza ki az alábbi tükörszerverek egyikét"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
-#: kcmcddb/cddbconfigwidget.cpp:97 kcmcddb/cddbconfigwidget.ui:129
-#: kcmcddb/cddbconfigwidget.ui:179
+#: kcmcddb/cddbconfigwidget.cpp:96 kcmcddb/cddbconfigwidget.ui:129
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: kcmcddb/cddbconfigwidget.cpp:99 kcmcddb/cddbconfigwidget.ui:124
+#: kcmcddb/cddbconfigwidget.cpp:98 kcmcddb/cddbconfigwidget.ui:124
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
@@ -105,9 +103,7 @@ msgstr "gnudb.gnudb.org"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: kcmcddb/cddbconfigwidget.ui:80 kcmcddb/cddbconfigwidget.ui:208
-#: kcmcddb/cddbconfigwidget.ui:241
+#: kcmcddb/cddbconfigwidget.ui:80 kcmcddb/cddbconfigwidget.ui:197
 #, kde-format
 msgid "Port:"
 msgstr "Port:"
@@ -148,47 +144,17 @@ msgstr "&Elküldés"
 msgid "Email address:"
 msgstr "E-mail cím:"
 
-#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
+#. i18n: ectx: property (title), widget (QGroupBox)
 #: kcmcddb/cddbconfigwidget.ui:173
 #, kde-format
 msgid "Submit Method"
 msgstr "Küldési mód"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: kcmcddb/cddbconfigwidget.ui:189
+#: kcmcddb/cddbconfigwidget.ui:179
 #, kde-format
 msgid "Server:"
 msgstr "Kiszolgáló:"
-
-#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
-#: kcmcddb/cddbconfigwidget.ui:220
-#, kde-format
-msgid "SMTP (Email)"
-msgstr "SMTP (e-mail)"
-
-#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
-#: kcmcddb/cddbconfigwidget.ui:266
-#, kde-format
-msgid "Server needs authentication"
-msgstr "A kiszolgáló hitelesítést igényel"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
-#: kcmcddb/cddbconfigwidget.ui:286
-#, kde-format
-msgid "Reply-To:"
-msgstr "Válaszcím:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: kcmcddb/cddbconfigwidget.ui:299
-#, kde-format
-msgid "SMTP server:"
-msgstr "SMTP kiszolgáló:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: kcmcddb/cddbconfigwidget.ui:306
-#, kde-format
-msgid "Username:"
-msgstr "Felhasználónév:"
 
 #: kcmcddb/kcmcddb.cpp:55
 #, kde-format
@@ -197,21 +163,6 @@ msgid ""
 msgstr ""
 "A CDDB-t zenei CD-k információinak letöltésére használják, mint például "
 "előadó, cím és dalnév."
-
-#: kcmcddb/kcmcddb.cpp:84
-#, kde-format
-msgid ""
-"freedb has been set to use HTTP for submissions because the email details "
-"you have entered are incomplete. Please review your email settings and try "
-"again."
-msgstr ""
-"A freedb HTTP küldési módot állított be, mivel megadott e-mail adatok "
-"hiányosak. Ellenőrizze a beállításokat, és próbálja meg újból."
-
-#: kcmcddb/kcmcddb.cpp:87
-#, kde-format
-msgid "Incorrect Email Settings"
-msgstr "Érvénytelen e-mail beállítások"
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
@@ -1018,6 +969,32 @@ msgstr "Ismeretlen hiba"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (%2. lemez)"
+
+#~ msgid "SMTP (Email)"
+#~ msgstr "SMTP (e-mail)"
+
+#~ msgid "Server needs authentication"
+#~ msgstr "A kiszolgáló hitelesítést igényel"
+
+#~ msgid "Reply-To:"
+#~ msgstr "Válaszcím:"
+
+#~ msgid "SMTP server:"
+#~ msgstr "SMTP kiszolgáló:"
+
+#~ msgid "Username:"
+#~ msgstr "Felhasználónév:"
+
+#~ msgid ""
+#~ "freedb has been set to use HTTP for submissions because the email details "
+#~ "you have entered are incomplete. Please review your email settings and "
+#~ "try again."
+#~ msgstr ""
+#~ "A freedb HTTP küldési módot állított be, mivel megadott e-mail adatok "
+#~ "hiányosak. Ellenőrizze a beállításokat, és próbálja meg újból."
+
+#~ msgid "Incorrect Email Settings"
+#~ msgstr "Érvénytelen e-mail beállítások"
 
 #~ msgid "Track"
 #~ msgstr "Sorszám"

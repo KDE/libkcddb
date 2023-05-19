@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 00:47+0000\n"
+"POT-Creation-Date: 2023-05-19 00:45+0000\n"
 "PO-Revision-Date: 2015-02-04 14:15+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -25,35 +25,34 @@ msgstr ""
 msgid "Cache Locations"
 msgstr "Lokacije keševa"
 
-#: cddbconfigwidget.cpp:75
+#: cddbconfigwidget.cpp:74
 #, kde-format
 msgid "Could not fetch mirror list."
 msgstr "Nisam mogao da dohvatim listu ogledala."
 
-#: cddbconfigwidget.cpp:75
+#: cddbconfigwidget.cpp:74
 #, kde-format
 msgid "Could Not Fetch"
 msgstr "Nisam mogao da dobavim"
 
-#: cddbconfigwidget.cpp:79
+#: cddbconfigwidget.cpp:78
 #, kde-format
 msgid "Select mirror"
 msgstr "Izaberite ogledalo"
 
-#: cddbconfigwidget.cpp:80
+#: cddbconfigwidget.cpp:79
 #, kde-format
 msgid "Select one of these mirrors"
 msgstr "Izaberite jedno od ovih ogledala"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
-#: cddbconfigwidget.cpp:97 cddbconfigwidget.ui:129 cddbconfigwidget.ui:179
+#: cddbconfigwidget.cpp:96 cddbconfigwidget.ui:129
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: cddbconfigwidget.cpp:99 cddbconfigwidget.ui:124
+#: cddbconfigwidget.cpp:98 cddbconfigwidget.ui:124
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
@@ -108,8 +107,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: cddbconfigwidget.ui:80 cddbconfigwidget.ui:208 cddbconfigwidget.ui:241
+#: cddbconfigwidget.ui:80 cddbconfigwidget.ui:197
 #, kde-format
 msgid "Port:"
 msgstr "Port:"
@@ -150,47 +148,17 @@ msgstr "&Pošalji"
 msgid "Email address:"
 msgstr "E-adresa:"
 
-#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
+#. i18n: ectx: property (title), widget (QGroupBox)
 #: cddbconfigwidget.ui:173
 #, kde-format
 msgid "Submit Method"
 msgstr "Metod predavanja"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: cddbconfigwidget.ui:189
+#: cddbconfigwidget.ui:179
 #, kde-format
 msgid "Server:"
 msgstr "Server:"
-
-#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
-#: cddbconfigwidget.ui:220
-#, kde-format
-msgid "SMTP (Email)"
-msgstr "SMTP (e-pošta)"
-
-#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
-#: cddbconfigwidget.ui:266
-#, kde-format
-msgid "Server needs authentication"
-msgstr "Server zahtjeva prijavljivanje"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
-#: cddbconfigwidget.ui:286
-#, kde-format
-msgid "Reply-To:"
-msgstr "Odgovor-na:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: cddbconfigwidget.ui:299
-#, kde-format
-msgid "SMTP server:"
-msgstr "SMTP server:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: cddbconfigwidget.ui:306
-#, kde-format
-msgid "Username:"
-msgstr "Korisničko ime:"
 
 #: kcmcddb.cpp:55
 #, kde-format
@@ -200,21 +168,32 @@ msgstr ""
 "CDDB se koristi za dobavljanje informacija, kao što su ime izvođača, naslov "
 "i imena pjesama na CD-u"
 
-#: kcmcddb.cpp:84
-#, kde-format
-msgid ""
-"freedb has been set to use HTTP for submissions because the email details "
-"you have entered are incomplete. Please review your email settings and try "
-"again."
-msgstr ""
-"freeDB je postavljen da koristi HTTP za predavanje, jer e-mail detalji koje "
-"ste unijeli nisu potpuni. Pregledajte svoje e-mail postavke i pokušajte "
-"ponovo."
+#~ msgid "SMTP (Email)"
+#~ msgstr "SMTP (e-pošta)"
 
-#: kcmcddb.cpp:87
-#, kde-format
-msgid "Incorrect Email Settings"
-msgstr "Neispravne postavke e-maila"
+#~ msgid "Server needs authentication"
+#~ msgstr "Server zahtjeva prijavljivanje"
+
+#~ msgid "Reply-To:"
+#~ msgstr "Odgovor-na:"
+
+#~ msgid "SMTP server:"
+#~ msgstr "SMTP server:"
+
+#~ msgid "Username:"
+#~ msgstr "Korisničko ime:"
+
+#~ msgid ""
+#~ "freedb has been set to use HTTP for submissions because the email details "
+#~ "you have entered are incomplete. Please review your email settings and "
+#~ "try again."
+#~ msgstr ""
+#~ "freeDB je postavljen da koristi HTTP za predavanje, jer e-mail detalji "
+#~ "koje ste unijeli nisu potpuni. Pregledajte svoje e-mail postavke i "
+#~ "pokušajte ponovo."
+
+#~ msgid "Incorrect Email Settings"
+#~ msgstr "Neispravne postavke e-maila"
 
 #~ msgid "freedb.freedb.org"
 #~ msgstr "freedb.freedb.org"
