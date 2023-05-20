@@ -236,47 +236,9 @@
 >. Això és pràctic si no teniu el vostre sistema configurat com servidor. </para>
 
 <para
->Si teniu intenció d'enviar una entrada a CDDB, introduïu la vostra adreça de correu electrònic en el primer quadre de text. A continuació haureu de decidir entre enviar-la per &HTTP; o per correu electrònic (mitjançant &SMTP;). </para>
-
-<tip
-><para
->És més simple enviar-les per &HTTP;. Alguns tallafocs bloquegen aquest trànsit. Si el vostre tallafoc impedeix l'enviament mitjançant &HTTP;, podeu utilitzar &SMTP;.</para
-></tip>
-
-<para
->En primer lloc, seleccioneu <guilabel
->&HTTP;</guilabel
-> o <guilabel
->SMTP (correu electrònic)</guilabel
-> per a determinar quin protocol utilitzar.</para>
-
-<sect3 id="http-options">
-<title
->Utilitzar &HTTP; per enviar informació CDDB</title>
+>Si teniu intenció d'enviar una entrada a CDDB, introduïu la vostra adreça de correu electrònic en el primer quadre de text. </para>
 <para
 >Podeu introduir un nom de servidor o un número de port en el quadre de text. Si voleu enviar aquesta informació als servidors internacionals, no necessitareu canviar res.</para>
-</sect3>
-
-<sect3 id="smtp-options">
-<title
->Utilitzar &SMTP; (correu electrònic) per enviar informació CDDB</title>
-
-<para
->Per a preparar l'enviament d'informació utilitzant el correu electrònic, introduïu la vostra adreça de correu electrònic en el quadre de text anomenat <guilabel
->Respondre a:</guilabel
->, el vostre servidor de correu electrònic en el quadre anomenat <guilabel
->Servidor SMTP:</guilabel
-> i seleccioneu el número de port en el botó de selecció de valors anomenat <guilabel
->Port:</guilabel
->.</para>
-<para
->Si necessiteu utilitzar una contrasenya per enviar correus electrònics utilitzant el servidor de correu electrònic, marqueu la casella de selecció anomenada <guilabel
->El servidor requereix autenticació</guilabel
-> i introduïu el vostre nom d'usuari en el quadre de text anomenat <guilabel
->Usuari</guilabel
->.</para>
-
-</sect3>
 </sect2>
 </sect1>
 

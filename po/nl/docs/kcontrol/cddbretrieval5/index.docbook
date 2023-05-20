@@ -236,47 +236,9 @@
 >-items in te dienen. Dit is handig als u uw eigen systeem niet als een server hebt geconfigureerd. </para>
 
 <para
->Als u van plan bent om een CDDB-item in te dienen, voer dan uw e-mailadres in in het eerste tekstvak, daarna moet u kiezen tussen indienen via &HTTP; of indienen als een e-mail (via &SMTP;). </para>
-
-<tip
-><para
->Het is eenvoudiger om nieuw items met &HTTP; in te dienen. Sommige firewalls blokkeren dit verkeer. Als uw firewall u blokkeert om nieuwe items met &HTTP; in te dienen, dan kunt u &SMTP; gebruiken.</para
-></tip>
-
-<para
->Selecteer eerst ofwel <guilabel
->&HTTP;</guilabel
-> of <guilabel
->SMTP (E-mail)</guilabel
-> om te bepalen welk protocol te gebruiken.</para>
-
-<sect3 id="http-options">
-<title
->&HTTP; gebruiken om CDDB-informatie te verzenden</title>
+>Als u van plan bent om een CDDB-item in te dienen, voer dan uw e-mailadres in in het eerste tekstvak. </para>
 <para
 >U kunt een servernaam of poortnummer invoeren in de getoonde tekstvakken. Als u deze informatie naar de internationale servers wilt sturen, dan hoeft u niets te wijzigen.</para>
-</sect3>
-
-<sect3 id="smtp-options">
-<title
->&SMTP; (E-mail) gebruiken om CDDB-informatie te verzenden</title>
-
-<para
->Ter voorbereiding voor het indienen van informatie via e-mail, voert u uw e-mailadres in in het tekstvak met label <guilabel
->Reply-To:</guilabel
->, uw e-mailserver in het tekstvak met label <guilabel
->SMTP-server:</guilabel
-> en selecteer het poortnummer in het spinvak met label <guilabel
->Poort:</guilabel
->.</para>
-<para
->Als u een wachtwoord moet gebruiken bij het verzenden van e-mail naar de e-mailserver, markeer dan het vakje met de label <guilabel
->Server vereist authenticatie</guilabel
-> en voer uw gebruikernaam in in het tekstvak met label <guilabel
->Gebruikernaam</guilabel
->.</para>
-
-</sect3>
 </sect2>
 </sect1>
 
