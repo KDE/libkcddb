@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-19 00:45+0000\n"
-"PO-Revision-Date: 2023-04-29 08:34\n"
+"PO-Revision-Date: 2023-05-22 14:01\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -968,29 +968,3 @@ msgstr "未知错误"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (盘片 %2)"
-
-#~ msgid "SMTP (Email)"
-#~ msgstr "SMTP (电子邮件)"
-
-#~ msgid "Server needs authentication"
-#~ msgstr "服务器需要验证"
-
-#~ msgid "Reply-To:"
-#~ msgstr "回复于："
-
-#~ msgid "SMTP server:"
-#~ msgstr "SMTP 服务器："
-
-#~ msgid "Username:"
-#~ msgstr "用户名："
-
-#~ msgid ""
-#~ "freedb has been set to use HTTP for submissions because the email details "
-#~ "you have entered are incomplete. Please review your email settings and "
-#~ "try again."
-#~ msgstr ""
-#~ "freedb 已设定使用 HTTP 方式提交，原因是您输入的电子邮件详情不完整。请复查"
-#~ "您的电子邮件设置并重试。"
-
-#~ msgid "Incorrect Email Settings"
-#~ msgstr "错误的电子邮件设置"
