@@ -258,47 +258,9 @@
 >. Ciò è utile quando il tuo sistema non è configurato come server. </para>
 
 <para
->Se prevedi di inviare una voce CDDB, inserisci il tuo indirizzo di posta nella prima casella di testo, quindi decidi se inviarla con &HTTP; o per posta (con &SMTP;). </para>
-
-<tip
-><para
->È più semplice inviare le voci con &HTTP;. Alcuni firewall bloccano questo tipo di traffico, però. In questo caso dovrai usare &SMTP;.</para
-></tip>
-
-<para
->Seleziona <guilabel
->&HTTP;</guilabel
-> o <guilabel
->SMTP (Email)</guilabel
-> per scegliere il protocollo da usare.</para>
-
-<sect3 id="http-options">
-<title
->Usare &HTTP; per inviare informazioni CDDB</title>
+>Se prevedi di inviare una voce CDDB, inserisci il tuo indirizzo di posta nella prima casella di testo. </para>
 <para
 >Puoi inserire il nome di un server e un numero di porta nelle caselle di testo date. Se vuoi inviare le informazioni ai server internazionali non dovrai cambiare niente.</para>
-</sect3>
-
-<sect3 id="smtp-options">
-<title
->Usare &SMTP; (Email) per inviare informazioni CDDB</title>
-
-<para
->Per prepararti a inviare le informazioni per posta, inserisci il tuo indirizzo nella casella denominata <guilabel
->Rispondi a</guilabel
->, il server di posta nella casella <guilabel
->Server SMTP</guilabel
-> e seleziona il numero di porta nella casella <guilabel
->Porta</guilabel
->.</para>
-<para
->Se devi usare una password per inviare la posta con il server, seleziona la casella <guilabel
->Il server richiede l'autenticazione</guilabel
-> e inserisci il tuo nome utente nella casella <guilabel
->Nome utente</guilabel
->.</para>
-
-</sect3>
 </sect2>
 </sect1>
 
