@@ -320,47 +320,9 @@
 >. Esto es práctico si no tiene su propio sistema configurado como servidor. </para>
 
 <para
->Si tiene intención de enviar una entrada a CDDB, introduzca su dirección de correo electrónico en la primera área de texto. A continuación deberá decidir entre enviarla por medio de &HTTP; o por correo electrónico (mediante &SMTP;). </para>
-
-<tip
-><para
->Es más simple el envío de nuevas entradas utilizando &HTTP;. Algunos cortafuegos bloquean este tráfico. Si su cortafuegos impide el envío de nuevas entradas mediante &HTTP;, puede utilizar &SMTP;.</para
-></tip>
-
-<para
->En primer lugar, seleccione <guilabel
->&HTTP;</guilabel
-> o <guilabel
->SMTP (correo electrónico)</guilabel
-> para determinar qué protocolo utilizar.</para>
-
-<sect3 id="http-options">
-<title
->Utilización de &HTTP; para enviar información CDDB</title>
+>Si tiene intención de enviar una entrada CDDB, introduzca su dirección de correo electrónico en la primera área de texto. </para>
 <para
 >Puede introducir un nombre de servidor o un número de puerto en las áreas de texto. Si desea enviar esta información a los servidores internacionales, no necesitará cambiar nada.</para>
-</sect3>
-
-<sect3 id="smtp-options">
-<title
->Utilización de &SMTP; (correo electrónico) para enviar información CDDB</title>
-
-<para
->Para preparar el envío de información utilizando el correo electrónico, introduzca su dirección de correo electrónico en el área de texto <guilabel
->Responder a:</guilabel
->, su servidor de correo electrónico en el área de texto <guilabel
->Servidor SMTP:</guilabel
-> y seleccione el número de puerto en la casilla incremental <guilabel
->Puerto:</guilabel
->.</para>
-<para
->Si necesita utilizar una contraseña para enviar correos electrónicos usando el servidor de correo electrónico, marque la casilla <guilabel
->El servidor necesita autenticación</guilabel
-> e introduzca su nombre de usuario en el área de texto <guilabel
->Usuario</guilabel
->.</para>
-
-</sect3>
 </sect2>
 </sect1>
 
