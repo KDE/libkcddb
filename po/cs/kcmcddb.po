@@ -164,30 +164,3 @@ msgid ""
 msgstr ""
 "CDDB se používá pro získání informací o umělci, názvu nebo stopách na "
 "zvukovém CD."
-
-#~ msgid "SMTP (Email)"
-#~ msgstr "SMTP (E-mail)"
-
-#~ msgid "Server needs authentication"
-#~ msgstr "Server vyžaduje oprávnění"
-
-#~ msgid "Reply-To:"
-#~ msgstr "Odpovědět komu:"
-
-#~ msgid "SMTP server:"
-#~ msgstr "SMTP server:"
-
-#~ msgid "Username:"
-#~ msgstr "Uživatelské jméno:"
-
-#~ msgid ""
-#~ "freedb has been set to use HTTP for submissions because the email details "
-#~ "you have entered are incomplete. Please review your email settings and "
-#~ "try again."
-#~ msgstr ""
-#~ "Odesílání příspěvků do freedb bylo nastaveno na metodu pomocí HTPP, "
-#~ "jelikož zadané údaje e-mailu jsou nekompletní. Prosím zkontrolujte "
-#~ "nastavení a zkuste znovu."
-
-#~ msgid "Incorrect Email Settings"
-#~ msgstr "Chybné nastavení e-mailu"
