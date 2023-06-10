@@ -24,7 +24,7 @@ class CDDBModule : public KCModule
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     CDDBModule(QWidget * parent, const QVariantList & args);
 #else
-    CDDBModule(QObject * parent, const KPluginMetaData &metaData, const QVariantList & args);
+    CDDBModule(QObject * parent, const KPluginMetaData &metaData);
 #endif
 
   public Q_SLOTS:

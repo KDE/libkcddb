@@ -26,8 +26,8 @@ K_PLUGIN_CLASS_WITH_JSON(CDDBModule, "kcm_cddb.json")
 CDDBModule::CDDBModule(QWidget *parent, const QVariantList &args)
   : KCModule(parent, args)
 #else
-CDDBModule::CDDBModule(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args)
-  : KCModule(parent, metaData, args)
+CDDBModule::CDDBModule(QObject *parent, const KPluginMetaData &metaData)
+  : KCModule(parent, metaData)
 #endif
 {
   setButtons(Default | Apply | Help);
