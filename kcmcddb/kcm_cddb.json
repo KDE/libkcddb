@@ -30,6 +30,7 @@
         "Description[uk]": "Налаштування отримання з CDDB",
         "Description[x-test]": "xxConfigure the CDDB Retrievalxx",
         "Description[zh_CN]": "配置 CDDB 数据获取功能",
+        "Description[zh_TW]": "設定 CDDB 資訊取得",
         "Icon": "media-optical-audio",
         "Name": "CDDB Retrieval",
         "Name[ar]": "جلب CDDB",
@@ -81,7 +82,7 @@
         "Name[uk]": "Отримання з CDDB",
         "Name[x-test]": "xxCDDB Retrievalxx",
         "Name[zh_CN]": "CDDB 数据获取",
-        "Name[zh_TW]": "CDDB 取得資訊",
+        "Name[zh_TW]": "CDDB 資訊取得",
         "ServiceTypes": [
             "KCModule"
         ]
