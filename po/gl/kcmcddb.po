@@ -139,7 +139,7 @@ msgstr "Tipo de busca a realizar no servidor CDDB."
 #: cddbconfigwidget.ui:137
 #, kde-format
 msgid "Show &Mirror List"
-msgstr "Mostrar a lista de &réplicas"
+msgstr "Amosar a lista de &réplicas"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
 #: cddbconfigwidget.ui:153
