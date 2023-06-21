@@ -155,3 +155,5 @@ void AsyncMusicBrainzTest::slotFinished(Result r)
 }
 
 QTEST_GUILESS_MAIN(AsyncMusicBrainzTest)
+
+#include "moc_asyncmusicbrainztest.cpp"

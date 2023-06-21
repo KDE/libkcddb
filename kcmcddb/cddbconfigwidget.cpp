@@ -99,4 +99,6 @@ void CDDBConfigWidget::protocolChanged()
       kcfg_port->setValue(8880);
 }
 
+#include "moc_cddbconfigwidget.cpp"
+
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

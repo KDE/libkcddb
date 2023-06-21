@@ -138,3 +138,5 @@ void MusicBrainzTestFullDate::testLookup()
 }
 
 QTEST_GUILESS_MAIN(MusicBrainzTestFullDate)
+
+#include "moc_musicbrainztest-fulldate.cpp"

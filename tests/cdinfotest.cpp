@@ -75,3 +75,5 @@ void CDInfoTest::testLongLines()
 }
 
 QTEST_GUILESS_MAIN(CDInfoTest)
+
+#include "moc_cdinfotest.cpp"

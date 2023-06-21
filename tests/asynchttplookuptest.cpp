@@ -102,3 +102,5 @@ AsyncHTTPLookupTest::slotFinished(Result r)
 }
 
 QTEST_GUILESS_MAIN(AsyncHTTPLookupTest)
+
+#include "moc_asynchttplookuptest.cpp"

@@ -79,3 +79,5 @@ void SyncHTTPLookupTest::testLookup()
 }
 
 QTEST_GUILESS_MAIN(SyncHTTPLookupTest)
+
+#include "moc_synchttplookuptest.cpp"

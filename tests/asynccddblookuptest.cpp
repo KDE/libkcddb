@@ -101,3 +101,5 @@ AsyncCDDBLookupTest::slotFinished(Result r)
 }
 
 QTEST_GUILESS_MAIN(AsyncCDDBLookupTest)
+
+#include "moc_asynccddblookuptest.cpp"

@@ -115,3 +115,5 @@ void CacheTest::testMusicbrainz()
 }
 
 QTEST_GUILESS_MAIN(CacheTest)
+
+#include "moc_cachetest.cpp"

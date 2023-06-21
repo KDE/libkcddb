@@ -79,3 +79,5 @@ void SyncCDDBLookupTest::testLookup()
 }
 
 QTEST_GUILESS_MAIN(SyncCDDBLookupTest)
+
+#include "moc_synccddblookuptest.cpp"

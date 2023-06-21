@@ -40,3 +40,4 @@ namespace KCDDB
   }
 }
 
+#include "moc_asynchttpsubmit.cpp"

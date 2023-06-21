@@ -327,4 +327,6 @@ namespace KCDDB
   }
 }
 
+#include "moc_client.cpp"
+
 // vim:tabstop=2:shiftwidth=2:expandtab:cinoptions=(s,U1,m1

@@ -70,3 +70,5 @@ void Utf8Test::testLookup()
 }
 
 QTEST_GUILESS_MAIN(Utf8Test)
+
+#include "moc_utf8test.cpp"

@@ -128,3 +128,5 @@ void MusicBrainzTestSeveralDiscs::testLookup()
 }
 
 QTEST_GUILESS_MAIN(MusicBrainzTestSeveralDiscs)
+
+#include "moc_musicbrainztest-severaldiscs.cpp"

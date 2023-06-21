@@ -105,3 +105,5 @@ void MusicBrainzTest::testLookup()
 }
 
 QTEST_GUILESS_MAIN(MusicBrainzTest)
+
+#include "moc_musicbrainztest.cpp"
