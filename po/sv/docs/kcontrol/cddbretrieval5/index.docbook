@@ -248,47 +248,9 @@
 >-poster. Det är användbart om du inte har ditt eget system inställt som server. </para>
 
 <para
->Om du planerar att skicka in CDDB-information, skriv in din e-postadress i den första textrutan, och bestäm därefter om du vill skicka in med &HTTP; eller skicka in informationen som e-post (via &SMTP;). </para>
-
-<tip
-><para
->Det är enklare att skicka in ny information genom att använda &HTTP;. Vissa brandväggar blockerar denna trafik. Om din brandvägg förhindrar dig från att skicka in ny information genom att använda &HTTP;, kan du använda &SMTP;.</para
-></tip>
-
-<para
->Välj först antingen <guilabel
->&HTTP;</guilabel
-> eller <guilabel
->SMTP (e-post)</guilabel
-> för att avgöra vilket protokoll som ska användas.</para>
-
-<sect3 id="http-options">
-<title
->Använda &HTTP; för att skicka CDDB-information</title>
+>Om du planerar att skicka in CDDB-information, skriv in din e-postadress i den första textrutan. </para>
 <para
 >Du kan skriva in ett servernamn eller portnummer i textrutorna som tillhandahålls. Om du vill skicka informationen till de internationella servrarna behöver du inte ändra någonting.</para>
-</sect3>
-
-<sect3 id="smtp-options">
-<title
->Använda &SMTP; (e-post) för att skicka CDDB-information</title>
-
-<para
->För att förbereda dig för att skicka in information via e-post, skriv in din e-postadress i textrutan som heter <guilabel
->Svara till:</guilabel
->, din e-postserver i textrutan som heter <guilabel
->SMTP-server:</guilabel
-> och välj portnumret i nummerrutan som heter <guilabel
->Port:</guilabel
->.</para>
-<para
->Om du måste använda ett lösenord för att skicka e-post med e-postservern, markera kryssrutan som heter <guilabel
->Servern kräver behörighetskontroll</guilabel
-> och skriv in ditt användarnamn i textrutan som heter <guilabel
->Användarnamn</guilabel
->.</para>
-
-</sect3>
 </sect2>
 </sect1>
 
