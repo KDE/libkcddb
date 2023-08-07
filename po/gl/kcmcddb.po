@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-19 00:45+0000\n"
-"PO-Revision-Date: 2023-04-24 07:51+0200\n"
+"PO-Revision-Date: 2023-08-06 05:40+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: cddbconfigwidget.cpp:40
 #, kde-format
@@ -76,13 +76,13 @@ msgstr "&Busca"
 #: cddbconfigwidget.ui:26
 #, kde-format
 msgid "Enable MusicBrainz lookup"
-msgstr "Activar a busca en MusicBrainz"
+msgstr "Activar a busca en MusicBrainz."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
 #: cddbconfigwidget.ui:33
 #, kde-format
 msgid "Enable freedb lookup"
-msgstr "Activar a busca en freedb"
+msgstr "Activar a busca en freedb."
 
 #. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
 #: cddbconfigwidget.ui:40
