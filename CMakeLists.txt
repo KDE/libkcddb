@@ -22,7 +22,7 @@ include(CMakePackageConfigHelpers)
 include(ECMGenerateHeaders)
 include(ECMDeprecationSettings)
 if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_REQUIRED_VERSION "6.4.0")
+    set(QT_REQUIRED_VERSION "6.5.0")
     set(KF_MIN_VERSION "5.240.0")
     set(KF_MAJOR_VERSION "6")
 else()
@@ -54,10 +54,17 @@ else()
     set(HAVE_MUSICBRAINZ5 0)
 endif()
 
-ecm_set_disabled_deprecation_versions(
-    QT 5.15.2
-    KF 5.101
-)
+if (QT_MAJOR_VERSION STREQUAL "6")
+    ecm_set_disabled_deprecation_versions(
+        QT 6.5
+        KF 5.239
+    )
+else()
+    ecm_set_disabled_deprecation_versions(
+        QT 5.15.2
+        KF 5.101
+    )
+endif()
 
 configure_file(config-musicbrainz.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-musicbrainz.h )
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
