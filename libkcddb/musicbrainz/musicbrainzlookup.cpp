@@ -248,10 +248,18 @@ namespace KCDDB
     int lastTrack = numTracks;
 
     sprintf(temp, "%02X", firstTrack);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    sha.addData(QByteArrayView(temp, strlen(temp)));
+#else
     sha.addData(temp, strlen(temp));
+#endif
 
     sprintf(temp, "%02X", lastTrack);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    sha.addData(QByteArrayView(temp, strlen(temp)));
+#else
     sha.addData(temp, strlen(temp));
+#endif
 
     for(int i = 0; i < 100; i++)
     {
@@ -264,7 +272,11 @@ namespace KCDDB
         offset = 0;
 
       sprintf(temp, "%08lX", offset);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+      sha.addData(QByteArrayView(temp, strlen(temp)));
+#else
       sha.addData(temp, strlen(temp));
+#endif
     }
 
     QByteArray base64 = sha.result().toBase64();
