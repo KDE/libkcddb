@@ -31,12 +31,12 @@ msgstr "Localizacións do caché"
 #: cddbconfigwidget.cpp:74
 #, kde-format
 msgid "Could not fetch mirror list."
-msgstr "Non se puido obter a lista das réplicas."
+msgstr "Non foi posíbel obter a lista das réplicas."
 
 #: cddbconfigwidget.cpp:74
 #, kde-format
 msgid "Could Not Fetch"
-msgstr "Non se puido obter"
+msgstr "Non foi posíbel obter"
 
 #: cddbconfigwidget.cpp:78
 #, kde-format
@@ -168,8 +168,8 @@ msgstr "Servidor:"
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
 msgstr ""
-"CDDB utilízase para obter información do artista, título e o nome das "
-"cancións dos CD"
+"CDDB úsase para obter información do artista, título e o nome das cancións "
+"dos CD"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (correo electrónico)"
