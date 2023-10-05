@@ -236,47 +236,9 @@
 >. Ceci est utile si votre propre système n'est pas configuré comme un serveur. </para>
 
 <para
->Si vous envisagez de soumettre une entrée CDDB vous devez d'abord décider entre soumettre par &HTTP; ou par un courrier électronique (via &SMTP;). </para>
-
-<tip
-><para
->Il est plus simple de soumettre de nouvelles entrées en utilisant &HTTP;. Certains pare-feu bloquent ce trafic. Si votre pare-feu vous empêche d'envoyer de nouvelles entrées avec &HTTP;, utilisez &SMTP;.</para
-></tip>
-
-<para
->Choisissez d'abord soit <guilabel
->&HTTP;</guilabel
-> ou <guilabel
->SMTP (courrier électronique)</guilabel
-> pour déterminer quel protocole utiliser.</para>
-
-<sect3 id="http-options">
-<title
->Utiliser &HTTP; pour envoyer des informations CDDB</title>
+>Si vous envisagez de proposer une entrée « CDDB », vous devez d'abord saisir une adresse de courriel dans la première zone de saisie de texte. </para>
 <para
 >Vous pouvez saisir un nom de serveur ou un numéro de port dans les boîtes de texte prévues à cet effet. Si vous souhaitez envoyer ces informations à des serveurs internationaux, vous n'avez rien à modifier..</para>
-</sect3>
-
-<sect3 id="smtp-options">
-<title
->Utiliser &SMTP; (courrier électronique) pour envoyer des informations CDDB</title>
-
-<para
->Pour préparer l'envoi des informations par courrier électronique, saisissez votre adresse électronique dans la boîte de texte étiquetée <guilabel
->Répondre à : </guilabel
->, votre serveur de messagerie dans <guilabel
->Serveur SMTP</guilabel
-> et choisissez le numéro de port à l'aide du compteur étiqueté <guilabel
->Port : </guilabel
->.</para>
-<para
->Si vous devez utiliser un mot de passe pour envoyer un courrier électronique, cochez la case étiquetée <guilabel
->Le serveur demande une identification</guilabel
-> et saisissez votre nom d'utilisateur dans la boîte de texte <guilabel
->Nom d'utilisateur : </guilabel
->.</para>
-
-</sect3>
 </sect2>
 </sect1>
 
