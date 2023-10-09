@@ -172,30 +172,3 @@ msgid ""
 msgstr ""
 "CDDB は、CD のアーティストやタイトルや曲名などの情報を入手するために使われま"
 "す。"
-
-#~ msgid "SMTP (Email)"
-#~ msgstr "SMTP (メール)"
-
-#~ msgid "Server needs authentication"
-#~ msgstr "サーバは認証が必要"
-
-#~ msgid "Reply-To:"
-#~ msgstr "Reply-To:"
-
-#~ msgid "SMTP server:"
-#~ msgstr "SMTP サーバ:"
-
-#~ msgid "Username:"
-#~ msgstr "ユーザ名:"
-
-#~ msgid ""
-#~ "freedb has been set to use HTTP for submissions because the email details "
-#~ "you have entered are incomplete. Please review your email settings and "
-#~ "try again."
-#~ msgstr ""
-#~ "入力されたメールの詳細が不完全だったため、\n"
-#~ "freedb は送信に HTTP を使用するように設定されています。\n"
-#~ "メールの設定を確認してやり直してください。"
-
-#~ msgid "Incorrect Email Settings"
-#~ msgstr "不正なメール設定"

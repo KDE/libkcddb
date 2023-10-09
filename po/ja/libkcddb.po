@@ -978,8 +978,3 @@ msgstr "未知のエラー"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Server error"
-#~ msgid "SMTP server:"
-#~ msgstr "サーバエラー"
