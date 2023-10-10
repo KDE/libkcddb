@@ -972,30 +972,3 @@ msgstr "Неизвестна грешка"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (диск %2)"
-
-#~ msgid "SMTP (Email)"
-#~ msgstr "SMTP (е-поща)"
-
-#~ msgid "Server needs authentication"
-#~ msgstr "Сървърът изисква автентикация"
-
-#~ msgid "Reply-To:"
-#~ msgstr "Отговор на:"
-
-#~ msgid "SMTP server:"
-#~ msgstr "Сървър SMTP:"
-
-#~ msgid "Username:"
-#~ msgstr "Потребител:"
-
-#~ msgid ""
-#~ "freedb has been set to use HTTP for submissions because the email details "
-#~ "you have entered are incomplete. Please review your email settings and "
-#~ "try again."
-#~ msgstr ""
-#~ "Настроено е freedb да използва HTTP за изпращане на данни, защото "
-#~ "настройките на е-поща са непълни. Прегледайте настройките на е-пощата и "
-#~ "опитайте отново."
-
-#~ msgid "Incorrect Email Settings"
-#~ msgstr "Неправилни настройки на е-поща"

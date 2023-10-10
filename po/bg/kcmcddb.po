@@ -168,32 +168,3 @@ msgstr ""
 "търсите информация за музикални компактдискове в специализирани бази от "
 "данни в Интернет. Може да търсите информация за заглавието на песента, за "
 "автора, албума и дори текста."
-
-#~ msgid "SMTP (Email)"
-#~ msgstr "SMTP (е-поща)"
-
-#~ msgid "Server needs authentication"
-#~ msgstr "Сървърът изисква идентификация"
-
-#~ msgid "Reply-To:"
-#~ msgstr "Отговор на:"
-
-#~ msgid "SMTP server:"
-#~ msgstr "SMTP сървър:"
-
-#~ msgid "Username:"
-#~ msgstr "Потребител:"
-
-#~ msgid ""
-#~ "freedb has been set to use HTTP for submissions because the email details "
-#~ "you have entered are incomplete. Please review your email settings and "
-#~ "try again."
-#~ msgstr ""
-#~ "Изпращането на информация до сървъра е\n"
-#~ "установено да използва протокола HTTP,\n"
-#~ "защото данните за е-поща, които сте въвели\n"
-#~ "са непълни. Моля, прегледайте настройките\n"
-#~ "на е-пощата и опитайте отново."
-
-#~ msgid "Incorrect Email Settings"
-#~ msgstr "Невалидни данни за е-поща"
