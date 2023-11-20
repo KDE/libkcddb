@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:31+0000\n"
-"PO-Revision-Date: 2023-01-08 12:30+0100\n"
+"PO-Revision-Date: 2023-11-19 16:53+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -54,13 +54,13 @@ msgstr "HTTP"
 #: kcmcddb/cddbconfigwidget.cpp:98 kcmcddb/cddbconfigwidget.ui:124
 #, kde-format
 msgid "CDDB"
-msgstr ""
+msgstr "CDDB"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
 #: kcmcddb/cddbconfigwidget.ui:7
 #, kde-format
 msgid "CDDB Settings"
-msgstr ""
+msgstr "CDDB-agordoj"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
 #: kcmcddb/cddbconfigwidget.ui:20
@@ -72,37 +72,37 @@ msgstr "S&erĉi"
 #: kcmcddb/cddbconfigwidget.ui:26
 #, kde-format
 msgid "Enable MusicBrainz lookup"
-msgstr ""
+msgstr "Ebligi MusicBrainz-serĉon"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
 #: kcmcddb/cddbconfigwidget.ui:33
 #, kde-format
 msgid "Enable freedb lookup"
-msgstr ""
+msgstr "Ebligi freedb-serĉon"
 
 #. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
 #: kcmcddb/cddbconfigwidget.ui:40
 #, kde-format
 msgid "Freedb Server"
-msgstr ""
+msgstr "Freedb-Servilo"
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel7)
 #: kcmcddb/cddbconfigwidget.ui:46
 #, kde-format
 msgid "Freedb server:"
-msgstr ""
+msgstr "Freedb-servilo:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
 #: kcmcddb/cddbconfigwidget.ui:64
 #, kde-format
 msgid "Name of CDDB server which will be used to look up CD information."
-msgstr ""
+msgstr "Nomo de CDDB-servilo, kiu estos uzata por serĉi informojn pri KD."
 
 #. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
 #: kcmcddb/cddbconfigwidget.ui:67
 #, kde-format
 msgid "gnudb.gnudb.org"
-msgstr ""
+msgstr "gnudb.gnudb.org"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
@@ -115,7 +115,7 @@ msgstr "Pordo:"
 #: kcmcddb/cddbconfigwidget.ui:93
 #, kde-format
 msgid "Port to connect to on CDDB server."
-msgstr ""
+msgstr "Pordo por konekti al CDDB-servilo."
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel9)
 #: kcmcddb/cddbconfigwidget.ui:108
@@ -127,7 +127,7 @@ msgstr "&Transporto:"
 #: kcmcddb/cddbconfigwidget.ui:120
 #, kde-format
 msgid "Type of lookup which should be tried at the CDDB server."
-msgstr ""
+msgstr "Tipo de serĉo, kiu devus esti provita ĉe la CDDB-servilo."
 
 #. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
 #: kcmcddb/cddbconfigwidget.ui:137
@@ -164,6 +164,8 @@ msgstr "Servilo:"
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
 msgstr ""
+"CDDB estas uzata por akiri informojn kiel artisto, titolo kaj kantonomoj en "
+"KD-oj"
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
@@ -189,7 +191,7 @@ msgstr "Datumo"
 #: libkcddb/categories.cpp:29 libkcddb/genres.cpp:78
 #, kde-format
 msgid "Folk"
-msgstr ""
+msgstr "Folk"
 
 #: libkcddb/categories.cpp:29 libkcddb/genres.cpp:84
 #, kde-format
@@ -299,7 +301,7 @@ msgstr "Bebop"
 #: libkcddb/genres.cpp:68
 #, kde-format
 msgid "Big Band"
-msgstr ""
+msgstr "Granda Bando"
 
 #: libkcddb/genres.cpp:68
 #, kde-format
@@ -324,17 +326,17 @@ msgstr "BritPop"
 #: libkcddb/genres.cpp:69
 #, kde-format
 msgid "Cabaret"
-msgstr ""
+msgstr "Kabaredo"
 
 #: libkcddb/genres.cpp:69
 #, kde-format
 msgid "Celtic"
-msgstr ""
+msgstr "Kelta"
 
 #: libkcddb/genres.cpp:70
 #, kde-format
 msgid "Chamber Music"
-msgstr ""
+msgstr "Ĉambra Muziko"
 
 #: libkcddb/genres.cpp:70
 #, kde-format
@@ -344,47 +346,47 @@ msgstr "Chanson"
 #: libkcddb/genres.cpp:70
 #, kde-format
 msgid "Chorus"
-msgstr ""
+msgstr "Ĥoro"
 
 #: libkcddb/genres.cpp:70
 #, kde-format
 msgid "Christian Gangsta Rap"
-msgstr ""
+msgstr "Kristana Gangsta Repo"
 
 #: libkcddb/genres.cpp:71
 #, kde-format
 msgid "Christian Rap"
-msgstr ""
+msgstr "Kristana Repo"
 
 #: libkcddb/genres.cpp:71
 #, kde-format
 msgid "Christian Rock"
-msgstr ""
+msgstr "Kristana Roko"
 
 #: libkcddb/genres.cpp:71
 #, kde-format
 msgid "Classic Rock"
-msgstr ""
+msgstr "Klasika Roko"
 
 #: libkcddb/genres.cpp:72
 #, kde-format
 msgid "Club-house"
-msgstr ""
+msgstr "Klubejo"
 
 #: libkcddb/genres.cpp:72
 #, kde-format
 msgid "Club"
-msgstr ""
+msgstr "Klubo"
 
 #: libkcddb/genres.cpp:72
 #, kde-format
 msgid "Comedy"
-msgstr ""
+msgstr "Komedio"
 
 #: libkcddb/genres.cpp:72
 #, kde-format
 msgid "Contemporary Christian"
-msgstr ""
+msgstr "Nuntempa kristano"
 
 #: libkcddb/genres.cpp:73
 #, kde-format
@@ -394,12 +396,12 @@ msgstr "Crossover"
 #: libkcddb/genres.cpp:73
 #, kde-format
 msgid "Cult"
-msgstr ""
+msgstr "Kulto"
 
 #: libkcddb/genres.cpp:73
 #, kde-format
 msgid "Dance Hall"
-msgstr ""
+msgstr "Dancejo"
 
 #: libkcddb/genres.cpp:74
 #, kde-format
@@ -414,7 +416,7 @@ msgstr "Darkwave"
 #: libkcddb/genres.cpp:74
 #, kde-format
 msgid "Death Metal"
-msgstr ""
+msgstr "Mortmetalo"
 
 #: libkcddb/genres.cpp:74
 #, kde-format
@@ -429,32 +431,32 @@ msgstr "Dream"
 #: libkcddb/genres.cpp:75
 #, kde-format
 msgid "Drum & Bass"
-msgstr ""
+msgstr "Tamburo & Baso"
 
 #: libkcddb/genres.cpp:75
 #, kde-format
 msgid "Drum Solo"
-msgstr ""
+msgstr "Tamburo Solo"
 
 #: libkcddb/genres.cpp:75
 #, kde-format
 msgid "Duet"
-msgstr ""
+msgstr "Dueto"
 
 #: libkcddb/genres.cpp:76
 #, kde-format
 msgid "Easy Listening"
-msgstr ""
+msgstr "Facila Aŭskultado"
 
 #: libkcddb/genres.cpp:76
 #, kde-format
 msgid "Electronic"
-msgstr ""
+msgstr "Elektronika"
 
 #: libkcddb/genres.cpp:76
 #, kde-format
 msgid "Ethnic"
-msgstr ""
+msgstr "Etna"
 
 #: libkcddb/genres.cpp:76
 #, kde-format
@@ -464,7 +466,7 @@ msgstr "Eurodance"
 #: libkcddb/genres.cpp:77
 #, kde-format
 msgid "Euro-House"
-msgstr ""
+msgstr "Eŭro-Domo"
 
 #: libkcddb/genres.cpp:77
 #, kde-format
@@ -474,17 +476,17 @@ msgstr "Euro-Techno"
 #: libkcddb/genres.cpp:77
 #, kde-format
 msgid "Fast-Fusion"
-msgstr ""
+msgstr "Rapida-Fuzio"
 
 #: libkcddb/genres.cpp:77
 #, kde-format
 msgid "Folklore"
-msgstr ""
+msgstr "Folkloro"
 
 #: libkcddb/genres.cpp:78
 #, kde-format
 msgid "Folk/Rock"
-msgstr ""
+msgstr "Folk/Rokenrolo"
 
 #: libkcddb/genres.cpp:78
 #, kde-format
@@ -499,7 +501,7 @@ msgstr "Funk"
 #: libkcddb/genres.cpp:79
 #, kde-format
 msgid "Fusion"
-msgstr ""
+msgstr "Fuzio"
 
 #: libkcddb/genres.cpp:79
 #, kde-format
@@ -509,7 +511,7 @@ msgstr "Ludo"
 #: libkcddb/genres.cpp:79
 #, kde-format
 msgid "Gangsta Rap"
-msgstr ""
+msgstr "Gangsta Repo"
 
 #: libkcddb/genres.cpp:79
 #, kde-format
@@ -524,7 +526,7 @@ msgstr "Gospel"
 #: libkcddb/genres.cpp:80
 #, kde-format
 msgid "Gothic Rock"
-msgstr ""
+msgstr "Gotika Roko"
 
 #: libkcddb/genres.cpp:80
 #, kde-format
@@ -544,7 +546,7 @@ msgstr "Hardcore"
 #: libkcddb/genres.cpp:81
 #, kde-format
 msgid "Hard Rock"
-msgstr ""
+msgstr "Malmola Roko"
 
 #: libkcddb/genres.cpp:81
 #, kde-format
@@ -574,32 +576,32 @@ msgstr "Indie"
 #: libkcddb/genres.cpp:82
 #, kde-format
 msgid "Industrial"
-msgstr ""
+msgstr "Industria"
 
 #: libkcddb/genres.cpp:83
 #, kde-format
 msgid "Instrumental Pop"
-msgstr ""
+msgstr "Instrumenta Popmuziko"
 
 #: libkcddb/genres.cpp:83
 #, kde-format
 msgid "Instrumental Rock"
-msgstr ""
+msgstr "Instrumenta Roko"
 
 #: libkcddb/genres.cpp:83
 #, kde-format
 msgid "Instrumental"
-msgstr ""
+msgstr "Instrumenta"
 
 #: libkcddb/genres.cpp:83
 #, kde-format
 msgid "Jazz+Funk"
-msgstr ""
+msgstr "Ĵazo+Funko"
 
 #: libkcddb/genres.cpp:84
 #, kde-format
 msgid "JPop"
-msgstr ""
+msgstr "JPop"
 
 #: libkcddb/genres.cpp:84
 #, kde-format
@@ -619,7 +621,7 @@ msgstr "Lo-Fi"
 #: libkcddb/genres.cpp:85
 #, kde-format
 msgid "Meditative"
-msgstr ""
+msgstr "Meditema"
 
 #: libkcddb/genres.cpp:85
 #, kde-format
@@ -634,17 +636,17 @@ msgstr "Metal"
 #: libkcddb/genres.cpp:85
 #, kde-format
 msgid "Musical"
-msgstr ""
+msgstr "Muzika"
 
 #: libkcddb/genres.cpp:86
 #, kde-format
 msgid "National Folk"
-msgstr ""
+msgstr "Nacia Folk"
 
 #: libkcddb/genres.cpp:86
 #, kde-format
 msgid "Native American"
-msgstr ""
+msgstr "Denaska amerikano"
 
 #: libkcddb/genres.cpp:86
 #, kde-format
@@ -654,7 +656,7 @@ msgstr "Negerpunk"
 #: libkcddb/genres.cpp:87
 #, kde-format
 msgid "New Wave"
-msgstr ""
+msgstr "Nova Ondo"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -664,7 +666,7 @@ msgstr "Bruo"
 #: libkcddb/genres.cpp:87
 #, kde-format
 msgid "Oldies"
-msgstr ""
+msgstr "Maljunuloj"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -684,17 +686,17 @@ msgstr "Polka"
 #: libkcddb/genres.cpp:88
 #, kde-format
 msgid "Polsk Punk"
-msgstr ""
+msgstr "Polsk Punk"
 
 #: libkcddb/genres.cpp:88
 #, kde-format
 msgid "Pop-Funk"
-msgstr ""
+msgstr "Pop-funko"
 
 #: libkcddb/genres.cpp:89
 #, kde-format
 msgid "Pop/Funk"
-msgstr ""
+msgstr "Popmuziko/Funko"
 
 #: libkcddb/genres.cpp:89
 #, kde-format
@@ -704,17 +706,17 @@ msgstr "Pop"
 #: libkcddb/genres.cpp:89
 #, kde-format
 msgid "Porn Groove"
-msgstr ""
+msgstr "Porno Groove"
 
 #: libkcddb/genres.cpp:89
 #, kde-format
 msgid "Power Ballad"
-msgstr ""
+msgstr "Potenca Balado"
 
 #: libkcddb/genres.cpp:90
 #, kde-format
 msgid "Pranks"
-msgstr ""
+msgstr "ŝercoj"
 
 #: libkcddb/genres.cpp:90
 #, kde-format
@@ -724,12 +726,12 @@ msgstr "Primus"
 #: libkcddb/genres.cpp:90
 #, kde-format
 msgid "Progressive Rock"
-msgstr ""
+msgstr "Progresema Roko"
 
 #: libkcddb/genres.cpp:90
 #, kde-format
 msgid "Psychedelic Rock"
-msgstr ""
+msgstr "Psikedela Roko"
 
 #: libkcddb/genres.cpp:91
 #, kde-format
@@ -739,7 +741,7 @@ msgstr "Psikedela"
 #: libkcddb/genres.cpp:91
 #, kde-format
 msgid "Punk Rock"
-msgstr ""
+msgstr "Punk-Roko"
 
 #: libkcddb/genres.cpp:91
 #, kde-format
@@ -769,17 +771,17 @@ msgstr "Retro"
 #: libkcddb/genres.cpp:93
 #, kde-format
 msgid "Revival"
-msgstr ""
+msgstr "Reviviĝo"
 
 #: libkcddb/genres.cpp:93
 #, kde-format
 msgid "Rhythmic Soul"
-msgstr ""
+msgstr "Ritma Animo"
 
 #: libkcddb/genres.cpp:93
 #, kde-format
 msgid "Rock & Roll"
-msgstr ""
+msgstr "Rokenrolo & Roll"
 
 #: libkcddb/genres.cpp:94
 #, kde-format
@@ -794,12 +796,12 @@ msgstr "Samba"
 #: libkcddb/genres.cpp:94
 #, kde-format
 msgid "Satire"
-msgstr ""
+msgstr "Satiro"
 
 #: libkcddb/genres.cpp:94
 #, kde-format
 msgid "Showtunes"
-msgstr ""
+msgstr "Showtunes"
 
 #: libkcddb/genres.cpp:95
 #, kde-format
@@ -809,17 +811,17 @@ msgstr "Ska"
 #: libkcddb/genres.cpp:95
 #, kde-format
 msgid "Slow Jam"
-msgstr ""
+msgstr "Malrapida Konfitaĵo"
 
 #: libkcddb/genres.cpp:95
 #, kde-format
 msgid "Slow Rock"
-msgstr ""
+msgstr "Malrapida Roko"
 
 #: libkcddb/genres.cpp:95
 #, kde-format
 msgid "Sonata"
-msgstr ""
+msgstr "Sonato"
 
 #: libkcddb/genres.cpp:96
 #, kde-format
@@ -829,12 +831,12 @@ msgstr "Soul"
 #: libkcddb/genres.cpp:96
 #, kde-format
 msgid "Sound Clip"
-msgstr ""
+msgstr "Sonklipo"
 
 #: libkcddb/genres.cpp:96
 #, kde-format
 msgid "Southern Rock"
-msgstr ""
+msgstr "Suda Roko"
 
 #: libkcddb/genres.cpp:97
 #, kde-format
@@ -844,7 +846,7 @@ msgstr "Spaco"
 #: libkcddb/genres.cpp:97
 #, kde-format
 msgid "Speech"
-msgstr ""
+msgstr "Parolado"
 
 #: libkcddb/genres.cpp:97
 #, kde-format
@@ -854,17 +856,17 @@ msgstr "Swing"
 #: libkcddb/genres.cpp:97
 #, kde-format
 msgid "Symphonic Rock"
-msgstr ""
+msgstr "Simfonia Roko"
 
 #: libkcddb/genres.cpp:98
 #, kde-format
 msgid "Symphony"
-msgstr ""
+msgstr "Simfonio"
 
 #: libkcddb/genres.cpp:98
 #, kde-format
 msgid "Synthpop"
-msgstr ""
+msgstr "Synthpop"
 
 #: libkcddb/genres.cpp:98
 #, kde-format
@@ -874,7 +876,7 @@ msgstr "Tango"
 #: libkcddb/genres.cpp:98
 #, kde-format
 msgid "Techno-Industrial"
-msgstr ""
+msgstr "Tekno-Industria"
 
 #: libkcddb/genres.cpp:99
 #, kde-format
@@ -889,12 +891,12 @@ msgstr "Terror"
 #: libkcddb/genres.cpp:99
 #, kde-format
 msgid "Thrash Metal"
-msgstr ""
+msgstr "Thrash Metalo"
 
 #: libkcddb/genres.cpp:99
 #, kde-format
 msgid "Top 40"
-msgstr ""
+msgstr "Supraj 40"
 
 #: libkcddb/genres.cpp:100
 #, kde-format
@@ -904,7 +906,7 @@ msgstr "Trailer"
 #: libkcddb/genres.cpp:100
 #, kde-format
 msgid "Trance"
-msgstr ""
+msgstr "Tranco"
 
 #: libkcddb/genres.cpp:100
 #, kde-format
@@ -914,12 +916,12 @@ msgstr "Tribal"
 #: libkcddb/genres.cpp:100
 #, kde-format
 msgid "Trip-Hop"
-msgstr ""
+msgstr "Trip-Hop"
 
 #: libkcddb/genres.cpp:101
 #, kde-format
 msgid "Vocal"
-msgstr ""
+msgstr "Voĉa"
 
 #: libkcddb/kcddb.cpp:19
 #, kde-format
@@ -929,37 +931,37 @@ msgstr "Sukceso"
 #: libkcddb/kcddb.cpp:23
 #, kde-format
 msgid "Server error"
-msgstr ""
+msgstr "Servila eraro"
 
 #: libkcddb/kcddb.cpp:27
 #, kde-format
 msgid "Host not found"
-msgstr ""
+msgstr "Gastiganto ne trovita"
 
 #: libkcddb/kcddb.cpp:31
 #, kde-format
 msgid "No response"
-msgstr ""
+msgstr "Neniu Respondo"
 
 #: libkcddb/kcddb.cpp:35
 #, kde-format
 msgid "No record found"
-msgstr ""
+msgstr "Neniu registro trovita"
 
 #: libkcddb/kcddb.cpp:39
 #, kde-format
 msgid "Multiple records found"
-msgstr ""
+msgstr "Pluraj registroj trovitaj"
 
 #: libkcddb/kcddb.cpp:43
 #, kde-format
 msgid "Cannot save"
-msgstr ""
+msgstr "Ne povas konservi"
 
 #: libkcddb/kcddb.cpp:47
 #, kde-format
 msgid "Invalid category"
-msgstr ""
+msgstr "Nevalida kategorio"
 
 #: libkcddb/kcddb.cpp:51
 #, kde-format
@@ -969,7 +971,4 @@ msgstr "Nekonata eraro"
 #: libkcddb/musicbrainz/musicbrainzlookup.cpp:112
 #, kde-format
 msgid "%1 (disc %2)"
-msgstr ""
-
-#~ msgid "Username:"
-#~ msgstr "Uzantnomo:"
+msgstr "%1 (disko %2)"
