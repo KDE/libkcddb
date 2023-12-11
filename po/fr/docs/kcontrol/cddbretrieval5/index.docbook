@@ -11,7 +11,7 @@
 
 <articleinfo>
 <title
->Recherche CDDB</title>
+>Recherche avec CDDB</title>
 
 <authorgroup>
 
@@ -84,7 +84,7 @@
 ><firstname
 >Dirk</firstname
 > <surname
->Foersterling</surname
+>Forsterling</surname
 > <affiliation
 ><address
 ><email
@@ -136,7 +136,7 @@
 
 <sect1 id="cddb-page">
 <title
->Recherche CDDB</title>
+>Recherche avec CDDB</title>
 <para
 >Le module <guilabel
 >CDDB</guilabel
@@ -311,7 +311,7 @@
 >Disc ID</guilabel
 > affiche le code <acronym
 >ID</acronym
-> 32 bit utilisé par freedb pour identifier un compact disc. Au-dessus du code <acronym
+> 32 bits utilisé par freedb pour identifier un disque compact. Au-dessus du code <acronym
 >ID</acronym
 > se trouve la catégorie de la description <guilabel
 >freedb</guilabel
