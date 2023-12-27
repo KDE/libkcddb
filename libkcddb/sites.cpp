@@ -6,7 +6,7 @@
 
 #include "sites.h"
 
-#include <KIO/Job>
+#include <KIO/TransferJob>
 #include <QDebug>
 #include <QRegExp>
 #include <QTextStream>

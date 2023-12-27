@@ -8,7 +8,7 @@
 #include "asynchttplookup.h"
 #include "logging.h"
 
-#include <KIO/Job>
+#include <KIO/TransferJob>
 
 namespace KCDDB
 {
