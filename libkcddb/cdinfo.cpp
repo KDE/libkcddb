@@ -415,7 +415,7 @@ namespace KCDDB
     if (get(QLatin1String( "revision" )) != 0)
       s += QLatin1String( "# Revision: " ) + get(QLatin1String( "revision" )).toString() + QLatin1Char( '\n' );
 
-    // If we are submiting make it a fully compliant CDDB entry
+    // If we are submitting make it a fully compliant CDDB entry
     if (submit)
     {
       s += QLatin1String( "#\n" );

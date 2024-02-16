@@ -37,7 +37,7 @@ namespace KCDDB
   };
 
   /**
-   * Information about a sepecific track in a cd.
+   * Information about a specific track in a cd.
    */
   class KCDDB_EXPORT TrackInfo
   {
@@ -66,7 +66,7 @@ namespace KCDDB
        * Set any data from this track.
        * @p type is case insensitive.
        * For example <code>set("title", "Rock this world")</code>
-       * Useful for atributes that other apps want to add.
+       * Useful for attributes that other apps want to add.
        * Data will be stored in the local cddb cache, but not sent to the cddb server
        */
       void set(const QString &type, const QVariant &data);
@@ -156,7 +156,7 @@ namespace KCDDB
        * Set any data from this disc.
        * @p type is case insensitive.
        * For example <code>set("title", "Rock this world")</code>
-       * Useful for atributes that other apps want to add.
+       * Useful for attributes that other apps want to add.
        * Data will be stored in the local cddb cache, but not sent to the cddb server
        */
       void set(const QString &type, const QVariant &data);
