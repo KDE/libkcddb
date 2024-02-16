@@ -183,18 +183,18 @@
 <para
 >La secció <guilabel
 >Servidor freedb</guilabel
-> determina quin lloc de rèplica CDDB utilitzarà el &kde; per obtenir informació de l'àlbum. Podeu introduir un nom de servidor, número de port i protocol utilitzant les quadres de text i llistes desplegables o podeu fer clic al botó <guibutton
+> determina quin lloc de rèplica CDDB utilitzarà el &kde; per a obtenir informació de l'àlbum. Podeu introduir un nom de servidor, número de port i protocol utilitzant les quadres de text i llistes desplegables o podeu fer clic al botó <guibutton
 >Mostra la llista de rèpliques</guibutton
->. En fer clic en aquest botó, s'obrirà una nova finestra amb una llista de rèpliques CDDB i les seves ubicacions. Només haureu de seleccionar el servidor que voleu de la llista i fer clic a <guibutton
+>. En fer clic en aquest botó, s'obrirà una finestra nova amb una llista de rèpliques CDDB i les seves ubicacions. Només haureu de seleccionar el servidor que voleu de la llista i fer clic a <guibutton
 >D'acord</guibutton
 >.</para>
 
 <para
 >La secció anomenada <guilabel
 >Ubicacions de la memòria cau</guilabel
-> us permet determinar si la informació de CDDB es desa a l'ordinador. Per afegir una carpeta, introduïu la ubicació d'aquesta en el quadre de text a la part superior de la secció i feu clic a <guibutton
+> us permet determinar si la informació de CDDB es desa a l'ordinador. Per a afegir una carpeta, introduïu la ubicació d'aquesta en el quadre de text a la part superior de la secció i feu clic a <guibutton
 >Afegeix</guibutton
->. També podeu seleccionar una carpeta fent clic en la carpeta blava a la dreta del quadre de text. Per eliminar una carpeta, feu clic al nom d'aquesta amb el &BER; i feu clic a <guibutton
+>. També podeu seleccionar una carpeta fent clic en la carpeta blava a la dreta del quadre de text. Per a eliminar una carpeta, feu clic al nom d'aquesta amb el &BER; i feu clic a <guibutton
 >Elimina</guibutton
 >. En podeu canviar l'ordre de cerca fent clic al nom de la carpeta i en els botons <guibutton
 >Mou amunt</guibutton
@@ -231,7 +231,7 @@
 <para
 >La pestanya <guilabel
 >Envia</guilabel
-> configura la connexió al servidor de correu per enviar noves entrades a <acronym
+> configura la connexió al servidor de correu per a enviar entrades noves a <acronym
 >CDDB</acronym
 >. Això és pràctic si no teniu el vostre sistema configurat com servidor. </para>
 
@@ -304,14 +304,14 @@
 >Títol</guilabel
 >, podeu prémer el botó <guibutton
 >Envia</guibutton
-> per enviar les vostres per correu electrònic a la freedb.</para>
+> per a enviar les vostres per correu electrònic a la freedb.</para>
 
 <para
 >Se us demanarà que seleccioneu una categoria per a l'enviament. La secció <guilabel
 >ID del disc</guilabel
 > mostra el codi <acronym
 >ID</acronym
-> de 32 bits utilitzat per freedb per identificar un disc compacte. Per sobre del codi d'identificació es troba la categoria de l'entrada <guilabel
+> de 32 bits utilitzat per freedb per a identificar un disc compacte. Per sobre del codi d'identificació es troba la categoria de l'entrada <guilabel
 >freedb</guilabel
 >. Aquestes categories es corresponen amb l'arbre de les subcarpetes de la carpeta seleccionada a la <guilabel
 >Carpeta base freedb:</guilabel
@@ -348,21 +348,21 @@
 <para
 >freedb és una base de dades de xarxa distribuïda accessible a través d'Internet que conté informació sobre la majoria dels &CD; d'àudio en circulació. Si teniu accés a Internet, probablement mai heu introduït manualment la informació de les pistes dels vostres &CD; si ho teniu correctament configurat. Veure la secció <link linkend="cddb-page"
 >La pàgina CDDB</link
-> per obtenir instruccions detallades sobre com configurar aquest servei, i la secció <link linkend="cddb-editor"
+> per a obtenir instruccions detallades sobre com configurar aquest servei, i la secció <link linkend="cddb-editor"
 >L'editor de la base de dades de &CD;</link
-> per obtenir instruccions sobre com editar les entrades <acronym
+> per a obtenir instruccions sobre com editar les entrades <acronym
 >CDDB</acronym
 >.</para>
 
 <para
 >La utilització de la <acronym
 >CDDB</acronym
-> és gratuïta. S'anima als usuaris a què enviïn noves entrades a la base de dades.</para>
+> és gratuïta. S'anima als usuaris a què enviïn entrades noves a la base de dades.</para>
 
 <para
 >Quan prepareu entrades per a la <acronym
 >CDDB</acronym
->, si us plau, tingueu en consideració els següents punts:</para>
+>, si us plau, tingueu en consideració els punts següents:</para>
 
 <itemizedlist>
 <listitem
