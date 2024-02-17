@@ -975,30 +975,3 @@ msgstr "Bilinmeyen hata"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (disk %2)"
-
-#~ msgid "SMTP (Email)"
-#~ msgstr "SMTP (E-posta)"
-
-#~ msgid "Server needs authentication"
-#~ msgstr "Sunucu güvenli girişi destekliyor"
-
-#~ msgid "Reply-To:"
-#~ msgstr "Yanıtla:"
-
-#~ msgid "SMTP server:"
-#~ msgstr "SMTP sunucusu:"
-
-#~ msgid "Username:"
-#~ msgstr "Kullanıcı adı:"
-
-#~ msgid ""
-#~ "freedb has been set to use HTTP for submissions because the email details "
-#~ "you have entered are incomplete. Please review your email settings and "
-#~ "try again."
-#~ msgstr ""
-#~ "freedb gönderimlerde HTTP kullanmaya ayarlandı çünkü girmiş olduğunuz e-"
-#~ "posta detayları tamamlanmamış. Lütfen e-posta ayarlarınızı tekrar kontrol "
-#~ "edin ve yeniden deneyin."
-
-#~ msgid "Incorrect Email Settings"
-#~ msgstr "Yanlış E-posta Ayarları"
