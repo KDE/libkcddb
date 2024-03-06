@@ -38,9 +38,6 @@ endif()
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Network Widgets)
 find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS Config DocTools I18n KIO WidgetsAddons KCMUtils)
-if (QT_MAJOR_VERSION STREQUAL 6)
-    find_package(Qt6 REQUIRED COMPONENTS Core5Compat)
-endif()
 find_package(MusicBrainz5)
 set_package_properties(MusicBrainz5 PROPERTIES
    DESCRIPTION "Music metadata lookup for KDE multimedia applications through libkcddb. You need version 5.x of libmusicbrainz"

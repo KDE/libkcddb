@@ -17,7 +17,6 @@
 #include <QDebug>
 
 #include <QMap>
-#include <QRegExp>
 #include <QRegularExpression>
 
 namespace KCDDB
@@ -284,7 +283,7 @@ namespace KCDDB
 
     QStringList::ConstIterator it = lineList.begin();
 
-    QRegExp rev(QLatin1String( "# Revision: (\\d+)" ));
+    const static QRegularExpression rev(QLatin1String( "# Revision: (\\d+)" ));
     const static QRegularExpression eol(QLatin1String( "[\r\n]" ));
 
     while ( it != lineList.end() )
@@ -293,9 +292,9 @@ namespace KCDDB
       line.remove(eol);
       ++it;
 
-      if (rev.indexIn(line) != -1)
+      if (const auto revMatch = rev.match(line); revMatch.hasMatch())
       {
-        set(QLatin1String( "revision" ), rev.cap(1).toUInt());
+        set(QLatin1String( "revision" ), revMatch.captured(1).toUInt());
         continue;
       }
 

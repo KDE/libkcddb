@@ -97,10 +97,6 @@ target_link_libraries(KCddb
         Qt${QT_MAJOR_VERSION}::Network
 )
 
-if (TARGET Qt6::Core5Compat)
-    target_link_libraries(KCddb PRIVATE Qt6::Core5Compat)
-endif()
-
 if(MUSICBRAINZ5_FOUND)
     target_link_libraries(KCddb PRIVATE musicbrainz)
 endif()

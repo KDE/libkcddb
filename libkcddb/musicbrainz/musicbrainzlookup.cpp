@@ -23,7 +23,7 @@
 
 #include <QCryptographicHash>
 #include <QDebug>
-#include <QRegExp>
+#include <QRegularExpression>
 
 #include <cstdio>
 #include <cstring>
@@ -115,11 +115,11 @@ namespace KCDDB
                 info.set(Artist, artistFromCreditList(FullRelease->ArtistCredit()));
 
                 QString date = QString::fromUtf8(FullRelease->Date().c_str());
-                QRegExp yearRe(QString::fromUtf8("^(\\d{4,4})(-\\d{1,2}-\\d{1,2})?$"));
+                const QRegularExpression yearRe(QString::fromUtf8("^(\\d{4,4})(-\\d{1,2}-\\d{1,2})?$"));
                 int year = 0;
-                if (yearRe.indexIn(date) > -1)
+                if (const auto yearMatch = yearRe.match(date); yearMatch.hasMatch())
                 {
-                  QString yearString = yearRe.cap(1);
+                  QString yearString = yearMatch.captured(1);
                   bool ok;
                   year=yearString.toInt(&ok);
                   if (!ok)

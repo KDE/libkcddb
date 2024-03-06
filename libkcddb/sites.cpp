@@ -8,7 +8,7 @@
 
 #include <KIO/TransferJob>
 #include <QDebug>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QTextStream>
 #include <QUrl>
 #include <QUrlQuery>
@@ -77,23 +77,23 @@ namespace KCDDB
   {
     Mirror m;
 
-    QRegExp rexp(QLatin1String( "([^ ]+) (cddbp|http) (\\d+) ([^ ]+) [N|S]\\d{3}.\\d{2} [E|W]\\d{3}.\\d{2} (.*)" ));
+    const QRegularExpression rexp(QLatin1String( "([^ ]+) (cddbp|http) (\\d+) ([^ ]+) [N|S]\\d{3}.\\d{2} [E|W]\\d{3}.\\d{2} (.*)" ));
 
-    if (rexp.indexIn(line) != -1)
+    if (const auto match = rexp.match(line); match.hasMatch())
     {
-      m.address = rexp.cap(1);
+      m.address = match.captured(1);
 
-      if (rexp.cap(2) == QLatin1String( "cddbp" ))
+      if (match.capturedView(2) == QLatin1String( "cddbp" ))
         m.transport = Lookup::CDDBP;
       else
         m.transport = Lookup::HTTP;
 
-      m.port = rexp.cap(3).toUInt();
+      m.port = match.capturedView(3).toUInt();
 
-      if (m.transport == Lookup::HTTP && rexp.cap(4) != QLatin1String( "/~cddb/cddb.cgi" ))
+      if (m.transport == Lookup::HTTP && match.capturedView(4) != QLatin1String( "/~cddb/cddb.cgi" ))
         qWarning() << "Non default urls are not supported for http";
 
-      m.description = rexp.cap(5);
+      m.description = match.captured(5);
     }
 
     return m;
