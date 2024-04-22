@@ -169,3 +169,33 @@ msgid ""
 msgstr ""
 "CDDB s'empra per a aconseguir la informació com l'artista, títol i noms de "
 "les cançons dels CD"
+
+#~ msgid "SMTP (Email)"
+#~ msgstr "SMTP (correu electrònic)"
+
+#~ msgid "Server needs authentication"
+#~ msgstr "El servidor requereix autenticació"
+
+#~ msgid "Reply-To:"
+#~ msgstr "Respondre a:"
+
+#~ msgid "SMTP server:"
+#~ msgstr "Servidor SMTP:"
+
+#~ msgid "Username:"
+#~ msgstr "Nom d'usuari:"
+
+#~ msgid ""
+#~ "freedb has been set to use HTTP for submissions because the email details "
+#~ "you have entered are incomplete. Please review your email settings and "
+#~ "try again."
+#~ msgstr ""
+#~ "freedb ha definit l'ús de l'HTTP per a les trameses, perquè els detalls "
+#~ "del correu electrònic que heu introduït estan incomplets. Reviseu la "
+#~ "configuració del correu i torneu a intentar-ho."
+
+#~ msgid "Incorrect Email Settings"
+#~ msgstr "Paràmetres incorrectes de l'adreça de correu"
+
+#~ msgid "freedb.freedb.org"
+#~ msgstr "freedb.freedb.org"

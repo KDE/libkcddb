@@ -976,3 +976,124 @@ msgstr "Error desconegut"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (disc %2)"
+
+#~ msgid "SMTP (Email)"
+#~ msgstr "SMTP (correu electrònic)"
+
+#~ msgid "Server needs authentication"
+#~ msgstr "El servidor requereix autenticació"
+
+#~ msgid "Reply-To:"
+#~ msgstr "Respondre a:"
+
+#~ msgid "SMTP server:"
+#~ msgstr "Servidor SMTP:"
+
+#~ msgid "Username:"
+#~ msgstr "Nom d'usuari:"
+
+#~ msgid ""
+#~ "freedb has been set to use HTTP for submissions because the email details "
+#~ "you have entered are incomplete. Please review your email settings and "
+#~ "try again."
+#~ msgstr ""
+#~ "freedb ha definit l'ús de l'HTTP per a les trameses, perquè els detalls "
+#~ "del correu electrònic que heu introduït estan incomplets. Reviseu la "
+#~ "configuració del correu i torneu a intentar-ho."
+
+#~ msgid "Incorrect Email Settings"
+#~ msgstr "Paràmetres incorrectes de l'adreça de correu"
+
+#~ msgid "Track"
+#~ msgstr "Peça"
+
+#~ msgid "Length"
+#~ msgstr "Durada"
+
+#~ msgid "Title"
+#~ msgstr "Títol"
+
+#~ msgid "Artist"
+#~ msgstr "Artista"
+
+#~ msgid "Comment"
+#~ msgstr "Comentari"
+
+#~ msgid "Change Encoding"
+#~ msgstr "Canvia la codificació"
+
+#~ msgid "Revision:"
+#~ msgstr "Revisió:"
+
+#~ msgid "Use the name of the artist if there is no title."
+#~ msgstr "Usa el nom de l'artista si no hi ha títol."
+
+#~ msgid "&Category:"
+#~ msgstr "&Categoria:"
+
+#~ msgid ""
+#~ "Write names as \"first last\", not \"last, first\". Omit any leading \"The"
+#~ "\".  Use \"Various\" for compilations."
+#~ msgstr ""
+#~ "Escriviu els noms com «primer darrer», no com «darrer, primer». Suprimiu "
+#~ "qualsevol article (p. ex. «Els») inicial. Feu servir «Varis» per les "
+#~ "recopilacions."
+
+#~ msgid "&Artist:"
+#~ msgstr "&Artista:"
+
+#~ msgid "&Year:"
+#~ msgstr "An&y:"
+
+#~ msgid "&Genre:"
+#~ msgstr "&Gènere:"
+
+#~ msgid "Disc Id values must be unique within a category."
+#~ msgstr "L'identificador de disc ha de ser únic dins de cada categoria."
+
+#~ msgid "&Multiple artists"
+#~ msgstr "Artistes &múltiples"
+
+#~ msgid "Comment:"
+#~ msgstr "Comentari:"
+
+#~ msgid "&Title:"
+#~ msgstr "&Títol:"
+
+#~ msgid "Avoid custom values, as they will be written to CDDB as-is."
+#~ msgstr ""
+#~ "Eviteu valors personalitzats, ja que s'escriuran al CDDB tal com són."
+
+#~ msgid "Disc Id:"
+#~ msgstr "Identificador de disc:"
+
+#~ msgid "Length:"
+#~ msgstr "Durada:"
+
+#~ msgid "For a CD-Extra, set title to \"Data\"."
+#~ msgstr "Per als CD-Extra, indiqueu «Data» al títol."
+
+#~ msgid "Change Encoding..."
+#~ msgstr "Canvia la codificació..."
+
+#~ msgid "Playing order:"
+#~ msgstr "Ordre de reproducció:"
+
+#~ msgctxt "artist - cdtitle"
+#~ msgid "%1 - %2"
+#~ msgstr "%1 - %2"
+
+#~ msgid "Preview"
+#~ msgstr "Vista prèvia"
+
+#~ msgid "Encoding"
+#~ msgstr "Codificació"
+
+#~ msgid "freedb.freedb.org"
+#~ msgstr "freedb.freedb.org"
+
+#~ msgid "Ok"
+#~ msgstr "D'acord"
+
+#~ msgid "Cancel"
+#~ msgstr "Cancel·la"

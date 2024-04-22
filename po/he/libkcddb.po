@@ -4,166 +4,168 @@
 # Assaf Gillat <gillata@gmail.com>, 2005.
 # tahmar1900 <tahmar1900@gmail.com>, 2008, 2009.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:31+0000\n"
-"PO-Revision-Date: 2017-05-16 07:02-0400\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: hebrew <kde-l10n-he@kde.org>\n"
+"PO-Revision-Date: 2024-03-08 06:41+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: kcmcddb/cddbconfigwidget.cpp:40
 #, kde-format
 msgid "Cache Locations"
-msgstr ""
+msgstr "מקום המטמון"
 
 #: kcmcddb/cddbconfigwidget.cpp:74
 #, kde-format
 msgid "Could not fetch mirror list."
-msgstr ""
+msgstr "לא ניתן למשוך רשימת שרתי מראה"
 
 #: kcmcddb/cddbconfigwidget.cpp:74
 #, kde-format
 msgid "Could Not Fetch"
-msgstr ""
+msgstr "לא ניתן למשוך"
 
 #: kcmcddb/cddbconfigwidget.cpp:78
-#, fuzzy, kde-format
+#, kde-format
 msgid "Select mirror"
-msgstr "שגיאת שרת"
+msgstr "בחירת מראה"
 
 #: kcmcddb/cddbconfigwidget.cpp:79
 #, kde-format
 msgid "Select one of these mirrors"
-msgstr ""
+msgstr "בחירה באחד משרתי המראה הבאים"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
 #: kcmcddb/cddbconfigwidget.cpp:96 kcmcddb/cddbconfigwidget.ui:129
 #, kde-format
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
 #: kcmcddb/cddbconfigwidget.cpp:98 kcmcddb/cddbconfigwidget.ui:124
 #, kde-format
 msgid "CDDB"
-msgstr ""
+msgstr "CDDB"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
 #: kcmcddb/cddbconfigwidget.ui:7
 #, kde-format
 msgid "CDDB Settings"
-msgstr ""
+msgstr "הגדרות CDDB"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
 #: kcmcddb/cddbconfigwidget.ui:20
 #, kde-format
 msgid "&Lookup"
-msgstr ""
+msgstr "&איתור"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
 #: kcmcddb/cddbconfigwidget.ui:26
 #, kde-format
 msgid "Enable MusicBrainz lookup"
-msgstr ""
+msgstr "לאפשר איתור ב־MusicBrainz"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
 #: kcmcddb/cddbconfigwidget.ui:33
 #, kde-format
 msgid "Enable freedb lookup"
-msgstr ""
+msgstr "לאפשר איתור ב־freedb"
 
 #. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
 #: kcmcddb/cddbconfigwidget.ui:40
-#, fuzzy, kde-format
+#, kde-format
 msgid "Freedb Server"
-msgstr "שגיאת שרת"
+msgstr "שרת Freedb"
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel7)
 #: kcmcddb/cddbconfigwidget.ui:46
 #, kde-format
 msgid "Freedb server:"
-msgstr ""
+msgstr "שרת Freedb:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
 #: kcmcddb/cddbconfigwidget.ui:64
 #, kde-format
 msgid "Name of CDDB server which will be used to look up CD information."
-msgstr ""
+msgstr "שם שרת CDDB שישמש לאיתור מידע על התקליטור."
 
 #. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
 #: kcmcddb/cddbconfigwidget.ui:67
 #, kde-format
 msgid "gnudb.gnudb.org"
-msgstr ""
+msgstr "gnudb.gnudb.org"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
 #: kcmcddb/cddbconfigwidget.ui:80 kcmcddb/cddbconfigwidget.ui:197
 #, kde-format
 msgid "Port:"
-msgstr ""
+msgstr "פתחה:"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
 #: kcmcddb/cddbconfigwidget.ui:93
 #, kde-format
 msgid "Port to connect to on CDDB server."
-msgstr ""
+msgstr "פתחה להתחברות לשרת ה־CDDB"
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel9)
 #: kcmcddb/cddbconfigwidget.ui:108
 #, kde-format
 msgid "&Transport:"
-msgstr ""
+msgstr "מ&שלוח:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
 #: kcmcddb/cddbconfigwidget.ui:120
 #, kde-format
 msgid "Type of lookup which should be tried at the CDDB server."
-msgstr ""
+msgstr "סוג החיפוש שצריך לנסות בשרת ה־CDDB"
 
 #. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
 #: kcmcddb/cddbconfigwidget.ui:137
 #, kde-format
 msgid "Show &Mirror List"
-msgstr ""
+msgstr "הצגת &שרתי מראה"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
 #: kcmcddb/cddbconfigwidget.ui:153
 #, kde-format
 msgid "&Submit"
-msgstr ""
+msgstr "&שליחה"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: kcmcddb/cddbconfigwidget.ui:161
 #, kde-format
 msgid "Email address:"
-msgstr ""
+msgstr "כתובת דוא״ל:"
 
 #. i18n: ectx: property (title), widget (QGroupBox)
 #: kcmcddb/cddbconfigwidget.ui:173
 #, kde-format
 msgid "Submit Method"
-msgstr ""
+msgstr "שיטת שליחה"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: kcmcddb/cddbconfigwidget.ui:179
-#, fuzzy, kde-format
+#, kde-format
 msgid "Server:"
-msgstr "שגיאת שרת"
+msgstr "שרת:"
 
 #: kcmcddb/kcmcddb.cpp:55
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
 msgstr ""
+"ייעשה שימוש ב־CDDB כדי להשיג מידע כמו אומן, כותרת ושם השיר בתוך התקליטורים"
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
@@ -173,7 +175,7 @@ msgstr "בלוז"
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:71
 #, kde-format
 msgid "Classical"
-msgstr "קלאסי"
+msgstr "קלסי"
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:73
 #, kde-format
@@ -184,7 +186,7 @@ msgstr "קאנטרי"
 #: libkcddb/categories.cpp:29
 #, kde-format
 msgid "Data"
-msgstr "מידע"
+msgstr "נתונים"
 
 #: libkcddb/categories.cpp:29 libkcddb/genres.cpp:78
 #, kde-format
@@ -229,12 +231,12 @@ msgstr "לא ידוע"
 #: libkcddb/genres.cpp:64
 #, kde-format
 msgid "A Cappella"
-msgstr "א-קפלה"
+msgstr "אקפלה"
 
 #: libkcddb/genres.cpp:64
 #, kde-format
 msgid "Acid Jazz"
-msgstr "אסיד ג'אז"
+msgstr "אסיד ג׳אז"
 
 #: libkcddb/genres.cpp:65
 #, kde-format
@@ -314,7 +316,7 @@ msgstr "בלו־גראס"
 #: libkcddb/genres.cpp:69
 #, kde-format
 msgid "Booty Bass"
-msgstr ""
+msgstr "באס כבד"
 
 #: libkcddb/genres.cpp:69
 #, kde-format
@@ -389,7 +391,7 @@ msgstr "נוצרי עכשווי"
 #: libkcddb/genres.cpp:73
 #, kde-format
 msgid "Crossover"
-msgstr ""
+msgstr "קרוסאובר"
 
 #: libkcddb/genres.cpp:73
 #, kde-format
@@ -409,12 +411,12 @@ msgstr "דאנס"
 #: libkcddb/genres.cpp:74
 #, kde-format
 msgid "Darkwave"
-msgstr ""
+msgstr "דארק וייב"
 
 #: libkcddb/genres.cpp:74
 #, kde-format
 msgid "Death Metal"
-msgstr "דת' מטאל"
+msgstr "דת׳ מטאל"
 
 #: libkcddb/genres.cpp:74
 #, kde-format
@@ -474,7 +476,7 @@ msgstr "טכנו ארופאי"
 #: libkcddb/genres.cpp:77
 #, kde-format
 msgid "Fast-Fusion"
-msgstr ""
+msgstr "פאסט־פיוז׳ן"
 
 #: libkcddb/genres.cpp:77
 #, kde-format
@@ -494,12 +496,12 @@ msgstr "סגנון חופשי"
 #: libkcddb/genres.cpp:78
 #, kde-format
 msgid "Funk"
-msgstr "פ'אנק"
+msgstr "פֿאנק"
 
 #: libkcddb/genres.cpp:79
 #, kde-format
 msgid "Fusion"
-msgstr "פיוז'ן"
+msgstr "פיוז׳ן"
 
 #: libkcddb/genres.cpp:79
 #, kde-format
@@ -534,7 +536,7 @@ msgstr "גותי"
 #: libkcddb/genres.cpp:80
 #, kde-format
 msgid "Grunge"
-msgstr "גראנג'"
+msgstr "גראנג׳"
 
 #: libkcddb/genres.cpp:81
 #, kde-format
@@ -549,7 +551,7 @@ msgstr "רוק כבד"
 #: libkcddb/genres.cpp:81
 #, kde-format
 msgid "Heavy Metal"
-msgstr "האבי מטאל"
+msgstr "הבי מטאל"
 
 #: libkcddb/genres.cpp:81
 #, kde-format
@@ -589,22 +591,22 @@ msgstr "רוק כלי"
 #: libkcddb/genres.cpp:83
 #, kde-format
 msgid "Instrumental"
-msgstr "כלית"
+msgstr "כלי נגינה"
 
 #: libkcddb/genres.cpp:83
 #, kde-format
 msgid "Jazz+Funk"
-msgstr "ג'אז ופ'אנק"
+msgstr "ג׳אז ופֿאנק"
 
 #: libkcddb/genres.cpp:84
 #, kde-format
 msgid "JPop"
-msgstr ""
+msgstr "פופ יפני"
 
 #: libkcddb/genres.cpp:84
 #, kde-format
 msgid "Jungle"
-msgstr "ג'ונגל"
+msgstr "ג׳ונגל"
 
 #: libkcddb/genres.cpp:84
 #, kde-format
@@ -689,12 +691,12 @@ msgstr "פאנק פולני"
 #: libkcddb/genres.cpp:88
 #, kde-format
 msgid "Pop-Funk"
-msgstr "פופ־פ'אנק"
+msgstr "פופ־פֿאנק"
 
 #: libkcddb/genres.cpp:89
 #, kde-format
 msgid "Pop/Funk"
-msgstr "פופ/פ'אנק"
+msgstr "פופ/פֿאנק"
 
 #: libkcddb/genres.cpp:89
 #, kde-format
@@ -704,12 +706,12 @@ msgstr "פופ"
 #: libkcddb/genres.cpp:89
 #, kde-format
 msgid "Porn Groove"
-msgstr ""
+msgstr "גרוב פורנו"
 
 #: libkcddb/genres.cpp:89
 #, kde-format
 msgid "Power Ballad"
-msgstr ""
+msgstr "בלדה עוצמתית"
 
 #: libkcddb/genres.cpp:90
 #, kde-format
@@ -739,7 +741,7 @@ msgstr "פסיכדלי"
 #: libkcddb/genres.cpp:91
 #, kde-format
 msgid "Punk Rock"
-msgstr "פאנק רוק"
+msgstr "פּאנק רוק"
 
 #: libkcddb/genres.cpp:91
 #, kde-format
@@ -749,7 +751,7 @@ msgstr "פאנק"
 #: libkcddb/genres.cpp:91
 #, kde-format
 msgid "R&B"
-msgstr "רית'ם אנד בלוז"
+msgstr "רית׳ם אנד בלוז"
 
 #: libkcddb/genres.cpp:92
 #, kde-format
@@ -769,12 +771,12 @@ msgstr "רטרו"
 #: libkcddb/genres.cpp:93
 #, kde-format
 msgid "Revival"
-msgstr ""
+msgstr "תחייה"
 
 #: libkcddb/genres.cpp:93
 #, kde-format
 msgid "Rhythmic Soul"
-msgstr "נשמה קיצבית"
+msgstr "סול קצבית"
 
 #: libkcddb/genres.cpp:93
 #, kde-format
@@ -799,7 +801,7 @@ msgstr "סאטירה"
 #: libkcddb/genres.cpp:94
 #, kde-format
 msgid "Showtunes"
-msgstr ""
+msgstr "נעימה קולנועית"
 
 #: libkcddb/genres.cpp:95
 #, kde-format
@@ -809,7 +811,7 @@ msgstr "סקא"
 #: libkcddb/genres.cpp:95
 #, kde-format
 msgid "Slow Jam"
-msgstr "ג'אם איטי"
+msgstr "ג׳אם איטי"
 
 #: libkcddb/genres.cpp:95
 #, kde-format
@@ -889,7 +891,7 @@ msgstr "טרור"
 #: libkcddb/genres.cpp:99
 #, kde-format
 msgid "Thrash Metal"
-msgstr "ת'ראש מטאל"
+msgstr "ת׳ראש מטאל"
 
 #: libkcddb/genres.cpp:99
 #, kde-format
@@ -899,7 +901,7 @@ msgstr "40 הראשונים"
 #: libkcddb/genres.cpp:100
 #, kde-format
 msgid "Trailer"
-msgstr "קדם־סרט"
+msgstr "קדימון"
 
 #: libkcddb/genres.cpp:100
 #, kde-format
@@ -949,17 +951,17 @@ msgstr "לא נמצאה רשומה"
 #: libkcddb/kcddb.cpp:39
 #, kde-format
 msgid "Multiple records found"
-msgstr "נמצאו רשומות מרובות"
+msgstr "נמצאו מגוון רשומות"
 
 #: libkcddb/kcddb.cpp:43
 #, kde-format
 msgid "Cannot save"
-msgstr "אין אפשרות לשמור"
+msgstr "לא ניתן לשמור"
 
 #: libkcddb/kcddb.cpp:47
 #, kde-format
 msgid "Invalid category"
-msgstr "קטגוריה לא תקינה"
+msgstr "קטגוריה שגויה"
 
 #: libkcddb/kcddb.cpp:51
 #, kde-format
@@ -969,7 +971,7 @@ msgstr "שגיאה לא ידועה"
 #: libkcddb/musicbrainz/musicbrainzlookup.cpp:112
 #, kde-format
 msgid "%1 (disc %2)"
-msgstr ""
+msgstr "%1 (תקליטור %2)"
 
 #, fuzzy
 #~ msgid "SMTP server:"
