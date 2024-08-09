@@ -38,8 +38,8 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
 
   QGroupBox* groupBox = new QGroupBox(cacheLocationsParent);
   groupBox->setTitle(i18n("Cache Locations"));
+  groupBox->setFlat(true);
   QVBoxLayout* gbLayout = new QVBoxLayout(groupBox);
-  gbLayout->setContentsMargins(0, 0, 0, 0);
 
   KEditListWidget* editListWidget = new KEditListWidget(groupBox);
   editListWidget->setCustomEditor(urlReq->customEditor());

@@ -47,6 +47,7 @@ CDDBModule::CDDBModule(QObject *parent, const KPluginMetaData &metaData)
   QVBoxLayout * layout = new QVBoxLayout(this);
 #else
   QVBoxLayout * layout = new QVBoxLayout(widget());
+  layout->setContentsMargins(0, 0, 0, 0);
 #endif
 
   layout->addWidget(widget_);
