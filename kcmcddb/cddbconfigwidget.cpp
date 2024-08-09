@@ -27,6 +27,8 @@ CDDBConfigWidget::CDDBConfigWidget(QWidget * parent)
 {
   setupUi(this);
 
+  tabWidget2->tabBar()->setExpanding(true);
+
 #ifndef HAVE_MUSICBRAINZ5
   kcfg_MusicBrainzLookupEnabled->hide();
 #endif
