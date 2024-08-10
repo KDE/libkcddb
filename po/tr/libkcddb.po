@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:31+0000\n"
+"POT-Creation-Date: 2024-08-10 01:55+0000\n"
 "PO-Revision-Date: 2024-02-09 19:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -23,39 +23,39 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 24.01.95\n"
 
-#: kcmcddb/cddbconfigwidget.cpp:40
+#: kcmcddb/cddbconfigwidget.cpp:42
 #, kde-format
 msgid "Cache Locations"
 msgstr "Önbellek Konumları"
 
-#: kcmcddb/cddbconfigwidget.cpp:74
+#: kcmcddb/cddbconfigwidget.cpp:76
 #, kde-format
 msgid "Could not fetch mirror list."
 msgstr "Yansı listesi alınamadı."
 
-#: kcmcddb/cddbconfigwidget.cpp:74
+#: kcmcddb/cddbconfigwidget.cpp:76
 #, kde-format
 msgid "Could Not Fetch"
 msgstr "Alınamadı"
 
-#: kcmcddb/cddbconfigwidget.cpp:78
+#: kcmcddb/cddbconfigwidget.cpp:80
 #, kde-format
 msgid "Select mirror"
 msgstr "Yansı seçin"
 
-#: kcmcddb/cddbconfigwidget.cpp:79
+#: kcmcddb/cddbconfigwidget.cpp:81
 #, kde-format
 msgid "Select one of these mirrors"
 msgstr "Yansılardan birisini seçin"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: kcmcddb/cddbconfigwidget.cpp:96 kcmcddb/cddbconfigwidget.ui:129
+#: kcmcddb/cddbconfigwidget.cpp:98 kcmcddb/cddbconfigwidget.ui:144
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: kcmcddb/cddbconfigwidget.cpp:98 kcmcddb/cddbconfigwidget.ui:124
+#: kcmcddb/cddbconfigwidget.cpp:100 kcmcddb/cddbconfigwidget.ui:139
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
@@ -67,103 +67,103 @@ msgid "CDDB Settings"
 msgstr "CDDB Ayarları"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
-#: kcmcddb/cddbconfigwidget.ui:20
+#: kcmcddb/cddbconfigwidget.ui:23
 #, kde-format
 msgid "&Lookup"
 msgstr "&Ara"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
-#: kcmcddb/cddbconfigwidget.ui:26
+#: kcmcddb/cddbconfigwidget.ui:29
 #, kde-format
 msgid "Enable MusicBrainz lookup"
 msgstr "MusicBrainz sunucusunda aramayı etkinleştir"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
-#: kcmcddb/cddbconfigwidget.ui:33
+#: kcmcddb/cddbconfigwidget.ui:36
 #, kde-format
 msgid "Enable freedb lookup"
 msgstr "Freedb sunucusunda aramayı etkinleştir"
 
 #. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
-#: kcmcddb/cddbconfigwidget.ui:40
+#: kcmcddb/cddbconfigwidget.ui:46
 #, kde-format
 msgid "Freedb Server"
 msgstr "Freedb Sunucusu"
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel7)
-#: kcmcddb/cddbconfigwidget.ui:46
+#: kcmcddb/cddbconfigwidget.ui:61
 #, kde-format
 msgid "Freedb server:"
 msgstr "Freedb sunucusu:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
-#: kcmcddb/cddbconfigwidget.ui:64
+#: kcmcddb/cddbconfigwidget.ui:79
 #, kde-format
 msgid "Name of CDDB server which will be used to look up CD information."
 msgstr "CD bilgisi alınacak CDDB sunucusunun adı."
 
 #. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
-#: kcmcddb/cddbconfigwidget.ui:67
+#: kcmcddb/cddbconfigwidget.ui:82
 #, kde-format
 msgid "gnudb.gnudb.org"
 msgstr "gnudb.gnudb.org"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#: kcmcddb/cddbconfigwidget.ui:80 kcmcddb/cddbconfigwidget.ui:197
+#: kcmcddb/cddbconfigwidget.ui:95 kcmcddb/cddbconfigwidget.ui:260
 #, kde-format
 msgid "Port:"
 msgstr "Port:"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
-#: kcmcddb/cddbconfigwidget.ui:93
+#: kcmcddb/cddbconfigwidget.ui:108
 #, kde-format
 msgid "Port to connect to on CDDB server."
 msgstr "CDDB sunucusuna bağlanmak için port açık."
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel9)
-#: kcmcddb/cddbconfigwidget.ui:108
+#: kcmcddb/cddbconfigwidget.ui:123
 #, kde-format
 msgid "&Transport:"
 msgstr "&Taşı:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
-#: kcmcddb/cddbconfigwidget.ui:120
+#: kcmcddb/cddbconfigwidget.ui:135
 #, kde-format
 msgid "Type of lookup which should be tried at the CDDB server."
 msgstr "CDDB sunucusundaki arama tipi."
 
 #. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
-#: kcmcddb/cddbconfigwidget.ui:137
+#: kcmcddb/cddbconfigwidget.ui:152
 #, kde-format
 msgid "Show &Mirror List"
 msgstr "Yansı &Listesini Göster"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
-#: kcmcddb/cddbconfigwidget.ui:153
+#: kcmcddb/cddbconfigwidget.ui:168
 #, kde-format
 msgid "&Submit"
 msgstr "&Gönder"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: kcmcddb/cddbconfigwidget.ui:161
+#: kcmcddb/cddbconfigwidget.ui:189
 #, kde-format
 msgid "Email address:"
 msgstr "E-posta adresi:"
 
-#. i18n: ectx: property (title), widget (QGroupBox)
-#: kcmcddb/cddbconfigwidget.ui:173
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: kcmcddb/cddbconfigwidget.ui:227
 #, kde-format
 msgid "Submit Method"
 msgstr "Gönderme Yöntemi"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: kcmcddb/cddbconfigwidget.ui:179
+#: kcmcddb/cddbconfigwidget.ui:242
 #, kde-format
 msgid "Server:"
 msgstr "Sunucu:"
 
-#: kcmcddb/kcmcddb.cpp:55
+#: kcmcddb/kcmcddb.cpp:56
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:31+0000\n"
+"POT-Creation-Date: 2024-08-10 01:55+0000\n"
 "PO-Revision-Date: 2013-02-18 12:36+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -17,39 +17,39 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: cddbconfigwidget.cpp:40
+#: cddbconfigwidget.cpp:42
 #, kde-format
 msgid "Cache Locations"
 msgstr "कॅशे स्थान"
 
-#: cddbconfigwidget.cpp:74
+#: cddbconfigwidget.cpp:76
 #, kde-format
 msgid "Could not fetch mirror list."
 msgstr "प्रतिबिंब यादी घेऊ शकत नाही.."
 
-#: cddbconfigwidget.cpp:74
+#: cddbconfigwidget.cpp:76
 #, kde-format
 msgid "Could Not Fetch"
 msgstr "घेऊ शकत नाही."
 
-#: cddbconfigwidget.cpp:78
+#: cddbconfigwidget.cpp:80
 #, kde-format
 msgid "Select mirror"
 msgstr "प्रतिबिंब निवडा"
 
-#: cddbconfigwidget.cpp:79
+#: cddbconfigwidget.cpp:81
 #, kde-format
 msgid "Select one of these mirrors"
 msgstr "यापैकी एक प्रतिबिंब निवडा"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: cddbconfigwidget.cpp:96 cddbconfigwidget.ui:129
+#: cddbconfigwidget.cpp:98 cddbconfigwidget.ui:144
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: cddbconfigwidget.cpp:98 cddbconfigwidget.ui:124
+#: cddbconfigwidget.cpp:100 cddbconfigwidget.ui:139
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
@@ -61,103 +61,103 @@ msgid "CDDB Settings"
 msgstr "CDDB संयोजना"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
-#: cddbconfigwidget.ui:20
+#: cddbconfigwidget.ui:23
 #, kde-format
 msgid "&Lookup"
 msgstr "शोधा (&L)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
-#: cddbconfigwidget.ui:26
+#: cddbconfigwidget.ui:29
 #, kde-format
 msgid "Enable MusicBrainz lookup"
 msgstr "MusicBrainz शोध कार्यान्वित करा"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
-#: cddbconfigwidget.ui:33
+#: cddbconfigwidget.ui:36
 #, kde-format
 msgid "Enable freedb lookup"
 msgstr "freedb शोध कार्यान्वित करा"
 
 #. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
-#: cddbconfigwidget.ui:40
+#: cddbconfigwidget.ui:46
 #, kde-format
 msgid "Freedb Server"
 msgstr "freedb सर्व्हर"
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel7)
-#: cddbconfigwidget.ui:46
+#: cddbconfigwidget.ui:61
 #, kde-format
 msgid "Freedb server:"
 msgstr "freedb सर्व्हर :"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
-#: cddbconfigwidget.ui:64
+#: cddbconfigwidget.ui:79
 #, kde-format
 msgid "Name of CDDB server which will be used to look up CD information."
 msgstr "CD माहिती शोधण्याकरिता वापरला जाणाऱ्या CDDB सर्व्हरचे नाव"
 
 #. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
-#: cddbconfigwidget.ui:67
+#: cddbconfigwidget.ui:82
 #, kde-format
 msgid "gnudb.gnudb.org"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#: cddbconfigwidget.ui:80 cddbconfigwidget.ui:197
+#: cddbconfigwidget.ui:95 cddbconfigwidget.ui:260
 #, kde-format
 msgid "Port:"
 msgstr "पोर्ट :"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
-#: cddbconfigwidget.ui:93
+#: cddbconfigwidget.ui:108
 #, kde-format
 msgid "Port to connect to on CDDB server."
 msgstr "CDDB सर्व्हरशी जोडण्याकरिताचा पोर्ट"
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel9)
-#: cddbconfigwidget.ui:108
+#: cddbconfigwidget.ui:123
 #, kde-format
 msgid "&Transport:"
 msgstr "वाहतूक (&T):"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
-#: cddbconfigwidget.ui:120
+#: cddbconfigwidget.ui:135
 #, kde-format
 msgid "Type of lookup which should be tried at the CDDB server."
 msgstr "CDDB सर्व्हरवर प्रयत्न करण्याकरिताचा शोध प्रकार."
 
 #. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
-#: cddbconfigwidget.ui:137
+#: cddbconfigwidget.ui:152
 #, kde-format
 msgid "Show &Mirror List"
 msgstr "प्रतिबिंब यादी दर्शवा (&M)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
-#: cddbconfigwidget.ui:153
+#: cddbconfigwidget.ui:168
 #, kde-format
 msgid "&Submit"
 msgstr "पाठवा (&S)"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: cddbconfigwidget.ui:161
+#: cddbconfigwidget.ui:189
 #, kde-format
 msgid "Email address:"
 msgstr "इमेल पत्ता :"
 
-#. i18n: ectx: property (title), widget (QGroupBox)
-#: cddbconfigwidget.ui:173
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: cddbconfigwidget.ui:227
 #, kde-format
 msgid "Submit Method"
 msgstr "पाठविण्याची पद्धत"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: cddbconfigwidget.ui:179
+#: cddbconfigwidget.ui:242
 #, kde-format
 msgid "Server:"
 msgstr "सर्व्हर :"
 
-#: kcmcddb.cpp:55
+#: kcmcddb.cpp:56
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
