@@ -308,7 +308,7 @@
 
 <para
 >Vous devrez choisir une catégorie pour la contribution. La section <guilabel
->Disc ID</guilabel
+>ID Disque</guilabel
 > affiche le code <acronym
 >ID</acronym
 > 32 bits utilisé par freedb pour identifier un disque compact. Au-dessus du code <acronym
