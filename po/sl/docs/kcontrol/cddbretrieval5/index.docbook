@@ -1,0 +1,444 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kscd;">
+  <!ENTITY package "kdemultimedia">
+  <!ENTITY % Slovenian "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<article id="kcmcddb" lang="&language;">
+
+<articleinfo>
+<title
+>Pridobivanje CDDB</title>
+
+<authorgroup>
+
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> <affiliation
+><address
+>&Mike.McBride.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Jonathan</firstname
+> <surname
+>Singer</surname
+> <affiliation
+><address
+>&Jonathan.Singer.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>David</firstname
+> <surname
+>White</surname
+> <affiliation
+><address
+><email
+>a9403784@unet.univie.ac.at</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="developer"
+><firstname
+>Bernd</firstname
+> <othername
+>Johannes</othername
+> <surname
+>Wuebben</surname
+> <affiliation
+><address
+>&Bernd.Johannes.Wuebben.mail;</address
+></affiliation>
+<contrib
+>Razvijalec</contrib>
+</othercredit>
+
+<othercredit role="developer"
+><firstname
+>Dirk</firstname
+> <surname
+>Forsterling</surname
+> <affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>Razvijalec</contrib>
+</othercredit>
+
+<othercredit role="developer"
+><firstname
+>Dirk</firstname
+> <surname
+>Foersterling</surname
+> <affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>Razvijalec</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+><address
+>&Lauri.Watts.mail;</address
+></affiliation>
+<contrib
+>Recenzent</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Matjaž</firstname
+><surname
+>Jeran</surname
+><affiliation
+><address
+><email
+>matjaz.jeran@amis.net</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year
+><year
+>2004</year>
+<holder
+>J Singer</holder>
+
+</copyright>
+<copyright>
+
+<year
+>2005-2006</year>
+<holder
+>&Mike.McBride;</holder>
+</copyright>
+
+<date
+>05.12.2013</date>
+<releaseinfo
+>&kde; 4.12</releaseinfo>
+
+</articleinfo>
+
+<sect1 id="cddb-page">
+<title
+>Pridobivanje CDDB</title>
+<para
+>Modul <guilabel
+>Pridobivanje CDDB</guilabel
+> je razdeljen na zavihek <guilabel
+>Iskanje</guilabel
+> in zavihek <guilabel
+>Pošlji</guilabel
+>.</para>
+
+<sect2 id="lookup-tab">
+<title
+>Zavihek Iskanje</title>
+<screenshot>
+<screeninfo
+>Zavihek <guilabel
+>Iskanje</guilabel
+></screeninfo>
+<mediaobject>
+<imageobject
+> <imagedata fileref="kscd14.png" format="PNG"/> </imageobject>
+<textobject
+><phrase
+>Zavihek <guilabel
+>Iskanje</guilabel
+></phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Zavihek <guilabel
+>Iskanje</guilabel
+> nastavi funkcije <acronym
+>CDDB</acronym
+> &kde;.</para>
+
+<para
+>Izberete lahko možnosti <guilabel
+>Omogoči iskanje MusicBrainz</guilabel
+> ali <guilabel
+>Omogoči iskanje freedb</guilabel
+>.</para>
+
+<para
+>Razdelek <guilabel
+>Strežnik Freedb</guilabel
+> določa, katero zrcalno mesto CDDB uporablja &kde; da dobite informacije o albumu. Ime strežnika, številko vrat in protokol lahko vnesete z uporabo besedilnih polj in spustnih polj ali pa kliknete gumb <guibutton
+>Pokaži seznam zrcalnih strežnikov</guibutton
+>. S klikom na ta gumb se odpre novo okno s seznamom zrcalnih strežnikov CDDB in njihovimi lokacijami. Na seznamu preprosto izberite želeni strežnik in kliknite <guibutton
+>V redu</guibutton
+>.</para>
+
+<para
+>Razdelek z oznako <guilabel
+>Lokacije predpomnilnika</guilabel
+> vam omogoča, da določite, kje so shranjene informacije CDDB v vašem računalniku. Če želite dodati mapo, vnesite lokacijo mape v besedilno polje na vrhu razdelka in kliknite <guibutton
+>Dodaj</guibutton
+>. Mapo lahko izberete tudi tako, da kliknete modro mapo z datotekami na desni strani besedilnega polja. Za brisanje mape enkrat kliknite na ime mape z &LMB; in kliknite <guibutton
+>Odstrani</guibutton
+>. Vrstni red iskanja po mapah lahko spremenite tako, da kliknete ime mape in kliknete gumba <guibutton
+>Premakni navzgor</guibutton
+> in <guibutton
+>Premakni dol</guibutton
+>.</para>
+
+<para
+>Gumb <guibutton
+>Pomoč</guibutton
+> odpre stran z vsebino te pomoči. Gumb <guibutton
+>Privzeto</guibutton
+> obnovi privzete vrednosti vseh vnosov v tem pogovornem oknu; <guibutton
+>OK</guibutton
+> shrani trenutne nastavitve in zapre; <guibutton
+>Uporabi</guibutton
+> shrani trenutne nastavitve brez izhoda.</para>
+
+</sect2>
+
+<sect2 id="submit-tab">
+<title
+>Zavihek Pošlji</title>
+
+<screenshot>
+<screeninfo
+>Zavihek Pošlji</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="kscd16.png" format="PNG"/></imageobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Zavihek <guilabel
+>Pošlji</guilabel
+> nastavi povezavo s poštnim ali spletnim strežnikom za oddajo novih <acronym
+>CDDB</acronym
+> vnosov. To je uporabno, če nimate lastnega sistema konfiguriranega kot strežnik. </para>
+
+<para
+>Če nameravate oddati vnos CDDB, vnesite svoj e-poštni naslov v prvo besedilno polje. </para>
+<para
+>V ponujena besedilna polja lahko vnesete ime strežnika ali številko vrat. Če želite te podatke poslati mednarodnim strežnikom, vam ni treba ničesar spremeniti.</para>
+</sect2>
+</sect1>
+
+<!-- following chapters need proofreading -->
+<sect1 id="cddb-editor">
+<title
+>Urejevalnik podatkovnih baz CD-jev</title>
+
+<screenshot>
+<screeninfo
+>Program &CD; Urejevalnik baze podatkov</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="kscd13.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>&CD; Urejevalnik baze podatkov</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>&CD; Urejevalnik zbirke podatkov vam omogoča spreminjanje, prenos, shranjevanje, komentiranje in nalaganje vnosov <link linkend="cddb-support"
+><acronym
+>CDDB</acronym
+> (Baza podatkov zgoščenk)</link
+>.</para>
+
+<para
+>Če obstaja vnos v vašem lokalnem drevesu <acronym
+>CDDB</acronym
+> (glejte <link linkend="cddb-page"
+>podrazdelek CDDB</link
+> v poglavju Konfiguracija) za &CD; v vašem &CD-ROM; ali če je disk mogoče najti v freedb, boste videli ime izvajalca in naslov &CD; v poljih <guilabel
+>Izvajalec:</guilabel
+> in <guilabel
+>Naslov</guilabel
+> ter seznam skladb z naslovi pesmi v izbirnem polju <interface
+>Skladbe</interface
+>. V nasprotnem primeru boste videli seznam skladb in čase predvajanja brez naslovov.</para>
+
+<para
+>Opombo lahko naredite za celoten disk s poljem <guilabel
+>Komentar</guilabel
+> pod poljem <guilabel
+>Naslov</guilabel
+> ali za izbrano skladbo v izbirnem polju <guilabel
+>Skladbe</guilabel
+> z sosednji gumb <guibutton
+>Komentar</guibutton
+>. Če izberete skladbo v izbirnem polju <guilabel
+>Skladbe</guilabel
+>, bo naslov, če obstaja, prikazan v spodnjem polju <guilabel
+>Naslov</guilabel
+>. V polje lahko vnesete naslov skladbe ali uredite vnos, da bo ustrezal vašim potrebam. Pritisnite tipko <keycap
+>Return</keycap
+> na tipkovnici in besedilo se bo pojavilo v ustrezni vrstici v izbirnem polju.</para>
+
+<para
+>Ko so vse skladbe naslovljene in sta izpolnjeni polji <guilabel
+>Izvajalec:</guilabel
+> in <guilabel
+>Naslov</guilabel
+>, lahko pritisnete gumb <guibutton
+>Naloži</guibutton
+>, da pošljete svoj prispevek po elektronski pošti na freedb.</para>
+
+<para
+>Pozvani boste, da izberete kategorijo za oddajo. Razdelek <guilabel
+>ID plošče</guilabel
+> prikazuje 32-bitno kodo <acronym
+>ID</acronym
+>, ki jo uporablja freedb za identifikacijo zgoščenke. Nad kodo <acronym
+>ID</acronym
+> je kategorija vnosa <guilabel
+>freedb</guilabel
+>. Te kategorije ustrezajo drevesu podmap mape, izbrane v <guilabel
+>osnovni mapi freedb:</guilabel
+> na strani <link linkend="cddb-page"
+><guilabel
+>CDDB</guilabel
+></link
+> konfiguracijsko okno.</para>
+
+<para
+>Zaslon <guilabel
+>Dolžina:</guilabel
+> prikazuje skupni čas predvajanja &CD;.</para>
+
+<para
+>Pritisnite gumb <guibutton
+>Pridobi informacije</guibutton
+>, da prenesete podatke <acronym
+>CDDB</acronym
+>. Pritisnite gumb <guibutton
+>V redu</guibutton
+>, da lokalno shranite spremembe. Gumb <guibutton
+>Prekliči</guibutton
+> zapre &CD; Urejevalnik podatkovnih baz brez shranjevanja.</para>
+
+</sect1>
+
+<sect1 id="cddb-support">
+<title
+><acronym
+>CDDB</acronym
+> Podpora</title>
+
+<para
+>freedb je porazdeljena omrežna zbirka podatkov, dostopna prek interneta, ki vsebuje informacije o večini zvočnih CD-jev v obtoku. Če imate dostop do interneta, vam verjetno nikoli ne bo treba ročno vnašati informacij o skladbah za vaše CD-je, če ste to pravilno nastavili. Glejte razdelek <link linkend="cddb-page"
+>Stran CDDB</link
+> za podrobna navodila o tem, kako konfigurirati to storitev, in <link linkend="cddb-editor"
+>&CD; Razdelek urejevalnika baze podatkov</link
+> za navodila o urejanju vnosov <acronym
+>CDDB</acronym
+>.</para>
+
+<para
+>Uporaba <acronym
+>CDDB</acronym
+> je brezplačna. Spodbujamo prispevke uporabnikov.</para>
+
+<para
+>Ko pripravljate vnose za <acronym
+>CDDB</acronym
+>, upoštevajte naslednje točke:</para>
+
+<itemizedlist>
+<listitem
+><para
+>V vnosih uporabljajte <quote
+>standardne</quote
+> latinične znake. Nekateri posebni znaki so podprti, vendar na primer vnos cirilice ali grške abecede ni mogoč.</para
+></listitem>
+<listitem
+><para
+>Uporabite samo en znak <keysym
+>/</keysym
+> v polju <guilabel
+>Izvajalec/naslov plošče</guilabel
+> v polju &CD; Urejevalnik podatkovnih baz.</para>
+
+<para
+>Pri klasičnih &CD;-jih je običajna praksa, da ime skladatelja postavite v razdelek Izvajalec (pred poševnico) in ime izvajalca v razdelek Naslov (za poševnico).</para
+></listitem
+> 
+<listitem
+><para
+>Če pošljete vnos, ki že obstaja v bazi podatkov, se morebitne dodatne informacije, ki jih posredujete, lahko dodajo obstoječemu vnosu.</para>
+</listitem>
+</itemizedlist>
+
+<para
+>Privzeto so standardne kategorije <acronym
+>CDDB</acronym
+> nameščene v <filename class="directory"
+>$HOME/.cddb</filename
+>. Ustvarite lahko poljubno število podmap kategorij. Vendar pa so pri nalaganju prikazane samo uradne kategorije <acronym
+>CDDB</acronym
+>. Privzeti naslov za nalaganje je <email
+>gnudb-submit@gnudb.org</email
+>. Za več informacij o <abbrev
+>gnudb</abbrev
+> obiščite domačo stran <abbrev
+>gnudb</abbrev
+>.</para>
+
+<para
+>Lokalni vnos <acronym
+>CDDB</acronym
+> za določen &CD; je shranjen v datoteki <filename
+><replaceable
+>ime kategorije</replaceable
+>/<replaceable
+>ID diska</replaceable
+></filename
+> pod osnovno mapo <acronym
+>CDDB</acronym
+>. Te datoteke je mogoče urejati s katerim koli urejevalnikom besedil.</para>
+</sect1>
+
+</article>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
