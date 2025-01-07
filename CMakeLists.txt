@@ -11,6 +11,8 @@ find_package(ECM ${KF_MIN_VERSION}  NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
 set(CMAKE_MODULE_PATH "${ECM_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
+option(BUILD_DOC "Whether to build the documentation" ON)
+
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
@@ -37,7 +39,14 @@ set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprec
 endif()
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Network Widgets)
-find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS Config DocTools I18n KIO WidgetsAddons KCMUtils)
+find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS Config I18n KIO WidgetsAddons KCMUtils)
+if(BUILD_DOC)
+    find_package(KF${KF_MAJOR_VERSION}DocTools ${KF_MIN_VERSION})
+    set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES
+        DESCRIPTION "Tools to generate documentation"
+        TYPE REQUIRED
+    )
+endif()
 find_package(MusicBrainz5)
 set_package_properties(MusicBrainz5 PROPERTIES
    DESCRIPTION "Music metadata lookup for KDE multimedia applications through libkcddb. You need version 5.x of libmusicbrainz"
@@ -75,6 +84,9 @@ if(BUILD_TESTING)
 endif()
 
 ki18n_install(po)
-kdoctools_install(po)
+
+if(BUILD_DOC)
+    kdoctools_install(po)
+endif()
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
