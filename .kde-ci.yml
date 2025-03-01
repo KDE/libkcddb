@@ -15,3 +15,4 @@ Dependencies:
 
 Options:
  run-installed-library-check: True
+ require-passing-tests-on: ['@all']
