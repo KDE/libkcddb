@@ -23,3 +23,6 @@ Dependencies:
     'frameworks/kio': '@stable'
     'frameworks/kwidgetsaddons': '@stable'
     'frameworks/kcmutils': '@stable'
+
+Options:
+ require-passing-tests-on: ['@all']
