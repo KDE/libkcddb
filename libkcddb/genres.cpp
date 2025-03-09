@@ -45,7 +45,7 @@ KCDDB::Genres::Genres()
             QLatin1String( "Instrumental Pop" ) << QLatin1String( "Instrumental Rock" ) << QLatin1String( "Instrumental" ) << QLatin1String( "Jazz+Funk" ) <<
             QLatin1String( "Jazz" ) << QLatin1String( "JPop" ) << QLatin1String( "Jungle" ) << QLatin1String( "Latin" ) << QLatin1String( "Lo-Fi" ) <<
             QLatin1String( "Meditative" ) << QLatin1String( "Merengue" ) << QLatin1String( "Metal" ) << QLatin1String( "Musical" ) <<
-            QLatin1String( "National Folk" ) << QLatin1String( "Native American" ) << QLatin1String( "Negerpunk" ) << QLatin1String( "New Age" ) <<
+            QLatin1String( "National Folk" ) << QLatin1String( "Native American" ) << QLatin1String( "Afro-Punk" ) << QLatin1String( "New Age" ) <<
             QLatin1String( "New Wave" ) << QLatin1String( "Noise" ) << QLatin1String( "Oldies" ) << QLatin1String( "Opera" ) <<
             QLatin1String( "Other" ) << QLatin1String( "Polka" ) << QLatin1String( "Polsk Punk" ) << QLatin1String( "Pop-Funk" ) <<
             QLatin1String( "Pop/Funk" ) << QLatin1String( "Pop" ) << QLatin1String( "Porn Groove" ) << QLatin1String( "Power Ballad" ) <<
@@ -83,7 +83,7 @@ KCDDB::Genres::Genres()
             i18n("Instrumental Pop") << i18n("Instrumental Rock") << i18n("Instrumental") << i18n("Jazz+Funk") <<
             i18n("Jazz") << i18n("JPop") << i18n("Jungle") << i18n("Latin") << i18n("Lo-Fi") <<
             i18n("Meditative") << i18n("Merengue") << i18n("Metal") << i18n("Musical") <<
-            i18n("National Folk") << i18n("Native American") << i18n("Negerpunk") << i18n("New Age") <<
+            i18n("National Folk") << i18n("Native American") << i18n("Afro-Punk") << i18n("New Age") <<
             i18n("New Wave") << i18n("Noise") << i18n("Oldies") << i18n("Opera") <<
             i18n("Other") << i18n("Polka") << i18n("Polsk Punk") << i18n("Pop-Funk") <<
             i18n("Pop/Funk") << i18n("Pop") << i18n("Porn Groove") << i18n("Power Ballad") <<
