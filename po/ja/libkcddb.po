@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 02:03+0000\n"
 "PO-Revision-Date: 2008-08-12 22:29+0900\n"
 "Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -655,8 +655,9 @@ msgstr "ネイティブ・アメリカン"
 
 #: libkcddb/genres.cpp:86
 #, fuzzy, kde-format
-msgid "Negerpunk"
-msgstr "Negerpunk"
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "パンク"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -978,3 +979,7 @@ msgstr "未知のエラー"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Negerpunk"
+#~ msgstr "Negerpunk"

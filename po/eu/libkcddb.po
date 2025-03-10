@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 02:03+0000\n"
 "PO-Revision-Date: 2020-03-19 13:33+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -656,9 +656,10 @@ msgid "Native American"
 msgstr "Indioa"
 
 #: libkcddb/genres.cpp:86
-#, kde-format
-msgid "Negerpunk"
-msgstr "Negerpunk-a"
+#, fuzzy, kde-format
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "Punk-a"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -979,6 +980,9 @@ msgstr "Errore ezezaguna"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (diskoa %2)"
+
+#~ msgid "Negerpunk"
+#~ msgstr "Negerpunk-a"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (e-posta)"

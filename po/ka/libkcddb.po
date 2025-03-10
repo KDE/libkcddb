@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 02:03+0000\n"
 "PO-Revision-Date: 2022-11-16 08:26+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -649,9 +649,10 @@ msgid "Native American"
 msgstr "ადგილობრივი ამერიკული"
 
 #: libkcddb/genres.cpp:86
-#, kde-format
-msgid "Negerpunk"
-msgstr "ნეგერპანკი"
+#, fuzzy, kde-format
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "პანკი"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -972,6 +973,9 @@ msgstr "უცნობი შეცდომა"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (დისკი %2)"
+
+#~ msgid "Negerpunk"
+#~ msgstr "ნეგერპანკი"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (ელფოსტა)"

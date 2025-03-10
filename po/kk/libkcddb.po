@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 02:03+0000\n"
 "PO-Revision-Date: 2012-07-12 02:53+0600\n"
 "Last-Translator: Sairan Kikkarin\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -648,9 +648,10 @@ msgid "Native American"
 msgstr "Байырғы американдық"
 
 #: libkcddb/genres.cpp:86
-#, kde-format
-msgid "Negerpunk"
-msgstr "Нигерпанк"
+#, fuzzy, kde-format
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "Панк"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -971,6 +972,9 @@ msgstr "Беймәлім қате"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (%2 дискі)"
+
+#~ msgid "Negerpunk"
+#~ msgstr "Нигерпанк"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (Эл.пошта)"

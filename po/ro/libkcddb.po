@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 02:03+0000\n"
 "PO-Revision-Date: 2008-12-27 20:48+0200\n"
 "Last-Translator: Sergiu Bivol <sergiu@ase.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@lists.kde.org>\n"
@@ -649,9 +649,10 @@ msgid "Native American"
 msgstr ""
 
 #: libkcddb/genres.cpp:86
-#, kde-format
-msgid "Negerpunk"
-msgstr "Negerpunk"
+#, fuzzy, kde-format
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "Punk"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -972,6 +973,9 @@ msgstr "Eroare necunoscută"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr ""
+
+#~ msgid "Negerpunk"
+#~ msgstr "Negerpunk"
 
 #, fuzzy
 #~| msgid "Server error"

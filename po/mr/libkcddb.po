@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 02:03+0000\n"
 "PO-Revision-Date: 2013-02-28 12:49+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -645,9 +645,10 @@ msgid "Native American"
 msgstr "नेटिव अमेरिकी"
 
 #: libkcddb/genres.cpp:86
-#, kde-format
-msgid "Negerpunk"
-msgstr "नेगर-पंक"
+#, fuzzy, kde-format
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "पंक"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -968,6 +969,9 @@ msgstr "अपरिचीत त्रुटी"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (डिस्क %2)"
+
+#~ msgid "Negerpunk"
+#~ msgstr "नेगर-पंक"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (इमेल)"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 02:03+0000\n"
 "PO-Revision-Date: 2021-12-22 21:37+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -649,9 +649,10 @@ msgid "Native American"
 msgstr "امريكي أصلي"
 
 #: libkcddb/genres.cpp:86
-#, kde-format
-msgid "Negerpunk"
-msgstr "بانك الغنج"
+#, fuzzy, kde-format
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "بانك"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -972,6 +973,9 @@ msgstr "خطأ مجهول"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "‏%1 (القرص %2)"
+
+#~ msgid "Negerpunk"
+#~ msgstr "بانك الغنج"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP البريد الإلكتروني"

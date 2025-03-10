@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 02:03+0000\n"
 "PO-Revision-Date: 2024-03-08 06:41+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -649,9 +649,10 @@ msgid "Native American"
 msgstr "אינדיאני"
 
 #: libkcddb/genres.cpp:86
-#, kde-format
-msgid "Negerpunk"
-msgstr "פאנק כושי"
+#, fuzzy, kde-format
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "פאנק"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -972,6 +973,9 @@ msgstr "שגיאה לא ידועה"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (תקליטור %2)"
+
+#~ msgid "Negerpunk"
+#~ msgstr "פאנק כושי"
 
 #, fuzzy
 #~ msgid "SMTP server:"

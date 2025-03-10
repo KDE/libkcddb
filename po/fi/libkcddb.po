@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 02:03+0000\n"
 "PO-Revision-Date: 2020-06-24 20:10+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -651,9 +651,10 @@ msgid "Native American"
 msgstr "Amerikkalainen alkuasukas"
 
 #: libkcddb/genres.cpp:86
-#, kde-format
-msgid "Negerpunk"
-msgstr "Negerpunk"
+#, fuzzy, kde-format
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "Punk"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -974,6 +975,9 @@ msgstr "Tuntematon virhe"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (levy %2)"
+
+#~ msgid "Negerpunk"
+#~ msgstr "Negerpunk"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (sähköposti)"
