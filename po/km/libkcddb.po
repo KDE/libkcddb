@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 04:11+0000\n"
 "PO-Revision-Date: 2012-06-20 15:16+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -644,9 +644,10 @@ msgid "Native American"
 msgstr "អាមេរិក​ដើម"
 
 #: libkcddb/genres.cpp:86
-#, kde-format
-msgid "Negerpunk"
-msgstr "ណេហ្គេផាំង"
+#, fuzzy, kde-format
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "ពាល"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -967,6 +968,9 @@ msgstr "មិន​ស្គាល់​កំហុស"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (ថាស %2)"
+
+#~ msgid "Negerpunk"
+#~ msgstr "ណេហ្គេផាំង"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (អ៊ីមែល)"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 04:11+0000\n"
 "PO-Revision-Date: 2015-02-04 15:18+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <lokal@lugbih.org>\n"
@@ -649,9 +649,10 @@ msgid "Native American"
 msgstr "Indijanska"
 
 #: libkcddb/genres.cpp:86
-#, kde-format
-msgid "Negerpunk"
-msgstr "Negerpank"
+#, fuzzy, kde-format
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "Pank"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -972,6 +973,9 @@ msgstr "Nepoznata greška"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (disk %2)"
+
+#~ msgid "Negerpunk"
+#~ msgstr "Negerpank"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (e-pošta)"

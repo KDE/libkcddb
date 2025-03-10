@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 04:11+0000\n"
 "PO-Revision-Date: 2013-09-08 07:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -648,9 +648,10 @@ msgid "Native American"
 msgstr "ئىندىئان مۇزىكىسى"
 
 #: libkcddb/genres.cpp:86
-#, kde-format
-msgid "Negerpunk"
-msgstr "نېگىر پاڭك"
+#, fuzzy, kde-format
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "پاڭك مۇزىكىسى"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -971,6 +972,9 @@ msgstr "نامەلۇم خاتالىق"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (دىسكا %2)"
+
+#~ msgid "Negerpunk"
+#~ msgstr "نېگىر پاڭك"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (ئېلخەت)"

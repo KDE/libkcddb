@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 04:11+0000\n"
 "PO-Revision-Date: 2007-06-26 08:49+0330\n"
 "Last-Translator: Nazanin Kazemi <kazemi@itland.ir>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -649,9 +649,10 @@ msgid "Native American"
 msgstr "آمریکایی بومی"
 
 #: libkcddb/genres.cpp:86
-#, kde-format
-msgid "Negerpunk"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "موسیقی پانک"
 
 #: libkcddb/genres.cpp:87
 #, kde-format

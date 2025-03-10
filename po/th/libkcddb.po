@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 04:11+0000\n"
 "PO-Revision-Date: 2010-03-04 23:08+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -648,9 +648,10 @@ msgid "Native American"
 msgstr "อเมริกันพื้นเมือง"
 
 #: libkcddb/genres.cpp:86
-#, kde-format
-msgid "Negerpunk"
-msgstr "นีเกอร์พังก์"
+#, fuzzy, kde-format
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "พังก์"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -971,6 +972,9 @@ msgstr "ขอผิดพลาดไม่รู้จัก"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr ""
+
+#~ msgid "Negerpunk"
+#~ msgstr "นีเกอร์พังก์"
 
 #, fuzzy
 #~| msgid "Server error"

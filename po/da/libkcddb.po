@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 04:11+0000\n"
 "PO-Revision-Date: 2020-04-08 20:23+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -650,9 +650,10 @@ msgid "Native American"
 msgstr "Indfødt amerikansk"
 
 #: libkcddb/genres.cpp:86
-#, kde-format
-msgid "Negerpunk"
-msgstr "Negerpunk"
+#, fuzzy, kde-format
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "Punk"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -973,6 +974,9 @@ msgstr "Ukendt fejl"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (disk %2)"
+
+#~ msgid "Negerpunk"
+#~ msgstr "Negerpunk"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (e-mail)"

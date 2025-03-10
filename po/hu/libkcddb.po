@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 04:11+0000\n"
 "PO-Revision-Date: 2020-11-25 22:01+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -646,9 +646,10 @@ msgid "Native American"
 msgstr "Régi amerikai (őslakos)"
 
 #: libkcddb/genres.cpp:86
-#, kde-format
-msgid "Negerpunk"
-msgstr "Fekete punk"
+#, fuzzy, kde-format
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "Punk"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -969,6 +970,9 @@ msgstr "Ismeretlen hiba"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (%2. lemez)"
+
+#~ msgid "Negerpunk"
+#~ msgstr "Fekete punk"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (e-mail)"

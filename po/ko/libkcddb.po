@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 04:11+0000\n"
 "PO-Revision-Date: 2021-06-05 23:05+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -647,9 +647,10 @@ msgid "Native American"
 msgstr "아메리카 원주민"
 
 #: libkcddb/genres.cpp:86
-#, kde-format
-msgid "Negerpunk"
-msgstr "니거펑크"
+#, fuzzy, kde-format
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "펑크"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -970,6 +971,9 @@ msgstr "알 수 없는 오류"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (디스크 %2)"
+
+#~ msgid "Negerpunk"
+#~ msgstr "니거펑크"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (이메일)"
