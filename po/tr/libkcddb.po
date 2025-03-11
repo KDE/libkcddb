@@ -7,13 +7,13 @@
 # Görkem Çetin <gorkem@kde.org>, 2003.
 # H. İbrahim Güngör <ibrahim@pardus.org.tr>, 2010.
 # obsoleteman <tulliana@gmail.com>, 2007,2009,2012.
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-10 04:11+0000\n"
-"PO-Revision-Date: 2024-02-09 19:02+0300\n"
+"PO-Revision-Date: 2025-03-10 12:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #: kcmcddb/cddbconfigwidget.cpp:42
 #, kde-format
@@ -652,10 +652,9 @@ msgid "Native American"
 msgstr "Yerel Amerikan"
 
 #: libkcddb/genres.cpp:86
-#, fuzzy, kde-format
-#| msgid "Punk"
+#, kde-format
 msgid "Afro-Punk"
-msgstr "Punk"
+msgstr "Afro-Punk"
 
 #: libkcddb/genres.cpp:87
 #, kde-format

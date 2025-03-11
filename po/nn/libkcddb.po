@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-10 04:11+0000\n"
 "PO-Revision-Date: 2020-05-09 16:55+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -653,8 +653,8 @@ msgstr "Innfødd-amerikansk"
 
 #: libkcddb/genres.cpp:86
 #, kde-format
-msgid "Negerpunk"
-msgstr "Negerpunk"
+msgid "Afro-Punk"
+msgstr ""
 
 #: libkcddb/genres.cpp:87
 #, kde-format
