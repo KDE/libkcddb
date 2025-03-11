@@ -22,39 +22,22 @@
 
 K_PLUGIN_CLASS_WITH_JSON(CDDBModule, "kcm_cddb.json")
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-CDDBModule::CDDBModule(QWidget *parent, const QVariantList &args)
-  : KCModule(parent, args)
-#else
 CDDBModule::CDDBModule(QObject *parent, const KPluginMetaData &metaData)
   : KCModule(parent, metaData)
-#endif
 {
   setButtons(Default | Apply | Help);
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-  widget_ = new CDDBConfigWidget(this);
-#else
   widget_ = new CDDBConfigWidget(widget());
-#endif
 
   KCDDB::Config* cfg = new KCDDB::Config();
   cfg->load();
 
   addConfig(cfg, widget_);
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-  QVBoxLayout * layout = new QVBoxLayout(this);
-#else
   QVBoxLayout * layout = new QVBoxLayout(widget());
   layout->setContentsMargins(0, 0, 0, 0);
-#endif
 
   layout->addWidget(widget_);
-
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-  setQuickHelp(i18n("CDDB is used to get information like artist, title and song-names in CD's"));
-#endif
 
   load();
 }

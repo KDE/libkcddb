@@ -1,6 +1,6 @@
 @PACKAGE_INIT@
 
 include(CMakeFindDependencyMacro)
-find_dependency(KF@KF_MAJOR_VERSION@Config "@KF_MIN_VERSIONN@")
+find_dependency(KF6Config "@KF_MIN_VERSIONN@")
 
 include("${CMAKE_CURRENT_LIST_DIR}/KCddb6Targets.cmake")

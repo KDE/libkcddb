@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
 project(libkcddb VERSION "5.1.0")
 
-set(QT_MIN_VERSION 5.15.2)
-set(KF_MIN_VERSION 5.92.0)
+set(QT_MIN_VERSION 6.6.2)
+set(KF_MIN_VERSION 6.7.0)
 
 # ECM setup
 include(FeatureSummary)
@@ -23,26 +23,15 @@ include(ECMQtDeclareLoggingCategory)
 include(CMakePackageConfigHelpers)
 include(ECMGenerateHeaders)
 include(ECMDeprecationSettings)
-if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_REQUIRED_VERSION "6.5.0")
-    set(KF_MIN_VERSION "5.240.0")
-    set(KF_MAJOR_VERSION "6")
-else()
-    set(KF_MAJOR_VERSION "5")
-endif()
 
 # reset to 0 once all deprecated API has been removed on full switch to Qt6
-if (QT_MAJOR_VERSION STREQUAL "6")
 set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 5.1.0 CACHE STRING "Control the range of deprecated API excluded from the build [default=5.1.0].")
-else()
-set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
-endif()
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Network Widgets)
-find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS Config I18n KIO WidgetsAddons KCMUtils)
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Network Widgets)
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Config I18n KIO WidgetsAddons KCMUtils)
 if(BUILD_DOC)
-    find_package(KF${KF_MAJOR_VERSION}DocTools ${KF_MIN_VERSION})
-    set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES
+    find_package(KF6DocTools ${KF_MIN_VERSION})
+    set_package_properties(KF6DocTools PROPERTIES
         DESCRIPTION "Tools to generate documentation"
         TYPE REQUIRED
     )
@@ -60,17 +49,10 @@ else()
     set(HAVE_MUSICBRAINZ5 0)
 endif()
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    ecm_set_disabled_deprecation_versions(
-        QT 6.5
-        KF 5.239
-    )
-else()
-    ecm_set_disabled_deprecation_versions(
-        QT 5.15.2
-        KF 5.101
-    )
-endif()
+ecm_set_disabled_deprecation_versions(
+    QT 6.5
+    KF 5.239
+)
 
 configure_file(config-musicbrainz.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-musicbrainz.h )
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
@@ -79,7 +61,7 @@ add_subdirectory(kcmcddb)
 add_subdirectory(libkcddb)
 
 if(BUILD_TESTING)
-    find_package(Qt${QT_MAJOR_VERSION}Test REQUIRED)
+    find_package(Qt6Test REQUIRED)
     add_subdirectory(tests)
 endif()
 
