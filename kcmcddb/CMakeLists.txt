@@ -15,18 +15,14 @@ target_sources(kcm_cddb PRIVATE
 set_source_files_properties(cddbconfigwidget.cpp PROPERTIES OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/ui_cddbconfigwidget.h)
 
 target_link_libraries(kcm_cddb PRIVATE
-    KF${KF_MAJOR_VERSION}::I18n
-    KF${KF_MAJOR_VERSION}::KIOCore
-    KF${KF_MAJOR_VERSION}::KIOWidgets
-    KF${KF_MAJOR_VERSION}::WidgetsAddons
+    KF6::I18n
+    KF6::KIOCore
+    KF6::KIOWidgets
+    KF6::WidgetsAddons
     KCddb
 )
 
-if(QT_MAJOR_VERSION STREQUAL "5")
-    target_link_libraries(kcm_cddb PRIVATE KF${KF_MAJOR_VERSION}::ConfigWidgets)
-else()
-    target_link_libraries(kcm_cddb PRIVATE KF${KF_MAJOR_VERSION}::KCMUtils)
-endif()
+target_link_libraries(kcm_cddb PRIVATE KF6::KCMUtils)
 
 target_include_directories(kcm_cddb
     PRIVATE ${CMAKE_SOURCE_DIR} # for libkcddb/ prefixed includes of library headers

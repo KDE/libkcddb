@@ -115,9 +115,6 @@ namespace KCDDB
         if ( f.exists() && f.open(QIODevice::ReadOnly) )
         {
             QTextStream ts(&f);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-            ts.setCodec("UTF-8");
-#endif
             QString cddbData = ts.readAll();
             f.close();
             CDInfo info;
