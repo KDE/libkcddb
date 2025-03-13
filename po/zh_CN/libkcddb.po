@@ -647,7 +647,7 @@ msgstr "美国土著"
 #: libkcddb/genres.cpp:86
 #, kde-format
 msgid "Afro-Punk"
-msgstr ""
+msgstr "非裔朋克"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
