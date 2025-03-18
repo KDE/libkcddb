@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 02:03+0000\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2013-02-28 12:49+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -156,12 +156,6 @@ msgstr "सादर करण्याची पद्धत"
 #, kde-format
 msgid "Server:"
 msgstr "सर्व्हर :"
-
-#: kcmcddb/kcmcddb.cpp:56
-#, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
-msgstr "सीडीतील कलाकार, शिर्षक व गाण्याचे नाव इ. माहिती घेण्याकरिता CDDB वापरले जाते"
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
@@ -969,6 +963,11 @@ msgstr "अपरिचीत त्रुटी"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (डिस्क %2)"
+
+#~ msgid ""
+#~ "CDDB is used to get information like artist, title and song-names in CD's"
+#~ msgstr ""
+#~ "सीडीतील कलाकार, शिर्षक व गाण्याचे नाव इ. माहिती घेण्याकरिता CDDB वापरले जाते"
 
 #~ msgid "Negerpunk"
 #~ msgstr "नेगर-पंक"

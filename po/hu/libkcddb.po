@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 02:03+0000\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2020-11-25 22:01+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -155,14 +155,6 @@ msgstr "Küldési mód"
 #, kde-format
 msgid "Server:"
 msgstr "Kiszolgáló:"
-
-#: kcmcddb/kcmcddb.cpp:56
-#, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
-msgstr ""
-"A CDDB-t zenei CD-k információinak letöltésére használják, mint például "
-"előadó, cím és dalnév."
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
@@ -970,6 +962,12 @@ msgstr "Ismeretlen hiba"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (%2. lemez)"
+
+#~ msgid ""
+#~ "CDDB is used to get information like artist, title and song-names in CD's"
+#~ msgstr ""
+#~ "A CDDB-t zenei CD-k információinak letöltésére használják, mint például "
+#~ "előadó, cím és dalnév."
 
 #~ msgid "Negerpunk"
 #~ msgstr "Fekete punk"

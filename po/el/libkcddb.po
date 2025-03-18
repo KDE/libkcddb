@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb.po_[zKSRPb]\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 02:03+0000\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2020-08-31 11:33+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -161,14 +161,6 @@ msgstr "Μέθοδος υποβολής"
 #, kde-format
 msgid "Server:"
 msgstr "Εξυπηρετητής:"
-
-#: kcmcddb/kcmcddb.cpp:56
-#, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
-msgstr ""
-"Το CDDB χρησιμεύει για πληροφορία όπως καλλιτέχνης, τίτλος και ονόματα "
-"τραγουδιών στο CD"
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
@@ -976,6 +968,12 @@ msgstr "Άγνωστο σφάλμα"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (δίσκος %2)"
+
+#~ msgid ""
+#~ "CDDB is used to get information like artist, title and song-names in CD's"
+#~ msgstr ""
+#~ "Το CDDB χρησιμεύει για πληροφορία όπως καλλιτέχνης, τίτλος και ονόματα "
+#~ "τραγουδιών στο CD"
 
 #~ msgid "Negerpunk"
 #~ msgstr "Negerpunk"

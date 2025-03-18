@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia/libkcddb.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 02:03+0000\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2004-12-03 14:52-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -157,14 +157,6 @@ msgstr "Modh Curtha Isteach"
 #, kde-format
 msgid "Server:"
 msgstr "Freastalaí:"
-
-#: kcmcddb/kcmcddb.cpp:56
-#, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
-msgstr ""
-"Úsáidtear CDDB chun eolas a fháil, mar shampla an t-ealaíontóir, teideal "
-"agus ainmneacha na n-amhrán ar dhlúthdhiosca"
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
@@ -972,6 +964,12 @@ msgstr "Earráid anaithnid"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (diosca %2)"
+
+#~ msgid ""
+#~ "CDDB is used to get information like artist, title and song-names in CD's"
+#~ msgstr ""
+#~ "Úsáidtear CDDB chun eolas a fháil, mar shampla an t-ealaíontóir, teideal "
+#~ "agus ainmneacha na n-amhrán ar dhlúthdhiosca"
 
 #~ msgid "Negerpunk"
 #~ msgstr "Negerpunk"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ../cy/messages//kdemultimedia/kcmcddb.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2004-09-20 15:44+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud@mandrakesoft.com>\n"
 "Language-Team: cy <LL@li.org>\n"
@@ -153,12 +153,6 @@ msgstr "&Cyflwyno"
 #, kde-format
 msgid "Server:"
 msgstr " Gweinydd:"
-
-#: kcmcddb.cpp:56
-#, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
-msgstr ""
 
 #~ msgid "SMTP server:"
 #~ msgstr "Gweinydd SMTP:"

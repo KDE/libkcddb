@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2010-02-02 08:16+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: ਪੰਜਾਬੀ <punjabi-users@lists.sf.net>\n"
@@ -156,12 +156,6 @@ msgstr "ਭੇਜਣ ਢੰਗ"
 #, kde-format
 msgid "Server:"
 msgstr "ਸਰਵਰ:"
-
-#: kcmcddb.cpp:56
-#, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
-msgstr ""
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (ਈ-ਮੇਲ)"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 02:03+0000\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2025-03-13 11:44+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -159,14 +159,6 @@ msgstr "طريقة الإرسال"
 #, kde-format
 msgid "Server:"
 msgstr "الخادم:"
-
-#: kcmcddb/kcmcddb.cpp:56
-#, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
-msgstr ""
-"يستخدم ال سي سي دي بي ل جلب المعلومات مثل الفنان, العنوان و اسم الأغنية من "
-"القرص المدمج"
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
@@ -973,6 +965,12 @@ msgstr "خطأ مجهول"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "‏%1 (القرص %2)"
+
+#~ msgid ""
+#~ "CDDB is used to get information like artist, title and song-names in CD's"
+#~ msgstr ""
+#~ "يستخدم ال سي سي دي بي ل جلب المعلومات مثل الفنان, العنوان و اسم الأغنية "
+#~ "من القرص المدمج"
 
 #~ msgid "Negerpunk"
 #~ msgstr "بانك الغنج"

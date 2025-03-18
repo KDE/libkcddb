@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 02:03+0000\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2012-07-12 02:53+0600\n"
 "Last-Translator: Sairan Kikkarin\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -157,14 +157,6 @@ msgstr "Жіберу әдісі"
 #, kde-format
 msgid "Server:"
 msgstr "Сервері:"
-
-#: kcmcddb/kcmcddb.cpp:56
-#, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
-msgstr ""
-"CDDB қоры CD дискілердегі орындаушы, атауы, әндер туралы мәліметті табу үшін "
-"пайдаланылады"
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
@@ -972,6 +964,12 @@ msgstr "Беймәлім қате"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (%2 дискі)"
+
+#~ msgid ""
+#~ "CDDB is used to get information like artist, title and song-names in CD's"
+#~ msgstr ""
+#~ "CDDB қоры CD дискілердегі орындаушы, атауы, әндер туралы мәліметті табу "
+#~ "үшін пайдаланылады"
 
 #~ msgid "Negerpunk"
 #~ msgstr "Нигерпанк"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 02:03+0000\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2024-04-23 19:31\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -156,12 +156,6 @@ msgstr "提交方式"
 #, kde-format
 msgid "Server:"
 msgstr "服务器："
-
-#: kcmcddb/kcmcddb.cpp:56
-#, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
-msgstr "CDDB 用于获取 CD 中诸如艺人、标题、曲目名称的信息"
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
@@ -968,3 +962,7 @@ msgstr "未知错误"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (盘片 %2)"
+
+#~ msgid ""
+#~ "CDDB is used to get information like artist, title and song-names in CD's"
+#~ msgstr "CDDB 用于获取 CD 中诸如艺人、标题、曲目名称的信息"

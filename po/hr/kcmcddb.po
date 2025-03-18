@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmcddb 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2004-04-20 13:22+CEST\n"
 "Last-Translator: auto\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -159,13 +159,12 @@ msgstr "&Dostavi"
 msgid "Server:"
 msgstr "SMTP Poslužitelj"
 
-#: kcmcddb.cpp:56
-#, fuzzy, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
-msgstr ""
-"CDDB se koristi za dobavljanje informacija, kao što su ime izvođača, naslov "
-"i imena pesama na CD-u"
+#, fuzzy
+#~ msgid ""
+#~ "CDDB is used to get information like artist, title and song-names in CD's"
+#~ msgstr ""
+#~ "CDDB se koristi za dobavljanje informacija, kao što su ime izvođača, "
+#~ "naslov i imena pesama na CD-u"
 
 #~ msgid "Reply-To:"
 #~ msgstr "Odgovor na:"

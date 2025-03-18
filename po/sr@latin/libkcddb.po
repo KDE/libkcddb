@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-03-17 03:12+0100\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2012-07-05 11:30+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -21,43 +21,41 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
 
-#: kcmcddb/cddbconfigwidget.cpp:52
+#: kcmcddb/cddbconfigwidget.cpp:42
 #, kde-format
 msgid "Cache Locations"
 msgstr "Lokacije keša"
 
-#: kcmcddb/cddbconfigwidget.cpp:87
+#: kcmcddb/cddbconfigwidget.cpp:76
 #, kde-format
 msgid "Could not fetch mirror list."
 msgstr "Ne mogu da dobavim spisak ogledala."
 
 # >> @title:window
-#: kcmcddb/cddbconfigwidget.cpp:87
+#: kcmcddb/cddbconfigwidget.cpp:76
 #, kde-format
 msgid "Could Not Fetch"
 msgstr "Neuspelo dobavljanje"
 
 # >> @title:window
-#: kcmcddb/cddbconfigwidget.cpp:91
+#: kcmcddb/cddbconfigwidget.cpp:80
 #, kde-format
 msgid "Select mirror"
 msgstr "Izbor ogledala"
 
-#: kcmcddb/cddbconfigwidget.cpp:92
+#: kcmcddb/cddbconfigwidget.cpp:81
 #, kde-format
 msgid "Select one of these mirrors"
 msgstr "Izaberite jedno od ovih ogledala"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
-#: kcmcddb/cddbconfigwidget.cpp:109 kcmcddb/cddbconfigwidget.ui:129
-#: kcmcddb/cddbconfigwidget.ui:179
+#: kcmcddb/cddbconfigwidget.cpp:98 kcmcddb/cddbconfigwidget.ui:144
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: kcmcddb/cddbconfigwidget.cpp:111 kcmcddb/cddbconfigwidget.ui:124
+#: kcmcddb/cddbconfigwidget.cpp:100 kcmcddb/cddbconfigwidget.ui:139
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
@@ -69,337 +67,282 @@ msgid "CDDB Settings"
 msgstr "CDDB postavke"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
-#: kcmcddb/cddbconfigwidget.ui:20
+#: kcmcddb/cddbconfigwidget.ui:23
 #, kde-format
 msgid "&Lookup"
 msgstr "&Potraga"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
-#: kcmcddb/cddbconfigwidget.ui:26
+#: kcmcddb/cddbconfigwidget.ui:29
 #, kde-format
 msgid "Enable MusicBrainz lookup"
 msgstr "Traži na MusicBrainzu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
-#: kcmcddb/cddbconfigwidget.ui:33
+#: kcmcddb/cddbconfigwidget.ui:36
 #, kde-format
 msgid "Enable freedb lookup"
 msgstr "Traži na FreeDB‑u"
 
 #. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
-#: kcmcddb/cddbconfigwidget.ui:40
+#: kcmcddb/cddbconfigwidget.ui:46
 #, kde-format
 msgid "Freedb Server"
 msgstr "Server FreeDB‑a"
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel7)
-#: kcmcddb/cddbconfigwidget.ui:46
+#: kcmcddb/cddbconfigwidget.ui:61
 #, kde-format
 msgid "Freedb server:"
 msgstr "Server FreeDB‑a:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
-#: kcmcddb/cddbconfigwidget.ui:64
+#: kcmcddb/cddbconfigwidget.ui:79
 #, kde-format
 msgid "Name of CDDB server which will be used to look up CD information."
 msgstr "Ime CDDB servera na kojem će se tražiti podaci o CD‑ovima."
 
 #. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
-#: kcmcddb/cddbconfigwidget.ui:67
+#: kcmcddb/cddbconfigwidget.ui:82
 #, kde-format
 msgid "gnudb.gnudb.org"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: kcmcddb/cddbconfigwidget.ui:80 kcmcddb/cddbconfigwidget.ui:208
-#: kcmcddb/cddbconfigwidget.ui:241
+#: kcmcddb/cddbconfigwidget.ui:95 kcmcddb/cddbconfigwidget.ui:260
 #, kde-format
 msgid "Port:"
 msgstr "Port:"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
-#: kcmcddb/cddbconfigwidget.ui:93
+#: kcmcddb/cddbconfigwidget.ui:108
 #, kde-format
 msgid "Port to connect to on CDDB server."
 msgstr "Porta za povezivanje na CDDB server."
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel9)
-#: kcmcddb/cddbconfigwidget.ui:108
+#: kcmcddb/cddbconfigwidget.ui:123
 #, kde-format
 msgid "&Transport:"
 msgstr "&Transport:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
-#: kcmcddb/cddbconfigwidget.ui:120
+#: kcmcddb/cddbconfigwidget.ui:135
 #, kde-format
 msgid "Type of lookup which should be tried at the CDDB server."
 msgstr "Tip potrage s kojom treba pokušati na CDDB serveru."
 
 #. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
-#: kcmcddb/cddbconfigwidget.ui:137
+#: kcmcddb/cddbconfigwidget.ui:152
 #, kde-format
 msgid "Show &Mirror List"
 msgstr "Prikaži spisak &ogledala"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
-#: kcmcddb/cddbconfigwidget.ui:153
+#: kcmcddb/cddbconfigwidget.ui:168
 #, kde-format
 msgid "&Submit"
 msgstr "&Predaj"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: kcmcddb/cddbconfigwidget.ui:161
+#: kcmcddb/cddbconfigwidget.ui:189
 #, kde-format
 msgid "Email address:"
 msgstr "Adresa e‑pošte:"
 
-#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
-#: kcmcddb/cddbconfigwidget.ui:173
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: kcmcddb/cddbconfigwidget.ui:227
 #, kde-format
 msgid "Submit Method"
 msgstr "Metod predaje"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: kcmcddb/cddbconfigwidget.ui:189
+#: kcmcddb/cddbconfigwidget.ui:242
 #, kde-format
 msgid "Server:"
 msgstr "Server:"
 
-#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
-#: kcmcddb/cddbconfigwidget.ui:220
-#, kde-format
-msgid "SMTP (Email)"
-msgstr "SMTP (e‑pošta)"
-
-#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
-#: kcmcddb/cddbconfigwidget.ui:266
-#, kde-format
-msgid "Server needs authentication"
-msgstr "Server zahteva autentifikaciju"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
-#: kcmcddb/cddbconfigwidget.ui:286
-#, kde-format
-msgid "Reply-To:"
-msgstr "Odgovor‑na:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: kcmcddb/cddbconfigwidget.ui:299
-#, kde-format
-msgid "SMTP server:"
-msgstr "SMTP server:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: kcmcddb/cddbconfigwidget.ui:306
-#, kde-format
-msgid "Username:"
-msgstr "Korisničko ime:"
-
-#: kcmcddb/kcmcddb.cpp:55
-#, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
-msgstr ""
-"CDDB se koristi za dobavljanje podataka poput izvođača, naslova i imena "
-"numera na CD‑ovima."
-
-#: kcmcddb/kcmcddb.cpp:83
-#, kde-format
-msgid ""
-"freedb has been set to use HTTP for submissions because the email details "
-"you have entered are incomplete. Please review your email settings and try "
-"again."
-msgstr ""
-"Podešeno je korišćenje HTTP‑a za predaje na FreeDB, pošto niste uneli "
-"potpune detalje e‑pošte. Proverite postavke e‑pošte pa pokušajte ponovo."
-
-#: kcmcddb/kcmcddb.cpp:86
-#, kde-format
-msgid "Incorrect Email Settings"
-msgstr "Loše postavke e‑pošte"
-
 # >> @item
-#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:70
+#: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
 msgid "Blues"
 msgstr "bluz"
 
 # >> @item
-#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:73
+#: libkcddb/categories.cpp:28 libkcddb/genres.cpp:71
 #, kde-format
 msgid "Classical"
 msgstr "klasika"
 
 # >> @item
-#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:75
+#: libkcddb/categories.cpp:28 libkcddb/genres.cpp:73
 #, kde-format
 msgctxt "music genre"
 msgid "Country"
 msgstr "kantri"
 
 # >> @item
-#: libkcddb/categories.cpp:31
+#: libkcddb/categories.cpp:29
 #, kde-format
 msgid "Data"
 msgstr "podaci"
 
 # >> @item
-#: libkcddb/categories.cpp:31 libkcddb/genres.cpp:80
+#: libkcddb/categories.cpp:29 libkcddb/genres.cpp:78
 #, kde-format
 msgid "Folk"
 msgstr "folk"
 
 # >> @item
-#: libkcddb/categories.cpp:31 libkcddb/genres.cpp:86
+#: libkcddb/categories.cpp:29 libkcddb/genres.cpp:84
 #, kde-format
 msgid "Jazz"
 msgstr "džez"
 
 # >> @item
-#: libkcddb/categories.cpp:31
+#: libkcddb/categories.cpp:29
 #, kde-format
 msgid "Miscellaneous"
 msgstr "razno"
 
 # >> @item
-#: libkcddb/categories.cpp:32 libkcddb/genres.cpp:88
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:86
 #, kde-format
 msgid "New Age"
 msgstr "nju ejdž"
 
 # >> @item
-#: libkcddb/categories.cpp:32 libkcddb/genres.cpp:94
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:92
 #, kde-format
 msgid "Reggae"
 msgstr "rege"
 
 # >> @item
-#: libkcddb/categories.cpp:32 libkcddb/genres.cpp:95
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:93
 #, kde-format
 msgid "Rock"
 msgstr "rok"
 
 # >> @item
-#: libkcddb/categories.cpp:32 libkcddb/genres.cpp:98
+#: libkcddb/categories.cpp:30 libkcddb/genres.cpp:96
 #, kde-format
 msgid "Soundtrack"
 msgstr "filmska"
 
 # >> @item unknown genre
-#: libkcddb/genres.cpp:66
+#: libkcddb/genres.cpp:64
 #, kde-format
 msgid "Unknown"
 msgstr "nepoznat"
 
 # >> @item
 # well-spelled: акапела
-#: libkcddb/genres.cpp:66
+#: libkcddb/genres.cpp:64
 #, kde-format
 msgid "A Cappella"
 msgstr "akapela"
 
 # >> @item
 # well-spelled: есид џез
-#: libkcddb/genres.cpp:66
+#: libkcddb/genres.cpp:64
 #, kde-format
 msgid "Acid Jazz"
 msgstr "esid džez"
 
 # >> @item
 # well-spelled: есид панк
-#: libkcddb/genres.cpp:67
+#: libkcddb/genres.cpp:65
 #, kde-format
 msgid "Acid Punk"
 msgstr "esid pank"
 
 # >> @item
 # well-spelled: есид
-#: libkcddb/genres.cpp:67
+#: libkcddb/genres.cpp:65
 #, kde-format
 msgid "Acid"
 msgstr "esid"
 
 # >> @item
-#: libkcddb/genres.cpp:67
+#: libkcddb/genres.cpp:65
 #, kde-format
 msgid "Acoustic"
 msgstr "akustika"
 
 # >> @item
-#: libkcddb/genres.cpp:67
+#: libkcddb/genres.cpp:65
 #, kde-format
 msgid "Alternative"
 msgstr "alternativa"
 
 # >> @item
-#: libkcddb/genres.cpp:68
+#: libkcddb/genres.cpp:66
 #, kde-format
 msgid "Alt. Rock"
 msgstr "alt. rok"
 
 # >> @item
-#: libkcddb/genres.cpp:68
+#: libkcddb/genres.cpp:66
 #, kde-format
 msgid "Ambient"
 msgstr "ambijentalna"
 
 # >> @item
 # well-spelled: аниме
-#: libkcddb/genres.cpp:68
+#: libkcddb/genres.cpp:66
 #, kde-format
 msgid "Anime"
 msgstr "anime"
 
 # >> @item
-#: libkcddb/genres.cpp:68
+#: libkcddb/genres.cpp:66
 #, kde-format
 msgid "Avantgarde"
 msgstr "avangarda"
 
 # >> @item
-#: libkcddb/genres.cpp:69
+#: libkcddb/genres.cpp:67
 #, kde-format
 msgid "Ballad"
 msgstr "balada"
 
 # >> @item
-#: libkcddb/genres.cpp:69
+#: libkcddb/genres.cpp:67
 #, kde-format
 msgid "Bass"
 msgstr "bas"
 
 # >> @item
-#: libkcddb/genres.cpp:69
+#: libkcddb/genres.cpp:67
 #, kde-format
 msgid "Beat"
 msgstr "bit"
 
 # >> @item
 # well-spelled: бебоп
-#: libkcddb/genres.cpp:69
+#: libkcddb/genres.cpp:67
 #, kde-format
 msgid "Bebop"
 msgstr "bebop"
 
 # >> @item
 # well-spelled: биг
-#: libkcddb/genres.cpp:70
+#: libkcddb/genres.cpp:68
 #, kde-format
 msgid "Big Band"
 msgstr "big bend"
 
 # >> @item
 # well-spelled: блек
-#: libkcddb/genres.cpp:70
+#: libkcddb/genres.cpp:68
 #, kde-format
 msgid "Black Metal"
 msgstr "blek metal"
 
 # >> @item
 # well-spelled: блуграс
-#: libkcddb/genres.cpp:70
+#: libkcddb/genres.cpp:68
 #, kde-format
 msgid "Bluegrass"
 msgstr "blugras"
@@ -407,676 +350,676 @@ msgstr "blugras"
 # >> @item
 # skip-rule: t-boot
 # well-spelled: бути
-#: libkcddb/genres.cpp:71
+#: libkcddb/genres.cpp:69
 #, kde-format
 msgid "Booty Bass"
 msgstr "buti bas"
 
 # >> @item
 # well-spelled: брит
-#: libkcddb/genres.cpp:71
+#: libkcddb/genres.cpp:69
 #, kde-format
 msgid "BritPop"
 msgstr "brit‑pop"
 
 # >> @item
-#: libkcddb/genres.cpp:71
+#: libkcddb/genres.cpp:69
 #, kde-format
 msgid "Cabaret"
 msgstr "kabare"
 
 # >> @item
-#: libkcddb/genres.cpp:71
+#: libkcddb/genres.cpp:69
 #, kde-format
 msgid "Celtic"
 msgstr "keltska"
 
 # >> @item
-#: libkcddb/genres.cpp:72
+#: libkcddb/genres.cpp:70
 #, kde-format
 msgid "Chamber Music"
 msgstr "duhovna"
 
 # >> @item
-#: libkcddb/genres.cpp:72
+#: libkcddb/genres.cpp:70
 #, kde-format
 msgid "Chanson"
 msgstr "šansona"
 
 # >> @item
-#: libkcddb/genres.cpp:72
+#: libkcddb/genres.cpp:70
 #, kde-format
 msgid "Chorus"
 msgstr "hor"
 
 # >> @item
 # well-spelled: гангста
-#: libkcddb/genres.cpp:72
+#: libkcddb/genres.cpp:70
 #, kde-format
 msgid "Christian Gangsta Rap"
 msgstr "hrišćanski gangsta‑rep"
 
 # >> @item
-#: libkcddb/genres.cpp:73
+#: libkcddb/genres.cpp:71
 #, kde-format
 msgid "Christian Rap"
 msgstr "hrišćanski rep"
 
 # >> @item
-#: libkcddb/genres.cpp:73
+#: libkcddb/genres.cpp:71
 #, kde-format
 msgid "Christian Rock"
 msgstr "hrišćanski rok"
 
 # >> @item
-#: libkcddb/genres.cpp:73
+#: libkcddb/genres.cpp:71
 #, kde-format
 msgid "Classic Rock"
 msgstr "klasični rok"
 
 # >> @item
 # well-spelled: хаус
-#: libkcddb/genres.cpp:74
+#: libkcddb/genres.cpp:72
 #, kde-format
 msgid "Club-house"
 msgstr "klub‑haus"
 
 # >> @item
-#: libkcddb/genres.cpp:74
+#: libkcddb/genres.cpp:72
 #, kde-format
 msgid "Club"
 msgstr "klub"
 
 # >> @item
-#: libkcddb/genres.cpp:74
+#: libkcddb/genres.cpp:72
 #, kde-format
 msgid "Comedy"
 msgstr "komedija"
 
 # >> @item
-#: libkcddb/genres.cpp:74
+#: libkcddb/genres.cpp:72
 #, kde-format
 msgid "Contemporary Christian"
 msgstr "savremena hrišćanska"
 
 # >> @item
-#: libkcddb/genres.cpp:75
+#: libkcddb/genres.cpp:73
 #, kde-format
 msgid "Crossover"
 msgstr "prelazna"
 
 # >> @item
-#: libkcddb/genres.cpp:75
+#: libkcddb/genres.cpp:73
 #, kde-format
 msgid "Cult"
 msgstr "kultna"
 
 # >> @item
 # well-spelled: денс, хол
-#: libkcddb/genres.cpp:75
+#: libkcddb/genres.cpp:73
 #, kde-format
 msgid "Dance Hall"
 msgstr "dens hol"
 
 # >> @item
 # well-spelled: денс
-#: libkcddb/genres.cpp:76
+#: libkcddb/genres.cpp:74
 #, kde-format
 msgid "Dance"
 msgstr "dens"
 
 # >> @item
 # well-spelled: дарквејв
-#: libkcddb/genres.cpp:76
+#: libkcddb/genres.cpp:74
 #, kde-format
 msgid "Darkwave"
 msgstr "darkvejv"
 
 # >> @item
 # well-spelled: дед
-#: libkcddb/genres.cpp:76
+#: libkcddb/genres.cpp:74
 #, kde-format
 msgid "Death Metal"
 msgstr "ded metal"
 
 # >> @item
-#: libkcddb/genres.cpp:76
+#: libkcddb/genres.cpp:74
 #, kde-format
 msgid "Disco"
 msgstr "disko"
 
 # >> @item
 # well-spelled: дрим
-#: libkcddb/genres.cpp:77
+#: libkcddb/genres.cpp:75
 #, kde-format
 msgid "Dream"
 msgstr "drim"
 
 # >> @item
-#: libkcddb/genres.cpp:77
+#: libkcddb/genres.cpp:75
 #, kde-format
 msgid "Drum & Bass"
 msgstr "bubanj i bas"
 
 # >> @item
-#: libkcddb/genres.cpp:77
+#: libkcddb/genres.cpp:75
 #, kde-format
 msgid "Drum Solo"
 msgstr "bubanj solo"
 
 # >> @item
-#: libkcddb/genres.cpp:77
+#: libkcddb/genres.cpp:75
 #, kde-format
 msgid "Duet"
 msgstr "duet"
 
 # >> @item
-#: libkcddb/genres.cpp:78
+#: libkcddb/genres.cpp:76
 #, kde-format
 msgid "Easy Listening"
 msgstr "lako slušanje"
 
 # >> @item
-#: libkcddb/genres.cpp:78
+#: libkcddb/genres.cpp:76
 #, kde-format
 msgid "Electronic"
 msgstr "elektronska"
 
 # >> @item
-#: libkcddb/genres.cpp:78
+#: libkcddb/genres.cpp:76
 #, kde-format
 msgid "Ethnic"
 msgstr "narodna"
 
 # >> @item
 # well-spelled: евроденс
-#: libkcddb/genres.cpp:78
+#: libkcddb/genres.cpp:76
 #, kde-format
 msgid "Eurodance"
 msgstr "evrodens"
 
 # >> @item
 # well-spelled: хаус
-#: libkcddb/genres.cpp:79
+#: libkcddb/genres.cpp:77
 #, kde-format
 msgid "Euro-House"
 msgstr "evro‑haus"
 
 # >> @item
-#: libkcddb/genres.cpp:79
+#: libkcddb/genres.cpp:77
 #, kde-format
 msgid "Euro-Techno"
 msgstr "evro‑tehno"
 
 # >> @item
 # well-spelled: фест, фјужн
-#: libkcddb/genres.cpp:79
+#: libkcddb/genres.cpp:77
 #, kde-format
 msgid "Fast-Fusion"
 msgstr "fest‑fjužn"
 
 # >> @item
-#: libkcddb/genres.cpp:79
+#: libkcddb/genres.cpp:77
 #, kde-format
 msgid "Folklore"
 msgstr "folklorna"
 
 # >> @item
-#: libkcddb/genres.cpp:80
+#: libkcddb/genres.cpp:78
 #, kde-format
 msgid "Folk/Rock"
 msgstr "folk/rok"
 
 # >> @item
 # well-spelled: фристајл
-#: libkcddb/genres.cpp:80
+#: libkcddb/genres.cpp:78
 #, kde-format
 msgid "Freestyle"
 msgstr "fristajl"
 
 # >> @item
 # well-spelled: фанк
-#: libkcddb/genres.cpp:80
+#: libkcddb/genres.cpp:78
 #, kde-format
 msgid "Funk"
 msgstr "fank"
 
 # >> @item
 # well-spelled: фјужн
-#: libkcddb/genres.cpp:81
+#: libkcddb/genres.cpp:79
 #, kde-format
 msgid "Fusion"
 msgstr "fjužn"
 
 # >> @item
-#: libkcddb/genres.cpp:81
+#: libkcddb/genres.cpp:79
 #, kde-format
 msgid "Game"
 msgstr "iz igre"
 
 # >> @item
 # well-spelled: гангста
-#: libkcddb/genres.cpp:81
+#: libkcddb/genres.cpp:79
 #, kde-format
 msgid "Gangsta Rap"
 msgstr "gangsta‑rep"
 
 # >> @item
 # well-spelled: гоа
-#: libkcddb/genres.cpp:81
+#: libkcddb/genres.cpp:79
 #, kde-format
 msgid "Goa"
 msgstr "goa"
 
 # >> @item
 # well-spelled: Госпел
-#: libkcddb/genres.cpp:82
+#: libkcddb/genres.cpp:80
 #, kde-format
 msgid "Gospel"
 msgstr "gospel"
 
 # >> @item
-#: libkcddb/genres.cpp:82
+#: libkcddb/genres.cpp:80
 #, kde-format
 msgid "Gothic Rock"
 msgstr "gotski rok"
 
 # >> @item
-#: libkcddb/genres.cpp:82
+#: libkcddb/genres.cpp:80
 #, kde-format
 msgid "Gothic"
 msgstr "gotska"
 
 # >> @item
 # well-spelled: гранџ
-#: libkcddb/genres.cpp:82
+#: libkcddb/genres.cpp:80
 #, kde-format
 msgid "Grunge"
 msgstr "grandž"
 
 # >> @item
 # well-spelled: хардкор
-#: libkcddb/genres.cpp:83
+#: libkcddb/genres.cpp:81
 #, kde-format
 msgid "Hardcore"
 msgstr "hardkor"
 
 # >> @item
 # well-spelled: хард
-#: libkcddb/genres.cpp:83
+#: libkcddb/genres.cpp:81
 #, kde-format
 msgid "Hard Rock"
 msgstr "hard rok"
 
 # >> @item
 # well-spelled: хеви
-#: libkcddb/genres.cpp:83
+#: libkcddb/genres.cpp:81
 #, kde-format
 msgid "Heavy Metal"
 msgstr "hevi metal"
 
 # >> @item
-#: libkcddb/genres.cpp:83
+#: libkcddb/genres.cpp:81
 #, kde-format
 msgid "Hip-Hop"
 msgstr "hip‑hop"
 
 # >> @item
 # well-spelled: хаус
-#: libkcddb/genres.cpp:84
+#: libkcddb/genres.cpp:82
 #, kde-format
 msgid "House"
 msgstr "haus"
 
 # >> @item
-#: libkcddb/genres.cpp:84
+#: libkcddb/genres.cpp:82
 #, kde-format
 msgid "Humor"
 msgstr "humoristička"
 
 # >> @item
 # well-spelled: инди
-#: libkcddb/genres.cpp:84
+#: libkcddb/genres.cpp:82
 #, kde-format
 msgid "Indie"
 msgstr "indi"
 
 # >> @item
-#: libkcddb/genres.cpp:84
+#: libkcddb/genres.cpp:82
 #, kde-format
 msgid "Industrial"
 msgstr "industrijska"
 
 # >> @item
-#: libkcddb/genres.cpp:85
+#: libkcddb/genres.cpp:83
 #, kde-format
 msgid "Instrumental Pop"
 msgstr "instrumentalni pop"
 
 # >> @item
-#: libkcddb/genres.cpp:85
+#: libkcddb/genres.cpp:83
 #, kde-format
 msgid "Instrumental Rock"
 msgstr "instrumentalni rok"
 
 # >> @item
-#: libkcddb/genres.cpp:85
+#: libkcddb/genres.cpp:83
 #, kde-format
 msgid "Instrumental"
 msgstr "instrumentalna"
 
 # >> @item
 # well-spelled: фанк
-#: libkcddb/genres.cpp:85
+#: libkcddb/genres.cpp:83
 #, kde-format
 msgid "Jazz+Funk"
 msgstr "džez+fank"
 
 # >> @item
 # well-spelled: џеј
-#: libkcddb/genres.cpp:86
+#: libkcddb/genres.cpp:84
 #, kde-format
 msgid "JPop"
 msgstr "džej‑pop"
 
 # >> @item
 # well-spelled: џангл
-#: libkcddb/genres.cpp:86
+#: libkcddb/genres.cpp:84
 #, kde-format
 msgid "Jungle"
 msgstr "džangl"
 
 # >> @item
-#: libkcddb/genres.cpp:86
+#: libkcddb/genres.cpp:84
 #, kde-format
 msgid "Latin"
 msgstr "latino"
 
 # >> @item
 # well-spelled: ло, фај
-#: libkcddb/genres.cpp:86
+#: libkcddb/genres.cpp:84
 #, kde-format
 msgid "Lo-Fi"
 msgstr "lo‑faj"
 
 # >> @item
-#: libkcddb/genres.cpp:87
+#: libkcddb/genres.cpp:85
 #, kde-format
 msgid "Meditative"
 msgstr "meditacijska"
 
 # >> @item
 # well-spelled: меренга
-#: libkcddb/genres.cpp:87
+#: libkcddb/genres.cpp:85
 #, kde-format
 msgid "Merengue"
 msgstr "merenga"
 
 # >> @item
-#: libkcddb/genres.cpp:87
+#: libkcddb/genres.cpp:85
 #, kde-format
 msgid "Metal"
 msgstr "metal"
 
 # >> @item
 # well-spelled: мјузикл
-#: libkcddb/genres.cpp:87
+#: libkcddb/genres.cpp:85
 #, kde-format
 msgid "Musical"
 msgstr "mjuzikl"
 
 # >> @item
-#: libkcddb/genres.cpp:88
+#: libkcddb/genres.cpp:86
 #, kde-format
 msgid "National Folk"
 msgstr "nacionalni folk"
 
 # >> @item
-#: libkcddb/genres.cpp:88
+#: libkcddb/genres.cpp:86
 #, kde-format
 msgid "Native American"
 msgstr "indijanska"
 
 # >> @item
-# well-spelled: негерпанк
-#: libkcddb/genres.cpp:88
-#, kde-format
-msgid "Negerpunk"
-msgstr "negerpank"
+#: libkcddb/genres.cpp:86
+#, fuzzy, kde-format
+#| msgid "Punk"
+msgid "Afro-Punk"
+msgstr "pank"
 
 # >> @item
 # well-spelled: њу, вејв
-#: libkcddb/genres.cpp:89
+#: libkcddb/genres.cpp:87
 #, kde-format
 msgid "New Wave"
 msgstr "nju vejv"
 
 # >> @item
 # well-spelled: нојз
-#: libkcddb/genres.cpp:89
+#: libkcddb/genres.cpp:87
 #, kde-format
 msgid "Noise"
 msgstr "nojz"
 
 # >> @item
 # well-spelled: старовремске
-#: libkcddb/genres.cpp:89
+#: libkcddb/genres.cpp:87
 #, kde-format
 msgid "Oldies"
 msgstr "starovremske"
 
 # >> @item
-#: libkcddb/genres.cpp:89
+#: libkcddb/genres.cpp:87
 #, kde-format
 msgid "Opera"
 msgstr "operska"
 
 # >> @item other music
-#: libkcddb/genres.cpp:90
+#: libkcddb/genres.cpp:88
 #, kde-format
 msgid "Other"
 msgstr "druga"
 
 # >> @item
-#: libkcddb/genres.cpp:90
+#: libkcddb/genres.cpp:88
 #, kde-format
 msgid "Polka"
 msgstr "polka"
 
 # >> @item
-#: libkcddb/genres.cpp:90
+#: libkcddb/genres.cpp:88
 #, kde-format
 msgid "Polsk Punk"
 msgstr "poljski pank"
 
 # >> @item
 # well-spelled: фанк
-#: libkcddb/genres.cpp:90
+#: libkcddb/genres.cpp:88
 #, kde-format
 msgid "Pop-Funk"
 msgstr "pop‑fank"
 
 # >> @item
 # well-spelled: фанк
-#: libkcddb/genres.cpp:91
+#: libkcddb/genres.cpp:89
 #, kde-format
 msgid "Pop/Funk"
 msgstr "pop/fank"
 
 # >> @item
-#: libkcddb/genres.cpp:91
+#: libkcddb/genres.cpp:89
 #, kde-format
 msgid "Pop"
 msgstr "pop"
 
 # >> @item
 # well-spelled: порн, грув
-#: libkcddb/genres.cpp:91
+#: libkcddb/genres.cpp:89
 #, kde-format
 msgid "Porn Groove"
 msgstr "porn‑gruv"
 
 # >> @item
-#: libkcddb/genres.cpp:91
+#: libkcddb/genres.cpp:89
 #, kde-format
 msgid "Power Ballad"
 msgstr "moćna balada"
 
 # >> @item
 # well-spelled: пренкс
-#: libkcddb/genres.cpp:92
+#: libkcddb/genres.cpp:90
 #, kde-format
 msgid "Pranks"
 msgstr "prenks"
 
 # >> @item
 # well-spelled: примус
-#: libkcddb/genres.cpp:92
+#: libkcddb/genres.cpp:90
 #, kde-format
 msgid "Primus"
 msgstr "primus"
 
 # >> @item
-#: libkcddb/genres.cpp:92
+#: libkcddb/genres.cpp:90
 #, kde-format
 msgid "Progressive Rock"
 msgstr "progresivni rok"
 
 # >> @item
-#: libkcddb/genres.cpp:92
+#: libkcddb/genres.cpp:90
 #, kde-format
 msgid "Psychedelic Rock"
 msgstr "psihodelični rok"
 
 # >> @item
-#: libkcddb/genres.cpp:93
+#: libkcddb/genres.cpp:91
 #, kde-format
 msgid "Psychedelic"
 msgstr "psihodelična"
 
 # >> @item
-#: libkcddb/genres.cpp:93
+#: libkcddb/genres.cpp:91
 #, kde-format
 msgid "Punk Rock"
 msgstr "pank‑rok"
 
 # >> @item
-#: libkcddb/genres.cpp:93
+#: libkcddb/genres.cpp:91
 #, kde-format
 msgid "Punk"
 msgstr "pank"
 
 # >> @item
 # well-spelled: РнБ
-#: libkcddb/genres.cpp:93
+#: libkcddb/genres.cpp:91
 #, kde-format
 msgid "R&B"
 msgstr "RnB"
 
 # >> @item
-#: libkcddb/genres.cpp:94
+#: libkcddb/genres.cpp:92
 #, kde-format
 msgid "Rap"
 msgstr "rep"
 
 # >> @item
 # well-spelled: рејв
-#: libkcddb/genres.cpp:94
+#: libkcddb/genres.cpp:92
 #, kde-format
 msgid "Rave"
 msgstr "rejv"
 
 # >> @item
-#: libkcddb/genres.cpp:94
+#: libkcddb/genres.cpp:92
 #, kde-format
 msgid "Retro"
 msgstr "retro"
 
 # >> @item
 # well-spelled: ривајвал
-#: libkcddb/genres.cpp:95
+#: libkcddb/genres.cpp:93
 #, kde-format
 msgid "Revival"
 msgstr "rivajval"
 
 # >> @item
 # well-spelled: соул
-#: libkcddb/genres.cpp:95
+#: libkcddb/genres.cpp:93
 #, kde-format
 msgid "Rhythmic Soul"
 msgstr "ritmični soul"
 
 # >> @item
-#: libkcddb/genres.cpp:95
+#: libkcddb/genres.cpp:93
 #, kde-format
 msgid "Rock & Roll"
 msgstr "rokenrol"
 
 # >> @item
-#: libkcddb/genres.cpp:96
+#: libkcddb/genres.cpp:94
 #, kde-format
 msgid "Salsa"
 msgstr "salsa"
 
 # >> @item
-#: libkcddb/genres.cpp:96
+#: libkcddb/genres.cpp:94
 #, kde-format
 msgid "Samba"
 msgstr "samba"
 
 # >> @item
-#: libkcddb/genres.cpp:96
+#: libkcddb/genres.cpp:94
 #, kde-format
 msgid "Satire"
 msgstr "satirična"
 
 # >> @item
 # well-spelled: шоутјунс
-#: libkcddb/genres.cpp:96
+#: libkcddb/genres.cpp:94
 #, kde-format
 msgid "Showtunes"
 msgstr "šoutjuns"
 
 # >> @item
 # well-spelled: ска
-#: libkcddb/genres.cpp:97
+#: libkcddb/genres.cpp:95
 #, kde-format
 msgid "Ska"
 msgstr "ska"
 
 # >> @item
-#: libkcddb/genres.cpp:97
+#: libkcddb/genres.cpp:95
 #, kde-format
 msgid "Slow Jam"
 msgstr "spori džem"
 
 # >> @item
-#: libkcddb/genres.cpp:97
+#: libkcddb/genres.cpp:95
 #, kde-format
 msgid "Slow Rock"
 msgstr "spori rok"
 
 # >> @item
-#: libkcddb/genres.cpp:97
+#: libkcddb/genres.cpp:95
 #, kde-format
 msgid "Sonata"
 msgstr "sonata"
 
 # >> @item
 # well-spelled: соул
-#: libkcddb/genres.cpp:98
+#: libkcddb/genres.cpp:96
 #, kde-format
 msgid "Soul"
 msgstr "soul"
 
 # >> @item
-#: libkcddb/genres.cpp:98
+#: libkcddb/genres.cpp:96
 #, kde-format
 msgid "Sound Clip"
 msgstr "zvučni isečak"
 
 # >> @item
-#: libkcddb/genres.cpp:98
+#: libkcddb/genres.cpp:96
 #, kde-format
 msgid "Southern Rock"
 msgstr "južnjački rok"
@@ -1084,157 +1027,194 @@ msgstr "južnjački rok"
 # >> @item
 # skip-rule: t-space
 # well-spelled: спејс
-#: libkcddb/genres.cpp:99
+#: libkcddb/genres.cpp:97
 #, kde-format
 msgid "Space"
 msgstr "spejs"
 
 # >> @item
-#: libkcddb/genres.cpp:99
+#: libkcddb/genres.cpp:97
 #, kde-format
 msgid "Speech"
 msgstr "govor"
 
 # >> @item
-#: libkcddb/genres.cpp:99
+#: libkcddb/genres.cpp:97
 #, kde-format
 msgid "Swing"
 msgstr "sving"
 
 # >> @item
-#: libkcddb/genres.cpp:99
+#: libkcddb/genres.cpp:97
 #, kde-format
 msgid "Symphonic Rock"
 msgstr "simfonijski rok"
 
 # >> @item
-#: libkcddb/genres.cpp:100
+#: libkcddb/genres.cpp:98
 #, kde-format
 msgid "Symphony"
 msgstr "simfonijska"
 
 # >> @item
 # well-spelled: синтпоп
-#: libkcddb/genres.cpp:100
+#: libkcddb/genres.cpp:98
 #, kde-format
 msgid "Synthpop"
 msgstr "sintpop"
 
 # >> @item
-#: libkcddb/genres.cpp:100
+#: libkcddb/genres.cpp:98
 #, kde-format
 msgid "Tango"
 msgstr "tango"
 
 # >> @item
-#: libkcddb/genres.cpp:100
+#: libkcddb/genres.cpp:98
 #, kde-format
 msgid "Techno-Industrial"
 msgstr "tehno-industrijska"
 
 # >> @item
-#: libkcddb/genres.cpp:101
+#: libkcddb/genres.cpp:99
 #, kde-format
 msgid "Techno"
 msgstr "tehno"
 
 # >> @item
-#: libkcddb/genres.cpp:101
+#: libkcddb/genres.cpp:99
 #, kde-format
 msgid "Terror"
 msgstr "teror"
 
 # >> @item
 # well-spelled: треш
-#: libkcddb/genres.cpp:101
+#: libkcddb/genres.cpp:99
 #, kde-format
 msgid "Thrash Metal"
 msgstr "treš metal"
 
 # >> @item
-#: libkcddb/genres.cpp:101
+#: libkcddb/genres.cpp:99
 #, kde-format
 msgid "Top 40"
 msgstr "najboljih 40"
 
 # >> @item
 # well-spelled: трејлер
-#: libkcddb/genres.cpp:102
+#: libkcddb/genres.cpp:100
 #, kde-format
 msgid "Trailer"
 msgstr "trejler"
 
 # >> @item
-#: libkcddb/genres.cpp:102
+#: libkcddb/genres.cpp:100
 #, kde-format
 msgid "Trance"
 msgstr "trans"
 
 # >> @item
-#: libkcddb/genres.cpp:102
+#: libkcddb/genres.cpp:100
 #, kde-format
 msgid "Tribal"
 msgstr "plemenska"
 
 # >> @item
 # well-spelled: трип
-#: libkcddb/genres.cpp:102
+#: libkcddb/genres.cpp:100
 #, kde-format
 msgid "Trip-Hop"
 msgstr "trip‑hop"
 
 # >> @item
-#: libkcddb/genres.cpp:103
+#: libkcddb/genres.cpp:101
 #, kde-format
 msgid "Vocal"
 msgstr "vokalna"
 
-#: libkcddb/kcddb.cpp:32
+#: libkcddb/kcddb.cpp:19
 #, kde-format
 msgid "Success"
 msgstr "Uspeh"
 
-#: libkcddb/kcddb.cpp:36
+#: libkcddb/kcddb.cpp:23
 #, kde-format
 msgid "Server error"
 msgstr "Greška servera"
 
-#: libkcddb/kcddb.cpp:40
+#: libkcddb/kcddb.cpp:27
 #, kde-format
 msgid "Host not found"
 msgstr "Domaćin nije pronađen"
 
-#: libkcddb/kcddb.cpp:44
+#: libkcddb/kcddb.cpp:31
 #, kde-format
 msgid "No response"
 msgstr "Nema odgovora"
 
-#: libkcddb/kcddb.cpp:48
+#: libkcddb/kcddb.cpp:35
 #, kde-format
 msgid "No record found"
 msgstr "Nije pronađen nijedan zapis"
 
-#: libkcddb/kcddb.cpp:52
+#: libkcddb/kcddb.cpp:39
 #, kde-format
 msgid "Multiple records found"
 msgstr "Nađeno je više zapisa"
 
-#: libkcddb/kcddb.cpp:56
+#: libkcddb/kcddb.cpp:43
 #, kde-format
 msgid "Cannot save"
 msgstr "Ne mogu da sačuvam"
 
-#: libkcddb/kcddb.cpp:60
+#: libkcddb/kcddb.cpp:47
 #, kde-format
 msgid "Invalid category"
 msgstr "Pogrešna kategorija"
 
-#: libkcddb/kcddb.cpp:64
+#: libkcddb/kcddb.cpp:51
 #, kde-format
 msgid "Unknown error"
 msgstr "Nepoznata greška"
 
-#: libkcddb/musicbrainz/musicbrainzlookup.cpp:126
+#: libkcddb/musicbrainz/musicbrainzlookup.cpp:112
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (disk %2)"
+
+#~ msgid "SMTP (Email)"
+#~ msgstr "SMTP (e‑pošta)"
+
+#~ msgid "Server needs authentication"
+#~ msgstr "Server zahteva autentifikaciju"
+
+#~ msgid "Reply-To:"
+#~ msgstr "Odgovor‑na:"
+
+#~ msgid "SMTP server:"
+#~ msgstr "SMTP server:"
+
+#~ msgid "Username:"
+#~ msgstr "Korisničko ime:"
+
+#~ msgid ""
+#~ "CDDB is used to get information like artist, title and song-names in CD's"
+#~ msgstr ""
+#~ "CDDB se koristi za dobavljanje podataka poput izvođača, naslova i imena "
+#~ "numera na CD‑ovima."
+
+#~ msgid ""
+#~ "freedb has been set to use HTTP for submissions because the email details "
+#~ "you have entered are incomplete. Please review your email settings and "
+#~ "try again."
+#~ msgstr ""
+#~ "Podešeno je korišćenje HTTP‑a za predaje na FreeDB, pošto niste uneli "
+#~ "potpune detalje e‑pošte. Proverite postavke e‑pošte pa pokušajte ponovo."
+
+#~ msgid "Incorrect Email Settings"
+#~ msgstr "Loše postavke e‑pošte"
+
+# >> @item
+# well-spelled: негерпанк
+#~ msgid "Negerpunk"
+#~ msgstr "negerpank"

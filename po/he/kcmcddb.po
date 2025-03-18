@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2024-03-08 06:33+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -24,7 +24,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 23.08.4\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
 
 #: cddbconfigwidget.cpp:42
 #, kde-format
@@ -166,12 +167,10 @@ msgstr "שיטת שליחה"
 msgid "Server:"
 msgstr "שרת:"
 
-#: kcmcddb.cpp:56
-#, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
-msgstr ""
-"ייעשה שימוש ב־CDDB כדי להשיג מידע כמו אומן, כותרת ושם השיר בתוך התקליטורים"
+#~ msgid ""
+#~ "CDDB is used to get information like artist, title and song-names in CD's"
+#~ msgstr ""
+#~ "ייעשה שימוש ב־CDDB כדי להשיג מידע כמו אומן, כותרת ושם השיר בתוך התקליטורים"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (דוא\"ל)"

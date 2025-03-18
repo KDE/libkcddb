@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 02:03+0000\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2022-11-16 08:26+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -158,14 +158,6 @@ msgstr "გადაცემის მეთოდი"
 #, kde-format
 msgid "Server:"
 msgstr "სერვერი:"
-
-#: kcmcddb/kcmcddb.cpp:56
-#, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
-msgstr ""
-"CDDB გამოიყენება CD-ების შესახებ ისეთი ინფორმაციის მისაღებად, როგორიცაა "
-"შემსრულებელი, სათაური და ა.შ"
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
@@ -973,6 +965,12 @@ msgstr "უცნობი შეცდომა"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (დისკი %2)"
+
+#~ msgid ""
+#~ "CDDB is used to get information like artist, title and song-names in CD's"
+#~ msgstr ""
+#~ "CDDB გამოიყენება CD-ების შესახებ ისეთი ინფორმაციის მისაღებად, როგორიცაა "
+#~ "შემსრულებელი, სათაური და ა.შ"
 
 #~ msgid "Negerpunk"
 #~ msgstr "ნეგერპანკი"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-03-13 03:23+0100\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2012-07-05 11:30+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -21,41 +21,40 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
 
-#: cddbconfigwidget.cpp:52
+#: cddbconfigwidget.cpp:42
 #, kde-format
 msgid "Cache Locations"
 msgstr "Локације кеша"
 
-#: cddbconfigwidget.cpp:87
+#: cddbconfigwidget.cpp:76
 #, kde-format
 msgid "Could not fetch mirror list."
 msgstr "Не могу да добавим списак огледала."
 
-#: cddbconfigwidget.cpp:87
+#: cddbconfigwidget.cpp:76
 #, kde-format
 msgid "Could Not Fetch"
 msgstr "Не могу да добавим"
 
 # >> @title:winow
-#: cddbconfigwidget.cpp:91
+#: cddbconfigwidget.cpp:80
 #, kde-format
 msgid "Select mirror"
 msgstr "Избор огледала"
 
-#: cddbconfigwidget.cpp:92
+#: cddbconfigwidget.cpp:81
 #, kde-format
 msgid "Select one of these mirrors"
 msgstr "Изаберите једно од ових огледала"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#. i18n: ectx: property (text), widget (QRadioButton, httpButton)
-#: cddbconfigwidget.cpp:109 cddbconfigwidget.ui:129 cddbconfigwidget.ui:179
+#: cddbconfigwidget.cpp:98 cddbconfigwidget.ui:144
 #, kde-format
 msgid "HTTP"
 msgstr "ХТТП"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: cddbconfigwidget.cpp:111 cddbconfigwidget.ui:124
+#: cddbconfigwidget.cpp:100 cddbconfigwidget.ui:139
 #, kde-format
 msgid "CDDB"
 msgstr "ЦДДБ"
@@ -67,152 +66,130 @@ msgid "CDDB Settings"
 msgstr "ЦДДБ поставке"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
-#: cddbconfigwidget.ui:20
+#: cddbconfigwidget.ui:23
 #, kde-format
 msgid "&Lookup"
 msgstr "&Потрага"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
-#: cddbconfigwidget.ui:26
+#: cddbconfigwidget.ui:29
 #, kde-format
 msgid "Enable MusicBrainz lookup"
 msgstr "Тражи на Мјузикбрејнзу"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
-#: cddbconfigwidget.ui:33
+#: cddbconfigwidget.ui:36
 #, kde-format
 msgid "Enable freedb lookup"
 msgstr "Тражи на ФриДБ‑у"
 
 #. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
-#: cddbconfigwidget.ui:40
+#: cddbconfigwidget.ui:46
 #, kde-format
 msgid "Freedb Server"
 msgstr "Сервер ФриДБ‑а"
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel7)
-#: cddbconfigwidget.ui:46
+#: cddbconfigwidget.ui:61
 #, kde-format
 msgid "Freedb server:"
 msgstr "Сервер ФриДБ‑а:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
-#: cddbconfigwidget.ui:64
+#: cddbconfigwidget.ui:79
 #, kde-format
 msgid "Name of CDDB server which will be used to look up CD information."
 msgstr "Име ЦДДБ сервера на коме ће се тражити подаци о ЦД‑у."
 
 #. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
-#: cddbconfigwidget.ui:67
+#: cddbconfigwidget.ui:82
 #, kde-format
 msgid "gnudb.gnudb.org"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: cddbconfigwidget.ui:80 cddbconfigwidget.ui:208 cddbconfigwidget.ui:241
+#: cddbconfigwidget.ui:95 cddbconfigwidget.ui:260
 #, kde-format
 msgid "Port:"
 msgstr "Порт:"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
-#: cddbconfigwidget.ui:93
+#: cddbconfigwidget.ui:108
 #, kde-format
 msgid "Port to connect to on CDDB server."
 msgstr "Порт за повезивање на ЦДДБ сервер."
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel9)
-#: cddbconfigwidget.ui:108
+#: cddbconfigwidget.ui:123
 #, kde-format
 msgid "&Transport:"
 msgstr "&Транспорт:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
-#: cddbconfigwidget.ui:120
+#: cddbconfigwidget.ui:135
 #, kde-format
 msgid "Type of lookup which should be tried at the CDDB server."
 msgstr "Врста потраге која ће бити обављена на ЦДДБ серверу."
 
 #. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
-#: cddbconfigwidget.ui:137
+#: cddbconfigwidget.ui:152
 #, kde-format
 msgid "Show &Mirror List"
 msgstr "Прикажи списак &огледала"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
-#: cddbconfigwidget.ui:153
+#: cddbconfigwidget.ui:168
 #, kde-format
 msgid "&Submit"
 msgstr "&Предаја"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: cddbconfigwidget.ui:161
+#: cddbconfigwidget.ui:189
 #, kde-format
 msgid "Email address:"
 msgstr "Адреса е‑поште:"
 
-#. i18n: ectx: property (title), widget (QGroupBox, kcfg_FreedbSubmitTransport)
-#: cddbconfigwidget.ui:173
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: cddbconfigwidget.ui:227
 #, kde-format
 msgid "Submit Method"
 msgstr "Метод предаје"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: cddbconfigwidget.ui:189
+#: cddbconfigwidget.ui:242
 #, kde-format
 msgid "Server:"
 msgstr "Сервер:"
 
-#. i18n: ectx: property (text), widget (QRadioButton, smtpButton)
-#: cddbconfigwidget.ui:220
-#, kde-format
-msgid "SMTP (Email)"
-msgstr "СМТП (е‑пошта)"
+#~ msgid "SMTP (Email)"
+#~ msgstr "СМТП (е‑пошта)"
 
-#. i18n: ectx: property (text), widget (QCheckBox, needsAuthenticationBox)
-#: cddbconfigwidget.ui:266
-#, kde-format
-msgid "Server needs authentication"
-msgstr "Сервер захтијева аутентификацију"
+#~ msgid "Server needs authentication"
+#~ msgstr "Сервер захтијева аутентификацију"
 
-#. i18n: ectx: property (text), widget (QLabel, textLabel9_2)
-#: cddbconfigwidget.ui:286
-#, kde-format
-msgid "Reply-To:"
-msgstr "Одговор‑на:"
+#~ msgid "Reply-To:"
+#~ msgstr "Одговор‑на:"
 
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: cddbconfigwidget.ui:299
-#, kde-format
-msgid "SMTP server:"
-msgstr "СМТП сервер:"
+#~ msgid "SMTP server:"
+#~ msgstr "СМТП сервер:"
 
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: cddbconfigwidget.ui:306
-#, kde-format
-msgid "Username:"
-msgstr "Корисничко име:"
+#~ msgid "Username:"
+#~ msgstr "Корисничко име:"
 
-#: kcmcddb.cpp:55
-#, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
-msgstr ""
-"ЦДДБ се користи за добављање података попут имена извођача, наслова и имена "
-"пјесама на ЦД‑у."
+#~ msgid ""
+#~ "CDDB is used to get information like artist, title and song-names in CD's"
+#~ msgstr ""
+#~ "ЦДДБ се користи за добављање података попут имена извођача, наслова и "
+#~ "имена пјесама на ЦД‑у."
 
-#: kcmcddb.cpp:83
-#, kde-format
-msgid ""
-"freedb has been set to use HTTP for submissions because the email details "
-"you have entered are incomplete. Please review your email settings and try "
-"again."
-msgstr ""
-"Постављено је да ФриДБ користи ХТТП за предавање, јер детаљи е‑поште које "
-"сте унијели нису потпуни. Прегледајте поставке е‑поште и покушајте поново."
+#~ msgid ""
+#~ "freedb has been set to use HTTP for submissions because the email details "
+#~ "you have entered are incomplete. Please review your email settings and "
+#~ "try again."
+#~ msgstr ""
+#~ "Постављено је да ФриДБ користи ХТТП за предавање, јер детаљи е‑поште које "
+#~ "сте унијели нису потпуни. Прегледајте поставке е‑поште и покушајте поново."
 
-#: kcmcddb.cpp:86
-#, kde-format
-msgid "Incorrect Email Settings"
-msgstr "Неисправне поставке е‑поште"
+#~ msgid "Incorrect Email Settings"
+#~ msgstr "Неисправне поставке е‑поште"

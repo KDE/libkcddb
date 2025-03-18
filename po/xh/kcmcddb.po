@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2002-11-14 17:04SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -166,12 +166,6 @@ msgstr ""
 #, fuzzy, kde-format
 msgid "Server:"
 msgstr "CDDB Umncedisi"
-
-#: kcmcddb.cpp:56
-#, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
-msgstr ""
 
 #, fuzzy
 #~ msgid "SMTP server:"

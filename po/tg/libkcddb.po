@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 02:03+0000\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2004-07-01 17:32+0000\n"
 "Last-Translator: Hiromon <H_Abrorova@rambler.ru>\n"
 "Language-Team:  <tajik>\n"
@@ -159,12 +159,6 @@ msgstr ""
 #: kcmcddb/cddbconfigwidget.ui:242
 #, kde-format
 msgid "Server:"
-msgstr ""
-
-#: kcmcddb/kcmcddb.cpp:56
-#, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
 msgstr ""
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68

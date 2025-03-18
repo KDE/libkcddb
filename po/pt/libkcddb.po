@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 02:03+0000\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2020-03-13 09:31+0000\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -170,14 +170,6 @@ msgstr "Método de Envio"
 #, kde-format
 msgid "Server:"
 msgstr "Servidor:"
-
-#: kcmcddb/kcmcddb.cpp:56
-#, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
-msgstr ""
-"O CDDB é usado para obter informações como o artista, o título e os nomes "
-"das músicas nos CDs."
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
@@ -985,6 +977,12 @@ msgstr "Erro desconhecido"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (disco %2)"
+
+#~ msgid ""
+#~ "CDDB is used to get information like artist, title and song-names in CD's"
+#~ msgstr ""
+#~ "O CDDB é usado para obter informações como o artista, o título e os nomes "
+#~ "das músicas nos CDs."
 
 #~ msgid "Negerpunk"
 #~ msgstr "Negerpunk"

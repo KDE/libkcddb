@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 02:03+0000\n"
+"POT-Creation-Date: 2025-03-18 00:42+0000\n"
 "PO-Revision-Date: 2014-02-27 22:43+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -158,14 +158,6 @@ msgstr "Överdreegmetood"
 #, kde-format
 msgid "Server:"
 msgstr "Server:"
-
-#: kcmcddb/kcmcddb.cpp:56
-#, kde-format
-msgid ""
-"CDDB is used to get information like artist, title and song-names in CD's"
-msgstr ""
-"CDDB warrt för't Halen vun CD-Informatschonen as Künstler-, Titel- un "
-"Stücknaams bruukt"
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
@@ -973,6 +965,12 @@ msgstr "Nich begäng Fehler"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (Schiev %2)"
+
+#~ msgid ""
+#~ "CDDB is used to get information like artist, title and song-names in CD's"
+#~ msgstr ""
+#~ "CDDB warrt för't Halen vun CD-Informatschonen as Künstler-, Titel- un "
+#~ "Stücknaams bruukt"
 
 #~ msgid "Negerpunk"
 #~ msgstr "Swattenpunk"
