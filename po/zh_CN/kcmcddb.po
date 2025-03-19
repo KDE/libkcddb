@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/libkcddb/kcmcddb.pot\n"
-"X-Crowdin-File-ID: 5922\n"
+"X-Crowdin-File: /kf6-trunk/messages/libkcddb/kcmcddb.pot\n"
+"X-Crowdin-File-ID: 57348\n"
 
 #: cddbconfigwidget.cpp:42
 #, kde-format
@@ -156,7 +156,3 @@ msgstr "提交方式"
 #, kde-format
 msgid "Server:"
 msgstr "服务器："
-
-#~ msgid ""
-#~ "CDDB is used to get information like artist, title and song-names in CD's"
-#~ msgstr "CDDB 用于获取 CD 中的艺人、标题及歌名等信息"

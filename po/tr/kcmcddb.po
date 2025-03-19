@@ -12,13 +12,13 @@
 # root, 2004.
 # obsoleteman <tulliana@gmail.com>, 2007,2009.
 # Yıldız KARDESLER <turkishprogram@xposta.com>, 2004.
-# SPDX-FileCopyrightText: 2022, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-18 00:42+0000\n"
-"PO-Revision-Date: 2024-02-09 19:02+0300\n"
+"PO-Revision-Date: 2025-03-18 14:53+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #: cddbconfigwidget.cpp:42
 #, kde-format
@@ -81,13 +81,13 @@ msgstr "&Bak"
 #: cddbconfigwidget.ui:29
 #, kde-format
 msgid "Enable MusicBrainz lookup"
-msgstr "MusicBrainz'e bakmayı etkinleştir"
+msgstr "MusicBrainz’e bakmayı etkinleştir"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
 #: cddbconfigwidget.ui:36
 #, kde-format
 msgid "Enable freedb lookup"
-msgstr "Freedb'ye bakmayı etkinleştir"
+msgstr "FreeDB’ye bakmayı etkinleştir"
 
 #. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
 #: cddbconfigwidget.ui:46
@@ -99,7 +99,7 @@ msgstr "Freedb Sunucusu"
 #: cddbconfigwidget.ui:61
 #, kde-format
 msgid "Freedb server:"
-msgstr "Freedb sunucusu:"
+msgstr "FreeDB sunucusu:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
 #: cddbconfigwidget.ui:79
