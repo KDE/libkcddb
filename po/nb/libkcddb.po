@@ -969,9 +969,3 @@ msgstr "Ukjent feil"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (disk %2)"
-
-#~ msgid ""
-#~ "CDDB is used to get information like artist, title and song-names in CD's"
-#~ msgstr ""
-#~ "CDDB brukes til å hente opplysninger slik som artist, tittel og "
-#~ "melodinavn i CD-er"

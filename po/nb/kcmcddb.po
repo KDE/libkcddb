@@ -162,9 +162,3 @@ msgstr "Metode for innsending"
 #, kde-format
 msgid "Server:"
 msgstr "Tjener:"
-
-#~ msgid ""
-#~ "CDDB is used to get information like artist, title and song-names in CD's"
-#~ msgstr ""
-#~ "CDDB blir brukt til å hente informasjon om artist, tittel og navn på "
-#~ "sanger på CD-plater"

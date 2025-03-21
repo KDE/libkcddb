@@ -161,9 +161,3 @@ msgstr "Metode for innsending"
 #, kde-format
 msgid "Server:"
 msgstr "Tenar:"
-
-#~ msgid ""
-#~ "CDDB is used to get information like artist, title and song-names in CD's"
-#~ msgstr ""
-#~ "CDDB vert brukt til å henta informasjon om artist, tittel og songnamn på "
-#~ "CD-plater"
