@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-18 00:42+0000\n"
-"PO-Revision-Date: 2025-03-20 19:10+0100\n"
+"PO-Revision-Date: 2025-03-21 18:08+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -114,7 +114,7 @@ msgstr "Porto:"
 #: kcmcddb/cddbconfigwidget.ui:108
 #, kde-format
 msgid "Port to connect to on CDDB server."
-msgstr "Porto pro connectar al servitor de CDDB."
+msgstr "Porto pro connecter al servitor de CDDB."
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel9)
 #: kcmcddb/cddbconfigwidget.ui:123
