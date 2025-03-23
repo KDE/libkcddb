@@ -1,8 +1,8 @@
 # Translation of libkcddb.po to Euskara/Basque (eu).
 # Copyright (C) 2003, 2004, 2005, 2009 Free Software Foundation, Inc.
-# Copyright (C) 2010-2020, This file is copyright:
+# Copyright (C) 2010-2025, This file is copyright:
 # This file is distributed under the same license as the libkcddb package.
-# KDE euskaratzeko proiektuaren arduraduna <xalba@euskalnet.net>.
+# SPDX-FileCopyrightText: 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Marcos  <marcos@euskalgnu.org>, 2003, 2004, 2005.
@@ -10,20 +10,20 @@
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
 # Julen Landa Alustiza <julen@mundurat.net>, 2009.
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2009.
-# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2019, 2020.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2019, 2020, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-10 04:11+0000\n"
-"PO-Revision-Date: 2020-03-19 13:33+0100\n"
-"Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
+"PO-Revision-Date: 2025-03-22 15:56+0100\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 24.12.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: kcmcddb/cddbconfigwidget.cpp:42
@@ -198,12 +198,12 @@ msgstr "Datuak"
 #: libkcddb/categories.cpp:29 libkcddb/genres.cpp:78
 #, kde-format
 msgid "Folk"
-msgstr "Folk-a"
+msgstr "Folk"
 
 #: libkcddb/categories.cpp:29 libkcddb/genres.cpp:84
 #, kde-format
 msgid "Jazz"
-msgstr "Jazz-a"
+msgstr "Jazz"
 
 #: libkcddb/categories.cpp:29
 #, kde-format
@@ -213,17 +213,17 @@ msgstr "Bestelakoa"
 #: libkcddb/categories.cpp:30 libkcddb/genres.cpp:86
 #, kde-format
 msgid "New Age"
-msgstr "New Age-a"
+msgstr "New Age"
 
 #: libkcddb/categories.cpp:30 libkcddb/genres.cpp:92
 #, kde-format
 msgid "Reggae"
-msgstr "Reggae-a"
+msgstr "Reggae"
 
 #: libkcddb/categories.cpp:30 libkcddb/genres.cpp:93
 #, kde-format
 msgid "Rock"
-msgstr "Rock-a"
+msgstr "Rock"
 
 #: libkcddb/categories.cpp:30 libkcddb/genres.cpp:96
 #, kde-format
@@ -243,12 +243,12 @@ msgstr "A Cappella"
 #: libkcddb/genres.cpp:64
 #, kde-format
 msgid "Acid Jazz"
-msgstr "Jazz azidoa"
+msgstr "Acid Jazz"
 
 #: libkcddb/genres.cpp:65
 #, kde-format
 msgid "Acid Punk"
-msgstr "Punk azidoa"
+msgstr "Acid Punk"
 
 #: libkcddb/genres.cpp:65
 #, kde-format
@@ -273,7 +273,7 @@ msgstr "Rock alternatiboa"
 #: libkcddb/genres.cpp:66
 #, kde-format
 msgid "Ambient"
-msgstr "Giroko musika"
+msgstr "Giro-musika"
 
 #: libkcddb/genres.cpp:66
 #, kde-format
@@ -288,27 +288,27 @@ msgstr "Abangoardia"
 #: libkcddb/genres.cpp:67
 #, kde-format
 msgid "Ballad"
-msgstr "Baladak"
+msgstr "Balada"
 
 #: libkcddb/genres.cpp:67
 #, kde-format
 msgid "Bass"
-msgstr "Bass-a"
+msgstr "Bass"
 
 #: libkcddb/genres.cpp:67
 #, kde-format
 msgid "Beat"
-msgstr "Beat-a"
+msgstr "Beat"
 
 #: libkcddb/genres.cpp:67
 #, kde-format
 msgid "Bebop"
-msgstr "Bebop-a"
+msgstr "Bebop"
 
 #: libkcddb/genres.cpp:68
 #, kde-format
 msgid "Big Band"
-msgstr "Big Band-a"
+msgstr "Big Band"
 
 #: libkcddb/genres.cpp:68
 #, kde-format
@@ -318,42 +318,42 @@ msgstr "Metal beltza"
 #: libkcddb/genres.cpp:68
 #, kde-format
 msgid "Bluegrass"
-msgstr "Bluegrass-a"
+msgstr "Bluegrass"
 
 #: libkcddb/genres.cpp:69
 #, kde-format
 msgid "Booty Bass"
-msgstr "Booty Bass-a"
+msgstr "Booty Bass"
 
 #: libkcddb/genres.cpp:69
 #, kde-format
 msgid "BritPop"
-msgstr "Britainiako pop-a"
+msgstr "BritPop"
 
 #: libkcddb/genres.cpp:69
 #, kde-format
 msgid "Cabaret"
-msgstr "Kabareta"
+msgstr "Kabaret"
 
 #: libkcddb/genres.cpp:69
 #, kde-format
 msgid "Celtic"
-msgstr "Zeltiarra"
+msgstr "Zelta"
 
 #: libkcddb/genres.cpp:70
 #, kde-format
 msgid "Chamber Music"
-msgstr "Ganbarako musika"
+msgstr "Ganbera-musika"
 
 #: libkcddb/genres.cpp:70
 #, kde-format
 msgid "Chanson"
-msgstr "Chanson-a"
+msgstr "Chanson"
 
 #: libkcddb/genres.cpp:70
 #, kde-format
 msgid "Chorus"
-msgstr "Abesbatzak"
+msgstr "Abesbatza"
 
 #: libkcddb/genres.cpp:70
 #, kde-format
@@ -378,12 +378,12 @@ msgstr "Rock klasikoa"
 #: libkcddb/genres.cpp:72
 #, kde-format
 msgid "Club-house"
-msgstr "Klubeko House-a"
+msgstr "Klubeko House"
 
 #: libkcddb/genres.cpp:72
 #, kde-format
 msgid "Club"
-msgstr "Club-a"
+msgstr "Club"
 
 #: libkcddb/genres.cpp:72
 #, kde-format
@@ -398,22 +398,22 @@ msgstr "Kristau garaikidea"
 #: libkcddb/genres.cpp:73
 #, kde-format
 msgid "Crossover"
-msgstr "Crossover-a"
+msgstr "Crossover"
 
 #: libkcddb/genres.cpp:73
-#, kde-format
+#, fuzzy, kde-format
 msgid "Cult"
 msgstr "Kultua"
 
 #: libkcddb/genres.cpp:73
-#, kde-format
+#, fuzzy, kde-format
 msgid "Dance Hall"
-msgstr "Dance Hall-a"
+msgstr "Dance Hall"
 
 #: libkcddb/genres.cpp:74
-#, kde-format
+#, fuzzy, kde-format
 msgid "Dance"
-msgstr "Dance-a"
+msgstr "Dance"
 
 #: libkcddb/genres.cpp:74
 #, kde-format
@@ -656,10 +656,9 @@ msgid "Native American"
 msgstr "Indioa"
 
 #: libkcddb/genres.cpp:86
-#, fuzzy, kde-format
-#| msgid "Punk"
+#, kde-format
 msgid "Afro-Punk"
-msgstr "Punk-a"
+msgstr "Afro-Punk"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -809,7 +808,7 @@ msgstr "Satira"
 #: libkcddb/genres.cpp:94
 #, kde-format
 msgid "Showtunes"
-msgstr "Telebistako abestiak"
+msgstr "Ikuskizun-doinuak"
 
 #: libkcddb/genres.cpp:95
 #, kde-format
@@ -834,7 +833,7 @@ msgstr "Sonata"
 #: libkcddb/genres.cpp:96
 #, kde-format
 msgid "Soul"
-msgstr "Soul-a"
+msgstr "Soul"
 
 #: libkcddb/genres.cpp:96
 #, kde-format
