@@ -2,7 +2,7 @@
 # Copyright (C) 2003, 2004, 2005, 2009 Free Software Foundation, Inc.
 # Copyright (C) 2010-2025 This file is copyright:
 # This file is distributed under the same license as the libkcddb package.
-# KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Marcos  <marcos@euskalgnu.org>, 2003, 2004, 2005.
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-18 00:42+0000\n"
-"PO-Revision-Date: 2025-03-22 15:56+0100\n"
+"PO-Revision-Date: 2025-03-26 20:57+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -930,7 +930,7 @@ msgstr "Arrakasta"
 #: libkcddb/kcddb.cpp:23
 #, kde-format
 msgid "Server error"
-msgstr "Errorea zerbitzarian"
+msgstr "Zerbitzariaren errorea"
 
 #: libkcddb/kcddb.cpp:27
 #, kde-format
@@ -955,12 +955,12 @@ msgstr "Erregistro anitz aurkitu dira"
 #: libkcddb/kcddb.cpp:43
 #, kde-format
 msgid "Cannot save"
-msgstr "Ezin da gorde"
+msgstr "Ezin du gorde"
 
 #: libkcddb/kcddb.cpp:47
 #, kde-format
 msgid "Invalid category"
-msgstr "Kategoria ez da baliozkoa"
+msgstr "Kategoria baliogabea"
 
 #: libkcddb/kcddb.cpp:51
 #, kde-format
