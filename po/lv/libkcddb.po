@@ -5,164 +5,162 @@
 # Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008, 2010.
 # Viesturs Zariņš <viesturs.zarins@mii.lu.lv>, 2009.
 # Rūdofls Mazurs <rudolfs.mazurs@gmail.com>, 2012.
+# SPDX-FileCopyrightText: 2025 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-18 00:42+0000\n"
-"PO-Revision-Date: 2012-01-11 20:35+0200\n"
-"Last-Translator: Rūdofls Mazurs <rudolfs.mazurs@gmail.com>\n"
+"PO-Revision-Date: 2025-03-29 18:46+0200\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
 #: kcmcddb/cddbconfigwidget.cpp:42
 #, kde-format
 msgid "Cache Locations"
-msgstr ""
+msgstr "Kešatmiņas vietas"
 
 #: kcmcddb/cddbconfigwidget.cpp:76
 #, kde-format
 msgid "Could not fetch mirror list."
-msgstr ""
+msgstr "Neizdevās izgūt spoguļu sarakstu."
 
 #: kcmcddb/cddbconfigwidget.cpp:76
 #, kde-format
 msgid "Could Not Fetch"
-msgstr ""
+msgstr "Izgūšana neizdevās"
 
 #: kcmcddb/cddbconfigwidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "Server error"
+#, kde-format
 msgid "Select mirror"
-msgstr "Servera kļūda"
+msgstr "Atlasīt spoguļserveri"
 
 #: kcmcddb/cddbconfigwidget.cpp:81
 #, kde-format
 msgid "Select one of these mirrors"
-msgstr ""
+msgstr "Atlasiet kādu no šiem spoguļserveriem"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
 #: kcmcddb/cddbconfigwidget.cpp:98 kcmcddb/cddbconfigwidget.ui:144
 #, kde-format
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
 #: kcmcddb/cddbconfigwidget.cpp:100 kcmcddb/cddbconfigwidget.ui:139
 #, kde-format
 msgid "CDDB"
-msgstr ""
+msgstr "CDDB"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
 #: kcmcddb/cddbconfigwidget.ui:7
 #, kde-format
 msgid "CDDB Settings"
-msgstr ""
+msgstr "CDDB iestatījumi"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
 #: kcmcddb/cddbconfigwidget.ui:23
 #, kde-format
 msgid "&Lookup"
-msgstr ""
+msgstr "&Uzmeklēt"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
 #: kcmcddb/cddbconfigwidget.ui:29
 #, kde-format
 msgid "Enable MusicBrainz lookup"
-msgstr ""
+msgstr "Ieslēgt meklēšanu „MusicBrainz“"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
 #: kcmcddb/cddbconfigwidget.ui:36
 #, kde-format
 msgid "Enable freedb lookup"
-msgstr ""
+msgstr "Ieslēgt meklēšanu „freedb“"
 
 #. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
 #: kcmcddb/cddbconfigwidget.ui:46
-#, fuzzy, kde-format
-#| msgid "Server error"
+#, kde-format
 msgid "Freedb Server"
-msgstr "Servera kļūda"
+msgstr "„Freedb“ serveris"
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel7)
 #: kcmcddb/cddbconfigwidget.ui:61
 #, kde-format
 msgid "Freedb server:"
-msgstr ""
+msgstr "„Freedb“ serveris:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
 #: kcmcddb/cddbconfigwidget.ui:79
 #, kde-format
 msgid "Name of CDDB server which will be used to look up CD information."
-msgstr ""
+msgstr "CDDB servera nosaukums kompaktdiska informācijas iegūšanai."
 
 #. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
 #: kcmcddb/cddbconfigwidget.ui:82
 #, kde-format
 msgid "gnudb.gnudb.org"
-msgstr ""
+msgstr "gnudb.gnudb.org"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
 #: kcmcddb/cddbconfigwidget.ui:95 kcmcddb/cddbconfigwidget.ui:260
 #, kde-format
 msgid "Port:"
-msgstr ""
+msgstr "Ports:"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
 #: kcmcddb/cddbconfigwidget.ui:108
 #, kde-format
 msgid "Port to connect to on CDDB server."
-msgstr ""
+msgstr "Caur kuru CDDB servera portu ar to savienoties."
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel9)
 #: kcmcddb/cddbconfigwidget.ui:123
 #, kde-format
 msgid "&Transport:"
-msgstr ""
+msgstr "&Transports:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
 #: kcmcddb/cddbconfigwidget.ui:135
 #, kde-format
 msgid "Type of lookup which should be tried at the CDDB server."
-msgstr ""
+msgstr "Lietojamā vaicājuma tips CDDB serverim."
 
 #. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
 #: kcmcddb/cddbconfigwidget.ui:152
 #, kde-format
 msgid "Show &Mirror List"
-msgstr ""
+msgstr "Rādīt &spoguļserveru sarakstu"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
 #: kcmcddb/cddbconfigwidget.ui:168
 #, kde-format
 msgid "&Submit"
-msgstr ""
+msgstr "&Nosūtīt"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: kcmcddb/cddbconfigwidget.ui:189
 #, kde-format
 msgid "Email address:"
-msgstr ""
+msgstr "E-pasta adrese"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: kcmcddb/cddbconfigwidget.ui:227
 #, kde-format
 msgid "Submit Method"
-msgstr ""
+msgstr "Nosūtīšanas metode"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: kcmcddb/cddbconfigwidget.ui:242
-#, fuzzy, kde-format
-#| msgid "Server error"
+#, kde-format
 msgid "Server:"
-msgstr "Servera kļūda"
+msgstr "Serveris:"
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
@@ -203,7 +201,7 @@ msgstr "Dažādi"
 #: libkcddb/categories.cpp:30 libkcddb/genres.cpp:86
 #, kde-format
 msgid "New Age"
-msgstr "Jaunais laikmets"
+msgstr "„New Age“"
 
 #: libkcddb/categories.cpp:30 libkcddb/genres.cpp:92
 #, kde-format
@@ -233,17 +231,17 @@ msgstr "A kapella"
 #: libkcddb/genres.cpp:64
 #, kde-format
 msgid "Acid Jazz"
-msgstr "Acid džezs"
+msgstr "„Acid“ džezs"
 
 #: libkcddb/genres.cpp:65
 #, kde-format
 msgid "Acid Punk"
-msgstr "Acid punks"
+msgstr "„Acid“ pankroks"
 
 #: libkcddb/genres.cpp:65
 #, kde-format
 msgid "Acid"
-msgstr "Acid"
+msgstr "„Acid“"
 
 #: libkcddb/genres.cpp:65
 #, kde-format
@@ -263,7 +261,7 @@ msgstr "Alt. roks"
 #: libkcddb/genres.cpp:66
 #, kde-format
 msgid "Ambient"
-msgstr "Fona"
+msgstr "Ambients"
 
 #: libkcddb/genres.cpp:66
 #, kde-format
@@ -298,7 +296,7 @@ msgstr "Bebop"
 #: libkcddb/genres.cpp:68
 #, kde-format
 msgid "Big Band"
-msgstr "Big bends"
+msgstr "Bigbends"
 
 #: libkcddb/genres.cpp:68
 #, kde-format
@@ -348,7 +346,7 @@ msgstr "Koris"
 #: libkcddb/genres.cpp:70
 #, kde-format
 msgid "Christian Gangsta Rap"
-msgstr "Kristiešu gangsteru reps"
+msgstr "Kristiešu gangsterreps"
 
 #: libkcddb/genres.cpp:71
 #, kde-format
@@ -413,7 +411,7 @@ msgstr "Darkwave"
 #: libkcddb/genres.cpp:74
 #, kde-format
 msgid "Death Metal"
-msgstr "Nāves metāls"
+msgstr "„Death“ metāls"
 
 #: libkcddb/genres.cpp:74
 #, kde-format
@@ -458,22 +456,22 @@ msgstr "Etniskā"
 #: libkcddb/genres.cpp:76
 #, kde-format
 msgid "Eurodance"
-msgstr "Eiro deja"
+msgstr "Eirodeju"
 
 #: libkcddb/genres.cpp:77
 #, kde-format
 msgid "Euro-House"
-msgstr "Eiro haus"
+msgstr "Eirohaus"
 
 #: libkcddb/genres.cpp:77
 #, kde-format
 msgid "Euro-Techno"
-msgstr "Eiro tehno"
+msgstr "Eirotehno"
 
 #: libkcddb/genres.cpp:77
 #, kde-format
 msgid "Fast-Fusion"
-msgstr "Fast-Fusion"
+msgstr "Ātrs džezroks"
 
 #: libkcddb/genres.cpp:77
 #, kde-format
@@ -483,7 +481,7 @@ msgstr "Folklora"
 #: libkcddb/genres.cpp:78
 #, kde-format
 msgid "Folk/Rock"
-msgstr "Folks/roks"
+msgstr "Folkmūzika/roks"
 
 #: libkcddb/genres.cpp:78
 #, kde-format
@@ -493,7 +491,7 @@ msgstr "Brīvais stils"
 #: libkcddb/genres.cpp:78
 #, kde-format
 msgid "Funk"
-msgstr "Funks"
+msgstr "Fanks"
 
 #: libkcddb/genres.cpp:79
 #, kde-format
@@ -508,7 +506,7 @@ msgstr "Spēles"
 #: libkcddb/genres.cpp:79
 #, kde-format
 msgid "Gangsta Rap"
-msgstr "Gangsteru reps"
+msgstr "Gangsterreps"
 
 #: libkcddb/genres.cpp:79
 #, kde-format
@@ -518,7 +516,7 @@ msgstr "Goa"
 #: libkcddb/genres.cpp:80
 #, kde-format
 msgid "Gospel"
-msgstr "Evaņģēlijs"
+msgstr "Gospels"
 
 #: libkcddb/genres.cpp:80
 #, kde-format
@@ -528,12 +526,12 @@ msgstr "Gotiskais roks"
 #: libkcddb/genres.cpp:80
 #, kde-format
 msgid "Gothic"
-msgstr "Gotika"
+msgstr "Gotiskā mūzika"
 
 #: libkcddb/genres.cpp:80
 #, kde-format
 msgid "Grunge"
-msgstr "Grunge"
+msgstr "Grandžs"
 
 #: libkcddb/genres.cpp:81
 #, kde-format
@@ -543,7 +541,7 @@ msgstr "Hardcore"
 #: libkcddb/genres.cpp:81
 #, kde-format
 msgid "Hard Rock"
-msgstr "Hard roks"
+msgstr "Hārdroks"
 
 #: libkcddb/genres.cpp:81
 #, kde-format
@@ -553,12 +551,12 @@ msgstr "Smagais metāls"
 #: libkcddb/genres.cpp:81
 #, kde-format
 msgid "Hip-Hop"
-msgstr "Hip-hops"
+msgstr "Hiphops"
 
 #: libkcddb/genres.cpp:82
 #, kde-format
 msgid "House"
-msgstr "House"
+msgstr "Hausmūzika"
 
 #: libkcddb/genres.cpp:82
 #, kde-format
@@ -573,7 +571,7 @@ msgstr "Neatkarīgie"
 #: libkcddb/genres.cpp:82
 #, kde-format
 msgid "Industrial"
-msgstr "Industriāls"
+msgstr "Industriālā"
 
 #: libkcddb/genres.cpp:83
 #, kde-format
@@ -593,32 +591,32 @@ msgstr "Instrumentāls"
 #: libkcddb/genres.cpp:83
 #, kde-format
 msgid "Jazz+Funk"
-msgstr "Džezs+funks"
+msgstr "Džezs+fanks"
 
 #: libkcddb/genres.cpp:84
 #, kde-format
 msgid "JPop"
-msgstr "JPops"
+msgstr "Jpops"
 
 #: libkcddb/genres.cpp:84
 #, kde-format
 msgid "Jungle"
-msgstr "Džungļu"
+msgstr "„Jungle“ mūzika"
 
 #: libkcddb/genres.cpp:84
 #, kde-format
 msgid "Latin"
-msgstr "Latin"
+msgstr "Latīņu"
 
 #: libkcddb/genres.cpp:84
 #, kde-format
 msgid "Lo-Fi"
-msgstr "Lo-Fi"
+msgstr "Zemas frekvences mūzika"
 
 #: libkcddb/genres.cpp:85
 #, kde-format
 msgid "Meditative"
-msgstr "Meditācijas"
+msgstr "Meditatīvā"
 
 #: libkcddb/genres.cpp:85
 #, kde-format
@@ -638,23 +636,22 @@ msgstr "Mūzikls"
 #: libkcddb/genres.cpp:86
 #, kde-format
 msgid "National Folk"
-msgstr "Nacionālas tautas"
+msgstr "Nacionālā folkmūzika"
 
 #: libkcddb/genres.cpp:86
 #, kde-format
 msgid "Native American"
-msgstr "Amerikas iezemiešu"
+msgstr "Indiāņu mūzika"
 
 #: libkcddb/genres.cpp:86
-#, fuzzy, kde-format
-#| msgid "Punk"
+#, kde-format
 msgid "Afro-Punk"
-msgstr "Punks"
+msgstr "Afro panku mūzika"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
 msgid "New Wave"
-msgstr "Jaunais vilnis"
+msgstr "New Wave"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -684,17 +681,17 @@ msgstr "Polka"
 #: libkcddb/genres.cpp:88
 #, kde-format
 msgid "Polsk Punk"
-msgstr "Poļu punks"
+msgstr "Poļu panku mūzika"
 
 #: libkcddb/genres.cpp:88
 #, kde-format
 msgid "Pop-Funk"
-msgstr "Pops-funks"
+msgstr "Pops-fanks"
 
 #: libkcddb/genres.cpp:89
 #, kde-format
 msgid "Pop/Funk"
-msgstr "Pops/funks"
+msgstr "Pops/fanks"
 
 #: libkcddb/genres.cpp:89
 #, kde-format
@@ -709,17 +706,17 @@ msgstr "Porn Groove"
 #: libkcddb/genres.cpp:89
 #, kde-format
 msgid "Power Ballad"
-msgstr "Power Ballad"
+msgstr "Metāla balāde"
 
 #: libkcddb/genres.cpp:90
 #, kde-format
 msgid "Pranks"
-msgstr "Pranks"
+msgstr "Draiskulības"
 
 #: libkcddb/genres.cpp:90
 #, kde-format
 msgid "Primus"
-msgstr "Primus"
+msgstr "Primus mūzika"
 
 #: libkcddb/genres.cpp:90
 #, kde-format
@@ -729,12 +726,12 @@ msgstr "Progresīvais roks"
 #: libkcddb/genres.cpp:90
 #, kde-format
 msgid "Psychedelic Rock"
-msgstr "Psihodēlisks roks"
+msgstr "Psihodēliskais roks"
 
 #: libkcddb/genres.cpp:91
 #, kde-format
 msgid "Psychedelic"
-msgstr "Psihodēlisks"
+msgstr "Psihodēliskā"
 
 #: libkcddb/genres.cpp:91
 #, kde-format
@@ -744,7 +741,7 @@ msgstr "Pankroks"
 #: libkcddb/genres.cpp:91
 #, kde-format
 msgid "Punk"
-msgstr "Punks"
+msgstr "Panku mūzika"
 
 #: libkcddb/genres.cpp:91
 #, kde-format
@@ -799,7 +796,7 @@ msgstr "Satīra"
 #: libkcddb/genres.cpp:94
 #, kde-format
 msgid "Showtunes"
-msgstr "Showtunes"
+msgstr "Šovu motīvi"
 
 #: libkcddb/genres.cpp:95
 #, kde-format
@@ -809,7 +806,7 @@ msgstr "Ska"
 #: libkcddb/genres.cpp:95
 #, kde-format
 msgid "Slow Jam"
-msgstr "Lēnais jam"
+msgstr "Lēnais „Jam“"
 
 #: libkcddb/genres.cpp:95
 #, kde-format
@@ -819,7 +816,7 @@ msgstr "Lēnais roks"
 #: libkcddb/genres.cpp:95
 #, kde-format
 msgid "Sonata"
-msgstr "Sonāta"
+msgstr "Sonāte"
 
 #: libkcddb/genres.cpp:96
 #, kde-format
@@ -829,7 +826,7 @@ msgstr "Souls"
 #: libkcddb/genres.cpp:96
 #, kde-format
 msgid "Sound Clip"
-msgstr "Skaņa klips"
+msgstr "Skaņas klips"
 
 #: libkcddb/genres.cpp:96
 #, kde-format
@@ -839,7 +836,7 @@ msgstr "Dienvidu roks"
 #: libkcddb/genres.cpp:97
 #, kde-format
 msgid "Space"
-msgstr "Space"
+msgstr "Kosmiskā"
 
 #: libkcddb/genres.cpp:97
 #, kde-format
@@ -854,7 +851,7 @@ msgstr "Svings"
 #: libkcddb/genres.cpp:97
 #, kde-format
 msgid "Symphonic Rock"
-msgstr "Sinfoniskais roks"
+msgstr "Simfoniskais roks"
 
 #: libkcddb/genres.cpp:98
 #, kde-format
@@ -889,7 +886,7 @@ msgstr "Terors"
 #: libkcddb/genres.cpp:99
 #, kde-format
 msgid "Thrash Metal"
-msgstr "Thrash metāls"
+msgstr "„Thrash“ metāls"
 
 #: libkcddb/genres.cpp:99
 #, kde-format
@@ -914,7 +911,7 @@ msgstr "Cilšu"
 #: libkcddb/genres.cpp:100
 #, kde-format
 msgid "Trip-Hop"
-msgstr "Trip-Hops"
+msgstr "Triphops"
 
 #: libkcddb/genres.cpp:101
 #, kde-format
@@ -924,7 +921,7 @@ msgstr "Vokāls"
 #: libkcddb/kcddb.cpp:19
 #, kde-format
 msgid "Success"
-msgstr "Veikmīgi"
+msgstr "Izdevās"
 
 #: libkcddb/kcddb.cpp:23
 #, kde-format
@@ -969,7 +966,7 @@ msgstr "Nezināma kļūda"
 #: libkcddb/musicbrainz/musicbrainzlookup.cpp:112
 #, kde-format
 msgid "%1 (disc %2)"
-msgstr ""
+msgstr "%1 (disks %2)"
 
 #~ msgid "Negerpunk"
 #~ msgstr "Negerpunk"
