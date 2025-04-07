@@ -1,14 +1,14 @@
 # Translation of libkcddb to Korean.
 # Copyright (C) 2007 This_file_is_part_of_KDE
 # This file is distributed under the same license as the kdemultimedia package.
-# Shinjo Park <kde@peremen.name>, 2007, 2011, 2013, 2020, 2021.
+# SPDX-FileCopyrightText: 2007, 2011, 2013, 2020, 2021, 2025 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-10 04:11+0000\n"
-"PO-Revision-Date: 2021-06-05 23:05+0200\n"
+"PO-Revision-Date: 2025-04-06 23:36+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 20.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: kcmcddb/cddbconfigwidget.cpp:42
 #, kde-format
@@ -647,10 +647,9 @@ msgid "Native American"
 msgstr "아메리카 원주민"
 
 #: libkcddb/genres.cpp:86
-#, fuzzy, kde-format
-#| msgid "Punk"
+#, kde-format
 msgid "Afro-Punk"
-msgstr "펑크"
+msgstr "아프로펑크"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
