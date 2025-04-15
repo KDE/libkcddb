@@ -10,7 +10,7 @@
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
 # Julen Landa Alustiza <julen@mundurat.net>, 2009.
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2009.
-# SPDX-FileCopyrightText: 2019, 2020, 2025 Iñigo Salvador Azurmendi <xalba@ni.eus>
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2019, 2020, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
