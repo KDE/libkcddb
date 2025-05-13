@@ -156,9 +156,3 @@ msgstr "Metoda odeslání"
 #, kde-format
 msgid "Server:"
 msgstr "Server:"
-
-#~ msgid ""
-#~ "CDDB is used to get information like artist, title and song-names in CD's"
-#~ msgstr ""
-#~ "CDDB se používá pro získání informací o umělci, názvu nebo stopách na "
-#~ "zvukovém CD."
