@@ -647,10 +647,9 @@ msgid "Native American"
 msgstr "Původní americká"
 
 #: libkcddb/genres.cpp:86
-#, fuzzy, kde-format
-#| msgid "Punk"
+#, kde-format
 msgid "Afro-Punk"
-msgstr "Punk"
+msgstr ""
 
 #: libkcddb/genres.cpp:87
 #, kde-format
@@ -971,6 +970,3 @@ msgstr "Neznámá chyba"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (disk %2)"
-
-#~ msgid "Negerpunk"
-#~ msgstr "Negerpunk"
