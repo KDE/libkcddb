@@ -3,17 +3,17 @@
 # KDE Finnish translation sprint participants:
 # Author: Artnay
 # Author: Lliehu
+# SPDX-FileCopyrightText: 2011, 2012, 2019, 2020, 2025 Tommi Nieminen <translator@legisign.org>
 # Teemu Rytilahti <teemu.rytilahti@kde-fi.org>, 2004.
 # Ilpo Kantonen <ilpo@iki.fi>, 2005, 2006.
 # Kim Enkovaara <kim.enkovaara@iki.fi>, 2006.
-# Tommi Nieminen <translator@legisign.org>, 2011, 2012, 2019, 2020.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-10 04:11+0000\n"
-"PO-Revision-Date: 2020-06-24 20:10+0300\n"
+"PO-Revision-Date: 2025-04-20 16:40+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -21,6 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: kcmcddb/cddbconfigwidget.cpp:42
 #, kde-format
@@ -651,10 +652,9 @@ msgid "Native American"
 msgstr "Amerikkalainen alkuasukas"
 
 #: libkcddb/genres.cpp:86
-#, fuzzy, kde-format
-#| msgid "Punk"
+#, kde-format
 msgid "Afro-Punk"
-msgstr "Punk"
+msgstr "Afropunk"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
