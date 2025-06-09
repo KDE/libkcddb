@@ -1,5 +1,6 @@
 # Spanish translations for libkcddb.po package.
-# Copyright (C) 2003-2025 Free Software Foundation, Inc.
+# Copyright (C) 2003-2025 This file is copyright:
+# This file is distributed under the same license as the libkcddb package.
 #
 # SPDX-FileCopyrightText: 2003 Jaime Robles <jaime@kde.org>
 # SPDX-FileCopyrightText: 2003 Salvador Gimeno Zanón <salgiza@jazzfree.com>
@@ -7,14 +8,14 @@
 # SPDX-FileCopyrightText: 2005 santi <santi@kde-es.org>
 # SPDX-FileCopyrightText: 2006, 2007 Eloy Cuadra <ecuadra@eloihr.net>
 # SPDX-FileCopyrightText: 2008 Enrique Matias Sanchez (Quique) <cronopios@gmail.com>
-# Rocio Gallego <traducciones @rociogallego.com>, 2012.
+# SPDX-FileCopyrightText: 2012 Rocio Gallego <traducciones@rociogallego.com>
 # SPDX-FileCopyrightText: 2016, 2020, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-18 00:42+0000\n"
-"PO-Revision-Date: 2025-03-16 01:06+0100\n"
+"PO-Revision-Date: 2025-06-09 02:16+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -970,124 +971,3 @@ msgstr "Error desconocido"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (disco %2)"
-
-#~ msgid ""
-#~ "CDDB is used to get information like artist, title and song-names in CD's"
-#~ msgstr ""
-#~ "CDDB se utiliza para obtener información como el artista, el título y los "
-#~ "nombres de las canciones de los CD"
-
-#~ msgid "Negerpunk"
-#~ msgstr "Negerpunk"
-
-#~ msgid "SMTP (Email)"
-#~ msgstr "SMTP (correo electrónico)"
-
-#~ msgid "Server needs authentication"
-#~ msgstr "El servidor necesita autenticación"
-
-#~ msgid "Reply-To:"
-#~ msgstr "Responder a:"
-
-#~ msgid "SMTP server:"
-#~ msgstr "Servidor SMTP:"
-
-#~ msgid "Username:"
-#~ msgstr "Nombre de usuario:"
-
-#~ msgid ""
-#~ "freedb has been set to use HTTP for submissions because the email details "
-#~ "you have entered are incomplete. Please review your email settings and "
-#~ "try again."
-#~ msgstr ""
-#~ "freedb se ha configurado para utilizar HTTP para los envíos porque los "
-#~ "datos de correo electrónico que ha introducido están incompletos. Revise "
-#~ "sus preferencias de correo electrónico e inténtelo de nuevo."
-
-#~ msgid "Incorrect Email Settings"
-#~ msgstr "Preferencias de correo electrónico incorrectas"
-
-#~ msgid "Track"
-#~ msgstr "Pista"
-
-#~ msgid "Length"
-#~ msgstr "Duración"
-
-#~ msgid "Title"
-#~ msgstr "Título"
-
-#~ msgid "Artist"
-#~ msgstr "Artista"
-
-#~ msgid "Comment"
-#~ msgstr "Comentario"
-
-#~ msgid "Change Encoding"
-#~ msgstr "Cambiar la codificación"
-
-#~ msgid "Revision:"
-#~ msgstr "Revisión:"
-
-#~ msgid "Use the name of the artist if there is no title."
-#~ msgstr "Utilizar el nombre del artista si no hay título."
-
-#~ msgid "&Category:"
-#~ msgstr "&Categoría:"
-
-#~ msgid ""
-#~ "Write names as \"first last\", not \"last, first\". Omit any leading \"The"
-#~ "\".  Use \"Various\" for compilations."
-#~ msgstr ""
-#~ "Escriba los nombres como «nombre apellido», no como «apellido, nombre». "
-#~ "Omita cualquier «The, Los...». Utilice «Varios» para los recopilatorios."
-
-#~ msgid "&Artist:"
-#~ msgstr "&Artista:"
-
-#~ msgid "&Year:"
-#~ msgstr "A&ño:"
-
-#~ msgid "&Genre:"
-#~ msgstr "&Género:"
-
-#~ msgid "Disc Id values must be unique within a category."
-#~ msgstr "El ID de disco debe de ser único dentro de una categoría."
-
-#~ msgid "&Multiple artists"
-#~ msgstr "&Múltiples artistas"
-
-#~ msgid "Comment:"
-#~ msgstr "Comentario:"
-
-#~ msgid "&Title:"
-#~ msgstr "&Título:"
-
-#~ msgid "Avoid custom values, as they will be written to CDDB as-is."
-#~ msgstr ""
-#~ "Evite valores personalizados, puesto que serán introducidos en la CDDB "
-#~ "tal cual."
-
-#~ msgid "Disc Id:"
-#~ msgstr "ID del disco:"
-
-#~ msgid "Length:"
-#~ msgstr "Duración:"
-
-#~ msgid "For a CD-Extra, set title to \"Data\"."
-#~ msgstr "Para un CD-Extra, asignar el título «Datos»."
-
-#~ msgid "Change Encoding..."
-#~ msgstr "Cambiar codificación..."
-
-#~ msgid "Playing order:"
-#~ msgstr "Orden de reproducción:"
-
-#~ msgctxt "artist - cdtitle"
-#~ msgid "%1 - %2"
-#~ msgstr "%1 - %2"
-
-#~ msgid "Preview"
-#~ msgstr "Previsualización"
-
-#~ msgid "Encoding"
-#~ msgstr "Codificación"
