@@ -1,18 +1,19 @@
-# Translation of kcmcddb to Spanish
-# Copyright (C) 2003, 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
+# Spanish translations for kcmcddb.po package.
+# Copyright (C) 2003-2025 This file is copyright:
+# This file is distributed under the same license as the libkcddb package.
 #
-# Miguel Revilla Rodríguez <yo@miguelrevilla.com>, 2003.
-# Salvador Gimeno Zanón <salgiza@jazzfree.com>, 2003.
-# Salvador Gimeno Zanón <salgiza@ono.com>, 2004, 2005.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2007.
-# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2008, 2009.
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020.
+# SPDX-FileCopyrightText: 2003 Miguel Revilla Rodríguez <yo@miguelrevilla.com>
+# SPDX-FileCopyrightText: 2003 Salvador Gimeno Zanón <salgiza@jazzfree.com>
+# SPDX-FileCopyrightText: 2004, 2005 Salvador Gimeno Zanón <salgiza@ono.com>
+# SPDX-FileCopyrightText: 2007 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2008, 2009 Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>
+# SPDX-FileCopyrightText: 2020, 2025 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-10 01:55+0000\n"
-"PO-Revision-Date: 2020-03-15 11:54+0100\n"
+"PO-Revision-Date: 2025-06-09 02:53+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -170,31 +171,3 @@ msgid ""
 msgstr ""
 "La CDDB se utiliza para obtener información del CD, tal como el artista, el "
 "título, y los nombres de las canciones"
-
-#~ msgid "SMTP (Email)"
-#~ msgstr "SMTP (correo electrónico)"
-
-#~ msgid "Server needs authentication"
-#~ msgstr "El servidor necesita autenticación"
-
-#~ msgid "Reply-To:"
-#~ msgstr "Responder a:"
-
-#~ msgid "SMTP server:"
-#~ msgstr "Servidor SMTP:"
-
-#~ msgid "Username:"
-#~ msgstr "Usuario:"
-
-#~ msgid ""
-#~ "freedb has been set to use HTTP for submissions because the email details "
-#~ "you have entered are incomplete. Please review your email settings and "
-#~ "try again."
-#~ msgstr ""
-#~ "Se ha configurado freedb para que utilice HTTP para los envíos, debido a "
-#~ "que los detalles de correo electrónico que ha introducido están "
-#~ "incompletos. Revise su configuración de correo electrónico e inténtelo de "
-#~ "nuevo."
-
-#~ msgid "Incorrect Email Settings"
-#~ msgstr "Configuración de correo electrónico incorrecta"

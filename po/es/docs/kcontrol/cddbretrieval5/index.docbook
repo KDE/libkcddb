@@ -320,9 +320,47 @@
 >. Esto es práctico si no tiene su propio sistema configurado como servidor. </para>
 
 <para
->Si tiene intención de enviar una entrada CDDB, introduzca su dirección de correo electrónico en la primera área de texto. </para>
+>If you plan to submit a CDDB entry, enter your email address into the first textbox, then you must decide between submitting between &HTTP; and submitting the entry as an email (via &SMTP;). </para>
+
+<tip
+><para
+>It is simpler to submit new entries using &HTTP;. Some firewalls block this traffic. If your firewall prevents you from sending new entries using &HTTP;, you can use &SMTP;.</para
+></tip>
+
+<para
+>First select either <guilabel
+>&HTTP;</guilabel
+> or <guilabel
+>SMTP (Email)</guilabel
+> to determine which protocol to use.</para>
+
+<sect3 id="http-options">
+<title
+>Using &HTTP; to send CDDB information</title>
 <para
 >Puede introducir un nombre de servidor o un número de puerto en las áreas de texto. Si desea enviar esta información a los servidores internacionales, no necesitará cambiar nada.</para>
+</sect3>
+
+<sect3 id="smtp-options">
+<title
+>Using &SMTP; (Email) to send CDDB information</title>
+
+<para
+>To prepare to submit information using email, enter your email address in the text box labeled <guilabel
+>Reply-To:</guilabel
+>, your email server in the text box labeled <guilabel
+>SMTP server:</guilabel
+> and select the port number in the spinbox labeled <guilabel
+>Port:</guilabel
+>.</para>
+<para
+>If you need to use a password to send email using the email server, place a mark in the check box labeled <guilabel
+>Server needs authentication</guilabel
+> and enter your username in the text box labeled <guilabel
+>Username</guilabel
+>.</para>
+
+</sect3>
 </sect2>
 </sect1>
 
