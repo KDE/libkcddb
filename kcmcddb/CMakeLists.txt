@@ -1,6 +1,8 @@
 add_definitions(-DTRANSLATION_DOMAIN="libkcddb")
 
-add_subdirectory(doc)
+if(BUILD_DOC)
+    add_subdirectory(doc)
+endif()
 
 kcoreaddons_add_plugin(kcm_cddb INSTALL_NAMESPACE "plasma/kcms/systemsettings_qwidgets")
 kcmutils_generate_desktop_file(kcm_cddb)
