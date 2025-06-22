@@ -964,12 +964,3 @@ msgstr "Неизвестна грешка"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (диск %2)"
-
-#~ msgid ""
-#~ "CDDB is used to get information like artist, title and song-names in CD's"
-#~ msgstr ""
-#~ "CDDB се използва за получаване на данни за изпълнителя и имената на "
-#~ "албуми и песни в дисковете"
-
-#~ msgid "Negerpunk"
-#~ msgstr "Нигърпънк"
