@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2020-03-19 13:31+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -49,15 +49,120 @@ msgstr "Hautatu ispilua"
 msgid "Select one of these mirrors"
 msgstr "Hautatu ispilu hauetako bat"
 
-#: cddbconfigwidget.cpp:98
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:98 cddbconfigwidget.ui:144
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: cddbconfigwidget.cpp:100
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:100 cddbconfigwidget.ui:139
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
+#: cddbconfigwidget.ui:7
+#, kde-format
+msgid "CDDB Settings"
+msgstr "CDDB-ren ezarpenak"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
+#: cddbconfigwidget.ui:23
+#, kde-format
+msgid "&Lookup"
+msgstr "&Bilaketa"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
+#: cddbconfigwidget.ui:29
+#, kde-format
+msgid "Enable MusicBrainz lookup"
+msgstr "Gaitu MusicBrainz begiratzea"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
+#: cddbconfigwidget.ui:36
+#, kde-format
+msgid "Enable freedb lookup"
+msgstr "Gaitu freedb begiratzea"
+
+#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
+#: cddbconfigwidget.ui:46
+#, kde-format
+msgid "Freedb Server"
+msgstr "Freedb zerbitzaria"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
+#: cddbconfigwidget.ui:61
+#, kde-format
+msgid "Freedb server:"
+msgstr "Freedb zerbitzaria:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:79
+#, kde-format
+msgid "Name of CDDB server which will be used to look up CD information."
+msgstr "CD informazioa bilatzeko erabiliko den CDDB zerbitzariaren izena."
+
+#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:82
+#, kde-format
+msgid "gnudb.gnudb.org"
+msgstr "gnudb.gnudb.org"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#: cddbconfigwidget.ui:95 cddbconfigwidget.ui:260
+#, kde-format
+msgid "Port:"
+msgstr "Ataka:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
+#: cddbconfigwidget.ui:108
+#, kde-format
+msgid "Port to connect to on CDDB server."
+msgstr "CDDB zerbitzariarekin konektatzeko ataka."
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
+#: cddbconfigwidget.ui:123
+#, kde-format
+msgid "&Transport:"
+msgstr "&Garraioa:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.ui:135
+#, kde-format
+msgid "Type of lookup which should be tried at the CDDB server."
+msgstr "CDDB zerbitzarian erabiliko den bilaketa mota."
+
+#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
+#: cddbconfigwidget.ui:152
+#, kde-format
+msgid "Show &Mirror List"
+msgstr "Erakutsi &ispiluen zerrenda"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
+#: cddbconfigwidget.ui:168
+#, kde-format
+msgid "&Submit"
+msgstr "&Bidali"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: cddbconfigwidget.ui:189
+#, kde-format
+msgid "Email address:"
+msgstr "Posta elektronikoa:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: cddbconfigwidget.ui:227
+#, kde-format
+msgid "Submit Method"
+msgstr "Bidalketa metodoa"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: cddbconfigwidget.ui:242
+#, kde-format
+msgid "Server:"
+msgstr "Zerbitzaria:"
 
 #: kcmcddb.cpp:56
 #, kde-format
@@ -66,57 +171,6 @@ msgid ""
 msgstr ""
 "CDDB erabiliko da artista, izenburua eta abestien izenak bezalako "
 "informazioa eskuratzeko."
-
-#~ msgid "CDDB Settings"
-#~ msgstr "CDDB-ren ezarpenak"
-
-#~ msgid "&Lookup"
-#~ msgstr "&Bilaketa"
-
-#~ msgid "Enable MusicBrainz lookup"
-#~ msgstr "Gaitu MusicBrainz begiratzea"
-
-#~ msgid "Enable freedb lookup"
-#~ msgstr "Gaitu freedb begiratzea"
-
-#~ msgid "Freedb Server"
-#~ msgstr "Freedb zerbitzaria"
-
-#~ msgid "Freedb server:"
-#~ msgstr "Freedb zerbitzaria:"
-
-#~ msgid "Name of CDDB server which will be used to look up CD information."
-#~ msgstr "CD informazioa bilatzeko erabiliko den CDDB zerbitzariaren izena."
-
-#~ msgid "gnudb.gnudb.org"
-#~ msgstr "gnudb.gnudb.org"
-
-#~ msgid "Port:"
-#~ msgstr "Ataka:"
-
-#~ msgid "Port to connect to on CDDB server."
-#~ msgstr "CDDB zerbitzariarekin konektatzeko ataka."
-
-#~ msgid "&Transport:"
-#~ msgstr "&Garraioa:"
-
-#~ msgid "Type of lookup which should be tried at the CDDB server."
-#~ msgstr "CDDB zerbitzarian erabiliko den bilaketa mota."
-
-#~ msgid "Show &Mirror List"
-#~ msgstr "Erakutsi &ispiluen zerrenda"
-
-#~ msgid "&Submit"
-#~ msgstr "&Bidali"
-
-#~ msgid "Email address:"
-#~ msgstr "Posta elektronikoa:"
-
-#~ msgid "Submit Method"
-#~ msgstr "Bidalketa metodoa"
-
-#~ msgid "Server:"
-#~ msgstr "Zerbitzaria:"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (posta elektronikoa)"

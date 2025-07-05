@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2024-02-09 19:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -53,15 +53,120 @@ msgstr "Yansı seçin"
 msgid "Select one of these mirrors"
 msgstr "Yansılardan birisini seçin"
 
-#: cddbconfigwidget.cpp:98
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:98 cddbconfigwidget.ui:144
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: cddbconfigwidget.cpp:100
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:100 cddbconfigwidget.ui:139
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
+#: cddbconfigwidget.ui:7
+#, kde-format
+msgid "CDDB Settings"
+msgstr "CDDB Ayarları"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
+#: cddbconfigwidget.ui:23
+#, kde-format
+msgid "&Lookup"
+msgstr "&Bak"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
+#: cddbconfigwidget.ui:29
+#, kde-format
+msgid "Enable MusicBrainz lookup"
+msgstr "MusicBrainz'e bakmayı etkinleştir"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
+#: cddbconfigwidget.ui:36
+#, kde-format
+msgid "Enable freedb lookup"
+msgstr "Freedb'ye bakmayı etkinleştir"
+
+#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
+#: cddbconfigwidget.ui:46
+#, kde-format
+msgid "Freedb Server"
+msgstr "Freedb Sunucusu"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
+#: cddbconfigwidget.ui:61
+#, kde-format
+msgid "Freedb server:"
+msgstr "Freedb sunucusu:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:79
+#, kde-format
+msgid "Name of CDDB server which will be used to look up CD information."
+msgstr "CD bilgisi alınacak CDDB sunucusunun adı."
+
+#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:82
+#, kde-format
+msgid "gnudb.gnudb.org"
+msgstr "gnudb.gnudb.org"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#: cddbconfigwidget.ui:95 cddbconfigwidget.ui:260
+#, kde-format
+msgid "Port:"
+msgstr "Kapı:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
+#: cddbconfigwidget.ui:108
+#, kde-format
+msgid "Port to connect to on CDDB server."
+msgstr "CDDB sunucusuna bağlanmak için kullanılacak kapı."
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
+#: cddbconfigwidget.ui:123
+#, kde-format
+msgid "&Transport:"
+msgstr "&Taşı:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.ui:135
+#, kde-format
+msgid "Type of lookup which should be tried at the CDDB server."
+msgstr "CDDB sunucusundaki arama tipi."
+
+#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
+#: cddbconfigwidget.ui:152
+#, kde-format
+msgid "Show &Mirror List"
+msgstr "Yansı &Listesini Göster"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
+#: cddbconfigwidget.ui:168
+#, kde-format
+msgid "&Submit"
+msgstr "&Gönder"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: cddbconfigwidget.ui:189
+#, kde-format
+msgid "Email address:"
+msgstr "E-posta adresi:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: cddbconfigwidget.ui:227
+#, kde-format
+msgid "Submit Method"
+msgstr "Gönderme Yöntemi"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: cddbconfigwidget.ui:242
+#, kde-format
+msgid "Server:"
+msgstr "Sunucu:"
 
 #: kcmcddb.cpp:56
 #, kde-format
@@ -69,54 +174,3 @@ msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
 msgstr ""
 "CDDB CD’lerdeki sanatçı, şarkı adı, başlık gibi bilgileri almakta kullanılır"
-
-#~ msgid "CDDB Settings"
-#~ msgstr "CDDB Ayarları"
-
-#~ msgid "&Lookup"
-#~ msgstr "&Bak"
-
-#~ msgid "Enable MusicBrainz lookup"
-#~ msgstr "MusicBrainz'e bakmayı etkinleştir"
-
-#~ msgid "Enable freedb lookup"
-#~ msgstr "Freedb'ye bakmayı etkinleştir"
-
-#~ msgid "Freedb Server"
-#~ msgstr "Freedb Sunucusu"
-
-#~ msgid "Freedb server:"
-#~ msgstr "Freedb sunucusu:"
-
-#~ msgid "Name of CDDB server which will be used to look up CD information."
-#~ msgstr "CD bilgisi alınacak CDDB sunucusunun adı."
-
-#~ msgid "gnudb.gnudb.org"
-#~ msgstr "gnudb.gnudb.org"
-
-#~ msgid "Port:"
-#~ msgstr "Kapı:"
-
-#~ msgid "Port to connect to on CDDB server."
-#~ msgstr "CDDB sunucusuna bağlanmak için kullanılacak kapı."
-
-#~ msgid "&Transport:"
-#~ msgstr "&Taşı:"
-
-#~ msgid "Type of lookup which should be tried at the CDDB server."
-#~ msgstr "CDDB sunucusundaki arama tipi."
-
-#~ msgid "Show &Mirror List"
-#~ msgstr "Yansı &Listesini Göster"
-
-#~ msgid "&Submit"
-#~ msgstr "&Gönder"
-
-#~ msgid "Email address:"
-#~ msgstr "E-posta adresi:"
-
-#~ msgid "Submit Method"
-#~ msgstr "Gönderme Yöntemi"
-
-#~ msgid "Server:"
-#~ msgstr "Sunucu:"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia/kcmcddb.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2004-12-03 14:52-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -42,15 +42,122 @@ msgstr "Roghnaigh suíomh scáthánaithe"
 msgid "Select one of these mirrors"
 msgstr "Roghnaigh ceann de na suímh scáthánaithe seo"
 
-#: cddbconfigwidget.cpp:98
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:98 cddbconfigwidget.ui:144
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: cddbconfigwidget.cpp:100
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:100 cddbconfigwidget.ui:139
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
+#: cddbconfigwidget.ui:7
+#, kde-format
+msgid "CDDB Settings"
+msgstr "Socruithe CDDB"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
+#: cddbconfigwidget.ui:23
+#, kde-format
+msgid "&Lookup"
+msgstr "&Cuardach"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
+#: cddbconfigwidget.ui:29
+#, kde-format
+msgid "Enable MusicBrainz lookup"
+msgstr "Cumasaigh cuardach MusicBrainz"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
+#: cddbconfigwidget.ui:36
+#, kde-format
+msgid "Enable freedb lookup"
+msgstr "Cumasaigh cuardach freedb"
+
+#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
+#: cddbconfigwidget.ui:46
+#, kde-format
+msgid "Freedb Server"
+msgstr "Freastalaí Freedb"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
+#: cddbconfigwidget.ui:61
+#, kde-format
+msgid "Freedb server:"
+msgstr "Freastalaí freedb:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:79
+#, kde-format
+msgid "Name of CDDB server which will be used to look up CD information."
+msgstr ""
+"Ainm an fhreastalaí CDDB a úsáidfear chun eolas faoi dhlúthdhioscaí a fháil."
+
+#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:82
+#, kde-format
+msgid "gnudb.gnudb.org"
+msgstr ""
+
+# OK as is
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#: cddbconfigwidget.ui:95 cddbconfigwidget.ui:260
+#, kde-format
+msgid "Port:"
+msgstr "Port:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
+#: cddbconfigwidget.ui:108
+#, kde-format
+msgid "Port to connect to on CDDB server."
+msgstr "Port ar fhreastalaí CDDB lenar mian leat ceangal."
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
+#: cddbconfigwidget.ui:123
+#, kde-format
+msgid "&Transport:"
+msgstr "&Iompar:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.ui:135
+#, kde-format
+msgid "Type of lookup which should be tried at the CDDB server."
+msgstr "Cineál cuardaigh ba chóir a úsáid ag an bhfreastalaí CDDB."
+
+#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
+#: cddbconfigwidget.ui:152
+#, kde-format
+msgid "Show &Mirror List"
+msgstr "Taispeáin Liosta na Suíomh &Scáthánaithe"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
+#: cddbconfigwidget.ui:168
+#, kde-format
+msgid "&Submit"
+msgstr "&Cuir Isteach"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: cddbconfigwidget.ui:189
+#, kde-format
+msgid "Email address:"
+msgstr "Seoladh ríomhphoist:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: cddbconfigwidget.ui:227
+#, kde-format
+msgid "Submit Method"
+msgstr "Modh Curtha Isteach"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: cddbconfigwidget.ui:242
+#, kde-format
+msgid "Server:"
+msgstr "Freastalaí:"
 
 #: kcmcddb.cpp:56
 #, kde-format
@@ -59,57 +166,6 @@ msgid ""
 msgstr ""
 "Úsáidtear CDDB chun eolas a fháil, mar shampla an t-ealaíontóir, teideal "
 "agus ainmneacha na n-amhrán ar dhlúthdhiosca"
-
-#~ msgid "CDDB Settings"
-#~ msgstr "Socruithe CDDB"
-
-#~ msgid "&Lookup"
-#~ msgstr "&Cuardach"
-
-#~ msgid "Enable MusicBrainz lookup"
-#~ msgstr "Cumasaigh cuardach MusicBrainz"
-
-#~ msgid "Enable freedb lookup"
-#~ msgstr "Cumasaigh cuardach freedb"
-
-#~ msgid "Freedb Server"
-#~ msgstr "Freastalaí Freedb"
-
-#~ msgid "Freedb server:"
-#~ msgstr "Freastalaí freedb:"
-
-#~ msgid "Name of CDDB server which will be used to look up CD information."
-#~ msgstr ""
-#~ "Ainm an fhreastalaí CDDB a úsáidfear chun eolas faoi dhlúthdhioscaí a "
-#~ "fháil."
-
-# OK as is
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid "Port to connect to on CDDB server."
-#~ msgstr "Port ar fhreastalaí CDDB lenar mian leat ceangal."
-
-#~ msgid "&Transport:"
-#~ msgstr "&Iompar:"
-
-#~ msgid "Type of lookup which should be tried at the CDDB server."
-#~ msgstr "Cineál cuardaigh ba chóir a úsáid ag an bhfreastalaí CDDB."
-
-#~ msgid "Show &Mirror List"
-#~ msgstr "Taispeáin Liosta na Suíomh &Scáthánaithe"
-
-#~ msgid "&Submit"
-#~ msgstr "&Cuir Isteach"
-
-#~ msgid "Email address:"
-#~ msgstr "Seoladh ríomhphoist:"
-
-#~ msgid "Submit Method"
-#~ msgstr "Modh Curtha Isteach"
-
-#~ msgid "Server:"
-#~ msgstr "Freastalaí:"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (Ríomhphost)"

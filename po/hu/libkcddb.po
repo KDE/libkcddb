@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2020-11-25 22:01+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -41,15 +41,120 @@ msgstr "Válasszon tükörszervert"
 msgid "Select one of these mirrors"
 msgstr "Válassza ki az alábbi tükörszerverek egyikét"
 
-#: kcmcddb/cddbconfigwidget.cpp:98
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: kcmcddb/cddbconfigwidget.cpp:98 kcmcddb/cddbconfigwidget.ui:144
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: kcmcddb/cddbconfigwidget.cpp:100
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: kcmcddb/cddbconfigwidget.cpp:100 kcmcddb/cddbconfigwidget.ui:139
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
+#: kcmcddb/cddbconfigwidget.ui:7
+#, kde-format
+msgid "CDDB Settings"
+msgstr "CDDB beállítások"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
+#: kcmcddb/cddbconfigwidget.ui:23
+#, kde-format
+msgid "&Lookup"
+msgstr "&Keresés"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
+#: kcmcddb/cddbconfigwidget.ui:29
+#, kde-format
+msgid "Enable MusicBrainz lookup"
+msgstr "MusicBrainz keresés bekapcsolása"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
+#: kcmcddb/cddbconfigwidget.ui:36
+#, kde-format
+msgid "Enable freedb lookup"
+msgstr "freedb keresés bekapcsolása"
+
+#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
+#: kcmcddb/cddbconfigwidget.ui:46
+#, kde-format
+msgid "Freedb Server"
+msgstr "Freedb kiszolgáló"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
+#: kcmcddb/cddbconfigwidget.ui:61
+#, kde-format
+msgid "Freedb server:"
+msgstr "Freedb kiszolgáló:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
+#: kcmcddb/cddbconfigwidget.ui:79
+#, kde-format
+msgid "Name of CDDB server which will be used to look up CD information."
+msgstr "A CD-információk letöltéséhez használt CDDB kiszolgáló neve."
+
+#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
+#: kcmcddb/cddbconfigwidget.ui:82
+#, kde-format
+msgid "gnudb.gnudb.org"
+msgstr "gnudb.gnudb.org"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#: kcmcddb/cddbconfigwidget.ui:95 kcmcddb/cddbconfigwidget.ui:260
+#, kde-format
+msgid "Port:"
+msgstr "Port:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
+#: kcmcddb/cddbconfigwidget.ui:108
+#, kde-format
+msgid "Port to connect to on CDDB server."
+msgstr "A CDDB kiszolgáló portja."
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
+#: kcmcddb/cddbconfigwidget.ui:123
+#, kde-format
+msgid "&Transport:"
+msgstr "Á&tvitel:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
+#: kcmcddb/cddbconfigwidget.ui:135
+#, kde-format
+msgid "Type of lookup which should be tried at the CDDB server."
+msgstr "A CDDB kiszolgálón használni kívánt keresési mód."
+
+#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
+#: kcmcddb/cddbconfigwidget.ui:152
+#, kde-format
+msgid "Show &Mirror List"
+msgstr "Tükörszerverek listájának &megjelenítése"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
+#: kcmcddb/cddbconfigwidget.ui:168
+#, kde-format
+msgid "&Submit"
+msgstr "&Elküldés"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: kcmcddb/cddbconfigwidget.ui:189
+#, kde-format
+msgid "Email address:"
+msgstr "E-mail cím:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: kcmcddb/cddbconfigwidget.ui:227
+#, kde-format
+msgid "Submit Method"
+msgstr "Küldési mód"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: kcmcddb/cddbconfigwidget.ui:242
+#, kde-format
+msgid "Server:"
+msgstr "Kiszolgáló:"
 
 #: kcmcddb/kcmcddb.cpp:56
 #, kde-format
@@ -865,57 +970,6 @@ msgstr "Ismeretlen hiba"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (%2. lemez)"
-
-#~ msgid "CDDB Settings"
-#~ msgstr "CDDB beállítások"
-
-#~ msgid "&Lookup"
-#~ msgstr "&Keresés"
-
-#~ msgid "Enable MusicBrainz lookup"
-#~ msgstr "MusicBrainz keresés bekapcsolása"
-
-#~ msgid "Enable freedb lookup"
-#~ msgstr "freedb keresés bekapcsolása"
-
-#~ msgid "Freedb Server"
-#~ msgstr "Freedb kiszolgáló"
-
-#~ msgid "Freedb server:"
-#~ msgstr "Freedb kiszolgáló:"
-
-#~ msgid "Name of CDDB server which will be used to look up CD information."
-#~ msgstr "A CD-információk letöltéséhez használt CDDB kiszolgáló neve."
-
-#~ msgid "gnudb.gnudb.org"
-#~ msgstr "gnudb.gnudb.org"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid "Port to connect to on CDDB server."
-#~ msgstr "A CDDB kiszolgáló portja."
-
-#~ msgid "&Transport:"
-#~ msgstr "Á&tvitel:"
-
-#~ msgid "Type of lookup which should be tried at the CDDB server."
-#~ msgstr "A CDDB kiszolgálón használni kívánt keresési mód."
-
-#~ msgid "Show &Mirror List"
-#~ msgstr "Tükörszerverek listájának &megjelenítése"
-
-#~ msgid "&Submit"
-#~ msgstr "&Elküldés"
-
-#~ msgid "Email address:"
-#~ msgstr "E-mail cím:"
-
-#~ msgid "Submit Method"
-#~ msgstr "Küldési mód"
-
-#~ msgid "Server:"
-#~ msgstr "Kiszolgáló:"
 
 #~ msgid "Negerpunk"
 #~ msgstr "Fekete punk"

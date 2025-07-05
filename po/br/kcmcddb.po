@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia/kcmcddb.pot\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2004-09-20 15:44+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud@mandriva.com>\n"
 "Language-Team: br <LL@li.org>\n"
@@ -39,61 +39,128 @@ msgstr "Dibabit ur melezour"
 msgid "Select one of these mirrors"
 msgstr "Dibabit unan eus ar melezouroù-mañ"
 
-#: cddbconfigwidget.cpp:98
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:98 cddbconfigwidget.ui:144
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: cddbconfigwidget.cpp:100
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:100 cddbconfigwidget.ui:139
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
+#: cddbconfigwidget.ui:7
+#, kde-format
+msgid "CDDB Settings"
+msgstr "Dibarzhoù CDDB"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
+#: cddbconfigwidget.ui:23
+#, kde-format
+msgid "&Lookup"
+msgstr "&Klask"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
+#: cddbconfigwidget.ui:29
+#, kde-format
+msgid "Enable MusicBrainz lookup"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
+#: cddbconfigwidget.ui:36
+#, kde-format
+msgid "Enable freedb lookup"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
+#: cddbconfigwidget.ui:46
+#, fuzzy, kde-format
+#| msgid "SMTP server:"
+msgid "Freedb Server"
+msgstr "Servijer SMTP :"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
+#: cddbconfigwidget.ui:61
+#, fuzzy, kde-format
+#| msgid "SMTP server:"
+msgid "Freedb server:"
+msgstr "Servijer SMTP :"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:79
+#, kde-format
+msgid "Name of CDDB server which will be used to look up CD information."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:82
+#, kde-format
+msgid "gnudb.gnudb.org"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#: cddbconfigwidget.ui:95 cddbconfigwidget.ui:260
+#, kde-format
+msgid "Port:"
+msgstr "Porzh :"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
+#: cddbconfigwidget.ui:108
+#, kde-format
+msgid "Port to connect to on CDDB server."
+msgstr "Porzh da gevreañ ouzh war ar servijer CDDB."
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
+#: cddbconfigwidget.ui:123
+#, kde-format
+msgid "&Transport:"
+msgstr "&Doug :"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.ui:135
+#, kde-format
+msgid "Type of lookup which should be tried at the CDDB server."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
+#: cddbconfigwidget.ui:152
+#, kde-format
+msgid "Show &Mirror List"
+msgstr "Diskouez roll ar &melezourioù"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
+#: cddbconfigwidget.ui:168
+#, kde-format
+msgid "&Submit"
+msgstr "&Kas"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: cddbconfigwidget.ui:189
+#, kde-format
+msgid "Email address:"
+msgstr "Chomlec'h postel :"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: cddbconfigwidget.ui:227
+#, kde-format
+msgid "Submit Method"
+msgstr "Kas an hantenn"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: cddbconfigwidget.ui:242
+#, kde-format
+msgid "Server:"
+msgstr "Servijer :"
 
 #: kcmcddb.cpp:56
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
 msgstr ""
-
-#~ msgid "CDDB Settings"
-#~ msgstr "Dibarzhoù CDDB"
-
-#~ msgid "&Lookup"
-#~ msgstr "&Klask"
-
-#, fuzzy
-#~| msgid "SMTP server:"
-#~ msgid "Freedb Server"
-#~ msgstr "Servijer SMTP :"
-
-#, fuzzy
-#~| msgid "SMTP server:"
-#~ msgid "Freedb server:"
-#~ msgstr "Servijer SMTP :"
-
-#~ msgid "Port:"
-#~ msgstr "Porzh :"
-
-#~ msgid "Port to connect to on CDDB server."
-#~ msgstr "Porzh da gevreañ ouzh war ar servijer CDDB."
-
-#~ msgid "&Transport:"
-#~ msgstr "&Doug :"
-
-#~ msgid "Show &Mirror List"
-#~ msgstr "Diskouez roll ar &melezourioù"
-
-#~ msgid "&Submit"
-#~ msgstr "&Kas"
-
-#~ msgid "Email address:"
-#~ msgstr "Chomlec'h postel :"
-
-#~ msgid "Submit Method"
-#~ msgstr "Kas an hantenn"
-
-#~ msgid "Server:"
-#~ msgstr "Servijer :"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (Postel)"

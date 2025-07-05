@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2020-03-14 11:36+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -44,15 +44,120 @@ msgstr "Peegli valimine"
 msgid "Select one of these mirrors"
 msgstr "Vali üks neist peegelitest"
 
-#: cddbconfigwidget.cpp:98
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:98 cddbconfigwidget.ui:144
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: cddbconfigwidget.cpp:100
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:100 cddbconfigwidget.ui:139
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
+#: cddbconfigwidget.ui:7
+#, kde-format
+msgid "CDDB Settings"
+msgstr "CDDB seadistused"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
+#: cddbconfigwidget.ui:23
+#, kde-format
+msgid "&Lookup"
+msgstr "&Otsimine"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
+#: cddbconfigwidget.ui:29
+#, kde-format
+msgid "Enable MusicBrainz lookup"
+msgstr "MusicBrainzi otsingu lubamine"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
+#: cddbconfigwidget.ui:36
+#, kde-format
+msgid "Enable freedb lookup"
+msgstr "freedb otsingu lubamine"
+
+#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
+#: cddbconfigwidget.ui:46
+#, kde-format
+msgid "Freedb Server"
+msgstr "Freedb server"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
+#: cddbconfigwidget.ui:61
+#, kde-format
+msgid "Freedb server:"
+msgstr "Freedb server:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:79
+#, kde-format
+msgid "Name of CDDB server which will be used to look up CD information."
+msgstr "CDDB serveri nimi, mida kasutatakse CD info otsimiseks."
+
+#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:82
+#, kde-format
+msgid "gnudb.gnudb.org"
+msgstr "gnudb.gnudb.org"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#: cddbconfigwidget.ui:95 cddbconfigwidget.ui:260
+#, kde-format
+msgid "Port:"
+msgstr "Port:"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
+#: cddbconfigwidget.ui:108
+#, kde-format
+msgid "Port to connect to on CDDB server."
+msgstr "CDDB serveri port."
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
+#: cddbconfigwidget.ui:123
+#, kde-format
+msgid "&Transport:"
+msgstr "&Transport:"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.ui:135
+#, kde-format
+msgid "Type of lookup which should be tried at the CDDB server."
+msgstr "CDDB serverisse tehtava otsingu tüüp."
+
+#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
+#: cddbconfigwidget.ui:152
+#, kde-format
+msgid "Show &Mirror List"
+msgstr "Näita peeglite ni&mekirja"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
+#: cddbconfigwidget.ui:168
+#, kde-format
+msgid "&Submit"
+msgstr "&Info saatmine"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: cddbconfigwidget.ui:189
+#, kde-format
+msgid "Email address:"
+msgstr "E-posti aadress:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: cddbconfigwidget.ui:227
+#, kde-format
+msgid "Submit Method"
+msgstr "Saatmise meetod"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: cddbconfigwidget.ui:242
+#, kde-format
+msgid "Server:"
+msgstr "Server:"
 
 #: kcmcddb.cpp:56
 #, kde-format
@@ -61,57 +166,6 @@ msgid ""
 msgstr ""
 "CDDB-d kasutatakse info (näiteks CD esitaja, pealkiri, lugude nimed) "
 "hankimiseks"
-
-#~ msgid "CDDB Settings"
-#~ msgstr "CDDB seadistused"
-
-#~ msgid "&Lookup"
-#~ msgstr "&Otsimine"
-
-#~ msgid "Enable MusicBrainz lookup"
-#~ msgstr "MusicBrainzi otsingu lubamine"
-
-#~ msgid "Enable freedb lookup"
-#~ msgstr "freedb otsingu lubamine"
-
-#~ msgid "Freedb Server"
-#~ msgstr "Freedb server"
-
-#~ msgid "Freedb server:"
-#~ msgstr "Freedb server:"
-
-#~ msgid "Name of CDDB server which will be used to look up CD information."
-#~ msgstr "CDDB serveri nimi, mida kasutatakse CD info otsimiseks."
-
-#~ msgid "gnudb.gnudb.org"
-#~ msgstr "gnudb.gnudb.org"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid "Port to connect to on CDDB server."
-#~ msgstr "CDDB serveri port."
-
-#~ msgid "&Transport:"
-#~ msgstr "&Transport:"
-
-#~ msgid "Type of lookup which should be tried at the CDDB server."
-#~ msgstr "CDDB serverisse tehtava otsingu tüüp."
-
-#~ msgid "Show &Mirror List"
-#~ msgstr "Näita peeglite ni&mekirja"
-
-#~ msgid "&Submit"
-#~ msgstr "&Info saatmine"
-
-#~ msgid "Email address:"
-#~ msgstr "E-posti aadress:"
-
-#~ msgid "Submit Method"
-#~ msgstr "Saatmise meetod"
-
-#~ msgid "Server:"
-#~ msgstr "Server:"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (e-post)"

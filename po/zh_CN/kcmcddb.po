@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2024-04-23 19:31\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -42,69 +42,123 @@ msgstr "选择镜像"
 msgid "Select one of these mirrors"
 msgstr "选择下列镜像之一"
 
-#: cddbconfigwidget.cpp:98
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:98 cddbconfigwidget.ui:144
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: cddbconfigwidget.cpp:100
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.cpp:100 cddbconfigwidget.ui:139
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
+#: cddbconfigwidget.ui:7
+#, kde-format
+msgid "CDDB Settings"
+msgstr "CDDB 设置"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
+#: cddbconfigwidget.ui:23
+#, kde-format
+msgid "&Lookup"
+msgstr "查阅(&L)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
+#: cddbconfigwidget.ui:29
+#, kde-format
+msgid "Enable MusicBrainz lookup"
+msgstr "启用 MusicBrainz 查询"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
+#: cddbconfigwidget.ui:36
+#, kde-format
+msgid "Enable freedb lookup"
+msgstr "启用 freedb 查询"
+
+#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
+#: cddbconfigwidget.ui:46
+#, kde-format
+msgid "Freedb Server"
+msgstr "Freedb 服务器"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
+#: cddbconfigwidget.ui:61
+#, kde-format
+msgid "Freedb server:"
+msgstr "Freedb 服务器："
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:79
+#, kde-format
+msgid "Name of CDDB server which will be used to look up CD information."
+msgstr "用于查找 CD 信息的 CDDB 服务器。"
+
+#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
+#: cddbconfigwidget.ui:82
+#, kde-format
+msgid "gnudb.gnudb.org"
+msgstr "gnudb.gnudb.org"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#: cddbconfigwidget.ui:95 cddbconfigwidget.ui:260
+#, kde-format
+msgid "Port:"
+msgstr "端口："
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
+#: cddbconfigwidget.ui:108
+#, kde-format
+msgid "Port to connect to on CDDB server."
+msgstr "连接到 CDDB 服务器的端口。"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
+#: cddbconfigwidget.ui:123
+#, kde-format
+msgid "&Transport:"
+msgstr "传输方式(&T)："
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
+#: cddbconfigwidget.ui:135
+#, kde-format
+msgid "Type of lookup which should be tried at the CDDB server."
+msgstr "要在 CDDB 服务器尝试的查找协议。"
+
+#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
+#: cddbconfigwidget.ui:152
+#, kde-format
+msgid "Show &Mirror List"
+msgstr "显示镜像列表(&M)"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
+#: cddbconfigwidget.ui:168
+#, kde-format
+msgid "&Submit"
+msgstr "提交(&S)"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: cddbconfigwidget.ui:189
+#, kde-format
+msgid "Email address:"
+msgstr "电子邮件地址："
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: cddbconfigwidget.ui:227
+#, kde-format
+msgid "Submit Method"
+msgstr "提交方式"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: cddbconfigwidget.ui:242
+#, kde-format
+msgid "Server:"
+msgstr "服务器："
 
 #: kcmcddb.cpp:56
 #, kde-format
 msgid ""
 "CDDB is used to get information like artist, title and song-names in CD's"
 msgstr "CDDB 用于获取 CD 中的艺人、标题及歌名等信息"
-
-#~ msgid "CDDB Settings"
-#~ msgstr "CDDB 设置"
-
-#~ msgid "&Lookup"
-#~ msgstr "查阅(&L)"
-
-#~ msgid "Enable MusicBrainz lookup"
-#~ msgstr "启用 MusicBrainz 查询"
-
-#~ msgid "Enable freedb lookup"
-#~ msgstr "启用 freedb 查询"
-
-#~ msgid "Freedb Server"
-#~ msgstr "Freedb 服务器"
-
-#~ msgid "Freedb server:"
-#~ msgstr "Freedb 服务器："
-
-#~ msgid "Name of CDDB server which will be used to look up CD information."
-#~ msgstr "用于查找 CD 信息的 CDDB 服务器。"
-
-#~ msgid "gnudb.gnudb.org"
-#~ msgstr "gnudb.gnudb.org"
-
-#~ msgid "Port:"
-#~ msgstr "端口："
-
-#~ msgid "Port to connect to on CDDB server."
-#~ msgstr "连接到 CDDB 服务器的端口。"
-
-#~ msgid "&Transport:"
-#~ msgstr "传输方式(&T)："
-
-#~ msgid "Type of lookup which should be tried at the CDDB server."
-#~ msgstr "要在 CDDB 服务器尝试的查找协议。"
-
-#~ msgid "Show &Mirror List"
-#~ msgstr "显示镜像列表(&M)"
-
-#~ msgid "&Submit"
-#~ msgstr "提交(&S)"
-
-#~ msgid "Email address:"
-#~ msgstr "电子邮件地址："
-
-#~ msgid "Submit Method"
-#~ msgstr "提交方式"
-
-#~ msgid "Server:"
-#~ msgstr "服务器："
