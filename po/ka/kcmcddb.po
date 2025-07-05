@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 01:55+0000\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2022-11-16 08:25+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -43,121 +43,15 @@ msgstr "აირჩიეთ სარკე"
 msgid "Select one of these mirrors"
 msgstr "აირჩიეთ ერთ-ერთი სარკე"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: cddbconfigwidget.cpp:98 cddbconfigwidget.ui:144
+#: cddbconfigwidget.cpp:98
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: cddbconfigwidget.cpp:100 cddbconfigwidget.ui:139
+#: cddbconfigwidget.cpp:100
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
-#: cddbconfigwidget.ui:7
-#, kde-format
-msgid "CDDB Settings"
-msgstr "CDDB-ის მორგება"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
-#: cddbconfigwidget.ui:23
-#, kde-format
-msgid "&Lookup"
-msgstr "&მოძებნა"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
-#: cddbconfigwidget.ui:29
-#, kde-format
-msgid "Enable MusicBrainz lookup"
-msgstr "MusicBrainz -ით ძებნის ჩართვა"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
-#: cddbconfigwidget.ui:36
-#, kde-format
-msgid "Enable freedb lookup"
-msgstr "FreeDB-ით ძებნის ჩართვა"
-
-#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
-#: cddbconfigwidget.ui:46
-#, kde-format
-msgid "Freedb Server"
-msgstr "Freedb -ის სერვერი"
-
-#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
-#: cddbconfigwidget.ui:61
-#, kde-format
-msgid "Freedb server:"
-msgstr "Freedb -ის სერვერი:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
-#: cddbconfigwidget.ui:79
-#, kde-format
-msgid "Name of CDDB server which will be used to look up CD information."
-msgstr ""
-"CDDB სერვერის მისამართი, რომელიც CD-ის ინფორმაციის მოსაძებნად გამოიყენება."
-
-#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
-#: cddbconfigwidget.ui:82
-#, kde-format
-msgid "gnudb.gnudb.org"
-msgstr "gnudb.gnudb.org"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#: cddbconfigwidget.ui:95 cddbconfigwidget.ui:260
-#, kde-format
-msgid "Port:"
-msgstr "პორტი:"
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
-#: cddbconfigwidget.ui:108
-#, kde-format
-msgid "Port to connect to on CDDB server."
-msgstr "CDDB სერვერთან მისაერთებელი პორტი."
-
-#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
-#: cddbconfigwidget.ui:123
-#, kde-format
-msgid "&Transport:"
-msgstr "&ტრანსპორტი:"
-
-#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
-#: cddbconfigwidget.ui:135
-#, kde-format
-msgid "Type of lookup which should be tried at the CDDB server."
-msgstr "CDDB სერვერზე ძებნის მეთოდები."
-
-#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
-#: cddbconfigwidget.ui:152
-#, kde-format
-msgid "Show &Mirror List"
-msgstr "&სარკეების სიის ჩვენება"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
-#: cddbconfigwidget.ui:168
-#, kde-format
-msgid "&Submit"
-msgstr "&გადაცემა"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: cddbconfigwidget.ui:189
-#, kde-format
-msgid "Email address:"
-msgstr "ელფოსტის მისამართი:"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: cddbconfigwidget.ui:227
-#, kde-format
-msgid "Submit Method"
-msgstr "გადაცემის მეთოდი"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: cddbconfigwidget.ui:242
-#, kde-format
-msgid "Server:"
-msgstr "სერვერი:"
 
 #: kcmcddb.cpp:56
 #, kde-format
@@ -166,6 +60,58 @@ msgid ""
 msgstr ""
 "CDDB გამოიყენება CD-ების შესახებ ისეთი ინფორმაციის მისაღებად, როგორიცაა "
 "შემსრულებელი, სათაური და ა.შ"
+
+#~ msgid "CDDB Settings"
+#~ msgstr "CDDB-ის მორგება"
+
+#~ msgid "&Lookup"
+#~ msgstr "&მოძებნა"
+
+#~ msgid "Enable MusicBrainz lookup"
+#~ msgstr "MusicBrainz -ით ძებნის ჩართვა"
+
+#~ msgid "Enable freedb lookup"
+#~ msgstr "FreeDB-ით ძებნის ჩართვა"
+
+#~ msgid "Freedb Server"
+#~ msgstr "Freedb -ის სერვერი"
+
+#~ msgid "Freedb server:"
+#~ msgstr "Freedb -ის სერვერი:"
+
+#~ msgid "Name of CDDB server which will be used to look up CD information."
+#~ msgstr ""
+#~ "CDDB სერვერის მისამართი, რომელიც CD-ის ინფორმაციის მოსაძებნად გამოიყენება."
+
+#~ msgid "gnudb.gnudb.org"
+#~ msgstr "gnudb.gnudb.org"
+
+#~ msgid "Port:"
+#~ msgstr "პორტი:"
+
+#~ msgid "Port to connect to on CDDB server."
+#~ msgstr "CDDB სერვერთან მისაერთებელი პორტი."
+
+#~ msgid "&Transport:"
+#~ msgstr "&ტრანსპორტი:"
+
+#~ msgid "Type of lookup which should be tried at the CDDB server."
+#~ msgstr "CDDB სერვერზე ძებნის მეთოდები."
+
+#~ msgid "Show &Mirror List"
+#~ msgstr "&სარკეების სიის ჩვენება"
+
+#~ msgid "&Submit"
+#~ msgstr "&გადაცემა"
+
+#~ msgid "Email address:"
+#~ msgstr "ელფოსტის მისამართი:"
+
+#~ msgid "Submit Method"
+#~ msgstr "გადაცემის მეთოდი"
+
+#~ msgid "Server:"
+#~ msgstr "სერვერი:"
 
 #~ msgid "SMTP (Email)"
 #~ msgstr "SMTP (ელფოსტა)"

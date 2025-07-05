@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 04:11+0000\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2013-09-08 07:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -43,120 +43,15 @@ msgstr "تەسۋىر تاللاڭ"
 msgid "Select one of these mirrors"
 msgstr "بۇ تەسۋىرلەردىن بىرنى تاللاڭ"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: kcmcddb/cddbconfigwidget.cpp:98 kcmcddb/cddbconfigwidget.ui:144
+#: kcmcddb/cddbconfigwidget.cpp:98
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: kcmcddb/cddbconfigwidget.cpp:100 kcmcddb/cddbconfigwidget.ui:139
+#: kcmcddb/cddbconfigwidget.cpp:100
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
-#: kcmcddb/cddbconfigwidget.ui:7
-#, kde-format
-msgid "CDDB Settings"
-msgstr "CDDB تەڭشىكى"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
-#: kcmcddb/cddbconfigwidget.ui:23
-#, kde-format
-msgid "&Lookup"
-msgstr "ئىزدە(&L)"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
-#: kcmcddb/cddbconfigwidget.ui:29
-#, kde-format
-msgid "Enable MusicBrainz lookup"
-msgstr "MusicBrainz ئىزدەشنى قوزغات"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
-#: kcmcddb/cddbconfigwidget.ui:36
-#, kde-format
-msgid "Enable freedb lookup"
-msgstr "freedb ئىزدەشنى قوزغات"
-
-#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
-#: kcmcddb/cddbconfigwidget.ui:46
-#, kde-format
-msgid "Freedb Server"
-msgstr "Freedb مۇلازىمېتىر"
-
-#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
-#: kcmcddb/cddbconfigwidget.ui:61
-#, kde-format
-msgid "Freedb server:"
-msgstr "Freedb مۇلازىمېتىر:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
-#: kcmcddb/cddbconfigwidget.ui:79
-#, kde-format
-msgid "Name of CDDB server which will be used to look up CD information."
-msgstr "CD ئۇچۇرىنى ئىزدەشكە ئىشلىتىدىغانCDDB مۇلازىمېتىر."
-
-#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
-#: kcmcddb/cddbconfigwidget.ui:82
-#, kde-format
-msgid "gnudb.gnudb.org"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#: kcmcddb/cddbconfigwidget.ui:95 kcmcddb/cddbconfigwidget.ui:260
-#, kde-format
-msgid "Port:"
-msgstr "ئېغىز:"
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
-#: kcmcddb/cddbconfigwidget.ui:108
-#, kde-format
-msgid "Port to connect to on CDDB server."
-msgstr "CDDB مۇلازىمېتىرغا باغلىنىدىغان ئېغىز:"
-
-#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
-#: kcmcddb/cddbconfigwidget.ui:123
-#, kde-format
-msgid "&Transport:"
-msgstr "يوللاش(&T):"
-
-#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
-#: kcmcddb/cddbconfigwidget.ui:135
-#, kde-format
-msgid "Type of lookup which should be tried at the CDDB server."
-msgstr "CDDB مۇلازىمېتىردا سىنايدىغان ئىزدەش تىپى:"
-
-#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
-#: kcmcddb/cddbconfigwidget.ui:152
-#, kde-format
-msgid "Show &Mirror List"
-msgstr "تەسۋىر تىزىمىنى كۆرسەت(&M)"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
-#: kcmcddb/cddbconfigwidget.ui:168
-#, kde-format
-msgid "&Submit"
-msgstr "تاپشۇر(&S)"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: kcmcddb/cddbconfigwidget.ui:189
-#, kde-format
-msgid "Email address:"
-msgstr "ئېلخەت مەنزىل:"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: kcmcddb/cddbconfigwidget.ui:227
-#, kde-format
-msgid "Submit Method"
-msgstr "تاپشۇرۇش ئۇسۇلى:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: kcmcddb/cddbconfigwidget.ui:242
-#, kde-format
-msgid "Server:"
-msgstr "مۇلازىمېتىر:"
 
 #: kcmcddb/kcmcddb.cpp:56
 #, kde-format
@@ -972,6 +867,54 @@ msgstr "نامەلۇم خاتالىق"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (دىسكا %2)"
+
+#~ msgid "CDDB Settings"
+#~ msgstr "CDDB تەڭشىكى"
+
+#~ msgid "&Lookup"
+#~ msgstr "ئىزدە(&L)"
+
+#~ msgid "Enable MusicBrainz lookup"
+#~ msgstr "MusicBrainz ئىزدەشنى قوزغات"
+
+#~ msgid "Enable freedb lookup"
+#~ msgstr "freedb ئىزدەشنى قوزغات"
+
+#~ msgid "Freedb Server"
+#~ msgstr "Freedb مۇلازىمېتىر"
+
+#~ msgid "Freedb server:"
+#~ msgstr "Freedb مۇلازىمېتىر:"
+
+#~ msgid "Name of CDDB server which will be used to look up CD information."
+#~ msgstr "CD ئۇچۇرىنى ئىزدەشكە ئىشلىتىدىغانCDDB مۇلازىمېتىر."
+
+#~ msgid "Port:"
+#~ msgstr "ئېغىز:"
+
+#~ msgid "Port to connect to on CDDB server."
+#~ msgstr "CDDB مۇلازىمېتىرغا باغلىنىدىغان ئېغىز:"
+
+#~ msgid "&Transport:"
+#~ msgstr "يوللاش(&T):"
+
+#~ msgid "Type of lookup which should be tried at the CDDB server."
+#~ msgstr "CDDB مۇلازىمېتىردا سىنايدىغان ئىزدەش تىپى:"
+
+#~ msgid "Show &Mirror List"
+#~ msgstr "تەسۋىر تىزىمىنى كۆرسەت(&M)"
+
+#~ msgid "&Submit"
+#~ msgstr "تاپشۇر(&S)"
+
+#~ msgid "Email address:"
+#~ msgstr "ئېلخەت مەنزىل:"
+
+#~ msgid "Submit Method"
+#~ msgstr "تاپشۇرۇش ئۇسۇلى:"
+
+#~ msgid "Server:"
+#~ msgstr "مۇلازىمېتىر:"
 
 #~ msgid "Negerpunk"
 #~ msgstr "نېگىر پاڭك"

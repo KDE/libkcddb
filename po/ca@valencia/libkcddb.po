@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 04:11+0000\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2025-03-10 08:41+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -47,120 +47,15 @@ msgstr "Seleccioneu una rèplica"
 msgid "Select one of these mirrors"
 msgstr "Seleccioneu una d'estes rèpliques"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: kcmcddb/cddbconfigwidget.cpp:98 kcmcddb/cddbconfigwidget.ui:144
+#: kcmcddb/cddbconfigwidget.cpp:98
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
-#: kcmcddb/cddbconfigwidget.cpp:100 kcmcddb/cddbconfigwidget.ui:139
+#: kcmcddb/cddbconfigwidget.cpp:100
 #, kde-format
 msgid "CDDB"
 msgstr "CDDB"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, CDDBConfigWidgetBase)
-#: kcmcddb/cddbconfigwidget.ui:7
-#, kde-format
-msgid "CDDB Settings"
-msgstr "Paràmetres de CDDB"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tabLookup)
-#: kcmcddb/cddbconfigwidget.ui:23
-#, kde-format
-msgid "&Lookup"
-msgstr "Bu&sca"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_MusicBrainzLookupEnabled)
-#: kcmcddb/cddbconfigwidget.ui:29
-#, kde-format
-msgid "Enable MusicBrainz lookup"
-msgstr "Activa la busca a MusicBrainz"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FreedbLookupEnabled)
-#: kcmcddb/cddbconfigwidget.ui:36
-#, kde-format
-msgid "Enable freedb lookup"
-msgstr "Activa la busca a freedb"
-
-#. i18n: ectx: property (title), widget (QGroupBox, freedbServerBox)
-#: kcmcddb/cddbconfigwidget.ui:46
-#, kde-format
-msgid "Freedb Server"
-msgstr "Servidor del freedb"
-
-#. i18n: ectx: property (text), widget (QLabel, TextLabel7)
-#: kcmcddb/cddbconfigwidget.ui:61
-#, kde-format
-msgid "Freedb server:"
-msgstr "Servidor del freedb:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, kcfg_hostname)
-#: kcmcddb/cddbconfigwidget.ui:79
-#, kde-format
-msgid "Name of CDDB server which will be used to look up CD information."
-msgstr "Nom del servidor CDDB que s'emprarà per a buscar la informació del CD."
-
-#. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
-#: kcmcddb/cddbconfigwidget.ui:82
-#, kde-format
-msgid "gnudb.gnudb.org"
-msgstr "gnudb.gnudb.org"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#: kcmcddb/cddbconfigwidget.ui:95 kcmcddb/cddbconfigwidget.ui:260
-#, kde-format
-msgid "Port:"
-msgstr "Port:"
-
-#. i18n: ectx: property (whatsThis), widget (QSpinBox, kcfg_port)
-#: kcmcddb/cddbconfigwidget.ui:108
-#, kde-format
-msgid "Port to connect to on CDDB server."
-msgstr "Port de connexió amb el servidor CDDB."
-
-#. i18n: ectx: property (text), widget (QLabel, TextLabel9)
-#: kcmcddb/cddbconfigwidget.ui:123
-#, kde-format
-msgid "&Transport:"
-msgstr "&Transport:"
-
-#. i18n: ectx: property (whatsThis), widget (QComboBox, kcfg_FreedbLookupTransport)
-#: kcmcddb/cddbconfigwidget.ui:135
-#, kde-format
-msgid "Type of lookup which should be tried at the CDDB server."
-msgstr "Tipus de busca que s'hauria d'intentar en el servidor CDDB."
-
-#. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
-#: kcmcddb/cddbconfigwidget.ui:152
-#, kde-format
-msgid "Show &Mirror List"
-msgstr "&Mostra la llista de rèpliques"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tabSubmit)
-#: kcmcddb/cddbconfigwidget.ui:168
-#, kde-format
-msgid "&Submit"
-msgstr "&Envia"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: kcmcddb/cddbconfigwidget.ui:189
-#, kde-format
-msgid "Email address:"
-msgstr "Adreça de correu electrònic:"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: kcmcddb/cddbconfigwidget.ui:227
-#, kde-format
-msgid "Submit Method"
-msgstr "Mètode d'enviament"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: kcmcddb/cddbconfigwidget.ui:242
-#, kde-format
-msgid "Server:"
-msgstr "Servidor:"
 
 #: kcmcddb/kcmcddb.cpp:56
 #, kde-format
@@ -976,3 +871,55 @@ msgstr "S'ha produït un error desconegut"
 #, kde-format
 msgid "%1 (disc %2)"
 msgstr "%1 (disc %2)"
+
+#~ msgid "CDDB Settings"
+#~ msgstr "Paràmetres de CDDB"
+
+#~ msgid "&Lookup"
+#~ msgstr "Bu&sca"
+
+#~ msgid "Enable MusicBrainz lookup"
+#~ msgstr "Activa la busca a MusicBrainz"
+
+#~ msgid "Enable freedb lookup"
+#~ msgstr "Activa la busca a freedb"
+
+#~ msgid "Freedb Server"
+#~ msgstr "Servidor del freedb"
+
+#~ msgid "Freedb server:"
+#~ msgstr "Servidor del freedb:"
+
+#~ msgid "Name of CDDB server which will be used to look up CD information."
+#~ msgstr ""
+#~ "Nom del servidor CDDB que s'emprarà per a buscar la informació del CD."
+
+#~ msgid "gnudb.gnudb.org"
+#~ msgstr "gnudb.gnudb.org"
+
+#~ msgid "Port:"
+#~ msgstr "Port:"
+
+#~ msgid "Port to connect to on CDDB server."
+#~ msgstr "Port de connexió amb el servidor CDDB."
+
+#~ msgid "&Transport:"
+#~ msgstr "&Transport:"
+
+#~ msgid "Type of lookup which should be tried at the CDDB server."
+#~ msgstr "Tipus de busca que s'hauria d'intentar en el servidor CDDB."
+
+#~ msgid "Show &Mirror List"
+#~ msgstr "&Mostra la llista de rèpliques"
+
+#~ msgid "&Submit"
+#~ msgstr "&Envia"
+
+#~ msgid "Email address:"
+#~ msgstr "Adreça de correu electrònic:"
+
+#~ msgid "Submit Method"
+#~ msgstr "Mètode d'enviament"
+
+#~ msgid "Server:"
+#~ msgstr "Servidor:"
