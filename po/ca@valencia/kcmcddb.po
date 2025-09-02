@@ -40,12 +40,12 @@ msgstr "No s'ha pogut recuperar"
 #: cddbconfigwidget.cpp:80
 #, kde-format
 msgid "Select mirror"
-msgstr "Seleccioneu una rèplica"
+msgstr "Trieu una rèplica"
 
 #: cddbconfigwidget.cpp:81
 #, kde-format
 msgid "Select one of these mirrors"
-msgstr "Seleccioneu una d'estes rèpliques"
+msgstr "Trieu una d'estes rèpliques"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_FreedbLookupTransport)
 #: cddbconfigwidget.cpp:98 cddbconfigwidget.ui:144
@@ -161,9 +161,3 @@ msgstr "Mètode d'enviament"
 #, kde-format
 msgid "Server:"
 msgstr "Servidor:"
-
-#~ msgid ""
-#~ "CDDB is used to get information like artist, title and song-names in CD's"
-#~ msgstr ""
-#~ "CDDB s'utilitza per a aconseguir la informació com l'artista, títol i "
-#~ "noms de les cançons dels CD"
