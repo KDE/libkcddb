@@ -1,20 +1,20 @@
 # translation of libkcddb.po to Icelandic
 #
 # Stígur Snæsson <stigur@vortex.is>, 2004.
-# Sveinn í Felli <sveinki@nett.is>, 2013, 2020.
+# SPDX-FileCopyrightText: 2013, 2020, 2025 Sveinn í Felli <sveinki@nett.is>
 msgid ""
 msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-18 00:42+0000\n"
-"PO-Revision-Date: 2020-04-04 14:44+0000\n"
-"Last-Translator: Sveinn í Felli <sv@fellsnet.is>\n"
-"Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2025-10-08 09:25+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 23.08.5\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
@@ -641,10 +641,9 @@ msgid "Native American"
 msgstr "Native American"
 
 #: libkcddb/genres.cpp:86
-#, fuzzy, kde-format
-#| msgid "Punk"
+#, kde-format
 msgid "Afro-Punk"
-msgstr "Punk"
+msgstr "Afró-pönk"
 
 #: libkcddb/genres.cpp:87
 #, kde-format
