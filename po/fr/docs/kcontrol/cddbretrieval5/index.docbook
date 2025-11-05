@@ -194,7 +194,7 @@
 >Emplacement du cache</guilabel
 > vous permet de déterminer où sont enregistrées les informations CDDB sur votre ordinateur. Pour ajouter un dossier, saisissez l'emplacement du dossier dans la zone de texte en haut de la section et cliquez sur <guibutton
 >Ajouter</guibutton
->. Vous pouvez également choisir un dossier en cliquant sur le dossier bleu à droite de la boîte de texte. Pour enlever un dossier, cliquez sur son nom une fois avec le &BGS; et cliquez sur <guibutton
+>. Vous pouvez également choisir un dossier en cliquant sur le dossier bleu à droite de la boite de texte. Pour enlever un dossier, cliquez sur son nom une fois avec le &BGS; et cliquez sur <guibutton
 >Supprimer</guibutton
 >. Vous pouvez modifier l'ordre avec lequel &kscd; recherche dans les dossiers en cliquant sur le nom du dossier puis sur les boutons <guibutton
 >Monter</guibutton
@@ -207,7 +207,7 @@
 >Aide</guibutton
 > ouvre cette aide. Le bouton <guibutton
 >Par défaut</guibutton
-> restaure les valeurs par défaut de tous les éléments de la boîte de dialogue ; <guibutton
+> restaure les valeurs par défaut de tous les éléments de la boite de dialogue ; <guibutton
 >Ok</guibutton
 > enregistre les réglages par défaut, puis quitte la fenêtre de configuration ; <guibutton
 >Appliquer</guibutton
@@ -238,7 +238,7 @@
 <para
 >Si vous envisagez de proposer une entrée « CDDB », vous devez d'abord saisir une adresse de courriel dans la première zone de saisie de texte. </para>
 <para
->Vous pouvez saisir un nom de serveur ou un numéro de port dans les boîtes de texte prévues à cet effet. Si vous souhaitez envoyer ces informations à des serveurs internationaux, vous n'avez rien à modifier..</para>
+>Vous pouvez saisir un nom de serveur ou un numéro de port dans les boites de texte prévues à cet effet. Si vous souhaitez envoyer ces informations à des serveurs internationaux, vous n'avez rien à modifier..</para>
 </sect2>
 </sect1>
 
@@ -272,7 +272,7 @@
 >CDDB</acronym
 > locale (voir la <link linkend="cddb-page"
 >sous-section CDDB</link
-> dans le chapitre sur la configuration de &kscd;) pour le &CD; dans votre lecteur de &CD-ROM;, ou si le disque peut être trouvé dans freedb, vous verrez apparaître le nom de l'artiste et le titre du &CD; dans les champs <guilabel
+> dans le chapitre sur la configuration de &kscd;) pour le &CD; dans votre lecteur de &CD-ROM;, ou si le disque peut être trouvé dans freedb, vous verrez apparaitre le nom de l'artiste et le titre du &CD; dans les champs <guilabel
 >Artiste</guilabel
 > et <guilabel
 >Titre</guilabel
@@ -291,11 +291,11 @@
 >Commentaire</guibutton
 > adjacent. Si vous sélectionnez une piste dans la liste de sélection des <guilabel
 >Pistes</guilabel
->, le titre, s'il est présent, apparaîtra dans le champ <guilabel
+>, le titre, s'il est présent, apparaitra dans le champ <guilabel
 >Titre</guilabel
 > en dessous. Vous pouvez saisir un titre pour la piste dans la zone de texte ou modifier la piste pour l'adapter à vos souhaits. Appuyer sur la touche <keycap
 >Entrée</keycap
-> du clavier et le texte apparaîtra dans la bonne ligne de la liste de sélection.</para>
+> du clavier et le texte apparaitra dans la bonne ligne de la liste de sélection.</para>
 
 <para
 >Une fois que le titre de chaque piste a été donné et que les champs <guilabel
