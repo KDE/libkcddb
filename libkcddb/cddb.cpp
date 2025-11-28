@@ -110,7 +110,7 @@ namespace KCDDB
     for (QStringList::const_iterator cddbCacheDir = cddbCacheDirs.constBegin();
         cddbCacheDir != cddbCacheDirs.constEnd(); ++cddbCacheDir)
     {
-      for (const QString &category : qAsConst(categories)) {
+      for (const QString &category : std::as_const(categories)) {
         QFile f( *cddbCacheDir + QLatin1Char( '/' ) + category + QLatin1Char( '/' ) + trackOffsetListToId(offsetList) );
         if ( f.exists() && f.open(QIODevice::ReadOnly) )
         {
