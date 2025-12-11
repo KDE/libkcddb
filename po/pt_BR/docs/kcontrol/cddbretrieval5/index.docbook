@@ -250,51 +250,13 @@
 >. Isto é útil se você não tiver o seu próprio sistema como um servidor. </para>
 
 <para
->Se você planejar enviar um item de CDDB, indique o seu endereço de e-mail no primeiro campo de texto; depois é preciso decidir primeiro se deseja enviar via &HTTP; ou por e-mail (via &SMTP;). </para>
-
-<tip
-><para
->É mais simples enviar os itens novos por &HTTP;. Algumas 'firewalls' bloqueiam este tráfego. Se o seu 'firewall' o impedir de enviar itens novos por &HTTP;, poderá usar o &SMTP;.</para
-></tip>
-
-<para
->Primeiro selecione o <guilabel
->&HTTP;</guilabel
-> ou o <guilabel
->SMTP (E-mail)</guilabel
-> para determinar o protocolo a usar.</para>
-
-<sect3 id="http-options">
-<title
->Usar o &HTTP; para enviar as informações de CDDB</title>
+>Se você planejar enviar um item de CDDB, indique o seu endereço de e-mail no primeiro campo de texto. </para>
 <para
 >Você poderá indicar um nome de servidor ou um número de porta nos campos de texto. Se quiser enviar esta informação para os servidores internacionais, não precisa alterar nada.</para>
-</sect3>
-
-<sect3 id="smtp-options">
-<title
->Usar o &SMTP; (E-mail) para enviar as informações de CDDB</title>
-
-<para
->Para preparar o envio de informações por e-mail, indique o seu endereço de e-mail no campo de texto <guilabel
->Endereço de resposta:</guilabel
->, o seu servidor de e-mail no campo de texto <guilabel
->Servidor de SMTP:</guilabel
-> e selecione o número da porta na lista <guilabel
->Porta:</guilabel
->.</para>
-<para
->Se você precisar usar uma senha para enviar um e-mail para o servidor, assinale a opção <guilabel
->O servidor necessita de autenticação</guilabel
-> e indique o seu usuário no campo de texto <guilabel
->Usuário</guilabel
->.</para>
-
-</sect3>
 </sect2>
 </sect1>
 
-<!-- follwing chapters need proofreading -->
+<!-- following chapters need proofreading -->
 <sect1 id="cddb-editor">
 <title
 >O editor do banco de dados dos &CD;s</title>
