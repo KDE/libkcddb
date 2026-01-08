@@ -9,6 +9,7 @@
 #include "kcmcddb.h"
 #include "kcmcddbi18n.h"
 #include "cddbconfigwidget.h"
+#include "kcmcddbmoduledata.h"
 
 #include "libkcddb/lookup.h"
 #include "libkcddb/cache.h"
@@ -20,7 +21,7 @@
 #include <QCheckBox>
 #include <QVBoxLayout>
 
-K_PLUGIN_CLASS_WITH_JSON(CDDBModule, "kcm_cddb.json")
+K_PLUGIN_FACTORY_WITH_JSON(CDDBModuleFactory, "kcm_cddb.json", registerPlugin<CDDBModule>(); registerPlugin<CDDBModuleModuleData>();)
 
 CDDBModule::CDDBModule(QObject *parent, const KPluginMetaData &metaData)
   : KCModule(parent, metaData)

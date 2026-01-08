@@ -140,5 +140,6 @@
     "Keywords[zh_CN]": "cddb;",
     "Keywords[zh_TW]": "cddb;",
     "X-DocPath": "kcontrol/cddbretrieval5/index.html",
-    "X-KDE-System-Settings-Parent-Category": "applications"
+    "X-KDE-System-Settings-Parent-Category": "applications",
+    "X-KDE-System-Settings-Uses-ModuleData": true
 }
