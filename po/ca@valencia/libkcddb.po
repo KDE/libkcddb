@@ -99,7 +99,8 @@ msgstr "Servidor del freedb:"
 #: kcmcddb/cddbconfigwidget.ui:79
 #, kde-format
 msgid "Name of CDDB server which will be used to look up CD information."
-msgstr "Nom del servidor CDDB que s'emprarà per a buscar la informació del CD."
+msgstr ""
+"Nom del servidor de la CDDB que s'emprarà per a buscar la informació del CD."
 
 #. i18n: ectx: property (text), widget (QLineEdit, kcfg_hostname)
 #: kcmcddb/cddbconfigwidget.ui:82
@@ -118,7 +119,7 @@ msgstr "Port:"
 #: kcmcddb/cddbconfigwidget.ui:108
 #, kde-format
 msgid "Port to connect to on CDDB server."
-msgstr "Port de connexió amb el servidor CDDB."
+msgstr "Port de connexió amb el servidor de la CDDB."
 
 #. i18n: ectx: property (text), widget (QLabel, TextLabel9)
 #: kcmcddb/cddbconfigwidget.ui:123
@@ -130,7 +131,7 @@ msgstr "&Transport:"
 #: kcmcddb/cddbconfigwidget.ui:135
 #, kde-format
 msgid "Type of lookup which should be tried at the CDDB server."
-msgstr "Tipus de busca que s'hauria d'intentar en el servidor CDDB."
+msgstr "Tipus de busca que s'hauria d'intentar en el servidor de la CDDB."
 
 #. i18n: ectx: property (text), widget (QPushButton, mirrorListButton)
 #: kcmcddb/cddbconfigwidget.ui:152
@@ -932,7 +933,7 @@ msgstr "S'ha produït un error del servidor"
 #: libkcddb/kcddb.cpp:27
 #, kde-format
 msgid "Host not found"
-msgstr "No s'ha trobat el servidor remot"
+msgstr "No s'ha trobat l'amfitrió"
 
 #: libkcddb/kcddb.cpp:31
 #, kde-format
