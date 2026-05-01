@@ -33,6 +33,7 @@
         "Description[sl]": "Konfiguriraj pridobivanje CDDB",
         "Description[sv]": "Anpassa hämtning från CDDB",
         "Description[tr]": "CDDB Alımını Yapılandır",
+        "Description[ug]": "CDDB ئېرىشىمى سەپلىمىسى",
         "Description[uk]": "Налаштування отримання з CDDB",
         "Description[zh_CN]": "配置 CDDB 数据获取功能",
         "Description[zh_TW]": "設定 CDDB 資訊取得",
@@ -87,6 +88,7 @@
         "Name[sr]": "Добављање из ЦДДБ‑а",
         "Name[sv]": "Hämta från CDDB",
         "Name[tr]": "CDDB Erişimi",
+        "Name[ug]": "CDDB ئېرىشىمى",
         "Name[uk]": "Отримання з CDDB",
         "Name[zh_CN]": "CDDB 数据获取",
         "Name[zh_TW]": "CDDB 資訊取得"
