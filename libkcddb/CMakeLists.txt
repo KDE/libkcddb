@@ -90,8 +90,8 @@ set(_generate_export_header_version_args USE_VERSION_HEADER)
 ecm_generate_export_header(KCddb
     BASE_NAME KCddb
     VERSION ${KCDDB_VERSION}
-    DEPRECATED_BASE_VERSION 5.0.0
-    DEPRECATION_VERSIONS 5.1
+    DEPRECATED_BASE_VERSION 0
+    DEPRECATION_VERSIONS
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
     ${_generate_export_header_version_args}
 )
