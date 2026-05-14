@@ -84,16 +84,13 @@ if(MUSICBRAINZ5_FOUND)
     target_link_libraries(KCddb PRIVATE musicbrainz)
 endif()
 
-# For Qt6/KF6 world transitively include the version header
-set(_generate_export_header_version_args USE_VERSION_HEADER)
-
 ecm_generate_export_header(KCddb
     BASE_NAME KCddb
     VERSION ${KCDDB_VERSION}
     DEPRECATED_BASE_VERSION 0
     DEPRECATION_VERSIONS
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
-    ${_generate_export_header_version_args}
+    USE_VERSION_HEADER
 )
 
 target_include_directories(KCddb
@@ -166,10 +163,9 @@ install(EXPORT KCddbTargets
 )
 
 include(ECMGeneratePriFile)
-set(KCDDB_LIB_NAME libKCddb6)
 ecm_generate_pri_file(
     BASE_NAME KCddb
-    LIB_NAME ${KCDDB_LIB_NAME}
+    LIB_NAME libKCddb6
     DEPS "KConfigGui"
     FILENAME_VAR PRI_FILENAME
     INCLUDE_INSTALL_DIR ${KCDDB_INSTALL_INCLUDEDIR}
