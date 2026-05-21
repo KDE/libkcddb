@@ -158,36 +158,3 @@ msgstr "გადაცემის მეთოდი"
 #, kde-format
 msgid "Server:"
 msgstr "სერვერი:"
-
-#~ msgid ""
-#~ "CDDB is used to get information like artist, title and song-names in CD's"
-#~ msgstr ""
-#~ "CDDB გამოიყენება CD-ების შესახებ ისეთი ინფორმაციის მისაღებად, როგორიცაა "
-#~ "შემსრულებელი, სათაური და ა.შ"
-
-#~ msgid "SMTP (Email)"
-#~ msgstr "SMTP (ელფოსტა)"
-
-#~ msgid "Server needs authentication"
-#~ msgstr "სერვერს ავთენტიკაცია ესაჭიროება"
-
-#~ msgid "Reply-To:"
-#~ msgstr "უპასუხეთ:"
-
-#~ msgid "SMTP server:"
-#~ msgstr "SMTP სერვერი:"
-
-#~ msgid "Username:"
-#~ msgstr "მომხმარებელი:"
-
-#~ msgid ""
-#~ "freedb has been set to use HTTP for submissions because the email details "
-#~ "you have entered are incomplete. Please review your email settings and "
-#~ "try again."
-#~ msgstr ""
-#~ "freedb მორგებულია გადაცემებისთვის HTTP-ის გამოსაყენებლად, რადგან "
-#~ "მითითებული ელფოსტის დეტალები არასწორია. გადახედეთ ელფოსტის პარამეტრებს და "
-#~ "თავიდან სცადეთ."
-
-#~ msgid "Incorrect Email Settings"
-#~ msgstr "ელფოსტის არასწორი პარამეტრები"
