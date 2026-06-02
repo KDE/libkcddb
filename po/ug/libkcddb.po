@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: libkcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2026-04-25 20:16-0400\n"
+"PO-Revision-Date: 2026-05-31 20:15-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
@@ -144,7 +144,7 @@ msgstr "تاپشۇر(&S)"
 #: kcmcddb/cddbconfigwidget.ui:189
 #, kde-format
 msgid "Email address:"
-msgstr "ئېلخەت مەنزىل:"
+msgstr "ئېلخەت ئادرېسى:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: kcmcddb/cddbconfigwidget.ui:227
@@ -161,7 +161,7 @@ msgstr "مۇلازىمېتىر:"
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:68
 #, kde-format
 msgid "Blues"
-msgstr "ھاۋا رەڭ"
+msgstr "كۆك"
 
 #: libkcddb/categories.cpp:28 libkcddb/genres.cpp:71
 #, kde-format
@@ -172,12 +172,12 @@ msgstr "كىلاسسىك"
 #, kde-format
 msgctxt "music genre"
 msgid "Country"
-msgstr "سەھرا"
+msgstr "دۆلەت"
 
 #: libkcddb/categories.cpp:29
 #, kde-format
 msgid "Data"
-msgstr "سانلىق-مەلۇمات"
+msgstr "سانلىق مەلۇمات"
 
 #: libkcddb/categories.cpp:29 libkcddb/genres.cpp:78
 #, kde-format
@@ -277,7 +277,7 @@ msgstr "قوشاق"
 #: libkcddb/genres.cpp:67
 #, kde-format
 msgid "Bass"
-msgstr "Bass مۇزىكىسى"
+msgstr "تۆۋەن ئاۋاز"
 
 #: libkcddb/genres.cpp:67
 #, kde-format

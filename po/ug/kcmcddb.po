@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcmcddb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2026-04-25 20:15-0400\n"
+"PO-Revision-Date: 2026-05-31 20:14-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
@@ -144,7 +144,7 @@ msgstr "تاپشۇر(&S)"
 #: cddbconfigwidget.ui:189
 #, kde-format
 msgid "Email address:"
-msgstr "ئېلخەت مەنزىل:"
+msgstr "ئېلخەت ئادرېسى:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: cddbconfigwidget.ui:227
