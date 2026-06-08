@@ -264,13 +264,51 @@
 >-Server zu übertragen. Das ist nützlich, falls Sie Ihr System nicht als Server eingerichtet haben. </para>
 
 <para
->Falls Sie einen CDDB-Eintrag übertragen wollen, geben Sie ihre E-Mail-Adresse in das erste Textfeld ein. </para>
+>Falls Sie einen CDDB-Eintrag übertragen wollen, geben Sie ihre E-Mail-Adresse in das erste Textfeld ein. Dann müssen Sie entscheiden, ob Sie die Daten über &HTTP; oder als E-Mail (über &SMTP;) übertragen wollen. </para>
+
+<tip
+><para
+>Es ist einfacher, die neuen Einträge über &HTTP; zu senden. Einige Firewalls blockieren diesen Weg aber. Falls Ihre Firewall Sie daran hindert, neue Einträge über &HTTP; zu übertragen, können Sie &SMTP; benutzen.</para
+></tip>
+
+<para
+>Zuerst wählen Sie entweder <guilabel
+>&HTTP;</guilabel
+> oder <guilabel
+> SMTP (E-Mail)</guilabel
+> zur Bestimmung des zu verwendenden Protokolls.</para>
+
+<sect3 id="http-options">
+<title
+>&HTTP; zum Senden von CDDB-Informationen</title>
 <para
 >Sie können einen Servernamen oder eine Portnummer in die vorhandenen Textfelder eintragen. Falls Sie diese Informationen zu den internationalen Servern senden wollen, brauchen Sie nichts zu ändern.</para>
+</sect3>
+
+<sect3 id="smtp-options">
+<title
+>&SMTP; (E-Mail) zum Senden von CDDB-Informationen</title>
+
+<para
+>Zur Vorbereitung der Informationsübertragung über eine E-Mail tragen Sie ihre E-Mail-Adresse in das Textfeld <guilabel
+>Antwort an</guilabel
+> ein, sowie Ihren E-Mail-Server in das Textfeld <guilabel
+>SMTP-Server</guilabel
+>. Die Portnummer können in dem Drehfeld <guilabel
+>Port</guilabel
+> auswählen.</para>
+<para
+>Falls Sie zum Senden der E-Mail über den E-Mail-Server ein Passwort verwenden müssen, markieren Sie das Ankreuzfeld <guilabel
+>Der Server verlangt eine Authentifizierung</guilabel
+> und füllen das Textfeld <guilabel
+>Benutzername</guilabel
+> mit Ihrem Benutzernamen.</para>
+
+</sect3>
 </sect2>
 </sect1>
 
-<!-- following chapters need proofreading -->
+<!-- follwing chapters need proofreading -->
 <sect1 id="cddb-editor">
 <title
 >Der &CD;-Dateneditor</title>
