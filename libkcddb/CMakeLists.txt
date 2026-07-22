@@ -20,7 +20,7 @@ set_target_properties(KCddb PROPERTIES
     EXPORT_NAME KCddb6
 )
 
-
+set(musicbrainz_sources)
 if(MUSICBRAINZ5_FOUND)
     set(musicbrainz_sources
        musicbrainz/musicbrainzlookup.cpp
