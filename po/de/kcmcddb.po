@@ -1,10 +1,10 @@
-# SPDX-FileCopyrightText: 2003, 2005 Thomas Diehl <thd@kde.org>
-# SPDX-FileCopyrightText: 2003, 2004 Arnold Krille <arnold@arnoldarts.de>
 # SPDX-FileCopyrightText: 2003, 2005 Stephan Johach <hunsum@gmx.de>
-# SPDX-FileCopyrightText: 2004, 2005 Arnold Krille <arnold@roederberg.dyndns.org>
+# SPDX-FileCopyrightText: 2003, 2005 Thomas Diehl <thd@kde.org>
+# SPDX-FileCopyrightText: 2003-2004 Arnold Krille <arnold@arnoldarts.de>
+# SPDX-FileCopyrightText: 2004-2005 Arnold Krille <arnold@roederberg.dyndns.org>
 # SPDX-FileCopyrightText: 2006 Thomas Reitelbach <tr@erdfunkstelle.de>
 # SPDX-FileCopyrightText: 2007 Martin Ereth <martin.ereth@arcor.de>
-# SPDX-FileCopyrightText: 2008, 2009, 2020 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2008-2009, 2020 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2009 Panagiotis Papadopoulos <pano_90@gmx.net>
 # SPDX-FileCopyrightText: 2016 Frederik Schwarzer <schwarzer@kde.org>
 msgid ""
