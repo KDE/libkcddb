@@ -211,7 +211,7 @@
 <para
 >Im Abschnitt <guilabel
 >Freedb-Server</guilabel
-> stellen Sie ein, welcher CDDB-Spiegelserver von &kde; benutzt wird, um an die Albuminformationen zu kommen. Sie können den Server, die Portnummer und das Protokoll mithilfe der Textfelder und Auswahlfelder eingeben, oder auf <guibutton
+> stellen Sie ein, welcher CDDB-Spiegelserver von &kde; verwendet wird, um an die Albuminformationen zu kommen. Sie können den Server, die Portnummer und das Protokoll mithilfe der Textfelder und Auswahlfelder eingeben, oder auf <guibutton
 >Liste der Spiegelserver anzeigen</guibutton
 > klicken. Dieser Knopf öffnet ein neues Fenster mit einer Liste von CDDB-Spiegelservern und deren &URL;s. Wählen Sie einen Server aus und klicken auf <guibutton
 >OK</guibutton
@@ -228,7 +228,7 @@
 >Nach oben</guibutton
 > und <guibutton
 >Nach unten</guibutton
-> benutzen.</para>
+> verwenden.</para>
 
 <para
 >Der Knopf <guibutton
@@ -264,9 +264,9 @@
 >-Server zu übertragen. Das ist nützlich, falls Sie Ihr System nicht als Server eingerichtet haben. </para>
 
 <para
->Falls Sie einen CDDB-Eintrag übertragen wollen, geben Sie ihre E-Mail-Adresse in das erste Textfeld ein. </para>
+>Falls Sie einen CDDB-Eintrag übertragen möchten, geben Sie ihre E-Mail-Adresse in das erste Textfeld ein. </para>
 <para
->Sie können einen Servernamen oder eine Portnummer in die vorhandenen Textfelder eintragen. Falls Sie diese Informationen zu den internationalen Servern senden wollen, brauchen Sie nichts zu ändern.</para>
+>Sie können einen Servernamen oder eine Portnummer in die vorhandenen Textfelder eintragen. Falls Sie diese Informationen zu den internationalen Servern senden möchten, benötigen Sie nichts zu ändern.</para>
 </sect2>
 </sect1>
 
