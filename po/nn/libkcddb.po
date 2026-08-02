@@ -1,6 +1,7 @@
 # Translation of libkcddb to Norwegian Nynorsk
 #
 # Gaute Hvoslef Kvalnes <gaute@verdsveven.com>, 2004.
+# Karl Ove Hufthammer <karl@huftis.org>, 2007, 2008, 2016, 2020, 2025.
 # Eirik U. Birkeland <eirbir@gmail.com>, 2008.
 msgid ""
 msgstr ""
