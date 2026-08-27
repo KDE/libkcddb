@@ -24,8 +24,7 @@ include(CMakePackageConfigHelpers)
 include(ECMGenerateHeaders)
 include(ECMDeprecationSettings)
 
-# reset to 0 once all deprecated API has been removed on full switch to Qt6
-set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 5.1.0 CACHE STRING "Control the range of deprecated API excluded from the build [default=5.1.0].")
+set(EXCLUDE_DEPRECATED_BEFORE_AND_AT 0 CACHE STRING "Control the range of deprecated API excluded from the build [default=0].")
 
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Network Widgets)
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Config I18n KIO WidgetsAddons KCMUtils)
