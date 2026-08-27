@@ -171,3 +171,19 @@ ecm_generate_pri_file(
     INCLUDE_INSTALL_DIR ${KCDDB_INSTALL_INCLUDEDIR}
 )
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
+
+if(${ECM_VERSION} VERSION_GREATER_EQUAL 6.30)
+include(ECMInstalledLibraryCheck)
+
+ecm_add_installed_library_check(KCddb
+    PACKAGE_NAME "${KCDDB_CMAKECONFIG_NAME}"
+    NO_PACKAGE_TARGET_NAMESPACE
+)
+
+ecm_installed_library_check_include_strings(KCddb
+    HEADERS ${KCddb_CamelCase_HEADERS}
+    PREFIX KCDDB
+)
+
+ecm_installed_library_check_version_preprocessor_macros(KCddb)
+endif()
