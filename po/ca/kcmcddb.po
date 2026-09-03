@@ -1,7 +1,7 @@
 # Translation of kcmcddb.po to Catalan
 # Copyright (C) 2003-2021 This_file_is_part_of_KDE
 #
-# SPDX-FileCopyrightText: 2003, 2005, 2007, 2008, 2021 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2003, 2005, 2007-2008, 2021 Josep M. Ferrer <txemaq@gmail.com>
 # SPDX-FileCopyrightText: 2004 Albert Astals Cid <aacid@kde.org>
 # SPDX-FileCopyrightText: 2009 Joan Maspons <joanmaspons@gmail.com>
 # SPDX-FileCopyrightText: 2009 Manuel Tortosa Moreno <manutortosa@gmail.com>
