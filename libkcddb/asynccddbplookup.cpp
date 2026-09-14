@@ -33,7 +33,7 @@ namespace KCDDB
     socket_ = new QTcpSocket;
     socket_->connectToHost(hostname, port);
 
-    connect (socket_, SIGNAL(error(QAbstractSocket::SocketError)), SLOT(slotGotError(QAbstractSocket::SocketError)));
+    connect (socket_, &QAbstractSocket::errorOccurred, this, &AsyncCDDBPLookup::slotGotError);
 
     connect (socket_, &QAbstractSocket::connected,
       this, &AsyncCDDBPLookup::slotConnectionSuccess );
