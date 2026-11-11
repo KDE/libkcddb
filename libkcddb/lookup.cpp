@@ -29,7 +29,7 @@ namespace KCDDB
     if (  200 == serverStatus )
     {
       QStringList tokenList = line.split( QLatin1Char( ' ' ), Qt::SkipEmptyParts );
-      matchList_.append(  qMakePair(  tokenList[  1 ], tokenList[  2 ] ) );
+      matchList_.append(  std::make_pair(  tokenList[  1 ], tokenList[  2 ] ) );
       return Success;
     }
     else if (  (  211 == serverStatus ) || (  210 == serverStatus ) )
@@ -48,7 +48,7 @@ namespace KCDDB
   Lookup::parseExtraMatch(  const QString & line )
   {
     QStringList tokenList = line.split( QLatin1Char( ' ' ), Qt::SkipEmptyParts );
-    matchList_.append(  qMakePair(  tokenList[  0 ], tokenList[  1 ] ) );
+    matchList_.append(  std::make_pair(  tokenList[  0 ], tokenList[  1 ] ) );
   }
 
     Result

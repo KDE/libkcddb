@@ -14,11 +14,12 @@
 
 #include <QList>
 #include <QObject>
-#include <QPair>
+
+#include <utility>
 
 namespace KCDDB
 {
-  typedef QPair<QString, QString> CDDBMatch;
+  typedef std::pair<QString, QString> CDDBMatch;
   typedef QList<CDDBMatch> CDDBMatchList;
 
   class Lookup : public CDDB, public QObject
