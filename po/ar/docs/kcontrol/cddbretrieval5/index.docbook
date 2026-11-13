@@ -1,0 +1,444 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&kscd;">
+  <!ENTITY package "kdemultimedia">
+  <!ENTITY % Arabic "INCLUDE"
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<article id="kcmcddb" lang="&language;">
+
+<articleinfo>
+<title
+>جلب CDDB</title>
+
+<authorgroup>
+
+<author
+><firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> <affiliation
+><address
+>&Mike.McBride.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>Jonathan</firstname
+> <surname
+>Singer</surname
+> <affiliation
+><address
+>&Jonathan.Singer.mail;</address
+></affiliation>
+</author>
+
+<author
+><firstname
+>David</firstname
+> <surname
+>White</surname
+> <affiliation
+><address
+><email
+>a9403784@unet.univie.ac.at</email
+></address>
+</affiliation>
+</author>
+
+<othercredit role="developer"
+><firstname
+>Bernd</firstname
+> <othername
+>Johannes</othername
+> <surname
+>Wuebben</surname
+> <affiliation
+><address
+>&Bernd.Johannes.Wuebben.mail;</address
+></affiliation>
+<contrib
+>مطوّر</contrib>
+</othercredit>
+
+<othercredit role="developer"
+><firstname
+>Dirk</firstname
+> <surname
+>Forsterling</surname
+> <affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>مطوّر</contrib>
+</othercredit>
+
+<othercredit role="developer"
+><firstname
+>Dirk</firstname
+> <surname
+>Foersterling</surname
+> <affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>مطوّر</contrib>
+</othercredit>
+
+<othercredit role="reviewer"
+><firstname
+>Lauri</firstname
+> <surname
+>Watts</surname
+> <affiliation
+><address
+>&Lauri.Watts.mail;</address
+></affiliation>
+<contrib
+>مُراجِع</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2000</year
+><year
+>2004</year>
+<holder
+>J Singer</holder>
+
+</copyright>
+<copyright>
+
+<year
+>2005-2006</year>
+<holder
+>&Mike.McBride;</holder>
+</copyright>
+
+<date
+>2013-12-05</date>
+<releaseinfo
+>كيدي 4.12</releaseinfo>
+
+</articleinfo>
+
+<sect1 id="cddb-page">
+<title
+>جلب CDDB</title>
+<para
+>تنقسم الوحدة <guilabel
+>استرداد CDDB</guilabel
+> إلى لسان <guilabel
+>البحث</guilabel
+> ولسان <guilabel
+>الإرسال</guilabel
+>.</para>
+
+<sect2 id="lookup-tab">
+<title
+>لسان البحث</title>
+<screenshot>
+<screeninfo
+>لسان <guilabel
+>البحث</guilabel
+></screeninfo>
+<mediaobject>
+<imageobject
+> <imagedata fileref="kscd14.png" format="PNG"/> </imageobject>
+<textobject
+><phrase
+>لسان <guilabel
+>البحث</guilabel
+></phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>يضبط لسان <guilabel
+>البحث</guilabel
+> وظائف <acronym
+>CDDB</acronym
+> في كيدي.</para>
+
+<para
+>يمكنك اختيار الخيارين <guilabel
+>تمكين بحث MusicBrainz</guilabel
+> أو <guilabel
+>تمكين بحث freedb</guilabel
+>.</para>
+
+<para
+>يحدد قسم <guilabel
+>خادم Freedb</guilabel
+> موقع مرآة CDDB الذي يستخدمه كيدي للحصول على معلومات الألبوم. يمكنك إدخال اسم خادم ورقم منفذ وبروتوكول باستخدام مربعات النص والقوائم المنسدلة، أو يمكنك النقر على الزر <guibutton
+>إظهار قائمة المرايا</guibutton
+>. سيؤدي النقر على هذا الزر إلى فتح نافذة جديدة بقائمة مرايا CDDB ومواقعها. ببساطة اختر الخادم الذي تريده من القائمة وانقر <guibutton
+>موافق</guibutton
+>.</para>
+
+<para
+>يتيح لك القسم المسمى <guilabel
+>مواقع الخبيئة</guilabel
+> تحديد مكان حفظ معلومات CDDB على حاسوبك. لإضافة مجلد، أدخل موقع المجلد في مربع النص أعلى القسم وانقر <guibutton
+>إضافة</guibutton
+>. يمكنك أيضًا تحديد مجلد بالنقر على مجلد الملف الأزرق على يمين مربع النص. لحذف مجلد، انقر على اسم المجلد مرة واحدة بزر الفأرة الأيسر وانقر <guibutton
+>إزالة</guibutton
+>. يمكنك تغيير ترتيب البحث في المجلدات بالنقر على اسم المجلد والنقر على الزرين <guibutton
+>نقل لأعلى</guibutton
+> و<guibutton
+>نقل لأسفل</guibutton
+>.</para>
+
+<para
+>يفتح الزر <guibutton
+>مساعدة</guibutton
+> صفحة محتويات المساعدة هذه. يستعيد الزر <guibutton
+>مبدئي</guibutton
+> القيم المبدئية لجميع الإدخالات في هذا الحوار؛ يحفظ <guibutton
+>موافق</guibutton
+> الإعدادات الحالية ويخرج؛ يطبق <guibutton
+>تطبيق</guibutton
+> الإعدادات الحالية دون خروج.</para>
+
+</sect2>
+
+<sect2 id="submit-tab">
+<title
+>لسان الإرسال</title>
+
+<screenshot>
+<screeninfo
+>لسان الإرسال</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="kscd16.png" format="PNG"/></imageobject>
+</mediaobject>
+</screenshot>
+
+<para
+>يضبط لسان <guilabel
+>الإرسال</guilabel
+> الاتصال بخادم بريد أو خادم ويب لإرسال إدخالات <acronym
+>CDDB</acronym
+> جديدة. هذا مفيد إذا لم يكن لديك نظامك الخاص مضبوطًا كخادم. </para>
+
+<para
+>إذا كنت تخطط لإرسال إدخال CDDB، أدخل عنوان بريدك الإلكتروني في مربع النص الأول. </para>
+<para
+>يمكنك إدخال اسم خادم أو رقم منفذ في مربعات النص المتوفرة. إذا كنت تريد إرسال هذه المعلومات إلى الخوادم الدولية، لا تحتاج إلى تغيير أي شيء.</para>
+</sect2>
+</sect1>
+
+<!-- following chapters need proofreading -->
+<sect1 id="cddb-editor">
+<title
+>محرر قاعدة بيانات الأقراص المضغوطة</title>
+
+<screenshot>
+<screeninfo
+>محرر قاعدة بيانات الأقراص المضغوطة</screeninfo>
+<mediaobject>
+<imageobject
+><imagedata fileref="kscd13.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>محرر قاعدة بيانات الأقراص المضغوطة</phrase
+></textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>يتيح لك محرر قاعدة بيانات الأقراص المضغوطة تعديل وتنزيل وحفظ وتعليق ورفع إدخالات <link linkend="cddb-support"
+><acronym
+>CDDB</acronym
+> (قاعدة بيانات الأقراص المضغوطة)</link
+>.</para>
+
+<para
+>إذا كان هناك إدخال في شجرة <acronym
+>CDDB</acronym
+> المحلية لديك (انظر <link linkend="cddb-page"
+>قسم CDDB الفرعي</link
+> في فصل الإعدادات) للقرص المضغوط في محرك الأقراص المضغوطة، أو إذا أمكن العثور على القرص في freedb، سترى اسم الفنان وعنوان القرص المضغوط في حقلي <guilabel
+>الفنان:</guilabel
+> و<guilabel
+>العنوان</guilabel
+> وقائمة مسارات بعناوين أغانٍ في مربع اختيار <interface
+>المسارات</interface
+>. وإلا، سترى قائمة مسارات وأوقات تشغيل بدون عناوين.</para>
+
+<para
+>يمكنك إضافة تعليق للقرص بأكمله باستخدام حقل <guilabel
+>تعليق</guilabel
+> أسفل حقل <guilabel
+>العنوان</guilabel
+>، أو لمسار محدد في مربع اختيار <guilabel
+>المسارات</guilabel
+> باستخدام الزر المجاور <guibutton
+>تعليق</guibutton
+>. إذا حددت مسارًا في مربع اختيار <guilabel
+>المسارات</guilabel
+>، سيظهر العنوان، إن وجد، في حقل <guilabel
+>العنوان</guilabel
+> أدناه. يمكنك كتابة عنوان للمسار في المربع، أو تحرير الإدخال ليناسب احتياجاتك. اضغط على مفتاح <keycap
+>رجوع</keycap
+> على لوحة المفاتيح، وسيظهر النص في السطر المناسب في مربع الاختيار.</para>
+
+<para
+>بمجرد إعطاء جميع المسارات عناوين وملء حقلي <guilabel
+>الفنان:</guilabel
+> و<guilabel
+>العنوان</guilabel
+>، يمكنك الضغط على الزر <guibutton
+>رفع</guibutton
+> لإرسال إرسالك عبر البريد الإلكتروني إلى freedb.</para>
+
+<para
+>سيُطلب منك تحديد فئة للإرسال. يعرض قسم <guilabel
+>معرف القرص</guilabel
+> رمز <acronym
+>ID</acronym
+> ذا 32 بت الذي تستخدمه freedb لتحديد قرص مضغوط. فوق رمز <acronym
+>ID</acronym
+> توجد فئة إدخال <guilabel
+>freedb</guilabel
+>. تتوافق هذه الفئات مع شجرة المجلدات الفرعية للمجلد المختار في <guilabel
+>المجلد الأساسي لـ freedb:</guilabel
+> في <link linkend="cddb-page"
+>صفحة <guilabel
+>CDDB</guilabel
+></link
+> من نافذة الإعدادات.</para>
+
+<para
+>يعرض عرض <guilabel
+>الطول:</guilabel
+> إجمالي وقت تشغيل القرص المضغوط.</para>
+
+<para
+>اضغط على الزر <guibutton
+>جلب المعلومات</guibutton
+> لتنزيل بيانات <acronym
+>CDDB</acronym
+>. اضغط على الزر <guibutton
+>موافق</guibutton
+> لحفظ تغييراتك محليًا. يغلق الزر <guibutton
+>إلغاء</guibutton
+> محرر قاعدة بيانات الأقراص المضغوطة دون حفظ.</para>
+
+</sect1>
+
+<sect1 id="cddb-support">
+<title
+>دعم <acronym
+>CDDB</acronym
+></title>
+
+<para
+>freedb هي قاعدة بيانات شبكية موزعة يمكن الوصول إليها عبر الإنترنت تحتوي على معلومات حول معظم الأقراص المضغوطة الصوتية المتداولة. إذا كان لديك اتصال بالإنترنت، فمن المحتمل ألا تضطر أبدًا إلى إدخال معلومات المسار يدويًا لأقراصك المضغوطة إذا ضبطت هذا بشكل صحيح. انظر قسم <link linkend="cddb-page"
+>صفحة CDDB</link
+> للحصول على تعليمات مفصلة حول كيفية إعداد هذه الخدمة، وقسم <link linkend="cddb-editor"
+>محرر قاعدة بيانات الأقراص المضغوطة</link
+> للحصول على تعليمات حول كيفية تحرير إدخالات <acronym
+>CDDB</acronym
+>.</para>
+
+<para
+>استخدام <acronym
+>CDDB</acronym
+> مجاني. يُشجع على الإرسالات من المستخدمين.</para>
+
+<para
+>عند تحضير إدخالات لـ <acronym
+>CDDB</acronym
+>، يرجى مراعاة النقاط التالية:</para>
+
+<itemizedlist>
+<listitem
+><para
+>استخدم أحرفًا لاتينية <quote
+>قياسية</quote
+> في الإدخالات. بعض الأحرف الخاصة مدعومة، لكن إرسالات الأبجدية السيريلية أو اليونانية، على سبيل المثال، لا يمكن قبولها.</para
+></listitem>
+<listitem
+><para
+>استخدم حرف <keysym
+>/</keysym
+> واحدًا فقط في حقل <guilabel
+>فنان القرص / العنوان</guilabel
+> في محرر قاعدة بيانات &CD;.</para>
+
+<para
+>بالنسبة لأقراص &CD; الكلاسيكية، من الممارسة القياسية وضع اسم المؤلف في قسم الفنان (قبل الشرطة المائلة) واسم المؤدي في قسم العنوان (بعد الشرطة المائلة).</para
+></listitem
+> 
+<listitem
+><para
+>إذا أرسلت مدخلة موجودة مسبقًا في قاعدة البيانات، فقد تُضاف أي معلومات إضافية تقدمها إلى المدخلة الحالية.</para>
+</listitem>
+</itemizedlist>
+
+<para
+>مبدئيًا، تُثبَّت التصنيفات القياسية <acronym
+>CDDB</acronym
+> في <filename class="directory"
+>$HOME/.cddb</filename
+>. يمكنك إنشاء أي عدد تريده من المجلدات الفرعية للتصنيفات. ولكن، عند الرفع، تُعرض تصنيفات <acronym
+>CDDB</acronym
+> الرسمية فقط. عنوان الرفع المبدئي هو <email
+>gnudb-submit@gnudb.org</email
+>. لمزيد من المعلومات حول <abbrev
+>gnudb</abbrev
+>، زر الصفحة الرئيسية لـ <abbrev
+>gnudb</abbrev
+>.</para>
+
+<para
+>تُخزَّن المدخلة المحلية <acronym
+>CDDB</acronym
+> لقرص &CD; معين في الملف <filename
+><replaceable
+>اسم التصنيف</replaceable
+>/<replaceable
+>معرف القرص</replaceable
+></filename
+> تحت مجلد قاعدة <acronym
+>CDDB</acronym
+>. يمكن تحرير هذه الملفات بأي محرر نصوص.</para>
+</sect1>
+
+</article>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
